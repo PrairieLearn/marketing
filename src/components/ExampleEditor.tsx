@@ -16,7 +16,7 @@ export interface ExampleEditorProps {
 }
 
 export const ExampleEditor: React.FC<ExampleEditorProps> = ({ files }) => {
-  const preRef = React.useRef(null);
+  const preRef = React.useRef<HTMLPreElement | null>(null);
   const singleFile = files.length === 1;
   const [selectedFileIndex, setSelectedFileIndex] = React.useState(0);
   const file = files[selectedFileIndex];

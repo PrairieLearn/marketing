@@ -1,6 +1,6 @@
 import React from "react";
 
-const randomNumber = (min: number, max: number, precision) => {
+const randomNumber = (min: number, max: number, precision: number) => {
   const factor = Math.pow(10, precision);
   return Math.floor(factor * (min + Math.random() * (max - min))) / factor;
 };
