@@ -12,8 +12,42 @@ export default function Home() {
     <React.Fragment>
       <Header />
       <HomepageHero />
-      <HomepageHeading>Easy to get started</HomepageHeading>
-      <HomepageHeading>Unlimited flexibility</HomepageHeading>
+      <div className="container">
+        <HomepageHeading>Easy to get started</HomepageHeading>
+        <p>
+          Support for a broad variety of questions comes built-in, so you can
+          hit the ground running.
+        </p>
+        <HomepageHeading>Unlimited flexibility</HomepageHeading>
+        <p>
+          Or take advantage of autograded code questions with in-browser IDEs.
+        </p>
+        <HomepageHeading>Write once, use forever</HomepageHeading>
+        <p></p>
+        <HomepageHeading>Save time grading</HomepageHeading>
+        <p>
+          Questions grade themselves, so instructors can focus on the important
+          things.
+        </p>
+        <HomepageHeading>Trusted by the best</HomepageHeading>{" "}
+        <div className="row">
+          <div className="col-md-6">
+            <p>
+              Instructors at top universities in the United States and Canada
+              have used PrairieLearn to teach the next generation of engineers,
+              scientists, and businesspeople.
+            </p>
+          </div>
+          <div className="col-6 col-md-3">
+            <div className="small text-muted">Students</div>
+            <div className="display-5 lh-1">40,000</div>
+          </div>
+          <div className="col-6 col-md-3">
+            <div className="small text-muted">Courses</div>
+            <div className="display-5 lh-1">300</div>
+          </div>
+        </div>
+      </div>
       <div className={styles.container}>
         <Head>
           <title>Create Next App</title>
