@@ -7,6 +7,12 @@ import { Header } from "../components/Header";
 import { HomepageHero } from "../components/HomepageHero";
 import { HomepageHeading } from "../components/HomepageHeading";
 import { ExampleEditor } from "../components/ExampleEditor";
+import { ExampleQuestion } from "../components/ExampleQuestion";
+
+const DEMO_PYTHON_GRADER = `
+def grade(data):
+  # pass
+`.trim();
 
 export default function Home() {
   return (
@@ -23,21 +29,38 @@ export default function Home() {
         <p>
           Or take advantage of autograded code questions with in-browser IDEs.
         </p>
-        <HomepageHeading>Write once, use forever</HomepageHeading>
-        <p>
-          Once a question has been defined in code, it can be reused in any
-          future assessment. And students can keep trying new variants of
-          difficult questions until they've mastered the topic—without the need
-          to manually write new questions.
-        </p>
-        <HomepageHeading>Save time grading</HomepageHeading>
-        <p>
-          From simple multiple-choice questions to free-body diagrams to code,
-          questions grade themselves, so instructors can focus on the important
-          things.
-        </p>
-        <ExampleEditor filename="server.py">testing...</ExampleEditor>
-        <HomepageHeading>Trusted by the best</HomepageHeading>{" "}
+        <div className="row">
+          <div className="col-md-4">
+            <ExampleQuestion />
+          </div>
+          <div className="col-md-8">
+            <HomepageHeading>Write once, use forever</HomepageHeading>
+            <p>
+              Once a question has been defined in code, it can be reused in any
+              future assessment. And students can keep trying new variants of
+              difficult questions until they've mastered the topic—without the
+              need to manually write new questions.
+            </p>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-6">
+            <HomepageHeading>Save time grading</HomepageHeading>
+            <p>
+              From simple multiple-choice questions to free-body diagrams to
+              code, questions grade themselves, so instructors can focus on the
+              important things.
+            </p>
+          </div>
+          <div className="col-md-6">
+            <ExampleEditor
+              filename="server.py"
+              language="python"
+              code={DEMO_PYTHON_GRADER}
+            />
+          </div>
+        </div>
+        <HomepageHeading>Trusted by the best</HomepageHeading>
         <div className="row">
           <div className="col-md-6">
             <p>
