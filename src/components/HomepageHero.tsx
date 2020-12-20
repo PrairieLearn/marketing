@@ -14,7 +14,7 @@ export const HomepageHero: React.FC = ({ children }) => {
         </h1>
         <p className="text-white mt-4 fs-3">
           PrairieLearn empowers instructors to build content that helps their
-          student achieve mastery.
+          students achieve mastery.
         </p>
       </div>
     </div>

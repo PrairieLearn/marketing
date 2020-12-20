@@ -20,7 +20,6 @@ export const ExampleQuestion: React.FC = () => {
       const parsedAnswer = Number.parseFloat(answer);
       const correctAnswer =
         (Math.sin(2 * ((angle * Math.PI) / 180)) * velocity * velocity) / 9.8;
-      console.log("correct", correctAnswer);
       // Accept answers with absolute tolerance of 0.1
       setCorrect(Math.abs(correctAnswer - parsedAnswer) <= 0.1);
     } catch (e) {

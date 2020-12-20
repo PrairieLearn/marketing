@@ -1,13 +1,34 @@
 import React from "react";
 
-import Head from "next/head";
-import styles from "../styles/Home.module.css";
-
 import { Header } from "../components/Header";
 import { HomepageHero } from "../components/HomepageHero";
 import { HomepageHeading } from "../components/HomepageHeading";
 import { ExampleEditor } from "../components/ExampleEditor";
 import { ExampleQuestion } from "../components/ExampleQuestion";
+import { HomepageRow } from "../components/HomepageRow";
+import { Link } from "../components/Link";
+
+const DEMO_QUESTION_HTML = `
+<pl-question-panel>
+  <p>
+    Suppose a ball is thrown from a level surface at a
+    {{params.angle}}° angle with a velocity of
+    {{params.velocity}} m/s. How far will the ball travel?
+  </p>
+</pl-question-panel>
+<pl-integer-input answers-name="distance" suffix="m/s"><pl-integer-input>
+`.trim();
+
+const DEMO_QUESTION_PYTHON = `
+import math, random
+def generate(data):
+  velocity = random.randint(100, 800) / 100
+  angle = random.randint(2000, 8000) / 100
+  distance = (math.cos(math.radians(angle)) * velocity * velocity) / 9.8
+  data["params"]["velocity"] = velocity
+  data["params"]["angle"] = angle
+  data["answers"]["distance"] = answer
+`.trim();
 
 const DEMO_PYTHON_GRADER = `
 def grade(data):
@@ -19,21 +40,48 @@ export default function Home() {
     <React.Fragment>
       <Header />
       <HomepageHero />
-      <div className="container">
-        <HomepageHeading>Easy to get started</HomepageHeading>
-        <p>
-          Support for a broad variety of questions comes built-in, so you can
-          hit the ground running.
-        </p>
-        <HomepageHeading>Unlimited flexibility</HomepageHeading>
-        <p>
-          Or take advantage of autograded code questions with in-browser IDEs.
-        </p>
-        <div className="row">
-          <div className="col-md-4">
+      <div className="container mt-3 mt-md-5">
+        <HomepageRow>
+          <div className="col-md-6">
+            <HomepageHeading>Simple yet powerful</HomepageHeading>
+            <p>
+              PrairieLearn's familiar HTML syntax makes it easy to get started
+              writing questions. A broad variety of building blocks like number
+              inputs and multiple choice responses come built-in, so you can hit
+              the ground running. One you're ready, you can take advantage of
+              powerful features like{" "}
+              <Link href="https://prairielearn.readthedocs.io/en/latest/externalGrading/">
+                code autograding
+              </Link>{" "}
+              and{" "}
+              <Link href="https://prairielearn.readthedocs.io/en/latest/workspaces/">
+                in-browser IDEs
+              </Link>
+              .
+            </p>
+          </div>
+          <div className="col-md-6">
+            <ExampleEditor
+              files={[
+                {
+                  filename: "question.html",
+                  language: "markup",
+                  code: DEMO_QUESTION_HTML,
+                },
+                {
+                  filename: "server.py",
+                  language: "python",
+                  code: DEMO_QUESTION_PYTHON,
+                },
+              ]}
+            />
+          </div>
+        </HomepageRow>
+        <HomepageRow>
+          <div className="col-md-6 order-1 order-md-0">
             <ExampleQuestion />
           </div>
-          <div className="col-md-8">
+          <div className="col-md-6 order-0 order-md-1">
             <HomepageHeading>Write once, use forever</HomepageHeading>
             <p>
               Once a question has been defined in code, it can be reused in any
@@ -42,8 +90,8 @@ export default function Home() {
               need to manually write new questions.
             </p>
           </div>
-        </div>
-        <div className="row">
+        </HomepageRow>
+        <HomepageRow>
           <div className="col-md-6">
             <HomepageHeading>Save time grading</HomepageHeading>
             <p>
@@ -54,14 +102,18 @@ export default function Home() {
           </div>
           <div className="col-md-6">
             <ExampleEditor
-              filename="server.py"
-              language="python"
-              code={DEMO_PYTHON_GRADER}
+              files={[
+                {
+                  filename: "server.py",
+                  language: "python",
+                  code: DEMO_PYTHON_GRADER,
+                },
+              ]}
             />
           </div>
-        </div>
+        </HomepageRow>
         <HomepageHeading>Trusted by the best</HomepageHeading>
-        <div className="row">
+        <HomepageRow>
           <div className="col-md-6">
             <p>
               Instructors at top universities in the United States and Canada
@@ -77,65 +129,7 @@ export default function Home() {
             <div className="small text-muted">Courses</div>
             <div className="display-5 lh-1">300</div>
           </div>
-        </div>
-      </div>
-      <div className={styles.container}>
-        <Head>
-          <title>Create Next App</title>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-
-        <main className={styles.main}>
-          <h1 className={styles.title}>
-            Welcome to <a href="https://nextjs.org">Next.js!</a>
-          </h1>
-
-          <p className={styles.description}>
-            Get started by editing{" "}
-            <code className={styles.code}>pages/index.js</code>
-          </p>
-
-          <div className={styles.grid}>
-            <a href="https://nextjs.org/docs" className={styles.card}>
-              <h3>Documentation &rarr;</h3>
-              <p>Find in-depth information about Next.js features and API.</p>
-            </a>
-
-            <a href="https://nextjs.org/learn" className={styles.card}>
-              <h3>Learn &rarr;</h3>
-              <p>Learn about Next.js in an interactive course with quizzes!</p>
-            </a>
-
-            <a
-              href="https://github.com/vercel/next.js/tree/master/examples"
-              className={styles.card}
-            >
-              <h3>Examples &rarr;</h3>
-              <p>Discover and deploy boilerplate example Next.js projects.</p>
-            </a>
-
-            <a
-              href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              className={styles.card}
-            >
-              <h3>Deploy &rarr;</h3>
-              <p>
-                Instantly deploy your Next.js site to a public URL with Vercel.
-              </p>
-            </a>
-          </div>
-        </main>
-
-        <footer className={styles.footer}>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Powered by{" "}
-            <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-          </a>
-        </footer>
+        </HomepageRow>
       </div>
     </React.Fragment>
   );
