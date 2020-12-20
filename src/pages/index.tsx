@@ -6,6 +6,7 @@ import styles from "../styles/Home.module.css";
 import { Header } from "../components/Header";
 import { HomepageHero } from "../components/HomepageHero";
 import { HomepageHeading } from "../components/HomepageHeading";
+import { ExampleEditor } from "../components/ExampleEditor";
 
 export default function Home() {
   return (
@@ -23,12 +24,19 @@ export default function Home() {
           Or take advantage of autograded code questions with in-browser IDEs.
         </p>
         <HomepageHeading>Write once, use forever</HomepageHeading>
-        <p></p>
+        <p>
+          Once a question has been defined in code, it can be reused in any
+          future assessment. And students can keep trying new variants of
+          difficult questions until they've mastered the topic—without the need
+          to manually write new questions.
+        </p>
         <HomepageHeading>Save time grading</HomepageHeading>
         <p>
-          Questions grade themselves, so instructors can focus on the important
+          From simple multiple-choice questions to free-body diagrams to code,
+          questions grade themselves, so instructors can focus on the important
           things.
         </p>
+        <ExampleEditor filename="server.py">testing...</ExampleEditor>
         <HomepageHeading>Trusted by the best</HomepageHeading>{" "}
         <div className="row">
           <div className="col-md-6">
