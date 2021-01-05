@@ -4,6 +4,11 @@ import glob from "fast-glob";
 import path from "path";
 import { GetStaticPaths, GetStaticProps } from "next";
 
+import renderToString from "next-mdx-remote/render-to-string";
+import hydrate from "next-mdx-remote/hydrate";
+
+import loadCodePlugin from "../../mdxPlugins/loadCode";
+
 const QUESTIONS_ROOT = path.resolve(
   process.cwd(),
   "exampleCourse",
@@ -16,10 +21,11 @@ interface GalleryPageProps {
 }
 
 const GalleryPage: React.FC<GalleryPageProps> = ({ slug, source }) => {
+  const content = hydrate(source);
   return (
     <div>
       <h1>{slug}</h1>
-      <p>{source}</p>
+      <p>{content}</p>
     </div>
   );
 };
@@ -39,15 +45,10 @@ export const getStaticPaths: GetStaticPaths<PathParams> = async () => {
     const slug = pathParts[pathParts.length - 2];
     return {
       params: {
-        sourcePath: markdownPath,
         slug,
       },
     };
   });
-  console.log("gallery questions...");
-  console.log(galleryQuestions);
-  console.log("paths...");
-  console.log(paths);
   return {
     paths,
     fallback: false,
@@ -61,10 +62,16 @@ export const getStaticProps: GetStaticProps<
   if (!params) throw new Error("missing params");
   const { slug } = params;
   const markdownPath = path.join(QUESTIONS_ROOT, "gallery", slug, "gallery.md");
-  const markdownDocument = await fs.readFile(markdownPath, "utf-8");
+  const source = await fs.readFile(markdownPath, "utf-8");
+  const mdxSource = await renderToString(source, {
+    mdxOptions: {
+      remarkPlugins: [loadCodePlugin],
+      filepath: markdownPath,
+    },
+  });
   return {
     props: {
-      source: markdownDocument,
+      source: mdxSource,
       slug,
     },
   };
