@@ -1,0 +1,8 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+$grid-breakpoints: map-remove($grid-breakpoints, "xl", "xxl");
+$container-max-widths: map-remove($container-max-widths, "xl", "xxl");
+
+@import "~bootstrap/scss/bootstrap";

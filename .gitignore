@@ -1,0 +1,4 @@
+node_modules
+
+# Next build files
+.next
