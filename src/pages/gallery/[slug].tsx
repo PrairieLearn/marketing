@@ -1,6 +1,5 @@
 import React from "react";
 import fs from "fs-extra";
-import glob from "fast-glob";
 import path from "path";
 import { GetStaticPaths, GetStaticProps } from "next";
 
@@ -8,12 +7,12 @@ import renderToString from "next-mdx-remote/render-to-string";
 import hydrate from "next-mdx-remote/hydrate";
 
 import loadCodePlugin from "../../mdxPlugins/loadCode";
-
-const QUESTIONS_ROOT = path.resolve(
-  process.cwd(),
-  "exampleCourse",
-  "questions"
-);
+import {
+  getMarkdownPathForSlug,
+  getMarkdownPaths,
+  getSlugForMarkdownPath,
+  QUESTIONS_ROOT,
+} from "../../data";
 
 interface GalleryPageProps {
   slug: string;
@@ -38,11 +37,9 @@ interface PathParams {
 }
 
 export const getStaticPaths: GetStaticPaths<PathParams> = async () => {
-  const globPath = path.join(QUESTIONS_ROOT, "gallery", "*", "gallery.md");
-  const galleryQuestions = await glob(globPath);
-  const paths = galleryQuestions.map((markdownPath) => {
-    const pathParts = markdownPath.split(path.sep);
-    const slug = pathParts[pathParts.length - 2];
+  const markdownPaths = await getMarkdownPaths();
+  const paths = markdownPaths.map((markdownPath) => {
+    const slug = getSlugForMarkdownPath(markdownPath);
     return {
       params: {
         slug,
@@ -61,7 +58,7 @@ export const getStaticProps: GetStaticProps<
 > = async ({ params }) => {
   if (!params) throw new Error("missing params");
   const { slug } = params;
-  const markdownPath = path.join(QUESTIONS_ROOT, "gallery", slug, "gallery.md");
+  const markdownPath = getMarkdownPathForSlug(slug);
   const source = await fs.readFile(markdownPath, "utf-8");
   const mdxSource = await renderToString(source, {
     mdxOptions: {
