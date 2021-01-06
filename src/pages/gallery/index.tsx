@@ -11,6 +11,7 @@ interface GalleryIndexProps {
   items: {
     title: string;
     slug: string;
+    summary: string;
   }[];
 }
 
@@ -32,6 +33,7 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ items }) => {
                   <h3 className="card-title h5">{item.title}</h3>
                 </a>
               </Link>
+              <p className="text-muted mb-0">{item.summary}</p>
             </div>
           </div>
         ))}
@@ -53,6 +55,7 @@ export const getStaticProps: GetStaticProps<GalleryIndexProps> = async () => {
         return {
           title: markdownFile.title,
           slug: markdownFile.slug,
+          summary: markdownFile.summary,
         };
       }),
     },
