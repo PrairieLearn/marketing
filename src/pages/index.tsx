@@ -46,7 +46,7 @@ export default function Home() {
               PrairieLearn's familiar HTML syntax makes it easy to get started
               writing questions. A broad variety of building blocks like number
               inputs and multiple choice responses come built-in, so you can hit
-              the ground running. One you're ready, you can take advantage of
+              the ground running. Once you're ready, you can take advantage of
               powerful features like{" "}
               <Link href="https://prairielearn.readthedocs.io/en/latest/externalGrading/">
                 code autograding
