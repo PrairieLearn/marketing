@@ -3,7 +3,7 @@ import classnames from "classnames";
 import { GetStaticProps } from "next";
 import Link from "next/link";
 
-import { getMarkdownPaths, getSlugForMarkdownPath } from "../../data";
+import { getMarkdownPaths, loadMarkdownFile } from "../../data";
 
 import styles from "./index.module.scss";
 
@@ -17,7 +17,12 @@ interface GalleryIndexProps {
 const GalleryIndex: React.FC<GalleryIndexProps> = ({ items }) => {
   return (
     <div className="container">
-      <h1>Gallery</h1>
+      <div className="my-5">
+        <h1 className="display-3">Gallery</h1>
+        <p className="lead">
+          Explore all the functionality PrairieLearn has to offer.
+        </p>
+      </div>
       <div className={classnames(styles.grid)}>
         {items.map((item) => (
           <div className="card" key={item.slug}>
@@ -39,13 +44,15 @@ export default GalleryIndex;
 
 export const getStaticProps: GetStaticProps<GalleryIndexProps> = async () => {
   const markdownPaths = await getMarkdownPaths();
+  const markdownFiles = await Promise.all(
+    markdownPaths.map((markdownPath) => loadMarkdownFile(markdownPath))
+  );
   return {
     props: {
-      items: markdownPaths.map((markdownPath) => {
-        const slug = getSlugForMarkdownPath(markdownPath);
+      items: markdownFiles.map((markdownFile) => {
         return {
-          title: slug,
-          slug: slug,
+          title: markdownFile.title,
+          slug: markdownFile.slug,
         };
       }),
     },

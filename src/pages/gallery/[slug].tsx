@@ -1,30 +1,39 @@
 import React from "react";
-import fs from "fs-extra";
-import path from "path";
 import { GetStaticPaths, GetStaticProps } from "next";
 
 import renderToString from "next-mdx-remote/render-to-string";
 import hydrate from "next-mdx-remote/hydrate";
+import { MDXProvider } from "@mdx-js/react";
 
+import mdxComponents from "../../lib/mdxComponents";
 import loadCodePlugin from "../../mdxPlugins/loadCode";
 import {
   getMarkdownPathForSlug,
   getMarkdownPaths,
   getSlugForMarkdownPath,
-  QUESTIONS_ROOT,
+  loadMarkdownFile,
 } from "../../data";
 
 interface GalleryPageProps {
   slug: string;
   source: string;
+  summary: string;
+  title: string;
 }
 
-const GalleryPage: React.FC<GalleryPageProps> = ({ slug, source }) => {
+const GalleryPage: React.FC<GalleryPageProps> = ({
+  summary,
+  source,
+  title,
+}) => {
   const content = hydrate(source);
   return (
-    <div>
-      <h1>{slug}</h1>
-      <p>{content}</p>
+    <div className="container">
+      <div className="my-5">
+        <h1 className="display-3">{title}</h1>
+        {summary && <p className="lead">{summary}</p>}
+      </div>
+      <MDXProvider components={mdxComponents}>{content}</MDXProvider>
     </div>
   );
 };
@@ -59,8 +68,8 @@ export const getStaticProps: GetStaticProps<
   if (!params) throw new Error("missing params");
   const { slug } = params;
   const markdownPath = getMarkdownPathForSlug(slug);
-  const source = await fs.readFile(markdownPath, "utf-8");
-  const mdxSource = await renderToString(source, {
+  const { content, title, summary } = await loadMarkdownFile(markdownPath);
+  const mdxSource = await renderToString(content, {
     mdxOptions: {
       remarkPlugins: [loadCodePlugin],
       filepath: markdownPath,
@@ -70,6 +79,8 @@ export const getStaticProps: GetStaticProps<
     props: {
       source: mdxSource,
       slug,
+      summary,
+      title,
     },
   };
 };

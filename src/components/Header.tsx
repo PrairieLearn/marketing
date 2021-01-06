@@ -3,12 +3,13 @@ import classnames from "classnames";
 import Link from "next/link";
 
 import styles from "./Header.module.scss";
+import NavLink from "./NavLink";
 
-export const Header: React.FC = ({ children }) => {
+export const Header: React.FC = () => {
   return (
     <nav
       className={classnames(
-        "navbar navbar-expand-lg navbar-dark navbar-primary",
+        "navbar navbar-expand-sm navbar-dark navbar-primary",
         styles.header
       )}
     >
@@ -16,6 +17,13 @@ export const Header: React.FC = ({ children }) => {
         <Link href="/">
           <a className="navbar-brand">PrairieLearn</a>
         </Link>
+        <div className="collapse navbar-collapse">
+          <ul className="navbar-nav ms-auto mb-2 mb-sm-0">
+            <li className="nav-item">
+              <NavLink href="/gallery">Gallery</NavLink>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
   );

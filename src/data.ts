@@ -1,5 +1,7 @@
 import path from "path";
+import fs from "fs-extra";
 import glob from "fast-glob";
+import matter from "gray-matter";
 
 export const QUESTIONS_ROOT = path.resolve(
   process.cwd(),
@@ -19,4 +21,27 @@ export const getSlugForMarkdownPath = (markdownPath: string) => {
 
 export const getMarkdownPathForSlug = (slug: string): string => {
   return path.join(QUESTIONS_ROOT, "gallery", slug, "gallery.md");
+};
+
+export interface MarkdownFile {
+  content: string;
+  title: string;
+  slug: string;
+  summary?: string;
+}
+
+export const loadMarkdownFile = async (
+  markdownPath: string
+): Promise<MarkdownFile> => {
+  const fileContents = await fs.readFile(markdownPath);
+  const {
+    content,
+    data: { title = "NO TITLE", summary = null },
+  } = matter(fileContents);
+  return {
+    content,
+    title,
+    slug: getSlugForMarkdownPath(markdownPath),
+    summary,
+  };
 };
