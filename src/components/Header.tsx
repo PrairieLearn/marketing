@@ -12,7 +12,7 @@ export const Header: React.FC = ({ children }) => {
         styles.header
       )}
     >
-      <div className="container-fluid">
+      <div className="container">
         <Link href="/">
           <a className="navbar-brand">PrairieLearn</a>
         </Link>

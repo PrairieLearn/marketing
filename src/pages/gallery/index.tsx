@@ -1,8 +1,11 @@
 import React from "react";
+import classnames from "classnames";
 import { GetStaticProps } from "next";
 import Link from "next/link";
 
 import { getMarkdownPaths, getSlugForMarkdownPath } from "../../data";
+
+import styles from "./index.module.scss";
 
 interface GalleryIndexProps {
   items: {
@@ -13,16 +16,22 @@ interface GalleryIndexProps {
 
 const GalleryIndex: React.FC<GalleryIndexProps> = ({ items }) => {
   return (
-    <React.Fragment>
+    <div className="container">
       <h1>Gallery</h1>
-      <ul>
+      <div className={classnames(styles.grid)}>
         {items.map((item) => (
-          <li key={item.slug}>
-            <Link href={`/gallery/${item.slug}`}>{item.title}</Link>
-          </li>
+          <div className="card" key={item.slug}>
+            <div className="card-body">
+              <Link href={`/gallery/${item.slug}`}>
+                <a>
+                  <h3 className="card-title h5">{item.title}</h3>
+                </a>
+              </Link>
+            </div>
+          </div>
         ))}
-      </ul>
-    </React.Fragment>
+      </div>
+    </div>
   );
 };
 
