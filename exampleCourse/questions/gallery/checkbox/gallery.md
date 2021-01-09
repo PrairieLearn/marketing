@@ -1,9 +1,11 @@
 ---
 title: Checkbox
-summary: Allow students to select answers from given options.
+summary: Select answers from given options.
 ---
 
 ### Simple example
+
+![](figSimpleQuestion.png)
 
 ```html src=simple/question.html
 contents
@@ -11,6 +13,8 @@ contents
 
 ### Complex example
 
+
+![](figComplexQuestion.png)
 
 Here is a more complex example:
 

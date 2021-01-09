@@ -3,13 +3,14 @@ title: Include Figure
 summary: Adding static or dynamic figures to questions
 ---
 
-This is an example showing how we can add an image to a question:
-
-![A figure showing a graphed polynomial](./galleryImage.png)
 
 ### Simple example
 
-In this simple implementation, we only need to write the HTML file `question.html`:
+This is an example showing how we can add an image to a question
+
+![](figSimpleQuestion.png)
+
+where we only need to write the HTML file `question.html`:
 
 
 ```html src=simple/question.html
@@ -23,6 +24,7 @@ The plot is added from a static image `static_image.png` using the element `pl-f
 
 The same example can be generated using randomized parameters, as illustrated in this `question.html` file:
 
+![](figComplexQuestion.png)
 
 ```html src=complex/question.html
 contents

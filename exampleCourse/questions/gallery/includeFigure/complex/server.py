@@ -3,8 +3,8 @@ import io
 import random
 import numpy as np
 import sympy as sym
-# import matplotlib as ml
-# ml.rcParams['text.usetex'] = True
+import matplotlib as ml
+ml.rcParams['text.usetex'] = True
 
 def func(x,a,b,c):
     return a*x**3 + b*x**2 + c*x - 9
