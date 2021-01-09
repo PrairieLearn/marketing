@@ -23,7 +23,7 @@ import math, random
 def generate(data):
   velocity = random.randint(100, 800) / 100
   angle = random.randint(2000, 8000) / 100
-  distance = (math.cos(math.radians(angle)) * velocity * velocity) / 9.8
+  distance = (math.sin(2 * math.radians(angle)) * velocity * velocity) / 9.8
   data["params"]["velocity"] = velocity
   data["params"]["angle"] = angle
   data["answers"]["distance"] = answer
