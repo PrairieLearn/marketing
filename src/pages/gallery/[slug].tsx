@@ -6,7 +6,8 @@ import hydrate from "next-mdx-remote/hydrate";
 import { MDXProvider } from "@mdx-js/react";
 
 import mdxComponents from "../../lib/mdxComponents";
-import loadCodePlugin from "../../mdxPlugins/loadCode";
+import loadCodePlugin from "../../remarkPlugins/loadCode";
+import extractImages from "../../remarkPlugins/extractImages";
 import {
   getMarkdownPathForSlug,
   getMarkdownPaths,
@@ -17,7 +18,7 @@ import {
 interface GalleryPageProps {
   slug: string;
   source: string;
-  summary: string;
+  summary?: string;
   title: string;
 }
 
@@ -70,8 +71,9 @@ export const getStaticProps: GetStaticProps<
   const markdownPath = getMarkdownPathForSlug(slug);
   const { content, title, summary } = await loadMarkdownFile(markdownPath);
   const mdxSource = await renderToString(content, {
+    components: mdxComponents,
     mdxOptions: {
-      remarkPlugins: [loadCodePlugin],
+      remarkPlugins: [loadCodePlugin, extractImages],
       filepath: markdownPath,
     },
   });

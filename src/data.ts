@@ -2,6 +2,7 @@ import path from "path";
 import fs from "fs-extra";
 import glob from "fast-glob";
 import matter from "gray-matter";
+import remark from "remark";
 
 export const QUESTIONS_ROOT = path.resolve(
   process.cwd(),
