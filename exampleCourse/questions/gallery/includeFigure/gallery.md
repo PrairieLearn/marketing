@@ -5,7 +5,7 @@ summary: Adding static or dynamic figures to questions
 
 This is an example showing how we can add an image to a question:
 
-![](includeFigureHTML.png)
+![A figure showing a graphed polynomial](./galleryImage.png)
 
 ### Simple example
 
