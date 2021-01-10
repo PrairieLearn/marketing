@@ -4,6 +4,8 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import renderToString from "next-mdx-remote/render-to-string";
 import hydrate from "next-mdx-remote/hydrate";
 import { MDXProvider } from "@mdx-js/react";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
 
 import mdxComponents from "../../lib/mdxComponents";
 import loadCodePlugin from "../../remarkPlugins/loadCode";
@@ -73,7 +75,8 @@ export const getStaticProps: GetStaticProps<
   const mdxSource = await renderToString(content, {
     components: mdxComponents,
     mdxOptions: {
-      remarkPlugins: [loadCodePlugin, extractImages],
+      remarkPlugins: [loadCodePlugin, extractImages, remarkMath],
+      rehypePlugins: [rehypeKatex],
       filepath: markdownPath,
     },
   });

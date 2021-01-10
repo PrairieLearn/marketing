@@ -28,8 +28,6 @@ interface ImageNode extends Node {
 export default (): Transformer => async (tree, file) => {
   const baseDirectory = path.parse(file.history[0]).dir;
 
-  // console.dir(tree, { depth: null });
-
   const codeNodes: ImageNode[] = [];
   visit(tree, "image", (node: ImageNode) => {
     codeNodes.push(node);
