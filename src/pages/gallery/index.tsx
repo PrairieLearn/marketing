@@ -34,7 +34,7 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ items }) => {
           const galleryHref = `/gallery/${item.slug}`;
           return (
             <div className="card" key={item.slug}>
-              {item.imageUrl && item.imageWidth && item.imageHeight && (
+              {item.imageUrl && (
                 <Link href={galleryHref}>
                   {/* Fit all images within 4:3 aspect ratio box*/}
                   <a style={{ paddingBottom: "75%", position: "relative" }}>
