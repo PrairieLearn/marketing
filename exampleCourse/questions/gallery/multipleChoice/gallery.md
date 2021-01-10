@@ -6,9 +6,9 @@ summary: Allow students to select from multiple options.
 ![](figSimpleQuestion.png)
 
 
-## Simple example: creating a unique question
+## Creating a static multiple choice question
 
-A simple implementation of this example only requires writing the `question.html` file. Note that the input parameters, such as the ball mass $m$, the angle $\theta$, the height $h$, the initial velocity $v_0$ and the distance $d$, have fixed values.
+A simple implementation of this example only requires writing a `question.html` file. Note that the question parameters, such as the ball mass $m$, the angle $\theta$, the height $h$, the initial velocity $v_0$ and the distance $d$, have fixed values.
 Consequently, the correct answer is also fixed.
 
 ```html src=simple/question.html
@@ -18,43 +18,49 @@ This question uses the attribute `none-of-the-above="true"` in the `pl-multiple-
 
 Unfortunately, this implementation only creates one unique version of the question, with the same set of parameters and answers.
 
-## More powerful example: creating a question generator
+## Creating a randomized multiple choice question
 
-To add variability, we generate the parameters $m$, $\theta$, $h$, $v_0$ and $d$ as python code in `server.py`. Note that these parameters now appear using templating in the `question.html` file. For example, `{{param.m}}` will be replaced by a numerical value for the mass $m$.
-
-```html src=complex/question.html
-```
-
-In addition, because the input parameters change, the correct answers and distractors should change accordingly. As such, we also use templating to add the numerical values in `pl-answers`.
-
-Below is an example for the python function `generate` that defines the question parameters:
+To add variability so that students can try multiple variants of the question (and so that different students see different variants), we can use Python code in `server.py`:
 
 ```python src=complex/server.py
 ```
 
-The input parameters $m$, $\theta$, $h$, $v_0$ and $d$ are generated using python random functions and stored in the
-`data["params"]` dictionary. The choice of using the attribute `none-of-the-above` is selected at random as well. Finally, the correct answer and distractors are computed using the input parameters, and stored in the
-`data["params"]` dictionary.
+The above script randomizes and computes several aspects of the question:
 
-This question generator is now capable of creating many different versions of the same question.
+* The parameters $m$, $d$, $\theta$, and $v_0$ are generated using the Python module `random`
+* The parameter $h$ is computed based on $m$, $d$, $\theta$, and $v_0$
+* The choice of using the attribute `none-of-the-above` is selected at random
+* The correct answer and distractors are computed using the input parameters
 
-<!--
-![](figComplexQuestion.png) -->
+These values are stored in the `data["params"]` dictionary, which we can then use in the `question.html` template:
 
+```html src=complex/question.html
+```
+
+With the addition of `server.py` and templated values in `question.html`, we can now generate many unique variants of this question.
 ## More randomization!
 
-Feeling adventurous? We can add even more variation to this question generator,
-by creating the image dynamically using `pl-drawing`, and providing two options for the problem statement, via `{{params.question_text}}`.
+Feeling adventurous? We can add even more variation to this question:
+
+* We can dynamically create an image to reflect the randomly selected parameters.
+* In addition to asking about the length of time the ball is in the air, we can add a second problem statement that asks the student to compute the distance the ball travels. We can then also randomly pick between the original problem statement and this new problem statement.
+
+As before, we'll use `server.py` to generate parameters for the question:
+
+```python src=advanced/server.py
+```
+
+Note the addition of code to generate a question and answers for the secondary problem statement.
+
+We can now use the generated values in `question.html`:
 
 ```html src=advanced/question.html
 ```
 
+By using the `<pl-drawing>` element instead of `<pl-figure>`, we can create a dynamic image where the orientation of the arrow is consistent with the provided angle $\theta$. The image could be easily adapted such that the height of the cliff would also vary with the value of the parameter $h$.
 
-Let us take a look at one instance of this fully randomized question:
+Also note the use of `{{params.question_text}}` to display the randomly-picked problem statement.
+
+Here's one instance of this fully randomized question:
 
 ![](figAdvancedQuestion.png)
-
-In addition of the randomized input parameters, the image is dynamically created such that the orientation of the arrow is consistent with the provided angle $\theta$. The image could be easily adapted such that the height of the cliff would also vary with the value of the parameter $h$. Moreover, this question provides the time that takes for the ball to hit the ground, and asks to determine the position where the ball lands. This is an option added in `server.py`, in addition to the original question that asks for the time given the distance. Below in a possible implementation for the python function `generate`:
-
-```python src=advanced/server.py
-```
