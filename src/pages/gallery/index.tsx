@@ -29,6 +29,14 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ items }) => {
           Explore all the functionality PrairieLearn has to offer.
         </p>
       </div>
+      <div className="alert alert-primary">
+        New to PrairieLearn? Check out our{" "}
+        <Link href="/gallery/intro">
+          <a>introduction to PrairieLearn questions</a>
+        </Link>{" "}
+        to learn the key concepts used throughout these examples and all
+        PrairieLearn questions.
+      </div>
       <div className={classnames(styles.grid)}>
         {items.map((item) => {
           const galleryHref = `/gallery/${item.slug}`;
@@ -66,9 +74,11 @@ export default GalleryIndex;
 
 export const getStaticProps: GetStaticProps<GalleryIndexProps> = async () => {
   const markdownPaths = await getMarkdownPaths();
-  const markdownFiles = await Promise.all(
-    markdownPaths.map((markdownPath) => loadMarkdownFile(markdownPath))
-  );
+  const markdownFiles = (
+    await Promise.all(
+      markdownPaths.map((markdownPath) => loadMarkdownFile(markdownPath))
+    )
+  ).filter((markdownFile) => markdownFile.showOnIndex);
 
   // Each Markdown file *may* have an adjacent `galleryImage.png` file. If it
   // does, copy it to the public dir and attach its URL to the index entry.

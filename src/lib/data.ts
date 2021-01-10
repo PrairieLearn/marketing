@@ -30,6 +30,7 @@ export interface MarkdownFile {
   title: string;
   slug: string;
   summary: string;
+  showOnIndex: boolean;
 }
 
 export const loadMarkdownFile = async (
@@ -38,7 +39,7 @@ export const loadMarkdownFile = async (
   const fileContents = await fs.readFile(markdownPath);
   const {
     content,
-    data: { title = "NO TITLE", summary = null },
+    data: { title = "NO TITLE", summary = null, showOnIndex = true },
   } = matter(fileContents);
 
   return {
@@ -47,5 +48,6 @@ export const loadMarkdownFile = async (
     title,
     slug: getSlugForMarkdownPath(markdownPath),
     summary,
+    showOnIndex,
   };
 };
