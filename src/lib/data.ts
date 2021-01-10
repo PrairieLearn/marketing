@@ -25,10 +25,11 @@ export const getMarkdownPathForSlug = (slug: string): string => {
 };
 
 export interface MarkdownFile {
+  path: string;
   content: string;
   title: string;
   slug: string;
-  summary?: string;
+  summary: string;
 }
 
 export const loadMarkdownFile = async (
@@ -39,7 +40,9 @@ export const loadMarkdownFile = async (
     content,
     data: { title = "NO TITLE", summary = null },
   } = matter(fileContents);
+
   return {
+    path: markdownPath,
     content,
     title,
     slug: getSlugForMarkdownPath(markdownPath),

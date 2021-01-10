@@ -13,12 +13,12 @@ import {
   getMarkdownPaths,
   getSlugForMarkdownPath,
   loadMarkdownFile,
-} from "../../data";
+} from "../../lib/data";
 
 interface GalleryPageProps {
   slug: string;
   source: string;
-  summary?: string;
+  summary: string;
   title: string;
 }
 

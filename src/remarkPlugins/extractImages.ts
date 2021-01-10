@@ -7,6 +7,8 @@ import visit from "unist-util-visit";
 import imageSizeCallback from "image-size";
 import { promisify } from "util";
 
+import { copyImageToPublicDir } from "../lib/images";
+
 const imageSize = promisify(imageSizeCallback);
 
 const PUBLIC_BUILD_IMAGES_DIR = path.resolve(
@@ -38,29 +40,14 @@ export default (): Transformer => async (tree, file) => {
       // Resolve path to image on disk
       const imagePath = path.resolve(baseDirectory, node.url);
 
-      // Compute file hash so we can make files content-addressable
-      const imageContents = await fs.readFile(imagePath);
-      const imageContentsHash = createHash("sha1")
-        .update(imageContents)
-        .digest("hex");
-
-      // Copy file to public build directory
-      await fs.ensureDir(PUBLIC_BUILD_IMAGES_DIR);
-      const imageDestination = path.resolve(
-        PUBLIC_BUILD_IMAGES_DIR,
-        `${imageContentsHash}.png`
-      );
-      await fs.copyFile(imagePath, imageDestination);
+      const { url, width, height } = await copyImageToPublicDir(imagePath);
 
       // Rewrite image node to point at this new resource
-      node.url = `__image__/${imageContentsHash}.png`;
-
-      const size = await imageSize(imagePath);
-      if (!size) throw new Error(`Could not determine size of ${imagePath}`);
+      node.url = url;
 
       const dimensionProps = {
-        imageWidth: size.width,
-        imageHeight: size.height,
+        imageWidth: width,
+        imageHeight: height,
       };
 
       const data = node.data || (node.data = {});

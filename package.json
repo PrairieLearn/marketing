@@ -19,7 +19,7 @@
     "fs-extra": "^9.0.1",
     "gray-matter": "^4.0.2",
     "image-size": "^0.9.3",
-    "next": "10.0.3",
+    "next": "^10.0.5",
     "next-mdx-remote": "^2.0.1",
     "prism-react-renderer": "^1.1.1",
     "react": "17.0.1",
