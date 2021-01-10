@@ -2,14 +2,14 @@ import React from "react";
 import classnames from "classnames";
 import { GetStaticProps } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import path from "path";
 import fs from "fs-extra";
 
+import Image from "../../components/Image";
 import { getMarkdownPaths, loadMarkdownFile } from "../../lib/data";
+import { copyImageToPublicDir, ImageInfo } from "../../lib/images";
 
 import styles from "./index.module.scss";
-import { copyImageToPublicDir, ImageInfo } from "../../lib/images";
 
 interface GalleryIndexProps {
   items: {

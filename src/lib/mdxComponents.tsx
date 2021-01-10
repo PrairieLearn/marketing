@@ -1,8 +1,8 @@
 import React from "react";
-import Image from "next/image";
 import { Components } from "@mdx-js/react";
 import { Language } from "prism-react-renderer";
 
+import Image from "../components/Image";
 import { CodeBlock } from "../components/CodeBlock";
 
 const mdxComponents: Components = {
