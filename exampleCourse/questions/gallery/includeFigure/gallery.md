@@ -14,7 +14,6 @@ where we only need to write the HTML file `question.html`:
 
 
 ```html src=simple/question.html
-contents
 ```
 
 The plot is added from a static image `static_image.png` using the element `pl-figure`. We use `pl-checkbox` to add the possible answers that can be selected by the user, including the correct answers and distractors.
@@ -27,14 +26,12 @@ The same example can be generated using randomized parameters, as illustrated in
 ![](figComplexQuestion.png)
 
 ```html src=complex/question.html
-contents
 ```
 
 The parameters that appear in the `question.html` file are defined in `server.py `:
 
 
 ```python src=complex/server.py
-contents
 ```
 
 #### What are the parameters that are randomized?
