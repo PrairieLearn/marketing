@@ -1,0 +1,15 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    name: Upload files to S3 bucket
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install
+        run: yarn install --frozen-lockfile
+      - name: Build
+        run: yarn build
