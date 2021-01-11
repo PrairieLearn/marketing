@@ -1,4 +1,10 @@
 node_modules
+yarn-error.log
 
 # Next build files
 .next
+public/build
+out
+
+# macOS files
+.DS_Store

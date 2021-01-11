@@ -1,7 +1,8 @@
 import React from "react";
 import classnames from "classnames";
-import Highlight, { defaultProps, Language } from "prism-react-renderer";
-import dracula from "prism-react-renderer/themes/dracula";
+import { Language } from "prism-react-renderer";
+
+import { CodeBlock } from "./CodeBlock";
 
 import styles from "./ExampleEditor.module.scss";
 
@@ -53,28 +54,7 @@ export const ExampleEditor: React.FC<ExampleEditorProps> = ({ files }) => {
           </ul>
         )}
       </div>
-      <Highlight
-        {...defaultProps}
-        theme={dracula}
-        code={file.code}
-        language={file.language}
-      >
-        {({ className, style, tokens, getLineProps, getTokenProps }) => (
-          <pre
-            className={classnames(className, "mb-0 p-2")}
-            style={style}
-            ref={preRef}
-          >
-            {tokens.map((line, i) => (
-              <div {...getLineProps({ line, key: i })}>
-                {line.map((token, key) => (
-                  <span {...getTokenProps({ token, key })} />
-                ))}
-              </div>
-            ))}
-          </pre>
-        )}
-      </Highlight>
+      <CodeBlock code={file.code} language={file.language} preRef={preRef} />
     </div>
   );
 };

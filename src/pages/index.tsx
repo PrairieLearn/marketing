@@ -1,6 +1,5 @@
 import React from "react";
 
-import { Header } from "../components/Header";
 import { HomepageHero } from "../components/HomepageHero";
 import { HomepageHeading } from "../components/HomepageHeading";
 import { ExampleEditor } from "../components/ExampleEditor";
@@ -24,7 +23,7 @@ import math, random
 def generate(data):
   velocity = random.randint(100, 800) / 100
   angle = random.randint(2000, 8000) / 100
-  distance = (math.cos(math.radians(angle)) * velocity * velocity) / 9.8
+  distance = (math.sin(2 * math.radians(angle)) * velocity * velocity) / 9.8
   data["params"]["velocity"] = velocity
   data["params"]["angle"] = angle
   data["answers"]["distance"] = answer
@@ -38,7 +37,6 @@ def grade(data):
 export default function Home() {
   return (
     <React.Fragment>
-      <Header />
       <HomepageHero />
       <div className="container mt-3 mt-md-5">
         <HomepageRow>
@@ -48,7 +46,7 @@ export default function Home() {
               PrairieLearn's familiar HTML syntax makes it easy to get started
               writing questions. A broad variety of building blocks like number
               inputs and multiple choice responses come built-in, so you can hit
-              the ground running. One you're ready, you can take advantage of
+              the ground running. Once you're ready, you can take advantage of
               powerful features like{" "}
               <Link href="https://prairielearn.readthedocs.io/en/latest/externalGrading/">
                 code autograding
