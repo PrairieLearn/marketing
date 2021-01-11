@@ -35,7 +35,7 @@ export const copyImageToPublicDir = async (
   await fs.ensureDir(PUBLIC_BUILD_IMAGES_DIR);
   const imageDestination = path.resolve(
     PUBLIC_BUILD_IMAGES_DIR,
-    `${imageContentHash}.${extension}`
+    `${imageContentHash}${extension}`
   );
   await fs.copyFile(imagePath, imageDestination);
 
@@ -45,7 +45,7 @@ export const copyImageToPublicDir = async (
   }
 
   return {
-    url: `/build/images/${imageContentHash}.${extension}`,
+    url: `/build/images/${imageContentHash}${extension}`,
     contentHash: imageContentHash,
     extension,
     width: size.width,
