@@ -8,6 +8,17 @@ import mime from "mime";
 const AWS_REGION = "us-east-2";
 const CLOUDFRONT_DISTRIBUTION_ID = "E2O86FEUUQ9OA4";
 const S3_BUCKET_NAME = "prairielearn-marketing-prod";
+/**
+ * Deletion of "extraneous" files (those not present in the current version)
+ * has been disabled because this causes problems for users who are already
+ * navigating around the site during a deploy - they'll still expect to see
+ * old assets and will request them.
+ *
+ * The downside of this is that if we ever remove a page from the site, it'll
+ * continue to be accessible from S3. If that happens and we want to prevent
+ * against that, we can manually remove the HTML files for that page from S3.
+ */
+const DELETE_EXTRANEOUS_FILES = false;
 
 const FILES_ROOT = path.join(process.cwd(), "out");
 
@@ -152,6 +163,10 @@ const deleteRemovedFilesFromS3 = async (
   client: AWS.S3,
   uploadedFiles: string[]
 ) => {
+  if (!DELETE_EXTRANEOUS_FILES) {
+    console.log("Deletion of extraneous files disabled");
+    return;
+  }
   const keys = await listAllKeys(client);
   const keysToDelete = keys.filter((key) => !uploadedFiles.includes(key));
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
+import Head from "next/head";
 
 import renderToString from "next-mdx-remote/render-to-string";
 import hydrate from "next-mdx-remote/hydrate";
@@ -31,13 +32,18 @@ const GalleryPage: React.FC<GalleryPageProps> = ({
 }) => {
   const content = hydrate(source);
   return (
-    <div className="container">
-      <div className="my-5">
-        <h1 className="display-3">{title}</h1>
-        {summary && <p className="lead">{summary}</p>}
+    <React.Fragment>
+      <Head>
+        <title>{title} | PrairieLaarn</title>
+      </Head>
+      <div className="container">
+        <div className="my-5">
+          <h1 className="display-3">{title}</h1>
+          {summary && <p className="lead">{summary}</p>}
+        </div>
+        <MDXProvider components={mdxComponents}>{content}</MDXProvider>
       </div>
-      <MDXProvider components={mdxComponents}>{content}</MDXProvider>
-    </div>
+    </React.Fragment>
   );
 };
 

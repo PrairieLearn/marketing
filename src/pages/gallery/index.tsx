@@ -2,6 +2,7 @@ import React from "react";
 import classnames from "classnames";
 import { GetStaticProps } from "next";
 import Link from "next/link";
+import Head from "next/head";
 import path from "path";
 import fs from "fs-extra";
 
@@ -22,51 +23,56 @@ interface GalleryIndexProps {
 
 const GalleryIndex: React.FC<GalleryIndexProps> = ({ items }) => {
   return (
-    <div className="container">
-      <div className="my-5">
-        <h1 className="display-3">Gallery</h1>
-        <p className="lead">
-          Explore all the functionality PrairieLearn has to offer.
-        </p>
-      </div>
-      <div className="alert alert-primary">
-        New to PrairieLearn? Check out our{" "}
-        <Link href="/gallery/intro">
-          <a>introduction to PrairieLearn questions</a>
-        </Link>{" "}
-        to learn the key concepts used throughout these examples and all
-        PrairieLearn questions.
-      </div>
-      <div className={classnames(styles.grid)}>
-        {items.map((item) => {
-          const galleryHref = `/gallery/${item.slug}`;
-          return (
-            <div className="card" key={item.slug}>
-              {item.imageUrl && (
-                <Link href={galleryHref}>
-                  {/* Fit all images within 4:3 aspect ratio box*/}
-                  <a style={{ paddingBottom: "75%", position: "relative" }}>
-                    <Image
-                      src={item.imageUrl}
-                      layout="fill"
-                      objectFit="contain"
-                    />
-                  </a>
-                </Link>
-              )}
-              <div className="card-body">
-                <Link href={galleryHref}>
-                  <a>
-                    <h3 className="card-title h5">{item.title}</h3>
-                  </a>
-                </Link>
-                <p className="text-muted mb-0">{item.summary}</p>
+    <React.Fragment>
+      <Head>
+        <title>Gallery | PrairieLearn</title>
+      </Head>
+      <div className="container">
+        <div className="my-5">
+          <h1 className="display-3">Gallery</h1>
+          <p className="lead">
+            Explore all the functionality PrairieLearn has to offer.
+          </p>
+        </div>
+        <div className="alert alert-primary">
+          New to PrairieLearn? Check out our{" "}
+          <Link href="/gallery/intro">
+            <a>introduction to PrairieLearn questions</a>
+          </Link>{" "}
+          to learn the key concepts used throughout these examples and all
+          PrairieLearn questions.
+        </div>
+        <div className={classnames(styles.grid)}>
+          {items.map((item) => {
+            const galleryHref = `/gallery/${item.slug}`;
+            return (
+              <div className="card" key={item.slug}>
+                {item.imageUrl && (
+                  <Link href={galleryHref}>
+                    {/* Fit all images within 4:3 aspect ratio box*/}
+                    <a style={{ paddingBottom: "75%", position: "relative" }}>
+                      <Image
+                        src={item.imageUrl}
+                        layout="fill"
+                        objectFit="contain"
+                      />
+                    </a>
+                  </Link>
+                )}
+                <div className="card-body">
+                  <Link href={galleryHref}>
+                    <a>
+                      <h3 className="card-title h5">{item.title}</h3>
+                    </a>
+                  </Link>
+                  <p className="text-muted mb-0">{item.summary}</p>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 

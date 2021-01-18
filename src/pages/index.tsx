@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 
 import { HomepageHero } from "../components/HomepageHero";
 import { HomepageHeading } from "../components/HomepageHeading";
@@ -37,6 +38,9 @@ def grade(data):
 export default function Home() {
   return (
     <React.Fragment>
+      <Head>
+        <title>PrairieLearn</title>
+      </Head>
       <HomepageHero />
       <div className="container mt-3 mt-md-5">
         <HomepageRow>
