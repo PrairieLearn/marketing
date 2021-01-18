@@ -40,7 +40,7 @@ const getPathsToInvalidate = async () => {
           pathsToInvalidate.push(`/${entry}`);
         }
       } else if (entryStat.isDirectory()) {
-        pathsToInvalidate.push(`/${entry}`);
+        pathsToInvalidate.push(`/${entry}/*`);
       } else {
         throw new Error(`Unknown file type: ${entryStat}`);
       }
@@ -75,14 +75,19 @@ const listAllKeys = async (
 
 /**
  * Given an S3 client and a path to a file in `FILES_ROOT`, uploads that file
- * to the S3 bucket with the appropriate key.
+ * to the S3 bucket with the given key.
  *
  * @todo: Could be improved to only re-upload if the file changed.
  *
  * @param client
  * @param filePath
+ * @param key
  */
-const uploadFileToS3 = async (client: AWS.S3, filePath: string) => {
+const uploadFileToS3 = async (
+  client: AWS.S3,
+  filePath: string,
+  key: string
+) => {
   const fileContents = await fs.readFile(path.join(FILES_ROOT, filePath));
   const contentType = mime.getType(filePath);
   if (!contentType) {
@@ -91,7 +96,7 @@ const uploadFileToS3 = async (client: AWS.S3, filePath: string) => {
   const cacheControl = getCacheControlHeader(contentType);
   const params: AWS.S3.Types.PutObjectRequest = {
     Bucket: S3_BUCKET_NAME,
-    Key: filePath,
+    Key: key,
     Body: fileContents,
     ContentMD5: crypto.createHash("md5").update(fileContents).digest("base64"),
     ContentType: contentType,
@@ -100,7 +105,9 @@ const uploadFileToS3 = async (client: AWS.S3, filePath: string) => {
     ACL: "public-read",
   };
   await client.putObject(params).promise();
-  console.log(`Uploaded ${filePath} with Cache-Control: ${cacheControl}`);
+  console.log(
+    `Uploaded ${filePath} to ${key} with Cache-Control: ${cacheControl}`
+  );
 };
 
 const uploadFilesToS3 = async (client: AWS.S3) => {
@@ -108,8 +115,37 @@ const uploadFilesToS3 = async (client: AWS.S3) => {
     path.relative(FILES_ROOT, file)
   );
 
-  await Promise.all(filesToUpload.map((file) => uploadFileToS3(client, file)));
-  return filesToUpload;
+  console.log("Uploading files to S3...");
+  await Promise.all(
+    filesToUpload.map((file) => uploadFileToS3(client, file, file))
+  );
+  console.log(`Uploaded ${filesToUpload.length} files to S3`);
+
+  // S3 isn't particularly smart - if we request `/foo/bar`, it won't serve
+  // `/foo/bar.html`, which is how `next export` generates things. To handle
+  // that, we'll upload "bare" versions for the files, e.g. `/foo/bar`. These
+  // "aliases" will we served for this case.
+  const aliasesToUpload = filesToUpload
+    .filter((file) => {
+      const { ext, name } = path.parse(file);
+      return ext === ".html" && name !== "index";
+    })
+    .map((file) => {
+      return {
+        file: file,
+        alias: file.replace(/\.html$/, ""),
+      };
+    });
+
+  console.log("Uploading aliases to S3...");
+  await Promise.all(
+    aliasesToUpload.map(({ file, alias }) =>
+      uploadFileToS3(client, file, alias)
+    )
+  );
+  console.log(`Uploaded ${aliasesToUpload.length} aliases to S3`);
+  const uploadedAliases = aliasesToUpload.map(({ alias }) => alias);
+  return [...filesToUpload, ...uploadedAliases];
 };
 
 const deleteRemovedFilesFromS3 = async (
@@ -118,6 +154,11 @@ const deleteRemovedFilesFromS3 = async (
 ) => {
   const keys = await listAllKeys(client);
   const keysToDelete = keys.filter((key) => !uploadedFiles.includes(key));
+
+  if (keysToDelete.length === 0) {
+    console.log("No extraneous files to delete");
+    return;
+  }
 
   // The `DeleteObjects` endpoint can only handle a max of 1000 keys at a time.
   // We need to batch `keysToDelete` into groups of at most 1000 keys.
@@ -130,7 +171,7 @@ const deleteRemovedFilesFromS3 = async (
       },
     };
     await client.deleteObjects(params).promise();
-    console.log("Deleted the following removed files:");
+    console.log("Deleted the following extraneous files:");
     batch.forEach((key) => console.log(`- ${key}`));
   }
 };
