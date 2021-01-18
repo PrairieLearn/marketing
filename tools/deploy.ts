@@ -35,7 +35,7 @@ const getPathsToInvalidate = async () => {
       if (entryStat.isFile()) {
         const { name, ext } = path.parse(entry);
         if (ext === ".html") {
-          pathsToInvalidate.push(`/${name}`);
+          pathsToInvalidate.push(`/${name === "index" ? "" : name}`);
         } else {
           pathsToInvalidate.push(`/${entry}`);
         }
@@ -96,6 +96,8 @@ const uploadFileToS3 = async (client: AWS.S3, filePath: string) => {
     ContentMD5: crypto.createHash("md5").update(fileContents).digest("base64"),
     ContentType: contentType,
     CacheControl: cacheControl,
+    // Ensure asset is publicly accessible
+    ACL: "public-read",
   };
   await client.putObject(params).promise();
   console.log(`Uploaded ${filePath} with Cache-Control: ${cacheControl}`);
