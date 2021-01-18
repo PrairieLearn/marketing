@@ -52,7 +52,7 @@ const getPathsToInvalidate = async () => {
 const listAllKeys = async (
   client: AWS.S3,
   keys: string[] = [],
-  continuationToken = null
+  continuationToken: string | undefined = undefined
 ): Promise<string[]> => {
   const params: AWS.S3.Types.ListObjectsV2Request = {
     Bucket: S3_BUCKET_NAME,
@@ -63,7 +63,10 @@ const listAllKeys = async (
     IsTruncated,
     NextContinuationToken,
   } = await client.listObjectsV2(params).promise();
-  const resultKeys = [...keys, ...Contents.map((item) => item.Key)];
+  const contentsKeys = (Contents || [])
+    .map((item) => item.Key)
+    .filter((key): key is string => !!key);
+  const resultKeys = [...keys, ...contentsKeys];
   if (!IsTruncated) {
     return resultKeys;
   }
@@ -82,6 +85,9 @@ const listAllKeys = async (
 const uploadFileToS3 = async (client: AWS.S3, filePath: string) => {
   const fileContents = await fs.readFile(path.join(FILES_ROOT, filePath));
   const contentType = mime.getType(filePath);
+  if (!contentType) {
+    throw new Error(`Could not determine content type for ${filePath}`);
+  }
   const cacheControl = getCacheControlHeader(contentType);
   const params: AWS.S3.Types.PutObjectRequest = {
     Bucket: S3_BUCKET_NAME,
@@ -122,6 +128,8 @@ const deleteRemovedFilesFromS3 = async (
       },
     };
     await client.deleteObjects(params).promise();
+    console.log("Deleted the following removed files:");
+    batch.forEach((key) => console.log(`- ${key}`));
   }
 };
 
@@ -149,6 +157,11 @@ const invalidateCloudFrontDistribution = async () => {
   if (!(await fs.pathExists(path.join("out", "index.html")))) {
     errorAndExit("Built files not found; ensure `npm run build` has been run.");
   }
+
+  AWS.config.update({
+    region: AWS_REGION,
+    sslEnabled: true,
+  });
 
   const s3 = new AWS.S3();
 
