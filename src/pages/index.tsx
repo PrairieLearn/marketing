@@ -138,8 +138,12 @@ export default function Home() {
                 <Link href="https://prairielearn.readthedocs.io/en/latest/assessment/#enabling-group-work-for-collaborative-assessments">
                   collaborative assignments
                 </Link>{" "}
-                and <Link href="">custom elements</Link>, PrairieLearn provides
-                a powerful foundation for your assignments and assessments.
+                and{" "}
+                <Link href="https://prairielearn.readthedocs.io/en/latest/devElements/">
+                  custom elements
+                </Link>
+                , PrairieLearn provides a powerful foundation for your
+                assignments and assessments.
               </p>
             </div>
           </div>
