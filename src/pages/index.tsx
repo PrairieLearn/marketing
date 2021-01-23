@@ -3,7 +3,6 @@ import Head from "next/head";
 import Link from "next/link";
 import classnames from "classnames";
 
-import { HomepageHero } from "../components/HomepageHero";
 import { HomepageHeading } from "../components/HomepageHeading";
 import { ExampleEditor } from "../components/ExampleEditor";
 import { ExampleQuestion } from "../components/ExampleQuestion";
