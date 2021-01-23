@@ -14,10 +14,10 @@ const DEMO_QUESTION_HTML = `
   <p>
     Suppose a ball is thrown from a level surface at a
     {{params.angle}}° angle with a velocity of
-    {{params.velocity}} m/s. How far will the ball travel?
+    {{params.velocity}}m/s. How far will the ball travel?
   </p>
 </pl-question-panel>
-<pl-integer-input answers-name="distance" suffix="m/s"><pl-integer-input>
+<pl-integer-input answers-name="distance" suffix="meters"><pl-integer-input>
 `.trim();
 
 const DEMO_QUESTION_PYTHON = `
@@ -194,7 +194,7 @@ export default function Home() {
             href="https://github.com/PrairieLearn/PrairieLearn"
             className="btn btn-light me-3"
           >
-            Github →
+            GitHub →
           </a>
           <a
             href="https://prairielearn.readthedocs.io/en/latest/"
