@@ -29,8 +29,8 @@ export const ExampleEditor: React.FC<ExampleEditorProps> = ({ files }) => {
   }, [selectedFileIndex, preRef.current]);
 
   return (
-    <div className="card border-0 overflow-hidden">
-      <div className={classnames(styles.header, "card-header text-white")}>
+    <div className="card border-0 overflow-hidden shadow">
+      <div className={classnames(styles.header, "card-header")}>
         {singleFile && file.filename}
         {!singleFile && (
           <ul className="list-inline mb-0">

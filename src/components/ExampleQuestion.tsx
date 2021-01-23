@@ -37,8 +37,11 @@ export const ExampleQuestion: React.FC = () => {
   };
 
   return (
-    <div className="card">
-      <div className="card-header">Question 5: Ball trajectory</div>
+    <div className="card shadow">
+      <div className="card-header d-flex align-items-center">
+        <span className="badge rounded-pill bg-success me-3">Try me!</span>
+        Question 5: Ball trajectory
+      </div>
       <div className="card-body">
         <p>
           Suppose a ball is thrown from a level surface at a {angle}° angle with
@@ -52,7 +55,7 @@ export const ExampleQuestion: React.FC = () => {
             onChange={(e) => setAnswer(e.target.value)}
           />
           <span className="input-group-text">
-            <span className="me-2">meters</span>
+            <span className="me-2">m</span>
             {graded && correct && (
               <span className="badge bg-success">100%</span>
             )}
