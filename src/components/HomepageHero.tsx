@@ -16,6 +16,15 @@ export const HomepageHero: React.FC = ({ children }) => {
           PrairieLearn empowers instructors to build content that helps their
           students achieve mastery.
         </p>
+        <a href="foobar" className="btn btn-light btn-lg me-3">
+          Documentation
+        </a>
+        <a
+          href="mailto:hello@prairielearn.com"
+          className="btn btn-outline-light btn-lg"
+        >
+          Get in touch
+        </a>
       </div>
     </div>
   );
