@@ -39,7 +39,7 @@ export const ExampleQuestion: React.FC = () => {
 
   return (
     <Stack spacing={2}>
-      <div className="card">
+      <div className="card shadow">
         <div className="card-header d-flex align-items-center">
           <span className="badge rounded-pill bg-success me-3">Try me!</span>
           Question 5: Ball trajectory
