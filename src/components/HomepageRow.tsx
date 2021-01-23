@@ -1,5 +1,12 @@
 import React from "react";
+import classnames from "classnames";
 
-export const HomepageRow: React.FC = ({ children }) => (
-  <div className="row mb-3 mb-md-5">{children}</div>
-);
+interface HomepageRowProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+export const HomepageRow: React.FC<HomepageRowProps> = ({
+  children,
+  className,
+}) => <div className={classnames("row", className)}>{children}</div>;
