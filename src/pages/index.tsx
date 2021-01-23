@@ -1,12 +1,12 @@
 import React from "react";
 import Head from "next/head";
+import Link from "next/link";
 
 import { HomepageHero } from "../components/HomepageHero";
 import { HomepageHeading } from "../components/HomepageHeading";
 import { ExampleEditor } from "../components/ExampleEditor";
 import { ExampleQuestion } from "../components/ExampleQuestion";
 import { HomepageRow } from "../components/HomepageRow";
-import { Link } from "../components/Link";
 
 const DEMO_QUESTION_HTML = `
 <pl-question-panel>
@@ -132,6 +132,69 @@ export default function Home() {
             <div className="display-5 lh-1">100+</div>
           </div>
         </HomepageRow>
+      </div>
+      <div className="mt-3 mt-md-5 py-3 py-md-5 bg-dark">
+        <div className="container">
+          <h2 className="text-white">Open-source. Forever.</h2>
+          <p className="text-white ">
+            PrairieLearn began life as open-source software, and we're committed
+            to making sure it stays that way. With an active developer community
+            of professors, course staff, and students, PrairieLearn gets better
+            all the time.
+          </p>
+          <div className="row">
+            <div className="col-6 col-sm-4 mb-3">
+              <div className="small text-muted">Commits</div>
+              <div className="display-5 lh-1 text-white">5,000+</div>
+            </div>
+            <div className="col-6 col-sm-4 mb-3">
+              <div className="small text-muted">Contributors</div>
+              <div className="display-5 lh-1 text-white">60+</div>
+            </div>
+            <div className="col-6 col-sm-4 mb-3">
+              <div className="small text-muted">Merged pull requests</div>
+              <div className="display-5 lh-1 text-white">1,800+</div>
+            </div>
+          </div>
+          <a
+            href="https://github.com/PrairieLearn/PrairieLearn"
+            className="btn btn-light me-3"
+          >
+            Github →
+          </a>
+          <a
+            href="https://prairielearn.readthedocs.io/en/latest/"
+            className="btn btn-light"
+          >
+            Documentation →
+          </a>
+        </div>
+      </div>
+      <div className="container my-3 my-md-5">
+        <h2>Get started</h2>
+        <p>
+          New to PrairieLearn? Check out the{" "}
+          <Link href="/gallery">
+            <a>question gallery</a>
+          </Link>{" "}
+          to see what's possible with PrairieLearn, or head over to{" "}
+          <a href="https://prairielearn.readthedocs.io/en/latest/">
+            the documentation
+          </a>{" "}
+          to learn how to set up PrairieLearn on your computer and start
+          creating content.
+        </p>
+        <p>
+          Looking for managed hosting, instructional workshops, and direct
+          support? Want a personalized demo of all PrairieLearn has to offer?
+          Reach out to us, and we'll get back to you with more details.
+        </p>
+        <a
+          href="mailto:hello@prairielearn.com"
+          className="btn btn-primary btn-lg"
+        >
+          Get in touch
+        </a>
       </div>
     </React.Fragment>
   );
