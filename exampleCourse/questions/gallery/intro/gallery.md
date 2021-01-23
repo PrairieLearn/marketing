@@ -49,7 +49,7 @@ We now have a question that can correctly grade itslef - a student entering "186
 
 The above question is still relatively simple. It can grade itself, but that's about it. PrairieLearn really shines when you can introduce an element of randomization to questions.
 
-To facilitate randomization, `question.html` files support the [Mustahce template syntax](https://mustache.github.io). This allows you to easily include dynamically-generated values in your questions. Let's modify our previous `question.html` file to support randomization:
+To facilitate randomization, `question.html` files support the [Mustache template syntax](https://mustache.github.io). This allows you to easily include dynamically-generated values in your questions. Let's modify our previous `question.html` file to support randomization:
 
 ```html
 <p>
