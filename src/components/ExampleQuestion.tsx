@@ -1,5 +1,4 @@
 import React from "react";
-import Stack from "./Stack";
 
 const randomNumber = (min: number, max: number, precision: number) => {
   const factor = Math.pow(10, precision);
@@ -38,48 +37,44 @@ export const ExampleQuestion: React.FC = () => {
   };
 
   return (
-    <Stack spacing={2}>
-      <div className="card shadow">
-        <div className="card-header d-flex align-items-center">
-          <span className="badge rounded-pill bg-success me-3">Try me!</span>
-          Question 5: Ball trajectory
-        </div>
-        <div className="card-body">
-          <p>
-            Suppose a ball is thrown from a level surface at a {angle}° angle
-            with a velocity of {velocity} m/s. How far will the ball travel?
-          </p>
-          <span className="input-group">
-            <input
-              type="text"
-              className="form-control"
-              value={answer}
-              onChange={(e) => setAnswer(e.target.value)}
-            />
-            <span className="input-group-text">
-              <span className="me-2">meters</span>
-              {graded && correct && (
-                <span className="badge bg-success">100%</span>
-              )}
-              {graded && !correct && (
-                <span className="badge bg-danger">0%</span>
-              )}
-            </span>
-          </span>
-        </div>
-        <div className="card-footer d-flex justify-content-end">
-          <button
-            type="button"
-            className="btn btn-primary me-2"
-            onClick={newVariant}
-          >
-            New variant
-          </button>
-          <button type="button" className="btn btn-primary" onClick={grade}>
-            Grade
-          </button>
-        </div>
+    <div className="card shadow">
+      <div className="card-header d-flex align-items-center">
+        <span className="badge rounded-pill bg-success me-3">Try me!</span>
+        Question 5: Ball trajectory
       </div>
-    </Stack>
+      <div className="card-body">
+        <p>
+          Suppose a ball is thrown from a level surface at a {angle}° angle with
+          a velocity of {velocity} m/s. How far will the ball travel?
+        </p>
+        <span className="input-group">
+          <input
+            type="text"
+            className="form-control"
+            value={answer}
+            onChange={(e) => setAnswer(e.target.value)}
+          />
+          <span className="input-group-text">
+            <span className="me-2">meters</span>
+            {graded && correct && (
+              <span className="badge bg-success">100%</span>
+            )}
+            {graded && !correct && <span className="badge bg-danger">0%</span>}
+          </span>
+        </span>
+      </div>
+      <div className="card-footer d-flex justify-content-end">
+        <button
+          type="button"
+          className="btn btn-primary me-2"
+          onClick={newVariant}
+        >
+          New variant
+        </button>
+        <button type="button" className="btn btn-primary" onClick={grade}>
+          Grade
+        </button>
+      </div>
+    </div>
   );
 };
