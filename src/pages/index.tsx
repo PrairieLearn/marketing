@@ -55,16 +55,7 @@ export default function Home() {
                   templates make it easy to get started writing questions. A
                   broad variety of building blocks like number inputs and
                   multiple choice responses come built-in, so you can hit the
-                  ground running. Once you're ready, you can take advantage of
-                  powerful features like{" "}
-                  <Link href="https://prairielearn.readthedocs.io/en/latest/externalGrading/">
-                    code autograding
-                  </Link>{" "}
-                  and{" "}
-                  <Link href="https://prairielearn.readthedocs.io/en/latest/workspaces/">
-                    in-browser IDEs
-                  </Link>
-                  .
+                  ground running.
                 </p>
               </div>
             </div>
@@ -86,12 +77,14 @@ export default function Home() {
             <div className="row justify-content-center">
               <div className="col-md-8">
                 <HomepageHeading>
-                  Flexible generation and grading
+                  Automatic generation and grading
                 </HomepageHeading>
                 <p>
                   Once you've defined an HTML template, generate parameters for
                   your question with the power of Python and popular libraries
-                  like numpy and matplotlib.
+                  like numpy and matplotlib. And questions grade themselves,
+                  from simple multiple-choice questions to free-body diagrams to
+                  code, so instructors can focus on the important things.
                 </p>
               </div>
             </div>
@@ -118,8 +111,8 @@ export default function Home() {
                 <p>
                   Once a question has been defined in code, it can be reused in
                   any future assessment. And students can keep trying new
-                  variants of difficult questions until they've mastered the
-                  topic—without the need to manually write new questions.
+                  variants of difficult problems until they've mastered the
+                  topic—no need for you to manually write new questions.
                 </p>
               </div>
             </div>
@@ -129,45 +122,49 @@ export default function Home() {
               </div>
             </div>
           </Stack>
-          <HomepageRow>
-            <div className="col-md-6">
-              <HomepageHeading>Save time grading</HomepageHeading>
+          <div className="row justify-content-center">
+            <div className="col-md-8">
+              <HomepageHeading>Limitless flexibility</HomepageHeading>
               <p>
-                From simple multiple-choice questions to free-body diagrams to
-                code, questions grade themselves, so instructors can focus on
-                the important things.
+                From{" "}
+                <Link href="https://prairielearn.readthedocs.io/en/latest/externalGrading/">
+                  code autograding
+                </Link>{" "}
+                and{" "}
+                <Link href="https://prairielearn.readthedocs.io/en/latest/workspaces/">
+                  in-browser IDEs
+                </Link>{" "}
+                to{" "}
+                <Link href="https://prairielearn.readthedocs.io/en/latest/assessment/#enabling-group-work-for-collaborative-assessments">
+                  collaborative assignments
+                </Link>{" "}
+                and <Link href="">custom elements</Link>, PrairieLearn provides
+                a powerful foundation for your assignments and assessments.
               </p>
             </div>
-            <div className="col-md-6">
-              <ExampleEditor
-                files={[
-                  {
-                    filename: "server.py",
-                    language: "python",
-                    code: DEMO_PYTHON_GRADER,
-                  },
-                ]}
-              />
+          </div>
+          <div>
+            <div className="row justify-content-center">
+              <div className="col-md-8">
+                <HomepageHeading>Trusted by the best</HomepageHeading>
+                <p>
+                  Instructors at top universities in the United States and
+                  Canada have been using PrairieLearn to teach the next
+                  generation of engineers, scientists, and businesspeople.
+                </p>
+              </div>
             </div>
-          </HomepageRow>
-          <HomepageRow>
-            <HomepageHeading>Trusted by the best</HomepageHeading>
-            <div className="col-md-6">
-              <p>
-                Instructors at top universities in the United States and Canada
-                have been using PrairieLearn to teach the next generation of
-                engineers, scientists, and businesspeople.
-              </p>
+            <div className="row justify-content-center">
+              <div className="col-6 col-md-3">
+                <div className="small text-muted">Students</div>
+                <div className="display-5 lh-1">15,000+</div>
+              </div>
+              <div className="col-6 col-md-3">
+                <div className="small text-muted">Courses</div>
+                <div className="display-5 lh-1">100+</div>
+              </div>
             </div>
-            <div className="col-6 col-md-3">
-              <div className="small text-muted">Students</div>
-              <div className="display-5 lh-1">15,000+</div>
-            </div>
-            <div className="col-6 col-md-3">
-              <div className="small text-muted">Courses</div>
-              <div className="display-5 lh-1">100+</div>
-            </div>
-          </HomepageRow>
+          </div>
         </Stack>
       </div>
       <div className="mt-3 mt-md-5 py-3 py-md-5 bg-dark">
@@ -208,7 +205,7 @@ export default function Home() {
         </div>
       </div>
       <div className="container my-3 my-md-5">
-        <h2>Get started</h2>
+        <HomepageHeading>Get started</HomepageHeading>
         <p>
           New to PrairieLearn? Check out the{" "}
           <Link href="/gallery">
