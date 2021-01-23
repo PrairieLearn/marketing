@@ -55,7 +55,7 @@ export const ExampleQuestion: React.FC = () => {
             onChange={(e) => setAnswer(e.target.value)}
           />
           <span className="input-group-text">
-            <span className="me-2">meters</span>
+            <span className="me-2">m</span>
             {graded && correct && (
               <span className="badge bg-success">100%</span>
             )}
