@@ -1,13 +1,15 @@
 import React from "react";
 import Head from "next/head";
 import Link from "next/link";
+import classnames from "classnames";
 
 import { HomepageHero } from "../components/HomepageHero";
 import { HomepageHeading } from "../components/HomepageHeading";
 import { ExampleEditor } from "../components/ExampleEditor";
 import { ExampleQuestion } from "../components/ExampleQuestion";
-import { HomepageRow } from "../components/HomepageRow";
 import Stack from "../components/Stack";
+
+import styles from "./index.module.scss";
 
 const DEMO_QUESTION_HTML = `
 <pl-question-panel>
@@ -31,10 +33,17 @@ def generate(data):
   data["answers"]["distance"] = distance
 `.trim();
 
-const DEMO_PYTHON_GRADER = `
-def grade(data):
-  # pass
-`.trim();
+const Container: React.FC = ({ children }) => (
+  <div className="container-md my-5">{children}</div>
+);
+
+const Row: React.FC = ({ children }) => (
+  <div className="row justify-content-centerrr">{children}</div>
+);
+
+const Column: React.FC = ({ children }) => (
+  <div className="col">{children}</div>
+);
 
 export default function Home() {
   return (
@@ -42,12 +51,40 @@ export default function Home() {
       <Head>
         <title>PrairieLearn</title>
       </Head>
-      <HomepageHero />
-      <div className="container-md mt-3 mt-md-5">
+      <div className={classnames("container-fluid py-4", styles.container)}>
+        <div className="container-md">
+          <Row>
+            <Column>
+              <h1 className="text-white display-3">
+                <span>The best platform for</span>
+                <br />
+                <span>online courses</span>
+              </h1>
+              <p className="text-white mt-4 fs-3">
+                PrairieLearn empowers instructors to build content that helps
+                their students achieve mastery.
+              </p>
+              <a
+                href="https://prairielearn.readthedocs.io/en/latest/"
+                className="btn btn-light btn-lg me-3"
+              >
+                Documentation
+              </a>
+              <a
+                href="mailto:hello@prairielearn.com"
+                className="btn btn-outline-light btn-lg"
+              >
+                Get in touch
+              </a>
+            </Column>
+          </Row>
+        </div>
+      </div>
+      <Container>
         <Stack spacing={5}>
-          <Stack spacing={1}>
-            <div className="row justify-content-center">
-              <div className="col-lg-8">
+          <Row>
+            <Column>
+              <Stack spacing={3}>
                 <HomepageHeading>Questions as code</HomepageHeading>
                 <p>
                   PrairieLearn questions are defined as code, which is what
@@ -57,10 +94,6 @@ export default function Home() {
                   multiple choice responses come built-in, so you can hit the
                   ground running.
                 </p>
-              </div>
-            </div>
-            <div className="row justify-content-center">
-              <div className="col-lg-8">
                 <ExampleEditor
                   files={[
                     {
@@ -70,12 +103,12 @@ export default function Home() {
                     },
                   ]}
                 />
-              </div>
-            </div>
-          </Stack>
-          <Stack spacing={1}>
-            <div className="row justify-content-center">
-              <div className="col-lg-8">
+              </Stack>
+            </Column>
+          </Row>
+          <Row>
+            <Column>
+              <Stack spacing={3}>
                 <HomepageHeading>
                   Automatic generation and grading
                 </HomepageHeading>
@@ -86,27 +119,21 @@ export default function Home() {
                   from simple multiple-choice questions to free-body diagrams to
                   code, so instructors can focus on the important things.
                 </p>
-              </div>
-            </div>
-            <div className="row justify-content-center">
-              <div className="col-lg-8">
-                <Stack spacing={3}>
-                  <ExampleEditor
-                    files={[
-                      {
-                        filename: "server.py",
-                        language: "python",
-                        code: DEMO_QUESTION_PYTHON,
-                      },
-                    ]}
-                  />
-                </Stack>
-              </div>
-            </div>
-          </Stack>
-          <Stack spacing={1}>
-            <div className="row justify-content-center">
-              <div className="col-lg-8">
+                <ExampleEditor
+                  files={[
+                    {
+                      filename: "server.py",
+                      language: "python",
+                      code: DEMO_QUESTION_PYTHON,
+                    },
+                  ]}
+                />
+              </Stack>
+            </Column>
+          </Row>
+          <Row>
+            <Column>
+              <Stack spacing={3}>
                 <HomepageHeading>Write once, use forever</HomepageHeading>
                 <p>
                   Once a question has been defined in code, it can be reused in
@@ -114,51 +141,51 @@ export default function Home() {
                   variants of difficult problems until they've mastered the
                   topic—no need for you to manually write new questions.
                 </p>
-              </div>
-            </div>
-            <div className="row justify-content-center">
-              <div className="col-lg-8">
                 <ExampleQuestion />
-              </div>
-            </div>
-          </Stack>
-          <div className="row justify-content-center">
-            <div className="col-lg-8">
-              <HomepageHeading>Limitless flexibility</HomepageHeading>
-              <p>
-                From{" "}
-                <Link href="https://prairielearn.readthedocs.io/en/latest/externalGrading/">
-                  code autograding
-                </Link>{" "}
-                and{" "}
-                <Link href="https://prairielearn.readthedocs.io/en/latest/workspaces/">
-                  in-browser IDEs
-                </Link>{" "}
-                to{" "}
-                <Link href="https://prairielearn.readthedocs.io/en/latest/assessment/#enabling-group-work-for-collaborative-assessments">
-                  collaborative assignments
-                </Link>{" "}
-                and{" "}
-                <Link href="https://prairielearn.readthedocs.io/en/latest/devElements/">
-                  custom elements
-                </Link>
-                , PrairieLearn provides a powerful foundation for your
-                assignments and assessments.
-              </p>
-            </div>
-          </div>
-          <div>
-            <div className="row justify-content-center">
-              <div className="col-lg-8">
-                <HomepageHeading>Trusted by the best</HomepageHeading>
+              </Stack>
+            </Column>
+          </Row>
+          <Row>
+            <Column>
+              <Stack spacing={3}>
+                <HomepageHeading>Limitless flexibility</HomepageHeading>
                 <p>
-                  Instructors at top universities in the United States and
-                  Canada have been using PrairieLearn to teach the next
-                  generation of engineers, scientists, and businesspeople.
+                  From{" "}
+                  <Link href="https://prairielearn.readthedocs.io/en/latest/externalGrading/">
+                    code autograding
+                  </Link>{" "}
+                  and{" "}
+                  <Link href="https://prairielearn.readthedocs.io/en/latest/workspaces/">
+                    in-browser IDEs
+                  </Link>{" "}
+                  to{" "}
+                  <Link href="https://prairielearn.readthedocs.io/en/latest/assessment/#enabling-group-work-for-collaborative-assessments">
+                    collaborative assignments
+                  </Link>{" "}
+                  and{" "}
+                  <Link href="https://prairielearn.readthedocs.io/en/latest/devElements/">
+                    custom elements
+                  </Link>
+                  , PrairieLearn provides a powerful foundation for your
+                  assignments and assessments.
                 </p>
-              </div>
-            </div>
-            <div className="row justify-content-center">
+              </Stack>
+            </Column>
+          </Row>
+          <Stack spacing={1}>
+            <Row>
+              <Column>
+                <Stack spacing={3}>
+                  <HomepageHeading>Trusted by the best</HomepageHeading>
+                  <p>
+                    Instructors at top universities in the United States and
+                    Canada have been using PrairieLearn to teach the next
+                    generation of engineers, scientists, and businesspeople.
+                  </p>
+                </Stack>
+              </Column>
+            </Row>
+            <Row>
               <div className="col-6 col-md-3">
                 <div className="small text-muted">Students</div>
                 <div className="display-5 lh-1">15,000+</div>
@@ -167,14 +194,14 @@ export default function Home() {
                 <div className="small text-muted">Courses</div>
                 <div className="display-5 lh-1">100+</div>
               </div>
-            </div>
-          </div>
+            </Row>
+          </Stack>
         </Stack>
-      </div>
-      <div className="mt-3 mt-md-5 py-3 py-md-5 bg-dark">
+      </Container>
+      <div className="my-5 py-5 bg-dark">
         <div className="container-md">
-          <div className="row justify-content-center">
-            <div className="col-lg-8">
+          <Row>
+            <Column>
               <h2 className="text-white">Open-source. Forever.</h2>
               <p className="text-white ">
                 PrairieLearn began life as open-source software, and we're
@@ -196,13 +223,13 @@ export default function Home() {
                   Documentation →
                 </a>
               </div>
-            </div>
-          </div>
+            </Column>
+          </Row>
         </div>
       </div>
-      <div className="container-md my-3 my-md-5">
-        <div className="row justify-content-center">
-          <div className="col-md-8">
+      <Container>
+        <Row>
+          <Column>
             <HomepageHeading>Get started</HomepageHeading>
             <p>
               New to PrairieLearn? Check out the{" "}
@@ -228,9 +255,9 @@ export default function Home() {
             >
               Get in touch
             </a>
-          </div>
-        </div>
-      </div>
+          </Column>
+        </Row>
+      </Container>
     </React.Fragment>
   );
 }
