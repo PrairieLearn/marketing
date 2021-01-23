@@ -119,17 +119,17 @@ export default function Home() {
           <div className="col-md-6">
             <p>
               Instructors at top universities in the United States and Canada
-              have used PrairieLearn to teach the next generation of engineers,
-              scientists, and businesspeople.
+              have been using PrairieLearn to teach the next generation of
+              engineers, scientists, and businesspeople.
             </p>
           </div>
           <div className="col-6 col-md-3">
             <div className="small text-muted">Students</div>
-            <div className="display-5 lh-1">40,000</div>
+            <div className="display-5 lh-1">15,000+</div>
           </div>
           <div className="col-6 col-md-3">
             <div className="small text-muted">Courses</div>
-            <div className="display-5 lh-1">300</div>
+            <div className="display-5 lh-1">100+</div>
           </div>
         </HomepageRow>
       </div>
