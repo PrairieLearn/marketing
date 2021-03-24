@@ -4,16 +4,14 @@ import flattenChildren from "react-keyed-flatten-children";
 
 export interface StackProps {
   children: React.ReactNode;
-  className?: string;
   spacing?: 0 | 1 | 2 | 3 | 4 | 5;
 }
 
-const Stack = React.forwardRef<HTMLDivElement, StackProps>((props, ref) => {
-  const { spacing, className, children, ...otherProps } = props;
+const Stack: React.FC<StackProps> = ({ spacing = 3, children }) => {
   const flattenedChildren = flattenChildren(children);
 
   return (
-    <div className={className} ref={ref} {...otherProps}>
+    <div>
       {flattenedChildren.map((child, index) => {
         return (
           <React.Fragment key={(child as any).key || index}>
@@ -30,6 +28,6 @@ const Stack = React.forwardRef<HTMLDivElement, StackProps>((props, ref) => {
       })}
     </div>
   );
-});
+};
 
 export default Stack;

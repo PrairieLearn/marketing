@@ -71,6 +71,7 @@ export default function Home() {
               </a>
               <a
                 href="mailto:hello@prairielearn.com"
+                target="_blank"
                 className="btn btn-outline-light btn-lg"
               >
                 Get in touch
@@ -250,6 +251,7 @@ export default function Home() {
             </p>
             <a
               href="mailto:hello@prairielearn.com"
+              target="_blank"
               className="btn btn-primary btn-lg"
             >
               Get in touch
