@@ -34,7 +34,7 @@ const GalleryPage: React.FC<GalleryPageProps> = ({
   return (
     <React.Fragment>
       <Head>
-        <title>{title} | PrairieLaarn</title>
+        <title>{title} | PrairieLearn</title>
       </Head>
       <div className="container">
         <div className="my-5">

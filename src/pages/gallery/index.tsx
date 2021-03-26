@@ -27,8 +27,8 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ items }) => {
       <Head>
         <title>Gallery | PrairieLearn</title>
       </Head>
-      <div className="container">
-        <div className="my-5">
+      <div className="container my-5">
+        <div className="mb-5">
           <h1 className="display-3">Gallery</h1>
           <p className="lead">
             Explore all the functionality PrairieLearn has to offer.

@@ -42,6 +42,9 @@ export const Header: React.FC = () => {
         >
           <ul className="navbar-nav ms-auto mb-2 mb-sm-0">
             <li className="nav-item">
+              <NavLink href="/pricing">Pricing</NavLink>
+            </li>
+            <li className="nav-item">
               <NavLink href="/gallery">Gallery</NavLink>
             </li>
           </ul>
