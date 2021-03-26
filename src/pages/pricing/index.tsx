@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import CheckIcon from "../../components/CheckIcon";
 import Stack from "../../components/Stack";
+import * as gtag from "../../lib/gtag";
 
 import styles from "./index.module.scss";
 
@@ -73,7 +74,18 @@ export default function Pricing() {
                         <span className="text-muted">/ student / course</span>
                       </div>
                       <Link href="/pricing/contact">
-                        <a className="btn btn-outline-primary">Get started</a>
+                        <a
+                          className="btn btn-outline-primary"
+                          onClick={() => {
+                            gtag.event({
+                              action: "click",
+                              category: "pricing_details",
+                              label: "basic",
+                            });
+                          }}
+                        >
+                          Get started
+                        </a>
                       </Link>
                     </Stack>
                   </div>
@@ -89,7 +101,18 @@ export default function Pricing() {
                         <span className="text-muted">/ student / course</span>
                       </div>
                       <Link href="/pricing/contact">
-                        <a className="btn btn-primary">Get started</a>
+                        <a
+                          className="btn btn-primary"
+                          onClick={() => {
+                            gtag.event({
+                              action: "click",
+                              category: "pricing_details",
+                              label: "premium",
+                            });
+                          }}
+                        >
+                          Get started
+                        </a>
                       </Link>
                     </Stack>
                   </div>
@@ -107,6 +130,13 @@ export default function Pricing() {
                         href="mailto:hello@prairielearn.com"
                         target="_blank"
                         className="btn btn-primary"
+                        onClick={() => {
+                          gtag.event({
+                            action: "click",
+                            category: "contact",
+                            label: "enterprise_pricing",
+                          });
+                        }}
                       >
                         Contact us
                       </a>
