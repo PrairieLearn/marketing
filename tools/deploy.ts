@@ -240,6 +240,7 @@ const deployApiRoutes = async () => {
   }
 
   AWS.config.update({
+    region: AWS_REGION,
     sslEnabled: true,
   });
 
