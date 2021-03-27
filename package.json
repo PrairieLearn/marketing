@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "tsc && next build && next export",
-    "build-lambda-images": "ts-node tools/build-lambda-images.ts",
+    "build-api-images": "ts-node tools/build-api-images.ts",
     "deploy": "ts-node tools/deploy.ts",
     "format": "prettier --write src/",
     "lint": "prettier --check src/",

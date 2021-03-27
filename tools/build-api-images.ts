@@ -1,7 +1,8 @@
 import fs from "fs-extra";
 import path from "path";
 import execa from "execa";
-import { createHash } from "crypto";
+
+import { getApiRoutes, getImageNameForRoute, getImageTag } from "./api-utils";
 
 const createBuildDirectory = async (imageName: string) => {
   const buildDirectory = path.join(".next", "lambda-images", imageName);
@@ -15,8 +16,7 @@ const buildImageForRoute = async (routePath: string, routeBundle: string) => {
 
   // The image name include the hash of the API route. This gives us a
   // deterministic identifier to use between deployments.
-  const routeHash = createHash("sha256").update(routePath).digest("hex");
-  const imageName = `prairielearn/marketing-api-lambda-${routeHash}`;
+  const { name: imageName, hash: routeHash } = getImageNameForRoute(routePath);
 
   // Set up a temporary subdirectory in `.next` in which we can buld our image
   const buildDirectory = await createBuildDirectory(routeHash);
@@ -58,33 +58,29 @@ CMD [ "app.handler" ]
   // Write the Dockerfile to dist
   await fs.writeFile(path.join(buildDirectory, "Dockerfile"), Dockerfile);
 
-  // Build the image
-  // TODO: tag with repo version or something
-  console.log(`Building and tagging ${imageName} for route ${routePath}`);
+  const imageTag = await getImageTag();
 
-  await execa("docker", ["build", ".", "-t", `${imageName}`], {
+  console.log(
+    `Building and tagging ${imageName}:${imageTag} for route ${routePath}`
+  );
+
+  // Build the image
+  await execa("docker", ["build", ".", "-t", `${imageName}:${imageTag}`], {
     cwd: buildDirectory,
   });
 
-  console.log(`Built and tagged ${imageName}`);
+  // Tag the image as `latest`
+  await execa("docker", [
+    "tag",
+    `${imageName}:${imageTag}`,
+    `${imageName}:latest`,
+  ]);
+
+  console.log(`Built and tagged ${imageName}:${imageTag}`);
 };
 
-(async () => {
-  // Enumerate all available pages from the Next build directory
-  const pagesManifest = (await fs.readJson(
-    path.join(".next", "serverless", "pages-manifest.json")
-  )) as Record<string, string>;
-
-  // Build an object of only API routes
-  const apiRoutes = Object.entries(pagesManifest)
-    .filter(([route]) => route.startsWith("/api"))
-    .reduce(
-      (acc, [route, bundle]) => ({
-        ...acc,
-        [route]: bundle,
-      }),
-      {} as Record<string, string>
-    );
+export const buildApiImages = async () => {
+  const apiRoutes = getApiRoutes();
 
   // For each API route, build a new image
   await Promise.all(
@@ -92,7 +88,11 @@ CMD [ "app.handler" ]
       buildImageForRoute(routePath, routeBundle)
     )
   );
-})().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+};
+
+if (require.main === module) {
+  buildApiImages().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+}

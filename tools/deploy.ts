@@ -5,9 +5,8 @@ import globby from "globby";
 import crypto from "crypto";
 import mime from "mime";
 
-const AWS_REGION = "us-east-2";
-const CLOUDFRONT_DISTRIBUTION_ID = "E2O86FEUUQ9OA4";
-const S3_BUCKET_NAME = "prairielearn-marketing-prod";
+import { AWS_REGION, CLOUDFRONT_DISTRIBUTION_ID, S3_BUCKET_NAME } from "./aws";
+
 /**
  * Deletion of "extraneous" files (those not present in the current version)
  * has been disabled because this causes problems for users who are already
