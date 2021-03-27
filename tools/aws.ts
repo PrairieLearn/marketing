@@ -11,14 +11,14 @@ export const LAMBDA_EXECUTION_ROLE =
 export const getEcrRegistryUrl = async () => {
   // ECR registries are tied to account IDs. Determine the account ID dynamically
   // based on the credentials we're running with.
-  const sts = new AWS.STS();
+  const sts = new AWS.STS({ region: AWS_REGION });
   const { Account: accountId } = await sts.getCallerIdentity().promise();
 
   return `${accountId}.dkr.ecr.${AWS_REGION}.amazonaws.com`;
 };
 
 export const loginToEcr = async () => {
-  const ecr = new AWS.ECR();
+  const ecr = new AWS.ECR({ region: AWS_REGION });
   const authData = await ecr.getAuthorizationToken().promise();
   const token = authData.authorizationData?.[0].authorizationToken;
   if (!token) {
