@@ -32,7 +32,11 @@ const deployApiLambda = async (
   // Tag the image with our registry URL and push it to ECR
   const taggedImageName = `${imageName}:${context.imageTag}`;
   const ecrImageName = `${context.ecrRegistryUrl}/${taggedImageName}`;
+
+  console.log(`Tagging ${taggedImageName} as ${ecrImageName}`);
   await execa("docker", ["tag", taggedImageName, ecrImageName]);
+
+  console.log(`Pushing ${ecrImageName} to ECR`);
   await execa("docker", ["push", ecrImageName]);
 
   // Create or update a lambda for this api route
@@ -50,6 +54,7 @@ const deployApiLambda = async (
   if (existingLambda) {
     // We need to update the lambda configuration to reflect the newest image
     // and any environment variables
+    console.log(`Updating existing lambda: ${lambdaName}`);
     await context.lambda
       .updateFunctionConfiguration({
         FunctionName: lambdaName,
@@ -61,6 +66,7 @@ const deployApiLambda = async (
       .promise();
   } else {
     // We need to create a brand-new lambda function
+    console.log(`Creating new lambda: ${lambdaName}`);
     await context.lambda
       .createFunction({
         FunctionName: lambdaName,
