@@ -9,6 +9,18 @@ import {
 import { getApiRoutes, getImageNameForRoute, getImageTag } from "./api-utils";
 import execa from "execa";
 
+const ensureEcrRepository = async (repositoryName: string) => {
+  const ecr = new AWS.ECR({ region: AWS_REGION });
+  const { repositories } = await ecr
+    .describeRepositories({ repositoryNames: [repositoryName] })
+    .promise();
+  if (repositories?.length === 0) {
+    // Need to create a new repository
+    console.log(`Creating ECR repository: ${repositoryName}`);
+    await ecr.createRepository({ repositoryName }).promise();
+  }
+};
+
 const getLambda = async (lambda: AWS.Lambda, lambdaName: string) => {
   try {
     return await lambda
@@ -28,6 +40,10 @@ const deployApiLambda = async (
 ) => {
   // Get the image name for this route
   const { name: imageName, hash: routeHash } = getImageNameForRoute(routePath);
+
+  // Ensure we have a repository to push to - ECR doesn't create them
+  // automatically if they don't exist
+  await ensureEcrRepository(imageName);
 
   // Tag the image with our registry URL and push it to ECR
   const taggedImageName = `${imageName}:${context.imageTag}`;
