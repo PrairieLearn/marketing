@@ -80,7 +80,12 @@ CMD [ "app.handler" ]
 };
 
 export const buildApiImages = async () => {
-  const apiRoutes = getApiRoutes();
+  const apiRoutes = await getApiRoutes();
+
+  console.log("API routes:");
+  Object.entries(apiRoutes).forEach(([routePath, routeBundle]) => {
+    console.log(`- ${routePath}: ${routeBundle}`);
+  });
 
   // For each API route, build a new image
   await Promise.all(
