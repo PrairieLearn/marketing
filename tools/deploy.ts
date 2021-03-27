@@ -210,6 +210,28 @@ const invalidateCloudFrontDistribution = async () => {
   pathsToInvalidate.forEach((p) => console.log(`- ${p}`));
 };
 
+const buildWrappedApiRoutes = async () => {
+  // Enumerate all available pages from the Next build directory
+  const pagesManifest = await fs.readJson(
+    path.join(".next", "serverless", "pages-manifest.json")
+  );
+
+  // Build an object of only API routes
+  const apiRoutes = Object.entries(pagesManifest)
+    .filter(([route]) => route.startsWith("/api"))
+    .reduce(
+      (acc, [route, bundle]) => ({
+        ...acc,
+        [route]: bundle,
+      }),
+      {}
+    );
+};
+
+const deployApiRoutes = async () => {
+  // Enumerate all available API routes from the Next build directory
+};
+
 (async () => {
   // Safety check: ensure project has been built
   if (!(await fs.pathExists(path.join("out", "index.html")))) {
