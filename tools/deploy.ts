@@ -247,9 +247,10 @@ const deployApiRoutes = async () => {
 
   await deployApiImages();
 
-  const uploadedFiles = await uploadFilesToS3(s3);
-  await invalidateCloudFrontDistribution();
-  await deleteRemovedFilesFromS3(s3, uploadedFiles);
+  // Commented out for testing - revert before merging!
+  // const uploadedFiles = await uploadFilesToS3(s3);
+  // await invalidateCloudFrontDistribution();
+  // await deleteRemovedFilesFromS3(s3, uploadedFiles);
 })().catch((err) => {
   console.error(err);
   process.exitCode = 1;
