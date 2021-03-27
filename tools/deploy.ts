@@ -5,6 +5,8 @@ import globby from "globby";
 import crypto from "crypto";
 import mime from "mime";
 
+import { deployApiImages } from "./deploy-api-images";
+
 import { AWS_REGION, CLOUDFRONT_DISTRIBUTION_ID, S3_BUCKET_NAME } from "./aws";
 
 /**
@@ -191,7 +193,7 @@ const deleteRemovedFilesFromS3 = async (
 };
 
 const invalidateCloudFrontDistribution = async () => {
-  const cloudfront = new AWS.CloudFront();
+  const cloudfront = new AWS.CloudFront({ region: AWS_REGION });
   const pathsToInvalidate = await getPathsToInvalidate();
   const params: AWS.CloudFront.Types.CreateInvalidationRequest = {
     DistributionId: CLOUDFRONT_DISTRIBUTION_ID,
@@ -238,11 +240,12 @@ const deployApiRoutes = async () => {
   }
 
   AWS.config.update({
-    region: AWS_REGION,
     sslEnabled: true,
   });
 
-  const s3 = new AWS.S3();
+  const s3 = new AWS.S3({ region: AWS_REGION });
+
+  await deployApiImages();
 
   const uploadedFiles = await uploadFilesToS3(s3);
   await invalidateCloudFrontDistribution();

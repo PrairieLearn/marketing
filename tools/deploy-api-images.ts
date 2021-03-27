@@ -76,10 +76,6 @@ const deployApiLambda = async (
   }
 };
 
-const cleanUpLambdas = async (apiRoutes: Record<string, string>) => {
-  // TODO: remove unused lambda functions
-};
-
 export const deployApiImages = async () => {
   const apiRoutes = await getApiRoutes();
 
@@ -97,7 +93,7 @@ export const deployApiImages = async () => {
     )
   );
 
-  await cleanUpLambdas(apiRoutes);
+  // TODO: in the future we could probably clean up unused API lambdas here.
 };
 
 if (require.main === module) {
