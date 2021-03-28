@@ -11,6 +11,9 @@ export const LAMBDA_EXECUTION_ROLE =
 export const getAwsAccountId = async () => {
   const sts = new AWS.STS({ region: AWS_REGION });
   const { Account: accountId } = await sts.getCallerIdentity().promise();
+  if (!accountId) {
+    throw new Error(`Could not determine account ID`);
+  }
   return accountId;
 };
 

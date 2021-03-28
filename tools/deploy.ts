@@ -247,7 +247,7 @@ const deployApiRoutes = async () => {
 
   const s3 = new AWS.S3({ region: AWS_REGION });
 
-  // await deployApiImages();
+  await deployApiImages();
   await deployApiGateway();
 
   // Commented out for testing - revert before merging!

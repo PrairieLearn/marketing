@@ -2,9 +2,9 @@ import AWS from "aws-sdk";
 import { getApiRoutes, getImageNameForRoute } from "./api-utils";
 import { AWS_REGION, API_GATEWAY_ID, getAwsAccountId } from "./aws";
 
-const OPTIONAL_CATCH_ALL_REGEX = /^\[\[\.\.\.(\w+)\]\]$/;
-const CATCH_ALL_REGEX = /^\[\.\.\.(\w+)\]$/;
-const DYNAMIC_REGEX = /^\[(\w+)\]$/;
+const OPTIONAL_CATCH_ALL_REGEX = /^\[\[\.\.\.([\w-]+)\]\]$/;
+const CATCH_ALL_REGEX = /^\[\.\.\.([\w-]+)\]$/;
+const DYNAMIC_REGEX = /^\[([\w-]+)\]$/;
 
 const createIntegration = async (
   apiGateway: AWS.ApiGatewayV2,
@@ -16,6 +16,10 @@ const createIntegration = async (
       ApiId: API_GATEWAY_ID,
       IntegrationType: "AWS_PROXY",
       IntegrationUri: lambdaArn,
+      // I believe this is correct, but if APIs ever start needing query
+      // parameters and things don't work as expected, we might have to change
+      // this to 1.0.
+      PayloadFormatVersion: "2.0",
     })
     .promise();
 
@@ -27,16 +31,45 @@ const createRoute = async (
   routeKey: string,
   integrationId: string
 ) => {
-  console.log(`Creating route`);
-  const route = await apiGateway
-    .createRoute({
-      ApiId: API_GATEWAY_ID,
-      RouteKey: routeKey,
-      Target: `integrations/${integrationId}`,
-    })
-    .promise();
+  console.log(`Creating route ${routeKey} with integration ${integrationId}`);
+  try {
+    const route = await apiGateway
+      .createRoute({
+        ApiId: API_GATEWAY_ID,
+        RouteKey: routeKey,
+        Target: `integrations/${integrationId}`,
+      })
+      .promise();
 
-  return { routeKey, routeId: route.RouteId };
+    return { routeKey, routeId: route.RouteId };
+  } catch (err) {
+    console.error(`Could not create route ${routeKey}`);
+    throw err;
+  }
+};
+
+const updateLambdaPermissions = async (
+  lambda: AWS.Lambda,
+  accountId: string,
+  lambdaArn: string
+) => {
+  try {
+    await lambda
+      .addPermission({
+        FunctionName: lambdaArn,
+        StatementId: "APIGatewayInvoke",
+        Action: "lambda:InvokeFunction",
+        Principal: "apigateway.amazonaws.com",
+        SourceArn: `arn:aws:execute-api:us-east-2:${accountId}:${API_GATEWAY_ID}/*`,
+      })
+      .promise();
+  } catch (err) {
+    // Most of the time, this permission will already exist. If it does,
+    // we'll get the following error code, which we can safely ignore.
+    if (err.code !== "ResourceConflictException") {
+      throw err;
+    }
+  }
 };
 
 const deleteIntegration = async (
@@ -121,6 +154,15 @@ export const deployApiGateway = async () => {
     ),
   };
 
+  // We also need to ensure that all of our lambdas are able to be invoked by
+  // API Gateway.
+  const lambda = new AWS.Lambda({ region: AWS_REGION });
+  await Promise.all(
+    Object.values(neededIntegrations).map((lambdaArn) =>
+      updateLambdaPermissions(lambda, accountId, lambdaArn)
+    )
+  );
+
   // Build a list of all the routes we'll need
   // Starting with Next.js route syntax, we'll convert it into what API Gateway expects
   const neededRoutes = Object.keys(apiRoutes).map((routePath) => {
@@ -193,23 +235,25 @@ export const deployApiGateway = async () => {
         !allUsedRouteKeys.some((routeKey) => route.RouteKey === routeKey)
     ) ?? [];
 
-  if (unusedIntegrations.length > 0) {
-    console.log("Deleting unused integration");
-    await Promise.all(
-      unusedIntegrations.map(async ({ IntegrationId }) => {
-        if (IntegrationId) {
-          await deleteIntegration(apiGateway, IntegrationId);
-        }
-      })
-    );
-  }
-
+  // Important: we need to delete the routes before we delete the integrations,
+  // as we can't delete an integration while it's still referenced by a route.
   if (unusedRoutes.length > 0) {
     console.log("Deleting unused routes");
     await Promise.all(
       unusedRoutes.map(async ({ RouteId }) => {
         if (RouteId) {
           await deleteRoute(apiGateway, RouteId);
+        }
+      })
+    );
+  }
+
+  if (unusedIntegrations.length > 0) {
+    console.log("Deleting unused integration");
+    await Promise.all(
+      unusedIntegrations.map(async ({ IntegrationId }) => {
+        if (IntegrationId) {
+          await deleteIntegration(apiGateway, IntegrationId);
         }
       })
     );
