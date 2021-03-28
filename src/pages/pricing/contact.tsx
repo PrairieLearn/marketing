@@ -1,7 +1,66 @@
 import React from "react";
 import Head from "next/head";
+import Stack from "../../components/Stack";
+
+type HTMLInputProps = React.AllHTMLAttributes<HTMLInputElement>;
+
+interface InputProps {
+  component?: "input" | "textarea";
+  id: string;
+  label: string;
+  onChange: (value: string) => void;
+  type?: HTMLInputProps["type"];
+  value: string;
+}
+
+const Input: React.FC<InputProps> = ({
+  component: Component = "input",
+  id,
+  label,
+  onChange,
+  type,
+  value,
+}) => (
+  <div>
+    <label className="form-label" htmlFor={id}>
+      {label}
+    </label>
+    <Component
+      className="form-control"
+      value={value}
+      onChange={(
+        e: React.ChangeEvent<HTMLInputElement & HTMLTextAreaElement>
+      ) => onChange(e.target.value)}
+      type={type}
+      id={id}
+    />
+  </div>
+);
 
 export default function Contact() {
+  const [firstName, setFirstName] = React.useState("");
+  const [lastName, setLastName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [organization, setOrganization] = React.useState("");
+  const [message, setMessage] = React.useState("");
+
+  const submit = () => {
+    fetch("/api/contact", {
+      body: JSON.stringify({
+        firstName,
+        lastName,
+        email,
+        organization,
+        message,
+      }),
+    })
+      .then((data) => {
+        if (data.ok) {
+        }
+      })
+      .catch((err) => {});
+  };
+
   return (
     <React.Fragment>
       <Head>
@@ -11,24 +70,83 @@ export default function Contact() {
         <div className="mb-5">
           <h1 className="display-3">Pricing information</h1>
         </div>
-        <p>
-          Thanks for your interest in PrairieLearn! We're still getting our
-          hosted infrastructure set up, so we're not quite ready to accept
-          signups yet. If you're interested in being one of our early partners
-          or would like to learn more about how PrairieLearn could help your
-          course or institution,{" "}
-          <a href="mailto:hello@prairielearn.com" target="_blank">
-            let us know
-          </a>
-          !
-        </p>
-        <a
-          className="btn btn-primary"
-          href="mailto:hello@prairielearn.com"
-          target="_blank"
-        >
-          Get in touch
-        </a>
+        <div className="row">
+          <div className="col-12 col-lg-6">
+            <p>
+              Thanks for your interest in PrairieLearn! We're still getting our
+              hosted infrastructure set up, so we're not quite ready to accept
+              signups yet. If you're interested in being one of our early
+              partners or would like to learn more about how PrairieLearn could
+              help your course or institution,{" "}
+              <a href="mailto:hello@prairielearn.com" target="_blank">
+                let us know
+              </a>
+              !
+            </p>
+          </div>
+          <div className="col-12 col-lg-6">
+            <div className="card shadow">
+              <div className="card-body">
+                <Stack spacing={3}>
+                  <div className="text-center">
+                    <h2>Contact us</h2>
+                    <p className="text-muted">
+                      Tell us how we can help and we'll be in touch soon.
+                    </p>
+                  </div>
+                  <div className="row">
+                    <div className="col-6">
+                      <Input
+                        id="first-name"
+                        label="First name"
+                        onChange={setFirstName}
+                        value={firstName}
+                      />
+                    </div>
+                    <div className="col-6">
+                      <Input
+                        id="last-name"
+                        label="Last name"
+                        onChange={setLastName}
+                        value={lastName}
+                      />
+                    </div>
+                  </div>
+                  <Input
+                    id="email"
+                    label="Email"
+                    type="email"
+                    onChange={setEmail}
+                    value={email}
+                  />
+                  <Input
+                    id="organization"
+                    label="School / organization"
+                    type="email"
+                    onChange={setOrganization}
+                    value={organization}
+                  />
+                  <Input
+                    component="textarea"
+                    id="message"
+                    label="What can we help you with?"
+                    onChange={setMessage}
+                    value={message}
+                  />
+                  <div className="d-grid">
+                    <button
+                      type="button"
+                      className="btn btn-primary"
+                      onClick={submit}
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </Stack>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </React.Fragment>
   );

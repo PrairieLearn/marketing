@@ -67,7 +67,7 @@ const deployApiLambda = async (
     // into the underlying Lambda environment. This list is currently
     // hardcoded.
     // TODO: is there a more generic way to do this?
-    SLACK_TOKEN: process.env.SLACK_TOKEN as string,
+    SLACK_WEBHOOK_CONTACT_US: process.env.SLACK_WEBHOOK_CONTACT_US as string,
   };
 
   if (existingLambda) {
