@@ -37,11 +37,50 @@ const Input: React.FC<InputProps> = ({
   </div>
 );
 
+interface SelectProps {
+  id: string;
+  label: string;
+  onChange: (value: string) => void;
+  options: string[];
+  value: string;
+}
+
+const Select: React.FC<SelectProps> = ({
+  id,
+  label,
+  onChange,
+  options,
+  value,
+}) => (
+  <div>
+    <label className="form-label" htmlFor="id">
+      {label}
+    </label>
+    <select
+      className="form-select"
+      value={value}
+      onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+        onChange(e.target.value)
+      }
+    >
+      <option value="" disabled selected hidden>
+        Select an option
+      </option>
+      {options.map((label) => (
+        <option value={label} key={label}>
+          {label}
+        </option>
+      ))}
+    </select>
+  </div>
+);
+
 export default function Contact() {
   const [firstName, setFirstName] = React.useState("");
   const [lastName, setLastName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [organization, setOrganization] = React.useState("");
+  const [role, setRole] = React.useState("");
   const [message, setMessage] = React.useState("");
 
   const submit = () => {
@@ -76,12 +115,8 @@ export default function Contact() {
               Thanks for your interest in PrairieLearn! We're still getting our
               hosted infrastructure set up, so we're not quite ready to accept
               signups yet. If you're interested in being one of our early
-              partners or would like to learn more about how PrairieLearn could
-              help your course or institution,{" "}
-              <a href="mailto:hello@prairielearn.com" target="_blank">
-                let us know
-              </a>
-              !
+              adopters or would like to learn more about how PrairieLearn could
+              help your course or institution, let us know!
             </p>
           </div>
           <div className="col-12 col-lg-6">
@@ -125,6 +160,13 @@ export default function Contact() {
                     type="email"
                     onChange={setOrganization}
                     value={organization}
+                  />
+                  <Select
+                    id="role"
+                    label="Role"
+                    onChange={setRole}
+                    options={["Administrator", "Instructor", "TA", "Other"]}
+                    value={role}
                   />
                   <Input
                     component="textarea"
