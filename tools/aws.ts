@@ -3,16 +3,21 @@ import execa from "execa";
 
 export const AWS_REGION = "us-east-2";
 export const CLOUDFRONT_DISTRIBUTION_ID = "E2O86FEUUQ9OA4";
-export const API_GATEWAY_ID = "";
+export const API_GATEWAY_ID = "mxypxe62o6";
 export const S3_BUCKET_NAME = "prairielearn-marketing-prod";
 export const LAMBDA_EXECUTION_ROLE =
   "arn:aws:iam::769954110362:role/marketing-api-lambda-role";
 
+export const getAwsAccountId = async () => {
+  const sts = new AWS.STS({ region: AWS_REGION });
+  const { Account: accountId } = await sts.getCallerIdentity().promise();
+  return accountId;
+};
+
 export const getEcrRegistryUrl = async () => {
   // ECR registries are tied to account IDs. Determine the account ID dynamically
   // based on the credentials we're running with.
-  const sts = new AWS.STS({ region: AWS_REGION });
-  const { Account: accountId } = await sts.getCallerIdentity().promise();
+  const accountId = await getAwsAccountId();
 
   return `${accountId}.dkr.ecr.${AWS_REGION}.amazonaws.com`;
 };

@@ -89,6 +89,7 @@ const deployApiLambda = async (
     await context.lambda
       .createFunction({
         FunctionName: lambdaName,
+        PackageType: "Image",
         Role: LAMBDA_EXECUTION_ROLE,
         Code: {
           ImageUri: ecrImageName,

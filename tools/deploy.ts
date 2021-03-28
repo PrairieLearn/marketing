@@ -8,6 +8,7 @@ import mime from "mime";
 import { deployApiImages } from "./deploy-api-images";
 
 import { AWS_REGION, CLOUDFRONT_DISTRIBUTION_ID, S3_BUCKET_NAME } from "./aws";
+import { deployApiGateway } from "./deploy-api-gateway";
 
 /**
  * Deletion of "extraneous" files (those not present in the current version)
@@ -246,7 +247,8 @@ const deployApiRoutes = async () => {
 
   const s3 = new AWS.S3({ region: AWS_REGION });
 
-  await deployApiImages();
+  // await deployApiImages();
+  await deployApiGateway();
 
   // Commented out for testing - revert before merging!
   // const uploadedFiles = await uploadFilesToS3(s3);
