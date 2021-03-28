@@ -63,7 +63,7 @@ const Select: React.FC<SelectProps> = ({
         onChange(e.target.value)
       }
     >
-      <option value="" disabled selected hidden>
+      <option value="" disabled hidden>
         Select an option
       </option>
       {options.map((label) => (
@@ -75,6 +75,8 @@ const Select: React.FC<SelectProps> = ({
   </div>
 );
 
+type SubmissionState = "unsubmitted" | "submitting" | "submitted" | "error";
+
 export default function Contact() {
   const [firstName, setFirstName] = React.useState("");
   const [lastName, setLastName] = React.useState("");
@@ -83,21 +85,28 @@ export default function Contact() {
   const [role, setRole] = React.useState("");
   const [message, setMessage] = React.useState("");
 
+  const [submissionState, setSubmissionState] = React.useState<SubmissionState>(
+    "unsubmitted"
+  );
+
   const submit = () => {
+    setSubmissionState("submitting");
     fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         firstName,
         lastName,
         email,
         organization,
+        role,
         message,
       }),
     })
-      .then((data) => {
-        if (data.ok) {
-        }
-      })
-      .catch((err) => {});
+      .then((data) => setSubmissionState(data.ok ? "submitted" : "error"))
+      .catch(() => setSubmissionState("error"));
   };
 
   return (
@@ -122,69 +131,85 @@ export default function Contact() {
           <div className="col-12 col-lg-6">
             <div className="card shadow">
               <div className="card-body">
-                <Stack spacing={3}>
+                {submissionState !== "submitted" && (
+                  <Stack spacing={3}>
+                    <div className="text-center">
+                      <h2>Contact us</h2>
+                      <p className="text-muted">
+                        Tell us how we can help and we'll be in touch soon.
+                      </p>
+                    </div>
+                    <div className="row">
+                      <div className="col-6">
+                        <Input
+                          id="first-name"
+                          label="First name"
+                          onChange={setFirstName}
+                          value={firstName}
+                        />
+                      </div>
+                      <div className="col-6">
+                        <Input
+                          id="last-name"
+                          label="Last name"
+                          onChange={setLastName}
+                          value={lastName}
+                        />
+                      </div>
+                    </div>
+                    <Input
+                      id="email"
+                      label="Email"
+                      type="email"
+                      onChange={setEmail}
+                      value={email}
+                    />
+                    <Input
+                      id="organization"
+                      label="School / organization"
+                      type="email"
+                      onChange={setOrganization}
+                      value={organization}
+                    />
+                    <Select
+                      id="role"
+                      label="Role"
+                      onChange={setRole}
+                      options={["Administrator", "Instructor", "TA", "Other"]}
+                      value={role}
+                    />
+                    <Input
+                      component="textarea"
+                      id="message"
+                      label="What can we help you with?"
+                      onChange={setMessage}
+                      value={message}
+                    />
+                    <div className="d-grid">
+                      <button
+                        type="button"
+                        className="btn btn-primary"
+                        onClick={submit}
+                        disabled={submissionState === "submitting"}
+                      >
+                        Submit
+                      </button>
+                    </div>
+                    {submissionState === "error" && (
+                      <div className="text-danger">
+                        Sorry, something went wrong. Try again in a moment.
+                      </div>
+                    )}
+                  </Stack>
+                )}
+                {submissionState === "submitted" && (
                   <div className="text-center">
-                    <h2>Contact us</h2>
-                    <p className="text-muted">
-                      Tell us how we can help and we'll be in touch soon.
+                    <h2>Thanks!</h2>
+                    <p className="text-muted mb-0">
+                      Someone from our team will be in touch with you soon.
                     </p>
                   </div>
-                  <div className="row">
-                    <div className="col-6">
-                      <Input
-                        id="first-name"
-                        label="First name"
-                        onChange={setFirstName}
-                        value={firstName}
-                      />
-                    </div>
-                    <div className="col-6">
-                      <Input
-                        id="last-name"
-                        label="Last name"
-                        onChange={setLastName}
-                        value={lastName}
-                      />
-                    </div>
-                  </div>
-                  <Input
-                    id="email"
-                    label="Email"
-                    type="email"
-                    onChange={setEmail}
-                    value={email}
-                  />
-                  <Input
-                    id="organization"
-                    label="School / organization"
-                    type="email"
-                    onChange={setOrganization}
-                    value={organization}
-                  />
-                  <Select
-                    id="role"
-                    label="Role"
-                    onChange={setRole}
-                    options={["Administrator", "Instructor", "TA", "Other"]}
-                    value={role}
-                  />
-                  <Input
-                    component="textarea"
-                    id="message"
-                    label="What can we help you with?"
-                    onChange={setMessage}
-                    value={message}
-                  />
-                  <div className="d-grid">
-                    <button
-                      type="button"
-                      className="btn btn-primary"
-                      onClick={submit}
-                    >
-                      Submit
-                    </button>
-                  </div>
-                </Stack>
+                )}
               </div>
             </div>
           </div>

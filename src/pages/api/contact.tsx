@@ -16,16 +16,21 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     return;
   }
 
-  const { name, email, message } = req.body;
+  const { firstName, lastName, email, organization, role, message } = req.body;
+
   await fetch(SLACK_WEBHOOK_CONTACT_US, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       text:
-        `*Name*: ${name}\n` +
+        `*First name*: ${firstName}\n` +
+        `*Last name*: ${lastName}\n` +
         `*Email*: <mailto:${email}|${email}>\n` +
+        `*Organization*: ${organization}\n` +
+        `*Role*: ${role}\n` +
         `*Message*: ${message}`,
     }),
   });
-  res.status(204).send(undefined);
+
+  res.status(204).send("");
 };
