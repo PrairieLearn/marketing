@@ -110,7 +110,7 @@ export const ContactUsForm: React.FC<ContactUsFormProps> = ({
         organization,
         role,
         message,
-        url: document.location,
+        url: document.location.href,
       }),
     })
       .then((data) => setSubmissionState(data.ok ? "submitted" : "error"))
