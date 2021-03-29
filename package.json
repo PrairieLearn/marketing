@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "tsc && next build && next export",
+    "next-build": "next build",
     "build-api-images": "ts-node tools/build-api-images.ts",
     "deploy": "ts-node tools/deploy.ts",
     "format": "prettier --write src/",
