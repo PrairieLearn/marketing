@@ -16,10 +16,9 @@ const createIntegration = async (
       ApiId: API_GATEWAY_ID,
       IntegrationType: "AWS_PROXY",
       IntegrationUri: lambdaArn,
-      // I believe this is correct, but if APIs ever start needing query
-      // parameters and things don't work as expected, we might have to change
-      // this to 1.0.
-      PayloadFormatVersion: "2.0",
+      // The Lambda-Next.js compatability layer we use (@sls-next/next-aws-lambda)
+      // is built for the 1.0 payload version.
+      PayloadFormatVersion: "1.0",
     })
     .promise();
 
