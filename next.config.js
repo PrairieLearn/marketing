@@ -1,4 +1,5 @@
 module.exports = {
+  target: 'serverless',
   images: {
     /**
      * In production mode, we don't want to use the `default` loader,

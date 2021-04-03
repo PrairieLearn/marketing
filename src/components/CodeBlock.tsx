@@ -24,7 +24,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre
-          className={classnames(className, "mb-0 p-2")}
+          className={classnames(className, "mb-0 p-3")}
           style={style}
           ref={preRef}
         >

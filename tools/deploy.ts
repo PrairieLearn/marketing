@@ -5,9 +5,11 @@ import globby from "globby";
 import crypto from "crypto";
 import mime from "mime";
 
-const AWS_REGION = "us-east-2";
-const CLOUDFRONT_DISTRIBUTION_ID = "E2O86FEUUQ9OA4";
-const S3_BUCKET_NAME = "prairielearn-marketing-prod";
+import { deployApiImages } from "./deploy-api-images";
+
+import { AWS_REGION, CLOUDFRONT_DISTRIBUTION_ID, S3_BUCKET_NAME } from "./aws";
+import { deployApiGateway } from "./deploy-api-gateway";
+
 /**
  * Deletion of "extraneous" files (those not present in the current version)
  * has been disabled because this causes problems for users who are already
@@ -192,7 +194,7 @@ const deleteRemovedFilesFromS3 = async (
 };
 
 const invalidateCloudFrontDistribution = async () => {
-  const cloudfront = new AWS.CloudFront();
+  const cloudfront = new AWS.CloudFront({ region: AWS_REGION });
   const pathsToInvalidate = await getPathsToInvalidate();
   const params: AWS.CloudFront.Types.CreateInvalidationRequest = {
     DistributionId: CLOUDFRONT_DISTRIBUTION_ID,
@@ -221,8 +223,12 @@ const invalidateCloudFrontDistribution = async () => {
     sslEnabled: true,
   });
 
-  const s3 = new AWS.S3();
+  // Deploy APIs first so that they'll be available by the time the frontend
+  // code gets deployed.
+  await deployApiImages();
+  await deployApiGateway();
 
+  const s3 = new AWS.S3({ region: AWS_REGION });
   const uploadedFiles = await uploadFilesToS3(s3);
   await invalidateCloudFrontDistribution();
   await deleteRemovedFilesFromS3(s3, uploadedFiles);
