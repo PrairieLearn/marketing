@@ -36,7 +36,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         `*Email*: <mailto:${email}|${email}>\n` +
         `*Organization*: ${organization}\n` +
         `*Role*: ${role}\n` +
-        `*Message*: ${message}` +
+        `*Message*: ${message}\n` +
         `*URL*: ${url}`,
     }),
   });
