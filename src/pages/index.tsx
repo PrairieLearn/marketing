@@ -69,13 +69,9 @@ export default function Home() {
               >
                 Documentation
               </a>
-              <a
-                href="mailto:hello@prairielearn.com"
-                target="_blank"
-                className="btn btn-outline-light btn-lg"
-              >
-                Get in touch
-              </a>
+              <Link href="/contact">
+                <a className="btn btn-outline-light btn-lg">Get in touch</a>
+              </Link>
             </Column>
           </Row>
         </div>
@@ -249,13 +245,9 @@ export default function Home() {
               offer? Reach out to us, and we'll get back to you with more
               details.
             </p>
-            <a
-              href="mailto:hello@prairielearn.com"
-              target="_blank"
-              className="btn btn-primary btn-lg"
-            >
-              Get in touch
-            </a>
+            <Link href="/contact">
+              <a className="btn btn-primary btn-lg">Get in touch</a>
+            </Link>
           </Column>
         </Row>
       </Container>

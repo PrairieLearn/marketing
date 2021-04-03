@@ -13,8 +13,8 @@ export default function Contact() {
         <h1 className="display-3">Contact us</h1>
         <p className="lead mb-5">
           Want to learn more about how PrairieLearn can help your course or
-          institution? Need to schedule a demo? Let us know below and someone
-          from our team will be in touch soon.
+          institution? Need to schedule a demo? Interested in managed hosting?
+          Let us know below and someone from our team will be in touch soon.
         </p>
         <div className="row justify-content-center">
           <div className="col col-md-8">
