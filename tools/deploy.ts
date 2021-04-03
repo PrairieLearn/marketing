@@ -212,28 +212,6 @@ const invalidateCloudFrontDistribution = async () => {
   pathsToInvalidate.forEach((p) => console.log(`- ${p}`));
 };
 
-const buildWrappedApiRoutes = async () => {
-  // Enumerate all available pages from the Next build directory
-  const pagesManifest = await fs.readJson(
-    path.join(".next", "serverless", "pages-manifest.json")
-  );
-
-  // Build an object of only API routes
-  const apiRoutes = Object.entries(pagesManifest)
-    .filter(([route]) => route.startsWith("/api"))
-    .reduce(
-      (acc, [route, bundle]) => ({
-        ...acc,
-        [route]: bundle,
-      }),
-      {}
-    );
-};
-
-const deployApiRoutes = async () => {
-  // Enumerate all available API routes from the Next build directory
-};
-
 (async () => {
   // Safety check: ensure project has been built
   if (!(await fs.pathExists(path.join("out", "index.html")))) {
@@ -245,15 +223,15 @@ const deployApiRoutes = async () => {
     sslEnabled: true,
   });
 
-  const s3 = new AWS.S3({ region: AWS_REGION });
-
+  // Deploy APIs first so that they'll be available by the time the frontend
+  // code gets deployed.
   await deployApiImages();
   await deployApiGateway();
 
-  // Commented out for testing - revert before merging!
-  // const uploadedFiles = await uploadFilesToS3(s3);
-  // await invalidateCloudFrontDistribution();
-  // await deleteRemovedFilesFromS3(s3, uploadedFiles);
+  const s3 = new AWS.S3({ region: AWS_REGION });
+  const uploadedFiles = await uploadFilesToS3(s3);
+  await invalidateCloudFrontDistribution();
+  await deleteRemovedFilesFromS3(s3, uploadedFiles);
 })().catch((err) => {
   console.error(err);
   process.exitCode = 1;

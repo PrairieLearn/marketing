@@ -37,12 +37,3 @@ jobs:
 
       - name: Build API images
         run: yarn build-api-images
-
-      # Only for testing
-      # TODO: remove from this workflow
-      - name: Deploy
-        run: yarn deploy
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          SLACK_WEBHOOK_CONTACT_US: ${{ secrets.SLACK_WEBHOOK_CONTACT_US }}

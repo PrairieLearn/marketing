@@ -2,8 +2,6 @@ import fetch from "node-fetch";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  console.log(req.method);
-  console.log(req);
   if (req.method !== "POST") {
     res.status(405).send({ error: "Method Not Allowed" });
     return;
