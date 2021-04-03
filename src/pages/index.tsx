@@ -55,9 +55,7 @@ export default function Home() {
           <Row>
             <Column>
               <h1 className="text-white display-3">
-                <span>The best platform for</span>
-                <br />
-                <span>online courses</span>
+                <span>The best platform for online assessments</span>
               </h1>
               <p className="text-white mt-4 fs-3">
                 PrairieLearn empowers instructors to build content that helps
