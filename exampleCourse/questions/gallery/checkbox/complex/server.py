@@ -22,8 +22,7 @@ def generate(data):
 
     # Get "n" animals from the "true" group
     n = random.choice([2,3])
-    random.shuffle(animals[group])
-    true_ans = animals[group][:n]
+    true_ans = random.sample(animals[group], n)
 
     # Storing the correct answers in the data dictionary
     for i in range(n):
@@ -34,8 +33,7 @@ def generate(data):
     all_remaining_animals = []
     for g in remaining_groups:
         all_remaining_animals += animals[g]
-    random.shuffle(all_remaining_animals)
-    false_ans = all_remaining_animals[:(6-n)]
+    false_ans = random.sample(all_remaining_animals, 6-n)
 
     # Storing the incorrect answers in the data dictionary
     for i in range(6-n):
