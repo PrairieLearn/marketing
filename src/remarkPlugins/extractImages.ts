@@ -15,13 +15,13 @@ interface ImageNode extends Node {
 export default (): Transformer => async (tree, file) => {
   const baseDirectory = path.parse(file.history[0]).dir;
 
-  const codeNodes: ImageNode[] = [];
+  const imageNodes: ImageNode[] = [];
   visit(tree, "image", (node: ImageNode) => {
-    codeNodes.push(node);
+    imageNodes.push(node);
   });
 
   await Promise.all(
-    codeNodes.map(async (node) => {
+    imageNodes.map(async (node) => {
       // Resolve path to image on disk
       const imagePath = path.resolve(baseDirectory, node.url);
 
