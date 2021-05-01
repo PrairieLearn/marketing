@@ -3,12 +3,12 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import renderToString from "next-mdx-remote/render-to-string";
 import hydrate from "next-mdx-remote/hydrate";
-import { getAssessments } from "../../lib/demo/data";
-import mdxComponents from "../../lib/mdxComponents";
-import extractImages from "../../remarkPlugins/extractImages";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import { MDXProvider } from "@mdx-js/react";
+import { getAssessments } from "../../lib/demo/data";
+import mdxComponents from "../../lib/mdxComponents";
+import extractImages from "../../remarkPlugins/extractImages";
 import rewriteAssessmentLinks from "../../remarkPlugins/rewriteAssessmentLinks";
 
 interface DemoPageProps {
@@ -27,6 +27,7 @@ const DemoPage: React.FC<DemoPageProps> = ({ title, summary, source }) => {
       <div className="container">
         <div className="my-5">
           <h1 className="display-3">{title}</h1>
+          <p className="lead">{summary}</p>
         </div>
         <MDXProvider components={mdxComponents}>{content}</MDXProvider>
       </div>
