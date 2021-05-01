@@ -11,6 +11,7 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
+    "noUnusedLocals": true,
     "esModuleInterop": true,
     "module": "commonjs",
     "moduleResolution": "node",

@@ -1,22 +1,9 @@
-import fs from "fs-extra";
 import path from "path";
-import { createHash } from "crypto";
 import { Node } from "unist";
 import { Transformer } from "unified";
 import visit from "unist-util-visit";
-import imageSizeCallback from "image-size";
-import { promisify } from "util";
 
 import { copyImageToPublicDir } from "../lib/images";
-
-const imageSize = promisify(imageSizeCallback);
-
-const PUBLIC_BUILD_IMAGES_DIR = path.resolve(
-  process.cwd(),
-  "public",
-  "build",
-  "images"
-);
 
 interface ImageNode extends Node {
   type: "image";

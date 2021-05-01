@@ -1,7 +1,6 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import React from "react";
-import fs from "fs-extra";
 import { getAssessments } from "../../lib/demo/data";
 import Link from "next/link";
 import Stack from "../../components/Stack";
