@@ -9,6 +9,7 @@ import extractImages from "../../remarkPlugins/extractImages";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import { MDXProvider } from "@mdx-js/react";
+import rewriteAssessmentLinks from "../../remarkPlugins/rewriteAssessmentLinks";
 
 interface DemoPageProps {
   title: string;
@@ -76,7 +77,11 @@ export const getStaticProps: GetStaticProps<
   const mdxSource = await renderToString(assessment.markdownContent, {
     components: mdxComponents,
     mdxOptions: {
-      remarkPlugins: [extractImages, remarkMath],
+      remarkPlugins: [
+        rewriteAssessmentLinks(assessments),
+        extractImages,
+        remarkMath,
+      ],
       rehypePlugins: [rehypeKatex],
       filepath: assessment.markdownPath,
     },
