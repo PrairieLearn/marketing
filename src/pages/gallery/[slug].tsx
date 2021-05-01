@@ -16,7 +16,7 @@ import {
   getMarkdownPaths,
   getSlugForMarkdownPath,
   loadMarkdownFile,
-} from "../../lib/data";
+} from "../../lib/gallery/data";
 
 interface GalleryPageProps {
   slug: string;

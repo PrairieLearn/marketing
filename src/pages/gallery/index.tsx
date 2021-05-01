@@ -7,7 +7,7 @@ import path from "path";
 import fs from "fs-extra";
 
 import Image from "../../components/Image";
-import { getMarkdownPaths, loadMarkdownFile } from "../../lib/data";
+import { getMarkdownPaths, loadMarkdownFile } from "../../lib/gallery/data";
 import { copyImageToPublicDir, ImageInfo } from "../../lib/images";
 
 import styles from "./index.module.scss";
