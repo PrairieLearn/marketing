@@ -16,8 +16,8 @@ import {
   getMarkdownPaths,
   getSlugForMarkdownPath,
   loadMarkdownFile,
-} from "../../lib/gallery/data";
-import { getAssessments } from "../../lib/demo/data";
+} from "../../lib/gallery/questions";
+import { getAssessments } from "../../lib/gallery/assessments";
 import rewriteAssessmentLinks from "../../remarkPlugins/rewriteAssessmentLinks";
 
 interface GalleryPageProps {

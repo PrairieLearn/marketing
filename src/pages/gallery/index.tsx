@@ -7,9 +7,12 @@ import path from "path";
 import fs from "fs-extra";
 
 import Image from "../../components/Image";
-import { getMarkdownPaths, loadMarkdownFile } from "../../lib/gallery/data";
+import {
+  getMarkdownPaths,
+  loadMarkdownFile,
+} from "../../lib/gallery/questions";
 import { copyImageToPublicDir, ImageInfo } from "../../lib/images";
-import { getAssessments } from "../../lib/demo/data";
+import { getAssessments } from "../../lib/gallery/assessments";
 
 import styles from "./index.module.scss";
 import Stack from "../../components/Stack";

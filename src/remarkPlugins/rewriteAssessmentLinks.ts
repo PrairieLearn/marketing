@@ -3,7 +3,7 @@ import { Node } from "unist";
 import { Transformer } from "unified";
 import visit from "unist-util-visit";
 
-import { Assessment } from "../lib/demo/data";
+import type { Assessment } from "../lib/gallery/assessments";
 
 interface LinkNode extends Node {
   type: "link";
