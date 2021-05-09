@@ -2,12 +2,9 @@ import path from "path";
 import fs from "fs-extra";
 import glob from "fast-glob";
 import matter from "gray-matter";
+import { DEMO_ROOT } from "./util";
 
-export const QUESTIONS_ROOT = path.resolve(
-  process.cwd(),
-  "exampleCourse",
-  "questions"
-);
+export const QUESTIONS_ROOT = path.resolve(DEMO_ROOT, "questions");
 
 export const getMarkdownPaths = async (): Promise<string[]> => {
   const globPath = path.join(QUESTIONS_ROOT, "gallery", "*", "gallery.md");

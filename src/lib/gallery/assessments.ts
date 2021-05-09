@@ -3,7 +3,7 @@ import matter from "gray-matter";
 import path from "path";
 import slugify from "slugify";
 
-export const DEMO_ROOT = path.join(process.cwd(), "pl-demo-course");
+import { DEMO_ROOT } from "./util";
 
 export const COURSE_INSTANCE_ID = "SectionA";
 
