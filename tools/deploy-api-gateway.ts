@@ -193,7 +193,7 @@ export const deployApiGateway = async () => {
       !routes.Items?.some(({ RouteKey }) => RouteKey === routeKey)
   );
 
-  const newRoutes = await Promise.all(
+  await Promise.all(
     missingRoutes.map(async ({ routeKey, routePath }) => {
       // Map the route path to a lambda ARN
       const lambdaArn = neededIntegrations[routePath];
