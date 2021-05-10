@@ -21,7 +21,8 @@ let cachedAssessments: Assessment[];
 export const getAssessments = async (): Promise<Assessment[]> => {
   if (SHOULD_CACHE && cachedAssessments) return cachedAssessments;
 
-  const assessmentDirectories = (await fs.readdir(ASSESSMENTS_ROOT)).sort();
+  const assessmentDirectories = await fs.readdir(ASSESSMENTS_ROOT);
+  console.log(assessmentDirectories);
 
   const assessments: Assessment[] = (
     await Promise.all(
@@ -50,7 +51,9 @@ export const getAssessments = async (): Promise<Assessment[]> => {
         };
       })
     )
-  ).filter((assessment): assessment is Assessment => !!assessment);
+  )
+    .filter((assessment): assessment is Assessment => !!assessment)
+    .sort((a, b) => a.title.localeCompare(b.title));
 
   if (SHOULD_CACHE) cachedAssessments = assessments;
 
