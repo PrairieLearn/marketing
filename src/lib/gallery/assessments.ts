@@ -3,7 +3,7 @@ import matter from "gray-matter";
 import path from "path";
 import slugify from "slugify";
 
-import { DEMO_ROOT } from "./util";
+import { DEMO_ROOT, MarkdownPage, SHOULD_CACHE } from "./util";
 
 export const COURSE_INSTANCE_ID = "SectionA";
 
@@ -14,15 +14,13 @@ export const ASSESSMENTS_ROOT = path.join(
   "assessments"
 );
 
-export interface Assessment {
-  title: string;
-  slug: string;
-  summary: string;
-  markdownContent: string;
-  markdownPath: string;
-}
+export interface Assessment extends MarkdownPage {}
+
+let cachedAssessments: Assessment[];
 
 export const getAssessments = async (): Promise<Assessment[]> => {
+  if (SHOULD_CACHE && cachedAssessments) return cachedAssessments;
+
   const assessmentDirectories = (await fs.readdir(ASSESSMENTS_ROOT)).sort();
 
   const assessments: Assessment[] = (
@@ -53,6 +51,8 @@ export const getAssessments = async (): Promise<Assessment[]> => {
       })
     )
   ).filter((assessment): assessment is Assessment => !!assessment);
+
+  if (SHOULD_CACHE) cachedAssessments = assessments;
 
   return assessments;
 };

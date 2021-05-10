@@ -3,15 +3,9 @@ import classnames from "classnames";
 import { GetStaticProps } from "next";
 import Link from "next/link";
 import Head from "next/head";
-import path from "path";
-import fs from "fs-extra";
 
 import Image from "../../components/Image";
-import {
-  getMarkdownPaths,
-  loadMarkdownFile,
-} from "../../lib/gallery/questions";
-import { copyImageToPublicDir, ImageInfo } from "../../lib/images";
+import { getQuestions } from "../../lib/gallery/questions";
 import { getAssessments } from "../../lib/gallery/assessments";
 
 import styles from "./index.module.scss";
@@ -133,31 +127,6 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({
 export default GalleryIndex;
 
 export const getStaticProps: GetStaticProps<GalleryIndexProps> = async () => {
-  const markdownPaths = await getMarkdownPaths();
-  const markdownFiles = (
-    await Promise.all(
-      markdownPaths.map((markdownPath) => loadMarkdownFile(markdownPath))
-    )
-  ).filter((markdownFile) => markdownFile.showOnIndex);
-
-  // Each Markdown file *may* have an adjacent `galleryImage.png` file. If it
-  // does, copy it to the public dir and attach its URL to the index entry.
-  const images: { [slug: string]: ImageInfo } = {};
-  await Promise.all(
-    markdownFiles.map(async (markdownFile) => {
-      const baseDir = path.parse(markdownFile.path).dir;
-      const imagePath = path.join(baseDir, "galleryImage.png");
-      if (await fs.pathExists(imagePath)) {
-        images[markdownFile.slug] = await copyImageToPublicDir(imagePath);
-      }
-    })
-  );
-
-  // Sort the files by slug
-  const sortedMarkdownFiles = markdownFiles.sort((a, b) =>
-    a.slug < b.slug ? -1 : a.slug > b.slug ? 1 : 0
-  );
-
   // Get assessments and filter out only the props we need on this page
   const rawAssessments = await getAssessments();
   const assessments = rawAssessments.map(({ title, slug, summary }) => ({
@@ -166,18 +135,18 @@ export const getStaticProps: GetStaticProps<GalleryIndexProps> = async () => {
     summary,
   }));
 
+  const rawQuestions = await getQuestions();
+  const questions = rawQuestions.map(({ title, slug, summary, image }) => ({
+    title,
+    slug,
+    summary,
+    imageUrl: image?.url,
+  }));
+
   return {
     props: {
-      questions: sortedMarkdownFiles.map((markdownFile) => {
-        const image = images[markdownFile.slug];
-        return {
-          title: markdownFile.title,
-          slug: markdownFile.slug,
-          summary: markdownFile.summary,
-          imageUrl: image?.url ?? null,
-        };
-      }),
       assessments,
+      questions,
     },
   };
 };

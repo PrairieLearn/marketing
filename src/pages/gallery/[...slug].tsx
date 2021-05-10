@@ -11,13 +11,8 @@ import rehypeKatex from "rehype-katex";
 import mdxComponents from "../../lib/mdxComponents";
 import loadCodePlugin from "../../remarkPlugins/loadCode";
 import extractImages from "../../remarkPlugins/extractImages";
-import {
-  getMarkdownPathForSlug,
-  getMarkdownPaths,
-  getSlugForMarkdownPath,
-  loadMarkdownFile,
-} from "../../lib/gallery/questions";
 import { getAssessments } from "../../lib/gallery/assessments";
+import { getQuestions } from "../../lib/gallery/questions";
 import rewriteAssessmentLinks from "../../remarkPlugins/rewriteAssessmentLinks";
 
 interface GalleryPageProps {
@@ -63,15 +58,12 @@ export const getStaticPaths: GetStaticPaths<PathParams> = async () => {
     },
   }));
 
-  const markdownPaths = await getMarkdownPaths();
-  const questionPaths = markdownPaths.map((markdownPath) => {
-    const slug = getSlugForMarkdownPath(markdownPath);
-    return {
-      params: {
-        slug: ["question", slug],
-      },
-    };
-  });
+  const questions = await getQuestions();
+  const questionPaths = questions.map(({ slug }) => ({
+    params: {
+      slug: ["question", slug],
+    },
+  }));
 
   return {
     paths: [...assessmentPaths, ...questionPaths],
@@ -118,21 +110,25 @@ export const getStaticProps: GetStaticProps<
       };
     }
     case "question": {
-      const markdownPath = getMarkdownPathForSlug(slug);
-      const { content, title, summary } = await loadMarkdownFile(markdownPath);
-      const mdxSource = await renderToString(content, {
+      const questions = await getQuestions();
+      const question = questions.find((a) => a.slug === slug);
+      if (!question) {
+        throw new Error(`Question not found for slug: ${slug}`);
+      }
+
+      const mdxSource = await renderToString(question.markdownContent, {
         components: mdxComponents,
         mdxOptions: {
           remarkPlugins: [loadCodePlugin, extractImages, remarkMath],
           rehypePlugins: [rehypeKatex],
-          filepath: markdownPath,
+          filepath: question.markdownPath,
         },
       });
       return {
         props: {
           source: mdxSource,
-          summary,
-          title,
+          summary: question.summary,
+          title: question.title,
         },
       };
     }
