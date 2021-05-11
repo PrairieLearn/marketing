@@ -3,7 +3,7 @@ import matter from "gray-matter";
 import path from "path";
 import slugify from "slugify";
 
-import { DEMO_ROOT, MarkdownPage, SHOULD_CACHE } from "./util";
+import { DEMO_ROOT, SHOULD_CACHE, MarkdownPage } from "./util";
 
 export const COURSE_INSTANCE_ID = "SectionA";
 
@@ -22,7 +22,6 @@ export const getAssessments = async (): Promise<Assessment[]> => {
   if (SHOULD_CACHE && cachedAssessments) return cachedAssessments;
 
   const assessmentDirectories = await fs.readdir(ASSESSMENTS_ROOT);
-  console.log(assessmentDirectories);
 
   const assessments: Assessment[] = (
     await Promise.all(
