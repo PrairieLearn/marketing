@@ -9,6 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          # `pl-demo-course` is a submodule
+          submodules: true
 
       # Yarn cache
       - name: Get yarn cache directory path

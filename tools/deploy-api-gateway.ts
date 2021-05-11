@@ -193,7 +193,7 @@ export const deployApiGateway = async () => {
       !routes.Items?.some(({ RouteKey }) => RouteKey === routeKey)
   );
 
-  const newRoutes = await Promise.all(
+  await Promise.all(
     missingRoutes.map(async ({ routeKey, routePath }) => {
       // Map the route path to a lambda ARN
       const lambdaArn = neededIntegrations[routePath];
@@ -208,12 +208,6 @@ export const deployApiGateway = async () => {
       return await createRoute(apiGateway, routeKey, integrationId);
     })
   );
-
-  // Build a set of all route IDs for the next step
-  const allRouteKeys = [
-    ...(routes.Items?.map((route) => route.RouteId) ?? []),
-    ...newRoutes.map((route) => route.routeId),
-  ];
 
   // Now we need to clean up after ourselves, i.e. remove all unused routes
   // and integrations. All newly-created routes are guaranteed to be valid,

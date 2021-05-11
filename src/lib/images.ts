@@ -3,6 +3,7 @@ import path from "path";
 import { createHash } from "crypto";
 import imageSizeCallback from "image-size";
 import { promisify } from "util";
+import slugify from "slugify";
 
 const imageSize = promisify(imageSizeCallback);
 
@@ -24,19 +25,20 @@ export interface ImageInfo {
 export const copyImageToPublicDir = async (
   imagePath: string
 ): Promise<ImageInfo> => {
-  const extension = path.parse(imagePath).ext;
+  const { ext: extension, name } = path.parse(imagePath);
+  const slugifiedName = slugify(name, { lower: true });
+
   // Compute file hash so we can make files content-addressable
   const imageContent = await fs.readFile(imagePath);
   const imageContentHash = createHash("sha1")
     .update(imageContent)
     .digest("hex");
 
+  const imageBase = `${slugifiedName}-${imageContentHash}${extension}`;
+
   // Copy file to public build directory
   await fs.ensureDir(PUBLIC_BUILD_IMAGES_DIR);
-  const imageDestination = path.resolve(
-    PUBLIC_BUILD_IMAGES_DIR,
-    `${imageContentHash}${extension}`
-  );
+  const imageDestination = path.resolve(PUBLIC_BUILD_IMAGES_DIR, imageBase);
   await fs.copyFile(imagePath, imageDestination);
 
   const size = await imageSize(imagePath);
@@ -45,7 +47,7 @@ export const copyImageToPublicDir = async (
   }
 
   return {
-    url: `/build/images/${imageContentHash}${extension}`,
+    url: `/build/images/${imageBase}`,
     contentHash: imageContentHash,
     extension,
     width: size.width,

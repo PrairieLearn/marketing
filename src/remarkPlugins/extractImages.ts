@@ -1,22 +1,9 @@
-import fs from "fs-extra";
 import path from "path";
-import { createHash } from "crypto";
 import { Node } from "unist";
 import { Transformer } from "unified";
 import visit from "unist-util-visit";
-import imageSizeCallback from "image-size";
-import { promisify } from "util";
 
 import { copyImageToPublicDir } from "../lib/images";
-
-const imageSize = promisify(imageSizeCallback);
-
-const PUBLIC_BUILD_IMAGES_DIR = path.resolve(
-  process.cwd(),
-  "public",
-  "build",
-  "images"
-);
 
 interface ImageNode extends Node {
   type: "image";
@@ -28,13 +15,13 @@ interface ImageNode extends Node {
 export default (): Transformer => async (tree, file) => {
   const baseDirectory = path.parse(file.history[0]).dir;
 
-  const codeNodes: ImageNode[] = [];
+  const imageNodes: ImageNode[] = [];
   visit(tree, "image", (node: ImageNode) => {
-    codeNodes.push(node);
+    imageNodes.push(node);
   });
 
   await Promise.all(
-    codeNodes.map(async (node) => {
+    imageNodes.map(async (node) => {
       // Resolve path to image on disk
       const imagePath = path.resolve(baseDirectory, node.url);
 
