@@ -14,7 +14,9 @@ export const ASSESSMENTS_ROOT = path.join(
   "assessments"
 );
 
-export interface Assessment extends MarkdownPage {}
+export interface Assessment extends MarkdownPage {
+  prairielearnUrl: string | null;
+}
 
 let cachedAssessments: Assessment[];
 
@@ -38,7 +40,11 @@ export const getAssessments = async (): Promise<Assessment[]> => {
         const docsMarkdown = await fs.readFile(docsMarkdownPath, "utf-8");
         const {
           content,
-          data: { title = "NO TITLE", summary = "NO SUMMARY" },
+          data: {
+            title = "NO TITLE",
+            summary = "NO SUMMARY",
+            prairielearn_url: prairielearnUrl = null,
+          },
         } = matter(docsMarkdown);
 
         return {
@@ -47,6 +53,7 @@ export const getAssessments = async (): Promise<Assessment[]> => {
           summary: summary,
           markdownContent: content,
           markdownPath: docsMarkdownPath,
+          prairielearnUrl,
         };
       })
     )
