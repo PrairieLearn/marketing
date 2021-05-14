@@ -19,12 +19,14 @@ interface GalleryPageProps {
   source: string;
   summary: string;
   title: string;
+  prairielearnUrl?: string | null;
 }
 
 const GalleryPage: React.FC<GalleryPageProps> = ({
   summary,
   source,
   title,
+  prairielearnUrl,
 }) => {
   const content = hydrate(source);
   return (
@@ -36,6 +38,11 @@ const GalleryPage: React.FC<GalleryPageProps> = ({
         <div className="my-5">
           <h1 className="display-3">{title}</h1>
           {summary && <p className="lead">{summary}</p>}
+          {prairielearnUrl && (
+            <a href={prairielearnUrl} className="btn btn-primary mt-2">
+              View on PrairieLearn
+            </a>
+          )}
         </div>
         <MDXProvider components={mdxComponents}>{content}</MDXProvider>
       </div>
@@ -106,6 +113,7 @@ export const getStaticProps: GetStaticProps<
           source: mdxSource,
           summary: assessment.summary,
           title: assessment.title,
+          prairielearnUrl: assessment.prairielearnUrl,
         },
       };
     }
