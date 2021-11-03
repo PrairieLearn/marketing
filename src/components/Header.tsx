@@ -42,13 +42,22 @@ export const Header: React.FC = () => {
         >
           <ul className="navbar-nav ms-auto mb-2 mb-sm-0">
             <li className="nav-item">
-              <NavLink href="/gallery">Gallery</NavLink>
+              <NavLink href="/solution">Solutions</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink href="/team">Team</NavLink>
             </li>
             <li className="nav-item">
               <NavLink href="/pricing">Pricing</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink href="/contact">Contact</NavLink>
+              <NavLink href="/explore">Explore</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink href="/research">Research</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink href="/signin">Sign In</NavLink>
             </li>
           </ul>
         </div>
