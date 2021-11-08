@@ -1,11 +1,22 @@
 import React from "react";
 import Head from "next/head";
 import Link from "next/link";
+import classnames from "classnames";
 
 import CheckIcon from "../../components/CheckIcon";
 import Stack from "../../components/Stack";
 
+import ContainerStyle from "../../components/Container.module.scss";
 import styles from "./index.module.scss";
+
+const Row: React.FC = ({ children }) => (
+  <div className="row justify-content-centerrr">{children}</div>
+);
+
+const Column: React.FC = ({ children }) => (
+  <div className="col">{children}</div>
+);
+
 
 const FEATURES = [
   {
@@ -56,10 +67,19 @@ export default function Pricing() {
       <Head>
         <title>Pricing | PrairieLearn</title>
       </Head>
-      <div className="container my-5">
-        <div className="mb-5">
-          <h1 className="display-3">Pricing</h1>
+      <div className={classnames("container-fluid py-4", ContainerStyle.container)}>
+        <div className="container-md">
+          <Row>
+            <Column>
+              <h1 className="text-white display-3">Pricing</h1>
+              <p className="text-white  mt-4 fs-3">
+              Add some text here
+              </p>
+            </Column>
+          </Row>
         </div>
+      </div>
+      <div className="container my-5">
         <Stack>
           <div className="container">
             <div className="row gy-3">

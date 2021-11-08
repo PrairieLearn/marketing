@@ -8,7 +8,7 @@ import { ExampleEditor } from "../components/ExampleEditor";
 import { ExampleQuestion } from "../components/ExampleQuestion";
 import Stack from "../components/Stack";
 
-import styles from "./index.module.scss";
+import styles from "../components/Container.module.scss";
 
 const DEMO_QUESTION_HTML = `
 <pl-question-panel>
@@ -76,55 +76,6 @@ export default function Home() {
       </div>
       <Container>
         <Stack spacing={5}>
-          <Row>
-            <Column>
-              <Stack spacing={3}>
-                <HomepageHeading>Questions as code</HomepageHeading>
-                <p>
-                  PrairieLearn questions are defined as code, which is what
-                  makes them so powerful. The familiar HTML syntax and Mustache
-                  templates make it easy to get started writing questions. A
-                  broad variety of building blocks like number inputs and
-                  multiple choice responses come built-in, so you can hit the
-                  ground running.
-                </p>
-                <ExampleEditor
-                  files={[
-                    {
-                      filename: "question.html",
-                      language: "markup",
-                      code: DEMO_QUESTION_HTML,
-                    },
-                  ]}
-                />
-              </Stack>
-            </Column>
-          </Row>
-          <Row>
-            <Column>
-              <Stack spacing={3}>
-                <HomepageHeading>
-                  Automatic generation and grading
-                </HomepageHeading>
-                <p>
-                  Once you've defined an HTML template, generate parameters for
-                  your question with the power of Python and popular libraries
-                  like numpy and matplotlib. And questions grade themselves,
-                  from simple multiple-choice questions to free-body diagrams to
-                  code, so instructors can focus on the important things.
-                </p>
-                <ExampleEditor
-                  files={[
-                    {
-                      filename: "server.py",
-                      language: "python",
-                      code: DEMO_QUESTION_PYTHON,
-                    },
-                  ]}
-                />
-              </Stack>
-            </Column>
-          </Row>
           <Row>
             <Column>
               <Stack spacing={3}>

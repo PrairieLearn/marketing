@@ -3,8 +3,9 @@ import classnames from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import styles from "./Header.module.scss";
+
 import NavLink from "./NavLink";
+import styles from "./Header.module.scss";
 
 export const Header: React.FC = () => {
   const [collapsed, setCollapsed] = React.useState(true);
@@ -42,13 +43,10 @@ export const Header: React.FC = () => {
         >
           <ul className="navbar-nav ms-auto mb-2 mb-sm-0">
             <li className="nav-item">
-              <NavLink href="/solution">Solutions</NavLink>
+              <NavLink href="/solutions">Solutions</NavLink>
             </li>
             <li className="nav-item">
               <NavLink href="/team">Team</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink href="/pricing">Pricing</NavLink>
             </li>
             <li className="nav-item">
               <NavLink href="/explore">Explore</NavLink>
@@ -57,7 +55,13 @@ export const Header: React.FC = () => {
               <NavLink href="/research">Research</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink href="/signin">Sign In</NavLink>
+              <NavLink href="/pricing">Pricing</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink href="/contact">Contact</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink href="https://www.prairielearn.org/pl/login">Sign In</NavLink>
             </li>
           </ul>
         </div>

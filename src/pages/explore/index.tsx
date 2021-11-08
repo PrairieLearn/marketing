@@ -7,8 +7,10 @@ import Head from "next/head";
 import Image from "../../components/Image";
 import { getQuestions } from "../../lib/gallery/questions";
 import { getAssessments } from "../../lib/gallery/assessments";
+import { HomepageHeading } from "../../components/HomepageHeading";
 
 import styles from "./index.module.scss";
+import ContainerStyle from "../../components/Container.module.scss";
 import Stack from "../../components/Stack";
 
 interface Assessment {
@@ -29,6 +31,14 @@ interface GalleryIndexProps {
   questions: Question[];
 }
 
+const Row: React.FC = ({ children }) => (
+  <div className="row justify-content-centerrr">{children}</div>
+);
+
+const Column: React.FC = ({ children }) => (
+  <div className="col">{children}</div>
+);
+
 const GalleryIndex: React.FC<GalleryIndexProps> = ({
   assessments,
   questions,
@@ -38,14 +48,29 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({
       <Head>
         <title>Explore | PrairieLearn</title>
       </Head>
-      <div className="container my-5">
-        <div className="mb-5">
-          <h1 className="display-3">Explore</h1>
-          <p className="lead">
-            Explore all the functionality PrairieLearn has to offer.
-          </p>
+      <div className={classnames("container-fluid py-4", ContainerStyle.container)}>
+        <div className="container-md">
+          <Row>
+            <Column>
+              <h1 className="text-white display-3">
+              Explore
+              </h1>
+              <p className="text-white mt-4 fs-3">
+                Explore all the functionality PrairieLearn has to offer.
+              </p>
+              <div className="row justify-content-center mt-5">
+                <div className="col-md-12 text-center">
+                  <Link href="https://www.prairielearn.org/pl/course_instance/128605">
+                    <a className="btn btn-warning btn-lg">Test our demo course!</a>
+                  </Link>
+                </div>
+              </div>
+            </Column>
+          </Row>
         </div>
-        <h2>Assessments</h2>
+      </div>
+      <div className="container my-5">
+        <HomepageHeading>Assessments</HomepageHeading>
         <p>
           Assessments are collections of questions that are graded together;
           they can be used for homeworks, exams, in-lecture content, group work,
@@ -70,7 +95,7 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({
             })}
           </Stack>
         </div>
-        <h2>Questions</h2>
+        <HomepageHeading>Questions</HomepageHeading>
         <p>
           Questions are the fundamental unit of content in PrairieLearn. While
           some questions are completely static, most PrairieLearn questions will
