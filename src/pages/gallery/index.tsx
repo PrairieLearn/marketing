@@ -5,6 +5,7 @@ import Link from "next/link";
 import Head from "next/head";
 
 import Image from "../../components/Image";
+
 import { getQuestions } from "../../lib/gallery/questions";
 import { getAssessments } from "../../lib/gallery/assessments";
 
@@ -12,7 +13,9 @@ import styles from "./index.module.scss";
 import ContainerStyle from "../../components/Container.module.scss";
 import Stack from "../../components/Stack";
 
+import NextImage from "next/image";
 import assessmentImage from "./assessment.png"
+import questionImage from "./question.png"
 
 interface Assessment {
   title: string;
@@ -124,7 +127,10 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({
         <div className="container-md">
           <div className="row">
             <div className="col-md-6">
-              <img src="question.png" />
+              <NextImage
+                src={assessmentImage}
+                alt="Assessment page view"
+              />
             </div>
             <div className="col-md-6">
                 <h2 className={classnames("pb-3", styles.heading)}>Questions</h2>
