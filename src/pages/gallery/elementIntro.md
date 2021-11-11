@@ -1,0 +1,89 @@
+---
+title: Introduction to PrairieLearn questions
+showOnIndex: false
+---
+
+PrairieLearn questions are built on top of widely-used technologies like HTML, CSS, JavaScript, and Python.
+
+## question.html
+
+All questions start with a `question.html` file. This file determines what content students will see when they visit a question.
+
+Here's an extremely simple question:
+
+```html
+<p>
+  In what year was the University of Illinois Urbana-Champaign establised?
+</p>
+
+<input type="text" name="year">
+```
+
+It shows the question ("In what year was the University of Illinois Urbana-Champaign established?") and an input for the student to submit their answer.
+
+However, this question isn't very useful yet. While it can accept an answer from a student, it has no notion of what the correct answer is, and thus no way to provide feedback to the student. To fix that, we'll use a PrairieLearn _element_.
+
+## Elements
+
+PrairieLearn elements provide reusable building blocks for questions. They encapsulate the logic needed to render inputs, collect and grade submissions, and provide useful feedback to students. You use them via special HTML tags with a `pl-` prefix. The [PrairieLearn documentation](https://prairielearn.readthedocs.io/en/latest/elements/) contains a full list of the available elements, but here are some of the most commonly-used ones:
+
+- `<pl-string-input>` accepts string values like "Illinois", "GATTACA", and "computer"
+- `<pl-integer-input>` accepts integer values like $0$, $-71$, and $5$
+- `<pl-symbolic-input>` accepts symbolic values like $x^2$, $\sin(z)$, and $mc^2$
+
+In the example question we're working with, we want to collect and grade a year value. The `<pl-string-input>` element contains all the logic necessary to do that.
+
+```html
+<p>
+  In what year was the University of Illinois Urbana-Champaign established?
+</p>
+
+<pl-string-input answers-name="year" correct-answer="1868"></pl-string-input>
+```
+
+The `answers-name` attribute is a unique key used to store the answer, and the `correct-answer` attribute specifies the string that will be treated as the correct answer.
+
+We now have a question that can correctly grade itslef - a student entering "1868" as their answer will recieve full marks.
+
+## Templates
+
+The above question is still relatively simple. It can grade itself, but that's about it. PrairieLearn really shines when you can introduce an element of randomization to questions.
+
+To facilitate randomization, `question.html` files support the [Mustache template syntax](https://mustache.github.io). This allows you to easily include dynamically-generated values in your questions. Let's modify our previous `question.html` file to support randomization:
+
+```html
+<p>
+  In what year was the {{params.university_name}} established?
+</p>
+
+<pl-string-input answers-name="year"></pl-string-input>
+```
+
+We replaced the hardcoded university name with `{{params.university_name}}` and dropped the hardcoded `correct-answer="1868"` from the `<pl-string-input>` element. Now we can randomly select a different university/year pair for each student using this question. To actually generate the parameters, we'll introduce a new file: `server.py`.
+
+## server.py
+
+Adding a `server.py` file allows you to write custom logic for generating question, parsing and grading submissions, and providing feedback. You have the full power of Python and many of its libraries (such as [numpy](https://numpy.org), [matplotlib](https://matplotlib.org), and [scipy](https://www.scipy.org)) at your disposal.
+
+For our example question, we need to randomly select a university name and the year it was established. We can accomplish that with the following Python code in `server.py`:
+
+```python
+import random
+
+UNIVERSITY_YEARS = {
+  "University of Illinois at Urbana-Champaign": "1868",
+  "University of British Columbia": "1908",
+  "University of California, Berkeley": "1868"
+}
+
+def generate(data):
+  university_name, year = random.choice(list(UNIVERSITY_YEARS.items()))
+
+  data["pararms"]["university_name"] = university_name
+  data["correct_answers"]["year"] = year
+```
+
+`generate(...)` is a special function that PrairieLearn will call when it needs to generate a new variant of your question. The `data` argument is a dictionary that PrairieLearn uses to maintain state and pass that state between different elements in a given question. Let's look at the two values we insert into `data` in more detail.
+
+* `data["params"]["university_name"]` will be used by the `{{params.university_name}}` template in `question.html`
+* `data["correct_answers"]["year"]` will be used by the `<pl-string-input>` to determine what the correct answer is. Note how the key `"year"` matches the attribute `answers-name="year"` on the element - this is how `<pl-string-input>` knows which value from `data["correct_answers"]` to use.

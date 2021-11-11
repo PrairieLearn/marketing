@@ -62,22 +62,14 @@ export default function Home() {
                 their students achieve mastery.
               </p>
               <Link href="/contact">
-                <a className="btn btn-warning btn-lg">Get in touch</a>
+                <a className="btn btn-light btn-lg">Get in touch</a>
               </Link>
             </Column>
           </Row>
         </div>
       </div>
 
-      <Container>
-        <Stack spacing={5}>
-          <Row>
-            <Column>
 
-            </Column>
-          </Row>
-        </Stack>
-      </Container>
 
       <Container>
         <Stack spacing={5}>

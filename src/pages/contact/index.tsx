@@ -42,13 +42,13 @@ export default function Contact() {
           </Row>
         </div>
       </div>
-
-      <div className="row justify-content-center my-5">
-        <div className="col col-md-8">
-          <ContactUsForm showHeader={false} />
+      <div className={classnames("container-fluid py-4", ContainerStyle.grayContainer)}>
+        <div className="row justify-content-center my-5">
+          <div className="col col-md-8">
+            <ContactUsForm showHeader={false} />
+          </div>
         </div>
       </div>
-
 
       <div className={classnames("container-fluid py-4", ContainerStyle.container)}>
         <div className="container-md">
@@ -58,10 +58,10 @@ export default function Contact() {
               <p className="text-white">
                 Too busy to schedule a demo? You can test our demo course on your own, before you request your course space.
               </p>
-              <div className="row justify-content-center mt-5">
+              <div className="row justify-content-center my-4">
                 <div className="col-md-12 text-center">
                   <Link href="https://www.prairielearn.org/pl/course_instance/128605">
-                    <a className="btn btn-warning btn-lg">Test our demo course!</a>
+                    <a className="btn btn-light btn-lg">Test our demo course!</a>
                   </Link>
                 </div>
               </div>

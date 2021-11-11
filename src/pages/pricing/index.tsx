@@ -92,7 +92,7 @@ export default function Pricing() {
                         <strong>$6</strong>{" "}
                         <span className="text-muted">/ student / course</span>
                       </div>
-                      <Link href="/pricing/contact">
+                      <Link href="https://www.prairielearn.org/pl/request_course">
                         <a className="btn btn-outline-primary">Get started</a>
                       </Link>
                     </Stack>
@@ -108,7 +108,7 @@ export default function Pricing() {
                         <strong>$12</strong>{" "}
                         <span className="text-muted">/ student / course</span>
                       </div>
-                      <Link href="/pricing/contact">
+                      <Link href="https://www.prairielearn.org/pl/request_course">
                         <a className="btn btn-primary">Get started</a>
                       </Link>
                     </Stack>
