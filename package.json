@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "tsc && next build && next export",
+    "build": "tsc && next build",
     "next-build": "next build",
     "build-api-images": "ts-node tools/build-api-images.ts",
     "deploy": "ts-node tools/deploy.ts",
