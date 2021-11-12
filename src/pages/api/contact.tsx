@@ -16,15 +16,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     return;
   }
 
-  const {
-    firstName,
-    lastName,
-    email,
-    organization,
-    role,
-    message,
-    url,
-  } = req.body;
+  const { firstName, lastName, email, organization, role, message, url } =
+    req.body;
 
   await fetch(SLACK_WEBHOOK_CONTACT_US, {
     method: "POST",
