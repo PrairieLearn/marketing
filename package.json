@@ -23,7 +23,7 @@
     "katex": "^0.12.0",
     "next": "12.0.4-canary.9",
     "next-mdx-remote": "^2.0.1",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^3.1.0",
     "prism-react-renderer": "^1.1.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
