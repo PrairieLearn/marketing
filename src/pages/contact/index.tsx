@@ -5,8 +5,11 @@ import classnames from "classnames";
 
 import { HomepageHeading } from "../../components/HomepageHeading";
 import { ContactUsForm } from "../../components/ContactUsForm";
+import { PageBanner } from "../../components/Banner";
+import { DemoCourseAction } from "../../components/DemoCourse";
 
 import ContainerStyle from "../../components/Container.module.scss";
+import styles from "./index.module.scss";
 
 const Container: React.FC = ({ children }) => (
   <div className="container-md my-5">{children}</div>
@@ -26,31 +29,30 @@ export default function Contact() {
       <Head>
         <title>Sign In | PrairieLearn</title>
       </Head>
-      <div
-        className={classnames("container-fluid py-4", ContainerStyle.container)}
-      >
-        <div className="container-md">
-          <Row>
-            <Column>
-              <h1 className="text-white display-3 pb-4">
-                Ready to get started?
-              </h1>
-              <p className="text-white">
-                Need to schedule a demo? Want to have access to your own course
-                space? Want to learn more about how PrairieLearn can help your
-                course or institution? Let us know below and someone from our
-                team will be in touch soon.
-              </p>
-            </Column>
-          </Row>
-        </div>
-      </div>
+      <PageBanner
+        title="Ready to get started?"
+        text="Request your course space here"
+      />
+
       <div
         className={classnames(
           "container-fluid py-4",
           ContainerStyle.grayContainer
         )}
       >
+        <div className="container-md">
+          <div className="row">
+            <h2 className={classnames("pb-3", styles.heading)}>Contact us!</h2>
+          </div>
+          <div className="row">
+            <div className="col-md-12">
+              Need to schedule a demo? Want to have access to your own course
+              space? Let us know below and someone from our team will be in
+              touch soon.
+            </div>
+          </div>
+        </div>
+
         <div className="row justify-content-center my-5">
           <div className="col col-md-8">
             <ContactUsForm showHeader={false} />
@@ -58,32 +60,11 @@ export default function Contact() {
         </div>
       </div>
 
-      <div
-        className={classnames("container-fluid py-4", ContainerStyle.container)}
-      >
-        <div className="container-md">
-          <Row>
-            <Column>
-              <h1 className="text-white display-3 pb-4">
-                Try our demo course!
-              </h1>
-              <p className="text-white">
-                Too busy to schedule a demo? You can test our demo course on
-                your own, before you request your course space.
-              </p>
-              <div className="row justify-content-center my-4">
-                <div className="col-md-12 text-center">
-                  <Link href="https://www.prairielearn.org/pl/course_instance/128605">
-                    <a className="btn btn-light btn-lg">
-                      Test our demo course!
-                    </a>
-                  </Link>
-                </div>
-              </div>
-            </Column>
-          </Row>
-        </div>
-      </div>
+      <DemoCourseAction
+        title="Try our demo course!"
+        text="Too busy to schedule a demo? You can test the demo course on your own, before you request your course space."
+        button="Demo course"
+      />
     </React.Fragment>
   );
 }

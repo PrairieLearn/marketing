@@ -6,7 +6,7 @@ import classnames from "classnames";
 import CheckIcon from "../../components/CheckIcon";
 import Stack from "../../components/Stack";
 
-import ContainerStyle from "../../components/Container.module.scss";
+import { PageBanner } from "../../components/Banner";
 import styles from "./index.module.scss";
 
 const Row: React.FC = ({ children }) => (
@@ -67,18 +67,10 @@ export default function Pricing() {
       <Head>
         <title>Pricing | PrairieLearn</title>
       </Head>
-      <div className={classnames("container-fluid py-4", ContainerStyle.container)}>
-        <div className="container-md">
-          <Row>
-            <Column>
-              <h1 className="text-white display-3">Pricing</h1>
-              <p className="text-white  mt-4 fs-3">
-              Add some text here
-              </p>
-            </Column>
-          </Row>
-        </div>
-      </div>
+      <PageBanner
+        title="Pricing"
+        text="Add text here"
+      />
       <div className="container my-5">
         <Stack>
           <div className="container">

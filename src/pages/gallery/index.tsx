@@ -6,6 +6,9 @@ import Head from "next/head";
 
 import Image from "../../components/Image";
 
+import { PageBanner } from "../../components/Banner";
+import { DemoCourseAction } from "../../components/DemoCourse";
+
 import { getQuestions } from "../../lib/gallery/questions";
 import { getAssessments } from "../../lib/gallery/assessments";
 
@@ -13,7 +16,6 @@ import styles from "./index.module.scss";
 import ContainerStyle from "../../components/Container.module.scss";
 import Stack from "../../components/Stack";
 
-import NextImage from "next/image";
 import assessmentImage from "../../lib/images/assessment.png";
 import questionImage from "../../lib/images/question.png";
 
@@ -52,33 +54,24 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({
       <Head>
         <title>Explore | PrairieLearn</title>
       </Head>
-      <div
-        className={classnames("container-fluid py-4", ContainerStyle.container)}
-      >
-        <div className="container-md">
-          <Row>
-            <Column>
-              <h1 className="text-white display-3">Explore</h1>
-              <p className="text-white mt-4 fs-3">
-                Explore all the functionality PrairieLearn has to offer.
-              </p>
-            </Column>
-          </Row>
-        </div>
-      </div>
+      <PageBanner
+        title="Explore"
+        text="Explore all the functionality PrairieLearn has to offer"
+      />
 
       <div className={classnames("container-fluid py-4 my-5")}>
         <div className="container-md">
           <div className="row">
-            <div class="col-md-6">
-              <div className="col-md-6">
-                <img src="assessment.png" />
-              </div>
+            <h2 className={classnames("pb-3", styles.heading)}>
+              Assessments
+            </h2>
+          </div>
+          <div className="row">
+            <div className="col-md-6 order-2
+            ">
+              <Image src={assessmentImage}  />
             </div>
-            <div className="col-md-6">
-              <h2 className={classnames("pb-3", styles.heading)}>
-                Assessments
-              </h2>
+            <div className="col-md-6 order-1">
               <p>
                 Assessments are collections of questions that are graded
                 together. Use them to create homework, exam, quiz, pre-lecture,
@@ -127,16 +120,24 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({
       <div className={classnames("container-fluid py-4 my-5")}>
         <div className="container-md">
           <div className="row">
-            <div className="col-md-6">
-
+            <h2 className={classnames("pb-3", styles.heading)}>Questions</h2>
+          </div>
+          <div className="row">
+            <div className="col-md-6 order-2
+            ">
+              <Image src={questionImage}  />
             </div>
-            <div className="col-md-6">
-              <h2 className={classnames("pb-3", styles.heading)}>Questions</h2>
+            <div className="col-md-6 order-1">
               <p>
                 Questions are the fundamental unit of content in PrairieLearn.
                 While questions can be completely static, the key feature of
                 PrairieLearn questions is the ability to generate, display, and
                 grade many unique variants of the same base question.
+              </p>
+              <p>
+                <strong> Write it once, use many times!</strong> Since questions are defined as code, they can be reused in many future assessment.s
+                And students can keep trying new variants of difficult problems until
+                they've mastered the topic—no need for you to manually write new questions.
               </p>
             </div>
           </div>
@@ -203,32 +204,11 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({
           </div>
         </div>
       </div>
-      <div
-        className={classnames("container-fluid py-4", ContainerStyle.container)}
-      >
-        <div className="container-md">
-          <Row>
-            <Column>
-              <h1 className="text-white display-3 pb-4">
-                Try our demo course!
-              </h1>
-              <p className="text-white">
-                Too busy to schedule a demo? You can test our demo course on
-                your own, before you request your course space.
-              </p>
-              <div className="row justify-content-center my-4">
-                <div className="col-md-12 text-center">
-                  <Link href="https://www.prairielearn.org/pl/course_instance/128605">
-                    <a className="btn btn-light btn-lg">
-                      Test our demo course!
-                    </a>
-                  </Link>
-                </div>
-              </div>
-            </Column>
-          </Row>
-        </div>
-      </div>
+
+      <DemoCourseAction
+        title="Try our demo course!"
+        text="Explore the demo course to see how this all come together"
+        button="Demo course" />
 
     </React.Fragment>
   );

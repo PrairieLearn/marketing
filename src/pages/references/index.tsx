@@ -24,17 +24,10 @@ export default function Research() {
         <title>Research | PrairieLearn</title>
       </Head>
       <PageBanner
-        title="Research"
-        text="Educational studies based on PrairieLearn data"
+        title="References"
+        text="Educational research studies"
       />
 
-      <div className="row justify-content-center my-2">
-        <div className="col-md-12 text-center">
-          <Link href="/references">
-            <a className="btn btn-warning btn-lg">References</a>
-          </Link>
-        </div>
-      </div>
     </React.Fragment>
   );
 }
