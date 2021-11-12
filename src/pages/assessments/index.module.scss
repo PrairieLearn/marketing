@@ -1,11 +1,10 @@
 @import "~bootstrap/scss/_functions.scss";
 @import "~bootstrap/scss/_variables.scss";
 
-
-.container {
-  background-color: #0297A6;
+.heading {
+  color: $blue-700;
 }
 
-.grayContainer {
+.container {
   background-color: $gray-200;
 }

@@ -6,8 +6,6 @@ import Head from "next/head";
 
 import styles from "./index.module.scss";
 import { PageBanner } from "../../components/Banner";
-import { ButtonToPage } from "../../components/ButtonToPage";
-
 
 import Stack from "../../components/Stack";
 
@@ -19,22 +17,18 @@ const Column: React.FC = ({ children }) => (
   <div className="col">{children}</div>
 );
 
-export default function Research() {
+export default function Assessments() {
   return (
     <React.Fragment>
       <Head>
-        <title>Research | PrairieLearn</title>
+        <title>Assessments | PrairieLearn</title>
       </Head>
       <PageBanner
-        title="Research"
-        text="Educational studies based on PrairieLearn data"
+        title="Assessments"
+        text="Building different types of activities for your class"
       />
 
-      <ButtonToPage
-        text="References"
-        page="/references"
-      />
 
     </React.Fragment>
   );
-}
+};

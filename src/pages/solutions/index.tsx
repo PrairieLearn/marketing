@@ -3,12 +3,11 @@ import Head from "next/head";
 import Link from "next/link";
 import classnames from "classnames";
 
+import { PageBanner } from "../../components/Banner";
 import { HomepageHeading } from "../../components/HomepageHeading";
 import { ExampleEditor } from "../../components/ExampleEditor";
 import { ExampleQuestion } from "../../components/ExampleQuestion";
 import Stack from "../../components/Stack";
-
-import styles from "../../components/Container.module.scss";
 
 const DEMO_QUESTION_HTML = `
 <pl-question-panel>
@@ -44,30 +43,16 @@ const Column: React.FC = ({ children }) => (
   <div className="col">{children}</div>
 );
 
-export default function Home() {
+export default function Solutions() {
   return (
     <React.Fragment>
       <Head>
         <title>PrairieLearn</title>
       </Head>
-      <div className={classnames("container-fluid py-4", styles.container)}>
-        <div className="container-md">
-          <Row>
-            <Column>
-              <h1 className="text-white display-3">
-                <span>PrairieLearn: The best platform for online assessments</span>
-              </h1>
-              <p className="text-white mt-4 fs-3">
-                PrairieLearn empowers instructors to build content that helps
-                their students achieve mastery.
-              </p>
-              <Link href="/contact">
-                <a className="btn btn-light btn-lg">Get in touch</a>
-              </Link>
-            </Column>
-          </Row>
-        </div>
-      </div>
+      <PageBanner
+        title="PrairieLearn: The best platform for online assessments"
+        text="PrairieLearn empowers instructors to build content that helps their students achieve mastery"
+      />
 
 
 
@@ -169,26 +154,14 @@ export default function Home() {
         </Row>
       </Container>
 
-      <div className={classnames("container-fluid py-4", styles.container)}>
-        <div className="container-md">
-          <Row>
-            <Column>
-              <h1 className="text-white display-3">
-                <span>PrairieTest: exam scheduling and proctoring system</span>
-              </h1>
-              <p className="text-white mt-4 fs-3">
-                PrairieTest enables instructors to deliver secure synchronous and
-                asynchronous exams with flexible scheduling for
-                both in-person and online format with Zoom proctoring options.
-              </p>
-              <Link href="/contact">
-                <a className="btn btn-warning btn-lg">Get in touch</a>
-              </Link>
-            </Column>
-          </Row>
-        </div>
-      </div>
-
+      <PageBanner
+        title="PrairieTest: exam scheduling and proctoring system"
+        text="Secure exams with flexible scheduling"
+      />
+      <Container>
+        <p>PrairieTest enables instructors to deliver secure synchronous and asynchronous
+        exams with flexible scheduling for both in-person and online format with Zoom proctoring options.</p>
+      </Container>
     </React.Fragment>
   );
 }

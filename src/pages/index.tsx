@@ -3,12 +3,11 @@ import Head from "next/head";
 import Link from "next/link";
 import classnames from "classnames";
 
+import { PageBanner } from "../components/Banner";
 import { HomepageHeading } from "../components/HomepageHeading";
 import { ExampleEditor } from "../components/ExampleEditor";
 import { ExampleQuestion } from "../components/ExampleQuestion";
 import Stack from "../components/Stack";
-
-import styles from "../components/Container.module.scss";
 
 const DEMO_QUESTION_HTML = `
 <pl-question-panel>
@@ -50,28 +49,18 @@ export default function Home() {
       <Head>
         <title>PrairieLearn</title>
       </Head>
-      <div className={classnames("container-fluid py-4", styles.container)}>
+      <PageBanner
+        title="The best platform for online assessments"
+        text="PrairieLearn empowers instructors to build content that helps their students achieve mastery."
+      />
+      <div className="container-fluid py-4">
         <div className="container-md">
-          <Row>
-            <Column>
-              <h1 className="text-white display-3">
-                <span>The best platform for online assessments</span>
-              </h1>
-              <p className="text-white mt-4 fs-3">
-                PrairieLearn empowers instructors to build content that helps
-                their students achieve mastery.
-              </p>
-              <a
-                href="https://prairielearn.readthedocs.io/en/latest/"
-                className="btn btn-light btn-lg me-3"
-              >
-                Documentation
-              </a>
-              <Link href="/contact">
-                <a className="btn btn-outline-light btn-lg">Get in touch</a>
-              </Link>
-            </Column>
-          </Row>
+        <a
+          href="https://prairielearn.readthedocs.io/en/latest/"
+          className="btn btn-primary btn-lg me-3"
+        >
+          Documentation
+        </a>
         </div>
       </div>
       <Container>

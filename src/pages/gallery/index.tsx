@@ -6,8 +6,10 @@ import Head from "next/head";
 
 import Image from "../../components/Image";
 
+import { HomepageHeading } from "../../components/HomepageHeading";
 import { PageBanner } from "../../components/Banner";
 import { DemoCourseAction } from "../../components/DemoCourse";
+import { ButtonToPage } from "../../components/ButtonToPage";
 
 import { getQuestions } from "../../lib/gallery/questions";
 import { getAssessments } from "../../lib/gallery/assessments";
@@ -16,7 +18,7 @@ import styles from "./index.module.scss";
 import ContainerStyle from "../../components/Container.module.scss";
 import Stack from "../../components/Stack";
 
-import assessmentImage from "../../lib/images/assessment.png";
+import assessmentImage from "../../lib/images/assessment2.png";
 import questionImage from "../../lib/images/question.png";
 
 interface Assessment {
@@ -62,16 +64,14 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({
       <div className={classnames("container-fluid py-4 my-5")}>
         <div className="container-md">
           <div className="row">
-            <h2 className={classnames("pb-3", styles.heading)}>
-              Assessments
-            </h2>
-          </div>
-          <div className="row">
-            <div className="col-md-6 order-2
-            ">
-              <Image src={assessmentImage}  />
+            <div
+              className="col-md-6 order-2 pt-4
+            "
+            >
+              <Image src={assessmentImage} />
             </div>
             <div className="col-md-6 order-1">
+              <HomepageHeading>Assessments</HomepageHeading>
               <p>
                 Assessments are collections of questions that are graded
                 together. Use them to create homework, exam, quiz, pre-lecture,
@@ -82,52 +82,30 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({
                 questions, rules to control access based on date or user,
                 instructions for students, and more!
               </p>
+              <ButtonToPage
+                text="View Assessment Features"
+                page="/assessments"
+              />
             </div>
           </div>
         </div>
       </div>
 
-      <div
-        className={classnames(
-          "container-fluid py-4",
-          ContainerStyle.grayContainer
-        )}
-      >
-        <div className="container-md">
-          <div className="mb-3">
-            <h2 className={classnames("pb-3", styles.heading)}>
-              Assessment Galery
-            </h2>
-            <Stack spacing={3}>
-              {assessments.map((assessment) => {
-                const assessmentHref = `/gallery/assessment/${assessment.slug}`;
-                return (
-                  <article key={assessment.slug}>
-                    <h3 className="h5">
-                      <Link href={assessmentHref}>
-                        <a>{assessment.title}</a>
-                      </Link>
-                    </h3>
-                    <p className="mb-0">{assessment.summary}</p>
-                  </article>
-                );
-              })}
-            </Stack>
-          </div>
-        </div>
-      </div>
-
-      <div className={classnames("container-fluid py-4 my-5")}>
+      <div className={classnames("container-fluid my-5")}>
         <div className="container-md">
           <div className="row">
-            <h2 className={classnames("pb-3", styles.heading)}>Questions</h2>
-          </div>
-          <div className="row">
-            <div className="col-md-6 order-2
-            ">
-              <Image src={questionImage}  />
+            <div
+              className="col-md-6 order-2 pt-4
+            "
+            >
+              <Image src={questionImage} />
+              <ButtonToPage
+                text="Learn about PrairieLearn questions"
+                page="/references"
+              />
             </div>
             <div className="col-md-6 order-1">
+              <HomepageHeading>Questions</HomepageHeading>
               <p>
                 Questions are the fundamental unit of content in PrairieLearn.
                 While questions can be completely static, the key feature of
@@ -135,9 +113,11 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({
                 grade many unique variants of the same base question.
               </p>
               <p>
-                <strong> Write it once, use many times!</strong> Since questions are defined as code, they can be reused in many future assessment.s
-                And students can keep trying new variants of difficult problems until
-                they've mastered the topic—no need for you to manually write new questions.
+                <strong> Write it once, use many times!</strong> Since questions
+                are defined as code, they can be reused in many future
+                assessment.s And students can keep trying new variants of
+                difficult problems until they've mastered the topic—no need for
+                you to manually write new questions.
               </p>
             </div>
           </div>
@@ -146,28 +126,15 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({
 
       <div
         className={classnames(
-          "container-fluid py-4",
-          ContainerStyle.grayContainer
+          "container-fluid py-4", styles.container
         )}
       >
         <div className="container-md">
           <div className="my-3">
-            <h2 className={classnames("pb-3", styles.heading)}>
-              Question Galery
-            </h2>
+            <HomepageHeading>Question Galery</HomepageHeading>
             <p>
-              New to PrairieLearn? Check{" "}
-              <Link href="gallery/elementIntro">
-                <a>introduction to PrairieLearn questions</a>
-              </Link>{" "}
-              to learn the key concepts used throughout these examples and all
-              PrairieLearn questions.
-            </p>
-
-            <p>
-              Once you're familiar with the basics, check out this question
-              gallery with example questions that take full advantage of the
-              PrairieLearn platform.
+              Check out this question gallery with example questions that take
+              full advantage of the PrairieLearn platform.
             </p>
 
             <div className={classnames(styles.grid)}>
@@ -208,8 +175,8 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({
       <DemoCourseAction
         title="Try our demo course!"
         text="Explore the demo course to see how this all come together"
-        button="Demo course" />
-
+        button="Demo course"
+      />
     </React.Fragment>
   );
 };

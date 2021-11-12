@@ -17,7 +17,7 @@ const Column: React.FC = ({ children }) => (
   <div className="col">{children}</div>
 );
 
-export default function Research() {
+export default function Team() {
   return (
     <React.Fragment>
       <Head>

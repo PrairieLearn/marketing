@@ -24,7 +24,7 @@ export const DemoCourseAction: React.FC = ({ title, text, button }) => (
       <div className="row justify-content-center my-2">
         <div className="col-md-12 text-center">
           <Link href="https://www.prairielearn.org/pl/course_instance/128605">
-            <a className="btn btn-light btn-lg">{button}</a>
+            <a className="btn btn-warning btn-lg">{button}</a>
           </Link>
         </div>
       </div>

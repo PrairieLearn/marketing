@@ -69,7 +69,7 @@ export default function Pricing() {
       </Head>
       <PageBanner
         title="Pricing"
-        text="Add text here"
+        text=""
       />
       <div className="container my-5">
         <Stack>
