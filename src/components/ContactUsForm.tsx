@@ -92,9 +92,8 @@ export const ContactUsForm: React.FC<ContactUsFormProps> = ({
   const [role, setRole] = React.useState("");
   const [message, setMessage] = React.useState("");
 
-  const [submissionState, setSubmissionState] = React.useState<SubmissionState>(
-    "unsubmitted"
-  );
+  const [submissionState, setSubmissionState] =
+    React.useState<SubmissionState>("unsubmitted");
 
   const submit = () => {
     setSubmissionState("submitting");

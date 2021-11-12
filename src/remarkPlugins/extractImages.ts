@@ -1,7 +1,7 @@
 import path from "path";
 import { Node } from "unist";
 import { Transformer } from "unified";
-import visit from "unist-util-visit";
+import { visit } from "unist-util-visit";
 
 import { copyImageToPublicDir } from "../lib/images";
 
