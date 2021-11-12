@@ -1,18 +1,18 @@
-import React from 'react';
-import { GetStaticPaths, GetStaticProps } from 'next';
-import Head from 'next/head';
+import React from "react";
+import { GetStaticPaths, GetStaticProps } from "next";
+import Head from "next/head";
 
-import { serialize } from 'next-mdx-remote/serialize';
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
-import remarkMath from 'remark-math';
-import rehypeKatex from 'rehype-katex';
+import { serialize } from "next-mdx-remote/serialize";
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
 
-import mdxComponents from '../../lib/mdxComponents';
-import loadCodePlugin from '../../remarkPlugins/loadCode';
-import extractImages from '../../remarkPlugins/extractImages';
-import { getAssessments } from '../../lib/gallery/assessments';
-import { getQuestions } from '../../lib/gallery/questions';
-import rewriteAssessmentLinks from '../../remarkPlugins/rewriteAssessmentLinks';
+import mdxComponents from "../../lib/mdxComponents";
+import loadCodePlugin from "../../remarkPlugins/loadCode";
+import extractImages from "../../remarkPlugins/extractImages";
+import { getAssessments } from "../../lib/gallery/assessments";
+import { getQuestions } from "../../lib/gallery/questions";
+import rewriteAssessmentLinks from "../../remarkPlugins/rewriteAssessmentLinks";
 
 interface GalleryPageProps {
   source: MDXRemoteSerializeResult;
@@ -59,14 +59,14 @@ export const getStaticPaths: GetStaticPaths<PathParams> = async () => {
   const assessments = await getAssessments();
   const assessmentPaths = assessments.map(({ slug }) => ({
     params: {
-      slug: ['assessment', slug],
+      slug: ["assessment", slug],
     },
   }));
 
   const questions = await getQuestions();
   const questionPaths = questions.map(({ slug }) => ({
     params: {
-      slug: ['question', slug],
+      slug: ["question", slug],
     },
   }));
 
@@ -78,13 +78,13 @@ export const getStaticPaths: GetStaticPaths<PathParams> = async () => {
 
 export const getStaticProps: GetStaticProps<GalleryPageProps, PathParams> =
   async ({ params }) => {
-    if (!params) throw new Error('missing params');
+    if (!params) throw new Error("missing params");
     const { slug: slugComponents } = params;
 
     const [type, slug] = slugComponents;
 
     switch (type) {
-      case 'assessment': {
+      case "assessment": {
         const assessments = await getAssessments();
         const assessment = assessments.find((a) => a.slug === slug);
         if (!assessment) {
@@ -112,7 +112,7 @@ export const getStaticProps: GetStaticProps<GalleryPageProps, PathParams> =
           },
         };
       }
-      case 'question': {
+      case "question": {
         const questions = await getQuestions();
         const question = questions.find((a) => a.slug === slug);
         if (!question) {
