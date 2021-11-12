@@ -6,8 +6,6 @@
     "dev": "next dev",
     "build": "tsc && next build",
     "next-build": "next build",
-    "build-api-images": "ts-node tools/build-api-images.ts",
-    "deploy": "ts-node tools/deploy.ts",
     "format": "prettier --write src/",
     "lint": "prettier --check src/",
     "start": "next start"
@@ -44,7 +42,6 @@
     "@types/react": "^17.0.0",
     "prettier": "2.2.1",
     "sass": "^1.30.0",
-    "ts-node": "^9.1.1",
     "typescript": "^4.4.4"
   }
 }
