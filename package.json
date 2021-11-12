@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "tsc && next build",
+    "build": "next build",
     "next-build": "next build",
     "format": "prettier --write src/",
     "lint": "prettier --check src/",
