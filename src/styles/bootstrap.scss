@@ -4,15 +4,9 @@
 
 $grid-breakpoints: map-remove($grid-breakpoints, "xl", "xxl");
 $container-max-widths: map-remove($container-max-widths, "xl", "xxl");
-//
-//
-// $theme-colors: (
-//     "yellow": $yellow-500,
-//     "gray": $gray-300,
-//     "warning": $warning,
-//     "primary": $primary,
-//     "dark": $dark,
-//     "light": $light,
-// );
+
+$theme-colors: (
+  "purple": $purple-500,
+) !default;
 
 @import "~bootstrap/scss/bootstrap";
