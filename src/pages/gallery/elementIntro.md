@@ -1,6 +1,5 @@
 ---
 title: Introduction to PrairieLearn questions
-showOnIndex: false
 ---
 
 PrairieLearn questions are built on top of widely-used technologies like HTML, CSS, JavaScript, and Python.
