@@ -55,12 +55,12 @@ export default function Home() {
       />
       <div className="container-fluid py-4">
         <div className="container-md">
-        <a
-          href="https://prairielearn.readthedocs.io/en/latest/"
-          className="btn btn-primary btn-lg me-3"
-        >
-          Documentation
-        </a>
+          <a
+            href="https://prairielearn.readthedocs.io/en/latest/"
+            className="btn btn-primary btn-lg me-3"
+          >
+            Documentation
+          </a>
         </div>
       </div>
       <Container>
@@ -72,7 +72,7 @@ export default function Home() {
                 <p>
                   Once a question has been defined in code, it can be reused in
                   any future assessment. And students can keep trying new
-                  variants of difficult problems until they've mastered the
+                  variants of difficult problems until they&apos;ve mastered the
                   topic—no need for you to manually write new questions.
                 </p>
                 <ExampleQuestion />
@@ -138,7 +138,7 @@ export default function Home() {
             <Column>
               <h2 className="text-white">Open-source. Forever.</h2>
               <p className="text-white ">
-                PrairieLearn began life as open-source software, and we're
+                PrairieLearn began life as open-source software, and we&apos;re
                 committed to making sure it stays that way. With an active
                 developer community of professors, course staff, and students,
                 PrairieLearn gets better all the time.
@@ -170,7 +170,7 @@ export default function Home() {
               <Link href="/gallery">
                 <a>question gallery</a>
               </Link>{" "}
-              to see what's possible with PrairieLearn, or head over to{" "}
+              to see what&apos;s possible with PrairieLearn, or head over to{" "}
               <a href="https://prairielearn.readthedocs.io/en/latest/">
                 the documentation
               </a>{" "}
@@ -180,7 +180,7 @@ export default function Home() {
             <p>
               Looking for managed hosting, instructional workshops, and direct
               support? Want a personalized demo of all PrairieLearn has to
-              offer? Reach out to us, and we'll get back to you with more
+              offer? Reach out to us, and we&apos;ll get back to you with more
               details.
             </p>
             <Link href="/contact">

@@ -26,7 +26,7 @@ export const ExampleEditor: React.FC<ExampleEditorProps> = ({ files }) => {
     if (preRef?.current?.scrollLeft) {
       preRef.current.scrollLeft = 0;
     }
-  }, [selectedFileIndex, preRef.current]);
+  }, [selectedFileIndex]);
 
   return (
     <div className="card border-0 overflow-hidden shadow">
@@ -37,7 +37,7 @@ export const ExampleEditor: React.FC<ExampleEditorProps> = ({ files }) => {
             {files.map((file, index) => {
               const active = selectedFileIndex === index;
               return (
-                <li className="list-inline-item">
+                <li className="list-inline-item" key={file.filename}>
                   <button
                     className={classnames("btn", {
                       "btn-light": active,

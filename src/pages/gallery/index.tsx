@@ -15,8 +15,6 @@ import { getQuestions } from "../../lib/gallery/questions";
 import { getAssessments } from "../../lib/gallery/assessments";
 
 import styles from "./index.module.scss";
-import ContainerStyle from "../../components/Container.module.scss";
-import Stack from "../../components/Stack";
 
 import assessmentImage from "../../lib/images/assessment2.png";
 import questionImage from "../../lib/images/question.png";
@@ -124,11 +122,7 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({
         </div>
       </div>
 
-      <div
-        className={classnames(
-          "container-fluid py-4", styles.container
-        )}
-      >
+      <div className={classnames("container-fluid py-4", styles.container)}>
         <div className="container-md">
           <div className="my-3">
             <HomepageHeading>Question Galery</HomepageHeading>

@@ -8,3 +8,6 @@ out
 
 # macOS files
 .DS_Store
+
+# TypeScript files
+tsconfig.tsbuildinfo
