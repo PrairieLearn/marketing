@@ -13,11 +13,7 @@ export default function References() {
       <Head>
         <title>References | PrairieLearn</title>
       </Head>
-      <PageBanner
-        title="References"
-        text="Educational research studies"
-      />
-
+      <PageBanner title="References" text="Educational research studies" />
     </React.Fragment>
   );
 }

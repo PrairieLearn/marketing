@@ -54,8 +54,6 @@ export default function Solutions() {
         text="PrairieLearn empowers instructors to build content that helps their students achieve mastery"
       />
 
-
-
       <Container>
         <Stack spacing={5}>
           <Row>
@@ -121,7 +119,6 @@ export default function Solutions() {
               </Stack>
             </Column>
           </Row>
-
         </Stack>
       </Container>
 
@@ -159,8 +156,11 @@ export default function Solutions() {
         text="Secure exams with flexible scheduling"
       />
       <Container>
-        <p>PrairieTest enables instructors to deliver secure synchronous and asynchronous
-        exams with flexible scheduling for both in-person and online format with Zoom proctoring options.</p>
+        <p>
+          PrairieTest enables instructors to deliver secure synchronous and
+          asynchronous exams with flexible scheduling for both in-person and
+          online format with Zoom proctoring options.
+        </p>
       </Container>
     </React.Fragment>
   );

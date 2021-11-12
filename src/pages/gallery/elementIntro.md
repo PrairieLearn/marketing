@@ -12,11 +12,9 @@ All questions start with a `question.html` file. This file determines what conte
 Here's an extremely simple question:
 
 ```html
-<p>
-  In what year was the University of Illinois Urbana-Champaign establised?
-</p>
+<p>In what year was the University of Illinois Urbana-Champaign establised?</p>
 
-<input type="text" name="year">
+<input type="text" name="year" />
 ```
 
 It shows the question ("In what year was the University of Illinois Urbana-Champaign established?") and an input for the student to submit their answer.
@@ -34,9 +32,7 @@ PrairieLearn elements provide reusable building blocks for questions. They encap
 In the example question we're working with, we want to collect and grade a year value. The `<pl-string-input>` element contains all the logic necessary to do that.
 
 ```html
-<p>
-  In what year was the University of Illinois Urbana-Champaign established?
-</p>
+<p>In what year was the University of Illinois Urbana-Champaign established?</p>
 
 <pl-string-input answers-name="year" correct-answer="1868"></pl-string-input>
 ```
@@ -52,9 +48,7 @@ The above question is still relatively simple. It can grade itself, but that's a
 To facilitate randomization, `question.html` files support the [Mustache template syntax](https://mustache.github.io). This allows you to easily include dynamically-generated values in your questions. Let's modify our previous `question.html` file to support randomization:
 
 ```html
-<p>
-  In what year was the {{params.university_name}} established?
-</p>
+<p>In what year was the {{params.university_name}} established?</p>
 
 <pl-string-input answers-name="year"></pl-string-input>
 ```
@@ -85,5 +79,5 @@ def generate(data):
 
 `generate(...)` is a special function that PrairieLearn will call when it needs to generate a new variant of your question. The `data` argument is a dictionary that PrairieLearn uses to maintain state and pass that state between different elements in a given question. Let's look at the two values we insert into `data` in more detail.
 
-* `data["params"]["university_name"]` will be used by the `{{params.university_name}}` template in `question.html`
-* `data["correct_answers"]["year"]` will be used by the `<pl-string-input>` to determine what the correct answer is. Note how the key `"year"` matches the attribute `answers-name="year"` on the element - this is how `<pl-string-input>` knows which value from `data["correct_answers"]` to use.
+- `data["params"]["university_name"]` will be used by the `{{params.university_name}}` template in `question.html`
+- `data["correct_answers"]["year"]` will be used by the `<pl-string-input>` to determine what the correct answer is. Note how the key `"year"` matches the attribute `answers-name="year"` on the element - this is how `<pl-string-input>` knows which value from `data["correct_answers"]` to use.

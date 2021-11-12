@@ -1,5 +1,5 @@
 ---
-title: 'References'
+title: "References"
 author:
   name: Mariana
 ---
@@ -12,12 +12,9 @@ M. Silva and M. West, Algorithmic grading strategies for computerized drawing as
 
 N. Nytko, M. West, and M. Silva, A simple and efficient markup tool to generate drawing-based online assessments, in Proceedings of the 2020 American Society for Engineering Education Virtual Annual Conference (ASEE 2020), 2020.
 
-
-
 P. Sud, M. West, and C. Zilles, Reducing difficulty variance in randomized assessments, in Proceedings of the 126th American Society for Engineering Education Annual Conference and Exposition (ASEE 2019), Paper ID #25513, 2019.
 
 B. Chen, M. West, and C. Zilles, Predicting the difficulty of automatic item generators on exams from their difficulty on homeworks, in Proceedings of the Sixth Annual ACM Conference on Learning at Scale (L@S 2019), 2019.
-
 
 Computer-based testing:
 
@@ -37,8 +34,6 @@ C. Zilles, M. West, G. Herman, and T. Bretl, Every university should have a comp
 
 A. Verma, T. Bretl, M. West, and C. Zilles, A quantitative analysis of when students choose to grade questions on computerized exams with multiple attempts, in Proceedings of the Seventh ACM Conference on Learning at Scale (L@S 2020), 2020.
 
-
-
 Improve learning:
 
 T. Nip, E. L. Gunter, G. L. Herman, J. W. Morphew, and M. West, Using a computer-based testing facility to improve student learning in a programming languages and compilers course, in Proceedings of the 49th ACM Technical Symposium on Computer Science Education (SIGCSE 2018), 568-573, 2018.
@@ -51,22 +46,17 @@ W. L. Chang, M. West, C. Zilles, D. Mussulman, and C. Sacris, Computerized exam 
 
 S. Poulsen, C. J. Anderson, and M. West, The relationship between course scheduling and student performance, in Proceedings of 4th Educational Data Mining in Computer Science Education Workshop (CSEDM 2020), 2020.
 
-
-
 Reduce cheating:
 
 B. Chen, M. West, and C. Zilles, Do performance trends suggest wide-spread collaborative cheating on asynchronous exams?, in Proceedings of the Fourth ACM Conference on Learning at Scale (L@S 2017), 2017.
-
 
 B. Chen, M. West, and C. Zilles, How much randomization is needed to deter collaborative cheating on asynchronous exams?, in Proceedings of the Fifth Annual ACM Conference on Learning at Scale (L@S 2018), 62, 2018.
 
 B. Chen, M. West, and C. Zilles, Analyzing the decline of student scores over time in self‐scheduled asynchronous exams, Journal of Engineering Education 108(4), 574-594, 2019.
 
-B. Chen, S.  Azad, M. Fowler, M. West, and C. Zilles, Learning to cheat: Quantifying changes in score advantage of unproctored assessments over time, in Proceedings of the Seventh ACM Conference on Learning at Scale (L@S 2020), 2020.
+B. Chen, S. Azad, M. Fowler, M. West, and C. Zilles, Learning to cheat: Quantifying changes in score advantage of unproctored assessments over time, in Proceedings of the Seventh ACM Conference on Learning at Scale (L@S 2020), 2020.
 
 M. Silva, M. West, and C. Zilles, Measuring the score advantage on asynchronous exams in an undergraduate CS course, in Proceedings of the 51st ACM Technical Symposium on Computer Science Education (SIGCSE 2020), 2020.
-
-
 
 NLP
 

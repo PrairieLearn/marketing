@@ -17,7 +17,6 @@ export default function QuestionIntro() {
         title="Introduction to PrairieLearn questions"
         text="not sure how to add the markdown text here..."
       />
-
     </React.Fragment>
   );
 }
