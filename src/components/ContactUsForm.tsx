@@ -125,7 +125,7 @@ export const ContactUsForm: React.FC<ContactUsFormProps> = ({
               <div className="text-center">
                 <h2>Contact us</h2>
                 <p className="text-muted">
-                  Tell us how we can help and we'll be in touch soon.
+                  Tell us how we can help and we&apos;ll be in touch soon.
                 </p>
               </div>
             )}
