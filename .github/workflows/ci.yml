@@ -37,6 +37,3 @@ jobs:
 
       - name: Build
         run: yarn build
-
-      - name: Build API images
-        run: yarn build-api-images
