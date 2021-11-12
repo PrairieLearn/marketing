@@ -101,7 +101,7 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({
               <Image src={questionImage} />
               <ButtonToPage
                 text="Learn about PrairieLearn questions"
-                page="/references"
+                page="/gallery/intro"
               />
             </div>
             <div className="col-md-6 order-1">
