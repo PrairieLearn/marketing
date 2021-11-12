@@ -7,7 +7,7 @@
     "build": "next build",
     "next-build": "next build",
     "format": "prettier --write src/",
-    "lint": "prettier --check src/",
+    "lint": "next lint && prettier --check src/",
     "start": "next start"
   },
   "dependencies": {
@@ -39,6 +39,8 @@
     "@types/gtag.js": "^0.0.8",
     "@types/node": "^16.11.7",
     "@types/react": "^17.0.34",
+    "eslint": "<8.0.0",
+    "eslint-config-next": "12.0.3",
     "prettier": "2.4.1",
     "sass": "^1.30.0",
     "typescript": "^4.4.4"
