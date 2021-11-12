@@ -141,10 +141,10 @@ export default function Pricing() {
               </thead>
               <tbody>
                 {FEATURES.map((feature) => (
-                  <tr>
+                  <tr key={feature.name}>
                     <th>{feature.name}</th>
-                    {feature.suppport.map((support) => (
-                      <td className="align-middle">
+                    {feature.suppport.map((support, i) => (
+                      <td className="align-middle" key={i}>
                         {support ? <CheckIcon /> : <span>-</span>}
                       </td>
                     ))}

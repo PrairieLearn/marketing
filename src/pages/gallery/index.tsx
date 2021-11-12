@@ -78,7 +78,7 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({
           the same base question.
         </p>
         <p>
-          If you're new to PrairieLearn, you should check out the{" "}
+          If you&apos;re new to PrairieLearn, you should check out the{" "}
           <Link href="/gallery/intro">
             <a>introduction to PrairieLearn questions</a>
           </Link>{" "}
@@ -86,9 +86,9 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({
           PrairieLearn questions.
         </p>
         <p>
-          Once you're familiar with the basics, check out the below questions to
-          see some examples of questions that take full advantage of the
-          PrairieLearn platform.
+          Once you&apos;re familiar with the basics, check out the below
+          questions to see some examples of questions that take full advantage
+          of the PrairieLearn platform.
         </p>
         <div className={classnames(styles.grid)}>
           {questions.map((question) => {
@@ -103,6 +103,7 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({
                         src={question.imageUrl}
                         layout="fill"
                         objectFit="contain"
+                        alt="Preview of question"
                       />
                     </a>
                   </Link>

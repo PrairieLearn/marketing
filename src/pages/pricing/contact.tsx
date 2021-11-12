@@ -16,11 +16,11 @@ export default function Contact() {
         <div className="row">
           <div className="col-12 col-lg-6">
             <p>
-              Thanks for your interest in PrairieLearn! We're still getting our
-              hosted infrastructure set up, so we're not quite ready to accept
-              signups yet. If you're interested in being one of our early
-              adopters or would like to learn more about how PrairieLearn could
-              help your course or institution, let us know!
+              Thanks for your interest in PrairieLearn! We&apos;re still getting
+              our hosted infrastructure set up, so we&apos;re not quite ready to
+              accept signups yet. If you&apos;re interested in being one of our
+              early adopters or would like to learn more about how PrairieLearn
+              could help your course or institution, let us know!
             </p>
           </div>
           <div className="col-12 col-lg-6">
