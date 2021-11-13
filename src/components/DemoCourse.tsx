@@ -12,7 +12,13 @@ const Column: React.FC = ({ children }) => (
   <div className="col">{children}</div>
 );
 
-export const DemoCourseAction: React.FC = ({ title, text, button }) => (
+export interface DemoCourseActionProps {
+  title: string;
+  text: string;
+  button: string;
+}
+
+export const DemoCourseAction: React.FC<DemoCourseActionProps> = ({ title, text, button }) => (
   <div className={classnames("container-fluid py-4", styles.container)}>
     <div className="container-md">
       <Row>
