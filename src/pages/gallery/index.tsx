@@ -66,7 +66,7 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({
               className="col-md-6 order-2 pt-4
             "
             >
-              <Image src={assessmentImage} />
+              <Image src={assessmentImage} alt="assessment page view"/>
             </div>
             <div className="col-md-6 order-1">
               <HomepageHeading>Assessments</HomepageHeading>
@@ -96,7 +96,7 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({
               className="col-md-6 order-2 pt-4
             "
             >
-              <Image src={questionImage} />
+              <Image src={questionImage} alt="question example"/>
               <ButtonToPage
                 text="Learn about PrairieLearn questions"
                 page="/gallery/elementIntro"
@@ -146,6 +146,7 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({
                             src={question.imageUrl}
                             layout="fill"
                             objectFit="contain"
+                            alt="question preview image"
                           />
                         </a>
                       </Link>
