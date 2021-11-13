@@ -15,8 +15,6 @@ import { getQuestions } from "../../lib/gallery/questions";
 import { getAssessments } from "../../lib/gallery/assessments";
 
 import styles from "./index.module.scss";
-import ContainerStyle from "../../components/Container.module.scss";
-import Stack from "../../components/Stack";
 
 import assessmentImage from "../../lib/images/assessment2.png";
 import questionImage from "../../lib/images/question.png";
@@ -116,19 +114,15 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({
                 <strong> Write it once, use many times!</strong> Since questions
                 are defined as code, they can be reused in many future
                 assessment.s And students can keep trying new variants of
-                difficult problems until they've mastered the topic—no need for
-                you to manually write new questions.
+                difficult problems until they&apos;ve mastered the topic—no need
+                for you to manually write new questions.
               </p>
             </div>
           </div>
         </div>
       </div>
 
-      <div
-        className={classnames(
-          "container-fluid py-4", styles.container
-        )}
-      >
+      <div className={classnames("container-fluid py-4", styles.container)}>
         <div className="container-md">
           <div className="my-3">
             <HomepageHeading>Question Galery</HomepageHeading>

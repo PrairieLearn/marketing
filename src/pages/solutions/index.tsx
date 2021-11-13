@@ -54,8 +54,6 @@ export default function Solutions() {
         text="PrairieLearn empowers instructors to build content that helps their students achieve mastery"
       />
 
-
-
       <Container>
         <Stack spacing={5}>
           <Row>
@@ -89,11 +87,12 @@ export default function Solutions() {
                   Automatic generation and grading
                 </HomepageHeading>
                 <p>
-                  Once you've defined an HTML template, generate parameters for
-                  your question with the power of Python and popular libraries
-                  like numpy and matplotlib. And questions grade themselves,
-                  from simple multiple-choice questions to free-body diagrams to
-                  code, so instructors can focus on the important things.
+                  Once you&apos;ve defined an HTML template, generate parameters
+                  for your question with the power of Python and popular
+                  libraries like numpy and matplotlib. And questions grade
+                  themselves, from simple multiple-choice questions to free-body
+                  diagrams to code, so instructors can focus on the important
+                  things.
                 </p>
                 <ExampleEditor
                   files={[
@@ -114,14 +113,13 @@ export default function Solutions() {
                 <p>
                   Once a question has been defined in code, it can be reused in
                   any future assessment. And students can keep trying new
-                  variants of difficult problems until they've mastered the
+                  variants of difficult problems until they&apos;ve mastered the
                   topic—no need for you to manually write new questions.
                 </p>
                 <ExampleQuestion />
               </Stack>
             </Column>
           </Row>
-
         </Stack>
       </Container>
 
@@ -134,7 +132,7 @@ export default function Solutions() {
               <Link href="/gallery">
                 <a>question gallery</a>
               </Link>{" "}
-              to see what's possible with PrairieLearn, or head over to{" "}
+              to see what&apos;s possible with PrairieLearn, or head over to{" "}
               <a href="https://prairielearn.readthedocs.io/en/latest/">
                 the documentation
               </a>{" "}
@@ -144,7 +142,7 @@ export default function Solutions() {
             <p>
               Looking for managed hosting, instructional workshops, and direct
               support? Want a personalized demo of all PrairieLearn has to
-              offer? Reach out to us, and we'll get back to you with more
+              offer? Reach out to us, and we&apos;ll get back to you with more
               details.
             </p>
             <Link href="/contact">
@@ -159,8 +157,11 @@ export default function Solutions() {
         text="Secure exams with flexible scheduling"
       />
       <Container>
-        <p>PrairieTest enables instructors to deliver secure synchronous and asynchronous
-        exams with flexible scheduling for both in-person and online format with Zoom proctoring options.</p>
+        <p>
+          PrairieTest enables instructors to deliver secure synchronous and
+          asynchronous exams with flexible scheduling for both in-person and
+          online format with Zoom proctoring options.
+        </p>
       </Container>
     </React.Fragment>
   );

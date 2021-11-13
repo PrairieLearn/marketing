@@ -2,9 +2,8 @@ import React from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 
-import renderToString from "next-mdx-remote/render-to-string";
-import hydrate from "next-mdx-remote/hydrate";
-import { MDXProvider } from "@mdx-js/react";
+import { serialize } from "next-mdx-remote/serialize";
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 
@@ -16,7 +15,7 @@ import { getQuestions } from "../../lib/gallery/questions";
 import rewriteAssessmentLinks from "../../remarkPlugins/rewriteAssessmentLinks";
 
 interface GalleryPageProps {
-  source: string;
+  source: MDXRemoteSerializeResult;
   summary: string;
   title: string;
   prairielearnUrl?: string | null;
@@ -28,7 +27,6 @@ const GalleryPage: React.FC<GalleryPageProps> = ({
   title,
   prairielearnUrl,
 }) => {
-  const content = hydrate(source);
   return (
     <React.Fragment>
       <Head>
@@ -44,7 +42,7 @@ const GalleryPage: React.FC<GalleryPageProps> = ({
             </a>
           )}
         </div>
-        <MDXProvider components={mdxComponents}>{content}</MDXProvider>
+        <MDXRemote {...source} components={mdxComponents} />
       </div>
     </React.Fragment>
   );
@@ -78,69 +76,65 @@ export const getStaticPaths: GetStaticPaths<PathParams> = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<
-  GalleryPageProps,
-  PathParams
-> = async ({ params }) => {
-  if (!params) throw new Error("missing params");
-  const { slug: slugComponents } = params;
+export const getStaticProps: GetStaticProps<GalleryPageProps, PathParams> =
+  async ({ params }) => {
+    if (!params) throw new Error("missing params");
+    const { slug: slugComponents } = params;
 
-  const [type, slug] = slugComponents;
+    const [type, slug] = slugComponents;
 
-  switch (type) {
-    case "assessment": {
-      const assessments = await getAssessments();
-      const assessment = assessments.find((a) => a.slug === slug);
-      if (!assessment) {
-        throw new Error(`Assessment not found for slug ${slug}`);
+    switch (type) {
+      case "assessment": {
+        const assessments = await getAssessments();
+        const assessment = assessments.find((a) => a.slug === slug);
+        if (!assessment) {
+          throw new Error(`Assessment not found for slug ${slug}`);
+        }
+
+        const mdxSource = await serialize(assessment.markdownContent, {
+          mdxOptions: {
+            remarkPlugins: [
+              rewriteAssessmentLinks(assessments),
+              extractImages,
+              remarkMath,
+            ],
+            rehypePlugins: [rehypeKatex],
+            filepath: assessment.markdownPath,
+          },
+        });
+
+        return {
+          props: {
+            source: mdxSource,
+            summary: assessment.summary,
+            title: assessment.title,
+            prairielearnUrl: assessment.prairielearnUrl,
+          },
+        };
       }
+      case "question": {
+        const questions = await getQuestions();
+        const question = questions.find((a) => a.slug === slug);
+        if (!question) {
+          throw new Error(`Question not found for slug: ${slug}`);
+        }
 
-      const mdxSource = await renderToString(assessment.markdownContent, {
-        components: mdxComponents,
-        mdxOptions: {
-          remarkPlugins: [
-            rewriteAssessmentLinks(assessments),
-            extractImages,
-            remarkMath,
-          ],
-          rehypePlugins: [rehypeKatex],
-          filepath: assessment.markdownPath,
-        },
-      });
-
-      return {
-        props: {
-          source: mdxSource,
-          summary: assessment.summary,
-          title: assessment.title,
-          prairielearnUrl: assessment.prairielearnUrl,
-        },
-      };
-    }
-    case "question": {
-      const questions = await getQuestions();
-      const question = questions.find((a) => a.slug === slug);
-      if (!question) {
-        throw new Error(`Question not found for slug: ${slug}`);
+        const mdxSource = await serialize(question.markdownContent, {
+          mdxOptions: {
+            remarkPlugins: [loadCodePlugin, extractImages, remarkMath],
+            rehypePlugins: [rehypeKatex],
+            filepath: question.markdownPath,
+          },
+        });
+        return {
+          props: {
+            source: mdxSource,
+            summary: question.summary,
+            title: question.title,
+          },
+        };
       }
-
-      const mdxSource = await renderToString(question.markdownContent, {
-        components: mdxComponents,
-        mdxOptions: {
-          remarkPlugins: [loadCodePlugin, extractImages, remarkMath],
-          rehypePlugins: [rehypeKatex],
-          filepath: question.markdownPath,
-        },
-      });
-      return {
-        props: {
-          source: mdxSource,
-          summary: question.summary,
-          title: question.title,
-        },
-      };
+      default:
+        throw new Error(`Invalid slug type: ${type}`);
     }
-    default:
-      throw new Error(`Invalid slug type: ${type}`);
-  }
-};
+  };

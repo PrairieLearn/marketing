@@ -23,10 +23,7 @@ export default function Team() {
       <Head>
         <title>Research | PrairieLearn</title>
       </Head>
-      <PageBanner
-        title="Meet our team!"
-        text="Add text here"
-      />
+      <PageBanner title="Meet our team!" text="Add text here" />
     </React.Fragment>
   );
-};
+}

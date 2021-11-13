@@ -21,12 +21,7 @@ export default function Contact() {
         text="Request your course space here"
       />
 
-      <div
-        className={classnames(
-          "container-fluid py-4",
-          styles.container
-        )}
-      >
+      <div className={classnames("container-fluid py-4", styles.container)}>
         <div className="container-md">
           <div className="row">
             <HomepageHeading>Contact us!</HomepageHeading>

@@ -3,7 +3,6 @@ import classnames from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-
 import NavLink from "./NavLink";
 import styles from "./Header.module.scss";
 
@@ -61,7 +60,9 @@ export const Header: React.FC = () => {
               <NavLink href="/contact">Contact</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink href="https://www.prairielearn.org/pl/login">Sign In</NavLink>
+              <NavLink href="https://www.prairielearn.org/pl/login">
+                Sign In
+              </NavLink>
             </li>
           </ul>
         </div>

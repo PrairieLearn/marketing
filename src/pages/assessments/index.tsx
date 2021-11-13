@@ -27,8 +27,6 @@ export default function Assessments() {
         title="Assessments"
         text="Building different types of activities for your class"
       />
-
-
     </React.Fragment>
   );
-};
+}

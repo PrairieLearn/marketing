@@ -17,7 +17,6 @@ const Column: React.FC = ({ children }) => (
   <div className="col">{children}</div>
 );
 
-
 const FEATURES = [
   {
     name: "Unlimited instructors",
@@ -67,10 +66,7 @@ export default function Pricing() {
       <Head>
         <title>Pricing | PrairieLearn</title>
       </Head>
-      <PageBanner
-        title="Pricing"
-        text=""
-      />
+      <PageBanner title="Pricing" text="" />
       <div className="container my-5">
         <Stack>
           <div className="container">
@@ -153,10 +149,10 @@ export default function Pricing() {
               </thead>
               <tbody>
                 {FEATURES.map((feature) => (
-                  <tr>
+                  <tr key={feature.name}>
                     <th>{feature.name}</th>
-                    {feature.suppport.map((support) => (
-                      <td className="align-middle">
+                    {feature.suppport.map((support, i) => (
+                      <td className="align-middle" key={i}>
                         {support ? <CheckIcon /> : <span>-</span>}
                       </td>
                     ))}

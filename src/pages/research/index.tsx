@@ -8,7 +8,6 @@ import styles from "./index.module.scss";
 import { PageBanner } from "../../components/Banner";
 import { ButtonToPage } from "../../components/ButtonToPage";
 
-
 import Stack from "../../components/Stack";
 
 const Row: React.FC = ({ children }) => (
@@ -30,11 +29,7 @@ export default function Research() {
         text="Educational studies based on PrairieLearn data"
       />
 
-      <ButtonToPage
-        text="References"
-        page="/references"
-      />
-
+      <ButtonToPage text="References" page="/references" />
     </React.Fragment>
   );
 }
