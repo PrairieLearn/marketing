@@ -61,18 +61,19 @@ const AssessmentIndex: React.FC<AssessmentIndexProps> = ({ assessments }) => {
 
 export default AssessmentIndex;
 
-export const getStaticProps: GetStaticProps<AssessmentIndexProps> = async () => {
-  // Get assessments and filter out only the props we need on this page
-  const rawAssessments = await getAssessments();
-  const assessments = rawAssessments.map(({ title, slug, summary }) => ({
-    title,
-    slug,
-    summary,
-  }));
+export const getStaticProps: GetStaticProps<AssessmentIndexProps> =
+  async () => {
+    // Get assessments and filter out only the props we need on this page
+    const rawAssessments = await getAssessments();
+    const assessments = rawAssessments.map(({ title, slug, summary }) => ({
+      title,
+      slug,
+      summary,
+    }));
 
-  return {
-    props: {
-      assessments,
-    },
+    return {
+      props: {
+        assessments,
+      },
+    };
   };
-};
