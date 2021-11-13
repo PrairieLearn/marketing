@@ -10,6 +10,10 @@ import Stack from "../components/Stack";
 
 import styles from "./index.module.scss";
 
+import NextImage from "next/image";
+import logo from "../lib/images/flower-white.png";
+import grassWhite from "../lib/images/grass-white.png";
+
 const DEMO_QUESTION_HTML = `
 <pl-question-panel>
   <p>
@@ -55,8 +59,20 @@ export default function Home() {
           <Row>
             <Column>
               <h1 className="text-white display-3">
-                <span>The best platform for online assessments</span>
+                <NextImage src={grassWhite} width={50} height={50} alt="logo" />
+                <span>
+                  Prairie<strong>Learn</strong>
+                </span>
               </h1>
+              <h1 className="text-white display-3">
+                <NextImage src={logo} width={50} height={50} alt="logo" />
+                <span>
+                  Prairie<strong>Learn</strong>
+                </span>
+              </h1>
+              <h2 className="text-white display-4">
+                The best platform for online assessments
+              </h2>
               <p className="text-white mt-4 fs-3">
                 PrairieLearn empowers instructors to build content that helps
                 their students achieve mastery.

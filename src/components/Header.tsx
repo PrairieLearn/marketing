@@ -5,6 +5,12 @@ import { useRouter } from "next/router";
 
 import styles from "./Header.module.scss";
 import NavLink from "./NavLink";
+import Image from "../components/Image";
+import NextImage from "next/image";
+
+import grassWhite from "../lib/images/grass-white.png";
+import flowerWhite from "../lib/images/flower-white.png";
+import flowerYellow from "../lib/images/flower-yellow.png";
 
 export const Header: React.FC = () => {
   const [collapsed, setCollapsed] = React.useState(true);
@@ -24,7 +30,10 @@ export const Header: React.FC = () => {
     >
       <div className="container">
         <Link href="/">
-          <a className="navbar-brand">PrairieLearn</a>
+          <a className="navbar-brand">
+            <NextImage src={grassWhite} width={24} height={24} alt="logo" />
+            PrairieLearn
+          </a>
         </Link>
         <button
           className="navbar-toggler"
