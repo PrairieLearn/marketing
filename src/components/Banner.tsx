@@ -11,7 +11,12 @@ const Column: React.FC = ({ children }) => (
   <div className="col">{children}</div>
 );
 
-export const PageBanner: React.FC = ({ title, text }) => (
+export interface PageBannerProps {
+  title: string;
+  text: string;
+}
+
+export const PageBanner: React.FC<PageBannerProps> = ({ title, text }) => (
   <div className={classnames("container-fluid py-4", styles.container)}>
     <div className="container-md">
       <Row>
