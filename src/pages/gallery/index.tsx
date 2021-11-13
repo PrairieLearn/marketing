@@ -12,18 +12,10 @@ import { DemoCourseAction } from "../../components/DemoCourse";
 import { ButtonToPage } from "../../components/ButtonToPage";
 
 import { getQuestions } from "../../lib/gallery/questions";
-import { getAssessments } from "../../lib/gallery/assessments";
 
 import styles from "./index.module.scss";
-
 import assessmentImage from "../../lib/images/assessment.png";
 import questionImage from "../../lib/images/question.png";
-
-interface Assessment {
-  title: string;
-  slug: string;
-  summary: string;
-}
 
 interface Question {
   title: string;
@@ -33,14 +25,10 @@ interface Question {
 }
 
 interface GalleryIndexProps {
-  assessments: Assessment[];
   questions: Question[];
 }
 
-const GalleryIndex: React.FC<GalleryIndexProps> = ({
-  assessments,
-  questions,
-}) => {
+const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
   return (
     <React.Fragment>
       <Head>
@@ -171,14 +159,6 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({
 export default GalleryIndex;
 
 export const getStaticProps: GetStaticProps<GalleryIndexProps> = async () => {
-  // Get assessments and filter out only the props we need on this page
-  const rawAssessments = await getAssessments();
-  const assessments = rawAssessments.map(({ title, slug, summary }) => ({
-    title,
-    slug,
-    summary,
-  }));
-
   const rawQuestions = await getQuestions();
   const questions = rawQuestions.map(({ title, slug, summary, image }) => ({
     title,
@@ -189,7 +169,6 @@ export const getStaticProps: GetStaticProps<GalleryIndexProps> = async () => {
 
   return {
     props: {
-      assessments,
       questions,
     },
   };
