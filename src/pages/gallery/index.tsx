@@ -52,10 +52,10 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({
   return (
     <React.Fragment>
       <Head>
-        <title>Explore | PrairieLearn</title>
+        <title>Gallery | PrairieLearn</title>
       </Head>
       <PageBanner
-        title="Explore"
+        title="Gallery"
         text="Explore all the functionality PrairieLearn has to offer"
       />
 
