@@ -18,7 +18,11 @@ export interface DemoCourseActionProps {
   button: string;
 }
 
-export const DemoCourseAction: React.FC<DemoCourseActionProps> = ({ title, text, button }) => (
+export const DemoCourseAction: React.FC<DemoCourseActionProps> = ({
+  title,
+  text,
+  button,
+}) => (
   <div className={classnames("container-fluid py-4", styles.container)}>
     <div className="container-md">
       <Row>
