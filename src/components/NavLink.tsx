@@ -16,11 +16,9 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children }) => {
   return (
     <Link href={href}>
       <a
-        className={classnames(
-          styles['nav-link'],
-          styles['nav-item'],
-          { "active fw-bold ": active }
-        )}
+        className={classnames(styles["nav-link"], styles["nav-item"], {
+          "active fw-bold ": active,
+        })}
         aria-current={current ? "page" : undefined}
       >
         {children}
