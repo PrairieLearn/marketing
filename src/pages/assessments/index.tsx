@@ -4,7 +4,6 @@ import Head from "next/head";
 
 import { PageBanner } from "../../components/Banner";
 
-
 export default function Assessments() {
   return (
     <React.Fragment>
