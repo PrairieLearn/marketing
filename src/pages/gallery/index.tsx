@@ -37,14 +37,6 @@ interface GalleryIndexProps {
   questions: Question[];
 }
 
-const Row: React.FC = ({ children }) => (
-  <div className="row justify-content-centerrr">{children}</div>
-);
-
-const Column: React.FC = ({ children }) => (
-  <div className="col">{children}</div>
-);
-
 const GalleryIndex: React.FC<GalleryIndexProps> = ({
   assessments,
   questions,
