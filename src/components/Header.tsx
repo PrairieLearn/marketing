@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 
 import styles from "./Header.module.scss";
 import NavLink from "./NavLink";
-import Image from "../components/Image";
 import NextImage from "next/image";
 
 import grassWhite from "../lib/images/grass-white.png";
