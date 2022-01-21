@@ -3,12 +3,12 @@ import matter from "gray-matter";
 import path from "path";
 import slugify from "slugify";
 
-import { DEMO_ROOT, SHOULD_CACHE, MarkdownPage } from "./util";
+import { COURSE_ROOT, SHOULD_CACHE, MarkdownPage } from "./util";
 
 export const COURSE_INSTANCE_ID = "SectionA";
 
 export const ASSESSMENTS_ROOT = path.join(
-  DEMO_ROOT,
+  COURSE_ROOT,
   "courseInstances",
   COURSE_INSTANCE_ID,
   "assessments"

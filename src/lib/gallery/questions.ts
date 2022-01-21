@@ -2,10 +2,10 @@ import path from "path";
 import fs from "fs-extra";
 import glob from "fast-glob";
 import matter from "gray-matter";
-import { DEMO_ROOT, MarkdownPage, SHOULD_CACHE } from "./util";
+import { COURSE_ROOT, MarkdownPage, SHOULD_CACHE } from "./util";
 import { copyImageToPublicDir, ImageInfo } from "../images";
 
-export const QUESTIONS_ROOT = path.resolve(DEMO_ROOT, "questions");
+export const QUESTIONS_ROOT = path.resolve(COURSE_ROOT, "questions");
 
 export interface Question extends MarkdownPage {
   image?: ImageInfo;

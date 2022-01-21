@@ -11,7 +11,7 @@ interface LinkNode extends Node {
 }
 
 /**
- * The directory structure used by `pl-demo-course` on disk is different from
+ * The directory structure used by the example course on disk is different from
  * that used by the marketing site itself. To allow for Markdown links between
  * pages, we'll rewrite them to point to the correct slugified URL.
  */
