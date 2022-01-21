@@ -76,65 +76,67 @@ export const getStaticPaths: GetStaticPaths<PathParams> = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<GalleryPageProps, PathParams> =
-  async ({ params }) => {
-    if (!params) throw new Error("missing params");
-    const { slug: slugComponents } = params;
+export const getStaticProps: GetStaticProps<
+  GalleryPageProps,
+  PathParams
+> = async ({ params }) => {
+  if (!params) throw new Error("missing params");
+  const { slug: slugComponents } = params;
 
-    const [type, slug] = slugComponents;
+  const [type, slug] = slugComponents;
 
-    switch (type) {
-      case "assessment": {
-        const assessments = await getAssessments();
-        const assessment = assessments.find((a) => a.slug === slug);
-        if (!assessment) {
-          throw new Error(`Assessment not found for slug ${slug}`);
-        }
-
-        const mdxSource = await serialize(assessment.markdownContent, {
-          mdxOptions: {
-            remarkPlugins: [
-              rewriteAssessmentLinks(assessments),
-              extractImages,
-              remarkMath,
-            ],
-            rehypePlugins: [rehypeKatex],
-            filepath: assessment.markdownPath,
-          },
-        });
-
-        return {
-          props: {
-            source: mdxSource,
-            summary: assessment.summary,
-            title: assessment.title,
-            prairielearnUrl: assessment.prairielearnUrl,
-          },
-        };
+  switch (type) {
+    case "assessment": {
+      const assessments = await getAssessments();
+      const assessment = assessments.find((a) => a.slug === slug);
+      if (!assessment) {
+        throw new Error(`Assessment not found for slug ${slug}`);
       }
-      case "question": {
-        const questions = await getQuestions();
-        const question = questions.find((a) => a.slug === slug);
-        if (!question) {
-          throw new Error(`Question not found for slug: ${slug}`);
-        }
 
-        const mdxSource = await serialize(question.markdownContent, {
-          mdxOptions: {
-            remarkPlugins: [loadCodePlugin, extractImages, remarkMath],
-            rehypePlugins: [rehypeKatex],
-            filepath: question.markdownPath,
-          },
-        });
-        return {
-          props: {
-            source: mdxSource,
-            summary: question.summary,
-            title: question.title,
-          },
-        };
-      }
-      default:
-        throw new Error(`Invalid slug type: ${type}`);
+      const mdxSource = await serialize(assessment.markdownContent, {
+        mdxOptions: {
+          remarkPlugins: [
+            rewriteAssessmentLinks(assessments),
+            extractImages,
+            remarkMath,
+          ],
+          rehypePlugins: [rehypeKatex],
+          filepath: assessment.markdownPath,
+        },
+      });
+
+      return {
+        props: {
+          source: mdxSource,
+          summary: assessment.summary,
+          title: assessment.title,
+          prairielearnUrl: assessment.prairielearnUrl,
+        },
+      };
     }
-  };
+    case "question": {
+      const questions = await getQuestions();
+      const question = questions.find((a) => a.slug === slug);
+      if (!question) {
+        throw new Error(`Question not found for slug: ${slug}`);
+      }
+
+      const mdxSource = await serialize(question.markdownContent, {
+        mdxOptions: {
+          remarkPlugins: [loadCodePlugin, extractImages, remarkMath],
+          rehypePlugins: [rehypeKatex],
+          filepath: question.markdownPath,
+        },
+      });
+      return {
+        props: {
+          source: mdxSource,
+          summary: question.summary,
+          title: question.title,
+        },
+      };
+    }
+    default:
+      throw new Error(`Invalid slug type: ${type}`);
+  }
+};
