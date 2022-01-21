@@ -8,7 +8,11 @@ export interface MarkdownPage {
   markdownPath: string;
 }
 
-export const DEMO_ROOT = path.join(process.cwd(), "pl-demo-course");
+export const COURSE_ROOT = path.join(
+  process.cwd(),
+  "PrairieLearn",
+  "exampleCourse"
+);
 
 /**
  * In dev mode, we want to always read from disk when loading paths and routes
