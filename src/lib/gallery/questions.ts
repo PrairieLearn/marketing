@@ -13,7 +13,7 @@ export interface Question extends MarkdownPage {
 }
 
 export const getMarkdownPaths = async (): Promise<string[]> => {
-  const globPath = path.join(QUESTIONS_ROOT, "Gallery", "*", "gallery.md");
+  const globPath = path.join(QUESTIONS_ROOT, "gallery", "*", "gallery.md");
   return glob(globPath);
 };
 
