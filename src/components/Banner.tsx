@@ -13,16 +13,16 @@ const Column: React.FC = ({ children }) => (
 
 export interface PageBannerProps {
   title: string;
-  text: string;
+  subtitle?: string;
 }
 
-export const PageBanner: React.FC<PageBannerProps> = ({ title, text }) => (
+export const PageBanner: React.FC<PageBannerProps> = ({ title, subtitle }) => (
   <div className={classnames("container-fluid py-4", styles.container)}>
     <div className="container-md">
       <Row>
         <Column>
           <h1 className="text-white display-3">{title}</h1>
-          <p className="text-white  mt-4 fs-3">{text}</p>
+          {subtitle && <p className="text-white  mt-4 fs-3">{subtitle}</p>}
         </Column>
       </Row>
     </div>
