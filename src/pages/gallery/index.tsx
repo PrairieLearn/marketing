@@ -52,7 +52,7 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
               <HomepageHeading>Assessments</HomepageHeading>
               <p>
                 Assessments are collections of questions that are graded
-                together. Use them to create homework, exam, quiz, pre-lecture,
+                together. Use them to create homeworks, exams, quizzes, pre-lecture activities,
                 group work, or any other assignment you have in your course.
               </p>
               <p>
