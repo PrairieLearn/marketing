@@ -95,7 +95,7 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
                 are defined as code, they can be reused in many future
                 assessments. And students can keep trying new variants of
                 difficult problems until they&apos;ve mastered the topic—no need
-                for you to manually write new questions.
+                for you to manually write new questions to give students extra practice.
               </p>
             </div>
           </div>
