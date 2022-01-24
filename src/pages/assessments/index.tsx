@@ -52,8 +52,8 @@ const AssessmentIndex: React.FC<AssessmentIndexProps> = ({ assessments }) => {
 
       <DemoCourseAction
         title="Try our demo course!"
-        text="Explore the demo course to see how this all come together"
-        button="Demo course"
+        subtitle="Explore the demo course to see how this all come together"
+        buttonLabel="Demo course"
       />
     </React.Fragment>
   );

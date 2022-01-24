@@ -4,14 +4,6 @@ import Link from "next/link";
 
 import styles from "./Banner.module.scss";
 
-const Row: React.FC = ({ children }) => (
-  <div className="row justify-content-centerrr">{children}</div>
-);
-
-const Column: React.FC = ({ children }) => (
-  <div className="col">{children}</div>
-);
-
 export interface DemoCourseActionProps {
   title: string;
   text: string;
@@ -20,21 +12,21 @@ export interface DemoCourseActionProps {
 
 export const DemoCourseAction: React.FC<DemoCourseActionProps> = ({
   title,
-  text,
-  button,
+  subtitle,
+  buttonLabel,
 }) => (
   <div className={classnames("container-fluid py-4", styles.container)}>
     <div className="container-md">
-      <Row>
-        <Column>
+      <div className="row">
+        <div className="col">
           <h3 className="text-white display-6">{title}</h3>
-          <p className="text-white  mt-3 fs-6">{text}</p>
-        </Column>
-      </Row>
+          <p className="text-white  mt-3 fs-6">{subtitle}</p>
+        </div>
+      </div>
       <div className="row justify-content-center my-2">
         <div className="col-md-12 text-center">
           <Link href="https://www.prairielearn.org/pl/course_instance/128605">
-            <a className="btn btn-warning btn-lg">{button}</a>
+            <a className="btn btn-warning btn-lg">{buttonLabel}</a>
           </Link>
         </div>
       </div>

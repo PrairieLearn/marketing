@@ -43,8 +43,8 @@ export default function Contact() {
 
       <DemoCourseAction
         title="Try our demo course!"
-        text="Too busy to schedule a demo? You can test the demo course on your own, before requesting your course space."
-        button="Demo course"
+        subtitle="Too busy to schedule a demo? You can test the demo course on your own, before requesting your course space."
+        buttonLabel="Demo course"
       />
     </React.Fragment>
   );
