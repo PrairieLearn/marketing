@@ -16,7 +16,7 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children }) => {
   return (
     <Link href={href}>
       <a
-        className={classnames(styles["nav-link"], styles["nav-item"], {
+        className={classnames(styles["nav-link"], {
           "fw-bold": active,
           [styles.active]: active,
         })}
