@@ -9,7 +9,7 @@ import Image from "../../components/Image";
 import { HomepageHeading } from "../../components/HomepageHeading";
 import { PageBanner } from "../../components/Banner";
 import { DemoCourseAction } from "../../components/DemoCourse";
-import { ButtonToPage } from "../../components/ButtonToPage";
+import { LinkButton } from "../../components/LinkButton";
 
 import { getQuestions } from "../../lib/gallery/questions";
 
@@ -60,9 +60,9 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
                 questions, rules to control access based on date or user,
                 instructions for students, and more!
               </p>
-              <ButtonToPage
-                text="View Assessment Features"
-                page="/assessments"
+              <LinkButton
+                label="View Assessment Features"
+                href="/assessments"
               />
             </div>
           </div>
@@ -77,9 +77,9 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
             "
             >
               <Image src={questionImage} alt="question example" />
-              <ButtonToPage
-                text="Learn about PrairieLearn questions"
-                page="/gallery/elementIntro"
+              <LinkButton
+                label="Learn about PrairieLearn questions"
+                href="/gallery/elementIntro"
               />
             </div>
             <div className="col-md-6 order-1">
