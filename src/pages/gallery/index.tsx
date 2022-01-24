@@ -107,7 +107,7 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
           <div className="my-3">
             <HomepageHeading>Question Galery</HomepageHeading>
             <p>
-              Check out this question gallery with example questions that take
+              Check out the question gallery with example questions that take
               full advantage of the PrairieLearn platform.
             </p>
 
