@@ -6,8 +6,8 @@ import styles from "./Banner.module.scss";
 
 export interface DemoCourseCTAProps {
   title: string;
-  text: string;
-  button: string;
+  subtitle: string;
+  buttonLabel: string;
 }
 
 export const DemoCourseCTA: React.FC<DemoCourseCTAProps> = ({
