@@ -148,7 +148,7 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
       </div>
 
       <DemoCourseCTA
-        title="Try our demo course!"
+        title="View demo course!"
         subtitle="Explore the demo course to see how this all come together"
         buttonLabel="Demo course"
       />
