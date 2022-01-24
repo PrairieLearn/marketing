@@ -27,7 +27,7 @@ const AssessmentIndex: React.FC<AssessmentIndexProps> = ({ assessments }) => {
       </Head>
       <PageBanner
         title="Assessments"
-        text="Building different types of activities for your class"
+        subtitle="Building different types of activities for your class"
       />
 
       <div className="container my-5">

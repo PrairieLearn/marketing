@@ -17,7 +17,7 @@ export default function Contact() {
       </Head>
       <PageBanner
         title="Ready to get started?"
-        text="Request your course space here"
+        subtitle="Request your course space here"
       />
 
       <div className={classnames("container-fluid py-4", styles.container)}>

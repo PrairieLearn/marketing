@@ -36,7 +36,7 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
       </Head>
       <PageBanner
         title="Gallery"
-        text="Explore all the functionality PrairieLearn has to offer"
+        subtitle="Explore all the functionality PrairieLearn has to offer"
       />
 
       <div className={classnames("container-fluid py-4 my-5")}>

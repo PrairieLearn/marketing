@@ -57,7 +57,7 @@ export default function Pricing() {
       <Head>
         <title>Pricing | PrairieLearn</title>
       </Head>
-      <PageBanner title="Pricing" text="" />;
+      <PageBanner title="Pricing" subtitle="" />;
       <div className="container my-5">
         <Stack>
           <div className="container">
