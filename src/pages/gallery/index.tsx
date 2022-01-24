@@ -8,7 +8,7 @@ import Image from "../../components/Image";
 
 import { HomepageHeading } from "../../components/HomepageHeading";
 import { PageBanner } from "../../components/Banner";
-import { DemoCourseAction } from "../../components/DemoCourse";
+import { DemoCourseCTA } from "../../components/DemoCourse";
 import { LinkButton } from "../../components/LinkButton";
 
 import { getQuestions } from "../../lib/gallery/questions";
@@ -147,7 +147,7 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
         </div>
       </div>
 
-      <DemoCourseAction
+      <DemoCourseCTA
         title="Try our demo course!"
         subtitle="Explore the demo course to see how this all come together"
         buttonLabel="Demo course"

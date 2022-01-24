@@ -4,7 +4,7 @@ import classnames from "classnames";
 
 import { ContactUsForm } from "../../components/ContactUsForm";
 import { PageBanner } from "../../components/Banner";
-import { DemoCourseAction } from "../../components/DemoCourse";
+import { DemoCourseCTA } from "../../components/DemoCourse";
 import { HomepageHeading } from "../../components/HomepageHeading";
 
 import styles from "./index.module.scss";
@@ -41,7 +41,7 @@ export default function Contact() {
         </div>
       </div>
 
-      <DemoCourseAction
+      <DemoCourseCTA
         title="Try our demo course!"
         subtitle="Too busy to schedule a demo? You can test the demo course on your own, before requesting your course space."
         buttonLabel="Demo course"

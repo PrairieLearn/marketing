@@ -4,7 +4,7 @@ import Link from "next/link";
 import Head from "next/head";
 
 import { PageBanner } from "../../components/Banner";
-import { DemoCourseAction } from "../../components/DemoCourse";
+import { DemoCourseCTA } from "../../components/DemoCourse";
 import Stack from "../../components/Stack";
 
 import { getAssessments } from "../../lib/gallery/assessments";
@@ -50,7 +50,7 @@ const AssessmentIndex: React.FC<AssessmentIndexProps> = ({ assessments }) => {
         </div>
       </div>
 
-      <DemoCourseAction
+      <DemoCourseCTA
         title="Try our demo course!"
         subtitle="Explore the demo course to see how this all come together"
         buttonLabel="Demo course"

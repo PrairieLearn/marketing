@@ -4,13 +4,13 @@ import Link from "next/link";
 
 import styles from "./Banner.module.scss";
 
-export interface DemoCourseActionProps {
+export interface DemoCourseCTAProps {
   title: string;
   text: string;
   button: string;
 }
 
-export const DemoCourseAction: React.FC<DemoCourseActionProps> = ({
+export const DemoCourseCTA: React.FC<DemoCourseCTAProps> = ({
   title,
   subtitle,
   buttonLabel,
