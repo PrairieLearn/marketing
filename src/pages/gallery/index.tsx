@@ -93,9 +93,9 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
               <p>
                 <strong> Write it once, use many times!</strong> Since questions
                 are defined as code, they can be reused in many future
-                assessment.s And students can keep trying new variants of
+                assessments. And students can keep trying new variants of
                 difficult problems until they&apos;ve mastered the topic—no need
-                for you to manually write new questions.
+                for you to manually write new questions to give students extra practice.
               </p>
             </div>
           </div>
@@ -107,7 +107,7 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
           <div className="my-3">
             <HomepageHeading>Question Galery</HomepageHeading>
             <p>
-              Check out this question gallery with example questions that take
+              Check out the question gallery with example questions that take
               full advantage of the PrairieLearn platform.
             </p>
 
