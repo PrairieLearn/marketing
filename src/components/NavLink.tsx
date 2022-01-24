@@ -3,6 +3,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import classnames from "classnames";
 
+import styles from "./NavLink.module.scss";
+
 interface NavLinkProps {
   href: string;
 }
@@ -14,7 +16,9 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children }) => {
   return (
     <Link href={href}>
       <a
-        className={classnames("nav-link", { "active fw-bold": active })}
+        className={classnames(styles["nav-link"], styles["nav-item"], {
+          "active fw-bold ": active,
+        })}
         aria-current={current ? "page" : undefined}
       >
         {children}
