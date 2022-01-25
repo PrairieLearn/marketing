@@ -103,9 +103,7 @@ export default function Home() {
           <Row>
             <Column>
               <Stack spacing={3}>
-                <PageHeading>
-                  Automatic generation and grading
-                </PageHeading>
+                <PageHeading>Automatic generation and grading</PageHeading>
                 <p>
                   Once you&apos;ve defined an HTML template, generate parameters
                   for your question with the power of Python and popular
