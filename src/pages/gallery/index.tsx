@@ -6,7 +6,7 @@ import Head from "next/head";
 
 import Image from "../../components/Image";
 
-import { HomepageHeading } from "../../components/HomepageHeading";
+import { PageHeading } from "../../components/PageHeading";
 import { PageBanner } from "../../components/Banner";
 import { DemoCourseCTA } from "../../components/DemoCourse";
 import { LinkButton } from "../../components/LinkButton";
@@ -46,7 +46,7 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
               <Image src={assessmentImage} alt="assessment page view" />
             </div>
             <div className="col-md-6 order-1">
-              <HomepageHeading>Assessments</HomepageHeading>
+              <PageHeading>Assessments</PageHeading>
               <p>
                 Assessments are collections of questions that are graded
                 together. Use them to create homeworks, exams, quizzes, pre-lecture activities,
@@ -80,7 +80,7 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
               />
             </div>
             <div className="col-md-6 order-1">
-              <HomepageHeading>Questions</HomepageHeading>
+              <PageHeading>Questions</PageHeading>
               <p>
                 Questions are the fundamental unit of content in PrairieLearn.
                 While questions can be completely static, the key feature of
@@ -102,7 +102,7 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
       <div className={classnames("container-fluid py-4", styles.container)}>
         <div className="container-md">
           <div className="my-3">
-            <HomepageHeading>Question Galery</HomepageHeading>
+            <PageHeading>Question Galery</PageHeading>
             <p>
               Check out the question gallery with example questions that take
               full advantage of the PrairieLearn platform.
