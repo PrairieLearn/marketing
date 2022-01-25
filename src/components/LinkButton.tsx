@@ -2,8 +2,8 @@ import React from "react";
 import Link from "next/link";
 
 export interface LinkButtonProps {
-  text: string;
-  page: string;
+  label: string;
+  href: string;
 }
 
 export const LinkButton: React.FC<LinkButtonProps> = ({ label, href }) => (
