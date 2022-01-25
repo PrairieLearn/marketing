@@ -1,3 +1,3 @@
-[submodule "pl-demo-course"]
-	path = pl-demo-course
-	url = https://github.com/PrairieLearn/pl-demo-course
+[submodule "PrairieLearn"]
+	path = PrairieLearn
+	url = https://github.com/PrairieLearn/PrairieLearn

@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          # `pl-demo-course` is a submodule
+          # `PrairieLearn` is a submodule
           submodules: true
 
       # Yarn cache
