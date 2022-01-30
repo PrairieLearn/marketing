@@ -5,7 +5,6 @@ import classnames from "classnames";
 import { ContactUsForm } from "../../components/ContactUsForm";
 import { PageBanner } from "../../components/Banner";
 import { DemoCourseCTA } from "../../components/DemoCourse";
-import { Heading } from "../../components/Heading";
 
 import styles from "./index.module.scss";
 
