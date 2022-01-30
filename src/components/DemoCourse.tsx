@@ -20,7 +20,7 @@ export const DemoCourseCTA: React.FC<DemoCourseCTAProps> = ({
       <div className="row">
         <div className="col">
           <h3 className="text-white display-6">{title}</h3>
-          <p className="text-white  mt-3 fs-6">{subtitle}</p>
+          <p className="text-white mt-3 fs-6">{subtitle}</p>
         </div>
       </div>
       <div className="row justify-content-center my-2">

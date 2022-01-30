@@ -14,7 +14,7 @@ export const PageBanner: React.FC<PageBannerProps> = ({ title, subtitle }) => (
       <div className="row">
         <div className="col">
           <h1 className="text-white display-3">{title}</h1>
-          {subtitle && <p className="text-white  mt-4 fs-3">{subtitle}</p>}
+          {subtitle && <p className="text-white mt-4 fs-3">{subtitle}</p>}
         </div>
       </div>
     </div>

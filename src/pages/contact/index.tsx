@@ -5,7 +5,7 @@ import classnames from "classnames";
 import { ContactUsForm } from "../../components/ContactUsForm";
 import { PageBanner } from "../../components/Banner";
 import { DemoCourseCTA } from "../../components/DemoCourse";
-import { PageHeading } from "../../components/PageHeading";
+import { Heading } from "../../components/Heading";
 
 import styles from "./index.module.scss";
 
@@ -23,7 +23,7 @@ export default function Contact() {
       <div className={classnames("container-fluid py-4", styles.container)}>
         <div className="container-md">
           <div className="row">
-            <PageHeading>Contact us!</PageHeading>
+            <Heading>Contact us!</Heading>
           </div>
           <div className="row">
             <div className="col-md-12">
