@@ -14,7 +14,6 @@ import { LinkButton } from "../../components/LinkButton";
 import { getQuestions } from "../../lib/gallery/questions";
 
 import styles from "./index.module.scss";
-import assessmentImage from "../../lib/images/assessment.png";
 import questionImage from "../../lib/images/question.png";
 
 interface Question {
@@ -32,40 +31,13 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
   return (
     <React.Fragment>
       <Head>
-        <title>Gallery | PrairieLearn</title>
+        <title>Question Gallery | PrairieLearn</title>
       </Head>
       <PageBanner
-        title="Gallery"
-        subtitle="Explore all the functionality PrairieLearn has to offer"
+        title="PrairieLearn Questions"
+        subtitle="Create quality questions from a wide variety of input options"
+        // subtitle="Explore all the functionality PrairieLearn has to offer"
       />
-
-      <div className={classnames("container-fluid py-4 my-5")}>
-        <div className="container-md">
-          <div className="row">
-            <div className="col-md-6 order-2 pt-4">
-              <Image src={assessmentImage} alt="assessment page view" />
-            </div>
-            <div className="col-md-6 order-1">
-              <Heading>Assessments</Heading>
-              <p>
-                Assessments are collections of questions that are graded
-                together. Use them to create homeworks, exams, quizzes,
-                pre-lecture activities, group work, or any other assignment you
-                have in your course.
-              </p>
-              <p>
-                An assessment defines point allocations for individual
-                questions, rules to control access based on date or user,
-                instructions for students, and more!
-              </p>
-              <LinkButton
-                label="View Assessment Features"
-                href="/assessments"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
 
       <div className={classnames("container-fluid my-5")}>
         <div className="container-md">
@@ -76,8 +48,8 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
             >
               <Image src={questionImage} alt="question example" />
               <LinkButton
-                label="Learn about PrairieLearn questions"
-                href="/gallery/question-intro"
+                label="Read more about PrairieLearn questions"
+                href="/questions/question-intro"
               />
             </div>
             <div className="col-md-6 order-1">
@@ -89,9 +61,12 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
                 grade many unique variants of the same base question.
               </p>
               <p>
-                <strong> Write it once, use many times!</strong> Since questions
-                are defined as code, they can be reused in many future
-                assessments. And students can keep trying new variants of
+                {" "}
+                <strong> Write it once, use many times!</strong>{" "}
+              </p>
+              <p>
+                Since questions are defined as code, they can be reused in many
+                future assessments. And students can keep trying new variants of
                 difficult problems until they&apos;ve mastered the topic—no need
                 for you to manually write new questions to give students extra
                 practice.
@@ -104,7 +79,7 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
       <div className={classnames("container-fluid py-4", styles.container)}>
         <div className="container-md">
           <div className="my-3">
-            <Heading>Question Galery</Heading>
+            <Heading>Question Gallery</Heading>
             <p>
               Check out the question gallery with example questions that take
               full advantage of the PrairieLearn platform.
@@ -112,7 +87,7 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
 
             <div className={classnames(styles.grid)}>
               {questions.map((question) => {
-                const galleryHref = `/gallery/question/${question.slug}`;
+                const galleryHref = `/questions/question/${question.slug}`;
                 return (
                   <article className="card" key={question.slug}>
                     {question.imageUrl && (
