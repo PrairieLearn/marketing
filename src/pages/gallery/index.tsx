@@ -77,7 +77,7 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
               <Image src={questionImage} alt="question example" />
               <LinkButton
                 label="Learn about PrairieLearn questions"
-                href="/gallery/elementIntro"
+                href="/gallery/question-intro"
               />
             </div>
             <div className="col-md-6 order-1">
