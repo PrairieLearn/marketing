@@ -1,13 +1,19 @@
 import React from "react";
+import classnames from "classnames";
 import { GetStaticProps } from "next";
 import Link from "next/link";
 import Head from "next/head";
 
+import { Heading } from "../../components/Heading";
 import { PageBanner } from "../../components/Banner";
 import { DemoCourseCTA } from "../../components/DemoCourse";
+import { LinkButton } from "../../components/LinkButton";
 import Stack from "../../components/Stack";
 
 import { getAssessments } from "../../lib/gallery/assessments";
+import Image from "../../components/Image";
+import assessmentImage from "../../lib/images/assessment.png";
+import styles from "./index.module.scss";
 
 interface Assessment {
   title: string;
@@ -23,30 +29,57 @@ const AssessmentIndex: React.FC<AssessmentIndexProps> = ({ assessments }) => {
   return (
     <React.Fragment>
       <Head>
-        <title>Assessments | PrairieLearn</title>
+        <title>Assessment | PrairieLearn</title>
       </Head>
       <PageBanner
-        title="Assessments"
+        title="PrairieLearn Assessments"
         subtitle="Building different types of activities for your class"
       />
 
-      <div className="container my-5">
-        <div className="mb-3">
-          <Stack spacing={3}>
-            {assessments.map((assessment) => {
-              const assessmentHref = `/gallery/assessment/${assessment.slug}`;
-              return (
-                <article key={assessment.slug}>
-                  <h3 className="h5">
-                    <Link href={assessmentHref}>
-                      <a>{assessment.title}</a>
-                    </Link>
-                  </h3>
-                  <p className="mb-0">{assessment.summary}</p>
-                </article>
-              );
-            })}
-          </Stack>
+      <div className={classnames("container-fluid my-5")}>
+        <div className="container-md">
+          <div className="row">
+            <div className="col-md-6 order-2 pt-4">
+              <Image src={assessmentImage} alt="assessment page view" />
+            </div>
+            <div className="col-md-6 order-1">
+              <Heading>Assessments</Heading>
+              <p>
+                Assessments are collections of questions that are graded
+                together. Use them to create homeworks, exams, quizzes,
+                pre-lecture activities, group work, or any other assignment you
+                have in your course.
+              </p>
+              <p>
+                An assessment defines point allocations for individual
+                questions, rules to control access based on date or user,
+                instructions for students, and more!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className={classnames("container-fluid py-4", styles.container)}>
+        <div className="container-md">
+          <div className="my-3">
+            <Heading>Assessment Gallery</Heading>
+            <Stack spacing={3}>
+              {assessments.map((assessment) => {
+                const assessmentHref = `/gallery/assessment/${assessment.slug}`;
+                return (
+                  <article key={assessment.slug}>
+                    <h3 className="h5">
+                      <Link href={assessmentHref}>
+                        <a>{assessment.title}</a>
+                      </Link>
+                    </h3>
+                    <p className="mb-0">{assessment.summary}</p>
+                  </article>
+                );
+              })}
+            </Stack>
+          </div>
         </div>
       </div>
 
