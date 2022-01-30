@@ -14,7 +14,7 @@ export const getStaticProps: GetStaticProps<MarkdownPageProps> = async () => {
         "src",
         "pages",
         "questions",
-        "elementIntro.md"
+        "question-intro.md"
       )
     ),
   };
