@@ -9,7 +9,13 @@ export default MarkdownPage;
 export const getStaticProps: GetStaticProps<MarkdownPageProps> = async () => {
   return {
     props: await getPropsForMarkdownFile(
-      path.resolve(process.cwd(), "src", "pages", "gallery", "question-intro.md")
+      path.resolve(
+        process.cwd(),
+        "src",
+        "pages",
+        "gallery",
+        "question-intro.md"
+      )
     ),
   };
 };

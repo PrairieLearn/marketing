@@ -15,9 +15,7 @@ export default function Contact() {
       <Head>
         <title>Contact us | PrairieLearn</title>
       </Head>
-      <PageBanner
-        title="Contact us!"
-      />
+      <PageBanner title="Contact us!" />
 
       <div className={classnames("container-fluid py-4", styles.container)}>
         <div className="container-md">
