@@ -16,15 +16,11 @@ export default function Contact() {
         <title>Contact us | PrairieLearn</title>
       </Head>
       <PageBanner
-        title="Ready to get started?"
-        subtitle="Request your course space here"
+        title="Contact us!"
       />
 
       <div className={classnames("container-fluid py-4", styles.container)}>
         <div className="container-md">
-          <div className="row">
-            <Heading>Contact us!</Heading>
-          </div>
           <div className="row">
             <div className="col-md-12">
               Need to schedule a demo? Want to have access to your own course
@@ -35,7 +31,7 @@ export default function Contact() {
         </div>
 
         <div className="row justify-content-center my-5">
-          <div className="col col-md-8">
+          <div className="col col-md-5">
             <ContactUsForm showHeader={false} />
           </div>
         </div>
