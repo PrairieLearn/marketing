@@ -13,7 +13,7 @@ export const getStaticProps: GetStaticProps<MarkdownPageProps> = async () => {
         process.cwd(),
         "src",
         "pages",
-        "questions",
+        "gallery",
         "question-intro.md"
       )
     ),
