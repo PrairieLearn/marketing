@@ -3,7 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import classnames from "classnames";
 
-import { HomepageHeading } from "../components/HomepageHeading";
+import { Heading } from "../components/Heading";
 import { ExampleEditor } from "../components/ExampleEditor";
 import { ExampleQuestion } from "../components/ExampleQuestion";
 import Stack from "../components/Stack";
@@ -79,7 +79,7 @@ export default function Home() {
           <Row>
             <Column>
               <Stack spacing={3}>
-                <HomepageHeading>Questions as code</HomepageHeading>
+                <Heading>Questions as code</Heading>
                 <p>
                   PrairieLearn questions are defined as code, which is what
                   makes them so powerful. The familiar HTML syntax and Mustache
@@ -103,9 +103,7 @@ export default function Home() {
           <Row>
             <Column>
               <Stack spacing={3}>
-                <HomepageHeading>
-                  Automatic generation and grading
-                </HomepageHeading>
+                <Heading>Automatic generation and grading</Heading>
                 <p>
                   Once you&apos;ve defined an HTML template, generate parameters
                   for your question with the power of Python and popular
@@ -129,7 +127,7 @@ export default function Home() {
           <Row>
             <Column>
               <Stack spacing={3}>
-                <HomepageHeading>Write once, use forever</HomepageHeading>
+                <Heading>Write once, use forever</Heading>
                 <p>
                   Once a question has been defined in code, it can be reused in
                   any future assessment. And students can keep trying new
@@ -143,7 +141,7 @@ export default function Home() {
           <Row>
             <Column>
               <Stack spacing={3}>
-                <HomepageHeading>Limitless flexibility</HomepageHeading>
+                <Heading>Limitless flexibility</Heading>
                 <p>
                   From{" "}
                   <Link href="https://prairielearn.readthedocs.io/en/latest/externalGrading/">
@@ -171,7 +169,7 @@ export default function Home() {
             <Row>
               <Column>
                 <Stack spacing={3}>
-                  <HomepageHeading>Trusted by the best</HomepageHeading>
+                  <Heading>Trusted by the best</Heading>
                   <p>
                     Instructors at top universities in the United States and
                     Canada have been using PrairieLearn to teach the next
@@ -225,7 +223,7 @@ export default function Home() {
       <Container>
         <Row>
           <Column>
-            <HomepageHeading>Get started</HomepageHeading>
+            <Heading>Get started</Heading>
             <p>
               New to PrairieLearn? Check out the{" "}
               <Link href="/gallery">

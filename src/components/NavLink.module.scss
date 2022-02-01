@@ -1,0 +1,16 @@
+@import "~bootstrap/scss/_functions.scss";
+@import "~bootstrap/scss/_variables.scss";
+
+.nav-link {
+  color: rgba(255, 255, 255, 1);
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: $yellow;
+}
+
+.nav-link.active {
+  color: $yellow;
+}

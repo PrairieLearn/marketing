@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import CheckIcon from "../../components/CheckIcon";
 import Stack from "../../components/Stack";
+import { PageBanner } from "../../components/Banner";
 
 import styles from "./index.module.scss";
 
@@ -56,10 +57,8 @@ export default function Pricing() {
       <Head>
         <title>Pricing | PrairieLearn</title>
       </Head>
+      <PageBanner title="Pricing" />;
       <div className="container my-5">
-        <div className="mb-5">
-          <h1 className="display-3">Pricing</h1>
-        </div>
         <Stack>
           <div className="container">
             <div className="row gy-3">
