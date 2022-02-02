@@ -49,7 +49,7 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
               <Image src={questionImage} alt="question example" />
               <LinkButton
                 label="Read more about PrairieLearn questions"
-                href="/questions/question-intro"
+                href="/gallery/question-intro"
               />
             </div>
             <div className="col-md-6 order-1">
@@ -87,7 +87,7 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
 
             <div className={classnames(styles.grid)}>
               {questions.map((question) => {
-                const galleryHref = `/questions/question/${question.slug}`;
+                const galleryHref = `/gallery/question/${question.slug}`;
                 return (
                   <article className="card" key={question.slug}>
                     {question.imageUrl && (

@@ -45,7 +45,7 @@ export const Header: React.FC = () => {
               <NavLink href="/assessments">Assessments</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink href="/questions">Questions</NavLink>
+              <NavLink href="/gallery">Questions</NavLink>
             </li>
             <li className="nav-item">
               <NavLink href="/pricing">Pricing</NavLink>
