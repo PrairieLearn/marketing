@@ -4,15 +4,14 @@ import { GetStaticProps } from "next";
 import Link from "next/link";
 import Head from "next/head";
 
-import { Heading } from "../../components/Heading";
-import { PageBanner } from "../../components/Banner";
-import { DemoCourseCTA } from "../../components/DemoCourse";
-import { LinkButton } from "../../components/LinkButton";
-import Stack from "../../components/Stack";
+import { Heading } from "../../../components/Heading";
+import { PageBanner } from "../../../components/Banner";
+import { DemoCourseCTA } from "../../../components/DemoCourse";
+import Stack from "../../../components/Stack";
 
-import { getAssessments } from "../../lib/gallery/assessments";
-import Image from "../../components/Image";
-import assessmentImage from "../../lib/images/assessment.png";
+import { getAssessments } from "../../../lib/gallery/assessments";
+import assessmentImage from "../../../lib/images/assessment.png";
+import Image from "../../../components/Image";
 import styles from "./index.module.scss";
 
 interface Assessment {
@@ -66,7 +65,7 @@ const AssessmentIndex: React.FC<AssessmentIndexProps> = ({ assessments }) => {
             <Heading>Assessment Gallery</Heading>
             <Stack spacing={3}>
               {assessments.map((assessment) => {
-                const assessmentHref = `/gallery/assessment/${assessment.slug}`;
+                const assessmentHref = `/gallery/assessments/${assessment.slug}`;
                 return (
                   <article key={assessment.slug}>
                     <h3 className="h5">

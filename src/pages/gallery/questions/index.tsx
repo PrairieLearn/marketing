@@ -4,17 +4,16 @@ import { GetStaticProps } from "next";
 import Link from "next/link";
 import Head from "next/head";
 
-import Image from "../../components/Image";
+import Image from "../../../components/Image";
 
-import { Heading } from "../../components/Heading";
-import { PageBanner } from "../../components/Banner";
-import { DemoCourseCTA } from "../../components/DemoCourse";
-import { LinkButton } from "../../components/LinkButton";
-
-import { getQuestions } from "../../lib/gallery/questions";
+import { Heading } from "../../../components/Heading";
+import { PageBanner } from "../../../components/Banner";
+import { DemoCourseCTA } from "../../../components/DemoCourse";
+import { LinkButton } from "../../../components/LinkButton";
+import { getQuestions } from "../../../lib/gallery/questions";
 
 import styles from "./index.module.scss";
-import questionImage from "../../lib/images/question.png";
+import questionImage from "../../../lib/images/question.png";
 
 interface Question {
   title: string;
@@ -36,7 +35,6 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
       <PageBanner
         title="PrairieLearn Questions"
         subtitle="Create quality questions from a wide variety of input options"
-        // subtitle="Explore all the functionality PrairieLearn has to offer"
       />
 
       <div className={classnames("container-fluid my-5")}>
@@ -49,7 +47,7 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
               <Image src={questionImage} alt="question example" />
               <LinkButton
                 label="Read more about PrairieLearn questions"
-                href="/questions/question-intro"
+                href="/gallery/questions/question-intro"
               />
             </div>
             <div className="col-md-6 order-1">
@@ -87,7 +85,7 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
 
             <div className={classnames(styles.grid)}>
               {questions.map((question) => {
-                const galleryHref = `/questions/question/${question.slug}`;
+                const galleryHref = `/gallery/questions/${question.slug}`;
                 return (
                   <article className="card" key={question.slug}>
                     {question.imageUrl && (
