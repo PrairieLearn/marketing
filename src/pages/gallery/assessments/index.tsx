@@ -67,8 +67,8 @@ const AssessmentIndex: React.FC<AssessmentIndexProps> = ({ assessments }) => {
             
             <div className={classnames("container-fluid py-4")}>
               <AssessmentCard
-                assessmentHref="/assessments/examInstantFeedback"
-                readmoreHref=""
+                assessmentHref="https://www.prairielearn.org/pl/course_instance/4970/assessment/2316935"
+                readmoreHref="assessments/autogradedExams"
                 image={assessmentImage}
                 title="Auto-graded exam with instant feedback"
                 body="Assessments that are auto-graded with instant feedback and retry
