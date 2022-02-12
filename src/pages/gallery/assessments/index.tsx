@@ -7,6 +7,7 @@ import Head from "next/head";
 import { Heading } from "../../../components/Heading";
 import { PageBanner } from "../../../components/Banner";
 import { DemoCourseCTA } from "../../../components/DemoCourse";
+import { AssessmentCard } from "../../../components/AssessmentCard";
 import Stack from "../../../components/Stack";
 
 import { getAssessments } from "../../../lib/gallery/assessments";
@@ -63,6 +64,43 @@ const AssessmentIndex: React.FC<AssessmentIndexProps> = ({ assessments }) => {
         <div className="container-md">
           <div className="my-3">
             <Heading>Assessment Gallery</Heading>
+            
+            <div className={classnames("container-fluid py-4")}>
+              <AssessmentCard
+                assessmentHref="/assessments/examInstantFeedback"
+                readmoreHref=""
+                image={assessmentImage}
+                title="Auto-graded exam with instant feedback"
+                body="Assessments that are auto-graded with instant feedback and retry
+              opportunities. An assessment defines point allocations for
+              individual questions, rules to control access based on date or
+              user, instructions for students, and more!"
+              />
+            </div>
+
+            <div className={classnames("container-fluid py-4")}>
+              <AssessmentCard
+                assessmentHref="/assessments/examInstantFeedback"
+                readmoreHref=""
+                image={assessmentImage}
+                title="Group work"
+                body="Research shows that collaborative learning can increase 
+                student persistence, improve learning outcomes, and foster better 
+                classroom cultures. Using PrairieLearn, instructors can provide 
+                group activities where students work collaborativelly in the same 
+                assessment, which is shared among all the group members. 
+                "
+              />
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      {/* <div className={classnames("container-fluid py-4", styles.container)}>
+        <div className="container-md">
+          <div className="my-3">
+            <Heading>Assessment Gallery</Heading>
             <Stack spacing={3}>
               {assessments.map((assessment) => {
                 const assessmentHref = `/gallery/assessments/${assessment.slug}`;
@@ -80,7 +118,7 @@ const AssessmentIndex: React.FC<AssessmentIndexProps> = ({ assessments }) => {
             </Stack>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <DemoCourseCTA
         title="View demo course!"
