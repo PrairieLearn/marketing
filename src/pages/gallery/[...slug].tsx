@@ -59,14 +59,14 @@ export const getStaticPaths: GetStaticPaths<PathParams> = async () => {
   const assessments = await getAssessments();
   const assessmentPaths = assessments.map(({ slug }) => ({
     params: {
-      slug: ["assessment", slug],
+      slug: ["assessments", slug],
     },
   }));
 
   const questions = await getQuestions();
   const questionPaths = questions.map(({ slug }) => ({
     params: {
-      slug: ["question", slug],
+      slug: ["questions", slug],
     },
   }));
 
@@ -86,7 +86,7 @@ export const getStaticProps: GetStaticProps<
   const [type, slug] = slugComponents;
 
   switch (type) {
-    case "assessment": {
+    case "assessments": {
       const assessments = await getAssessments();
       const assessment = assessments.find((a) => a.slug === slug);
       if (!assessment) {
@@ -114,7 +114,7 @@ export const getStaticProps: GetStaticProps<
         },
       };
     }
-    case "question": {
+    case "questions": {
       const questions = await getQuestions();
       const question = questions.find((a) => a.slug === slug);
       if (!question) {
