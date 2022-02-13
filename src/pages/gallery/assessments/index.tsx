@@ -64,7 +64,6 @@ const AssessmentIndex: React.FC<AssessmentIndexProps> = ({ assessments }) => {
             <Heading>Assessment Gallery</Heading>
 
             <div className="row">
-
               <div className="col-sm-6 d-flex align-items-stretch mb-4">
                 <AssessmentCard
                   assessmentHref="https://www.prairielearn.org/pl/course_instance/4970/assessment/2316935"
