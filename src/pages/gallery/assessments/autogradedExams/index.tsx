@@ -86,27 +86,46 @@ export default function DefaultExam() {
 
         <Image src="/question-generator.png" height="100" width="400" alt="question generator scheme" />
 
-        <Heading>Exam example from demo course</Heading>
+        <Heading>Example from demo course</Heading>
 
-{/* 
-**Question 1** asks students to compute a variable $c$ given two parameters $a$ and $b$. The formula to compute $c$ is randomized (selected from a set of 4 different formulas) and the parameters $a$ and $b$ are randomized as well. Students have two attempts to complete this question: the first attempt for full credit and the second attempt for partial credit (1/3 points).
+        <h5>Question 1</h5>
+        <p>This question asks students to compute a variable $c$ given two parameters 
+          $a$ and $b$. The formula to compute $c$ is randomized (selected from a set of 4
+          different formulas) and the parameters $a$ and $b$ are randomized as well. 
+          Students have two attempts to complete this question: the first attempt for 
+          full credit and the second attempt for partial credit (1/3 points).</p>
+        
+        <h5>Question 2</h5>
+        <p>This question asks students to enter the matrix corresponding to a displayed 
+          graph, which is generated in real-time based on randomized parameters. 
+          Students have two attempts to complete the question. They can also receive 
+          partial credit for each attempt, since each entry of the matrix is graded 
+          separately.</p>
 
-**Question 2** asks students to enter the matrix corresponding to a displayed graph, which is generated in real-time based on randomized parameters. Students have two attempts to complete the question. They can also receive partial credit for each attempt, since each entry of the matrix is graded separately.
+        <h5>Question 3</h5>
+        <p>Highly randomized, in essence mixing 4 different questions into one, 
+          since the circuit diagram changes (parallel and series), and the question 
+          prompt changes (compute current or resistance). Since the solution involves 
+          multiple computation steps, students get 5 attempts to complete the question
+          for reduced credit.
+        </p>
 
-**Question 3** is highly randomized, in essence mixing 4 different questions into one, since the circuit diagram changes (parallel and series), and the question prompt changes (compute current or resistance).
-Since the solution involves multiple computation steps, students get 5 attempts to complete the question for reduced credit.
-
-
-**Question 4** is randomly selected out of a pool of 3 question generators, each one of them asking students to compute a different matrix and/or vector operation, including matrix multiplication and outer product. Each question generator also utilizes randomized parameters. One of the advantages of keeping similar question variants within separate question generators is the easy access to statistics, providing information regarding question and exam fairness. The disadvantage is the cumbersome bookkeeping of question generators, since one may have to coordinate changes to many files when updates are needed. */}
+        <h5>Question 4</h5>
+        <p>This question is randomly selected out of a pool of 3 question generators, 
+          each one of them asking students to compute a different matrix and/or vector 
+          operation, including matrix multiplication and outer product. 
+          Each question generator also utilizes randomized parameters. 
+          One of the advantages of keeping similar question variants within separate 
+          question generators is the easy access to statistics, providing information 
+          regarding question and exam fairness. The disadvantage is the cumbersome 
+          bookkeeping of question generators, since one may have to coordinate changes 
+          to many files when updates are needed.
+        </p>
 
 
         </div>
 
       </div>
-
-
-      
-
 
     </React.Fragment>
   );

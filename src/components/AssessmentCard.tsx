@@ -1,49 +1,37 @@
-import { read } from "fs";
 import React from "react";
-import Image from "../components/Image";
-import { LinkButton } from "../components/LinkButton";
+import { LinkButton } from "./LinkButton";
+
 
 export interface AssessmentCardProps {
   assessmentHref: string;
   readmoreHref: string,
-  image: File[];
   title: string;
   body: string;
 }
 export const AssessmentCard: React.FC<AssessmentCardProps> = ({
   assessmentHref,
   readmoreHref,
-  image,
   title,
   body,
 }) => (
-  <div className="container-sm border bg-white">
-    <div className="row">
-      <div className="col-md-4 order-1 py-3">
-        <a style={{ position: "relative" }}>
-          <Image src={image} alt="assessment page view" />
-        </a>
-      </div>
-      <div className="col-md-8 order-2 py-3 px-3">
-        <div className="row">
-          <h3> {title} </h3>
-          <p> {body} </p>
-        </div>
-        <div className="row justify-content-center">
-          <div className="col-md-4  col-sm-4 py-2 px-2">
+    <div className="card">
+    <div className="card-body">
+      <h3 className="card-title">{title}</h3>
+      <p className="card-text">{body}</p>
+      <div className="row justify-content-center">
+          <div className="col-md-4  col-sm-4 col-xs-2 py-1 px-1">
               <LinkButton
                 label="Read more"
                 href={readmoreHref}
               />
           </div>
-          <div className="col-md-4 col-sm-4 py-2 px-2">
+          <div className="col-md-4 col-sm-4 col-xs-2 py-1 px-1">
               <LinkButton
                 label="Try it now!"
                 href={assessmentHref}
               />
           </div>
         </div>
-      </div>
     </div>
   </div>
 );
