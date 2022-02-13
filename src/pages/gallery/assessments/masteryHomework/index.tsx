@@ -40,10 +40,11 @@ export default function DefaultExam() {
           </p>
 
           <p>
-            PrairieLearn supports the development of <strong>question generators</strong>, 
-            defined by a set of html and
-            python code that generate different <strong>question variants</strong> based on 
-            randomized parameters. A homework is defined by a collection of question generators.
+            PrairieLearn supports the development of{" "}
+            <strong>question generators</strong>, defined by a set of html and
+            python code that generate different{" "}
+            <strong>question variants</strong> based on randomized parameters. A
+            homework is defined by a collection of question generators.
           </p>
 
           <Heading>
