@@ -1,6 +1,5 @@
 import React from "react";
 import classnames from "classnames";
-import { GetStaticProps } from "next";
 import Head from "next/head";
 
 import { Heading } from "../../../components/Heading";
@@ -8,22 +7,11 @@ import { PageBanner } from "../../../components/Banner";
 import { DemoCourseCTA } from "../../../components/DemoCourse";
 import { AssessmentCard } from "../../../components/AssessmentCard";
 
-import { getAssessments } from "../../../lib/gallery/assessments";
 import assessmentImage from "../../../lib/images/assessment.png";
 import Image from "../../../components/Image";
 import styles from "./index.module.scss";
 
-interface Assessment {
-  title: string;
-  slug: string;
-  summary: string;
-}
-
-interface AssessmentIndexProps {
-  assessments: Assessment[];
-}
-
-const AssessmentIndex: React.FC<AssessmentIndexProps> = ({ assessments }) => {
+export default function Assessment() {
   return (
     <React.Fragment>
       <Head>
@@ -123,24 +111,4 @@ const AssessmentIndex: React.FC<AssessmentIndexProps> = ({ assessments }) => {
       />
     </React.Fragment>
   );
-};
-
-export default AssessmentIndex;
-
-export const getStaticProps: GetStaticProps<
-  AssessmentIndexProps
-> = async () => {
-  // Get assessments and filter out only the props we need on this page
-  const rawAssessments = await getAssessments();
-  const assessments = rawAssessments.map(({ title, slug, summary }) => ({
-    title,
-    slug,
-    summary,
-  }));
-
-  return {
-    props: {
-      assessments,
-    },
-  };
 };
