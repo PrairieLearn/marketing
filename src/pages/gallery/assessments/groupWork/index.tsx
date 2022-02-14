@@ -3,12 +3,11 @@ import Head from "next/head";
 import classnames from "classnames";
 import { Heading } from "../../../../components/Heading";
 import { PageBanner } from "../../../../components/Banner";
+
 import Image from "../../../../components/Image";
+import groupPage from "./group-page1.png";
 
-// import Stack from "../../components/Stack";
-// import styles from "./index.module.scss";
-
-export default function DefaultExam() {
+export default function DefaultGroup() {
   return (
     <React.Fragment>
       <Head>
@@ -104,9 +103,7 @@ export default function DefaultExam() {
             below).
           </p>
           <Image
-            src="/group-page1.png"
-            height="100"
-            width="400"
+            src={ groupPage }
             alt="assessment generator scheme"
           />
 

@@ -3,12 +3,8 @@ import Head from "next/head";
 import classnames from "classnames";
 import { Heading } from "../../../../components/Heading";
 import { PageBanner } from "../../../../components/Banner";
-import Image from "../../../../components/Image";
 
-// import Stack from "../../components/Stack";
-// import styles from "./index.module.scss";
-
-export default function DefaultExam() {
+export default function DefaultLecture() {
   return (
     <React.Fragment>
       <Head>

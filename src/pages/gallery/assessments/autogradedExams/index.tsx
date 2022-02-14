@@ -3,10 +3,21 @@ import Head from "next/head";
 import classnames from "classnames";
 import { Heading } from "../../../../components/Heading";
 import { PageBanner } from "../../../../components/Banner";
-import Image from "../../../../components/Image";
+import { LinkButton } from "../../../../components/LinkButton";
+import { QuestionCard } from "../../../../components/QuestionCard";
 
-// import Stack from "../../components/Stack";
-// import styles from "./index.module.scss";
+import Image from "../../../../components/Image";
+import retryImage from "./student-retry.png";
+import assessmentGenerator from "./assessment-generator.png";
+import questionGenerator from "./question-generator.png";
+import question1Image from "./question1.png"
+import question2Image from "./question2.png"
+import question3Image from "./question3.png"
+import question4Image from "./question4.png"
+
+import { plcourseURL } from "../../../../lib/urls";
+
+import styles from "./index.module.scss";
 
 export default function DefaultExam() {
   return (
@@ -52,9 +63,7 @@ export default function DefaultExam() {
           </p>
 
           <Image
-            src="/student-retry.png"
-            height="100"
-            width="400"
+            src={retryImage}
             alt="student retry scheme"
           />
 
@@ -81,10 +90,8 @@ export default function DefaultExam() {
           </p>
 
           <Image
-            src="/assessment-generator.png"
-            height="100"
-            width="400"
-            alt="assessment generator scheme"
+            src={assessmentGenerator}
+            alt="student retry scheme"
           />
 
           <p>
@@ -110,55 +117,78 @@ export default function DefaultExam() {
           </p>
 
           <Image
-            src="/question-generator.png"
-            height="100"
-            width="400"
+            src={questionGenerator}
             alt="question generator scheme"
           />
+        </div>
+      </div>
 
+      <div className={classnames("container-fluid py-4", styles.container)}>
+        <div className="container-md">
           <Heading>Example from demo course</Heading>
 
-          <h5>Question 1</h5>
-          <p>
-            This question asks students to compute a variable $c$ given two
-            parameters $a$ and $b$. The formula to compute $c$ is randomized
-            (selected from a set of 4 different formulas) and the parameters $a$
-            and $b$ are randomized as well. Students have two attempts to
-            complete this question: the first attempt for full credit and the
-            second attempt for partial credit (1/3 points).
-          </p>
+          <div className={classnames("container-fluid py-2")}>
+            <QuestionCard
+              title="Question 1"
+              body="This question asks students to compute the solution to an equation
+              given two randomized parameters. The given formula is also randomized
+              (selected from a set of 4 different formulas). Students have two attempts to
+              complete this question: the first attempt for full credit and the
+              second attempt for partial credit (1/3 points)."
+              image = {question1Image}
+            />
+          </div>
 
-          <h5>Question 2</h5>
-          <p>
-            This question asks students to enter the matrix corresponding to a
-            displayed graph, which is generated in real-time based on randomized
-            parameters. Students have two attempts to complete the question.
-            They can also receive partial credit for each attempt, since each
-            entry of the matrix is graded separately.
-          </p>
+          <div className={classnames("container-fluid py-2")}>
+            <QuestionCard
+              title="Question 2"
+              body="This question asks students to enter the matrix corresponding to a
+              displayed graph, which is generated in real-time based on randomized
+              parameters. Students have two attempts to complete the question.
+              They can also receive partial credit for each attempt, since each
+              entry of the matrix is graded separately."
+              image = {question2Image}
+            />
+          </div>
 
-          <h5>Question 3</h5>
-          <p>
-            Highly randomized, in essence mixing 4 different questions into one,
-            since the circuit diagram changes (parallel and series), and the
-            question prompt changes (compute current or resistance). Since the
-            solution involves multiple computation steps, students get 5
-            attempts to complete the question for reduced credit.
-          </p>
+          <div className={classnames("container-fluid py-2")}>
+            <QuestionCard
+              title="Question 3"
+              body="Highly randomized, in essence mixing 4 different questions into one,
+              since the circuit diagram changes (parallel and series), and the
+              question prompt changes (compute current or resistance). Since the
+              solution involves multiple computation steps, students get 5
+              attempts to complete the question for reduced credit."
+              image = {question3Image}
+            />
+          </div>
 
-          <h5>Question 4</h5>
-          <p>
-            This question is randomly selected out of a pool of 3 question
-            generators, each one of them asking students to compute a different
-            matrix and/or vector operation, including matrix multiplication and
-            outer product. Each question generator also utilizes randomized
-            parameters. One of the advantages of keeping similar question
-            variants within separate question generators is the easy access to
-            statistics, providing information regarding question and exam
-            fairness. The disadvantage is the cumbersome bookkeeping of question
-            generators, since one may have to coordinate changes to many files
-            when updates are needed.
-          </p>
+          <div className={classnames("container-fluid py-2")}>
+            <QuestionCard
+              title="Question 4"
+              body="This question is randomly selected out of a pool of 3 question
+              generators, each one of them asking students to compute a different
+              matrix and/or vector operation, including matrix multiplication and
+              outer product. Each question generator also utilizes randomized
+              parameters. One of the advantages of keeping similar question
+              variants within separate question generators is the easy access to
+              statistics, providing information regarding question and exam
+              fairness. The disadvantage is the cumbersome bookkeeping of question
+              generators, since one may have to coordinate changes to many files
+              when updates are needed."
+              image = {question4Image}
+            />
+          </div>
+          
+          <div className="row justify-content-center my-4">
+            <div className="col-md-12 text-center">
+              <LinkButton 
+                label="Check this assessment live in PrairieLearn!" 
+                href={ plcourseURL.exam_instantFeedback }
+              />
+            </div>
+          </div>
+
         </div>
       </div>
     </React.Fragment>

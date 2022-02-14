@@ -11,6 +11,8 @@ import assessmentImage from "../../../lib/images/assessment.png";
 import Image from "../../../components/Image";
 import styles from "./index.module.scss";
 
+import { plcourseURL } from "../../../lib/urls";
+
 export default function Assessment() {
   return (
     <React.Fragment>
@@ -54,7 +56,7 @@ export default function Assessment() {
             <div className="row">
               <div className="col-sm-6 d-flex align-items-stretch mb-4">
                 <AssessmentCard
-                  assessmentHref="https://www.prairielearn.org/pl/course_instance/4970/assessment/2316935"
+                  assessmentHref={ plcourseURL.exam_instantFeedback }
                   readmoreHref="assessments/autogradedExams"
                   title="Auto-graded exam with instant feedback"
                   body="Studies have shown that learning and retention of knowledge 
@@ -65,7 +67,7 @@ export default function Assessment() {
               </div>
               <div className="col-sm-6 d-flex align-items-stretch mb-4">
                 <AssessmentCard
-                  assessmentHref="https://www.prairielearn.org/pl/course_instance/4970/assessment/2316937"
+                  assessmentHref={ plcourseURL.homework_template }
                   readmoreHref="assessments/masteryHomework"
                   title="Homework based mastery skill approach"
                   body="With PrairieLearn you can deliver your homework in different 
@@ -77,7 +79,7 @@ export default function Assessment() {
               </div>
               <div className="col-sm-6 d-flex align-items-stretch mb-4">
                 <AssessmentCard
-                  assessmentHref="https://www.prairielearn.org/pl/course_instance/4970/assessment/2316936"
+                  assessmentHref={ plcourseURL.lecture_selfGuided }
                   readmoreHref="assessments/preLectureNotebook"
                   title="Pre-lecture assignments with checkpoints"
                   body="Bring active learning experiences to your classroom, by delivering 
@@ -88,7 +90,7 @@ export default function Assessment() {
               </div>
               <div className="col-sm-6 d-flex align-items-stretch mb-4">
                 <AssessmentCard
-                  assessmentHref="https://www.prairielearn.org/pl/course_instance/4970/assessment/2316938"
+                  assessmentHref={ plcourseURL.groupWork_jupyter }
                   readmoreHref="assessments/groupWork"
                   title="Computer-based collaborative assignments"
                   body="Research shows that collaborative learning can increase 
