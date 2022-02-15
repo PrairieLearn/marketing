@@ -3,9 +3,11 @@ import Head from "next/head";
 import Link from "next/link";
 import classnames from "classnames";
 
+import { PageBanner } from "../components/Banner";
 import { Heading } from "../components/Heading";
 import { ExampleEditor } from "../components/ExampleEditor";
 import { ExampleQuestion } from "../components/ExampleQuestion";
+import { DemoCourseCTA } from "../components/DemoCourse";
 import Stack from "../components/Stack";
 
 import styles from "./index.module.scss";
@@ -50,44 +52,50 @@ export default function Home() {
       <Head>
         <title>PrairieLearn</title>
       </Head>
+
+      <PageBanner
+        title="The best platform for online assessments"
+        subtitle="PrairieLearn empowers instructors to build content that helps
+        their students achieve mastery."
+      />
+
+      <Container>
+        <Row>
+          <Column>
+              <Heading>CALL TO ACTION - what should we add here!?</Heading>
+
+
+
+
+          </Column>
+        </Row>
+      </Container>
+
       <div className={classnames("container-fluid py-4", styles.container)}>
         <div className="container-md">
+
           <Row>
             <Column>
-              <h1 className="text-white display-3">
-                <span>The best platform for online assessments</span>
-              </h1>
-              <p className="text-white mt-4 fs-3">
-                PrairieLearn empowers instructors to build content that helps
-                their students achieve mastery.
-              </p>
-              <a
-                href="https://prairielearn.readthedocs.io/en/latest/"
-                className="btn btn-light btn-lg me-3"
-              >
-                Documentation
-              </a>
-              <Link href="/contact">
-                <a className="btn btn-outline-light btn-lg">Get in touch</a>
-              </Link>
+                <Heading>Write questions once, use them forever</Heading>
+                <p>
+                  PrairieLearn questions are defined as code, which is what makes them so powerful. 
+                  Once a question has been defined in code, it can be reused in
+                  any future assessment. And students can keep trying new
+                  variants of difficult problems until they&apos;ve mastered the
+                  topic—no need for you to manually write new questions.
+                </p>
+                <ExampleQuestion />
             </Column>
           </Row>
-        </div>
-      </div>
-      <Container>
-        <Stack spacing={5}>
           <Row>
             <Column>
-              <Stack spacing={3}>
-                <Heading>Questions as code</Heading>
-                <p>
-                  PrairieLearn questions are defined as code, which is what
-                  makes them so powerful. The familiar HTML syntax and Mustache
-                  templates make it easy to get started writing questions. A
-                  broad variety of building blocks like number inputs and
-                  multiple choice responses come built-in, so you can hit the
-                  ground running.
-                </p>
+              <p>
+                The familiar HTML syntax and Mustache
+                templates make it easy to get started writing questions. A
+                broad variety of building blocks like number inputs and
+                multiple choice responses come built-in, so you can hit the
+                ground running.
+              </p>
                 <ExampleEditor
                   files={[
                     {
@@ -97,13 +105,10 @@ export default function Home() {
                     },
                   ]}
                 />
-              </Stack>
             </Column>
           </Row>
           <Row>
             <Column>
-              <Stack spacing={3}>
-                <Heading>Automatic generation and grading</Heading>
                 <p>
                   Once you&apos;ve defined an HTML template, generate parameters
                   for your question with the power of Python and popular
@@ -121,27 +126,17 @@ export default function Home() {
                     },
                   ]}
                 />
-              </Stack>
             </Column>
           </Row>
+        </div>
+      </div>
+
+      <Container>
+        <Stack>
           <Row>
             <Column>
               <Stack spacing={3}>
-                <Heading>Write once, use forever</Heading>
-                <p>
-                  Once a question has been defined in code, it can be reused in
-                  any future assessment. And students can keep trying new
-                  variants of difficult problems until they&apos;ve mastered the
-                  topic—no need for you to manually write new questions.
-                </p>
-                <ExampleQuestion />
-              </Stack>
-            </Column>
-          </Row>
-          <Row>
-            <Column>
-              <Stack spacing={3}>
-                <Heading>Limitless flexibility</Heading>
+                <Heading>Limitless flexibility (update with list of features?)</Heading>
                 <p>
                   From{" "}
                   <Link href="https://prairielearn.readthedocs.io/en/latest/externalGrading/">
@@ -165,89 +160,42 @@ export default function Home() {
               </Stack>
             </Column>
           </Row>
-          <Stack spacing={1}>
-            <Row>
-              <Column>
-                <Stack spacing={3}>
-                  <Heading>Trusted by the best</Heading>
-                  <p>
-                    Instructors at top universities in the United States and
-                    Canada have been using PrairieLearn to teach the next
-                    generation of engineers, scientists, and businesspeople.
-                  </p>
-                </Stack>
-              </Column>
-            </Row>
-            <Row>
-              <div className="col-6 col-md-3">
-                <div className="small text-muted">Students</div>
-                <div className="display-5 lh-1">15,000+</div>
-              </div>
-              <div className="col-6 col-md-3">
-                <div className="small text-muted">Courses</div>
-                <div className="display-5 lh-1">100+</div>
-              </div>
-            </Row>
-          </Stack>
         </Stack>
       </Container>
-      <div className="my-5 py-5 bg-dark">
-        <div className="container-md">
+
+      <Container>
+        <Stack spacing={1}>
           <Row>
             <Column>
-              <h2 className="text-white">Open-source. Forever.</h2>
-              <p className="text-white ">
-                PrairieLearn began life as open-source software, and we&apos;re
-                committed to making sure it stays that way. With an active
-                developer community of professors, course staff, and students,
-                PrairieLearn gets better all the time.
-              </p>
-              <div className="d-flex">
-                <a
-                  href="https://github.com/PrairieLearn/PrairieLearn"
-                  className="btn btn-light me-3"
-                >
-                  GitHub →
-                </a>
-                <a
-                  href="https://prairielearn.readthedocs.io/en/latest/"
-                  className="btn btn-light"
-                >
-                  Documentation →
-                </a>
-              </div>
+              <Stack spacing={3}>
+                <Heading>Trusted by the best (update numbers and get logo from Universities?</Heading>
+                <p>
+                  Instructors at top universities in the United States and
+                  Canada have been using PrairieLearn to teach the next
+                  generation of engineers, scientists, and businesspeople.
+                </p>
+              </Stack>
             </Column>
           </Row>
-        </div>
-      </div>
-      <Container>
-        <Row>
-          <Column>
-            <Heading>Get started</Heading>
-            <p>
-              New to PrairieLearn? Check out the{" "}
-              <Link href="/gallery">
-                <a>question gallery</a>
-              </Link>{" "}
-              to see what&apos;s possible with PrairieLearn, or head over to{" "}
-              <a href="https://prairielearn.readthedocs.io/en/latest/">
-                the documentation
-              </a>{" "}
-              to learn how to set up PrairieLearn on your computer and start
-              creating content.
-            </p>
-            <p>
-              Looking for managed hosting, instructional workshops, and direct
-              support? Want a personalized demo of all PrairieLearn has to
-              offer? Reach out to us, and we&apos;ll get back to you with more
-              details.
-            </p>
-            <Link href="/contact">
-              <a className="btn btn-primary btn-lg">Get in touch</a>
-            </Link>
-          </Column>
-        </Row>
+          <Row>
+            <div className="col-6 col-md-3">
+              <div className="small text-muted">Students</div>
+              <div className="display-5 lh-1">15,000+</div>
+            </div>
+            <div className="col-6 col-md-3">
+              <div className="small text-muted">Courses</div>
+              <div className="display-5 lh-1">100+</div>
+            </div>
+          </Row>
+        </Stack>
       </Container>
+
+      <DemoCourseCTA
+        title="View demo course!"
+        subtitle="Explore the demo course to see how this all comes together"
+        buttonLabel="Demo course"
+      />
+
     </React.Fragment>
   );
 }
