@@ -6,6 +6,10 @@ import { useRouter } from "next/router";
 import styles from "./Header.module.scss";
 import NavLink from "./NavLink";
 
+import Image from "./Image";
+//import logo from "../lib/images/flower-white.png";
+import logo from "../lib/images/grass-white.png";
+
 export const Header: React.FC = () => {
   const [collapsed, setCollapsed] = React.useState(true);
 
@@ -24,7 +28,10 @@ export const Header: React.FC = () => {
     >
       <div className="container">
         <Link href="/">
-          <a className="navbar-brand">PrairieLearn</a>
+          <a className="navbar-brand">
+            <Image src={logo} width={24} height={24} alt="logo" />
+            PrairieLearn
+          </a>
         </Link>
         <button
           className="navbar-toggler"

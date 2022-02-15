@@ -3,7 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import classnames from "classnames";
 
-import { PageBanner } from "../components/Banner";
+import { HomePageBanner } from "../components/Banner";
 import { Heading } from "../components/Heading";
 import { ExampleEditor } from "../components/ExampleEditor";
 import { ExampleQuestion } from "../components/ExampleQuestion";
@@ -53,10 +53,8 @@ export default function Home() {
         <title>PrairieLearn</title>
       </Head>
 
-      <PageBanner
-        title="The best platform for online assessments"
-        subtitle="PrairieLearn empowers instructors to build content that helps
-        their students achieve mastery."
+      <HomePageBanner
+        subtitle="The best platform for online assessments"
       />
 
       <Container>
@@ -64,7 +62,8 @@ export default function Home() {
           <Column>
               <Heading>CALL TO ACTION - what should we add here!?</Heading>
 
-
+              <p>(Subtitle?) PrairieLearn empowers instructors to build content that helps
+        their students achieve mastery.</p>
 
 
           </Column>
