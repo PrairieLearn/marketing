@@ -48,6 +48,9 @@ export const Header: React.FC = () => {
               <NavLink href="/gallery/questions">Questions</NavLink>
             </li>
             <li className="nav-item">
+              <NavLink href="/research">Case Studies</NavLink>
+            </li>
+            <li className="nav-item">
               <NavLink href="/pricing">Pricing</NavLink>
             </li>
             <li className="nav-item">

@@ -1,0 +1,15 @@
+@import "~bootstrap/scss/_functions.scss";
+@import "~bootstrap/scss/_variables.scss";
+
+.card {
+  flex-direction: row;
+  align-items: center;
+}
+.card-title {
+  font-weight: bold;
+}
+.card img {
+  width: 30%;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: calc(0.25rem - 1px);
+}
