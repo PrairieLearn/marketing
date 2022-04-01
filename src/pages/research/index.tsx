@@ -67,28 +67,6 @@ export default function Assessment() {
             />
           </div>
 
-          <div className="row my-4">  
-            <ResearchCard
-              title="Autograding and immediate feedback of mechanics drawings"
-              body="This paper presents an algorithmic framework for auto-grading of computer-drawn mechanics diagrams 
-              including key functionality requirements: (1) ability to provide students with meaningful feedback 
-              about errors in their diagram, (2) easy to understand for problem authors, and require only data 
-              which is readily available to authors, (3) adaptable to different types of drawings or sketches, 
-              (4) fast to execute, and (5) robust to unexpected or unusual inputs."
-              reference="M. Silva and M. West, 'Algorithmic grading strategies for computerized drawing assessments', ASEE 2017."
-              paperHref="https://peer.asee.org/algorithmic-grading-strategies-for-computerized-drawing-assessments"
-            />
-          </div>
-
-          <div className="row my-4">  
-            <ResearchCard
-              title="Using simple markup tool for drawing-based assessments"
-              body="coming soon"
-              reference="N. Nytko, M. West, and M. Silva, 'A simple and efficient markup tool to generate drawing-based online assessments', ASEE 2020."
-              paperHref="https://peer.asee.org/a-simple-and-efficient-markup-tool-to-generate-drawing-based-online-assessments"
-            />
-          </div>
-
         </div>
       </div>
 
