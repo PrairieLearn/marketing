@@ -16,7 +16,7 @@ export const ResearchCard: React.FC<ResearchCardProps> = ({
   paperHref,
   reference,
 }) => (
-  <div className="card w-75 mx-auto">
+  <div className="card">
     <div className="card-body d-flex flex-column">
       <h3 className="card-title">{title}</h3>
       <p className="card-text">{body}</p>
