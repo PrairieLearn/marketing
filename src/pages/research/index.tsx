@@ -20,13 +20,11 @@ export default function Assessment() {
         subtitle="Collection of educational research and case studies using PrairieLearn"
       />
 
-      <div className={classnames("container-fluid py-4",)}>
+      <div className={classnames("container-fluid py-4")}>
         <div className={classnames("container-md py-4", styles.container)}>
-
-
           <Heading>Mastery learning</Heading>
 
-          <div className="row my-3">      
+          <div className="row my-3">
             <ResearchCard
               title="Introducing PrairieLearn"
               body="This paper introduces PrairieLearn, an online assessment system designed to facilitate learning to mastery. 
@@ -40,7 +38,7 @@ export default function Assessment() {
             />
           </div>
 
-          <div className="row my-3">      
+          <div className="row my-3">
             <ResearchCard
               title="Estimating exam difficulty"
               body="To design good assessments, it is useful to have an estimate of the difficulty of a novel exam question before running an exam. 
@@ -53,7 +51,7 @@ export default function Assessment() {
             />
           </div>
 
-          <div className="row my-3">      
+          <div className="row my-3">
             <ResearchCard
               title="Creating fair randomized asynchronous exams"
               body="When exams are run asynchronously, a student can potentially gain an advantage by receiving information about the exam 
@@ -66,16 +64,14 @@ export default function Assessment() {
               paperHref="https://peer.asee.org/reducing-difficulty-variance-in-randomized-assessments"
             />
           </div>
-
         </div>
       </div>
 
-      <div className={classnames("container-fluid py-4",)}>
+      <div className={classnames("container-fluid py-4")}>
         <div className={classnames("container-md py-4", styles.container)}>
-
           <Heading>Frequent testing and low-state assessments</Heading>
 
-          <div className="row my-3">      
+          <div className="row my-3">
             <ResearchCard
               title="Improving overall performance by adding frequent testing with immediate feedback"
               body="This study compares final exam performance from two different semesters,
@@ -88,7 +84,7 @@ export default function Assessment() {
             />
           </div>
 
-          <div className="row my-4">  
+          <div className="row my-4">
             <ResearchCard
               title=""
               body="coming soon"
@@ -97,17 +93,16 @@ export default function Assessment() {
               paperHref="https://dl.acm.org/doi/10.1145/3159450.3159500"
             />
           </div>
-
         </div>
       </div>
 
-      <div className={classnames("container-fluid py-4",)}>
+      <div className={classnames("container-fluid py-4")}>
         <div className={classnames("container-md py-4", styles.container)}>
+          <Heading>
+            Creating robust and randomized assessments to reduce cheating
+          </Heading>
 
-
-          <Heading>Creating robust and randomized assessments to reduce cheating</Heading>
-
-          <div className="row my-3">      
+          <div className="row my-3">
             <ResearchCard
               title="Cheating effect in computer-based testing"
               body="This was a controlled crossover experiment designed to
@@ -119,17 +114,14 @@ export default function Assessment() {
               paperHref="https://doi.org/10.1145/3328778.3366859"
             />
           </div>
-
         </div>
       </div>
 
-
-      <div className={classnames("container-fluid py-4",)}>
+      <div className={classnames("container-fluid py-4")}>
         <div className={classnames("container-md py-4", styles.container)}>
-
           <Heading>Computer-based testing facilities (CBTF)</Heading>
 
-          <div className="row my-4">  
+          <div className="row my-4">
             <ResearchCard
               title="A vision for computer-based testing"
               body="This paper describes our first experience building a computerized testing lab and running
@@ -143,7 +135,7 @@ export default function Assessment() {
             />
           </div>
 
-          <div className="row my-4">  
+          <div className="row my-4">
             <ResearchCard
               title="Students and instructors perceptions regarding computer-based testing"
               body="In this work we explore how the large-scale introduction of computer-based testing has impacted students and instructors. 
@@ -153,7 +145,7 @@ export default function Assessment() {
             />
           </div>
 
-          <div className="row my-4">  
+          <div className="row my-4">
             <ResearchCard
               title="Lessons learned after running a CBTF for 4 years"
               body="This paper discusses five main aspects of the CBTF: 1) basic operations; 2) precautions taken to maintain secure 
@@ -166,7 +158,7 @@ export default function Assessment() {
             />
           </div>
 
-          <div className="row my-4">  
+          <div className="row my-4">
             <ResearchCard
               title="Every university should have a computer-based testing facility"
               body="This paper summarizes research studies performed over several years in a broad collection of STEM-oriented classes 
@@ -178,16 +170,14 @@ export default function Assessment() {
               paperHref="https://zilles.cs.illinois.edu/papers/zilles_csedu_cbtf_2019.pdf"
             />
           </div>
-
         </div>
       </div>
 
-      <div className={classnames("container-fluid py-4",)}>
+      <div className={classnames("container-fluid py-4")}>
         <div className={classnames("container-md py-4", styles.container)}>
-
           <Heading>Scheduling of asynchronous exams in a CBTF</Heading>
 
-          <div className="row my-4">  
+          <div className="row my-4">
             <ResearchCard
               title="How do students schedule their asynchronous exams?"
               body="coming soon"
@@ -197,7 +187,7 @@ export default function Assessment() {
             />
           </div>
 
-          <div className="row my-4">  
+          <div className="row my-4">
             <ResearchCard
               title="Modeling students scheduling preferences"
               body="coming soon"
@@ -206,7 +196,7 @@ export default function Assessment() {
             />
           </div>
 
-          <div className="row my-4">  
+          <div className="row my-4">
             <ResearchCard
               title="How to forecast demand at a computer-based testing facility?"
               body="For planning and resource scheduling purposes it is important to be able to forecast demand, and thus it is important to understand 
@@ -218,7 +208,7 @@ export default function Assessment() {
             />
           </div>
 
-          <div className="row my-4">  
+          <div className="row my-4">
             <ResearchCard
               title=""
               body="coming soon"
@@ -226,7 +216,6 @@ export default function Assessment() {
               paperHref=""
             />
           </div>
-
         </div>
       </div>
 
@@ -235,7 +224,6 @@ export default function Assessment() {
         subtitle="Explore the demo course to see how this all comes together"
         buttonLabel="Demo course"
       />
-
     </React.Fragment>
   );
-};
+}

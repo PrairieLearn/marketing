@@ -21,7 +21,9 @@ export const ResearchCard: React.FC<ResearchCardProps> = ({
       <h3 className="card-title">{title}</h3>
       <p className="card-text">{body}</p>
       <Link href={paperHref}>
-        <p className={classnames(styles["card-text"], "card-text")}>{reference}</p>
+        <p className={classnames(styles["card-text"], "card-text")}>
+          {reference}
+        </p>
       </Link>
     </div>
   </div>
