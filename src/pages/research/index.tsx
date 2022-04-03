@@ -4,11 +4,11 @@ import Head from "next/head";
 
 import { PageBanner } from "../../components/Banner";
 import { DemoCourseCTA } from "../../components/DemoCourse";
-import { ResearchCard } from "../../components/ResearchCard";
 import { Heading } from "../../components/Heading";
+import { ResearchCard } from "../../components/ResearchCard";
+import Stack from "../../components/Stack";
 
 import styles from "./index.module.scss";
-import Stack from "../../components/Stack";
 
 export default function Assessment() {
   return (
