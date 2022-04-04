@@ -328,6 +328,13 @@ export default function Assessment() {
         </div>
       </div>
 
+      <div className={classnames("container-fluid py-4")}>
+        <div className="container-md">
+          <h4> Do you have a paper that should be included in this page? </h4>
+          <p> Please send us the info at help@prairielearn.com</p>
+        </div>
+      </div>
+
       <DemoCourseCTA
         title="View demo course!"
         subtitle="Explore the demo course to see how this all comes together"
