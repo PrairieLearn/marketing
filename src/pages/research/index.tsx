@@ -200,7 +200,7 @@ export default function Assessment() {
               <ResearchCard
                 title="Student's strategies when completing exams with immediate feedback"
                 reference="A. Verma, T. Bretl, M. West, and C. Zilles, 'A quantitative analysis of when students choose to grade questions on computerized exams with multiple attempts', L@S 2020."
-                referenceHref={null}
+                referenceHref="http://dx.doi.org/10.1145/3386527.3406740"
               >
                 When taking a computer-based exam using PrairieLearn, students
                 have the option to receive immediate feedback on their submitted
