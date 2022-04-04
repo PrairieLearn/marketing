@@ -61,7 +61,7 @@ export default function Assessment() {
                 traditional paper-based exams, and in the following semester
                 students took frequent computer-based tests, while other aspects
                 of the course were held constant. It was observed a significant
-                change in the distribution of students' grades with fewer
+                change in the distribution of students&apos; grades with fewer
                 students failing the final examination, and proportionately more
                 students earning grades of B and C.
               </ResearchCard>
@@ -132,13 +132,13 @@ export default function Assessment() {
                 90-cap, allowed students to optionally take a second-chance exam
                 that would fully replace their score on a first-chance exam
                 except the second-chance exam would be capped at 90% credit. The
-                second grading policy, called 90-10, combined students' first-
-                and second-chance exam scores as a weighted average. The 90-10
-                policy significantly increased the likelihood that marginally
-                competent students would take the second-chance exam. Further,
-                our data suggests that students learned more under the 90-10
-                policy, providing improved student learning outcomes at no cost
-                to the instructor.
+                second grading policy, called 90-10, combined students&apos;
+                first- and second-chance exam scores as a weighted average. The
+                90-10 policy significantly increased the likelihood that
+                marginally competent students would take the second-chance exam.
+                Further, our data suggests that students learned more under the
+                90-10 policy, providing improved student learning outcomes at no
+                cost to the instructor.
               </ResearchCard>
 
               <ResearchCard
@@ -149,11 +149,11 @@ export default function Assessment() {
                 This study complements previous work by including interviews
                 from a diverse group of 23 students that have taken courses that
                 use second-chance testing. From the interviews, we sought to
-                gain insight into students' views and use of second-chance
+                gain insight into students&apos; views and use of second-chance
                 testing. We found that second-chance testing was almost
                 universally viewed positively by the students and was frequently
-                cited as helping to reduce test takers' anxiety and boost their
-                confidence. Overall, we find that the majority of students
+                cited as helping to reduce test takers&apos; anxiety and boost
+                their confidence. Overall, we find that the majority of students
                 prepare for second-chance exams in desirable ways, but we also
                 note ways in which second-chance testing can potentially lead to
                 undesirable behaviors including procrastination, overreliance on
@@ -188,13 +188,13 @@ export default function Assessment() {
                 online exams. It uses a Generalized Partial Credit Model (GPCM)
                 Item-Response Theory (IRT) model to fit exams from a for-majors
                 data structures course and non-majors CS0 course, both of which
-                used randomly generated exams. For all exams, students'
+                used randomly generated exams. For all exams, students&apos;
                 estimated ability and exam score are strongly correlated (ρ ≥
                 0.7), suggesting that the exams are reasonably fair. Through
                 simulation, we find that most of the variance in any given
-                student's simulated scores is due to chance and the worst of the
-                score impacts from possibly unfair permutations is only around 5
-                percentage points on an exam.
+                student&apos;s simulated scores is due to chance and the worst
+                of the score impacts from possibly unfair permutations is only
+                around 5 percentage points on an exam.
               </ResearchCard>
 
               <ResearchCard
@@ -322,9 +322,9 @@ export default function Assessment() {
                 this score advantage on unproctored exams grew steadily as the
                 semester progressed, from around 0 percentage points at the
                 start of semester to around 7 percentage points by the end,
-                indicating that students were 'learning to cheat'. The data
-                suggests that both more individuals are cheating and the average
-                benefit of cheating is increasing over the course of the
+                indicating that students were &quot;learning to cheat&quot;. The
+                data suggests that both more individuals are cheating and the
+                average benefit of cheating is increasing over the course of the
                 semester.
               </ResearchCard>
 
@@ -354,7 +354,7 @@ export default function Assessment() {
               >
                 This paper describes our first experience building a
                 computerized testing lab and running the bulk of a 200-student
-                class's exams using computerized testing. It discusses the
+                class&apos;s exams using computerized testing. It discusses the
                 mechanics of operating the testing lab, the work required by the
                 instructor to enable this approach, and the student response,
                 which has been strongly positive: 75% prefer computerized
@@ -479,42 +479,45 @@ export default function Assessment() {
               <Heading>Auto-grading of open-ended questions</Heading>
 
               <ResearchCard
-                title="Validated score rubric for 'Explain in plain English' questions"
+                title='Validated score rubric for "Explain in plain English" questions'
                 reference="B. Chen, S. Azad, R. Haldar, M. West, and C. Zilles, 'A validated scoring rubric for Explain-in-Plain-English questions', SIGCSE 2020."
                 referenceHref="https://dl.acm.org/doi/abs/10.1145/3328778.3366879"
               >
                 In this paper, we describe a 7-point rubric developed for
-                scoring student responses to 'Explain in plain English'
-                questions, reporting four different ways to validate the rubric.
-              </ResearchCard>
-              <ResearchCard
-                title="Auto-grading 'Explain in plain English' questions"
-                reference="M. Fowler, B. Chen, S. Azad, M. West, and C. Zilles, 'Autograding Explain in Plain English questions using NLP', SIGCSE 2021."
-                referenceHref="https://dl.acm.org/doi/abs/10.1145/3408877.3432539"
-              >
-                Previous research suggests that 'Explain in Plain English'
-                (EiPE) code reading activities could play an important role in
-                the development of novice programmers, but EiPE questions aren't
-                heavily used in introductory programming courses because they
-                (traditionally) required manual grading. We present what we
-                believe to be the first automatic grader for EiPE questions and
-                its deployment in a large-enrollment introductory programming
-                course. Based on a set of questions deployed on a computer-based
-                exam, we find that our implementation has an accuracy of 87–89%,
-                which is similar in performance to course teaching assistants
-                trained to perform this task and compares favorably to automatic
-                short answer grading algorithms developed for other domains.
+                scoring student responses to &quot;Explain in plain
+                English&quot; questions, reporting four different ways to
+                validate the rubric.
               </ResearchCard>
 
               <ResearchCard
-                title="Peer-grading 'Explain in plain English' questions"
+                title='Auto-grading "Explain in plain English" questions'
+                reference="M. Fowler, B. Chen, S. Azad, M. West, and C. Zilles, 'Autograding Explain in Plain English questions using NLP', SIGCSE 2021."
+                referenceHref="https://dl.acm.org/doi/abs/10.1145/3408877.3432539"
+              >
+                Previous research suggests that &quot;Explain in Plain
+                English&quot; (EiPE) code reading activities could play an
+                important role in the development of novice programmers, but
+                EiPE questions aren&apos;t heavily used in introductory
+                programming courses because they (traditionally) required manual
+                grading. We present what we believe to be the first automatic
+                grader for EiPE questions and its deployment in a
+                large-enrollment introductory programming course. Based on a set
+                of questions deployed on a computer-based exam, we find that our
+                implementation has an accuracy of 87–89%, which is similar in
+                performance to course teaching assistants trained to perform
+                this task and compares favorably to automatic short answer
+                grading algorithms developed for other domains.
+              </ResearchCard>
+
+              <ResearchCard
+                title='Peer-grading "Explain in plain English" questions'
                 reference="B. Chen, M. West, and C. Zilles, 'Peer-grading Explain in plain English questions: A Bayesian calibration method for categorical answers, SIGCSE 2022."
                 referenceHref="https://dl.acm.org/doi/abs/10.1145/3478431.3499409"
               >
-                This paper presents the use of peer grading for 'Explain in
-                Plain English' (EipE) questions in a large enrollment
+                This paper presents the use of peer grading for &quot;Explain in
+                Plain English&quot; (EipE) questions in a large enrollment
                 introductory programming course, where students were asked to
-                categorize other students' responses. We developed a novel
+                categorize other students&apos; responses. We developed a novel
                 Bayesian algorithm for performing calibrated peer grading on
                 categorical data, and we used a heuristic grade assignment
                 method based on the Bayesian estimates. The peer-grading
