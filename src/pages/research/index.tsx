@@ -324,14 +324,19 @@ export default function Assessment() {
                 paperHref="https://dl.acm.org/doi/abs/10.1145/3478431.3499409"
               />
             </Stack>
-          </Stack>
-        </div>
-      </div>
 
-      <div className={classnames("container-fluid py-4")}>
-        <div className="container-md">
-          <h4> Do you have a paper that should be included in this page? </h4>
-          <p> Please send us the info at help@prairielearn.com</p>
+            <Stack spacing={4}>
+              <h2 className="h4">Contribute to this page</h2>
+              <p>
+                Do you have a paper that should be included on this page? Please
+                send us the appropriate information at{" "}
+                <a href="mailto:hello@prairielearn.com">
+                  hello@prairielearn.com
+                </a>
+                .
+              </p>
+            </Stack>
+          </Stack>
         </div>
       </div>
 
