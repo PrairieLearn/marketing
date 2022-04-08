@@ -142,7 +142,7 @@ export default function Assessment() {
               </ResearchCard>
 
               <ResearchCard
-                title="Student perceptions on second-hance exams"
+                title="Student perceptions on second-chance exams"
                 reference="C. Emeka, T. Bretl, G. Herman, M. West, C. Zilles, 'Students Perceptions and Behavior Related to Second-Chance Testing', FIE 2021."
                 referenceHref="https://ieeexplore.ieee.org/document/9637173"
               >
@@ -243,6 +243,28 @@ export default function Assessment() {
                 code. We present results from student interaction data with the
                 system, student surveys, and feedback from instructors and
                 question authors.
+              </ResearchCard>
+
+              <ResearchCard
+                title="Machine-graded questions for complex engineering problems"
+                reference="S. Mahmood, M. Zhao, O. Khan and G. Herman, 'Caches as an example of machine-gradable exam questions for complex engineering systems', FIE 2020."
+                referenceHref="https://ieeexplore.ieee.org/document/9273822"
+              >
+                Assessing students&apos; knowledge of complex engineering
+                systems often requires administering long-form multi-part
+                questions with copious extra credit. Creating and grading these
+                questions can be time consuming. In this paper, we describe our
+                efforts to convert multi-part pencil-and-paper questions into
+                parameterized, machine-gradable questions in PrairieLearn.
+                Questions were built and parameterized by creating a simulator
+                for the engineering system in the back-end of PrairieLearn. A
+                comparison of machine-graded PrairieLearn variants of a question
+                with human-graded, pencil-and-paper variants of a question
+                revealed comparable student performance and partial credit
+                awarded. Students revealed an overwhelming preference for the
+                machine-graded questions to the pencil-and-paper questions. This
+                work provides proof-of-concept for creating meaningful, complex
+                assessments in PrairieLearn.
               </ResearchCard>
             </Stack>
 
