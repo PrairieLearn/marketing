@@ -1,0 +1,111 @@
+Welcome to PrairieLearn! This document explains the terms of service (“Terms”) for using software provided by PrairieLearn, Inc. (the “Service”). When you use the Service, you’re agreeing to all of the terms and conditions on this page. These Terms apply to all visitors, students, teachers, instructors, administrators, and others who access the Service (“Users”).
+
+PrairieLearn is an open-source learning platform. PrairieLearn, Inc. (“we”, “us”, or “our”) is a company created to provide hosting and support for PrairieLearn software at prairielearn.com (the "Site"). These Terms apply only to software hosted by PrairieLearn, Inc. (the “Service”). If you use an instance of PrairieLearn hosted by another individual, company, organization, institution, or party, you will be bound by their terms and conditions, if specified.
+
+## 1.	Use of the Service
+
+Using the Service requires creating an account or signing in with an authentication provider. You’re responsible for all the activity on your account, and for keeping your password confidential and otherwise securing your account. If you find out that someone has used your account without your permissions, you should report it to support@prairielearn.com.
+
+To sign up for an account, you must be at least 18 years old. If you are under 18, you represent that you have your parent or guardian’s permission to use the Service. Please have them read this agreement with you.
+
+If you are a parent or legal guardian of a user under the age of 18, by allowing your child to use the Service, you are subject to the terms of this agreement and responsible for your child’s activity on the Service.
+
+When you use the Service, you agree not to engage in any of the following prohibited activities:
+
+- copying, distributing, or disclosing any part of the Service in any medium, including without limitation by any automated or non-automated “scraping”;
+- using any automated system, including without limitation “robots,” “spiders,” “offline readers,” etc., to access the Service in a manner that sends more requests to the Service than a human can reasonably produce in the same period of time by using a conventional web browser (except that we grant an exception to teachers, instructors, or administrators who may use APIs provided by the service to access assessment scores, submissions, and other content, provided that such use does not impose at our sole discretion an unreasonable or disproportionately large load on our infrastructure);
+- transmitting spam, chain letters, or other unsolicited email;
+- attempting to interfere with, compromise the system integrity or security or decipher any transmissions to or from the servers running the Service;
+- taking any action that imposes, or may impose at our sole discretion an unreasonable or disproportionately large load on our infrastructure;
+- uploading invalid data, viruses, worms, or other software agents through the Service;
+- collecting or harvesting any personally identifiable information, including account names, from the Service;
+- using the Service for any commercial solicitation purposes;
+- impersonating another person or otherwise misrepresenting your affiliation with a person or entity, conducting fraud, hiding or attempting to hide your identity;
+- interfering with the proper working of the Service;
+- accessing any content on the Service through any technology or means other than those provided or authorized by the Service; or
+- bypassing the measures we may use to prevent or restrict access to the Service, including without limitation features that prevent or restrict use or copying of any content or enforce limitations on use of the Service or the content therein.
+
+We may, without prior notice, change the Service; stop providing the Service or features of the Service, to you or to Users generally; or create usage limits for the Service. We may permanently or temporarily terminate or suspend your access to the Service without notice and liability for any reason, including if in our sole determination you violate any provision of these Terms, or for no reason. Upon termination for any reason or no reason, you continue to be bound by these Terms.
+
+## 2.	User Content
+
+Some features of the Service allow Users to create or upload content, such as questions, assessments, configuration code, submissions, question feedback, and other content or information, collectively referred to as “User Content”. “User Content” also includes prompts and feedback that are automatically generated from code provided by Users. We claim no ownership rights over User Content created by you. The User Content you create remains yours; however, by providing or sharing User Content through the Service, you agree to allow others to view, edit, and/or share your User Content in accordance with your settings and these Terms. We have the right (but not the obligation) at our sole discretion to remove any User Content that is shared via the Service.
+
+You agree not to post any User Content that:
+
+- may constitute or contribute to a crime or tort;
+- contains any information or content that we deem to be unlawful, harmful, abusive, racially or ethnically offensive, defamatory, infringing, invasive of personal privacy or publicity rights, harassing, humiliating to other people (publicly or otherwise), libelous, threatening, profane, obscene, or otherwise objectionable; or
+- violates any school or other applicable policy, including those related to cheating or ethics.
+
+You agree that any User Content that you post does not and will not violate third-party rights of any kind, including without limitation any Intellectual Property Rights (as defined below) or rights of privacy. If you are an instructor or teacher, you represent and warrant that you have the right to provide any User Content, including without limitation any questions, assessments, or classroom materials that you provide to the Service. To the extent that your User Content contains music, you hereby represent that you are the owner of all the copyright rights, including without limitation the performance, mechanical, and sound recordings rights, with respect to each and every musical composition (including lyrics) and sound recording contained in such User Content and have the power to grant the license granted below. You understand that publishing your User Content on the Service is not a substitute for registering it with the U.S. Copyright Office, the Writer’s Guild of America, or any other rights organization.
+
+For the purposes of these Terms, “Intellectual Property Rights” means all patent rights, copyright rights, mask work rights, moral rights, rights of publicity, trademark, trade dress and service mark rights, goodwill, trade secret rights and other intellectual property rights as may now exist or hereafter come into existence, and all applications therefore and registrations, renewals and extensions thereof, under the laws of any state, country, territory or other jurisdiction.
+
+In connection with your User Content, you affirm, represent, and warrant the following:
+
+- You have the written consent of each and every identifiable natural person in the User Content, if any, to use such person’s name or likeness in the manner contemplated by the Service and these Terms, and each such person has released you from any liability that may arise in relation to such use.
+- You have obtained and are solely responsible for obtaining all consents as may be required by law to post any User Content relating to third parties.
+- Your User Content and our use thereof as contemplated by these Terms and the Service will not violate any law or infringe any rights of any third party, including but not limited to any Intellectual Property Rights and privacy rights.
+- We may exercise the rights to your User Content granted under these Terms without liability for payment of any guild fees, residuals, payments, fees, or royalties payable under any collective bargaining agreement or otherwise.
+- To the best of your knowledge, all your User Content and other information that you provide to us is truthful and accurate.
+
+We take no responsibility and assume no liability for any User Content that you or any other User or third party posts, sends, or otherwise makes available over the Service. You shall be solely responsible for your User Content and the consequences of posting, publishing it, sharing it, or otherwise making it available on the Service, and you agree that we are only acting as a passive conduit for your online distribution and publication of your User Content. You understand and agree that you may be exposed to User Content that is inaccurate, objectionable, inappropriate for children, or otherwise unsuited to your purpose, and you agree that we shall not be liable for any damages you allege to incur as a result of or relating to any User Content.
+
+## 3.	User Content License Grant
+
+By posting or otherwise making available any User Content on or through the Service, you expressly grant, and you represent and warrant that you have all rights necessary to grant and hereby grant to PrairieLearn, Inc. a royalty-free, sublicensable, transferable, perpetual, irrevocable, non-exclusive, worldwide license, subject to the restrictions set forth below to reproduce, modify, publish, publicly display, make derivative works and otherwise use such User Content and your name, voice, and/or likeness as contained in your User Content, in whole or in part, and in any form, media or technology, whether now known or hereafter developed, for use in connection with the Service and our (and its successors’ and affiliates’) business, including without limitation for promoting and redistributing part or all of the Service (and derivative works thereof) in any media formats and through any media channels. Notwithstanding the foregoing, we will only use your User Content as you provide in your settings page.
+
+If you are a Student, you agree that we may make your User Content available to your Teacher(s) and School(s), for the purposes of improving the Service only and at all times on a confidential basis, may use your Educational Records solely on an aggregated, de-identified basis and will not share such information with third parties.
+
+If you are a Teacher or School, you agree that we may (i) make specific educational records available to the applicable Student, and (ii) for the purposes of improving the Service only and at all times on a confidential basis, otherwise use your educational records on an aggregated, de-identified basis and will not share such information with third parties.
+
+## 4.	User Content License Grant
+Refer to our Privacy Policy (prairielearn.com) for information on how we collect, use and disclose information from our users.
+
+## 5.	Security
+
+We use commercially reasonable and appropriate physical, managerial, and technical safeguards to preserve the integrity and security of your personal information and implement your privacy settings. However, we cannot guarantee that unauthorized third parties will never be able to defeat our security measures or use your personal information for improper purposes. You acknowledge that you provide your personal information at your own risk.
+
+## 6.	Other Websites and Links
+
+User Content and other content on the Service may contain links to other websites. When you access third-party websites, you do so at your own risk. We do not control or endorse these sites. If you access a third-party website or service from the Service or share your User Content on or through any third-party website or service, you do so at your own risk, and you understand that these Terms do not apply to your use of such sites. You expressly relieve us from any and all liability arising from your use of any third-party website, service, or content, including without limitation User Content submitted by other Users.
+
+We partner with Stripe for payment processing. If you are an instructor or administrator signing up for an account to pay for the Service, you are also agreeing to Stripe’s terms of service.
+
+## 7.	Account Termination
+
+You may terminate your account at any time by contacting support@prairielearn.com. We may retain certain information as required by law or contractual obligation, or as necessary for our legitimate business purposes. All provisions of this agreement survive termination of an account.
+
+## 8.	Changes to Terms or Services
+
+We reserve the right to modify the Terms at any time. We will notify you about these changes by posting the modified Terms on the Site. If you continue to use the Services after we post the modified Terms on the Site, you agree to be bound by the modified Terms. It is your responsibility to review these changes when they are posted. If you do not agree to the new Terms, then you may stop using the Service. 
+
+## 9.	Feedback
+
+We welcome your comments, ideas, suggestions, or proposals (“Feedback”) by emailing us at support@prairielearn.com. However, if you submit Feedback to us, then you grant us non-exclusive, worldwide, royalty-free license that is sublicensable and transferable, to use, sell, copy, modify, reproduce, publicly display, distribute, or create derivative works based upon the Feedback in any manner without any obligation, royalty or restriction based on intellectual property rights or otherwise.
+
+## 10.	Indemnity
+
+You agree to defend, indemnify and hold harmless PrairieLearn, Inc. and our officers, directors, employees, partners, contractors, representatives, agents, and third-party providers from and against any and all claims, causes of action, damages, obligations, losses, liabilities, costs or debt, and expenses (including reasonable attorneys' fees and costs) and all amounts paid in settlement arising from or relating to, breach of these terms or violation of any applicable laws. We reserve the right, in our sole discretion and at our own expense, to assume the exclusive defense and control of any matter for which you have agreed to indemnify us and you agree to assist and cooperate with us as reasonably required in the defense or settlement of any such matters.
+
+## 11.	Warranty disclaimer 
+
+THE SERVICE IS PROVIDED ON AN “AS IS” AND “AS AVAILABLE” BASIS. USE OF THE SERVICE IS AT YOUR OWN RISK. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE SERVICE IS PROVIDED WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. NO ADVICE OR INFORMATION, WHETHER ORAL OR WRITTEN, OBTAINED BY YOU FROM IS OR THROUGH THE SERVICE WILL CREATE ANY WARRANTY NOT EXPRESSLY STATED HEREIN. WITHOUT LIMITING THE FOREGOING, PRAIRIELEARN, OUR AFFILIATES, AND OUR LICENSORS DO NOT WARRANT THAT THE CONTENT IS ACCURATE, RELIABLE OR CORRECT; THAT THE SERVICE WILL MEET YOUR REQUIREMENTS; THAT THE SERVICE WILL BE AVAILABLE AT ANY PARTICULAR TIME OR LOCATION, UNINTERRUPTED OR SECURE; THAT ANY DEFECTS OR ERRORS WILL BE CORRECTED; OR THAT THE SERVICE IS FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS. ANY CONTENT DOWNLOADED OR OTHERWISE OBTAINED THROUGH THE USE OF THE SERVICE IS DOWNLOADED AT YOUR OWN RISK AND YOU WILL BE SOLELY RESPONSIBLE FOR ANY DAMAGE TO YOUR COMPUTER SYSTEM OR MOBILE DEVICE OR LOSS OF DATA THAT RESULTS FROM SUCH DOWNLOAD OR YOUR USE OF THE SERVICE.
+
+WE DO NOT WARRANT, ENDORSE, GUARANTEE, OR ASSUME RESPONSIBILITY FOR ANY PRODUCT OR SERVICE ADVERTISED OR OFFERED BY A THIRD PARTY THROUGH THE SERVICE OR ANY HYPERLINKED WEBSITE OR SERVICE, AND WE WILL NOT BE A PARTY TO OR IN ANY WAY MONITOR ANY TRANSACTION BETWEEN YOU AND THIRD-PARTY PROVIDERS OF PRODUCTS OR SERVICES.
+
+FEDERAL LAW, SOME STATES, PROVINCES AND OTHER JURISDICTIONS DO NOT ALLOW THE EXCLUSION AND LIMITATIONS OF CERTAIN IMPLIED WARRANTIES, SO THE ABOVE EXCLUSIONS MAY NOT APPLY TO YOU. THESE TERMS GIVES YOU SPECIFIC LEGAL RIGHTS, AND YOU MAY ALSO HAVE OTHER RIGHTS WHICH VARY FROM STATE TO STATE. THE DISCLAIMERS AND EXCLUSIONS UNDER THESE TERMS WILL NOT APPLY TO THE EXTENT PROHIBITED BY APPLICABLE LAW.
+  
+## 12.	Limitation of Liability
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL WE, OUR AFFILIATES, AGENTS, DIRECTORS, EMPLOYEES, SUPPLIERS OR LICENSORS BE LIABLE FOR ANY INDIRECT, PUNITIVE, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR EXEMPLARY DAMAGES, INCLUDING WITHOUT LIMITATION DAMAGES FOR LOSS OF PROFITS, GOODWILL, USE, DATA OR OTHER INTANGIBLE LOSSES, ARISING OUT OF OR RELATING TO THE USE OF, OR INABILITY TO USE, THE SERVICE. UNDER NO CIRCUMSTANCES WILL WE BE RESPONSIBLE FOR ANY DAMAGE, LOSS OR INJURY RESULTING FROM HACKING, TAMPERING OR OTHER UNAUTHORIZED ACCESS OR USE OF THE SERVICE OR YOUR ACCOUNT OR THE INFORMATION CONTAINED THEREIN.
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, WE ASSUME NO LIABILITY OR RESPONSIBILITY FOR ANY (I) ERRORS, MISTAKES, OR INACCURACIES OF CONTENT; (II) PERSONAL INJURY OR PROPERTY DAMAGE, OF ANY NATURE WHATSOEVER, RESULTING FROM YOUR ACCESS TO OR USE OF OUR SERVICE; (III) ANY UNAUTHORIZED ACCESS TO OR USE OF OUR SECURE SERVERS AND/OR ANY AND ALL PERSONAL INFORMATION STORED THEREIN; (IV) ANY INTERRUPTION OR CESSATION OF TRANSMISSION TO OR FROM THE SERVICE; (V) ANY BUGS, VIRUSES, TROJAN HORSES, OR THE LIKE THAT MAY BE TRANSMITTED TO OR THROUGH OUR SERVICE BY ANY THIRD PARTY; (VI) ANY ERRORS OR OMISSIONS IN ANY CONTENT OR FOR ANY LOSS OR DAMAGE INCURRED AS A RESULT OF THE USE OF ANY CONTENT POSTED, EMAILED, TRANSMITTED, OR OTHERWISE MADE AVAILABLE THROUGH THE SERVICE; AND/OR (VII) USER CONTENT OR THE DEFAMATORY, OFFENSIVE, OR ILLEGAL CONDUCT OF ANY THIRD PARTY. IN NO EVENT SHALL WE, OUR AFFILIATES, AGENTS, DIRECTORS, EMPLOYEES, SUPPLIERS, OR LICENSORS BE LIABLE TO YOU FOR ANY CLAIMS, PROCEEDINGS, LIABILITIES, OBLIGATIONS, DAMAGES, LOSSES OR COSTS IN AN AMOUNT EXCEEDING THE AMOUNT YOU PAID TO PRAIRIELEARN, INC. UNDER THIS AGREEMENT DURING THE TWELVE (12) MONTHS IMMEDIATELY PRECEDING THE EVENT GIVEN RISE TO LIABILITY, OR $100.00, WHICHEVER IS GREATER.
+
+THIS LIMITATION OF LIABILITY SECTION APPLIES WHETHER THE ALLEGED LIABILITY IS BASED ON CONTRACT, TORT, NEGLIGENCE, STRICT LIABILITY, OR ANY OTHER BASIS, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. THE FOREGOING LIMITATION OF LIABILITY SHALL APPLY TO THE FULLEST EXTENT PERMITTED BY LAW IN THE APPLICABLE JURISDICTION.
+
+SOME STATES DO NOT ALLOW THE EXCLUSION OR LIMITATION OF INCIDENTAL OR CONSEQUENTIAL DAMAGES, SO THE ABOVE LIMITATIONS OR EXCLUSIONS MAY NOT APPLY TO YOU. THESE TERMS GIVES YOU SPECIFIC LEGAL RIGHTS, AND YOU MAY ALSO HAVE OTHER RIGHTS WHICH VARY FROM STATE TO STATE. THE DISCLAIMERS, EXCLUSIONS, AND LIMITATIONS OF LIABILITY UNDER THESE TERMS WILL NOT APPLY TO THE EXTENT PROHIBITED BY APPLICABLE LAW.
+
+## 13.	Contact
+
+If you have any questions about these Terms of Service, please contact us at support@prairielearn.com
