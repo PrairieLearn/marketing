@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 
 import "../styles/bootstrap.scss";
 import { Header } from "../components/Header";
+import { Footer } from "../components/Footer";
 import * as gtag from "../lib/gtag";
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
@@ -23,6 +24,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
     <React.Fragment>
       <Header />
       <Component {...pageProps} />
+      <Footer />
     </React.Fragment>
   );
 };
