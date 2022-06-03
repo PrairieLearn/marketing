@@ -1,6 +1,10 @@
+---
+title: Terms of Service
+--- 
+
 Welcome to PrairieLearn! This document explains the terms of service (“Terms”) for using software provided by PrairieLearn, Inc. (the “Service”). When you use the Service, you’re agreeing to all of the terms and conditions on this page. These Terms apply to all visitors, students, teachers, instructors, administrators, and others who access the Service (“Users”).
 
-PrairieLearn is an open-source learning platform. PrairieLearn, Inc. (“we”, “us”, or “our”) is a company created to provide hosting and support for PrairieLearn software at prairielearn.com (the "Site"). These Terms apply only to software hosted by PrairieLearn, Inc. (the “Service”). If you use an instance of PrairieLearn hosted by another individual, company, organization, institution, or party, you will be bound by their terms and conditions, if specified.
+PrairieLearn is an open-source learning platform. PrairieLearn, Inc. (“we”, “us”, or “our”) is a company created to provide hosting and support for PrairieLearn software at [prairielearn.com](/) (the "Site"). These Terms apply only to software hosted by PrairieLearn, Inc. (the “Service”). If you use an instance of PrairieLearn hosted by another individual, company, organization, institution, or party, you will be bound by their terms and conditions, if specified.
 
 ## 1.	Use of the Service
 
@@ -60,7 +64,7 @@ If you are a Student, you agree that we may make your User Content available to 
 If you are a Teacher or School, you agree that we may (i) make specific educational records available to the applicable Student, and (ii) for the purposes of improving the Service only and at all times on a confidential basis, otherwise use your educational records on an aggregated, de-identified basis and will not share such information with third parties.
 
 ## 4.	User Content License Grant
-Refer to our Privacy Policy (prairielearn.com) for information on how we collect, use and disclose information from our users.
+Refer to our [Privacy Policy](/legal/privacy) for information on how we collect, use and disclose information from our users.
 
 ## 5.	Security
 

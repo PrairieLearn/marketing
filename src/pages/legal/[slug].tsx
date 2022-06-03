@@ -4,22 +4,24 @@ import Head from "next/head";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import fs from "fs-extra";
+import path from "path";
+import matter from "gray-matter";
 
 import { PageBanner } from "../../components/Banner";
-import path from "path";
 
 interface TermsProps {
+  title: string;
   source: MDXRemoteSerializeResult;
 }
 
-const Terms: React.FC<TermsProps> = ({ source }) => {
+const Terms: React.FC<TermsProps> = ({ title, source }) => {
   return (
     <React.Fragment>
       <Head>
-        <title>Terms of Service | PrairieLearn</title>
+        <title>{title} | PrairieLearn</title>
       </Head>
 
-      <PageBanner title="Terms of Service" />
+      <PageBanner title={title} />
 
       <div className="container my-5">
         <MDXRemote {...source} />
@@ -51,9 +53,14 @@ export const getStaticProps: GetStaticProps<TermsProps, PathParams> = async ({
     path.resolve("legal", `${params.slug}.md`),
     "utf-8"
   );
+  const {
+    content,
+    data: { title },
+  } = matter(source);
   return {
     props: {
-      source: await serialize(source),
+      title,
+      source: await serialize(content),
     },
   };
 };
