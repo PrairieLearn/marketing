@@ -2,9 +2,33 @@ import React from "react";
 import classnames from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { NavDropdown } from "react-bootstrap";
 
 import styles from "./Header.module.scss";
-import NavLink from "./NavLink";
+
+interface NavLinkProps {
+  href: string;
+}
+
+const NavLink: React.FC<NavLinkProps> = ({ href, children }) => {
+  console.log(href, children);
+  const { asPath } = useRouter();
+  const active = asPath.startsWith(href);
+  const current = asPath === href;
+  return (
+    <Link href={href}>
+      <a
+        className={classnames("nav-link", styles["nav-link"], {
+          "fw-bold": active,
+          [styles.active]: active,
+        })}
+        aria-current={current ? "page" : undefined}
+      >
+        {children}
+      </a>
+    </Link>
+  );
+};
 
 export const Header: React.FC = () => {
   const [collapsed, setCollapsed] = React.useState(true);
@@ -41,6 +65,11 @@ export const Header: React.FC = () => {
           id="navbar"
         >
           <ul className="navbar-nav ms-auto mb-2 mb-sm-0">
+            <NavDropdown title="Gallery">
+              <Link href="/gallery/assessments" passHref>
+                <NavDropdown.Item>Assessments</NavDropdown.Item>
+              </Link>
+            </NavDropdown>
             <li className="nav-item">
               <NavLink href="/gallery/assessments">Assessments</NavLink>
             </li>
