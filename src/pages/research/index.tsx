@@ -10,12 +10,13 @@ import Stack from "../../components/Stack";
 
 import styles from "./index.module.scss";
 
-export default function Assessment() {
+export default function Research() {
   return (
     <React.Fragment>
       <Head>
         <title>Case Studies | PrairieLearn</title>
       </Head>
+
       <PageBanner
         title="Case Studies"
         subtitle="Collection of educational research and case studies using PrairieLearn"

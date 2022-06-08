@@ -28,10 +28,10 @@ const AssessmentIndex: React.FC<AssessmentIndexProps> = ({ assessments }) => {
   return (
     <React.Fragment>
       <Head>
-        <title>Assessment | PrairieLearn</title>
+        <title>Assessments | PrairieLearn</title>
       </Head>
       <PageBanner
-        title="PrairieLearn Assessments"
+        title="Assessments"
         subtitle="Building different types of activities for your class"
       />
 

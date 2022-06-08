@@ -6,15 +6,23 @@ import { NavDropdown } from "react-bootstrap";
 
 import styles from "./Header.module.scss";
 
+function useIsActive(href: string): boolean {
+  const { asPath } = useRouter();
+  return asPath.startsWith(href);
+}
+
+function useIsCurrent(href: string): boolean {
+  const { asPath } = useRouter();
+  return asPath === href;
+}
+
 interface NavLinkProps {
   href: string;
 }
 
 const NavLink: React.FC<NavLinkProps> = ({ href, children }) => {
-  console.log(href, children);
-  const { asPath } = useRouter();
-  const active = asPath.startsWith(href);
-  const current = asPath === href;
+  const active = useIsActive(href);
+  const current = useIsCurrent(href);
   return (
     <Link href={href}>
       <a
@@ -26,6 +34,21 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children }) => {
       >
         {children}
       </a>
+    </Link>
+  );
+};
+
+const NavDropdownItem: React.FC<NavLinkProps> = ({ href, children }) => {
+  const active = useIsActive(href);
+  const current = useIsCurrent(href);
+  return (
+    <Link href={href} passHref>
+      <NavDropdown.Item
+        className={classnames({ "fw-bold": active })}
+        aria-current={current ? "page" : undefined}
+      >
+        {children}
+      </NavDropdown.Item>
     </Link>
   );
 };
@@ -65,17 +88,19 @@ export const Header: React.FC = () => {
           id="navbar"
         >
           <ul className="navbar-nav ms-auto mb-2 mb-sm-0">
-            <NavDropdown title="Gallery">
-              <Link href="/gallery/assessments" passHref>
-                <NavDropdown.Item>Assessments</NavDropdown.Item>
-              </Link>
+            <NavDropdown
+              title="Gallery"
+              // Make the dropdown label bold when the user is on any gallery page.
+              className={classnames({ "fw-bold": useIsActive("/gallery") })}
+            >
+              <NavDropdownItem href="/gallery/questions">
+                Questions
+              </NavDropdownItem>
+              <NavDropdownItem href="/gallery/assessments">
+                Assessments
+              </NavDropdownItem>
+              <NavDropdownItem href="/gallery/courses">Courses</NavDropdownItem>
             </NavDropdown>
-            <li className="nav-item">
-              <NavLink href="/gallery/assessments">Assessments</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink href="/gallery/questions">Questions</NavLink>
-            </li>
             <li className="nav-item">
               <NavLink href="/research">Case Studies</NavLink>
             </li>
