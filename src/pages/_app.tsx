@@ -1,6 +1,7 @@
 import React from "react";
 import { AppProps } from "next/app";
 import { useRouter } from "next/router";
+import SSRProvider from "react-bootstrap/SSRProvider";
 
 import "../styles/bootstrap.scss";
 import { Header } from "../components/Header";
@@ -22,9 +23,11 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
 
   return (
     <React.Fragment>
-      <Header />
-      <Component {...pageProps} />
-      <Footer />
+      <SSRProvider>
+        <Header />
+        <Component {...pageProps} />
+        <Footer />
+      </SSRProvider>
     </React.Fragment>
   );
 };
