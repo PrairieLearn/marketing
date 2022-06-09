@@ -29,9 +29,20 @@ export default function Courses() {
 
           <h3 className="h4">
             <a href="https://www.prairielearn.org/pl/course_instance/128979">
-              UIUC CS 233
+              Computer Architecture
             </a>
           </h3>
+          <p className="mb-1">
+            <strong>Institution:</strong> University of Illinois
+            Urbana-Champaign
+          </p>
+          <p className="mb-1">
+            <strong>Rubric: </strong> CS 233
+          </p>
+          <p className="mb-1">
+            <strong>Instructor:</strong> Geoffrey Herman (
+            <a href="mailto:glherman@Illinois.edu">glherman@Illinois.edu</a>)
+          </p>
           <p>
             This course teaches the fundamentals of computer architecture,
             including digital logic design, machine-level programming, and
