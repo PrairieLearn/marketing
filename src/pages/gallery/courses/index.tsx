@@ -35,7 +35,7 @@ const CourseCard: React.FC<CourseCardProps> = ({
   return (
     <article className="card">
       <Link href={href}>
-        <a className="position-relative" style={{ aspectRatio: "4 / 3" }}>
+        <a className="position-relative" style={{ aspectRatio: "5 / 3" }}>
           <Image src={image} layout="fill" objectFit="contain" alt={title} />
         </a>
       </Link>
@@ -75,11 +75,15 @@ export default function Courses() {
 
       <div className={classnames("container-fluid my-5")}>
         <div className="container-md">
-          <Heading>Courses</Heading>
+          <Heading>Course Catalog</Heading>
           <p>
             Courses are home to all the{" "}
             <Link href="/gallery/assessments">assessments</Link> and{" "}
-            <Link href="/gallery/questions">questions</Link> you have created.
+            <Link href="/gallery/questions">questions</Link> you have created. 
+            Browse through these PrairieLearn courses in a variety of subjects. 
+            You can try out different assessment types, see how questions are auto-graded 
+            and receive immediate feedback. If you would like to have access to the source code, 
+            you can contact the course instructor directly.
           </p>
 
           <div className={styles.grid}>
@@ -103,38 +107,63 @@ export default function Courses() {
 
             <CourseCard
               image={cs233Image}
-              title="Computer Architecture"
-              href="https://www.prairielearn.org/pl/course_instance/128979"
-              institution="University of Illinois Urbana-Champaign"
-              rubric="CS 233"
-              ownerName="Geoffrey Herman"
-              ownerEmail="glherman@illinois.edu"
+              title="Intro Physics for the Physical Sciences I"
+              href="https://ca.prairielearn.com/pl/course_instance/2344"
+              institution="The University of British Columbia - Okanagan Campus"
+              rubric="PHYS 111"
+              ownerName="Firas Moosvi"
+              ownerEmail="firas.moosvi@ubc.ca"
             >
               <p className="mb-0">
-                This is some different text to test card sizes.
+                Add course description
               </p>
             </CourseCard>
 
             <CourseCard
               image={cs233Image}
-              title="Computer Architecture"
-              href="https://www.prairielearn.org/pl/course_instance/128979"
-              institution="University of Illinois Urbana-Champaign"
-              rubric="CS 233"
-              ownerName="Geoffrey Herman"
-              ownerEmail="glherman@illinois.edu"
+              title="Basics of Computer Systems"
+              href="https://ca.prairielearn.com/pl/course_instance/2284"
+              institution="York University"
+              rubric="CPSC 261"
+              ownerName="Jonatan Schroeder"
+              ownerEmail="jonatan@yorku.ca"
             >
               <p className="mb-0">
-                This course teaches the fundamentals of computer architecture,
-                including digital logic design, machine-level programming, and
-                performance models of modern computer hardware. Its PrairieLearn
-                questions include a variety of novel problem types, including
-                randomly-generated state machines, ALUs, truth tables, and more.
+                bla bla bla
+              </p>
+            </CourseCard>
+
+            <CourseCard
+              image={cs233Image}
+              title="Internet Architecture and Protocols"
+              href="https://www.prairielearn.org/pl/course_instance/129160"
+              institution="New York University"
+              rubric="ECE 6353"
+              ownerName="Fraida Fund"
+              ownerEmail="ff524@nyu.edu"
+            >
+              <p className="mb-0">
+                bla bla bla
               </p>
             </CourseCard>
           </div>
         </div>
       </div>
+
+      <div className={classnames("container-fluid my-5")}>
+        <div className="container-md">  
+          <h2 className="h4">Contribute to this page</h2>
+          <p>
+            If you want to have your PrairieLearn public course included in this page,
+            please send us the appropriate information at{" "}
+            <a href="mailto:hello@prairielearn.com">
+              hello@prairielearn.com
+            </a>
+            .
+          </p>
+        </div>
+      </div>
+
     </React.Fragment>
   );
 }
