@@ -16,7 +16,7 @@ interface CourseCardProps {
   title: string;
   href: string;
   institution: string;
-  rubric: string;
+  rubric?: string;
   ownerName: string;
   ownerEmail: string;
   children: React.ReactNode;
@@ -48,9 +48,11 @@ const CourseCard: React.FC<CourseCardProps> = ({
         <p className="mb-1">
           <strong>Institution:</strong> {institution}
         </p>
-        <p className="mb-1">
-          <strong>Rubric: </strong> {rubric}
-        </p>
+        {rubric && 
+          <p className="mb-1">
+            <strong>Rubric: </strong> {rubric}
+          </p>
+        }
         <p className="mb-1">
           <strong>Instructor:</strong> {ownerName} (
           <a href={`mailto:${ownerEmail}`}>{ownerEmail}</a>)
@@ -121,10 +123,9 @@ export default function Courses() {
 
             <CourseCard
               image={cs233Image}
-              title="Basics of Computer Systems"
+              title="Miscellaneous Computer Systems Topics"
               href="https://ca.prairielearn.com/pl/course_instance/2284"
               institution="York University"
-              rubric="CPSC 261"
               ownerName="Jonatan Schroeder"
               ownerEmail="jonatan@yorku.ca"
             >
@@ -140,7 +141,7 @@ export default function Courses() {
               institution="New York University"
               rubric="ECE 6353"
               ownerName="Fraida Fund"
-              ownerEmail="ff524@nyu.edu"
+              ownerEmail="ffund@nyu.edu"
             >
               <p className="mb-0">
                 bla bla bla
