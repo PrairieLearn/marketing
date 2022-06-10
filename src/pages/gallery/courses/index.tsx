@@ -48,11 +48,11 @@ const CourseCard: React.FC<CourseCardProps> = ({
         <p className="mb-1">
           <strong>Institution:</strong> {institution}
         </p>
-        {rubric && 
+        {rubric && (
           <p className="mb-1">
             <strong>Rubric: </strong> {rubric}
           </p>
-        }
+        )}
         <p className="mb-1">
           <strong>Instructor:</strong> {ownerName} (
           <a href={`mailto:${ownerEmail}`}>{ownerEmail}</a>)
@@ -81,11 +81,12 @@ export default function Courses() {
           <p>
             Courses are home to all the{" "}
             <Link href="/gallery/assessments">assessments</Link> and{" "}
-            <Link href="/gallery/questions">questions</Link> you have created. 
-            Browse through these PrairieLearn courses in a variety of subjects. 
-            You can try out different assessment types, see how questions are auto-graded 
-            and receive immediate feedback. If you would like to have access to the source code, 
-            you can contact the course instructor directly.
+            <Link href="/gallery/questions">questions</Link> you have created.
+            Browse through these PrairieLearn courses in a variety of subjects.
+            You can try out different assessment types, see how questions are
+            auto-graded and receive immediate feedback. If you would like to
+            have access to the source code, you can contact the course
+            instructor directly.
           </p>
 
           <div className={styles.grid}>
@@ -116,9 +117,7 @@ export default function Courses() {
               ownerName="Firas Moosvi"
               ownerEmail="firas.moosvi@ubc.ca"
             >
-              <p className="mb-0">
-                Add course description
-              </p>
+              <p className="mb-0">Add course description</p>
             </CourseCard>
 
             <CourseCard
@@ -129,9 +128,7 @@ export default function Courses() {
               ownerName="Jonatan Schroeder"
               ownerEmail="jonatan@yorku.ca"
             >
-              <p className="mb-0">
-                bla bla bla
-              </p>
+              <p className="mb-0">bla bla bla</p>
             </CourseCard>
 
             <CourseCard
@@ -143,28 +140,22 @@ export default function Courses() {
               ownerName="Fraida Fund"
               ownerEmail="ffund@nyu.edu"
             >
-              <p className="mb-0">
-                bla bla bla
-              </p>
+              <p className="mb-0">bla bla bla</p>
             </CourseCard>
           </div>
         </div>
       </div>
 
       <div className={classnames("container-fluid my-5")}>
-        <div className="container-md">  
+        <div className="container-md">
           <h2 className="h4">Contribute to this page</h2>
           <p>
-            If you want to have your PrairieLearn public course included in this page,
-            please send us the appropriate information at{" "}
-            <a href="mailto:hello@prairielearn.com">
-              hello@prairielearn.com
-            </a>
-            .
+            If you want to have your PrairieLearn public course included in this
+            page, please send us the appropriate information at{" "}
+            <a href="mailto:hello@prairielearn.com">hello@prairielearn.com</a>.
           </p>
         </div>
       </div>
-
     </React.Fragment>
   );
 }
