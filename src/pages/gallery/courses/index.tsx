@@ -10,6 +10,8 @@ import Image from "../../../components/Image";
 
 import styles from "./index.module.scss";
 import cs233Image from "../../../lib/images/cs-233.png";
+import phys111Image from "../../../lib/images/phys111.png";
+import yorkjonatanImage from "../../../lib/images/york-jonatan.png";
 
 interface CourseCardProps {
   image: ImageProps["src"];
@@ -109,7 +111,7 @@ export default function Courses() {
             </CourseCard>
 
             <CourseCard
-              image={cs233Image}
+              image={phys111Image}
               title="Intro Physics for the Physical Sciences I"
               href="https://ca.prairielearn.com/pl/course_instance/2344"
               institution="The University of British Columbia - Okanagan Campus"
@@ -117,18 +119,34 @@ export default function Courses() {
               ownerName="Firas Moosvi"
               ownerEmail="firas.moosvi@ubc.ca"
             >
-              <p className="mb-0">Add course description</p>
+              <p className="mb-0">
+                Introduction to mechanics primarily for students majoring in the
+                physical sciences (e.g. physics, chemistry, mathematics,
+                computer science, geology, physical geography) or engineering.
+                Particle kinematics and dynamics, work and energy, momentum,
+                gravitation, rigid body motion with applications to the physical
+                sciences.
+              </p>
             </CourseCard>
 
             <CourseCard
-              image={cs233Image}
+              image={yorkjonatanImage}
               title="Miscellaneous Computer Systems Topics"
               href="https://ca.prairielearn.com/pl/course_instance/2284"
               institution="York University"
               ownerName="Jonatan Schroeder"
               ownerEmail="jonatan@yorku.ca"
             >
-              <p className="mb-0">bla bla bla</p>
+              <p className="mb-0">
+                This demonstration course includes questions covered in multiple
+                computer science courses, particularly in 2nd and 3rd year
+                courses. Questions include topics like abstraction,
+                polymorphism, data structures, concurrency, virtual memory,
+                security, and multimedia streaming. Assessments use many
+                PrairieLearn features like randomized page tables and media
+                playback delays, terminal-based workspaces with random inputs,
+                custom elements, and container-based autograding.
+              </p>
             </CourseCard>
 
             <CourseCard
