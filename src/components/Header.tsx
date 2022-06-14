@@ -2,7 +2,7 @@ import React from "react";
 import classnames from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { NavDropdown } from "react-bootstrap";
+import { Dropdown, NavDropdown, NavItem, NavLink } from "react-bootstrap";
 
 import styles from "./Header.module.scss";
 
@@ -20,7 +20,7 @@ interface NavLinkProps {
   href: string;
 }
 
-const NavLink: React.FC<NavLinkProps> = ({ href, children }) => {
+const RouterNavLink: React.FC<NavLinkProps> = ({ href, children }) => {
   const active = useIsActive(href);
   const current = useIsCurrent(href);
   return (
@@ -88,27 +88,35 @@ export const Header: React.FC = () => {
           id="navbar"
         >
           <ul className="navbar-nav ms-auto mb-2 mb-sm-0">
-            <NavDropdown
-              title="Gallery"
-              // Make the dropdown label bold when the user is on any gallery page.
-              className={classnames({ "fw-bold": useIsActive("/gallery") })}
-            >
-              <NavDropdownItem href="/gallery/questions">
-                Questions
-              </NavDropdownItem>
-              <NavDropdownItem href="/gallery/assessments">
-                Assessments
-              </NavDropdownItem>
-              <NavDropdownItem href="/gallery/courses">Courses</NavDropdownItem>
-            </NavDropdown>
+            <Dropdown as={NavItem}>
+              <Dropdown.Toggle
+                as={NavLink}
+                className={classnames(styles["nav-link"], {
+                  [`fw-bold ${styles.active}`]: useIsActive("/gallery"),
+                })}
+              >
+                Gallery
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <NavDropdownItem href="/gallery/questions">
+                  Questions
+                </NavDropdownItem>
+                <NavDropdownItem href="/gallery/assessments">
+                  Assessments
+                </NavDropdownItem>
+                <NavDropdownItem href="/gallery/courses">
+                  Courses
+                </NavDropdownItem>
+              </Dropdown.Menu>
+            </Dropdown>
             <li className="nav-item">
-              <NavLink href="/research">Case Studies</NavLink>
+              <RouterNavLink href="/research">Case Studies</RouterNavLink>
             </li>
             <li className="nav-item">
-              <NavLink href="/pricing">Pricing</NavLink>
+              <RouterNavLink href="/pricing">Pricing</RouterNavLink>
             </li>
             <li className="nav-item">
-              <NavLink href="/contact">Contact</NavLink>
+              <RouterNavLink href="/contact">Contact</RouterNavLink>
             </li>
           </ul>
         </div>

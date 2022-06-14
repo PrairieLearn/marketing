@@ -6,15 +6,13 @@
 }
 
 .nav-link {
-  color: rgba(255, 255, 255, 1);
-  padding: 0.5rem 1rem;
-  text-decoration: none;
+  color: white !important;
 }
 
 .nav-link:hover {
-  color: $yellow;
+  color: $yellow !important;
 }
 
 .nav-link.active {
-  color: $yellow;
+  color: $yellow !important;
 }
