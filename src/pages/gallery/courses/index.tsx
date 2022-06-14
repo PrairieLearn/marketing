@@ -14,6 +14,7 @@ import phys111Image from "../../../lib/images/phys111.png";
 import yorkjonatanImage from "../../../lib/images/york-jonatan.png";
 import ece6353fraida from "../../../lib/images/ece6353fraida.png";
 import tam211 from "../../../lib/images/tam211.png";
+import tam251 from "../../../lib/images/tam251.png";
 
 interface CourseCardProps {
   image: ImageProps["src"];
@@ -58,7 +59,7 @@ const CourseCard: React.FC<CourseCardProps> = ({
           </p>
         )}
         <p className="mb-1">
-          <strong>Instructor:</strong> {ownerName} (
+          <strong>Contact:</strong> {ownerName} (
           <a href={`mailto:${ownerEmail}`}>{ownerEmail}</a>)
         </p>
         {children}
@@ -185,7 +186,27 @@ export default function Courses() {
                 bending-moment distributions; Coulomb friction; centroids,
                 center of mass, moment of inertia, polar moment of inertia, and
                 product of inertia; virtual work; hydrostatic pressure;
-                applications of statics in design
+                applications of statics in design.
+              </p>
+            </CourseCard>
+
+            <CourseCard
+              image={tam251}
+              title="Introductory Solid Mechanics"
+              href="https://www.prairielearn.org/pl/course_instance/129329"
+              institution="University of Illinois at Urbana-Champaign"
+              rubric="TAM 251"
+              ownerName="Mariana Silva"
+              ownerEmail="mfsilva@illinois.edu"
+            >
+              <p className="mb-0">
+                Relationship between internal stresses and deformations produced
+                by external forces acting on deformable bodies, and design
+                principles based on mechanics of solids: normal stresses, shear
+                stresses, and deformations produced by tensile, compressive,
+                torsional, and bending loading of members; beam deflections;
+                elastic energy and impact; multi-dimensional stress states;
+                buckling of columns.
               </p>
             </CourseCard>
           </div>
