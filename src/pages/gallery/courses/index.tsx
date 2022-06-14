@@ -12,6 +12,7 @@ import styles from "./index.module.scss";
 import cs233Image from "../../../lib/images/cs-233.png";
 import phys111Image from "../../../lib/images/phys111.png";
 import yorkjonatanImage from "../../../lib/images/york-jonatan.png";
+import ece6353fraida from "../../../lib/images/ece6353fraida.png";
 
 interface CourseCardProps {
   image: ImageProps["src"];
@@ -35,7 +36,7 @@ const CourseCard: React.FC<CourseCardProps> = ({
   children,
 }) => {
   return (
-    <article className="card">
+    <article className="card border-secondary">
       <Link href={href}>
         <a className="position-relative" style={{ aspectRatio: "5 / 3" }}>
           <Image src={image} layout="fill" objectFit="contain" alt={title} />
@@ -150,7 +151,7 @@ export default function Courses() {
             </CourseCard>
 
             <CourseCard
-              image={cs233Image}
+              image={ece6353fraida}
               title="Internet Architecture and Protocols"
               href="https://www.prairielearn.org/pl/course_instance/129160"
               institution="New York University"
@@ -158,7 +159,13 @@ export default function Courses() {
               ownerName="Fraida Fund"
               ownerEmail="ffund@nyu.edu"
             >
-              <p className="mb-0">bla bla bla</p>
+              <p className="mb-0">
+                This course is a lab-intensive bottom-up overview of computer
+                networks. The PrairieLearn questions for this course introduce
+                hypothetical network scenarios, and ask students to describe the
+                configuration or sequence of events that will occur in the
+                network.
+              </p>
             </CourseCard>
           </div>
         </div>
