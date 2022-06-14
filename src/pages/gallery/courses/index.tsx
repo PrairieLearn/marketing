@@ -13,6 +13,7 @@ import cs233Image from "../../../lib/images/cs-233.png";
 import phys111Image from "../../../lib/images/phys111.png";
 import yorkjonatanImage from "../../../lib/images/york-jonatan.png";
 import ece6353fraida from "../../../lib/images/ece6353fraida.png";
+import tam211 from "../../../lib/images/tam211.png";
 
 interface CourseCardProps {
   image: ImageProps["src"];
@@ -165,6 +166,26 @@ export default function Courses() {
                 hypothetical network scenarios, and ask students to describe the
                 configuration or sequence of events that will occur in the
                 network.
+              </p>
+            </CourseCard>
+
+            <CourseCard
+              image={tam211}
+              title="Statics"
+              href="https://www.prairielearn.org/pl/course_instance/129328"
+              institution="University of Illinois at Urbana-Champaign"
+              rubric="TAM 211"
+              ownerName="Wayne Chang"
+              ownerEmail="wlchang@illinois.edu"
+            >
+              <p className="mb-0">
+                Forces, moments, and couples; resultants of force systems;
+                equilibrium analysis and free-body diagrams; analysis of forces
+                acting on members of trusses, frames, etc.; shear-force and
+                bending-moment distributions; Coulomb friction; centroids,
+                center of mass, moment of inertia, polar moment of inertia, and
+                product of inertia; virtual work; hydrostatic pressure;
+                applications of statics in design
               </p>
             </CourseCard>
           </div>
