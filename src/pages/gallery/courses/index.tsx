@@ -14,7 +14,9 @@ import phys111Image from "../../../lib/images/phys111.png";
 import yorkjonatanImage from "../../../lib/images/york-jonatan.png";
 import ece6353fraida from "../../../lib/images/ece6353fraida.png";
 import tam211 from "../../../lib/images/tam211.png";
+import tam212 from "../../../lib/images/tam212.png";
 import tam251 from "../../../lib/images/tam251.png";
+import cs357 from "../../../lib/images/cs357.png";
 
 interface CourseCardProps {
   image: ImageProps["src"];
@@ -96,6 +98,83 @@ export default function Courses() {
 
           <div className={styles.grid}>
             <CourseCard
+              image={tam211}
+              title="Statics"
+              href="https://www.prairielearn.org/pl/course_instance/129328"
+              institution="University of Illinois at Urbana-Champaign"
+              rubric="TAM 211"
+              ownerName="Wayne Chang"
+              ownerEmail="wlchang@illinois.edu"
+            >
+              <p className="mb-0">
+                Forces, moments, and couples; resultants of force systems;
+                equilibrium analysis and free-body diagrams; analysis of forces
+                acting on members of trusses, frames, etc.; shear-force and
+                bending-moment distributions; Coulomb friction; centroids,
+                center of mass, moment of inertia, polar moment of inertia, and
+                product of inertia; virtual work; hydrostatic pressure;
+                applications of statics in design.
+              </p>
+            </CourseCard>
+
+            <CourseCard
+              image={tam212}
+              title="Introductory Dynamics"
+              href="https://www.prairielearn.org/pl/course_instance/129330"
+              institution="University of Illinois at Urbana-Champaign"
+              rubric="TAM 212"
+              ownerName="Matthew West"
+              ownerEmail="mwest@illinois.edu"
+            >
+              <p className="mb-0">
+                Kinematics and dynamics of the three-dimensional motion of
+                particles; kinematics and dynamics of the plane motion of rigid
+                bodies; methods of work/energy and impulse/momentum; moving
+                reference frames.
+              </p>
+            </CourseCard>
+
+            <CourseCard
+              image={tam251}
+              title="Introductory Solid Mechanics"
+              href="https://www.prairielearn.org/pl/course_instance/129329"
+              institution="University of Illinois at Urbana-Champaign"
+              rubric="TAM 251"
+              ownerName="Mariana Silva"
+              ownerEmail="mfsilva@illinois.edu"
+            >
+              <p className="mb-0">
+                Relationship between internal stresses and deformations produced
+                by external forces acting on deformable bodies, and design
+                principles based on mechanics of solids: normal stresses, shear
+                stresses, and deformations produced by tensile, compressive,
+                torsional, and bending loading of members; beam deflections;
+                elastic energy and impact; multi-dimensional stress states;
+                buckling of columns.
+              </p>
+            </CourseCard>
+
+            <CourseCard
+              image={cs357}
+              title="Numerical Methods"
+              href="https://www.prairielearn.org/pl/course_instance/128953"
+              institution="University of Illinois at Urbana-Champaign"
+              rubric="CS 357"
+              ownerName="Mariana Silva"
+              ownerEmail="mfsilva@illinois.edu"
+            >
+              <p className="mb-0">
+                Fundamentals of numerical methods for students in science and
+                engineering; floating-point computation, systems of linear
+                equations, approximation of functions and integrals, the single
+                nonlinear equation, and the numerical solution of ordinary
+                differential equations; various applications in science and
+                engineering; programming exercises and use of high quality
+                mathematical library routines.
+              </p>
+            </CourseCard>
+
+            <CourseCard
               image={cs233Image}
               title="Computer Architecture"
               href="https://www.prairielearn.org/pl/course_instance/128979"
@@ -167,46 +246,6 @@ export default function Courses() {
                 hypothetical network scenarios, and ask students to describe the
                 configuration or sequence of events that will occur in the
                 network.
-              </p>
-            </CourseCard>
-
-            <CourseCard
-              image={tam211}
-              title="Statics"
-              href="https://www.prairielearn.org/pl/course_instance/129328"
-              institution="University of Illinois at Urbana-Champaign"
-              rubric="TAM 211"
-              ownerName="Wayne Chang"
-              ownerEmail="wlchang@illinois.edu"
-            >
-              <p className="mb-0">
-                Forces, moments, and couples; resultants of force systems;
-                equilibrium analysis and free-body diagrams; analysis of forces
-                acting on members of trusses, frames, etc.; shear-force and
-                bending-moment distributions; Coulomb friction; centroids,
-                center of mass, moment of inertia, polar moment of inertia, and
-                product of inertia; virtual work; hydrostatic pressure;
-                applications of statics in design.
-              </p>
-            </CourseCard>
-
-            <CourseCard
-              image={tam251}
-              title="Introductory Solid Mechanics"
-              href="https://www.prairielearn.org/pl/course_instance/129329"
-              institution="University of Illinois at Urbana-Champaign"
-              rubric="TAM 251"
-              ownerName="Mariana Silva"
-              ownerEmail="mfsilva@illinois.edu"
-            >
-              <p className="mb-0">
-                Relationship between internal stresses and deformations produced
-                by external forces acting on deformable bodies, and design
-                principles based on mechanics of solids: normal stresses, shear
-                stresses, and deformations produced by tensile, compressive,
-                torsional, and bending loading of members; beam deflections;
-                elastic energy and impact; multi-dimensional stress states;
-                buckling of columns.
               </p>
             </CourseCard>
           </div>
