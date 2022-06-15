@@ -4,3 +4,15 @@
 .header {
   background-color: $blue-800;
 }
+
+.nav-link {
+  color: white !important;
+}
+
+.nav-link:hover {
+  color: $yellow !important;
+}
+
+.nav-link.active {
+  color: $yellow !important;
+}

@@ -30,10 +30,10 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
   return (
     <React.Fragment>
       <Head>
-        <title>Question Gallery | PrairieLearn</title>
+        <title>Questions | PrairieLearn</title>
       </Head>
       <PageBanner
-        title="PrairieLearn Questions"
+        title="Questions"
         subtitle="Create quality questions from a wide variety of input options"
       />
 
