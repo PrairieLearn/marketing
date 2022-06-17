@@ -108,7 +108,7 @@ export default function Home() {
         <div className="container-md">
           <Heading>Automation without compromising quality </Heading>
           <p>
-            When using PrairieLearn, you don't need to be concerned about
+            When using PrairieLearn, you do not need to be concerned about
             trivialising course material when offering computer-based
             assessments. In addition to standard inputs such as numerical,
             multiple-choice, checkboxes and dropdown menu, PrairieLearn will let
