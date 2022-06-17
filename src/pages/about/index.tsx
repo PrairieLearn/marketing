@@ -7,8 +7,6 @@ import { DemoCourseCTA } from "../../components/DemoCourse";
 import { Heading } from "../../components/Heading";
 import Stack from "../../components/Stack";
 
-import styles from "./index.module.scss";
-
 export default function About() {
   return (
     <React.Fragment>
