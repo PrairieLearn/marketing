@@ -54,8 +54,7 @@ const NavDropdownItem: React.FC<NavLinkProps> = ({ href, children }) => {
 };
 
 import Image from "./Image";
-//import logo from "../lib/images/flower-white.png";
-import logo from "../lib/images/grass-white.png";
+import logo from "../lib/images/flower-white.png";
 
 export const Header: React.FC = () => {
   const [collapsed, setCollapsed] = React.useState(true);
@@ -95,6 +94,27 @@ export const Header: React.FC = () => {
           id="navbar"
         >
           <ul className="navbar-nav ms-auto mb-2 mb-sm-0">
+            <li className="nav-item">
+              <RouterNavLink href="/about">About</RouterNavLink>
+            </li>
+            <Dropdown as={NavItem}>
+              <Dropdown.Toggle
+                as={NavLink}
+                className={classnames(styles["nav-link"], {
+                  [`fw-bold ${styles.active}`]: useIsActive("/product"),
+                })}
+              >
+                Product
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <NavDropdownItem href="/product/flexibility">
+                  Maximum Flexibility
+                </NavDropdownItem>
+                <NavDropdownItem href="/product/testing">
+                  Scaling Testing
+                </NavDropdownItem>
+              </Dropdown.Menu>
+            </Dropdown>
             <Dropdown as={NavItem}>
               <Dropdown.Toggle
                 as={NavLink}
