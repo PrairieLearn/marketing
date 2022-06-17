@@ -1,0 +1,97 @@
+---
+title: Privacy Policy
+---
+
+PrairieLearn is an open-source learning platform. PrairieLearn, Inc. (“we”, “us”, or “our”) is a company created to provide hosting and support for the PrairieLearn software at [prairielearn.com](/) (the "Site"). This document explains our policies regarding the collection, usage, processing, disclosure and security of your Personal Information when using the software provided by PrairieLearn, Inc. (the “Service”). By using the Site, you agree to the collection and use of information in accordance with this policy, which apply to all visitors, students, teachers, instructors, administrators, and others who access the Service (“Users”). If you are using the Site in accordance with a PrairieLearn contract with a university, school, college or legal entity (“Institution”), that Institution may separately require you to confirm acceptance of privacy and related provisions established by the Institution regarding your use of the Service.
+
+We are the controller for Personal Information submitted to us under this Privacy Policy. PrairieLearn, Inc. takes its customers’ data privacy rights very seriously and has enacted this Policy to ensure those rights are maintained and protected. 
+
+## Revisions
+
+We will periodically review this Privacy Policy for accuracy and compliance, and we will notify you of these changes by posting them on the Site or by sending you an email. Any information that we collect is subject to the Privacy Policy in effect at the time you provide any Personal Information. You should review this Privacy Policy periodically.
+
+## Data collected and its usage
+
+### Information provided by the User directly to PrairieLearn
+
+While using our Site, Users need to create an account or use their Institution login credentials. PrairieLearn may have access to certain personally identifiable information, hereinafter referred to as your “Personal Information”, that may include, but is not limited to the following: first and last name, email address and phone number, institution name, password, and credit card information. This Personal Information is used to carry out actions you request through the Site, such as user support, order history, and Service payment.
+
+We also may retain information on your behalf, such as files and messages that you store using your account. If you provide us feedback or contact us via email, we will collect your name and email address, as well as any other content included in the email. 
+
+**Communications:** We may use your Personal Information to contact you with software updates and other information regarding your use of the Service. Course owners using the free Service may receive emails with product updates, promotional messages, surveys and other communications.
+
+### Information collected automatically related to the use of the Service
+
+When a User joins a course on the Services as a student, we get access to their email address and possibly their student identification number. In addition, we collect information about their interactions with the Site and their educational records, such as submitted assignments and corresponding scores. These User interactions on the Site while using the Service are referred as “Log Data”. PrairieLearn may send Log Data to a Learning Management System. Log Data may also include the User device’s Internet Protocol (“IP”) address, browser type, and operating system when using the Site. This information is used for purposes of providing the Service, validation and verification of a user account, tracking of transactions that you perform through the Site, security, improvement of the Services, and other purposes. We may use a person’s IP address to combat spam, malware, and identity theft, and to protect the integrity of the Service.
+
+**De-identified information:** We may use the information we obtain via the Services (as described above) to create de-identified data, which is a collection of information where the User cannot be identified as an individual. Nothing in this Privacy Policy is intended to limit our ability to generate and use de-identified data, including aggregated de-identified information.
+
+### Information collected using cookies
+
+Web Cookies are small pieces of data created by web servers and sent to your computer while you are browsing a website. We may use session cookies (which expire once you close your web browser) and persistent cookies (which stay on your computer until you delete them) to provide you with a more personal and interactive experience on our Site. Most web browsers are set to accept cookies by default. You may choose to set your web browser to refuse cookies, or to alert you when cookies are being sent. If you do so, note that some parts of our Site and Services may not function properly. We do not use web beacons or flash cookies.
+
+### Information collected for analytics
+
+We use analytics services from Google Analytics to help analyze how users use the Site. These services use cookies and scripts to collect and store information such as how users interact with our Service, errors users encounter when using our Site and general User statistics. We use this information to improve our Site and Services. We do not tie the information gathered using third party analytics to your personally identifiable information.
+
+### Other general use of Personal Information
+
+In addition to the specific uses described above, we may also make use of Personal Information for the following purposes: 
+
+- Improve the Site and our products and services;
+- Deliver and support our services and products;
+- Carry out transactions you have requested;
+- Perform auditing, data analysis, and research;
+- Enforce our [Terms of Service](/legal/terms), our Privacy Policy, and other agreements with you;
+- Prevent illegal activity, protect or enforce our rights, property, or customers, and contact appropriate authorities in accordance with Privacy Laws; and
+- Comply with applicable law (including Privacy Laws), and with subpoenas or other mandatory legal processes.
+
+We will keep User’s Personal Information for as long as necessary to provide them with our Services. We will also keep User Personal’s Information as necessary for backup, archiving, audit, preventing fraud, resolving disputes, and troubleshooting problems. 
+
+## Information shared with third parties
+
+We will not share any Personal Information that we have collected from you, except under these circumstances:
+
+- **Provide the Service:** We may share your Personal Information to third-parties for the sole purpose of providing you with the Services through our Site. For example, we may share data with service providers who host our websites or provide email services on our behalf.
+- **Research and Analysis:** We may share aggregated information and de-identified information with third parties for educational and industry research and analysis, demographic profiling, and other similar purposes.
+- **Information shared with Instructors/Teachers/Course Owners:** if you are a student who joined a course provided by the Service, all Personal Information may be shared with your instructors or educational institution via the functionalities of the Service, or upon request. Note that this includes all your assignments and corresponding scores, as well as IP addresses through which you accessed the Services.
+- **Information disclosed for our protection and the protection of others:** We cooperate with government and law enforcement officials or private parties to enforce and comply with the law. We may disclose any information about you to the government or law enforcement officials or private parties as we, in our sole discretion, believe necessary or appropriate: (i) to respond to claims and, legal process (including subpoenas); (ii) to protect our property, rights and safety and the property, rights, and safety of a third party or the public in general; and (iii) to stop any activity that we consider the illegal, unethical or legally actionable activity.
+
+## Parental or legal guardian access to personal information
+
+If you are a parent or legal guardian of a student user who is under the age of 18, you may wish to request access to your child’s Personal Information. However, because we hold limited information about student users, we will not be able to verify who a particular student is or what your relationship to them is. Therefore, all such requests must be submitted to the educational institution.
+
+## Protecting your data
+
+We strive to keep your personal information safe and secure at all times. Your personal information is processed entirely within the United States, except as detailed below.
+
+FERPA (Family Educational Rights and Privacy Act) requires that reasonable measures be taken to ensure the security of personally identifiable information from student academic records. PrairieLearn, Inc. will make every effort to comply with the FERPA disclosure policies. 
+
+For certain Canadian universities, all personal information collected by or through the Service is stored only in Canada and accessed only in Canada in accordance with the British Columbia Freedom of Information and Protection of Privacy Act (“FIPPA”) section 30.1 except as authorized under FIPPA section 33.1(1)(p), (p.1) and (p.2) or otherwise approved by Customer in writing. For greater clarity, for these Canadian universities, PrairieLearn will comply with all obligations under FIPPA with respect to personal information and all production data centers and disaster recovery sites will reside within Canada.
+
+## What we will not do with your Personal Information
+
+- PrairieLearn does not and will not sell your Personal Information in connection with your use of the Service.
+- PrairieLearn does not and will not use any of your Personal Information to engage in targeted marketing.
+
+## Security of your Personal Information
+
+The security of your Personal Information is important to us, but remember that no method of transmission over the Internet or method of electronic storage is 100% secure. We strive to use commercially acceptable means to protect your Personal Information and continuously audit for security vulnerabilities. Passwords are required to access your Personal Information, and it is your responsibility to keep your password confidential. Even with all the security measurements, we cannot guarantee the absolute protection of your Personal Information from hackers and unauthorized third parties when using public networks. To the fullest extent permitted by applicable law, we do not accept liability for unintentional disclosure.
+
+## Links to other websites
+
+Our Services may contain links to other websites and services. Our Privacy Policy does not apply to such websites or services and we are not responsible for the content, privacy or security practices and policies of those websites or services. To protect your information, we recommend that you carefully review the privacy policies of other websites and services that you access.
+
+## Changes to Personal Information
+
+You may change some of your personal information in your account by editing your profile within the Service. You may also request changes or deletions by emailing us at the email address below. We will respond to your request, when permitted by law, within 30 days. We may be unable to delete information that resides in our archives.
+
+If you are a student, we may be obligated to comply with requests from your instructor, course owner, or educational institution to change or delete the Personal Information associated with your Account. In addition, you may lose access to information from a particular course due to access rules specified by your instructor.
+
+## International Customer Privacy
+
+PrairieLearn is operated in the United States. If you are located outside of the United States, then please be aware that information we collect will be transferred to and processed in the United States. By using our Services, or providing us with any information, you fully understand and unambiguously consent to this transfer, processing and storage of your information in the United States, a jurisdiction in which the privacy laws may not be as comprehensive as those in the country where you are located, reside and/or are a citizen. We ensure that the recipient of your Personal Information offers an adequate level of protection and security, for instance by entering into standard contractual clauses or an alternative mechanism for the transfer of data as approved by the European Commission or other applicable regulators or legislators. 
+
+## Contact Us 
+
+If you have any questions about this Privacy Policy, please contact us at support@prairielearn.com.

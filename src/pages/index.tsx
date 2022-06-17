@@ -20,7 +20,7 @@ const DEMO_QUESTION_HTML = `
     {{params.velocity}}m/s. How far will the ball travel?
   </p>
 </pl-question-panel>
-<pl-integer-input answers-name="distance" suffix="m"><pl-integer-input>
+<pl-integer-input answers-name="distance" suffix="m"></pl-integer-input>
 `.trim();
 
 const DEMO_QUESTION_PYTHON = `

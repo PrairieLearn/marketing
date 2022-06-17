@@ -2,7 +2,11 @@
 
 ## Getting Started
 
-Run `yarn` to install dependencies.
+First install dependencies:
+
+```bash
+yarn
+```
 
 Next, run the development server:
 
