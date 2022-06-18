@@ -62,18 +62,18 @@ export default function Home() {
               </p>
               <a
                 href="https://www.prairielearn.org/pl/request_course"
-                className="btn btn-light btn-lg me-3"
+                className="btn btn-light btn-lg me-3 mt-3"
               >
                 Request a course
               </a>
               <Link href="/contact">
-                <a className="btn btn-outline-light btn-lg me-3">
+                <a className="btn btn-outline-light btn-lg me-3 mt-3">
                   Get in touch
                 </a>
               </Link>
               <a
                 href="https://prairielearn.readthedocs.io/en/latest/"
-                className="btn btn-outline-light btn-lg me-3"
+                className="btn btn-outline-light btn-lg me-3 mt-3"
               >
                 Documentation
               </a>
