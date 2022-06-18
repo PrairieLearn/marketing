@@ -16,27 +16,33 @@ import { Accordion } from "react-bootstrap";
 const TALKING_POINTS = [
   {
     header: "Rich questions",
-    body: " ",
+    body: "Create rich questions using built-in and reusable html building blocks called PrairieLearn Elements.",
+    ref: "https://prairielearn.readthedocs.io/en/latest/elements/",
   },
   {
     header: "Code autograders",
-    body: " ",
+    body: "Run built-in or custom grading scripts in secure environments.",
+    ref: "https://prairielearn.readthedocs.io/en/latest/externalGrading/",
   },
   {
     header: "In-browser IDEs",
-    body: "Because question parameters are randomized, you can give students the chance to practice the same questions that will appear on tests.",
+    body: "Provide students with persistent remote containers via in-browser frontends such as VS Code and JupyterLab.",
+    ref: "https://prairielearn.readthedocs.io/en/latest/workspaces/",
   },
   {
     header: "Collaborative assignments",
-    body: "Run automated tests in proctored facilities, or run bring-your-own-device tests in the classroom or online.",
+    body: "Allow students to work in collaborative assessments that are shared among all group members.",
+    ref: "https://prairielearn.readthedocs.io/en/latest/assessment/#enabling-group-work-for-collaborative-assessments",
   },
   {
     header: "Custom elements",
-    body: "Run automated tests in proctored facilities, or run bring-your-own-device tests in the classroom or online.",
+    body: "Cannot find a built-in PrairieLearn Element that satisfies your need? Do not worry, you can create your own custom element!",
+    ref: "https://prairielearn.readthedocs.io/en/latest/devElements/",
   },
   {
     header: "Contribute to main source code",
-    body: "Run automated tests in proctored facilities, or run bring-your-own-device tests in the classroom or online.",
+    body: "Created your own Element and want to contribute back to the main code? Or want to add new features? PrairieLearn is an open-source software with an active developer community of professors, course staff, and students.",
+    ref: "https://prairielearn.readthedocs.io/en/latest/dev-guide/",
   },
 ];
 
@@ -150,47 +156,24 @@ export default function About() {
               </Stack>
             </Column>
           </Row>
-          {/* <Row>
-            <Column>
-              <Stack spacing={3}>
-                <Heading>Limitless flexibility</Heading>
-                <p>
-                  From{" "}
-                  <Link href="https://prairielearn.readthedocs.io/en/latest/externalGrading/">
-                    code autograding
-                  </Link>{" "}
-                  and{" "}
-                  <Link href="https://prairielearn.readthedocs.io/en/latest/workspaces/">
-                    in-browser IDEs
-                  </Link>{" "}
-                  to{" "}
-                  <Link href="https://prairielearn.readthedocs.io/en/latest/assessment/#enabling-group-work-for-collaborative-assessments">
-                    collaborative assignments
-                  </Link>{" "}
-                  and{" "}
-                  <Link href="https://prairielearn.readthedocs.io/en/latest/devElements/">
-                    custom elements
-                  </Link>
-                  , PrairieLearn provides a powerful foundation for your
-                  assignments and assessments.
-                </p>
-              </Stack>
-            </Column>
-          </Row> */}
         </Stack>
       </Container>
 
-      <div className={classnames("container-fluid py-4 pt-4", styles.container)}>
-        <div className="container-md">
+      <div
+        className={classnames("container-fluid py-4 ", styles.container)}
+      >
+        <div className="container-md pb-4">
           <Heading>Limitless flexibility</Heading>
-          <p> Write some text here.</p>
+          <p> PrairieLearn provides you with full control on how you create your questions.</p>
           <Accordion defaultActiveKey="0">
             {TALKING_POINTS.map((point, index) => (
               <Accordion.Item eventKey={index.toString()} key={index}>
                 <Accordion.Header>
                   <strong>{point.header}</strong>
                 </Accordion.Header>
-                <Accordion.Body>{point.body}</Accordion.Body>
+                <Accordion.Body>
+                  {point.body} Read more <Link href={point.ref}>here</Link>.
+                </Accordion.Body>
               </Accordion.Item>
             ))}
           </Accordion>
