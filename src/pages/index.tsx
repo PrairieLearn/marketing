@@ -169,17 +169,13 @@ export default function Home() {
         </div>
       </div>
 
-
-
       <div className={classnames("container-fluid py-4", styles.container)}>
         <div className="container-md">
           <Stack>
             <Row>
               <Column>
                 <Stack spacing={3}>
-                  <Heading>
-                    Trusted by the best
-                  </Heading>
+                  <Heading>Trusted by the best</Heading>
                   <p>
                     Instructors at top universities in the United States and
                     Canada have been using PrairieLearn to teach the next
@@ -209,7 +205,6 @@ export default function Home() {
           </Stack>
         </div>
       </div>
-
 
       <DemoCourseCTA
         title="View demo course!"

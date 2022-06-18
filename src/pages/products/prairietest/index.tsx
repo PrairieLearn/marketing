@@ -16,7 +16,10 @@ export default function Testing() {
         <title>PrairieTest | PrairieLearn</title>
       </Head>
 
-      <PageBanner title="PrairieTest" subtitle="Making the logistics and delivery of exams a painless process" />
+      <PageBanner
+        title="PrairieTest"
+        subtitle="Making the logistics and delivery of exams a painless process"
+      />
 
       <div className={classnames("container-fluid py-4")}>
         <div className="container-md">
@@ -27,7 +30,6 @@ export default function Testing() {
               </Heading>
 
               <p>add text here; we should also add a photo</p>
-
             </Stack>
           </Stack>
         </div>
@@ -42,17 +44,20 @@ export default function Testing() {
               </Heading>
 
               <p>add text here; we should also add a photo</p>
-
             </Stack>
           </Stack>
         </div>
       </div>
 
-      <div className={classnames("container-fluid py-4", styles.demo_container)}>
+      <div
+        className={classnames("container-fluid py-4", styles.demo_container)}
+      >
         <div className="container-md">
           <div className="row">
             <div className="col">
-              <h3 className="text-white display-6">Do you want to learn more?</h3>
+              <h3 className="text-white display-6">
+                Do you want to learn more?
+              </h3>
             </div>
           </div>
           <div className="row justify-content-center my-2">
@@ -64,7 +69,6 @@ export default function Testing() {
           </div>
         </div>
       </div>
-
     </React.Fragment>
   );
 }
