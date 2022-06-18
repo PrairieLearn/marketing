@@ -104,14 +104,14 @@ export const Header: React.FC = () => {
                   [`fw-bold ${styles.active}`]: useIsActive("/product"),
                 })}
               >
-                Product
+                Products
               </Dropdown.Toggle>
               <Dropdown.Menu>
-                <NavDropdownItem href="/product/flexibility">
-                  Maximum Flexibility
+                <NavDropdownItem href="/products/prairielearn">
+                  PrairieLearn
                 </NavDropdownItem>
-                <NavDropdownItem href="/product/testing">
-                  Scaling Testing
+                <NavDropdownItem href="/products/prairietest">
+                  PrairieTesting
                 </NavDropdownItem>
               </Dropdown.Menu>
             </Dropdown>

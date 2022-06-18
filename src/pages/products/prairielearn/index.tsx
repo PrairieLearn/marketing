@@ -150,36 +150,6 @@ export default function About() {
         </Stack>
       </Container>
 
-      <Container>
-        <Stack spacing={1}>
-          <Row>
-            <Column>
-              <Stack spacing={3}>
-                <Heading>
-                  Trusted by the best (update numbers and get logo from
-                  Universities?) This could go back to main page if we can have
-                  it improved
-                </Heading>
-                <p>
-                  Instructors at top universities in the United States and
-                  Canada have been using PrairieLearn to teach the next
-                  generation of engineers, scientists, and businesspeople.
-                </p>
-              </Stack>
-            </Column>
-          </Row>
-          <Row>
-            <div className="col-6 col-md-3">
-              <div className="small text-muted">Students</div>
-              <div className="display-5 lh-1">15,000+</div>
-            </div>
-            <div className="col-6 col-md-3">
-              <div className="small text-muted">Courses</div>
-              <div className="display-5 lh-1">100+</div>
-            </div>
-          </Row>
-        </Stack>
-      </Container>
 
       <DemoCourseCTA
         title="View demo course!"
