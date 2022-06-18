@@ -159,12 +159,14 @@ export default function About() {
         </Stack>
       </Container>
 
-      <div
-        className={classnames("container-fluid py-4 ", styles.container)}
-      >
+      <div className={classnames("container-fluid py-4 ", styles.container)}>
         <div className="container-md pb-4">
           <Heading>Limitless flexibility</Heading>
-          <p> PrairieLearn provides you with full control on how you create your questions.</p>
+          <p>
+            {" "}
+            PrairieLearn provides you with full control on how you create your
+            questions.
+          </p>
           <Accordion defaultActiveKey="0">
             {TALKING_POINTS.map((point, index) => (
               <Accordion.Item eventKey={index.toString()} key={index}>
