@@ -21,15 +21,9 @@ interface PeopleCardProps {
   image: ImageProps["src"];
   name: string;
   title: string;
-  children: React.ReactNode;
 }
 
-const PeopleCard: React.FC<PeopleCardProps> = ({
-  image,
-  name,
-  title,
-  children,
-}) => {
+const PeopleCard: React.FC<PeopleCardProps> = ({ image, name, title }) => {
   return (
     <article className="card border-secondary mb-1">
       <div className="position-relative mt-2" style={{ aspectRatio: "1 / 1" }}>
@@ -38,7 +32,6 @@ const PeopleCard: React.FC<PeopleCardProps> = ({
       <div className="card-body">
         <h3 className="card-title h6">{name}</h3>
         <p className="mb-1">{title}</p>
-        {children}
       </div>
     </article>
   );
