@@ -25,12 +25,12 @@ const TALKING_POINTS = [
     body: "Students get instant feedback and can keep attempting problems until they achieve mastery.",
   },
   {
-    header: "Exam practice",
-    body: "Because question parameters are randomized, you can give students the change to practice the exact questions that will appear on the exam.",
+    header: "Practice",
+    body: "Because question parameters are randomized, you can give students the chance to practice the same questions that will appear on tests.",
   },
   {
-    header: "Assessments",
-    body: "Run automated assessments in proctored facilities, or run bring-your-own-device exams in the classroom or online.",
+    header: "Testing",
+    body: "Run automated tests in proctored facilities, or run bring-your-own-device tests in the classroom or online.",
   },
 ];
 
