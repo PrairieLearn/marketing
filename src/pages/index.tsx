@@ -11,9 +11,28 @@ import Image from "../components/Image";
 import richFBD from "../lib/images/rich_question_FBD.png";
 import richorder from "../lib/images/rich_question_order_block.png";
 import richball from "../lib/images/rich_question_balltrajectory.png";
-import UseEverywhere from "../lib/images/UseEverywhere.png";
 
 import styles from "./index.module.scss";
+import { Accordion } from "react-bootstrap";
+
+const TALKING_POINTS = [
+  {
+    header: "In-class activities",
+    body: "Build activities to measure understanding during lectures, or create group assignments for lab sessions.",
+  },
+  {
+    header: "Homework",
+    body: "Students get instant feedback and can keep attempting problems until they achieve mastery.",
+  },
+  {
+    header: "Exam practice",
+    body: "Because question parameters are randomized, you can give students the change to practice the exact questions that will appear on the exam.",
+  },
+  {
+    header: "Assessments",
+    body: "Run automated assessments in proctored facilities, or run bring-your-own-device exams in the classroom or online.",
+  },
+];
 
 const Row: React.FC = ({ children }) => (
   <div className="row justify-content-centerrr">{children}</div>
@@ -89,7 +108,7 @@ export default function Home() {
           <Row>
             <Column>
               <Heading>
-                Write questions once, use them many times, everywhere!
+                Write questions once, use them any time and anywhere
               </Heading>
               <p>
                 PrairieLearn questions are defined as code, which is what makes
@@ -98,7 +117,16 @@ export default function Home() {
                 variants of difficult problems until they&apos;ve mastered the
                 topic—no need for you to manually write new questions.
               </p>
-              <Image src={UseEverywhere} alt="assessment page view" />
+              <Accordion defaultActiveKey="0">
+                {TALKING_POINTS.map((point, index) => (
+                  <Accordion.Item eventKey={index.toString()} key={index}>
+                    <Accordion.Header>
+                      <strong>{point.header}</strong>
+                    </Accordion.Header>
+                    <Accordion.Body>{point.body}</Accordion.Body>
+                  </Accordion.Item>
+                ))}
+              </Accordion>
             </Column>
           </Row>
         </div>
