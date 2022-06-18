@@ -17,7 +17,6 @@ import craigImage from "../../lib/images/team/zilles.jpeg";
 import nathanImage from "../../lib/images/team/nathan.jpeg";
 import emptyImage from "../../lib/images/team/empty-avatar-01_1.jpeg";
 
-
 interface PeopleCardProps {
   image: ImageProps["src"];
   name: string;
@@ -36,18 +35,14 @@ const PeopleCard: React.FC<PeopleCardProps> = ({
       <div className="position-relative mt-2" style={{ aspectRatio: "1 / 1" }}>
         <Image src={image} layout="fill" objectFit="contain" alt={title} />
       </div>
-      <div className="card-body">   
-        <h3 className="card-title h6">{name}</h3>    
-        <p className="mb-1">
-          {title}
-        </p>
+      <div className="card-body">
+        <h3 className="card-title h6">{name}</h3>
+        <p className="mb-1">{title}</p>
         {children}
       </div>
     </article>
   );
 };
-
-
 
 const Row: React.FC = ({ children }) => (
   <div className="row justify-content-centerrr">{children}</div>
@@ -91,10 +86,8 @@ export default function About() {
           <Stack spacing={5}>
             <Stack spacing={4}>
               <Heading>Our Story</Heading>
-                <h5>Built by professors and students!</h5>
-                  <p>
-                    Add story here
-                  </p>
+              <h5>Built by professors and students!</h5>
+              <p>Add story here</p>
             </Stack>
           </Stack>
         </div>
@@ -135,57 +128,43 @@ export default function About() {
           <Stack spacing={5}>
             <Stack spacing={4}>
               <Heading>Co-Founders Team</Heading>
-                  
+
               <div className={styles.grid}>
                 <PeopleCard
                   image={mattImage}
                   name="Matthew West"
                   title="Creator, CPO"
-                >
-                </PeopleCard>
+                ></PeopleCard>
                 <PeopleCard
                   image={nathanImage}
                   name="Nathan Walters"
                   title="CTO"
-                >
-                </PeopleCard>
+                ></PeopleCard>
                 <PeopleCard
                   image={mariImage}
                   name="Mariana Silva"
                   title="CEO"
-                >
-                </PeopleCard>
+                ></PeopleCard>
                 <PeopleCard
                   image={craigImage}
                   name="Craig Zilles"
                   title=""
-                >
-                </PeopleCard>
+                ></PeopleCard>
                 <PeopleCard
                   image={emptyImage}
                   name="David Mussulman"
                   title=""
-                >
-                </PeopleCard>
+                ></PeopleCard>
                 <PeopleCard
                   image={timImage}
                   name="Timothy Bretl"
                   title=""
-                >
-                </PeopleCard>
+                ></PeopleCard>
               </div>
-
-
-
-
-
-
-
             </Stack>
           </Stack>
         </div>
       </div>
-
 
       <DemoCourseCTA
         title="View demo course!"
