@@ -179,7 +179,7 @@ export default function Home() {
                   <p>
                     Instructors at top universities in the United States and
                     Canada have been using PrairieLearn to teach the next
-                    generation of engineers, scientists, and businesspeople.
+                    generation of students.
                   </p>
                 </Stack>
               </Column>
@@ -187,19 +187,19 @@ export default function Home() {
             <Row>
               <div className="col-6 col-md-3 mt-2">
                 <div className="small text-muted">Universities</div>
-                <div className="display-5 lh-1">15,000+</div>
+                <div className="display-5 lh-1">20+</div>
               </div>
               <div className="col-6 col-md-3 mt-2">
                 <div className="small text-muted">Courses</div>
-                <div className="display-5 lh-1">100+</div>
+                <div className="display-5 lh-1">750+</div>
               </div>
               <div className="col-6 col-md-3 mt-2">
                 <div className="small text-muted">Students</div>
-                <div className="display-5 lh-1">15,000+</div>
+                <div className="display-5 lh-1">180k+</div>
               </div>
               <div className="col-6 col-md-3 mt-2">
                 <div className="small text-muted">Questions Graded</div>
-                <div className="display-5 lh-1">100+</div>
+                <div className="display-5 lh-1">41M+</div>
               </div>
             </Row>
           </Stack>
