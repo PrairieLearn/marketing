@@ -3,6 +3,7 @@ import Head from "next/head";
 import classnames from "classnames";
 import Link from "next/link";
 
+import Stack from "../components/Stack";
 import { Heading } from "../components/Heading";
 import { ExampleQuestion } from "../components/ExampleQuestion";
 import { DemoCourseCTA } from "../components/DemoCourse";
@@ -167,6 +168,48 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+
+
+      <div className={classnames("container-fluid py-4", styles.container)}>
+        <div className="container-md">
+          <Stack>
+            <Row>
+              <Column>
+                <Stack spacing={3}>
+                  <Heading>
+                    Trusted by the best
+                  </Heading>
+                  <p>
+                    Instructors at top universities in the United States and
+                    Canada have been using PrairieLearn to teach the next
+                    generation of engineers, scientists, and businesspeople.
+                  </p>
+                </Stack>
+              </Column>
+            </Row>
+            <Row>
+              <div className="col-6 col-md-3 mt-2">
+                <div className="small text-muted">Universities</div>
+                <div className="display-5 lh-1">15,000+</div>
+              </div>
+              <div className="col-6 col-md-3 mt-2">
+                <div className="small text-muted">Courses</div>
+                <div className="display-5 lh-1">100+</div>
+              </div>
+              <div className="col-6 col-md-3 mt-2">
+                <div className="small text-muted">Students</div>
+                <div className="display-5 lh-1">15,000+</div>
+              </div>
+              <div className="col-6 col-md-3 mt-2">
+                <div className="small text-muted">Questions Graded</div>
+                <div className="display-5 lh-1">100+</div>
+              </div>
+            </Row>
+          </Stack>
+        </div>
+      </div>
+
 
       <DemoCourseCTA
         title="View demo course!"
