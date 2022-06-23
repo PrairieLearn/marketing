@@ -14,7 +14,7 @@ import richorder from "../lib/images/rich_question_order_block.png";
 import richball from "../lib/images/rich_question_balltrajectory.png";
 
 import styles from "./index.module.scss";
-import { Accordion } from "react-bootstrap";
+import { Accordion, Carousel, CarouselItem } from "react-bootstrap";
 
 const TALKING_POINTS = [
   {
@@ -153,19 +153,38 @@ export default function Home() {
             and much more!
           </p>
 
-          <div className="row">
-            <div className="col-md-10">
-              <Image src={richFBD} alt="assessment page view" />
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-6 order-1 pt-2">
-              <Image src={richorder} alt="assessment page view" />
-            </div>
-            <div className="col-md-6 order-2 pt-2">
-              <Image src={richball} alt="assessment page view" />
-            </div>
-          </div>
+          <Carousel variant="dark" controls={false}>
+            <CarouselItem style={{ aspectRatio: "1 / 1" }}>
+              <Image
+                src={richorder}
+                alt="assessment page view"
+                layout="fill"
+                objectFit="contain"
+                objectPosition="center"
+                className="pb-5"
+              />
+            </CarouselItem>
+            <CarouselItem style={{ aspectRatio: "1 / 1" }}>
+              <Image
+                src={richball}
+                alt="assessment page view"
+                layout="fill"
+                objectFit="contain"
+                objectPosition="center"
+                className="pb-5"
+              />
+            </CarouselItem>
+            <CarouselItem style={{ aspectRatio: "1 / 1" }}>
+              <Image
+                src={richFBD}
+                alt="assessment page view"
+                layout="fill"
+                objectFit="contain"
+                objectPosition="center"
+                className="pb-5"
+              />
+            </CarouselItem>
+          </Carousel>
         </div>
       </div>
 
