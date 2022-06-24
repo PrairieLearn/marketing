@@ -78,7 +78,7 @@ export default function About() {
             </div>
           </div>
         </div>
-        <div className="container-md">
+        <div className="container-md pt-2">
           <Stack spacing={5}>
             <Stack spacing={4}>
               <Heading>Our Story</Heading>
