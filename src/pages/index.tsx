@@ -187,6 +187,7 @@ export default function Home() {
                     objectFit="contain"
                     objectPosition="center"
                     className="pb-5 position-relative"
+                    priority
                   />
                 </div>
               </CarouselItem>
