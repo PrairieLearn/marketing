@@ -15,7 +15,7 @@ import mariImage from "../../lib/images/team/mariana_silva.png";
 import timImage from "../../lib/images/team/bretl.png";
 import craigImage from "../../lib/images/team/zilles.jpeg";
 import nathanImage from "../../lib/images/team/nathan.jpeg";
-import emptyImage from "../../lib/images/team/empty-avatar-01_1.jpeg";
+import daveImage from "../../lib/images/team/dave.png";
 
 interface PeopleCardProps {
   image: ImageProps["src"];
@@ -144,7 +144,7 @@ export default function About() {
                   title=""
                 ></PeopleCard>
                 <PeopleCard
-                  image={emptyImage}
+                  image={daveImage}
                   name="David Mussulman"
                   title=""
                 ></PeopleCard>
