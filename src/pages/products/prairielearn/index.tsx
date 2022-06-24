@@ -73,7 +73,7 @@ const Container: React.FC = ({ children }) => (
 );
 
 const Row: React.FC = ({ children }) => (
-  <div className="row justify-content-centerrr">{children}</div>
+  <div className="row justify-content-center">{children}</div>
 );
 
 const Column: React.FC = ({ children }) => (
