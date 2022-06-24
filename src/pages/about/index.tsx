@@ -26,8 +26,8 @@ interface PeopleCardProps {
 const PeopleCard: React.FC<PeopleCardProps> = ({ image, name, title }) => {
   return (
     <article className="card border-secondary mb-1">
-      <div className="position-relative mt-2" style={{ aspectRatio: "1 / 1" }}>
-        <Image src={image} layout="fill" objectFit="contain" alt={title} />
+      <div className="position-relative" style={{ aspectRatio: "1 / 1" }}>
+        <Image src={image} layout="fill" objectFit="cover" alt={title} />
       </div>
       <div className="card-body">
         <h3 className="card-title h6">{name}</h3>
