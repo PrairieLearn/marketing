@@ -70,11 +70,11 @@ export default function About() {
             </div>
             <div className="col-md-6 order-1 pt-2">
               <Heading>Vision</Heading>
-                <p>
-                  We believe that students should have access to quality education
-                  from anywhere in the world, and that instructors should have an
-                  adaptable platform to deliver that education.
-                </p>
+              <p>
+                We believe that students should have access to quality education
+                from anywhere in the world, and that instructors should have an
+                adaptable platform to deliver that education.
+              </p>
             </div>
           </div>
         </div>
@@ -84,38 +84,38 @@ export default function About() {
               <Heading>Our Story</Heading>
               {/* <h5>Built by professors and students!</h5> */}
               <p>
-                PrairieLearn is the evolution of over 10 years
-                of tool building and refinement for our own classes. The
-                flagship campus of the University of Illinois is home to both
-                one of the largest and most prestigious Colleges of Engineering
-                in the world. We built this tool to enable us to maintain that
-                excellence in the presence of large enrollment classes. Through
-                automation of routine grading and administration tasks, we freed
-                ourselves and members of our course staff to focus on critical
-                activities that humans perform better than software, like
-                one-on-one tutoring and offering open-ended lab projects.
+                PrairieLearn is the evolution of over 10 years of tool building
+                and refinement for our own classes. The flagship campus of the
+                University of Illinois is home to both one of the largest and
+                most prestigious Colleges of Engineering in the world. We built
+                this tool to enable us to maintain that excellence in the
+                presence of large enrollment classes. Through automation of
+                routine grading and administration tasks, we freed ourselves and
+                members of our course staff to focus on critical activities that
+                humans perform better than software, like one-on-one tutoring
+                and offering open-ended lab projects.
               </p>
               <p>
                 PrairieLearn was designed to enable mastery learning in a way
-                that wasn't possible with paper homework. With immediate
+                that wasn&lsquo;t possible with paper homework. With immediate
                 feedback and the opportunity to try another problem whenever the
                 student wants, PrairieLearn provides a learning experience that
                 is better for students and has lower administrative overhead.
                 Gone are the days of piles of hand-graded written homework
                 (returned to students a week after they were turned in) that are
                 never picked up. Gone are the days where our students ask us for
-                more practice problems. We have eliminated the friction between a
-                student's desire to practice and their ability to practice, by
-                providing an infinite supply of problems and, in so
+                more practice problems. We have eliminated the friction between
+                a student&lsquo;s desire to practice and their ability to
+                practice, by providing an infinite supply of problems and, in so
                 doing, we find that students practice more and achieve more.
               </p>
               <p>
-                Over the years, we have identified better ways of doing things and
-                novel use cases, and those insights have been rolled back into
-                the design of the software. When the authors of the software are
-                also some of its most demanding users, you get quality tools
-                that solve actual problems. We find these tools to be a joy to
-                use, and we think you will too. 
+                Over the years, we have identified better ways of doing things
+                and novel use cases, and those insights have been rolled back
+                into the design of the software. When the authors of the
+                software are also some of its most demanding users, you get
+                quality tools that solve actual problems. We find these tools to
+                be a joy to use, and we think you will too.
               </p>
             </Stack>
           </Stack>
