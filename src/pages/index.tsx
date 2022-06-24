@@ -168,7 +168,7 @@ export default function Home() {
             and much more!
           </p>
 
-          <Carousel variant="dark" controls={false} interval={2000000}>
+          <Carousel variant="dark" controls={false}>
             {CAROUSEL_IMAGES.map(({ src, alt }, index) => (
               <CarouselItem key={index}>
                 <div
