@@ -61,12 +61,19 @@ export default function About() {
         <div className="container-md">
           <Stack spacing={5}>
             <Stack spacing={4}>
-              <Heading>Our Vision</Heading>
+              <Heading>Vision</Heading>
               <p>
                 We believe that students should have access to quality education
                 from anywhere in the world, and that instructors should have an
                 adaptable platform to deliver that education.
               </p>
+            </Stack>
+          </Stack>
+        </div>
+        <div className="container-md">
+          <Stack spacing={5}>
+            <Stack spacing={4}>
+              <Heading>Mission</Heading>
               <p>
                 With PrairieLearn, we have opened the door for instructors to
                 improve their teaching workflow without compromising the quality
@@ -80,7 +87,40 @@ export default function About() {
             <Stack spacing={4}>
               <Heading>Our Story</Heading>
               <h5>Built by professors and students!</h5>
-              <p>Add story here</p>
+              <p>
+                PrairieLearn is the evolution of over 10 years
+                of tool building and refinement for our own classes. The
+                flagship campus of the University of Illinois is home to both
+                one of the largest and most prestigious Colleges of Engineering
+                in the world. We built this tool to enable us to maintain that
+                excellence in the presence of large enrollment classes. Through
+                automation of routine grading and administration tasks, we freed
+                ourselves and members of our course staff to focus on critical
+                activities that humans perform better than software, like
+                one-on-one tutoring and offering open-ended lab projects.
+              </p>
+              <p>
+                PrairieLearn was designed to enable mastery learning in a way
+                that wasn't possible with paper homework. With immediate
+                feedback and the opportunity to try another problem whenever the
+                student wants, PrairieLearn provides a learning experience that
+                is better for students and has lower administrative overhead.
+                Gone are the days of piles of hand-graded written homework
+                (returned to students a week after they were turned in) that are
+                never picked up. Gone are the days where our students ask us for
+                more practice problems. We have eliminated the friction between a
+                student's desire to practice and their ability to practice, by
+                providing an infinite supply of problems and, in so
+                doing, we find that students practice more and achieve more.
+              </p>
+              <p>
+                Over the years, we have identified better ways of doing things and
+                novel use cases, and those insights have been rolled back into
+                the design of the software. When the authors of the software are
+                also some of its most demanding users, you get quality tools
+                that solve actual problems. We find these tools to be a joy to
+                use, and we think you will too. 
+              </p>
             </Stack>
           </Stack>
         </div>
@@ -120,38 +160,38 @@ export default function About() {
         <div className="container-md">
           <Stack spacing={5}>
             <Stack spacing={4}>
-              <Heading>Co-Founders Team</Heading>
+              <Heading>Team PrairieLearn</Heading>
 
               <div className={styles.grid}>
                 <PeopleCard
                   image={mattImage}
                   name="Matthew West"
-                  title="Creator, CPO"
+                  title="Co-founder, Creator, CPO"
                 ></PeopleCard>
                 <PeopleCard
                   image={nathanImage}
                   name="Nathan Walters"
-                  title="CTO"
+                  title="Co-founder, CTO"
                 ></PeopleCard>
                 <PeopleCard
                   image={mariImage}
                   name="Mariana Silva"
-                  title="CEO"
+                  title="Co-founder, CEO"
                 ></PeopleCard>
                 <PeopleCard
                   image={craigImage}
                   name="Craig Zilles"
-                  title=""
+                  title="Co-founder"
                 ></PeopleCard>
                 <PeopleCard
                   image={daveImage}
                   name="David Mussulman"
-                  title=""
+                  title="Co-founder"
                 ></PeopleCard>
                 <PeopleCard
                   image={timImage}
                   name="Timothy Bretl"
-                  title=""
+                  title="Co-founder"
                 ></PeopleCard>
               </div>
             </Stack>
