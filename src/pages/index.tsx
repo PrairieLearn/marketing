@@ -35,6 +35,21 @@ const TALKING_POINTS = [
   },
 ];
 
+const CAROUSEL_IMAGES = [
+  {
+    src: richorder,
+    alt: "PrairieLearn question asking students to construct a proof by ordering predefined statements",
+  },
+  {
+    src: richball,
+    alt: "PrairieLearn question asking students to sketch a line illustrating the rate of change of a trajectory function",
+  },
+  {
+    src: richFBD,
+    alt: "PrairieLearn question asking students to construct a free body diagram",
+  },
+];
+
 const Row: React.FC = ({ children }) => (
   <div className="row justify-content-centerrr">{children}</div>
 );
@@ -153,37 +168,29 @@ export default function Home() {
             and much more!
           </p>
 
-          <Carousel variant="dark" controls={false}>
-            <CarouselItem style={{ aspectRatio: "1 / 1" }}>
-              <Image
-                src={richorder}
-                alt="assessment page view"
-                layout="fill"
-                objectFit="contain"
-                objectPosition="center"
-                className="pb-5"
-              />
-            </CarouselItem>
-            <CarouselItem style={{ aspectRatio: "1 / 1" }}>
-              <Image
-                src={richball}
-                alt="assessment page view"
-                layout="fill"
-                objectFit="contain"
-                objectPosition="center"
-                className="pb-5"
-              />
-            </CarouselItem>
-            <CarouselItem style={{ aspectRatio: "1 / 1" }}>
-              <Image
-                src={richFBD}
-                alt="assessment page view"
-                layout="fill"
-                objectFit="contain"
-                objectPosition="center"
-                className="pb-5"
-              />
-            </CarouselItem>
+          <Carousel variant="dark" controls={false} interval={2000000}>
+            {CAROUSEL_IMAGES.map(({ src, alt }, index) => (
+              <CarouselItem key={index}>
+                <div
+                  style={{
+                    maxHeight: "500px",
+                    position: "relative",
+                    aspectRatio: "3 / 2",
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                  }}
+                >
+                  <Image
+                    src={src}
+                    alt={alt}
+                    layout="fill"
+                    objectFit="contain"
+                    objectPosition="center"
+                    className="pb-5 position-relative"
+                  />
+                </div>
+              </CarouselItem>
+            ))}
           </Carousel>
         </div>
       </div>
