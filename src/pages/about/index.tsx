@@ -59,34 +59,30 @@ export default function About() {
 
       <div className={classnames("container-fluid py-4")}>
         <div className="container-md">
-          <Stack spacing={5}>
-            <Stack spacing={4}>
-              <Heading>Vision</Heading>
-              <p>
-                We believe that students should have access to quality education
-                from anywhere in the world, and that instructors should have an
-                adaptable platform to deliver that education.
-              </p>
-            </Stack>
-          </Stack>
-        </div>
-        <div className="container-md">
-          <Stack spacing={5}>
-            <Stack spacing={4}>
+          <div className="row">
+            <div className="col-md-6 order-1 pt-2">
               <Heading>Mission</Heading>
               <p>
                 With PrairieLearn, we have opened the door for instructors to
                 improve their teaching workflow without compromising the quality
                 of education they are delivering to students.
               </p>
-            </Stack>
-          </Stack>
+            </div>
+            <div className="col-md-6 order-1 pt-2">
+              <Heading>Vision</Heading>
+                <p>
+                  We believe that students should have access to quality education
+                  from anywhere in the world, and that instructors should have an
+                  adaptable platform to deliver that education.
+                </p>
+            </div>
+          </div>
         </div>
         <div className="container-md">
           <Stack spacing={5}>
             <Stack spacing={4}>
               <Heading>Our Story</Heading>
-              <h5>Built by professors and students!</h5>
+              {/* <h5>Built by professors and students!</h5> */}
               <p>
                 PrairieLearn is the evolution of over 10 years
                 of tool building and refinement for our own classes. The
