@@ -5,6 +5,8 @@
   background-color: $gray-200;
 }
 
-.banner {
-  background-color: $blue-700;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  grid-gap: 1rem;
 }

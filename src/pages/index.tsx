@@ -1,43 +1,57 @@
 import React from "react";
 import Head from "next/head";
-import Link from "next/link";
 import classnames from "classnames";
+import Link from "next/link";
 
-import { Heading } from "../components/Heading";
-import { ExampleEditor } from "../components/ExampleEditor";
-import { ExampleQuestion } from "../components/ExampleQuestion";
 import Stack from "../components/Stack";
+import { Heading } from "../components/Heading";
+import { ExampleQuestion } from "../components/ExampleQuestion";
+import { DemoCourseCTA } from "../components/DemoCourse";
+
+import Image from "../components/Image";
+import richFBD from "../lib/images/rich_question_FBD.png";
+import richorder from "../lib/images/rich_question_order_block.png";
+import richball from "../lib/images/rich_question_balltrajectory.png";
 
 import styles from "./index.module.scss";
+import { Accordion, Carousel, CarouselItem } from "react-bootstrap";
 
-const DEMO_QUESTION_HTML = `
-<pl-question-panel>
-  <p>
-    Suppose a ball is thrown from a level surface at a
-    {{params.angle}}° angle with a velocity of
-    {{params.velocity}}m/s. How far will the ball travel?
-  </p>
-</pl-question-panel>
-<pl-integer-input answers-name="distance" suffix="m"></pl-integer-input>
-`.trim();
+const TALKING_POINTS = [
+  {
+    header: "In-class activities",
+    body: "Build activities to measure understanding during lectures, or create group assignments for lab sessions.",
+  },
+  {
+    header: "Homework",
+    body: "Students get instant feedback and can keep attempting problems until they achieve mastery.",
+  },
+  {
+    header: "Practice",
+    body: "Because question parameters are randomized, you can give students the chance to practice the same questions that will appear on tests.",
+  },
+  {
+    header: "Testing",
+    body: "Run automated tests in proctored facilities, or run bring-your-own-device tests in the classroom or online.",
+  },
+];
 
-const DEMO_QUESTION_PYTHON = `
-import math, random
-def generate(data):
-  velocity = random.randint(100, 800) / 100
-  angle = random.randint(2000, 8000) / 100
-  distance = (math.sin(2 * math.radians(angle)) * velocity**2) / 9.8
-  data["params"]["velocity"] = velocity
-  data["params"]["angle"] = angle
-  data["answers"]["distance"] = distance
-`.trim();
-
-const Container: React.FC = ({ children }) => (
-  <div className="container-md my-5">{children}</div>
-);
+const CAROUSEL_IMAGES = [
+  {
+    src: richorder,
+    alt: "PrairieLearn question asking students to construct a proof by ordering predefined statements",
+  },
+  {
+    src: richball,
+    alt: "PrairieLearn question asking students to sketch a line illustrating the rate of change of a trajectory function",
+  },
+  {
+    src: richFBD,
+    alt: "PrairieLearn question asking students to construct a free body diagram",
+  },
+];
 
 const Row: React.FC = ({ children }) => (
-  <div className="row justify-content-centerrr">{children}</div>
+  <div className="row justify-content-center">{children}</div>
 );
 
 const Column: React.FC = ({ children }) => (
@@ -50,122 +64,141 @@ export default function Home() {
       <Head>
         <title>PrairieLearn</title>
       </Head>
-      <div className={classnames("container-fluid py-4", styles.container)}>
+
+      <div className={classnames("container-fluid py-4", styles.banner)}>
         <div className="container-md">
           <Row>
             <Column>
               <h1 className="text-white display-3">
-                <span>The best platform for online assessments</span>
+                <span>PrairieLearn</span>
               </h1>
               <p className="text-white mt-4 fs-3">
-                PrairieLearn empowers instructors to build content that helps
-                their students achieve mastery.
+                The best platform for online assessments
               </p>
               <a
+                href="https://www.prairielearn.org/pl/request_course"
+                className="btn btn-light btn-lg me-3 mt-3"
+              >
+                Request a course
+              </a>
+              <Link href="/contact">
+                <a className="btn btn-outline-light btn-lg me-3 mt-3">
+                  Get in touch
+                </a>
+              </Link>
+              <a
                 href="https://prairielearn.readthedocs.io/en/latest/"
-                className="btn btn-light btn-lg me-3"
+                className="btn btn-outline-light btn-lg me-3 mt-3"
               >
                 Documentation
               </a>
-              <Link href="/contact">
-                <a className="btn btn-outline-light btn-lg">Get in touch</a>
-              </Link>
             </Column>
           </Row>
         </div>
       </div>
-      <Container>
-        <Stack spacing={5}>
+
+      <div className={classnames("container-fluid py-4")}>
+        <div className="container-md">
+          <Heading>Mastering learning meets online assessment</Heading>
+          <div className="row">
+            <p>
+              PrairieLearn is an online assessment and learning system that
+              empowers instructors to create robust educational resources to
+              students.
+            </p>
+          </div>
+          <div className="row">
+            <div className="col-md-6 order-1 pt-2">
+              <h5>Adaptive question variants with real-time feedback</h5>
+              <p>
+                Instructors easily write questions as code, which automatically
+                generate and grade infinite variants of themselves.
+              </p>
+              <h5>Empowering students to master content</h5>
+              <p>
+                Students are encouraged to keep trying new variants of the same
+                question until they achieve mastery.
+              </p>
+            </div>
+            <div className="col-md-6 order-2 pt-2">
+              <ExampleQuestion />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className={classnames("container-fluid py-4", styles.container)}>
+        <div className="container-md">
           <Row>
             <Column>
-              <Stack spacing={3}>
-                <Heading>Questions as code</Heading>
-                <p>
-                  PrairieLearn questions are defined as code, which is what
-                  makes them so powerful. The familiar HTML syntax and Mustache
-                  templates make it easy to get started writing questions. A
-                  broad variety of building blocks like number inputs and
-                  multiple choice responses come built-in, so you can hit the
-                  ground running.
-                </p>
-                <ExampleEditor
-                  files={[
-                    {
-                      filename: "question.html",
-                      language: "markup",
-                      code: DEMO_QUESTION_HTML,
-                    },
-                  ]}
-                />
-              </Stack>
+              <Heading>
+                Write questions once, use them any time and anywhere
+              </Heading>
+              <p>
+                PrairieLearn questions are defined as code, which is what makes
+                them so powerful. Once a question is created, it can be reused
+                in any future assessment. And students can keep trying new
+                variants of difficult problems until they&apos;ve mastered the
+                topic—no need for you to manually write new questions.
+              </p>
+              <Accordion defaultActiveKey="0">
+                {TALKING_POINTS.map((point, index) => (
+                  <Accordion.Item eventKey={index.toString()} key={index}>
+                    <Accordion.Header>
+                      <strong>{point.header}</strong>
+                    </Accordion.Header>
+                    <Accordion.Body>{point.body}</Accordion.Body>
+                  </Accordion.Item>
+                ))}
+              </Accordion>
             </Column>
           </Row>
-          <Row>
-            <Column>
-              <Stack spacing={3}>
-                <Heading>Automatic generation and grading</Heading>
-                <p>
-                  Once you&apos;ve defined an HTML template, generate parameters
-                  for your question with the power of Python and popular
-                  libraries like numpy and matplotlib. And questions grade
-                  themselves, from simple multiple-choice questions to free-body
-                  diagrams to code, so instructors can focus on the important
-                  things.
-                </p>
-                <ExampleEditor
-                  files={[
-                    {
-                      filename: "server.py",
-                      language: "python",
-                      code: DEMO_QUESTION_PYTHON,
-                    },
-                  ]}
-                />
-              </Stack>
-            </Column>
-          </Row>
-          <Row>
-            <Column>
-              <Stack spacing={3}>
-                <Heading>Write once, use forever</Heading>
-                <p>
-                  Once a question has been defined in code, it can be reused in
-                  any future assessment. And students can keep trying new
-                  variants of difficult problems until they&apos;ve mastered the
-                  topic—no need for you to manually write new questions.
-                </p>
-                <ExampleQuestion />
-              </Stack>
-            </Column>
-          </Row>
-          <Row>
-            <Column>
-              <Stack spacing={3}>
-                <Heading>Limitless flexibility</Heading>
-                <p>
-                  From{" "}
-                  <Link href="https://prairielearn.readthedocs.io/en/latest/externalGrading/">
-                    code autograding
-                  </Link>{" "}
-                  and{" "}
-                  <Link href="https://prairielearn.readthedocs.io/en/latest/workspaces/">
-                    in-browser IDEs
-                  </Link>{" "}
-                  to{" "}
-                  <Link href="https://prairielearn.readthedocs.io/en/latest/assessment/#enabling-group-work-for-collaborative-assessments">
-                    collaborative assignments
-                  </Link>{" "}
-                  and{" "}
-                  <Link href="https://prairielearn.readthedocs.io/en/latest/devElements/">
-                    custom elements
-                  </Link>
-                  , PrairieLearn provides a powerful foundation for your
-                  assignments and assessments.
-                </p>
-              </Stack>
-            </Column>
-          </Row>
-          <Stack spacing={1}>
+        </div>
+      </div>
+
+      <div className={classnames("container-fluid py-4")}>
+        <div className="container-md">
+          <Heading>Automation without compromising quality </Heading>
+          <p>
+            When using PrairieLearn, you do not need to be concerned about
+            trivialising course material when offering computer-based
+            assessments. In addition to standard inputs such as numerical,
+            multiple-choice, checkboxes and dropdown menu, PrairieLearn will let
+            students provide answers as graphical input, code, ordered blocks
+            and much more!
+          </p>
+
+          <Carousel variant="dark" controls={false}>
+            {CAROUSEL_IMAGES.map(({ src, alt }, index) => (
+              <CarouselItem key={index}>
+                <div
+                  style={{
+                    maxHeight: "500px",
+                    position: "relative",
+                    aspectRatio: "3 / 2",
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                  }}
+                >
+                  <Image
+                    src={src}
+                    alt={alt}
+                    layout="fill"
+                    objectFit="contain"
+                    objectPosition="center"
+                    className="pb-5 position-relative"
+                    priority
+                  />
+                </div>
+              </CarouselItem>
+            ))}
+          </Carousel>
+        </div>
+      </div>
+
+      <div className={classnames("container-fluid py-4", styles.container)}>
+        <div className="container-md">
+          <Stack>
             <Row>
               <Column>
                 <Stack spacing={3}>
@@ -173,81 +206,38 @@ export default function Home() {
                   <p>
                     Instructors at top universities in the United States and
                     Canada have been using PrairieLearn to teach the next
-                    generation of engineers, scientists, and businesspeople.
+                    generation of students.
                   </p>
                 </Stack>
               </Column>
             </Row>
             <Row>
-              <div className="col-6 col-md-3">
-                <div className="small text-muted">Students</div>
-                <div className="display-5 lh-1">15,000+</div>
+              <div className="col-6 col-md-3 mt-2">
+                <div className="small text-muted">Universities</div>
+                <div className="display-5 lh-1">20+</div>
               </div>
-              <div className="col-6 col-md-3">
+              <div className="col-6 col-md-3 mt-2">
                 <div className="small text-muted">Courses</div>
-                <div className="display-5 lh-1">100+</div>
+                <div className="display-5 lh-1">750+</div>
+              </div>
+              <div className="col-6 col-md-3 mt-2">
+                <div className="small text-muted">Students</div>
+                <div className="display-5 lh-1">180k+</div>
+              </div>
+              <div className="col-6 col-md-3 mt-2">
+                <div className="small text-muted">Questions Graded</div>
+                <div className="display-5 lh-1">41M+</div>
               </div>
             </Row>
           </Stack>
-        </Stack>
-      </Container>
-      <div className="my-5 py-5 bg-dark">
-        <div className="container-md">
-          <Row>
-            <Column>
-              <h2 className="text-white">Open-source. Forever.</h2>
-              <p className="text-white ">
-                PrairieLearn began life as open-source software, and we&apos;re
-                committed to making sure it stays that way. With an active
-                developer community of professors, course staff, and students,
-                PrairieLearn gets better all the time.
-              </p>
-              <div className="d-flex">
-                <a
-                  href="https://github.com/PrairieLearn/PrairieLearn"
-                  className="btn btn-light me-3"
-                >
-                  GitHub →
-                </a>
-                <a
-                  href="https://prairielearn.readthedocs.io/en/latest/"
-                  className="btn btn-light"
-                >
-                  Documentation →
-                </a>
-              </div>
-            </Column>
-          </Row>
         </div>
       </div>
-      <Container>
-        <Row>
-          <Column>
-            <Heading>Get started</Heading>
-            <p>
-              New to PrairieLearn? Check out the{" "}
-              <Link href="/gallery">
-                <a>question gallery</a>
-              </Link>{" "}
-              to see what&apos;s possible with PrairieLearn, or head over to{" "}
-              <a href="https://prairielearn.readthedocs.io/en/latest/">
-                the documentation
-              </a>{" "}
-              to learn how to set up PrairieLearn on your computer and start
-              creating content.
-            </p>
-            <p>
-              Looking for managed hosting, instructional workshops, and direct
-              support? Want a personalized demo of all PrairieLearn has to
-              offer? Reach out to us, and we&apos;ll get back to you with more
-              details.
-            </p>
-            <Link href="/contact">
-              <a className="btn btn-primary btn-lg">Get in touch</a>
-            </Link>
-          </Column>
-        </Row>
-      </Container>
+
+      <DemoCourseCTA
+        title="View demo course!"
+        subtitle="Explore the demo course to see how this all comes together"
+        buttonLabel="Demo course"
+      />
     </React.Fragment>
   );
 }

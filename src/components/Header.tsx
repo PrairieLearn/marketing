@@ -53,6 +53,9 @@ const NavDropdownItem: React.FC<NavLinkProps> = ({ href, children }) => {
   );
 };
 
+import Image from "./Image";
+import logo from "../lib/images/flower-white.png";
+
 export const Header: React.FC = () => {
   const [collapsed, setCollapsed] = React.useState(true);
 
@@ -71,7 +74,10 @@ export const Header: React.FC = () => {
     >
       <div className="container">
         <Link href="/">
-          <a className="navbar-brand">PrairieLearn</a>
+          <a className="navbar-brand">
+            <Image src={logo} width={24} height={24} alt="PrairieLearn logo" />
+            PrairieLearn
+          </a>
         </Link>
         <button
           className="navbar-toggler"
@@ -88,6 +94,9 @@ export const Header: React.FC = () => {
           id="navbar"
         >
           <ul className="navbar-nav ms-auto mb-2 mb-sm-0">
+            <li className="nav-item">
+              <RouterNavLink href="/about">About</RouterNavLink>
+            </li>
             <Dropdown as={NavItem}>
               <Dropdown.Toggle
                 as={NavLink}
