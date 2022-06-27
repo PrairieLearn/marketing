@@ -75,7 +75,7 @@ export const Header: React.FC = () => {
       <div className="container">
         <Link href="/">
           <a className="navbar-brand">
-            <Image src={logo} width={24} height={24} alt="logo" />
+            <Image src={logo} width={24} height={24} alt="PrairieLearn logo" />
             PrairieLearn
           </a>
         </Link>
