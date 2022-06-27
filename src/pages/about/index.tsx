@@ -82,7 +82,6 @@ export default function About() {
           <Stack spacing={5}>
             <Stack spacing={4}>
               <Heading>Our Story</Heading>
-              {/* <h5>Built by professors and students!</h5> */}
               <p>
                 PrairieLearn is the evolution of over 10 years of tool building
                 and refinement for our own classes. The flagship campus of the
@@ -163,32 +162,32 @@ export default function About() {
                   image={mattImage}
                   name="Matthew West"
                   title="Co-founder, Creator, CPO"
-                ></PeopleCard>
+                />
                 <PeopleCard
                   image={nathanImage}
                   name="Nathan Walters"
                   title="Co-founder, CTO"
-                ></PeopleCard>
+                />
                 <PeopleCard
                   image={mariImage}
                   name="Mariana Silva"
                   title="Co-founder, CEO"
-                ></PeopleCard>
+                />
                 <PeopleCard
                   image={craigImage}
                   name="Craig Zilles"
                   title="Co-founder"
-                ></PeopleCard>
+                />
                 <PeopleCard
                   image={daveImage}
                   name="David Mussulman"
                   title="Co-founder"
-                ></PeopleCard>
+                />
                 <PeopleCard
                   image={timImage}
                   name="Timothy Bretl"
                   title="Co-founder"
-                ></PeopleCard>
+                />
               </div>
             </Stack>
           </Stack>
