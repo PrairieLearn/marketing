@@ -233,9 +233,39 @@ export default function Home() {
         </div>
       </div>
 
+      <div className="py-4 bg-dark">
+        <div className="container-md">
+          <Row>
+            <Column>
+              <h2 className="text-white">Open-source. Forever.</h2>
+              <p className="text-white ">
+                PrairieLearn began life as open-source software, and we&apos;re
+                committed to making sure it stays that way. With an active
+                developer community of professors, course staff, and students,
+                PrairieLearn gets better all the time.
+              </p>
+              <div className="d-flex">
+                <a
+                  href="https://github.com/PrairieLearn/PrairieLearn"
+                  className="btn btn-light me-3"
+                >
+                  GitHub →
+                </a>
+                <a
+                  href="https://prairielearn.readthedocs.io/en/latest/"
+                  className="btn btn-light"
+                >
+                  Documentation →
+                </a>
+              </div>
+            </Column>
+          </Row>
+        </div>
+      </div>
+
       <DemoCourseCTA
         title="View demo course!"
-        subtitle="Explore the demo course to see how this all comes together"
+        subtitle="Explore the demo course to see how this all comes together."
         buttonLabel="Demo course"
       />
     </React.Fragment>

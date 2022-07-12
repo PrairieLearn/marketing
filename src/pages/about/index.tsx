@@ -63,9 +63,9 @@ export default function About() {
             <div className="col-md-6 order-1 pt-2">
               <Heading>Mission</Heading>
               <p>
-                With PrairieLearn, we have opened the door for instructors to
-                improve their teaching workflow without compromising the quality
-                of education they are delivering to students.
+                With PrairieLearn, we open the door for instructors to improve
+                their teaching workflow without compromising the quality of
+                education they are delivering to students.
               </p>
             </div>
             <div className="col-md-6 order-1 pt-2">
@@ -78,118 +78,116 @@ export default function About() {
             </div>
           </div>
         </div>
+
         <div className="container-md pt-2">
-          <Stack spacing={5}>
-            <Stack spacing={4}>
-              <Heading>Our Story</Heading>
-              <p>
-                PrairieLearn is the evolution of over 10 years of tool building
-                and refinement for our own classes. The flagship campus of the
-                University of Illinois is home to both one of the largest and
-                most prestigious Colleges of Engineering in the world. We built
-                this tool to enable us to maintain that excellence in the
-                presence of large enrollment classes. Through automation of
-                routine grading and administration tasks, we freed ourselves and
-                members of our course staff to focus on critical activities that
-                humans perform better than software, like one-on-one tutoring
-                and offering open-ended lab projects.
-              </p>
-              <p>
-                PrairieLearn was designed to enable mastery learning in a way
-                that wasn&lsquo;t possible with paper homework. With immediate
-                feedback and the opportunity to try another problem whenever the
-                student wants, PrairieLearn provides a learning experience that
-                is better for students and has lower administrative overhead.
-                Gone are the days of piles of hand-graded written homework
-                (returned to students a week after they were turned in) that are
-                never picked up. Gone are the days where our students ask us for
-                more practice problems. We have eliminated the friction between
-                a student&lsquo;s desire to practice and their ability to
-                practice, by providing an infinite supply of problems and, in so
-                doing, we find that students practice more and achieve more.
-              </p>
-              <p>
-                Over the years, we have identified better ways of doing things
-                and novel use cases, and those insights have been rolled back
-                into the design of the software. When the authors of the
-                software are also some of its most demanding users, you get
-                quality tools that solve actual problems. We find these tools to
-                be a joy to use, and we think you will too.
-              </p>
-            </Stack>
+          <Stack spacing={4}>
+            <Heading>Our Story</Heading>
+            <p>
+              PrairieLearn is the evolution of over 10 years of tool building
+              and refinement for our own classes. The flagship campus of the
+              University of Illinois is home to both one of the largest and most
+              prestigious Colleges of Engineering in the world. We built this
+              tool to enable us to maintain that excellence in the presence of
+              large enrollment classes. Through automation of routine grading
+              and administration tasks, we freed ourselves and members of our
+              course staff to focus on critical activities that humans perform
+              better than software, like one-on-one tutoring and offering
+              open-ended lab projects.
+            </p>
+            <p>
+              PrairieLearn was designed to enable mastery learning in a way that
+              wasn&lsquo;t possible with paper homework. With immediate feedback
+              and the opportunity to try another problem whenever the student
+              wants, PrairieLearn provides a learning experience that is better
+              for students and has lower administrative overhead. Gone are the
+              days of piles of hand-graded written homework (returned to
+              students a week after they were turned in) that are never picked
+              up. Gone are the days where our students ask us for more practice
+              problems. We have eliminated the friction between a
+              student&lsquo;s desire to practice and their ability to practice,
+              by providing an infinite supply of problems and, in so doing, we
+              find that students practice more and achieve more.
+            </p>
+            <p>
+              Over the years, we have identified better ways of doing things and
+              novel use cases, and those insights have been rolled back into the
+              design of the software. When the authors of the software are also
+              some of its most demanding users, you get quality tools that solve
+              actual problems. We find these tools to be a joy to use, and we
+              think you will too.
+            </p>
           </Stack>
         </div>
-      </div>
 
-      <div className="my-3 py-5 bg-dark">
-        <div className="container-md">
-          <Row>
-            <Column>
-              <h2 className="text-white">Open-source. Forever.</h2>
-              <p className="text-white ">
-                PrairieLearn began life as open-source software, and we&apos;re
-                committed to making sure it stays that way. With an active
-                developer community of professors, course staff, and students,
-                PrairieLearn gets better all the time.
-              </p>
-              <div className="d-flex">
-                <a
-                  href="https://github.com/PrairieLearn/PrairieLearn"
-                  className="btn btn-light me-3"
-                >
-                  GitHub →
-                </a>
-                <a
-                  href="https://prairielearn.readthedocs.io/en/latest/"
-                  className="btn btn-light"
-                >
-                  Documentation →
-                </a>
-              </div>
-            </Column>
-          </Row>
+        <div className="container-md pt-2">
+          <Stack spacing={4}>
+            <Heading>PrairieLearn, Inc.</Heading>
+
+            <p>
+              PrairieLearn began life as open-source software, and it will
+              remain that way forever. This means that institutions and
+              individuals can run PrairieLearn on their own infrastructure and
+              make changes to it at will. PrairieLearn has a strong community of
+              developers who frequently contribute new features, improvements,
+              and fixes.
+            </p>
+
+            <p>
+              However, we&apos;ve found that most instructors would rather focus
+              on running their courses instead of operating and scaling
+              software. We started PrairieLearn, Inc. to provide a paid hosting
+              option. This ensures that everyone can take advantage of all that
+              PrairieLearn has to offer without having to become experts in
+              server administration.
+            </p>
+
+            <p>
+              Paid subscriptions cover the cost of running PrairieLearn, and
+              they also fund our developers that operate the service and are
+              responsible for ongoing maintenance, upgrades, code reviews, an
+              support.
+            </p>
+          </Stack>
         </div>
       </div>
 
       <div className={classnames("container-fluid py-4")}>
         <div className="container-md">
-          <Stack spacing={5}>
-            <Stack spacing={4}>
-              <Heading>Team PrairieLearn</Heading>
+          <Stack spacing={4}>
+            <Heading>Our Team</Heading>
 
-              <div className={styles.grid}>
-                <PeopleCard
-                  image={mattImage}
-                  name="Matthew West"
-                  title="Co-founder, Creator, CPO"
-                />
-                <PeopleCard
-                  image={nathanImage}
-                  name="Nathan Walters"
-                  title="Co-founder, CTO"
-                />
-                <PeopleCard
-                  image={mariImage}
-                  name="Mariana Silva"
-                  title="Co-founder, CEO"
-                />
-                <PeopleCard
-                  image={craigImage}
-                  name="Craig Zilles"
-                  title="Co-founder"
-                />
-                <PeopleCard
-                  image={daveImage}
-                  name="David Mussulman"
-                  title="Co-founder"
-                />
-                <PeopleCard
-                  image={timImage}
-                  name="Timothy Bretl"
-                  title="Co-founder"
-                />
-              </div>
-            </Stack>
+            <div className={styles.grid}>
+              <PeopleCard
+                image={mattImage}
+                name="Matthew West"
+                title="Co-founder, Creator, CPO"
+              />
+              <PeopleCard
+                image={nathanImage}
+                name="Nathan Walters"
+                title="Co-founder, CTO"
+              />
+              <PeopleCard
+                image={mariImage}
+                name="Mariana Silva"
+                title="Co-founder, CEO"
+              />
+              <PeopleCard
+                image={craigImage}
+                name="Craig Zilles"
+                title="Co-founder"
+              />
+              <PeopleCard
+                image={daveImage}
+                name="David Mussulman"
+                title="Co-founder"
+              />
+              <PeopleCard
+                image={timImage}
+                name="Timothy Bretl"
+                title="Co-founder"
+              />
+            </div>
           </Stack>
         </div>
       </div>
