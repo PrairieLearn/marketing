@@ -37,14 +37,6 @@ const PeopleCard: React.FC<PeopleCardProps> = ({ image, name, title }) => {
   );
 };
 
-const Row: React.FC = ({ children }) => (
-  <div className="row justify-content-center">{children}</div>
-);
-
-const Column: React.FC = ({ children }) => (
-  <div className="col">{children}</div>
-);
-
 export default function About() {
   return (
     <React.Fragment>
