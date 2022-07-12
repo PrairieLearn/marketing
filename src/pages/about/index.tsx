@@ -142,9 +142,10 @@ export default function About() {
             </p>
 
             <p>
-              Paid subscriptions cover the costs of running PrairieLearn servers, and
-              they also fund our system administrators who operate the service and are
-              responsible for ongoing maintenance, security, upgrades, and support.
+              Paid subscriptions cover the costs of running PrairieLearn
+              servers, and they also fund our system administrators who operate
+              the service and are responsible for ongoing maintenance, security,
+              upgrades, and support.
             </p>
           </Stack>
         </div>
