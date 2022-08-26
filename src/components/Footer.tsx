@@ -22,6 +22,9 @@ export const Footer: React.FC = () => {
             <h6 className="text-uppercase text-secondary fw-bold">Resources</h6>
             <ul className="list-unstyled">
               <li className="mb-2">
+                <FooterLink href="/support">Support</FooterLink>
+              </li>
+              <li className="mb-2">
                 <FooterLink href="https://prairielearn.readthedocs.io/en/latest/">
                   Documentation
                 </FooterLink>
