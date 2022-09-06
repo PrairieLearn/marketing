@@ -30,10 +30,6 @@ When a User joins a course on the Services as a student, we get access to their 
 
 Web Cookies are small pieces of data created by web servers and sent to your computer while you are browsing a website. We may use session cookies (which expire once you close your web browser) and persistent cookies (which stay on your computer until you delete them) to provide you with a more personal and interactive experience on our Site. Most web browsers are set to accept cookies by default. You may choose to set your web browser to refuse cookies, or to alert you when cookies are being sent. If you do so, note that some parts of our Site and Services may not function properly. We do not use web beacons or flash cookies.
 
-### Information collected for analytics
-
-We use analytics services from Google Analytics to help analyze how users use the Site. These services use cookies and scripts to collect and store information such as how users interact with our Service, errors users encounter when using our Site and general User statistics. We use this information to improve our Site and Services. We do not tie the information gathered using third party analytics to your personally identifiable information.
-
 ### Other general use of Personal Information
 
 In addition to the specific uses described above, we may also make use of Personal Information for the following purposes: 
