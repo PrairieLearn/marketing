@@ -81,10 +81,11 @@ export default function Home() {
               >
                 Request a course
               </a>
-              <Link href="/contact">
-                <a className="btn btn-outline-light btn-lg me-3 mt-3">
-                  Get in touch
-                </a>
+              <Link
+                href="/contact"
+                className="btn btn-outline-light btn-lg me-3 mt-3"
+              >
+                Get in touch
               </Link>
               <a
                 href="https://prairielearn.readthedocs.io/en/latest/"

@@ -71,8 +71,11 @@ export default function Pricing() {
                         <strong>$6</strong>{" "}
                         <span className="text-muted">/ student / course</span>
                       </div>
-                      <Link href="/pricing/contact">
-                        <a className="btn btn-outline-primary">Get started</a>
+                      <Link
+                        href="/pricing/contact"
+                        className="btn btn-outline-primary"
+                      >
+                        Get started
                       </Link>
                     </Stack>
                   </div>
@@ -87,8 +90,8 @@ export default function Pricing() {
                         <strong>$12</strong>{" "}
                         <span className="text-muted">/ student / course</span>
                       </div>
-                      <Link href="/pricing/contact">
-                        <a className="btn btn-primary">Get started</a>
+                      <Link href="/pricing/contact" className="btn btn-primary">
+                        Get started
                       </Link>
                     </Stack>
                   </div>
@@ -102,8 +105,8 @@ export default function Pricing() {
                       <div>
                         <span className="text-muted">Custom pricing</span>
                       </div>
-                      <Link href="/pricing/contact">
-                        <a className="btn btn-primary">Contact us</a>
+                      <Link href="/pricing/contact" className="btn btn-primary">
+                        Contact us
                       </Link>
                     </Stack>
                   </div>

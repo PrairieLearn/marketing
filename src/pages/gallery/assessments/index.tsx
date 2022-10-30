@@ -69,9 +69,7 @@ const AssessmentIndex: React.FC<AssessmentIndexProps> = ({ assessments }) => {
                 return (
                   <article key={assessment.slug}>
                     <h3 className="h5">
-                      <Link href={assessmentHref}>
-                        <a>{assessment.title}</a>
-                      </Link>
+                      <Link href={assessmentHref}>{assessment.title}</Link>
                     </h3>
                     <p className="mb-0">{assessment.summary}</p>
                   </article>

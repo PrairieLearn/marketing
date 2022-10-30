@@ -41,16 +41,16 @@ const CourseCard: React.FC<CourseCardProps> = ({
 }) => {
   return (
     <article className="card border-secondary">
-      <Link href={href}>
-        <a className="position-relative" style={{ aspectRatio: "5 / 3" }}>
-          <Image src={image} layout="fill" objectFit="contain" alt={title} />
-        </a>
+      <Link
+        href={href}
+        className="position-relative"
+        style={{ aspectRatio: "5 / 3" }}
+      >
+        <Image src={image} layout="fill" objectFit="contain" alt={title} />
       </Link>
       <div className="card-body">
         <Link href={href}>
-          <a>
-            <h3 className="card-title h5">{title}</h3>
-          </a>
+          <h3 className="card-title h5">{title}</h3>
         </Link>
         <p className="mb-1">
           <strong>Institution:</strong> {institution}

@@ -89,25 +89,23 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
                 return (
                   <article className="card" key={question.slug}>
                     {question.imageUrl && (
-                      <Link href={galleryHref}>
+                      <Link
+                        href={galleryHref}
+                        style={{ paddingBottom: "75%", position: "relative" }}
+                      >
                         {/* Fit all images within 4:3 aspect ratio box*/}
-                        <a
-                          style={{ paddingBottom: "75%", position: "relative" }}
-                        >
-                          <Image
-                            src={question.imageUrl}
-                            layout="fill"
-                            objectFit="contain"
-                            alt="question preview image"
-                          />
-                        </a>
+
+                        <Image
+                          src={question.imageUrl}
+                          layout="fill"
+                          objectFit="contain"
+                          alt="question preview image"
+                        />
                       </Link>
                     )}
                     <div className="card-body">
                       <Link href={galleryHref}>
-                        <a>
-                          <h3 className="card-title h5">{question.title}</h3>
-                        </a>
+                        <h3 className="card-title h5">{question.title}</h3>
                       </Link>
                       <p className="text-muted mb-0">{question.summary}</p>
                     </div>

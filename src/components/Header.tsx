@@ -24,16 +24,15 @@ const RouterNavLink: React.FC<NavLinkProps> = ({ href, children }) => {
   const active = useIsActive(href);
   const current = useIsCurrent(href);
   return (
-    <Link href={href}>
-      <a
-        className={classnames("nav-link", styles["nav-link"], {
-          "fw-bold": active,
-          [styles.active]: active,
-        })}
-        aria-current={current ? "page" : undefined}
-      >
-        {children}
-      </a>
+    <Link
+      href={href}
+      className={classnames("nav-link", styles["nav-link"], {
+        "fw-bold": active,
+        [styles.active]: active,
+      })}
+      aria-current={current ? "page" : undefined}
+    >
+      {children}
     </Link>
   );
 };
@@ -42,7 +41,7 @@ const NavDropdownItem: React.FC<NavLinkProps> = ({ href, children }) => {
   const active = useIsActive(href);
   const current = useIsCurrent(href);
   return (
-    <Link href={href} passHref>
+    <Link href={href} passHref legacyBehavior>
       <NavDropdown.Item
         className={classnames({ "fw-bold": active })}
         aria-current={current ? "page" : undefined}
@@ -73,11 +72,9 @@ export const Header: React.FC = () => {
       )}
     >
       <div className="container">
-        <Link href="/">
-          <a className="navbar-brand">
-            <Image src={logo} width={24} height={24} alt="PrairieLearn logo" />
-            PrairieLearn
-          </a>
+        <Link href="/" className="navbar-brand">
+          <Image src={logo} width={24} height={24} alt="PrairieLearn logo" />
+          PrairieLearn
         </Link>
         <button
           className="navbar-toggler"
