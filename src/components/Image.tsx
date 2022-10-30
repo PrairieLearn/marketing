@@ -1,5 +1,5 @@
 import React from "react";
-import NextImage, { ImageLoader, ImageProps } from "next/image";
+import NextImage, { ImageLoader, ImageProps } from "next/legacy/image";
 
 const isProduction = process.env.NODE_ENV === "production";
 
