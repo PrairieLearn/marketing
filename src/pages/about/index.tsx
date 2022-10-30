@@ -1,13 +1,12 @@
 import React from "react";
 import classnames from "classnames";
 import Head from "next/head";
-import { ImageProps } from "next/legacy/image";
+import Image, { ImageProps } from "next/image";
 
 import { PageBanner } from "../../components/Banner";
 import { DemoCourseCTA } from "../../components/DemoCourse";
 import { Heading } from "../../components/Heading";
 import Stack from "../../components/Stack";
-import Image from "../../components/Image";
 
 import styles from "./index.module.scss";
 import mattImage from "../../lib/images/team/matthew_west.jpeg";

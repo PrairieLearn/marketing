@@ -1,12 +1,11 @@
 import React from "react";
 import Head from "next/head";
 import Link from "next/link";
-import { ImageProps } from "next/legacy/image";
+import Image, { ImageProps } from "next/image";
 import classnames from "classnames";
 
 import { PageBanner } from "../../../components/Banner";
 import { Heading } from "../../../components/Heading";
-import Image from "../../../components/Image";
 
 import styles from "./index.module.scss";
 import cs233Image from "../../../lib/images/cs-233.png";

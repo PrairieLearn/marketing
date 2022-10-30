@@ -3,8 +3,7 @@ import classnames from "classnames";
 import { GetStaticProps } from "next";
 import Link from "next/link";
 import Head from "next/head";
-
-import Image from "../../../components/Image";
+import Image from "next/image";
 
 import { Heading } from "../../../components/Heading";
 import { PageBanner } from "../../../components/Banner";

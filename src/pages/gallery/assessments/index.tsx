@@ -3,6 +3,7 @@ import classnames from "classnames";
 import { GetStaticProps } from "next";
 import Link from "next/link";
 import Head from "next/head";
+import Image from "next/image";
 
 import { Heading } from "../../../components/Heading";
 import { PageBanner } from "../../../components/Banner";
@@ -11,7 +12,6 @@ import Stack from "../../../components/Stack";
 
 import { getAssessments } from "../../../lib/gallery/assessments";
 import assessmentImage from "../../../lib/images/assessment.png";
-import Image from "../../../components/Image";
 import styles from "./index.module.scss";
 
 interface Assessment {

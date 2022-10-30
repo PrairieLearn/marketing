@@ -1,6 +1,7 @@
 import React from "react";
 import classnames from "classnames";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { Dropdown, NavDropdown, NavItem, NavLink } from "react-bootstrap";
 
@@ -52,7 +53,6 @@ const NavDropdownItem: React.FC<NavLinkProps> = ({ href, children }) => {
   );
 };
 
-import Image from "./Image";
 import logo from "../lib/images/flower-white.png";
 
 export const Header: React.FC = () => {

@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import Image from "next/image";
 import classnames from "classnames";
 import Link from "next/link";
 
@@ -8,7 +9,6 @@ import { Heading } from "../components/Heading";
 import { ExampleQuestion } from "../components/ExampleQuestion";
 import { DemoCourseCTA } from "../components/DemoCourse";
 
-import Image from "../components/Image";
 import richFBD from "../lib/images/rich_question_FBD.png";
 import richorder from "../lib/images/rich_question_order_block.png";
 import richball from "../lib/images/rich_question_balltrajectory.png";
@@ -184,11 +184,13 @@ export default function Home() {
                   <Image
                     src={src}
                     alt={alt}
-                    layout="fill"
-                    objectFit="contain"
-                    objectPosition="center"
+                    fill
                     className="pb-5 position-relative"
                     priority
+                    style={{
+                      objectFit: "contain",
+                      objectPosition: "center",
+                    }}
                   />
                 </div>
               </CarouselItem>
