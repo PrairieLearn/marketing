@@ -12,32 +12,34 @@ interface ImageNode extends Node {
   alt?: string;
 }
 
-export default (): Transformer => async (tree, file) => {
-  const baseDirectory = path.parse(file.history[0]).dir;
+export default function extractImages(): Transformer {
+  return async (tree, file) => {
+    const baseDirectory = path.parse(file.history[0]).dir;
 
-  const imageNodes: ImageNode[] = [];
-  visit(tree, "image", (node: ImageNode) => {
-    imageNodes.push(node);
-  });
+    const imageNodes: ImageNode[] = [];
+    visit(tree, "image", (node: ImageNode) => {
+      imageNodes.push(node);
+    });
 
-  await Promise.all(
-    imageNodes.map(async (node) => {
-      // Resolve path to image on disk
-      const imagePath = path.resolve(baseDirectory, node.url);
+    await Promise.all(
+      imageNodes.map(async (node) => {
+        // Resolve path to image on disk
+        const imagePath = path.resolve(baseDirectory, node.url);
 
-      const { url, width, height } = await copyImageToPublicDir(imagePath);
+        const { url, width, height } = await copyImageToPublicDir(imagePath);
 
-      // Rewrite image node to point at this new resource
-      node.url = url;
+        // Rewrite image node to point at this new resource
+        node.url = url;
 
-      const dimensionProps = {
-        imageWidth: width,
-        imageHeight: height,
-      };
+        const dimensionProps = {
+          imageWidth: width,
+          imageHeight: height,
+        };
 
-      const data = node.data || (node.data = {});
-      const props = data.hProperties || (data.hProperties = {});
-      Object.assign(props, dimensionProps);
-    })
-  );
-};
+        const data = node.data || (node.data = {});
+        const props = data.hProperties || (data.hProperties = {});
+        Object.assign(props, dimensionProps);
+      })
+    );
+  };
+}
