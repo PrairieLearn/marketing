@@ -2,9 +2,9 @@
 title: Subprocessors
 ---
 
-PrairieLearn, Inc. ("PrairieLearn") uses certain third party sub-processors (“Sub-processors”) to assist in providing the Service described in the PrairieLearn Terms of Service available at https://www.prairielearn.com/legal/terms/ and/or as set forth in a customer service agreement. 
+PrairieLearn, Inc. ("PrairieLearn") uses certain third party sub-processors to assist in providing the Service described in the PrairieLearn Terms of Service available at [https://www.prairielearn.com/legal/terms/](/legal/terms) and/or as set forth in a customer service agreement. 
 
-## List of subprocessors
+## List of sub-processors
 
 | Name                | Purpose                | Entity Country |
 | ------------------- | ---------------------- | -------------- |
