@@ -96,9 +96,9 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
 
                         <Image
                           src={question.imageUrl}
-                          layout="fill"
-                          objectFit="contain"
+                          fill
                           alt="question preview image"
+                          style={{ objectFit: "contain" }}
                         />
                       </Link>
                     )}

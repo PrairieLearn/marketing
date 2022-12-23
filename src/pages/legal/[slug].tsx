@@ -57,10 +57,15 @@ export const getStaticProps: GetStaticProps<TermsProps, PathParams> = async ({
     content,
     data: { title },
   } = matter(source);
-  return {
-    props: {
-      title,
-      source: await serialize(content),
-    },
-  };
+  try {
+    return {
+      props: {
+        title,
+        source: await serialize(content),
+      },
+    };
+  } catch (err) {
+    console.log(err);
+    throw err;
+  }
 };

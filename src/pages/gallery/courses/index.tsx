@@ -45,7 +45,7 @@ const CourseCard: React.FC<CourseCardProps> = ({
         className="position-relative"
         style={{ aspectRatio: "5 / 3" }}
       >
-        <Image src={image} layout="fill" objectFit="contain" alt={title} />
+        <Image src={image} fill alt={title} style={{ objectFit: "contain" }} />
       </Link>
       <div className="card-body">
         <Link href={href}>

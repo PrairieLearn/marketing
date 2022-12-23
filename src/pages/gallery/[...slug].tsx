@@ -101,7 +101,6 @@ export const getStaticProps: GetStaticProps<
             remarkMath,
           ],
           rehypePlugins: [rehypeKatex],
-          filepath: assessment.markdownPath,
         },
       });
 
@@ -121,20 +120,24 @@ export const getStaticProps: GetStaticProps<
         throw new Error(`Question not found for slug: ${slug}`);
       }
 
-      const mdxSource = await serialize(question.markdownContent, {
-        mdxOptions: {
-          remarkPlugins: [loadCodePlugin, extractImages, remarkMath],
-          rehypePlugins: [rehypeKatex],
-          filepath: question.markdownPath,
-        },
-      });
-      return {
-        props: {
-          source: mdxSource,
-          summary: question.summary,
-          title: question.title,
-        },
-      };
+      try {
+        const mdxSource = await serialize(question.markdownContent, {
+          mdxOptions: {
+            remarkPlugins: [loadCodePlugin, extractImages, remarkMath],
+            rehypePlugins: [rehypeKatex],
+          },
+        });
+        return {
+          props: {
+            source: mdxSource,
+            summary: question.summary,
+            title: question.title,
+          },
+        };
+      } catch (e) {
+        console.error(e);
+        throw e;
+      }
     }
     default:
       throw new Error(`Invalid slug type: ${type}`);

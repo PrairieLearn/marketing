@@ -50,11 +50,19 @@ const CAROUSEL_IMAGES = [
   },
 ];
 
-const Row: React.FC = ({ children }) => (
+interface RowProps {
+  children: React.ReactNode;
+}
+
+const Row: React.FC<RowProps> = ({ children }) => (
   <div className="row justify-content-center">{children}</div>
 );
 
-const Column: React.FC = ({ children }) => (
+interface ColumnProps {
+  children: React.ReactNode;
+}
+
+const Column: React.FC<ColumnProps> = ({ children }) => (
   <div className="col">{children}</div>
 );
 

@@ -10,14 +10,12 @@ import extractImages from "../remarkPlugins/extractImages";
 import { MarkdownPageProps } from "./markdown-page";
 
 export async function serializeMarkdownDocument(
-  doc: string,
-  filepath?: string
+  doc: string
 ): Promise<MDXRemoteSerializeResult> {
   return serialize(doc, {
     mdxOptions: {
       remarkPlugins: [loadCodePlugin, extractImages, remarkMath],
       rehypePlugins: [rehypeKatex],
-      filepath,
     },
   });
 }
@@ -32,7 +30,7 @@ export async function getPropsForMarkdownFile(
     data: { title = "NO TITLE", summary = null },
   } = matter(rawContents);
 
-  const source = await serializeMarkdownDocument(content, filePath);
+  const source = await serializeMarkdownDocument(content);
 
   return {
     source,
