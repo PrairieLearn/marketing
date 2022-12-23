@@ -51,6 +51,11 @@ export const Footer: React.FC = () => {
               <li className="mb-2">
                 <FooterLink href="/legal/privacy">Privacy Policy</FooterLink>
               </li>
+              <li className="mb-2">
+                <FooterLink href="/legal/subprocessors">
+                  Subprocessors
+                </FooterLink>
+              </li>
             </ul>
           </div>
           <div className="col-6 col-sm-4 mb-3">

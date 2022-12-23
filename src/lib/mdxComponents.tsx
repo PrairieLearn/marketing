@@ -24,6 +24,11 @@ const mdxComponents: Components = {
       <Image alt={alt} src={imageSrc} width={imageWidth} height={imageHeight} />
     );
   },
+  table: ({ children }) => (
+    <div className="table-responsive">
+      <table className="table">{children}</table>
+    </div>
+  ),
 };
 
 export default mdxComponents;
