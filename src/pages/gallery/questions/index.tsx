@@ -19,8 +19,6 @@ interface Question {
   slug: string;
   summary: string;
   imageUrl?: string;
-  imageWidth?: number;
-  imageHeight?: number;
 }
 
 interface GalleryIndexProps {
@@ -106,12 +104,9 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
                         <Image
                           src={question.imageUrl}
                           alt="question preview image"
-                          width={question.imageWidth}
-                          height={question.imageHeight}
+                          fill
                           style={{
                             objectFit: "contain",
-                            maxWidth: "100%",
-                            height: "auto",
                           }}
                         />
                       </Link>
@@ -148,8 +143,6 @@ export const getStaticProps: GetStaticProps<GalleryIndexProps> = async () => {
     slug,
     summary,
     imageUrl: image?.url,
-    imageWidth: image?.width,
-    imageHeight: image?.height,
   }));
 
   return {
