@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "next/link";
 import { Components } from "@mdx-js/react";
 import { Language } from "prism-react-renderer";

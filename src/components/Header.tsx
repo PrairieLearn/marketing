@@ -1,7 +1,7 @@
 import React from "react";
 import classnames from "classnames";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { Dropdown, NavDropdown, NavItem, NavLink } from "react-bootstrap";
 
