@@ -15,6 +15,7 @@ import richball from "../lib/images/rich_question_balltrajectory.png";
 
 import styles from "./index.module.scss";
 import { Accordion, Carousel, CarouselItem } from "react-bootstrap";
+import { GetServerSideProps } from "next";
 
 const TALKING_POINTS = [
   {
@@ -66,7 +67,11 @@ const Column: React.FC<ColumnProps> = ({ children }) => (
   <div className="col">{children}</div>
 );
 
-export default function Home() {
+interface HomeProps {
+  seed: number;
+}
+
+const Home: React.FC<HomeProps> = ({ seed }) => {
   return (
     <React.Fragment>
       <Head>
@@ -130,7 +135,7 @@ export default function Home() {
               </p>
             </div>
             <div className="col-md-6 order-2 pt-2">
-              <ExampleQuestion />
+              <ExampleQuestion seed={seed} />
             </div>
           </div>
         </div>
@@ -281,4 +286,14 @@ export default function Home() {
       />
     </React.Fragment>
   );
-}
+};
+
+export default Home;
+
+export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
+  return {
+    props: {
+      seed: Math.random(),
+    },
+  };
+};
