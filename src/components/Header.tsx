@@ -1,7 +1,7 @@
 import React from "react";
 import classnames from "classnames";
 import Link from "next/link";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { Dropdown, NavDropdown, NavItem, NavLink } from "react-bootstrap";
 
@@ -74,7 +74,15 @@ export const Header: React.FC = () => {
     >
       <div className="container">
         <Link href="/" className="navbar-brand">
-          <Image src={logo} width={24} height={24} alt="PrairieLearn logo" />
+          <Image
+            src={logo}
+            width={24}
+            height={24}
+            alt="PrairieLearn logo"
+            style={{
+              maxWidth: "100%",
+              height: "auto"
+            }} />
           PrairieLearn
         </Link>
         <button

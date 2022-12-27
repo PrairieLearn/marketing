@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 import { Components } from "@mdx-js/react";
 import { Language } from "prism-react-renderer";
@@ -40,7 +40,15 @@ const mdxComponents: Components = {
       imageSrc = imageSrc.replace("__image__", "/build/images");
     }
     return (
-      <Image alt={alt} src={imageSrc} width={imageWidth} height={imageHeight} />
+      <Image
+        alt={alt}
+        src={imageSrc}
+        width={imageWidth}
+        height={imageHeight}
+        style={{
+          maxWidth: "100%",
+          height: "auto"
+        }} />
     );
   },
   table: ({ children }) => (
