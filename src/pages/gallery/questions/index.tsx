@@ -19,6 +19,8 @@ interface Question {
   slug: string;
   summary: string;
   imageUrl?: string;
+  imageWidth?: number;
+  imageHeight?: number;
 }
 
 interface GalleryIndexProps {
@@ -48,8 +50,9 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
                 alt="question example"
                 style={{
                   maxWidth: "100%",
-                  height: "auto"
-                }} />
+                  height: "auto",
+                }}
+              />
               <LinkButton
                 label="Read more about PrairieLearn questions"
                 href="/gallery/questions/question-intro"
@@ -102,13 +105,15 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
 
                         <Image
                           src={question.imageUrl}
-                          fill
                           alt="question preview image"
+                          width={question.imageWidth}
+                          height={question.imageHeight}
                           style={{
                             objectFit: "contain",
                             maxWidth: "100%",
-                            height: "auto"
-                          }} />
+                            height: "auto",
+                          }}
+                        />
                       </Link>
                     )}
                     <div className="card-body">
@@ -143,6 +148,8 @@ export const getStaticProps: GetStaticProps<GalleryIndexProps> = async () => {
     slug,
     summary,
     imageUrl: image?.url,
+    imageWidth: image?.width,
+    imageHeight: image?.height,
   }));
 
   return {

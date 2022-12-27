@@ -197,15 +197,15 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
                   <Image
                     src={src}
                     alt={alt}
-                    fill
                     className="pb-5 position-relative"
                     priority
                     style={{
                       objectFit: "contain",
                       objectPosition: "center",
                       maxWidth: "100%",
-                      height: "auto"
-                    }} />
+                      height: "auto",
+                    }}
+                  />
                 </div>
               </CarouselItem>
             ))}

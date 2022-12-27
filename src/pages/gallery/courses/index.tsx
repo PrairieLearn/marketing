@@ -47,13 +47,13 @@ const CourseCard: React.FC<CourseCardProps> = ({
       >
         <Image
           src={image}
-          fill
           alt={title}
           style={{
             objectFit: "contain",
             maxWidth: "100%",
-            height: "auto"
-          }} />
+            height: "auto",
+          }}
+        />
       </Link>
       <div className="card-body">
         <Link href={href}>

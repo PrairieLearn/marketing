@@ -28,13 +28,13 @@ const PeopleCard: React.FC<PeopleCardProps> = ({ image, name, title }) => {
       <div className="position-relative" style={{ aspectRatio: "1 / 1" }}>
         <Image
           src={image}
-          fill
           alt={title}
           style={{
             objectFit: "cover",
             maxWidth: "100%",
-            height: "auto"
-          }} />
+            height: "auto",
+          }}
+        />
       </div>
       <div className="card-body">
         <h3 className="card-title h6">{name}</h3>
