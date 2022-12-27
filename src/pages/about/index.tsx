@@ -1,7 +1,7 @@
 import React from "react";
 import classnames from "classnames";
 import Head from "next/head";
-import Image, { ImageProps } from "next/legacy/image";
+import Image, { ImageProps } from "next/image";
 
 import { PageBanner } from "../../components/Banner";
 import { DemoCourseCTA } from "../../components/DemoCourse";
@@ -26,7 +26,15 @@ const PeopleCard: React.FC<PeopleCardProps> = ({ image, name, title }) => {
   return (
     <article className="card border-secondary mb-1">
       <div className="position-relative" style={{ aspectRatio: "1 / 1" }}>
-        <Image src={image} fill alt={title} style={{ objectFit: "cover" }} />
+        <Image
+          src={image}
+          fill
+          alt={title}
+          style={{
+            objectFit: "cover",
+            maxWidth: "100%",
+            height: "auto"
+          }} />
       </div>
       <div className="card-body">
         <h3 className="card-title h6">{name}</h3>

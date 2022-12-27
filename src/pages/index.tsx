@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import classnames from "classnames";
 import Link from "next/link";
 
@@ -203,8 +203,9 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
                     style={{
                       objectFit: "contain",
                       objectPosition: "center",
-                    }}
-                  />
+                      maxWidth: "100%",
+                      height: "auto"
+                    }} />
                 </div>
               </CarouselItem>
             ))}

@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import Link from "next/link";
-import Image, { ImageProps } from "next/legacy/image";
+import Image, { ImageProps } from "next/image";
 import classnames from "classnames";
 
 import { PageBanner } from "../../../components/Banner";
@@ -45,7 +45,15 @@ const CourseCard: React.FC<CourseCardProps> = ({
         className="position-relative"
         style={{ aspectRatio: "5 / 3" }}
       >
-        <Image src={image} fill alt={title} style={{ objectFit: "contain" }} />
+        <Image
+          src={image}
+          fill
+          alt={title}
+          style={{
+            objectFit: "contain",
+            maxWidth: "100%",
+            height: "auto"
+          }} />
       </Link>
       <div className="card-body">
         <Link href={href}>

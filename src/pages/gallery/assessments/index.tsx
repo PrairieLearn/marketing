@@ -3,7 +3,7 @@ import classnames from "classnames";
 import { GetStaticProps } from "next";
 import Link from "next/link";
 import Head from "next/head";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 import { Heading } from "../../../components/Heading";
 import { PageBanner } from "../../../components/Banner";
@@ -39,7 +39,13 @@ const AssessmentIndex: React.FC<AssessmentIndexProps> = ({ assessments }) => {
         <div className="container-md">
           <div className="row">
             <div className="col-md-6 order-2 pt-4">
-              <Image src={assessmentImage} alt="assessment page view" />
+              <Image
+                src={assessmentImage}
+                alt="assessment page view"
+                style={{
+                  maxWidth: "100%",
+                  height: "auto"
+                }} />
             </div>
             <div className="col-md-6 order-1">
               <Heading>Assessments</Heading>

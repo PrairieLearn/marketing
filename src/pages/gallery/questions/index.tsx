@@ -3,7 +3,7 @@ import classnames from "classnames";
 import { GetStaticProps } from "next";
 import Link from "next/link";
 import Head from "next/head";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 import { Heading } from "../../../components/Heading";
 import { PageBanner } from "../../../components/Banner";
@@ -43,7 +43,13 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
               className="col-md-6 order-2 pt-4
             "
             >
-              <Image src={questionImage} alt="question example" />
+              <Image
+                src={questionImage}
+                alt="question example"
+                style={{
+                  maxWidth: "100%",
+                  height: "auto"
+                }} />
               <LinkButton
                 label="Read more about PrairieLearn questions"
                 href="/gallery/questions/question-intro"
@@ -98,8 +104,11 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
                           src={question.imageUrl}
                           fill
                           alt="question preview image"
-                          style={{ objectFit: "contain" }}
-                        />
+                          style={{
+                            objectFit: "contain",
+                            maxWidth: "100%",
+                            height: "auto"
+                          }} />
                       </Link>
                     )}
                     <div className="card-body">
