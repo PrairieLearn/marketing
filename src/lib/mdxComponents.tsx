@@ -19,7 +19,13 @@ const mdxComponents: Components = {
 
     return <a href={href} {...props} />;
   },
-  code: ({ children, className }) => {
+  code: ({ children, className, ...rest }) => {
+    if (!className) {
+      // Handle inline code.
+      return <code>{children}</code>;
+    }
+
+    // Handle code blocks.
     const language = className.replace(/language-/, "") as Language;
     return (
       <div className="mb-3">

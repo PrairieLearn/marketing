@@ -4,18 +4,24 @@ import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
+import { VFile } from "vfile";
 
 import loadCodePlugin from "../remarkPlugins/loadCode";
 import extractImages from "../remarkPlugins/extractImages";
 import { MarkdownPageProps } from "./markdown-page";
 
 export async function serializeMarkdownDocument(
-  doc: string
+  doc: string,
+  filepath: string
 ): Promise<MDXRemoteSerializeResult> {
-  return serialize(doc, {
+  const file = new VFile({ path: filepath, value: doc });
+  return serialize(file, {
     mdxOptions: {
       remarkPlugins: [loadCodePlugin, extractImages, remarkMath],
       rehypePlugins: [rehypeKatex],
+      // Temporary fix for the following:
+      // https://github.com/hashicorp/next-mdx-remote/issues/307
+      development: false,
     },
   });
 }
@@ -30,7 +36,7 @@ export async function getPropsForMarkdownFile(
     data: { title = "NO TITLE", summary = null },
   } = matter(rawContents);
 
-  const source = await serializeMarkdownDocument(content);
+  const source = await serializeMarkdownDocument(content, filePath);
 
   return {
     source,

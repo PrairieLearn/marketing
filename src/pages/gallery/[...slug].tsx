@@ -6,6 +6,7 @@ import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
+import { VFile } from "vfile";
 
 import mdxComponents from "../../lib/mdxComponents";
 import loadCodePlugin from "../../remarkPlugins/loadCode";
@@ -93,7 +94,11 @@ export const getStaticProps: GetStaticProps<
         throw new Error(`Assessment not found for slug ${slug}`);
       }
 
-      const mdxSource = await serialize(assessment.markdownContent, {
+      const file = new VFile({
+        path: assessment.markdownPath,
+        value: assessment.markdownContent,
+      });
+      const mdxSource = await serialize(file, {
         mdxOptions: {
           remarkPlugins: [
             rewriteAssessmentLinks(assessments),
@@ -101,6 +106,9 @@ export const getStaticProps: GetStaticProps<
             remarkMath,
           ],
           rehypePlugins: [rehypeKatex],
+          // Temporary fix for the following:
+          // https://github.com/hashicorp/next-mdx-remote/issues/307
+          development: false,
         },
       });
 
@@ -120,24 +128,26 @@ export const getStaticProps: GetStaticProps<
         throw new Error(`Question not found for slug: ${slug}`);
       }
 
-      try {
-        const mdxSource = await serialize(question.markdownContent, {
-          mdxOptions: {
-            remarkPlugins: [loadCodePlugin, extractImages, remarkMath],
-            rehypePlugins: [rehypeKatex],
-          },
-        });
-        return {
-          props: {
-            source: mdxSource,
-            summary: question.summary,
-            title: question.title,
-          },
-        };
-      } catch (e) {
-        console.error(e);
-        throw e;
-      }
+      const file = new VFile({
+        path: question.markdownPath,
+        value: question.markdownContent,
+      });
+      const mdxSource = await serialize(file, {
+        mdxOptions: {
+          remarkPlugins: [loadCodePlugin, extractImages, remarkMath],
+          rehypePlugins: [rehypeKatex],
+          // Temporary fix for the following:
+          // https://github.com/hashicorp/next-mdx-remote/issues/307
+          development: false,
+        },
+      });
+      return {
+        props: {
+          source: mdxSource,
+          summary: question.summary,
+          title: question.title,
+        },
+      };
     }
     default:
       throw new Error(`Invalid slug type: ${type}`);
