@@ -8,6 +8,7 @@ import path from "path";
 import matter from "gray-matter";
 
 import { PageBanner } from "../../components/Banner";
+import mdxComponents from "../../lib/mdxComponents";
 
 interface TermsProps {
   title: string;
@@ -24,7 +25,7 @@ const Terms: React.FC<TermsProps> = ({ title, source }) => {
       <PageBanner title={title} />
 
       <div className="container my-5">
-        <MDXRemote {...source} />
+        <MDXRemote {...source} components={mdxComponents} />
       </div>
     </React.Fragment>
   );
@@ -39,7 +40,9 @@ interface PathParams {
 
 export const getStaticPaths: GetStaticPaths<PathParams> = async () => {
   return {
-    paths: ["terms", "privacy"].map((slug) => ({ params: { slug } })),
+    paths: ["terms", "privacy", "subprocessors"].map((slug) => ({
+      params: { slug },
+    })),
     fallback: false,
   };
 };
