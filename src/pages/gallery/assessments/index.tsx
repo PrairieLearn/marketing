@@ -44,8 +44,9 @@ const AssessmentIndex: React.FC<AssessmentIndexProps> = ({ assessments }) => {
                 alt="assessment page view"
                 style={{
                   maxWidth: "100%",
-                  height: "auto"
-                }} />
+                  height: "auto",
+                }}
+              />
             </div>
             <div className="col-md-6 order-1">
               <Heading>Assessments</Heading>

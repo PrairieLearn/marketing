@@ -47,8 +47,9 @@ const mdxComponents: Components = {
         height={imageHeight}
         style={{
           maxWidth: "100%",
-          height: "auto"
-        }} />
+          height: "auto",
+        }}
+      />
     );
   },
   table: ({ children }) => (

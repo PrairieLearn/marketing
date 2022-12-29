@@ -81,8 +81,9 @@ export const Header: React.FC = () => {
             alt="PrairieLearn logo"
             style={{
               maxWidth: "100%",
-              height: "auto"
-            }} />
+              height: "auto",
+            }}
+          />
           PrairieLearn
         </Link>
         <button
