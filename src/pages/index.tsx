@@ -76,7 +76,7 @@ export default function Home() {
                 The best platform for online assessments
               </p>
               <a
-                href="https://www.prairielearn.org/pl/request_course"
+                href="https://us.prairielearn.com/pl/request_course"
                 className="btn btn-light btn-lg me-3 mt-3"
               >
                 Request a course
