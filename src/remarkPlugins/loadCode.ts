@@ -11,7 +11,7 @@ interface CodeNode extends Node {
   meta?: string;
 }
 
-export default (): Transformer => async (tree, file) => {
+const loadCode = (): Transformer => async (tree, file) => {
   const baseDirectory = path.parse(file.history[0]).dir;
 
   const codeNodes: CodeNode[] = [];
@@ -36,3 +36,5 @@ export default (): Transformer => async (tree, file) => {
     })
   );
 };
+
+export default loadCode;

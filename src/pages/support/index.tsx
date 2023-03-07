@@ -24,10 +24,7 @@ export default function Support() {
               </a>{" "}
               is the best place to ask questions, find answers, and get help. If
               you prefer to chat with folks in real time, check out the{" "}
-              <a href="https://join.slack.com/t/prairielearn/shared_invite/zt-1eytf3ikh-XSd_IlwV3CaAegMBZDevTA">
-                PrairieLearn community Slack
-              </a>
-              .
+              <a href="/slack">PrairieLearn community Slack</a>.
             </p>
           </div>
 

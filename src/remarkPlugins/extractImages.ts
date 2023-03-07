@@ -12,7 +12,7 @@ interface ImageNode extends Node {
   alt?: string;
 }
 
-export default (): Transformer => async (tree, file) => {
+const extractImages = (): Transformer => async (tree, file) => {
   const baseDirectory = path.parse(file.history[0]).dir;
 
   const imageNodes: ImageNode[] = [];
@@ -41,3 +41,4 @@ export default (): Transformer => async (tree, file) => {
     })
   );
 };
+export default extractImages;
