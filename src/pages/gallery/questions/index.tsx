@@ -45,10 +45,14 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
             "
             >
               <Image src={questionImage} alt="question example" />
-              <LinkButton
-                label="Read more about PrairieLearn questions"
-                href="/gallery/questions/question-intro"
-              />
+              <div className="row justify-content-center my-2">
+                <div className="col-md-12 text-center py-3">
+                  <LinkButton
+                    label="Read more about PrairieLearn questions"
+                    href="/gallery/questions/question-intro"
+                  />
+                </div>
+              </div>
             </div>
             <div className="col-md-6 order-1">
               <Heading>Questions</Heading>
