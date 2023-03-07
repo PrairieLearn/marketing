@@ -157,7 +157,7 @@ export default function Courses() {
             <CourseCard
               image={cs357}
               title="Numerical Methods"
-              href="https://us.prairielearn.com/pl/course_instance/128953"
+              href="https://us.prairielearn.com/pl/course_instance/132679"
               institution="University of Illinois at Urbana-Champaign"
               rubric="CS 357"
               ownerName="Mariana Silva"
