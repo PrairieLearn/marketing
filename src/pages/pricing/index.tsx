@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import Link from "next/link";
+import Accordion from "react-bootstrap/Accordion";
 
 import CheckIcon from "../../components/CheckIcon";
 import Stack from "../../components/Stack";
@@ -11,45 +12,63 @@ import styles from "./index.module.scss";
 const FEATURES = [
   {
     name: "Unlimited instructors",
-    suppport: [true, true, true],
+    support: [true, true, true, true],
   },
   {
     name: "Real-time automated grading",
-    suppport: [true, true, true],
+    support: [true, true, true, true],
   },
   {
     name: "Assessment statistics",
-    suppport: [true, true, true],
+    support: [true, true, true, true],
   },
   {
     name: "Data exporting",
-    suppport: [true, true, true],
+    support: [true, true, true, true],
   },
   {
     name: "API access",
-    suppport: [true, true, true],
+    support: [true, true, true, true],
   },
   {
     name: "Code autograding",
-    suppport: [false, true, true],
+    support: [false, true, true, true],
   },
   {
     name: "Workspaces",
-    suppport: [false, true, true],
+    support: [false, true, true, true],
   },
   {
     name: "LMS integration",
-    suppport: [false, false, true],
+    support: [false, false, true, true],
   },
   {
     name: "Single sign-on (SSO) support",
-    suppport: [false, false, true],
+    support: [false, false, false, true],
   },
   {
     name: "Custom service agreement",
-    suppport: [false, false, true],
+    support: [false, false, false, true],
   },
 ];
+
+interface PricingCardProps {
+  title: string;
+  price: React.ReactNode;
+  cta: React.ReactNode;
+}
+
+function PricingCard({ title, price, cta }: PricingCardProps) {
+  return (
+    <div className="card shadow-sm text-center h-100">
+      <div className="card-body d-flex flex-column">
+        <h2 className="card-title h4 mb-3">{title}</h2>
+        <div className="flex-grow-1 mb-3">{price}</div>
+        {cta}
+      </div>
+    </div>
+  );
+}
 
 export default function Pricing() {
   return (
@@ -62,52 +81,63 @@ export default function Pricing() {
         <Stack>
           <div className="container">
             <div className="row gy-3">
-              <div className="col-md">
-                <div className="card shadow-sm text-center">
-                  <div className="card-body">
-                    <Stack spacing={3}>
-                      <h2 className="card-title h4">Basic</h2>
-                      <div>
-                        <strong>$6</strong>{" "}
-                        <span className="text-muted">/ student / course</span>
-                      </div>
-                      <Link href="/pricing/contact">
-                        <a className="btn btn-outline-primary">Get started</a>
-                      </Link>
-                    </Stack>
-                  </div>
-                </div>
+              <div className="col-sm col-sm-6 col-md-3">
+                <PricingCard
+                  title="Basic"
+                  price={
+                    <React.Fragment>
+                      <strong>$6</strong>{" "}
+                      <span className="text-muted">/ student / course</span>
+                    </React.Fragment>
+                  }
+                  cta={
+                    <Link href="/pricing/contact">
+                      <a className="btn btn-outline-primary">Get started</a>
+                    </Link>
+                  }
+                />
               </div>
-              <div className="col-md">
-                <div className="card shadow-sm text-center">
-                  <div className="card-body">
-                    <Stack spacing={3}>
-                      <h2 className="card-title h4">Premium</h2>
-                      <div>
-                        <strong>$12</strong>{" "}
-                        <span className="text-muted">/ student / course</span>
-                      </div>
-                      <Link href="/pricing/contact">
-                        <a className="btn btn-primary">Get started</a>
-                      </Link>
-                    </Stack>
-                  </div>
-                </div>
+              <div className="col-sm col-sm-6 col-md-3">
+                <PricingCard
+                  title="Premium"
+                  price={
+                    <React.Fragment>
+                      <strong>$12</strong>{" "}
+                      <span className="text-muted">/ student / course</span>
+                    </React.Fragment>
+                  }
+                  cta={
+                    <Link href="/pricing/contact">
+                      <a className="btn btn-primary">Get started</a>
+                    </Link>
+                  }
+                />
               </div>
-              <div className="col-md">
-                <div className="card shadow-sm text-center">
-                  <div className="card-body">
-                    <Stack spacing={3}>
-                      <h2 className="card-title h4">Enterprise</h2>
-                      <div>
-                        <span className="text-muted">Custom pricing</span>
-                      </div>
-                      <Link href="/pricing/contact">
-                        <a className="btn btn-primary">Contact us</a>
-                      </Link>
-                    </Stack>
-                  </div>
-                </div>
+              <div className="col-sm col-sm-6 col-md-3">
+                <PricingCard
+                  title="Student-paid"
+                  price={
+                    <span className="badge rounded-pill text-bg-success flex-grow">
+                      Coming Fall 2023
+                    </span>
+                  }
+                  cta={
+                    <Link href="/pricing/contact">
+                      <a className="btn btn-primary">Contact us</a>
+                    </Link>
+                  }
+                />
+              </div>
+              <div className="col-sm col-sm-6 col-md-3">
+                <PricingCard
+                  title="Enterprise"
+                  price={<span className="text-muted">Custom pricing</span>}
+                  cta={
+                    <Link href="/pricing/contact">
+                      <a className="btn btn-primary">Contact us</a>
+                    </Link>
+                  }
+                />
               </div>
             </div>
           </div>
@@ -131,6 +161,14 @@ export default function Pricing() {
                     </div>
                   </th>
                   <th className={styles.column}>
+                    Student-paid
+                    <div className="small fw-normal">
+                      <span className="badge rounded-pill text-bg-success flex-grow">
+                        Coming Fall 2023
+                      </span>
+                    </div>
+                  </th>
+                  <th className={styles.column}>
                     Enterprise
                     <div className="small fw-normal text-muted">
                       Custom pricing
@@ -142,7 +180,7 @@ export default function Pricing() {
                 {FEATURES.map((feature) => (
                   <tr key={feature.name}>
                     <th>{feature.name}</th>
-                    {feature.suppport.map((support, i) => (
+                    {feature.support.map((support, i) => (
                       <td className="align-middle" key={i}>
                         {support ? <CheckIcon /> : <span>-</span>}
                       </td>
@@ -153,6 +191,29 @@ export default function Pricing() {
             </table>
           </div>
         </Stack>
+        <h2 className="mt-4 mb-3">Frequently asked questions</h2>
+        <Accordion>
+          <Accordion.Item eventKey="0">
+            <Accordion.Header>
+              How does student-paid pricing work?
+            </Accordion.Header>
+            <Accordion.Body>
+              <p>
+                Our student-paid model is ideal if you&apos;d like to use
+                PrairieLearn without going through your institution&apos;s full
+                contract process. Students will be responsible for paying the
+                PrairieLearn fee before they are able to access any of your
+                course&apos;s content.
+              </p>
+              <p>
+                This pricing model is currently in development, and it is
+                expected to be available by Fall 2023. If your course would like
+                to be any early adopter of this payment model, please{" "}
+                <Link href="/pricing/contact">contact us</Link>.
+              </p>
+            </Accordion.Body>
+          </Accordion.Item>
+        </Accordion>
       </div>
     </React.Fragment>
   );

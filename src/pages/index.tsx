@@ -75,23 +75,30 @@ export default function Home() {
               <p className="text-white mt-4 fs-3">
                 The best platform for online assessments
               </p>
-              <a
-                href="https://us.prairielearn.com/pl/request_course"
-                className="btn btn-light btn-lg me-3 mt-3"
-              >
-                Request a course
-              </a>
-              <Link href="/contact">
-                <a className="btn btn-outline-light btn-lg me-3 mt-3">
-                  Get in touch
+              <div className="d-flex flex-row align-items-start flex-wrap">
+                <div className="d-inline-flex flex-column">
+                  <a
+                    href="https://us.prairielearn.com/pl/request_course"
+                    className="btn btn-light btn-lg me-3 mt-3"
+                  >
+                    Request a course
+                  </a>
+                  <span className="text-white small">
+                    Always free for instructors
+                  </span>
+                </div>
+                <Link href="/contact">
+                  <a className="btn btn-outline-light btn-lg me-3 mt-3">
+                    Get in touch
+                  </a>
+                </Link>
+                <a
+                  href="https://prairielearn.readthedocs.io/en/latest/"
+                  className="btn btn-outline-light btn-lg me-3 mt-3"
+                >
+                  Documentation
                 </a>
-              </Link>
-              <a
-                href="https://prairielearn.readthedocs.io/en/latest/"
-                className="btn btn-outline-light btn-lg me-3 mt-3"
-              >
-                Documentation
-              </a>
+              </div>
             </Column>
           </Row>
         </div>

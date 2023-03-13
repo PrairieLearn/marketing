@@ -11,7 +11,7 @@ const Stack: React.FC<StackProps> = ({ spacing = 3, children }) => {
   const flattenedChildren = flattenChildren(children);
 
   return (
-    <div>
+    <div className="d-flex flex-column">
       {flattenedChildren.map((child, index) => {
         return (
           <React.Fragment key={(child as any).key || index}>
