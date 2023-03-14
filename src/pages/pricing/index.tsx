@@ -12,8 +12,6 @@ import { PageBanner } from "../../components/Banner";
 import styles from "./index.module.scss";
 import { RequestCourseModal } from "../../components/RequestCourseModal";
 
-const REQUEST_COURSE_URL = "https://us.prairielearn.com/pl/request_course";
-
 const FEATURES = [
   {
     name: "Free for instructors",
