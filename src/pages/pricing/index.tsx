@@ -53,23 +53,23 @@ const FEATURES = [
   },
 ];
 
-interface PricingCardProps {
-  title: string;
-  price: React.ReactNode;
-  cta: React.ReactNode;
+function GetStartedButton({ className }: { className?: string }) {
+  return (
+    <Link href="/pricing/contact">
+      <a className={classnames("btn btn-outline-primary btn-sm", className)}>
+        Get started
+      </a>
+    </Link>
+  );
 }
 
-function PricingCard({ title, price, cta }: PricingCardProps) {
+function ContactUsButton({ className }: { className?: string }) {
   return (
-    <div className="col-md col-sm-6 col-md-3">
-      <div className="card shadow-sm text-center h-100">
-        <div className="card-body d-flex flex-column">
-          <h2 className="card-title h4 mb-3">{title}</h2>
-          <div className="flex-grow-1 mb-3">{price}</div>
-          {cta}
-        </div>
-      </div>
-    </div>
+    <Link href="/pricing/contact">
+      <a className={classnames("btn btn-primary btn-sm", className)}>
+        Contact us
+      </a>
+    </Link>
   );
 }
 
@@ -90,7 +90,19 @@ export default function Pricing() {
       <div className="container my-5">
         <Stack>
           <div className="container">
-            <div className="d-flex flex-row justify-content-center mb-3">
+            <div className="alert alert-primary">
+              <p>
+                <strong>Always free for instructors!</strong> Explore the full
+                PrairieLearn platform as you develop your course
+                content&mdash;all for free.
+              </p>
+              <Link href="/contact">
+                <a className="btn btn-primary btn-sm">Request a course</a>
+              </Link>
+            </div>
+          </div>
+          <div className="container">
+            <div className="d-flex flex-row justify-content-center">
               <div className="btn-group">
                 <button
                   type="button"
@@ -99,83 +111,60 @@ export default function Pricing() {
                   })}
                   onClick={() => setPaymentModel("course")}
                 >
-                  {paymentModel === "course" ? "✓ " : ""} Course pays
+                  <span
+                    className={classnames("me-2", {
+                      "d-none": paymentModel !== "course",
+                    })}
+                  >
+                    ✓
+                  </span>
+                  Course pays
                 </button>
                 <button
                   type="button"
-                  className={classnames("btn btn-outline-primary", {
-                    active: paymentModel === "student",
-                  })}
+                  className={classnames(
+                    "btn btn-outline-primary d-flex flex-row align-items-center",
+                    {
+                      active: paymentModel === "student",
+                    }
+                  )}
                   onClick={() => setPaymentModel("student")}
                 >
-                  {paymentModel === "student" ? "✓ " : ""} Student pays{" "}
-                  <small>(coming Fall 2023)</small>
+                  <span
+                    className={classnames("me-2", {
+                      "d-none": paymentModel !== "student",
+                    })}
+                  >
+                    ✓
+                  </span>
+                  <div>
+                    Student pays <br />
+                    <small>(coming Fall 2023)</small>
+                  </div>
                 </button>
               </div>
-            </div>
-            <div className="row gy-3">
-              <PricingCard
-                title="Free"
-                price={<span className="text-muted">Free for 20 students</span>}
-                cta={
-                  <Link href="/pricing/contact">
-                    <a className="btn btn-outline-primary">Get started</a>
-                  </Link>
-                }
-              />
-              <PricingCard
-                title="Basic"
-                price={
-                  <React.Fragment>
-                    <strong>{basicPrice}</strong>{" "}
-                    <span className="text-muted">/ student / course</span>
-                  </React.Fragment>
-                }
-                cta={
-                  <Link href="/pricing/contact">
-                    <a className="btn btn-outline-primary">Get started</a>
-                  </Link>
-                }
-              />
-              <PricingCard
-                title="Premium"
-                price={
-                  <React.Fragment>
-                    <strong>{premiumPrice}</strong>{" "}
-                    <span className="text-muted">/ student / course</span>
-                  </React.Fragment>
-                }
-                cta={
-                  <Link href="/pricing/contact">
-                    <a className="btn btn-primary">Get started</a>
-                  </Link>
-                }
-              />
-              <PricingCard
-                title="Enterprise"
-                price={<span className="text-muted">Custom pricing</span>}
-                cta={
-                  <Link href="/pricing/contact">
-                    <a className="btn btn-primary">Contact us</a>
-                  </Link>
-                }
-              />
             </div>
           </div>
           <div className="table-responsive">
             <table className="table table-striped">
               <thead>
                 <tr>
-                  <th className={styles.column}>Features</th>
+                  <th className={classnames(styles.column, "visually-hidden")}>
+                    Features
+                  </th>
                   <th className={styles.column}>
                     Free
-                    <div className="small fw-normal">Free for 20 students</div>
+                    <div className="small fw-normal text-muted">
+                      Free for 20 students
+                    </div>
+                    <GetStartedButton className="mt-1" />
                   </th>
                   <th className={styles.column}>
                     Basic
                     <div className="small fw-normal">
                       <strong>{basicPrice}</strong>{" "}
                       <span className="text-muted">/ student / course</span>
+                      <GetStartedButton className="mt-1" />
                     </div>
                   </th>
                   <th className={styles.column}>
@@ -183,6 +172,7 @@ export default function Pricing() {
                     <div className="small fw-normal">
                       <strong>{premiumPrice}</strong>{" "}
                       <span className="text-muted">/ student / course</span>
+                      <GetStartedButton className="mt-1" />
                     </div>
                   </th>
                   <th className={styles.column}>
@@ -190,6 +180,7 @@ export default function Pricing() {
                     <div className="small fw-normal text-muted">
                       Custom pricing
                     </div>
+                    <ContactUsButton className="mt-1" />
                   </th>
                 </tr>
               </thead>
@@ -204,6 +195,21 @@ export default function Pricing() {
                     ))}
                   </tr>
                 ))}
+                <tr>
+                  <th></th>
+                  <td>
+                    <GetStartedButton />
+                  </td>
+                  <td>
+                    <GetStartedButton />
+                  </td>
+                  <td>
+                    <GetStartedButton />
+                  </td>
+                  <td>
+                    <ContactUsButton />
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>
