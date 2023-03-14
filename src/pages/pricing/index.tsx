@@ -56,6 +56,42 @@ const FEATURES = [
   },
 ];
 
+const FAQS = [
+  {
+    title: "Can I try PrairieLearn for free?",
+    contents: (
+      <p>
+        Yes! PrairieLearn is always free for instructors, and the full platform
+        is available for courses with fewer than 20 students. If you have more
+        than that,{" "}
+        <Link href="/contact">
+          <a>contact us</a>
+        </Link>{" "}
+        to arrange a free trial for one term.
+      </p>
+    ),
+  },
+  {
+    title: "How does student-paid pricing work?",
+    contents: (
+      <React.Fragment>
+        <p>
+          Our student-paid model is ideal if you&apos;d like to use PrairieLearn
+          without going through your institution&apos;s full contract process.
+          Students will be responsible for paying the PrairieLearn fee before
+          they are able to access any of your course&apos;s content.
+        </p>
+        <p>
+          This pricing model is currently in development, and it is expected to
+          be available by Fall 2023. If your course would like to be any early
+          adopter of this payment model, please{" "}
+          <Link href="/contact">contact us</Link>.
+        </p>
+      </React.Fragment>
+    ),
+  },
+];
+
 function GetStartedButton({ className }: { className?: string }) {
   return (
     <a
@@ -239,27 +275,13 @@ export default function Pricing() {
           </div>
         </Stack>
         <h2 className="mt-4 mb-3">Frequently asked questions</h2>
-        <Accordion>
-          <Accordion.Item eventKey="0">
-            <Accordion.Header>
-              How does student-paid pricing work?
-            </Accordion.Header>
-            <Accordion.Body>
-              <p>
-                Our student-paid model is ideal if you&apos;d like to use
-                PrairieLearn without going through your institution&apos;s full
-                contract process. Students will be responsible for paying the
-                PrairieLearn fee before they are able to access any of your
-                course&apos;s content.
-              </p>
-              <p>
-                This pricing model is currently in development, and it is
-                expected to be available by Fall 2023. If your course would like
-                to be any early adopter of this payment model, please{" "}
-                <Link href="/contact">contact us</Link>.
-              </p>
-            </Accordion.Body>
-          </Accordion.Item>
+        <Accordion alwaysOpen>
+          {FAQS.map((faq, i) => (
+            <Accordion.Item key={i.toString()} eventKey={i.toString()}>
+              <Accordion.Header>{faq.title}</Accordion.Header>
+              <Accordion.Body>{faq.contents}</Accordion.Body>
+            </Accordion.Item>
+          ))}
         </Accordion>
       </div>
     </React.Fragment>
