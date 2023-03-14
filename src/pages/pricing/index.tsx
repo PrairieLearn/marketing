@@ -3,6 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Accordion from "react-bootstrap/Accordion";
 import classnames from "classnames";
+import { motion, useAnimationControls } from "framer-motion";
 
 import CheckIcon from "../../components/CheckIcon";
 import Stack from "../../components/Stack";
@@ -77,6 +78,8 @@ function ContactUsButton({ className }: { className?: string }) {
 }
 
 export default function Pricing() {
+  const controls = useAnimationControls();
+
   const [paymentModel, setPaymentModel] = React.useState<"course" | "student">(
     "course"
   );
@@ -84,26 +87,30 @@ export default function Pricing() {
   const basicPrice = paymentModel === "course" ? "$6" : "$12";
   const premiumPrice = paymentModel === "course" ? "$12" : "$16";
 
+  const updatePaymentModel = (model: "course" | "student") => {
+    setPaymentModel(model);
+    controls.start({ scale: 1.3 }).then(() => controls.start({ scale: 1 }));
+  };
+
   return (
     <React.Fragment>
       <Head>
         <title>Pricing | PrairieLearn</title>
       </Head>
-      <PageBanner title="Pricing" />
+      <PageBanner title="Pricing">
+        <div className="alert alert-primary mb-0">
+          <p>
+            <strong>Free for one term!</strong> PrairieLearn is always free for
+            up to 20 students, and courses with more than that can take
+            advantage of the full PrairieLearn platform for one term.
+          </p>
+          <Link href="/contact">
+            <a className="btn btn-primary btn-sm">Request a trial</a>
+          </Link>
+        </div>
+      </PageBanner>
       <div className="container my-5">
         <Stack>
-          <div className="container">
-            <div className="alert alert-primary">
-              <p>
-                <strong>Free for one term!</strong> Explore the full
-                PrairieLearn platform as you develop your course
-                content&mdash;all for free.
-              </p>
-              <Link href="/contact">
-                <a className="btn btn-primary btn-sm">Request a trial</a>
-              </Link>
-            </div>
-          </div>
           <div className="container">
             <div className="d-flex flex-row justify-content-center">
               <div className="btn-group">
@@ -112,7 +119,7 @@ export default function Pricing() {
                   className={classnames("btn btn-outline-primary", {
                     active: paymentModel === "course",
                   })}
-                  onClick={() => setPaymentModel("course")}
+                  onClick={() => updatePaymentModel("course")}
                 >
                   <span
                     className={classnames("me-2", {
@@ -131,7 +138,7 @@ export default function Pricing() {
                       active: paymentModel === "student",
                     }
                   )}
-                  onClick={() => setPaymentModel("student")}
+                  onClick={() => updatePaymentModel("student")}
                 >
                   <span
                     className={classnames("me-2", {
@@ -152,8 +159,12 @@ export default function Pricing() {
             <table className="table table-striped">
               <thead>
                 <tr>
-                  <th className={classnames(styles.column, "visually-hidden")}>
-                    Features
+                  <th>
+                    <span
+                      className={classnames(styles.column, "visually-hidden")}
+                    >
+                      Features
+                    </span>
                   </th>
                   <th className={styles.column}>
                     Free
@@ -165,7 +176,12 @@ export default function Pricing() {
                   <th className={styles.column}>
                     Basic
                     <div className="small fw-normal">
-                      <strong>{basicPrice}</strong>{" "}
+                      <motion.strong
+                        animate={controls}
+                        className="d-inline-block"
+                      >
+                        {basicPrice}
+                      </motion.strong>{" "}
                       <span className="text-muted">/ student / course</span>
                       <GetStartedButton className="mt-1" />
                     </div>
@@ -173,7 +189,12 @@ export default function Pricing() {
                   <th className={styles.column}>
                     Premium
                     <div className="small fw-normal">
-                      <strong>{premiumPrice}</strong>{" "}
+                      <motion.strong
+                        animate={controls}
+                        className="d-inline-block"
+                      >
+                        {premiumPrice}
+                      </motion.strong>{" "}
                       <span className="text-muted">/ student / course</span>
                       <GetStartedButton className="mt-1" />
                     </div>
