@@ -10,9 +10,11 @@ import { PageBanner } from "../../components/Banner";
 
 import styles from "./index.module.scss";
 
+const REQUEST_COURSE_URL = "https://us.prairielearn.com/pl/request_course";
+
 const FEATURES = [
   {
-    name: "Unlimited instructors",
+    name: "Free for instructors",
     support: [true, true, true, true],
   },
   {
@@ -44,7 +46,7 @@ const FEATURES = [
     support: [true, false, false, true],
   },
   {
-    name: "Single sign-on (SSO) support",
+    name: "Single sign-on (SSO)",
     support: [false, false, false, true],
   },
   {
@@ -55,17 +57,18 @@ const FEATURES = [
 
 function GetStartedButton({ className }: { className?: string }) {
   return (
-    <Link href="/pricing/contact">
-      <a className={classnames("btn btn-outline-primary btn-sm", className)}>
-        Get started
-      </a>
-    </Link>
+    <a
+      href={REQUEST_COURSE_URL}
+      className={classnames("btn btn-outline-primary btn-sm", className)}
+    >
+      Get started
+    </a>
   );
 }
 
 function ContactUsButton({ className }: { className?: string }) {
   return (
-    <Link href="/pricing/contact">
+    <Link href="/contact">
       <a className={classnames("btn btn-primary btn-sm", className)}>
         Contact us
       </a>
@@ -92,12 +95,12 @@ export default function Pricing() {
           <div className="container">
             <div className="alert alert-primary">
               <p>
-                <strong>Always free for instructors!</strong> Explore the full
+                <strong>Free for one term!</strong> Explore the full
                 PrairieLearn platform as you develop your course
                 content&mdash;all for free.
               </p>
               <Link href="/contact">
-                <a className="btn btn-primary btn-sm">Request a course</a>
+                <a className="btn btn-primary btn-sm">Request a trial</a>
               </Link>
             </div>
           </div>
@@ -232,7 +235,7 @@ export default function Pricing() {
                 This pricing model is currently in development, and it is
                 expected to be available by Fall 2023. If your course would like
                 to be any early adopter of this payment model, please{" "}
-                <Link href="/pricing/contact">contact us</Link>.
+                <Link href="/contact">contact us</Link>.
               </p>
             </Accordion.Body>
           </Accordion.Item>
