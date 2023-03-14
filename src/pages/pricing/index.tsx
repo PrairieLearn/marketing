@@ -10,6 +10,7 @@ import Stack from "../../components/Stack";
 import { PageBanner } from "../../components/Banner";
 
 import styles from "./index.module.scss";
+import { RequestCourseModal } from "../../components/RequestCourseModal";
 
 const REQUEST_COURSE_URL = "https://us.prairielearn.com/pl/request_course";
 
@@ -92,17 +93,6 @@ const FAQS = [
   },
 ];
 
-function GetStartedButton({ className }: { className?: string }) {
-  return (
-    <a
-      href={REQUEST_COURSE_URL}
-      className={classnames("btn btn-outline-primary btn-sm", className)}
-    >
-      Get started
-    </a>
-  );
-}
-
 function ContactUsButton({ className }: { className?: string }) {
   return (
     <Link href="/contact">
@@ -115,10 +105,10 @@ function ContactUsButton({ className }: { className?: string }) {
 
 export default function Pricing() {
   const controls = useAnimationControls();
-
   const [paymentModel, setPaymentModel] = React.useState<"course" | "student">(
     "course"
   );
+  const [showModal, setShowModal] = React.useState(false);
 
   const basicPrice = paymentModel === "course" ? "$6" : "$12";
   const premiumPrice = paymentModel === "course" ? "$12" : "$16";
@@ -127,6 +117,24 @@ export default function Pricing() {
     setPaymentModel(model);
     controls.start({ scale: 1.3 }).then(() => controls.start({ scale: 1 }));
   };
+
+  function RequestCourseButton({
+    text,
+    className,
+  }: {
+    text: string;
+    className?: string;
+  }) {
+    return (
+      <button
+        type="button"
+        className={classnames("btn btn-outline-primary btn-sm", className)}
+        onClick={() => setShowModal(true)}
+      >
+        {text}
+      </button>
+    );
+  }
 
   return (
     <React.Fragment>
@@ -207,7 +215,7 @@ export default function Pricing() {
                     <div className="small fw-normal text-muted">
                       Free for 20 students
                     </div>
-                    <GetStartedButton className="mt-1" />
+                    <RequestCourseButton text="Get started" />
                   </th>
                   <th className={styles.column}>
                     Basic
@@ -219,7 +227,7 @@ export default function Pricing() {
                         {basicPrice}
                       </motion.strong>{" "}
                       <span className="text-muted">/ student / course</span>
-                      <GetStartedButton className="mt-1" />
+                      <RequestCourseButton text="Get started" />
                     </div>
                   </th>
                   <th className={styles.column}>
@@ -232,7 +240,7 @@ export default function Pricing() {
                         {premiumPrice}
                       </motion.strong>{" "}
                       <span className="text-muted">/ student / course</span>
-                      <GetStartedButton className="mt-1" />
+                      <RequestCourseButton text="Get started" />
                     </div>
                   </th>
                   <th className={styles.column}>
@@ -258,13 +266,13 @@ export default function Pricing() {
                 <tr>
                   <th></th>
                   <td>
-                    <GetStartedButton />
+                    <RequestCourseButton text="Get started" />
                   </td>
                   <td>
-                    <GetStartedButton />
+                    <RequestCourseButton text="Get started" />
                   </td>
                   <td>
-                    <GetStartedButton />
+                    <RequestCourseButton text="Get started" />
                   </td>
                   <td>
                     <ContactUsButton />
@@ -284,6 +292,7 @@ export default function Pricing() {
           ))}
         </Accordion>
       </div>
+      <RequestCourseModal show={showModal} onHide={() => setShowModal(false)} />
     </React.Fragment>
   );
 }
