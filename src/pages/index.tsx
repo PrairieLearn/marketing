@@ -15,6 +15,7 @@ import richball from "../lib/images/rich_question_balltrajectory.png";
 
 import styles from "./index.module.scss";
 import { Accordion, Carousel, CarouselItem } from "react-bootstrap";
+import { RequestCourseModal } from "../components/RequestCourseModal";
 
 const TALKING_POINTS = [
   {
@@ -59,6 +60,8 @@ const Column: React.FC = ({ children }) => (
 );
 
 export default function Home() {
+  const [showRequestCourseModal, setShowRequestCourseModal] =
+    React.useState(false);
   return (
     <React.Fragment>
       <Head>
@@ -77,13 +80,13 @@ export default function Home() {
               </p>
               <div className="d-flex flex-row align-items-start flex-wrap">
                 <div className="d-inline-flex flex-column">
-                  <a
-                    href="https://us.prairielearn.com/pl/request_course"
+                  <button
                     className="btn btn-light btn-lg me-3 mt-3"
+                    onClick={() => setShowRequestCourseModal(true)}
                   >
                     Request a course
-                  </a>
-                  <span className="text-white small">
+                  </button>
+                  <span className="text-white small mt-1">
                     Always free for instructors
                   </span>
                 </div>
@@ -274,6 +277,11 @@ export default function Home() {
         title="View demo course!"
         subtitle="Explore the demo course to see how this all comes together."
         buttonLabel="Demo course"
+      />
+
+      <RequestCourseModal
+        show={showRequestCourseModal}
+        onHide={() => setShowRequestCourseModal(false)}
       />
     </React.Fragment>
   );

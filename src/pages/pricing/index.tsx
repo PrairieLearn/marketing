@@ -89,6 +89,29 @@ const FAQS = [
       </React.Fragment>
     ),
   },
+  {
+    title: "Can I run PrairieLearn myself?",
+    contents: (
+      <React.Fragment>
+        <p>
+          Yes! PrairieLearn is open-source, so you can always run it our your
+          own servers. See{" "}
+          <a href="https://prairielearn.readthedocs.io/en/latest/running-in-production/setup/">
+            our documentation
+          </a>{" "}
+          for more details. Note that we do not provide support for self-hosted
+          installations.
+        </p>
+        <p>
+          If you would like to use PrairieLearn but don&apos;t want the
+          responsibility of operating, maintaining, and scaling a complex
+          distributed system, our hosted offering takes care of security,
+          scalability, and updates, as well as enterprise features like SSO
+          authentication and LMS integration.
+        </p>
+      </React.Fragment>
+    ),
+  },
 ];
 
 function ContactUsButton({ className }: { className?: string }) {
