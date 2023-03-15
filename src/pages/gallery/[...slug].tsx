@@ -6,6 +6,8 @@ import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
+import { VFile } from "vfile";
+import remarkGfm from "remark-gfm";
 
 import mdxComponents from "../../lib/mdxComponents";
 import loadCodePlugin from "../../remarkPlugins/loadCode";
@@ -93,15 +95,19 @@ export const getStaticProps: GetStaticProps<
         throw new Error(`Assessment not found for slug ${slug}`);
       }
 
-      const mdxSource = await serialize(assessment.markdownContent, {
+      const file = new VFile({
+        path: assessment.markdownPath,
+        value: assessment.markdownContent,
+      });
+      const mdxSource = await serialize(file, {
         mdxOptions: {
           remarkPlugins: [
+            remarkGfm,
             rewriteAssessmentLinks(assessments),
             extractImages,
             remarkMath,
           ],
           rehypePlugins: [rehypeKatex],
-          filepath: assessment.markdownPath,
         },
       });
 
@@ -121,11 +127,14 @@ export const getStaticProps: GetStaticProps<
         throw new Error(`Question not found for slug: ${slug}`);
       }
 
-      const mdxSource = await serialize(question.markdownContent, {
+      const file = new VFile({
+        path: question.markdownPath,
+        value: question.markdownContent,
+      });
+      const mdxSource = await serialize(file, {
         mdxOptions: {
-          remarkPlugins: [loadCodePlugin, extractImages, remarkMath],
+          remarkPlugins: [remarkGfm, loadCodePlugin, extractImages, remarkMath],
           rehypePlugins: [rehypeKatex],
-          filepath: question.markdownPath,
         },
       });
       return {

@@ -24,6 +24,7 @@ function useIsCurrent(href: string): boolean {
 
 interface NavLinkProps {
   href: string;
+  children: React.ReactNode;
 }
 
 const RouterNavLink: React.FC<NavLinkProps> = ({ href, children }) => {
