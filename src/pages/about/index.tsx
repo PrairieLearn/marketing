@@ -12,7 +12,6 @@ import Image from "../../components/Image";
 import styles from "./index.module.scss";
 import mattImage from "../../lib/images/team/matthew_west.jpeg";
 import mariImage from "../../lib/images/team/mariana_silva.png";
-import timImage from "../../lib/images/team/bretl.png";
 import craigImage from "../../lib/images/team/zilles.jpeg";
 import nathanImage from "../../lib/images/team/nathan.jpeg";
 import daveImage from "../../lib/images/team/dave.png";
@@ -141,9 +140,6 @@ export default function About() {
             </p>
           </Stack>
         </div>
-      </div>
-
-      <div className={classnames("container-fluid py-4")}>
         <div className="container-md">
           <Stack spacing={4}>
             <Heading>Our Team</Heading>
@@ -167,17 +163,12 @@ export default function About() {
               <PeopleCard
                 image={craigImage}
                 name="Craig Zilles"
-                title="Co-founder"
+                title="VP of University Relations"
               />
               <PeopleCard
                 image={daveImage}
                 name="David Mussulman"
-                title="Co-founder"
-              />
-              <PeopleCard
-                image={timImage}
-                name="Timothy Bretl"
-                title="Co-founder"
+                title="VP of Faculty Support"
               />
             </div>
           </Stack>
