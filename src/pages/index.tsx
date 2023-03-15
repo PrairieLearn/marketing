@@ -1,4 +1,5 @@
 import React from "react";
+import { GetServerSideProps } from "next";
 import Head from "next/head";
 import classnames from "classnames";
 import Link from "next/link";
@@ -51,15 +52,27 @@ const CAROUSEL_IMAGES = [
   },
 ];
 
-const Row: React.FC = ({ children }) => (
+interface RowProps {
+  children: React.ReactNode;
+}
+
+const Row: React.FC<RowProps> = ({ children }) => (
   <div className="row justify-content-center">{children}</div>
 );
 
-const Column: React.FC = ({ children }) => (
+interface ColumnProps {
+  children: React.ReactNode;
+}
+
+const Column: React.FC<ColumnProps> = ({ children }) => (
   <div className="col">{children}</div>
 );
 
-export default function Home() {
+interface HomeProps {
+  seed: number;
+}
+
+const Home: React.FC<HomeProps> = ({ seed }) => {
   const [showRequestCourseModal, setShowRequestCourseModal] =
     React.useState(false);
   return (
@@ -131,7 +144,7 @@ export default function Home() {
               </p>
             </div>
             <div className="col-md-6 order-2 pt-2">
-              <ExampleQuestion />
+              <ExampleQuestion seed={seed} />
             </div>
           </div>
         </div>
@@ -285,4 +298,14 @@ export default function Home() {
       />
     </React.Fragment>
   );
-}
+};
+
+export default Home;
+
+export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
+  return {
+    props: {
+      seed: Math.random(),
+    },
+  };
+};

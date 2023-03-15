@@ -1,14 +1,43 @@
 import React from "react";
 
-const randomNumber = (min: number, max: number, precision: number) => {
+/**
+ * Deterministic random number generator based on a seed.
+ *
+ * Source: https://github.com/bryc/code/blob/a7c9e4c53c2ca4f3e33c6338d5c72f5faf6d5024/jshash/PRNGs.md
+ */
+function mulberry32(a: number): () => number {
+  return function () {
+    a |= 0;
+    a = (a + 0x6d2b79f5) | 0;
+    var t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+const randomNumber = (
+  min: number,
+  max: number,
+  precision: number,
+  random: () => number
+) => {
   const factor = Math.pow(10, precision);
-  return Math.floor(factor * (min + Math.random() * (max - min))) / factor;
+  return Math.floor(factor * (min + random() * (max - min))) / factor;
 };
 
-const randomAngle = () => randomNumber(20, 80, 1);
-const randomVelocity = () => randomNumber(1, 8, 1);
+interface ExampleQuestionProps {
+  /**
+   * A number between 0 and 1 that will be used as a seed for a deterministic
+   * random number generator. It must be deterministic so that the same numbers
+   * are generated on both the server and client.
+   */
+  seed: number;
+}
 
-export const ExampleQuestion: React.FC = () => {
+export const ExampleQuestion: React.FC<ExampleQuestionProps> = ({ seed }) => {
+  const generator = React.useRef(mulberry32(seed * 100000)).current;
+  const randomAngle = () => randomNumber(20, 80, 1, generator);
+  const randomVelocity = () => randomNumber(1, 8, 1, generator);
   const [angle, setAngle] = React.useState(randomAngle);
   const [velocity, setVelocity] = React.useState(randomVelocity);
   const [answer, setAnswer] = React.useState("");
