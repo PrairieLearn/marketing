@@ -167,17 +167,12 @@ export default function About() {
               <PeopleCard
                 image={craigImage}
                 name="Craig Zilles"
-                title="Co-founder"
+                title="VP of University Relations"
               />
               <PeopleCard
                 image={daveImage}
                 name="David Mussulman"
-                title="Co-founder"
-              />
-              <PeopleCard
-                image={timImage}
-                name="Timothy Bretl"
-                title="Co-founder"
+                title="VP of Faculty Support"
               />
             </div>
           </Stack>
