@@ -12,7 +12,6 @@ import Image from "../../components/Image";
 import styles from "./index.module.scss";
 import mattImage from "../../lib/images/team/matthew_west.jpeg";
 import mariImage from "../../lib/images/team/mariana_silva.png";
-import timImage from "../../lib/images/team/bretl.png";
 import craigImage from "../../lib/images/team/zilles.jpeg";
 import nathanImage from "../../lib/images/team/nathan.jpeg";
 import daveImage from "../../lib/images/team/dave.png";
