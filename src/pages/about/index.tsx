@@ -140,9 +140,6 @@ export default function About() {
             </p>
           </Stack>
         </div>
-      </div>
-
-      <div className={classnames("container-fluid py-4")}>
         <div className="container-md">
           <Stack spacing={4}>
             <Heading>Our Team</Heading>
