@@ -1,7 +1,6 @@
 import React from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
-import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import fs from "fs-extra";
 import path from "path";
