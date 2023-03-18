@@ -49,14 +49,14 @@ const NavDropdownItem: React.FC<NavLinkProps> = ({ href, children }) => {
   const active = useIsActive(href);
   const current = useIsCurrent(href);
   return (
-    <Link href={href} passHref legacyBehavior>
-      <NavDropdown.Item
-        className={classnames({ "fw-bold": active })}
-        aria-current={current ? "page" : undefined}
-      >
-        {children}
-      </NavDropdown.Item>
-    </Link>
+    <NavDropdown.Item
+      className={classnames({ "fw-bold": active })}
+      aria-current={current ? "page" : undefined}
+      as={Link}
+      href={href}
+    >
+      {children}
+    </NavDropdown.Item>
   );
 };
 
