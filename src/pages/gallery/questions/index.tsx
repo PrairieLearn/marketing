@@ -39,10 +39,7 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
       <div className={classnames("container-fluid my-5")}>
         <div className="container-md">
           <div className="row">
-            <div
-              className="col-md-6 order-2 pt-4
-            "
-            >
+            <div className="col-md-6 order-2 pt-4">
               <Image
                 src={questionImage}
                 alt="question example"

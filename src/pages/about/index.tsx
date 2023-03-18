@@ -23,14 +23,14 @@ interface PeopleCardProps {
 
 const PeopleCard: React.FC<PeopleCardProps> = ({ image, name, title }) => {
   return (
-    <article className="card border-secondary mb-1">
+    <article className="card border-secondary mb-1 overflow-hidden">
       <div className="position-relative" style={{ aspectRatio: "1 / 1" }}>
         <Image
           src={image}
           alt={title}
           style={{
-            objectFit: "cover",
-            maxWidth: "100%",
+            objectFit: "contain",
+            width: "100%",
             height: "auto",
           }}
         />

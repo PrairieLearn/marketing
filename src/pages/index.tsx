@@ -198,9 +198,8 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
               <CarouselItem key={index}>
                 <div
                   style={{
-                    maxHeight: "500px",
+                    maxWidth: "750px",
                     position: "relative",
-                    aspectRatio: "3 / 2",
                     marginLeft: "auto",
                     marginRight: "auto",
                   }}
@@ -211,6 +210,7 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
                     className="pb-5 position-relative"
                     priority
                     style={{
+                      aspectRatio: "3 / 2",
                       objectFit: "contain",
                       objectPosition: "center",
                       maxWidth: "100%",

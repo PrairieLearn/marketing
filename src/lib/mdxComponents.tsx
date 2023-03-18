@@ -45,6 +45,7 @@ const mdxComponents: Components = {
         src={imageSrc}
         width={imageWidth}
         height={imageHeight}
+        className="d-block mx-auto"
         style={{
           maxWidth: "100%",
           height: "auto",

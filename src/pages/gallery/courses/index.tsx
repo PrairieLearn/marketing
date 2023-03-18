@@ -39,19 +39,16 @@ const CourseCard: React.FC<CourseCardProps> = ({
   children,
 }) => {
   return (
-    <article className="card border-secondary">
-      <Link
-        href={href}
-        className="position-relative"
-        style={{ aspectRatio: "5 / 3" }}
-      >
+    <article className="card border-secondary overflow-hidden">
+      <Link href={href} className="position-relative">
         <Image
           src={image}
           alt={title}
           style={{
             objectFit: "contain",
-            maxWidth: "100%",
-            height: "auto",
+            width: "100%",
+            height: "100%",
+            aspectRatio: "5 / 3",
           }}
         />
       </Link>
