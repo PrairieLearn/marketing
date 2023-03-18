@@ -107,7 +107,7 @@ export default function Courses() {
             <CourseCard
               image={tam211}
               title="Statics"
-              href="https://www.prairielearn.org/pl/course_instance/129328"
+              href="https://us.prairielearn.com/pl/course_instance/129328"
               institution="University of Illinois at Urbana-Champaign"
               rubric="TAM 211"
               ownerName="Wayne Chang"
@@ -127,7 +127,7 @@ export default function Courses() {
             <CourseCard
               image={tam212}
               title="Introductory Dynamics"
-              href="https://www.prairielearn.org/pl/course_instance/129330"
+              href="https://us.prairielearn.com/pl/course_instance/129330"
               institution="University of Illinois at Urbana-Champaign"
               rubric="TAM 212"
               ownerName="Matthew West"
@@ -144,7 +144,7 @@ export default function Courses() {
             <CourseCard
               image={tam251}
               title="Introductory Solid Mechanics"
-              href="https://www.prairielearn.org/pl/course_instance/129329"
+              href="https://us.prairielearn.com/pl/course_instance/129329"
               institution="University of Illinois at Urbana-Champaign"
               rubric="TAM 251"
               ownerName="Mariana Silva"
@@ -164,7 +164,7 @@ export default function Courses() {
             <CourseCard
               image={cs357}
               title="Numerical Methods"
-              href="https://www.prairielearn.org/pl/course_instance/128953"
+              href="https://us.prairielearn.com/pl/course_instance/132679"
               institution="University of Illinois at Urbana-Champaign"
               rubric="CS 357"
               ownerName="Mariana Silva"
@@ -184,7 +184,7 @@ export default function Courses() {
             <CourseCard
               image={cs233Image}
               title="Computer Architecture"
-              href="https://www.prairielearn.org/pl/course_instance/128979"
+              href="https://us.prairielearn.com/pl/course_instance/128979"
               institution="University of Illinois Urbana-Champaign"
               rubric="CS 233"
               ownerName="Geoffrey Herman"
@@ -241,7 +241,7 @@ export default function Courses() {
             <CourseCard
               image={ece6353fraida}
               title="Internet Architecture and Protocols"
-              href="https://www.prairielearn.org/pl/course_instance/129160"
+              href="https://us.prairielearn.com/pl/course_instance/129160"
               institution="New York University"
               rubric="ECE 6353"
               ownerName="Fraida Fund"

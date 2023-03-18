@@ -3,7 +3,13 @@ import classnames from "classnames";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { Dropdown, NavDropdown, NavItem, NavLink } from "react-bootstrap";
+import {
+  Dropdown,
+  DropdownButton,
+  NavDropdown,
+  NavItem,
+  NavLink,
+} from "react-bootstrap";
 
 import styles from "./Header.module.scss";
 
@@ -86,16 +92,31 @@ export const Header: React.FC = () => {
           />
           PrairieLearn
         </Link>
-        <button
-          className="navbar-toggler"
-          type="button"
-          aria-controls="navbar"
-          aria-expanded={collapsed ? "false" : "true"}
-          aria-label="Toggle navigation"
-          onClick={() => setCollapsed((collapsed) => !collapsed)}
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+        <div className="d-flex flex-row">
+          <DropdownButton
+            id="login-dropdown-mobile"
+            title="Login"
+            variant="light"
+            className="d-sm-none me-2"
+          >
+            <Dropdown.Item href="https://us.prairielearn.com/pl/login">
+              Main <span className="text-muted">(us.prairielearn.com)</span>
+            </Dropdown.Item>
+            <Dropdown.Item href="https://ca.prairielearn.com/pl/login">
+              Canada <span className="text-muted">(ca.prairielearn.com)</span>
+            </Dropdown.Item>
+          </DropdownButton>
+          <button
+            className="navbar-toggler"
+            type="button"
+            aria-controls="navbar"
+            aria-expanded={collapsed ? "false" : "true"}
+            aria-label="Toggle navigation"
+            onClick={() => setCollapsed((collapsed) => !collapsed)}
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+        </div>
         <div
           className={classnames("navbar-collapse", { collapse: collapsed })}
           id="navbar"
@@ -134,6 +155,19 @@ export const Header: React.FC = () => {
             <li className="nav-item">
               <RouterNavLink href="/contact">Contact</RouterNavLink>
             </li>
+            <DropdownButton
+              id="login-dropdown-desktop"
+              title="Login"
+              variant="light"
+              className="d-none d-sm-inline-block"
+            >
+              <Dropdown.Item href="https://us.prairielearn.com/pl/login">
+                Main <span className="text-muted">(us.prairielearn.com)</span>
+              </Dropdown.Item>
+              <Dropdown.Item href="https://ca.prairielearn.com/pl/login">
+                Canada <span className="text-muted">(ca.prairielearn.com)</span>
+              </Dropdown.Item>
+            </DropdownButton>
           </ul>
         </div>
       </div>

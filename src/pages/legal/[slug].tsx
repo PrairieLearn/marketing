@@ -1,7 +1,6 @@
 import React from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
-import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import fs from "fs-extra";
 import path from "path";
@@ -9,6 +8,7 @@ import matter from "gray-matter";
 
 import { PageBanner } from "../../components/Banner";
 import mdxComponents from "../../lib/mdxComponents";
+import { serializeMarkdownDocument } from "../../lib/markdown";
 
 interface TermsProps {
   title: string;
@@ -52,23 +52,16 @@ export const getStaticProps: GetStaticProps<TermsProps, PathParams> = async ({
 }) => {
   if (!params) throw new Error("Missing params");
 
-  const source = await fs.readFile(
-    path.resolve("legal", `${params.slug}.md`),
-    "utf-8"
-  );
+  const filePath = path.resolve("legal", `${params.slug}.md`);
+  const source = await fs.readFile(filePath, "utf-8");
   const {
     content,
     data: { title },
   } = matter(source);
-  try {
-    return {
-      props: {
-        title,
-        source: await serialize(content),
-      },
-    };
-  } catch (err) {
-    console.log(err);
-    throw err;
-  }
+  return {
+    props: {
+      title,
+      source: await serializeMarkdownDocument(content, filePath),
+    },
+  };
 };

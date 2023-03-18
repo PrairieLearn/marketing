@@ -26,7 +26,7 @@ export const DemoCourseCTA: React.FC<DemoCourseCTAProps> = ({
       <div className="row justify-content-center my-2">
         <div className="col-md-12 text-center">
           <Link
-            href="https://www.prairielearn.org/pl/course_instance/4970"
+            href="https://us.prairielearn.com/pl/course_instance/4970"
             className="btn btn-warning btn-lg"
           >
             {buttonLabel}

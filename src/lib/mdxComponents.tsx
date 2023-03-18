@@ -19,7 +19,7 @@ const mdxComponents: Components = {
 
     return <a href={href} {...props} />;
   },
-  code: ({ children, className, ...rest }) => {
+  code: ({ children, className }) => {
     if (!className) {
       // Handle inline code.
       return <code>{children}</code>;

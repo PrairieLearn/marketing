@@ -7,6 +7,7 @@ import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import { VFile } from "vfile";
+import remarkGfm from "remark-gfm";
 
 import mdxComponents from "../../lib/mdxComponents";
 import loadCodePlugin from "../../remarkPlugins/loadCode";
@@ -101,14 +102,12 @@ export const getStaticProps: GetStaticProps<
       const mdxSource = await serialize(file, {
         mdxOptions: {
           remarkPlugins: [
+            remarkGfm,
             rewriteAssessmentLinks(assessments),
             extractImages,
             remarkMath,
           ],
           rehypePlugins: [rehypeKatex],
-          // Temporary fix for the following:
-          // https://github.com/hashicorp/next-mdx-remote/issues/307
-          development: false,
         },
       });
 
@@ -134,11 +133,8 @@ export const getStaticProps: GetStaticProps<
       });
       const mdxSource = await serialize(file, {
         mdxOptions: {
-          remarkPlugins: [loadCodePlugin, extractImages, remarkMath],
+          remarkPlugins: [remarkGfm, loadCodePlugin, extractImages, remarkMath],
           rehypePlugins: [rehypeKatex],
-          // Temporary fix for the following:
-          // https://github.com/hashicorp/next-mdx-remote/issues/307
-          development: false,
         },
       });
       return {
