@@ -18,7 +18,7 @@ export const MarkdownPage: React.FC<MarkdownPageProps> = ({
 }) => (
   <React.Fragment>
     <Head>
-      <title>{title} | PrairieLearn</title>
+      <title>{`${title} | PrairieLearn`}</title>
     </Head>
     <div className="container">
       <div className="my-5">

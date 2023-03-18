@@ -19,7 +19,7 @@ const Terms: React.FC<TermsProps> = ({ title, source }) => {
   return (
     <React.Fragment>
       <Head>
-        <title>{title} | PrairieLearn</title>
+        <title>{`${title} | PrairieLearn`}</title>
       </Head>
 
       <PageBanner title={title} />
