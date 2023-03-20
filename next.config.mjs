@@ -6,10 +6,10 @@ import remarkGfm from "remark-gfm";
 
 const withMDX = nextMdx({
   extension: /\.mdx?$/,
-  remarkPlugins: [remarkMath, remarkGfm],
-  rehypePlugins: [rehypeKatex],
   options: {
     providerImportSource: "@mdx-js/react",
+    remarkPlugins: [remarkMath, remarkGfm],
+    rehypePlugins: [rehypeKatex],
   },
 });
 
