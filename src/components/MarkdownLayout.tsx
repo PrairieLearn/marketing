@@ -8,6 +8,8 @@ import { PageBanner } from "./Banner";
 interface MarkdownLayoutProps {
   children: React.ReactNode;
   meta: {
+    backText?: string;
+    backHref?: string;
     title: string;
     summary?: string;
   };
@@ -26,7 +28,12 @@ export const MarkdownLayout: React.FC<MarkdownLayoutProps> = ({
         <title>{`${title} | PrairieLearn`}</title>
       </Head>
 
-      <PageBanner title={title} subtitle={summary} />
+      <PageBanner
+        title={title}
+        subtitle={summary}
+        backText={meta.backText}
+        backHref={meta.backHref}
+      />
 
       <div className="container my-5">
         <MDXProvider components={mdxComponents}>{children}</MDXProvider>
