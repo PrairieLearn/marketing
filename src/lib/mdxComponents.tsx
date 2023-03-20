@@ -5,6 +5,7 @@ import { Components } from "@mdx-js/react";
 import { Language } from "prism-react-renderer";
 
 import { CodeBlock } from "../components/CodeBlock";
+import { Heading } from "../components/Heading";
 
 // const CustomLink
 
@@ -33,7 +34,7 @@ const mdxComponents: Components = {
       </div>
     );
   },
-  pre: ({ children }) => children,
+  h2: ({ children }) => <Heading>{children}</Heading>,
   img: ({ alt, src, imageWidth, imageHeight, ...rest }) => {
     let imageSrc = src;
     if (imageSrc.startsWith("__image__")) {
@@ -53,6 +54,7 @@ const mdxComponents: Components = {
       />
     );
   },
+  pre: ({ children }) => children,
   table: ({ children }) => (
     <div className="table-responsive">
       <table className="table">{children}</table>
