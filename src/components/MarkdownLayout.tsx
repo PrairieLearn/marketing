@@ -26,12 +26,9 @@ export const MarkdownLayout: React.FC<MarkdownLayoutProps> = ({
         <title>{`${title} | PrairieLearn`}</title>
       </Head>
 
-      <PageBanner title={title} />
+      <PageBanner title={title} subtitle={summary} />
 
       <div className="container my-5">
-        <div className="my-5">
-          {summary && <p className="lead">{summary}</p>}
-        </div>
         <MDXProvider components={mdxComponents}>{children}</MDXProvider>
       </div>
     </React.Fragment>

@@ -4,3 +4,13 @@
 .container {
   background-color: $blue-700;
 }
+
+.back-link {
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+}
+
+.back-link:hover,
+.back-link:focus {
+  opacity: 1;
+}
