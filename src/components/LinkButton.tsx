@@ -9,8 +9,8 @@ export interface LinkButtonProps {
 export const LinkButton: React.FC<LinkButtonProps> = ({ label, href }) => (
   <div className="row justify-content-center my-2">
     <div className="col-md-12 text-center py-3">
-      <Link href={href}>
-        <a className="btn btn-warning btn-md">{label}</a>
+      <Link href={href} className="btn btn-warning btn-md">
+        {label}
       </Link>
     </div>
   </div>

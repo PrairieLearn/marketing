@@ -62,11 +62,8 @@ const FAQS = [
       <p>
         Yes! PrairieLearn is always free for instructors, and the full platform
         is available for courses with fewer than 20 students. If you have more
-        than that,{" "}
-        <Link href="/contact">
-          <a>contact us</a>
-        </Link>{" "}
-        to arrange a free trial for one term.
+        than that, <Link href="/contact">contact us</Link> to arrange a free
+        trial for one term.
       </p>
     ),
   },
@@ -116,10 +113,11 @@ const FAQS = [
 
 function ContactUsButton({ className }: { className?: string }) {
   return (
-    <Link href="/contact">
-      <a className={classnames("btn btn-primary btn-sm", className)}>
-        Contact us
-      </a>
+    <Link
+      href="/contact"
+      className={classnames("btn btn-primary btn-sm", className)}
+    >
+      Contact us
     </Link>
   );
 }
@@ -169,8 +167,8 @@ export default function Pricing() {
             up to 20 students, and courses with more than that can take
             advantage of the full PrairieLearn platform for one term.
           </p>
-          <Link href="/contact">
-            <a className="btn btn-primary btn-sm">Request a trial</a>
+          <Link href="/contact" className="btn btn-primary btn-sm">
+            Request a trial
           </Link>
         </div>
       </PageBanner>

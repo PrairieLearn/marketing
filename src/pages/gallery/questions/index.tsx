@@ -3,8 +3,7 @@ import classnames from "classnames";
 import { GetStaticProps } from "next";
 import Link from "next/link";
 import Head from "next/head";
-
-import Image from "../../../components/Image";
+import Image from "next/image";
 
 import { Heading } from "../../../components/Heading";
 import { PageBanner } from "../../../components/Banner";
@@ -40,11 +39,15 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
       <div className={classnames("container-fluid my-5")}>
         <div className="container-md">
           <div className="row">
-            <div
-              className="col-md-6 order-2 pt-4
-            "
-            >
-              <Image src={questionImage} alt="question example" />
+            <div className="col-md-6 order-2 pt-4">
+              <Image
+                src={questionImage}
+                alt="question example"
+                style={{
+                  maxWidth: "100%",
+                  height: "auto",
+                }}
+              />
               <LinkButton
                 label="Read more about PrairieLearn questions"
                 href="/gallery/questions/question-intro"
@@ -89,25 +92,25 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
                 return (
                   <article className="card" key={question.slug}>
                     {question.imageUrl && (
-                      <Link href={galleryHref}>
+                      <Link
+                        href={galleryHref}
+                        style={{ paddingBottom: "75%", position: "relative" }}
+                      >
                         {/* Fit all images within 4:3 aspect ratio box*/}
-                        <a
-                          style={{ paddingBottom: "75%", position: "relative" }}
-                        >
-                          <Image
-                            src={question.imageUrl}
-                            layout="fill"
-                            objectFit="contain"
-                            alt="question preview image"
-                          />
-                        </a>
+
+                        <Image
+                          src={question.imageUrl}
+                          alt="question preview image"
+                          fill
+                          style={{
+                            objectFit: "contain",
+                          }}
+                        />
                       </Link>
                     )}
                     <div className="card-body">
                       <Link href={galleryHref}>
-                        <a>
-                          <h3 className="card-title h5">{question.title}</h3>
-                        </a>
+                        <h3 className="card-title h5">{question.title}</h3>
                       </Link>
                       <p className="text-muted mb-0">{question.summary}</p>
                     </div>

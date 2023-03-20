@@ -1,6 +1,7 @@
 import React from "react";
 import classnames from "classnames";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import {
   Dropdown,
@@ -31,16 +32,15 @@ const RouterNavLink: React.FC<NavLinkProps> = ({ href, children }) => {
   const active = useIsActive(href);
   const current = useIsCurrent(href);
   return (
-    <Link href={href}>
-      <a
-        className={classnames("nav-link", styles["nav-link"], {
-          "fw-bold": active,
-          [styles.active]: active,
-        })}
-        aria-current={current ? "page" : undefined}
-      >
-        {children}
-      </a>
+    <Link
+      href={href}
+      className={classnames("nav-link", styles["nav-link"], {
+        "fw-bold": active,
+        [styles.active]: active,
+      })}
+      aria-current={current ? "page" : undefined}
+    >
+      {children}
     </Link>
   );
 };
@@ -49,18 +49,17 @@ const NavDropdownItem: React.FC<NavLinkProps> = ({ href, children }) => {
   const active = useIsActive(href);
   const current = useIsCurrent(href);
   return (
-    <Link href={href} passHref>
-      <NavDropdown.Item
-        className={classnames({ "fw-bold": active })}
-        aria-current={current ? "page" : undefined}
-      >
-        {children}
-      </NavDropdown.Item>
-    </Link>
+    <NavDropdown.Item
+      className={classnames({ "fw-bold": active })}
+      aria-current={current ? "page" : undefined}
+      as={Link}
+      href={href}
+    >
+      {children}
+    </NavDropdown.Item>
   );
 };
 
-import Image from "./Image";
 import logo from "../lib/images/flower-white.png";
 
 export const Header: React.FC = () => {
@@ -80,11 +79,18 @@ export const Header: React.FC = () => {
       )}
     >
       <div className="container">
-        <Link href="/">
-          <a className="navbar-brand">
-            <Image src={logo} width={24} height={24} alt="PrairieLearn logo" />
-            PrairieLearn
-          </a>
+        <Link href="/" className="navbar-brand">
+          <Image
+            src={logo}
+            width={24}
+            height={24}
+            alt="PrairieLearn logo"
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+            }}
+          />
+          PrairieLearn
         </Link>
         <div className="d-flex flex-row">
           <DropdownButton

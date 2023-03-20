@@ -1,9 +1,9 @@
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Components } from "@mdx-js/react";
 import { Language } from "prism-react-renderer";
 
-import Image from "../components/Image";
 import { CodeBlock } from "../components/CodeBlock";
 
 // const CustomLink
@@ -40,7 +40,17 @@ const mdxComponents: Components = {
       imageSrc = imageSrc.replace("__image__", "/build/images");
     }
     return (
-      <Image alt={alt} src={imageSrc} width={imageWidth} height={imageHeight} />
+      <Image
+        alt={alt}
+        src={imageSrc}
+        width={imageWidth}
+        height={imageHeight}
+        className="d-block mx-auto"
+        style={{
+          maxWidth: "100%",
+          height: "auto",
+        }}
+      />
     );
   },
   table: ({ children }) => (

@@ -30,7 +30,7 @@ export const getAssessments = async (): Promise<Assessment[]> => {
       assessmentDirectories.map(async (dir) => {
         const docsDir = path.join(ASSESSMENTS_ROOT, dir, "__docs");
 
-        // Ensure `__docs` direcotry is present
+        // Ensure `__docs` directory is present
         if (!(await fs.pathExists(docsDir))) {
           console.warn(`Assessment ${dir} is missing a __docs directory`);
           return null;

@@ -1,6 +1,7 @@
 import React from "react";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
+import Image from "next/image";
 import classnames from "classnames";
 import Link from "next/link";
 
@@ -9,7 +10,6 @@ import { Heading } from "../components/Heading";
 import { ExampleQuestion } from "../components/ExampleQuestion";
 import { DemoCourseCTA } from "../components/DemoCourse";
 
-import Image from "../components/Image";
 import richFBD from "../lib/images/rich_question_FBD.png";
 import richorder from "../lib/images/rich_question_order_block.png";
 import richball from "../lib/images/rich_question_balltrajectory.png";
@@ -75,6 +75,7 @@ interface HomeProps {
 const Home: React.FC<HomeProps> = ({ seed }) => {
   const [showRequestCourseModal, setShowRequestCourseModal] =
     React.useState(false);
+
   return (
     <React.Fragment>
       <Head>
@@ -103,10 +104,11 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
                     Always free for instructors
                   </span>
                 </div>
-                <Link href="/contact">
-                  <a className="btn btn-outline-light btn-lg me-3 mt-3">
-                    Get in touch
-                  </a>
+                <Link
+                  href="/contact"
+                  className="btn btn-outline-light btn-lg me-3 mt-3"
+                >
+                  Get in touch
                 </Link>
                 <a
                   href="https://prairielearn.readthedocs.io/en/latest/"
@@ -196,9 +198,8 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
               <CarouselItem key={index}>
                 <div
                   style={{
-                    maxHeight: "500px",
+                    maxWidth: "750px",
                     position: "relative",
-                    aspectRatio: "3 / 2",
                     marginLeft: "auto",
                     marginRight: "auto",
                   }}
@@ -206,11 +207,15 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
                   <Image
                     src={src}
                     alt={alt}
-                    layout="fill"
-                    objectFit="contain"
-                    objectPosition="center"
                     className="pb-5 position-relative"
                     priority
+                    style={{
+                      aspectRatio: "3 / 2",
+                      objectFit: "contain",
+                      objectPosition: "center",
+                      maxWidth: "100%",
+                      height: "auto",
+                    }}
                   />
                 </div>
               </CarouselItem>

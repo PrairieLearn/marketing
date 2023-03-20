@@ -1,12 +1,11 @@
 import React from "react";
 import Head from "next/head";
 import Link from "next/link";
-import { ImageProps } from "next/image";
+import Image, { ImageProps } from "next/image";
 import classnames from "classnames";
 
 import { PageBanner } from "../../../components/Banner";
 import { Heading } from "../../../components/Heading";
-import Image from "../../../components/Image";
 
 import styles from "./index.module.scss";
 import cs233Image from "../../../lib/images/cs-233.png";
@@ -40,17 +39,22 @@ const CourseCard: React.FC<CourseCardProps> = ({
   children,
 }) => {
   return (
-    <article className="card border-secondary">
-      <Link href={href}>
-        <a className="position-relative" style={{ aspectRatio: "5 / 3" }}>
-          <Image src={image} layout="fill" objectFit="contain" alt={title} />
-        </a>
+    <article className="card border-secondary overflow-hidden">
+      <Link href={href} className="position-relative">
+        <Image
+          src={image}
+          alt={title}
+          style={{
+            objectFit: "contain",
+            width: "100%",
+            height: "100%",
+            aspectRatio: "5 / 3",
+          }}
+        />
       </Link>
       <div className="card-body">
         <Link href={href}>
-          <a>
-            <h3 className="card-title h5">{title}</h3>
-          </a>
+          <h3 className="card-title h5">{title}</h3>
         </Link>
         <p className="mb-1">
           <strong>Institution:</strong> {institution}

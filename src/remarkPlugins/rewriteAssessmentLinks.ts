@@ -15,8 +15,8 @@ interface LinkNode extends Node {
  * that used by the marketing site itself. To allow for Markdown links between
  * pages, we'll rewrite them to point to the correct slugified URL.
  */
-const rewriteAssessmentLinks =
-  (assessments: Assessment[]) => (): Transformer => async (tree, file) => {
+export default function rewriteAssessmentLinks(assessments: Assessment[]) {
+  return (): Transformer => async (tree, file) => {
     const baseDirectory = path.parse(file.history[0]).dir;
 
     visit(tree, "link", (node: LinkNode) => {
@@ -38,5 +38,4 @@ const rewriteAssessmentLinks =
       node.url = `./${resolvedAssessment.slug}`;
     });
   };
-
-export default rewriteAssessmentLinks;
+}

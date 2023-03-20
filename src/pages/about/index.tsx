@@ -1,13 +1,12 @@
 import React from "react";
 import classnames from "classnames";
 import Head from "next/head";
-import { ImageProps } from "next/image";
+import Image, { ImageProps } from "next/image";
 
 import { PageBanner } from "../../components/Banner";
 import { DemoCourseCTA } from "../../components/DemoCourse";
 import { Heading } from "../../components/Heading";
 import Stack from "../../components/Stack";
-import Image from "../../components/Image";
 
 import styles from "./index.module.scss";
 import mattImage from "../../lib/images/team/matthew_west.jpeg";
@@ -24,9 +23,17 @@ interface PeopleCardProps {
 
 const PeopleCard: React.FC<PeopleCardProps> = ({ image, name, title }) => {
   return (
-    <article className="card border-secondary mb-1">
+    <article className="card border-secondary mb-1 overflow-hidden">
       <div className="position-relative" style={{ aspectRatio: "1 / 1" }}>
-        <Image src={image} layout="fill" objectFit="cover" alt={title} />
+        <Image
+          src={image}
+          alt={title}
+          style={{
+            objectFit: "contain",
+            width: "100%",
+            height: "auto",
+          }}
+        />
       </div>
       <div className="card-body">
         <h3 className="card-title h6">{name}</h3>

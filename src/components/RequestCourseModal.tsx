@@ -26,11 +26,8 @@ export const RequestCourseModal: React.FC<RequestCourseModal> = (props) => {
           </a>
         </p>
         <p className="mb-0">
-          Have any questions?{" "}
-          <Link href="/contact">
-            <a>Contact us</a>
-          </Link>{" "}
-          and we&apos;ll get back to you soon.
+          Have any questions? <Link href="/contact">Contact us</Link> and
+          we&apos;ll get back to you soon.
         </p>
       </Modal.Body>
     </Modal>
