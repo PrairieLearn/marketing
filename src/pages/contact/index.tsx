@@ -20,9 +20,11 @@ export default function Contact() {
         <div className="container-md">
           <div className="row">
             <div className="col-md-12">
-              Need to schedule a demo? Want to have access to your own course
-              space? Let us know below and someone from our team will be in
-              touch soon.
+              <p>
+                Need to schedule a demo? Want to have access to your own course
+                space? Let us know below and someone from our team will be in
+                touch soon.
+              </p>
             </div>
           </div>
         </div>
