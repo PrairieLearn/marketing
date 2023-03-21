@@ -15,11 +15,13 @@ import extractImages from "../../remarkPlugins/extractImages";
 import { getAssessments } from "../../lib/gallery/assessments";
 import { getQuestions } from "../../lib/gallery/questions";
 import rewriteAssessmentLinks from "../../remarkPlugins/rewriteAssessmentLinks";
+import { PageBanner } from "../../components/Banner";
 
 interface GalleryPageProps {
   source: MDXRemoteSerializeResult;
   summary: string;
   title: string;
+  type: "question" | "assessment";
   prairielearnUrl?: string | null;
 }
 
@@ -27,23 +29,33 @@ const GalleryPage: React.FC<GalleryPageProps> = ({
   summary,
   source,
   title,
+  type,
   prairielearnUrl,
 }) => {
+  const backText =
+    type === "question"
+      ? "Back to question gallery"
+      : "Back to assessment gallery";
+  const backHref =
+    type === "question" ? "/gallery/questions" : "/gallery/assessments";
   return (
     <React.Fragment>
       <Head>
         <title>{`${title} | PrairieLearn`}</title>
       </Head>
-      <div className="container">
-        <div className="my-5">
-          <h1 className="display-3">{title}</h1>
-          {summary && <p className="lead">{summary}</p>}
-          {prairielearnUrl && (
-            <a href={prairielearnUrl} className="btn btn-primary mt-2">
-              View on PrairieLearn
-            </a>
-          )}
-        </div>
+      <PageBanner
+        title={title}
+        subtitle={summary}
+        backHref={backHref}
+        backText={backText}
+      >
+        {prairielearnUrl && (
+          <a href={prairielearnUrl} className="btn btn-light mt-2">
+            View on PrairieLearn
+          </a>
+        )}
+      </PageBanner>
+      <div className="container my-5">
         <MDXRemote {...source} components={mdxComponents} />
       </div>
     </React.Fragment>
@@ -117,6 +129,7 @@ export const getStaticProps: GetStaticProps<
           summary: assessment.summary,
           title: assessment.title,
           prairielearnUrl: assessment.prairielearnUrl,
+          type: "assessment",
         },
       };
     }
@@ -142,6 +155,7 @@ export const getStaticProps: GetStaticProps<
           source: mdxSource,
           summary: question.summary,
           title: question.title,
+          type: "question",
         },
       };
     }

@@ -10,7 +10,9 @@
     "start": "next start"
   },
   "dependencies": {
+    "@mdx-js/loader": "^2.3.0",
     "@mdx-js/react": "^2.3.0",
+    "@next/mdx": "^13.2.4",
     "bootstrap": "^5.2.3",
     "classnames": "^2.3.1",
     "fast-glob": "^3.2.11",

@@ -82,12 +82,10 @@ export const Header: React.FC = () => {
         <Link href="/" className="navbar-brand">
           <Image
             src={logo}
-            width={24}
             height={24}
             alt="PrairieLearn logo"
             style={{
-              maxWidth: "100%",
-              height: "auto",
+              width: "auto",
             }}
           />
           PrairieLearn

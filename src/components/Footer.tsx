@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 interface FooterLinkProps {
@@ -7,9 +8,9 @@ interface FooterLinkProps {
 
 const FooterLink: React.FC<FooterLinkProps> = ({ href, children }) => {
   return (
-    <a href={href} className="link-secondary text-decoration-none">
+    <Link href={href} className="link-secondary text-decoration-none">
       {children}
-    </a>
+    </Link>
   );
 };
 
@@ -59,12 +60,16 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
           <div className="col-6 col-sm-4 mb-3">
-            <h6 className="text-uppercase text-secondary fw-bold">Contact</h6>
+            <h6 className="text-uppercase text-secondary fw-bold">Company</h6>
             <ul className="list-unstyled">
               <li className="mb-2">
-                <FooterLink href="mailto:hello@prairielearn.com">
-                  hello@prairielearn.com
-                </FooterLink>
+                <FooterLink href="/about">About</FooterLink>
+              </li>
+              <li className="mb-2">
+                <FooterLink href="/security">Security</FooterLink>
+              </li>
+              <li className="mb-2">
+                <FooterLink href="/contact">Contact</FooterLink>
               </li>
             </ul>
           </div>
