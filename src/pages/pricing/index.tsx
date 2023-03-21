@@ -141,7 +141,7 @@ export default function Pricing() {
   );
   const [showModal, setShowModal] = React.useState(false);
 
-  const basicPrice = paymentModel === "course" ? "$6" : "$12";
+  const basicPrice = paymentModel === "course" ? "$6" : "$10";
   const premiumPrice = paymentModel === "course" ? "$12" : "$16";
 
   const updatePaymentModel = (model: "course" | "student") => {
