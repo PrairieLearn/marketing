@@ -43,11 +43,11 @@ const FEATURES = [
   },
   {
     name: "LMS integration",
-    support: [true, false, false, true],
+    support: [false, true, true, true],
   },
   {
     name: "Single sign-on (SSO)",
-    support: [false, false, false, true],
+    support: [false, true, true, true],
   },
   {
     name: "Custom service agreement",
@@ -57,13 +57,14 @@ const FEATURES = [
 
 const FAQS = [
   {
-    title: "Can I try PrairieLearn for free?",
+    title: "Can I use PrairieLearn for free?",
     contents: (
       <p>
         Yes! PrairieLearn is always free for instructors, and the full platform
-        is available for courses with fewer than 20 students. If you have more
-        than that, <Link href="/contact">contact us</Link> to arrange a free
-        trial for one term.
+        is always free for courses with up to 20 students in each term, with no
+        limit on the number of terms. If you have more than that,{" "}
+        <Link href="/contact">contact us</Link> to arrange a free trial for one
+        term.
       </p>
     ),
   },
@@ -84,6 +85,17 @@ const FAQS = [
           <Link href="/contact">contact us</Link>.
         </p>
       </React.Fragment>
+    ),
+  },
+  {
+    title: "If my course exceeds 20 students, are the first 20 still free?",
+    contents: (
+      <p>
+        Once your course exceeds 20 students in a term, you will be billed for
+        every student. For instance, if there are 30 students enrolled in a
+        term, you will be billed for 30 students. If using the student-paid
+        model, all 30 students will be required to pay.
+      </p>
     ),
   },
   {
