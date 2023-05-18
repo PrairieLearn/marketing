@@ -1,12 +1,12 @@
 import { MarkdownLayout } from "../../components/MarkdownLayout";
 
 export const meta = {
-  title: "Accessibility",
+title: "Accessibility",
 };
 
-This Voluntary Product Accessibility Template, or VPAT, is a tool that administrators and decision-makers can use to evaluate Canvas' conformance with the accessibility standards under [WCAG 2.1 AA](https://www.w3.org/TR/WCAG21/).
+This Voluntary Product Accessibility Template, or VPAT, is a tool that administrators and decision-makers can use to evaluate PrairieLearn's conformance with the accessibility standards under [WCAG 2.1 AA](https://www.w3.org/TR/WCAG21/).
 
-## Accessibility statement
+## Accessibility Statement
 
 At PrairieLearn, we are committed to ensuring accessibility for all individuals, regardless of their abilities or disabilities. Accessibility is a core part of our development process, and new features are subject to both automated and manual accessibility checks. PrairieLearn has been evaluated by PrairieLearn, Inc. according to WCAG 2.0 standards, and we are committed to maintaining and improving accessibility in the future.
 
@@ -41,17 +41,18 @@ Applicable Standards/Guidelines: This report covers the degree of conformance fo
 
 #### Table 1: Success Criteria, Level A
 
+
 | Criteria                                                                                                                    | Conformance        | Notes                                                                                                                                                                                                    |
-| --------------------------------------------------------------------------------------------------------------------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------------------------------------------------------------------------------------------------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [1.1.1 Non-text Content](http://www.w3.org/TR/WCAG20/#text-equiv-all) (Level A)                                             | Supports           | Text alternatives are provided for default content, and user-generated content can include text alternatives where appropriate.                                                                          |
 | [1.2.1 Audio-only and Video-only (Prerecorded)](http://www.w3.org/TR/WCAG20/#media-equiv-av-only-alt) (Level A)             | Supports           | PrairieLearn does not include audio-only or video-only content by default. Users are responsible for ensuring the accessibility of any audio or video content they upload.                               |
 | [1.2.2 Captions (Prerecorded)](http://www.w3.org/TR/WCAG20/#media-equiv-captions) (Level A)                                 | Supports           | PrairieLearn does not include audio or video content by default. Users are responsible for ensuring the accessibility of any audio or video content they upload.                                         |
 | [1.2.3 Audio Description or Media Alternative (Prerecorded)](http://www.w3.org/TR/WCAG20/#media-equiv-audio-desc) (Level A) | Supports           | PrairieLearn does not include audio or video content by default. Users are responsible for ensuring the accessibility of any audio or video content they upload.                                         |
-| [1.3.1 Info and Relationships](http://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic) (Level A)            |                    |                                                                                                                                                                                                          |
-| [1.3.2 Meaningful Sequence](http://www.w3.org/TR/WCAG20/#content-structure-separation-sequence) (Level A)                   |                    |                                                                                                                                                                                                          |
+| [1.3.1 Info and Relationships](http://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic) (Level A)            | Supports           | Information, structure, and relationships conveyed through presentation can be programmatically determined.                                                                                              |
+| [1.3.2 Meaningful Sequence](http://www.w3.org/TR/WCAG20/#content-structure-separation-sequence) (Level A)                   | Supports           | Correct reading sequence can be programmatically determined.                                                                                                                                             |
 | [1.3.3 Sensory Characteristics](http://www.w3.org/TR/WCAG20/#content-structure-separation-understanding) (Level A)          | Supports           | Instructions for using PrairieLearn do not rely on sensory characteristics.                                                                                                                              |
 | [1.4.1 Use of Color](http://www.w3.org/TR/WCAG20/#visual-audio-contrast-without-color) (Level A)                            | Supports           | PrairieLearn does not convey information by color alone.                                                                                                                                                 |
-| [1.4.2 Audio Control](http://www.w3.org/TR/WCAG20/#visual-audio-contrast-dis-audio) (Level A)                               | Supports           | PrairieLearn does not inclue audio content by default. Users are responsible for ensuring the accessibility of any audio used in their content.                                                          |
+| [1.4.2 Audio Control](http://www.w3.org/TR/WCAG20/#visual-audio-contrast-dis-audio) (Level A)                               | Supports           | PrairieLearn does not include audio content by default. Users are responsible for ensuring the accessibility of any audio used in their content.                                                          |
 | [2.1.1 Keyboard](http://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable) (Level A)                               | Partially Supports | Certain inputs that can be used on questions are not operable via the keyboard, including inputs used for drawing and Parson's problems.                                                                 |
 | [2.1.2 No Keyboard Trap](http://www.w3.org/TR/WCAG20/#keyboard-operation-trapping) (Level A)                                | Partially Supports | Inline file editors trap focus to support tabbing within files.                                                                                                                                          |
 | [2.1.4 Character Key Shortcuts](https://www.w3.org/TR/WCAG21/#character-key-shortcuts) (Level A 2.1 only)                   | Supports           | PrairieLearn does not utilize keyboard shortcuts.                                                                                                                                                        |
@@ -76,33 +77,34 @@ Applicable Standards/Guidelines: This report covers the degree of conformance fo
 
 #### Table 2: Success Criteria, Level AA
 
-| Criteria                                                                                                                | Conformance | Notes |
-| ----------------------------------------------------------------------------------------------------------------------- | ----------- | ----- |
-| [1.2.4 Captions (Live)](http://www.w3.org/TR/WCAG20/#media-equiv-real-time-captions) (Level AA)                         |             |       |
-| [1.2.5 Audio Description (Prerecorded)](http://www.w3.org/TR/WCAG20/#media-equiv-audio-desc-only) (Level AA)            |             |       |
-| [1.3.4 Orientation](https://www.w3.org/TR/WCAG21/#orientation) (Level AA 2.1 only)                                      |             |       |
-| [1.3.5 Identify Input Purpose](https://www.w3.org/TR/WCAG21/#identify-input-purpose) (Level AA 2.1 only)                |             |       |
-| [1.4.3 Contrast (Minimum)](http://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast) (Level AA)                      |             |       |
-| [1.4.4 Resize text](http://www.w3.org/TR/WCAG20/#visual-audio-contrast-scale) (Level AA)                                |             |       |
-| [1.4.5 Images of Text](http://www.w3.org/TR/WCAG20/#visual-audio-contrast-text-presentation) (Level AA)                 |             |       |
-| [1.4.10 Reflow](https://www.w3.org/TR/WCAG21/#reflow) (Level AA 2.1 only)                                               |             |       |
-| [1.4.11 Non-text Contrast](https://www.w3.org/TR/WCAG21/#non-text-contrast) (Level AA 2.1 only)                         |             |       |
-| [1.4.12 Text Spacing](https://www.w3.org/TR/WCAG21/#text-spacing) (Level AA 2.1 only)                                   |             |       |
-| [1.4.13 Content on Hover or Focus](https://www.w3.org/TR/WCAG21/#content-on-hover-or-focus) (Level AA 2.1 only)         |             |       |
-| [2.4.5 Multiple Ways](http://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc) (Level AA)                           |             |       |
-| [2.4.6 Headings and Labels](http://www.w3.org/TR/WCAG20/#navigation-mechanisms-descriptive) (Level AA)                  |             |       |
-| [2.4.7 Focus Visible](http://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-visible) (Level AA)                      |             |       |
-| [3.1.2 Language of Parts](http://www.w3.org/TR/WCAG20/#meaning-other-lang-id) (Level AA)                                |             |       |
-| [3.2.3 Consistent Navigation](http://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-locations) (Level AA)         |             |       |
-| [3.2.4 Consistent Identification](http://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-functionality) (Level AA) |             |       |
-| [3.3.3 Error Suggestion](http://www.w3.org/TR/WCAG20/#minimize-error-suggestions) (Level AA)                            |             |       |
-| [3.3.4 Error Prevention (Legal, Financial, Data)](http://www.w3.org/TR/WCAG20/#minimize-error-reversible) (Level AA)    |             |       |
-| [4.1.3 Status Messages](https://www.w3.org/TR/WCAG21/#status-messages) (Level AA 2.1 only)                              |             |       |
+
+| Criteria                                                                                                                | Conformance        | Notes                                                                                                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [1.2.4 Captions (Live)](http://www.w3.org/TR/WCAG20/#media-equiv-real-time-captions) (Level AA)                         | Supports           | PrairieLearn does not contain live audio content in synchronized media.                                                                                              |
+| [1.2.5 Audio Description (Prerecorded)](http://www.w3.org/TR/WCAG20/#media-equiv-audio-desc-only) (Level AA)            | Supports           | PrairieLearn does not contain prerecorded video by default. Users are responsible for ensuring the accessibility of any audio or video content they upload.          |
+| [1.3.4 Orientation](https://www.w3.org/TR/WCAG21/#orientation) (Level AA 2.1 only)                                      | Supports           | PrairieLearn does not restrict operation to any specific orientation.                                                                                                |
+| [1.3.5 Identify Input Purpose](https://www.w3.org/TR/WCAG21/#identify-input-purpose) (Level AA 2.1 only)                | Supports           | Input field purpose can be programmatically determined.                                                                                                              |
+| [1.4.3 Contrast (Minimum)](http://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast) (Level AA)                      | Partially Supports | User interface elements feature a contrast ratio of at least 3:1. Users are responsible for ensuring the accessibility of any custom content they create.            |
+| [1.4.4 Resize text](http://www.w3.org/TR/WCAG20/#visual-audio-contrast-scale) (Level AA)                                | Supports           | Text can be resized using native browser controls.                                                                                                                   |
+| [1.4.5 Images of Text](http://www.w3.org/TR/WCAG20/#visual-audio-contrast-text-presentation) (Level AA)                 | Supports           | PrairieLearn does not contain images of text by default. Users are responsible for ensuring the accessibility of any images containing text they upload.             |
+| [1.4.10 Reflow](https://www.w3.org/TR/WCAG21/#reflow) (Level AA 2.1 only)                                               | Partially Supports | Some pages such as the instructor questions list and gradebook pages do not display properly at a resolution of 320x256.                                             |
+| [1.4.11 Non-text Contrast](https://www.w3.org/TR/WCAG21/#non-text-contrast) (Level AA 2.1 only)                         | Supports           | User interface components and graphical objects have a contrast ratio of at least 3:1 against adjacent colors.                                                       |
+| [1.4.12 Text Spacing](https://www.w3.org/TR/WCAG21/#text-spacing) (Level AA 2.1 only)                                   | Supports           | Users can change text spacing without loss of content or functionality.                                                                                              |
+| [1.4.13 Content on Hover or Focus](https://www.w3.org/TR/WCAG21/#content-on-hover-or-focus) (Level AA 2.1 only)         | Partially Supports | If additional content was triggered via focus, it cannot be dismissed without removing focus.                                                                        |
+| [2.4.5 Multiple Ways](http://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc) (Level AA)                           | Supports           | Pages are accessible from consistent navigational elements shown on every page.                                                                                       |
+| [2.4.6 Headings and Labels](http://www.w3.org/TR/WCAG20/#navigation-mechanisms-descriptive) (Level AA)                  | Supports           | All headers and labels are descriptive.                                                                                                                              |
+| [2.4.7 Focus Visible](http://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-visible) (Level AA)                      | Supports           | The focus indicator is consistently shown for keyboard navigation.                                                                                                   |
+| [3.1.2 Language of Parts](http://www.w3.org/TR/WCAG20/#meaning-other-lang-id) (Level AA)                                | Supports           | PrairieLearn does not contain multi-language content by default. Users can label their own content with the appropriate language.                                    |
+| [3.2.3 Consistent Navigation](http://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-locations) (Level AA)         | Supports           | Consistent navigation components and patterns are utilized across the application.                                                                                   |
+| [3.2.4 Consistent Identification](http://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-functionality) (Level AA) | Supports           | User interface components are labeled consistently across the application.                                                                                           |
+| [3.3.3 Error Suggestion](http://www.w3.org/TR/WCAG20/#minimize-error-suggestions) (Level AA)                            | Supports           | Suggestions are shown in response to errors when useful suggestions can be generated.                                                                                |
+| [3.3.4 Error Prevention (Legal, Financial, Data)](http://www.w3.org/TR/WCAG20/#minimize-error-reversible) (Level AA)    | Supports           | Deletion of user-controlled data is always confirmed. Submissions of test data are checked for formatting errors and users are given an opportunity to correct them. |
+| [4.1.3 Status Messages](https://www.w3.org/TR/WCAG21/#status-messages) (Level AA 2.1 only)                              | Partially Supports | Workspace launch progress and real-time external grader results are currently not communicated via status messages.                                                  |
 
 ## Legal Disclaimer
 
 The information herein is provided in good faith and does not represent a legally binding claim. Please contact [PrairieLearn, Inc.](mailto:support@prairielearn.com) to report any accessibility errors or conformance claim errors for re-evaluation and correction, if necessary.
 
 export default ({ children }) => (
-  <MarkdownLayout meta={meta}>{children}</MarkdownLayout>
+<MarkdownLayout meta={meta}>{children}</MarkdownLayout>
 );
