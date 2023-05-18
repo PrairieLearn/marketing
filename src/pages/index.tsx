@@ -128,7 +128,7 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
           <div className="row">
             <p>
               PrairieLearn is an online assessment and learning system that
-              empowers instructors to create robust educational resources to
+              empowers instructors to create robust educational resources for
               students.
             </p>
           </div>
