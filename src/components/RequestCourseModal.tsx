@@ -1,10 +1,16 @@
 import React from "react";
 import Modal, { ModalProps } from "react-bootstrap/Modal";
+import Form from "react-bootstrap/Form";
 import Link from "next/link";
 
 interface RequestCourseModal extends Pick<ModalProps, "show" | "onHide"> {}
 
 export const RequestCourseModal: React.FC<RequestCourseModal> = (props) => {
+  const [server, setServer] = React.useState<"us" | "ca">("us");
+  const url =
+    server === "ca"
+      ? "https://ca.prairielearn.com/pl/request_course"
+      : "https://us.prairielearn.com/pl/request_course";
   return (
     <Modal {...props} centered aria-labelledby="request-course-modal-title">
       <Modal.Header closeButton>
@@ -17,11 +23,34 @@ export const RequestCourseModal: React.FC<RequestCourseModal> = (props) => {
           Click below to request a course. You&apos;ll be asked to sign in to
           PrairieLearn, after which you can submit your course details.
         </p>
+        <Form className="mb-3">
+          <Form.Check
+            type="radio"
+            name="server"
+            id="server-us"
+            checked={server === "us"}
+            onChange={(e) => setServer("us")}
+            label={
+              <React.Fragment>
+                Main <span className="text-muted">(us.prairielearn.com)</span>
+              </React.Fragment>
+            }
+          />
+          <Form.Check
+            type="radio"
+            name="server"
+            id="server-ca"
+            checked={server === "ca"}
+            onChange={(e) => setServer("ca")}
+            label={
+              <React.Fragment>
+                Canada <span className="text-muted">(ca.prairielearn.com)</span>
+              </React.Fragment>
+            }
+          />
+        </Form>
         <p>
-          <a
-            href="https://us.prairielearn.com/pl/request_course"
-            className="btn btn-primary"
-          >
+          <a href={url} className="btn btn-primary">
             Request a course
           </a>
         </p>
