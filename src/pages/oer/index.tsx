@@ -6,19 +6,20 @@ import classnames from "classnames";
 
 import { PageBanner } from "../../components/Banner";
 import { Heading } from "../../components/Heading";
+import { RequestCourseModal } from "../../components/RequestCourseModal";
 
 import styles from "./index.module.scss";
-import tam211 from "../../lib/images/tam211.png";
-import tam212 from "../../lib/images/tam212.png";
-import tam251 from "../../lib/images/tam251.png";
-import cs357 from "../../lib/images/cs357.png";
+import eorstatics from "../../lib/images/tam211.png";
+import eordynamics from "../../lib/images/tam212.png";
+import eorsolids from "../../lib/images/tam251.png";
+import eornumerical from "../../lib/images/cs357.png";
+import eorphysics1 from "../../lib/images/EORphysics1.png";
+import eorphysics2 from "../../lib/images/EORphysics2.png";
 
 interface CourseCardProps {
   image: ImageProps["src"];
   title: string;
   href: string;
-  ownerName: string;
-  ownerEmail: string;
   children: React.ReactNode;
 }
 
@@ -26,8 +27,6 @@ const CourseCard: React.FC<CourseCardProps> = ({
   image,
   title,
   href,
-  ownerName,
-  ownerEmail,
   children,
 }) => {
   return (
@@ -55,6 +54,8 @@ const CourseCard: React.FC<CourseCardProps> = ({
 };
 
 export default function Courses() {
+  const [showRequestCourseModal, setShowRequestCourseModal] =
+    React.useState(false);
   return (
     <React.Fragment>
       <Head>
@@ -74,59 +75,63 @@ export default function Courses() {
             <Link href="/gallery/assessments">assessments</Link> and{" "}
             <Link href="/gallery/questions">questions</Link> you have created.
             Browse through these PrairieLearn courses in a variety of subjects.
-            If you find a question that you like, you can copy it to your own course, 
-            and make changes if you want!
+            If you find a question that you like, you can copy it to your own
+            course, and make changes if you want!
           </p>
+          <div className="alert alert-primary mb-0">
+            <p>
+              You&apos;ll be asked to sign in to PrairieLearn in order to access
+              the courses below. If you want to copy questions for your own use,
+              you will first need to request your PrairieLearn course space,
+              which is always free for instructors.
+            </p>
+            <div className="col-md-12 text-center">
+              <button
+                className="btn btn-light btn-lg me-3 mt-3"
+                onClick={() => setShowRequestCourseModal(true)}
+              >
+                Request a course
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <div className={classnames("container-fluid my-5")}>
+        <div className="container-md">
           <div className={styles.grid}>
-
-            <CourseCard
-              image={cs357}
-              title="Physics: Mechanics"
-              href="https://us.prairielearn.com/pl/course_instance/132679"
-              ownerName="Mariana Silva"
-              ownerEmail="mfsilva@illinois.edu"
-            >
+            <CourseCard image={eorphysics1} title="Physics: Mechanics" href="">
               <p className="mb-0">
-                Explore concepts such as kinematics; Newton's laws of motion, work, energy, and power; 
-                systems of particles and linear momentum.
+                Explore concepts such as kinematics; Newton&apos;s laws of
+                motion, work, energy, and power; systems of particles and linear
+                momentum.
+              </p>
+            </CourseCard>
+
+            <CourseCard image={eorphysics2} title="Physics: E&M" href="">
+              <p className="mb-0">
+                Explore concepts such as electrostatics, conductors, capacitors
+                and dielectrics and electric circuits.
               </p>
             </CourseCard>
 
             <CourseCard
-              image={cs357}
-              title="Physics: E&M"
-              href="https://us.prairielearn.com/pl/course_instance/132679"
-              ownerName="Mariana Silva"
-              ownerEmail="mfsilva@illinois.edu"
-            >
-              <p className="mb-0">
-              Explore concepts such as electrostatics, conductors, 
-              capacitors and dielectrics and electric circuits.
-              </p>
-            </CourseCard>
-
-            <CourseCard
-              image={tam211}
+              image={eorstatics}
               title="Statics"
               href="https://us.prairielearn.com/pl/course_instance/129328"
             >
               <p className="mb-0">
                 Forces, moments, and couples; resultants of force systems;
-                equilibrium analysis and free-body diagrams; trusses and frames; 
-                shear-force and bending-moment distributions; friction; 
-                moment of inertia; virtual work; hydrostatic pressure.
+                equilibrium analysis and free-body diagrams; trusses and frames;
+                shear-force and bending-moment distributions; friction; moment
+                of inertia; virtual work; hydrostatic pressure.
               </p>
             </CourseCard>
 
             <CourseCard
-              image={tam212}
+              image={eordynamics}
               title="Introductory Dynamics"
               href="https://us.prairielearn.com/pl/course_instance/129330"
-              institution="University of Illinois at Urbana-Champaign"
-              rubric="TAM 212"
-              ownerName="Matthew West"
-              ownerEmail="mwest@illinois.edu"
             >
               <p className="mb-0">
                 Kinematics and dynamics of the three-dimensional motion of
@@ -137,50 +142,24 @@ export default function Courses() {
             </CourseCard>
 
             <CourseCard
-              image={tam251}
+              image={eorsolids}
               title="Introductory Solid Mechanics"
               href="https://us.prairielearn.com/pl/course_instance/129329"
-              institution="University of Illinois at Urbana-Champaign"
-              rubric="TAM 251"
-              ownerName="Mariana Silva"
-              ownerEmail="mfsilva@illinois.edu"
             >
               <p className="mb-0">
-                Normal stresses, shear
-                stresses, and deformations produced by tensile, compressive,
-                torsional, and bending loading of members; beam deflections;
-                multi-dimensional stress states.
+                Normal stresses, shear stresses, and deformations produced by
+                tensile, compressive, torsional, and bending loading of members;
+                beam deflections; multi-dimensional stress states.
               </p>
             </CourseCard>
 
-            <CourseCard
-              image={cs357}
-              title="Intro to Programming with Python"
-              href="https://us.prairielearn.com/pl/course_instance/132679"
-              ownerName="Craig Zilles"
-              ownerEmail="craig@prairielearn.com"
-            >
-              <p className="mb-0">
-                Introduction to concepts and tools of computer science 
-                using the Python programming language; types, boolean logic, 
-                iterations, lists, arrays.
-              </p>
-            </CourseCard>
-
-            <CourseCard
-              image={cs357}
-              title="Numerical Methods"
-              href="https://us.prairielearn.com/pl/course_instance/132679"
-              ownerName="Mariana Silva"
-              ownerEmail="mfsilva@illinois.edu"
-            >
+            <CourseCard image={eornumerical} title="Numerical Methods" href="">
               <p className="mb-0">
                 Fundamentals of numerical methods for students in science and
                 engineering; programming exercises in python.
               </p>
             </CourseCard>
-
-        </div>
+          </div>
         </div>
       </div>
 
@@ -188,10 +167,16 @@ export default function Courses() {
         <div className="container-md">
           <h2 className="h4">License</h2>
           <p>
-            do we need to add text here? authorship?
+            All content here is licensed as open licensed. See each question for
+            license details.
           </p>
         </div>
       </div>
+
+      <RequestCourseModal
+        show={showRequestCourseModal}
+        onHide={() => setShowRequestCourseModal(false)}
+      />
     </React.Fragment>
   );
 }
