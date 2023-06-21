@@ -69,21 +69,18 @@ export default function Courses() {
 
       <div className={classnames("container-fluid my-5")}>
         <div className="container-md">
-          <Heading>Course Catalog</Heading>
+          <Heading>Question Templates</Heading>
           <p>
-            Courses are home to all the{" "}
-            <Link href="/gallery/assessments">assessments</Link> and{" "}
-            <Link href="/gallery/questions">questions</Link> you have created.
-            Browse through these PrairieLearn courses in a variety of subjects.
-            If you find a question that you like, you can copy it to your own
-            course, and make changes if you want!
+            Browse through these PrairieLearn template courses in a variety of
+            subjects. If you find a question that you like, you can copy it to
+            your own course, and make changes if you want!
           </p>
           <div className="alert alert-primary mb-0">
             <p>
               You&apos;ll be asked to sign in to PrairieLearn in order to access
-              the courses below. If you want to copy questions for your own use,
-              you will first need to request your PrairieLearn course space,
-              which is always free for instructors.
+              the template courses below. If you want to copy questions for your
+              own use, you will first need to request your PrairieLearn course
+              space, which is always free for instructors.
             </p>
             <div className="col-md-12 text-center">
               <button
@@ -100,7 +97,11 @@ export default function Courses() {
       <div className={classnames("container-fluid my-5")}>
         <div className="container-md">
           <div className={styles.grid}>
-            <CourseCard image={eorphysics1} title="Physics: Mechanics" href="">
+            <CourseCard
+              image={eorphysics1}
+              title="Physics: Mechanics"
+              href="https://us.prairielearn.com/pl/course_instance/136441/assessment/2350772"
+            >
               <p className="mb-0">
                 Explore concepts such as kinematics; Newton&apos;s laws of
                 motion, work, energy, and power; systems of particles and linear
@@ -108,7 +109,11 @@ export default function Courses() {
               </p>
             </CourseCard>
 
-            <CourseCard image={eorphysics2} title="Physics: E&M" href="">
+            <CourseCard
+              image={eorphysics2}
+              title="Physics: E&M"
+              href="https://us.prairielearn.com/pl/course_instance/136442/assessment/2350773"
+            >
               <p className="mb-0">
                 Explore concepts such as electrostatics, conductors, capacitors
                 and dielectrics and electric circuits.
@@ -118,7 +123,7 @@ export default function Courses() {
             <CourseCard
               image={eorstatics}
               title="Statics"
-              href="https://us.prairielearn.com/pl/course_instance/129328"
+              href="https://us.prairielearn.com/pl/course_instance/136474/assessment/2350805"
             >
               <p className="mb-0">
                 Forces, moments, and couples; resultants of force systems;
@@ -131,7 +136,7 @@ export default function Courses() {
             <CourseCard
               image={eordynamics}
               title="Introductory Dynamics"
-              href="https://us.prairielearn.com/pl/course_instance/129330"
+              href="https://us.prairielearn.com/pl/course_instance/136475/assessment/2350806"
             >
               <p className="mb-0">
                 Kinematics and dynamics of the three-dimensional motion of
@@ -144,7 +149,7 @@ export default function Courses() {
             <CourseCard
               image={eorsolids}
               title="Introductory Solid Mechanics"
-              href="https://us.prairielearn.com/pl/course_instance/129329"
+              href="https://us.prairielearn.com/pl/course_instance/136415/assessment/2350745"
             >
               <p className="mb-0">
                 Normal stresses, shear stresses, and deformations produced by
@@ -153,7 +158,11 @@ export default function Courses() {
               </p>
             </CourseCard>
 
-            <CourseCard image={eornumerical} title="Numerical Methods" href="">
+            <CourseCard
+              image={eornumerical}
+              title="Numerical Methods"
+              href="https://us.prairielearn.com/pl/course_instance/136413/assessment/2350744"
+            >
               <p className="mb-0">
                 Fundamentals of numerical methods for students in science and
                 engineering; programming exercises in python.
