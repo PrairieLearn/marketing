@@ -84,7 +84,7 @@ export default function Courses() {
             </p>
             <div className="col-md-12 text-center">
               <button
-                className="btn btn-light btn-lg me-3 mt-3"
+                className="btn btn-primary btn-lg"
                 onClick={() => setShowRequestCourseModal(true)}
               >
                 Request a course
