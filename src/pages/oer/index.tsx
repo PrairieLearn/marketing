@@ -103,9 +103,8 @@ export default function Courses() {
               href="https://us.prairielearn.com/pl/course_instance/136441/assessment/2350772"
             >
               <p className="mb-0">
-                Explore concepts such as kinematics; Newton&apos;s laws of
-                motion, work, energy, and power; systems of particles and linear
-                momentum.
+                Kinematics; Newton&apos;s laws of motion, work, energy, power;
+                systems of particles; linear momentum.
               </p>
             </CourseCard>
 
@@ -115,8 +114,8 @@ export default function Courses() {
               href="https://us.prairielearn.com/pl/course_instance/136442/assessment/2350773"
             >
               <p className="mb-0">
-                Explore concepts such as electrostatics, conductors, capacitors
-                and dielectrics and electric circuits.
+                Electrostatics; conductors, capacitors and dielectrics; electric
+                circuits; inductance and magnetism.
               </p>
             </CourseCard>
 
@@ -126,10 +125,10 @@ export default function Courses() {
               href="https://us.prairielearn.com/pl/course_instance/136474/assessment/2350805"
             >
               <p className="mb-0">
-                Forces, moments, and couples; resultants of force systems;
-                equilibrium analysis and free-body diagrams; trusses and frames;
-                shear-force and bending-moment distributions; friction; moment
-                of inertia; virtual work; hydrostatic pressure.
+                Forces, moments; resultants of force systems; equilibrium and
+                free-body diagrams; trusses and frames; shear-force and
+                bending-moment diagrams; friction; moment of inertia; virtual
+                work; hydrostatic pressure.
               </p>
             </CourseCard>
 
@@ -152,9 +151,8 @@ export default function Courses() {
               href="https://us.prairielearn.com/pl/course_instance/136415/assessment/2350745"
             >
               <p className="mb-0">
-                Normal stresses, shear stresses, and deformations produced by
-                tensile, compressive, torsional, and bending loading of members;
-                beam deflections; multi-dimensional stress states.
+                Normal and shear stresses; axial loading; torque; bending in
+                beams; deflections; multi-dimensional stress states.
               </p>
             </CourseCard>
 
@@ -164,8 +162,9 @@ export default function Courses() {
               href="https://us.prairielearn.com/pl/course_instance/136413/assessment/2350744"
             >
               <p className="mb-0">
-                Fundamentals of numerical methods for students in science and
-                engineering; programming exercises in python.
+                Floating-point; errors; Monte Carlo simulations; linear system
+                of equations; eigenvalues; optimization; nonlinear problems;
+                singular value decomposition; programming exercises in python.
               </p>
             </CourseCard>
           </div>
@@ -176,8 +175,8 @@ export default function Courses() {
         <div className="container-md">
           <h2 className="h4">License</h2>
           <p>
-            All content here is licensed as open licensed. See each question for
-            license details.
+            All content here are made made available under an open license. See
+            each question for license details.
           </p>
         </div>
       </div>
