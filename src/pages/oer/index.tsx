@@ -164,7 +164,7 @@ export default function Courses() {
               <p className="mb-0">
                 Floating-point; errors; Monte Carlo simulations; linear system
                 of equations; eigenvalues; optimization; nonlinear problems;
-                singular value decomposition; programming exercises in python.
+                singular value decomposition; programming exercises in Python.
               </p>
             </CourseCard>
           </div>
