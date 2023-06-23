@@ -15,6 +15,8 @@ import eorsolids from "../../lib/images/tam251.png";
 import eornumerical from "../../lib/images/cs357.png";
 import eorphysics1 from "../../lib/images/EORphysics1.png";
 import eorphysics2 from "../../lib/images/EORphysics2.png";
+import eorpython from "../../lib/images/EORpython.png";
+import eorthermo from "../../lib/images/EORthermo.png";
 
 interface CourseCardProps {
   image: ImageProps["src"];
@@ -165,6 +167,31 @@ export default function Courses() {
                 Floating-point; errors; Monte Carlo simulations; linear system
                 of equations; eigenvalues; optimization; nonlinear problems;
                 singular value decomposition; programming exercises in Python.
+              </p>
+            </CourseCard>
+
+            <CourseCard
+              image={eorthermo}
+              title="Thermodynamics"
+              href="https://us.prairielearn.com/pl/course_instance/136573/assessment/2351036"
+            >
+              <p className="mb-0">
+                Classical thermodynamics through the second law; system and
+                control-volume analyses of thermodynamic processes;
+                irreversibility and availability; relations for ideal gas
+                mixtures.
+              </p>
+            </CourseCard>
+
+            <CourseCard
+              image={eorpython}
+              title="Introduction to Python"
+              href="https://us.prairielearn.com/pl/course_instance/136606/assessment/2351069"
+            >
+              <p className="mb-0">
+                Introduction to computer programming using the Python
+                programming language; data types, control structures, functions,
+                and arrays,
               </p>
             </CourseCard>
           </div>
