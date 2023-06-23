@@ -175,7 +175,7 @@ export default function Courses() {
         <div className="container-md">
           <h2 className="h4">License</h2>
           <p>
-            All content here are made made available under an open license. See
+            All content here is made made available under an open license. See
             each question for license details.
           </p>
         </div>
