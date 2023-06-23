@@ -145,6 +145,9 @@ export const Header: React.FC = () => {
               </Dropdown.Menu>
             </Dropdown>
             <li className="nav-item">
+              <RouterNavLink href="/oer">OER</RouterNavLink>
+            </li>
+            <li className="nav-item">
               <RouterNavLink href="/research">Case Studies</RouterNavLink>
             </li>
             <li className="nav-item">
