@@ -191,7 +191,7 @@ export default function Courses() {
               <p className="mb-0">
                 Introduction to computer programming using the Python
                 programming language; data types, control structures, functions,
-                and arrays,
+                and arrays.
               </p>
             </CourseCard>
           </div>
