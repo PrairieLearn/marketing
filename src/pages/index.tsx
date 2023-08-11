@@ -15,7 +15,7 @@ import richorder from "../lib/images/rich_question_order_block.png";
 import richball from "../lib/images/rich_question_balltrajectory.png";
 
 import styles from "./index.module.scss";
-import { Accordion, Carousel, CarouselItem } from "react-bootstrap";
+import { Accordion, Alert, Carousel, CarouselItem } from "react-bootstrap";
 import { RequestCourseModal } from "../components/RequestCourseModal";
 
 const TALKING_POINTS = [
@@ -86,6 +86,10 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
         <div className="container-md">
           <Row>
             <Column>
+              <Alert variant="primary">
+                <strong>We&apos;re hiring!</strong>{" "}
+                <Link href="/jobs">Check out our open positions.</Link>
+              </Alert>
               <h1 className="text-white display-3">
                 <span>PrairieLearn</span>
               </h1>
