@@ -222,9 +222,7 @@ export default function Pricing() {
                   >
                     ✓
                   </span>
-                  <div>
-                    Student pays
-                  </div>
+                  Student pays
                 </button>
               </div>
             </div>
