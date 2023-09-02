@@ -120,7 +120,7 @@ export const Header: React.FC = () => {
         >
           <ul className="navbar-nav ms-auto mb-2 mb-sm-0">
             <li className="nav-item">
-              <RouterNavLink href="/about">About</RouterNavLink>
+              <RouterNavLink href="/product">Product</RouterNavLink>
             </li>
             <Dropdown as={NavItem}>
               <Dropdown.Toggle
@@ -129,7 +129,7 @@ export const Header: React.FC = () => {
                   [`fw-bold ${styles.active}`]: useIsActive("/gallery"),
                 })}
               >
-                Gallery
+                Catalog
               </Dropdown.Toggle>
               <Dropdown.Menu>
                 <NavDropdownItem href="/gallery/questions">
@@ -141,19 +141,37 @@ export const Header: React.FC = () => {
                 <NavDropdownItem href="/gallery/courses">
                   Courses
                 </NavDropdownItem>
+                <NavDropdownItem href="/oer">
+                  OER
+                </NavDropdownItem>
+              </Dropdown.Menu>
+            </Dropdown>
+            <Dropdown as={NavItem}>
+              <Dropdown.Toggle
+                as={NavLink}
+                className={classnames(styles["nav-link"], {
+                  [`fw-bold ${styles.active}`]: useIsActive("/gallery"),
+                })}
+              >
+                Info Center
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <NavDropdownItem href="/about">
+                  About Us
+                </NavDropdownItem>
+                <NavDropdownItem href="/research">
+                  Research
+                </NavDropdownItem>
+                <NavDropdownItem href="/blog">
+                  Blog
+                </NavDropdownItem>
               </Dropdown.Menu>
             </Dropdown>
             <li className="nav-item">
-              <RouterNavLink href="/oer">OER</RouterNavLink>
-            </li>
-            <li className="nav-item">
-              <RouterNavLink href="/research">Case Studies</RouterNavLink>
+              <RouterNavLink href="/contact">Support</RouterNavLink>
             </li>
             <li className="nav-item">
               <RouterNavLink href="/pricing">Pricing</RouterNavLink>
-            </li>
-            <li className="nav-item">
-              <RouterNavLink href="/contact">Contact</RouterNavLink>
             </li>
             <DropdownButton
               id="login-dropdown-desktop"
