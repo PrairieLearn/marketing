@@ -60,7 +60,7 @@ const NavDropdownItem: React.FC<NavLinkProps> = ({ href, children }) => {
   );
 };
 
-import logo from "../lib/images/flower-white.png";
+import logo from "../lib/images/PL-logo-white.svg";
 
 export const Header: React.FC = () => {
   const [collapsed, setCollapsed] = React.useState(true);
@@ -74,7 +74,7 @@ export const Header: React.FC = () => {
   return (
     <nav
       className={classnames(
-        "navbar navbar-expand-sm navbar-dark navbar-primary",
+        "navbar navbar-expand-sm py-5 navbar-dark navbar-primary",
         styles.header
       )}
     >
@@ -82,13 +82,12 @@ export const Header: React.FC = () => {
         <Link href="/" className="navbar-brand">
           <Image
             src={logo}
-            height={24}
+            height={60}
             alt="PrairieLearn logo"
             style={{
               width: "auto",
             }}
           />
-          PrairieLearn
         </Link>
         <div className="d-flex flex-row">
           <DropdownButton
