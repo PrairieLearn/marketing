@@ -82,7 +82,7 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
         <title>PrairieLearn</title>
       </Head>
 
-      <div className={classnames("container-fluid py-4", styles.banner)}>
+      {/* <div className={classnames("container-fluid py-4", styles.banner)}>
         <div className="container-md">
           <Row>
             <Column>
@@ -124,7 +124,7 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
             </Column>
           </Row>
         </div>
-      </div>
+      </div> */}
 
       <div className={classnames("container-fluid py-4")}>
         <div className="container-md">
