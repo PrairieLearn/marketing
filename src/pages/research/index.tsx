@@ -14,11 +14,11 @@ export default function Research() {
   return (
     <React.Fragment>
       <Head>
-        <title>Case Studies | PrairieLearn</title>
+        <title>Research | PrairieLearn</title>
       </Head>
 
       <PageBanner
-        title="Case Studies"
+        title="Research"
         subtitle="Collection of educational research and case studies using PrairieLearn"
       />
 
