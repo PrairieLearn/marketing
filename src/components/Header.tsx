@@ -106,9 +106,6 @@ export const Header: React.FC = () => {
           id="navbar"
         >
           <ul className="navbar-nav ms-auto mb-2 mb-sm-0">
-            <li className="nav-item">
-              <RouterNavLink href="/product">Product</RouterNavLink>
-            </li>
             <Dropdown as={NavItem}>
               <Dropdown.Toggle
                 as={NavLink}
@@ -148,9 +145,6 @@ export const Header: React.FC = () => {
                 </NavDropdownItem>
                 <NavDropdownItem href="/research">
                   Research
-                </NavDropdownItem>
-                <NavDropdownItem href="/blog">
-                  Blog
                 </NavDropdownItem>
               </Dropdown.Menu>
             </Dropdown>
