@@ -1,11 +1,68 @@
 import Head from "next/head";
 import React from "react";
+import Link from "next/link";
+import Image, { ImageProps } from "next/image";
 import classnames from "classnames";
 import { Heading } from "../../components/Heading";
-import Stack from "../../components/Stack";
 import { ContactUsForm } from "../../components/ContactUsForm";
 import styles from "./index.module.scss";
 import { RequestCourseModal } from "../../components/RequestCourseModal";
+
+import getStarted from "../../lib/images/logos/get-started.png";
+import github from "../../lib/images/logos/github-mark.png";
+import slack from "../../lib/images/logos/Slack-mark-RGB.png";
+import zoom from "../../lib/images/logos/mark_product_ZM-meetings_color-RGB.png";
+
+
+
+interface HelpCardProps {
+  image: ImageProps["src"];
+  title: string;
+  href: string;
+  children: React.ReactNode;
+}
+
+const HelpCard: React.FC<HelpCardProps> = ({
+  image,
+  title,
+  href,
+  children,
+}) => {
+  return (
+    <article className="card mb-3"> 
+      <div className="row">
+        <div className="card-title mt-3 text-center">
+          <Heading>{title}</Heading> 
+        </div>
+      </div>
+      <div className="row g-0">
+        <div className="col-md-3 mx-auto">
+          <Link href={href}>
+          <Image
+            src={image}
+            alt={title}
+            style={{
+              objectFit: "contain",
+              alignSelf: "center", 
+              width: "100%",
+              height: "100%",
+              aspectRatio: "5 / 3",
+            }}
+          />
+          </Link>
+        </div>
+        <div className="col-md-9">
+          <div className="card-body">
+            <Link href={href} style={{ color: 'inherit', textDecoration: 'inherit'}}>
+              {children}
+            </Link>
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+};
+
 
 export default function Support() {
   const [showRequestCourseModal, setShowRequestCourseModal] =
@@ -43,11 +100,12 @@ export default function Support() {
                   <p className="card-text">
                     Want a one-on-one or a group demo? Book a time with us!
                   </p>
-                  <button
+                  <Link
+                    href="https://calendly.com/marianapl"
                     className="btn btn-warning btn-lg me-3"
                   >
-                  Book a demo
-                  </button>
+                  Book a Demo
+                  </Link>
                 </div>
               </div> 
             </div>
@@ -55,54 +113,63 @@ export default function Support() {
         </div>
       </div>
 
-
       <div className={classnames("container-fluid py-5", styles.container)}>
         <div className="container-md">
           <div className={styles.grid}>
-            <div className="card mb-3">
-              <div className="card-body">
-                <Heading>Get Started</Heading> 
-                <p className="card-text">Ready to start creating your own course?</p>
-              </div>
-            </div>
-            <div className="card mb-3">
-              <div className="card-body">
-                <Heading>Example Course</Heading> 
-                <p className="card-text">Ready to start creating your own course?</p>
-              </div>
-            </div>
-            <div className="card mb-3">
-              <div className="card-body">
-                <Heading>Documentation</Heading> 
-                <p className="card-text">Ready to start creating your own course?</p>
-              </div>
-            </div>
-            <div className="card mb-3">
-              <div className="card-body">
-                <Heading>Slack Community</Heading> 
-                <p className="card-text">If you want to chat with folks in real-time, check our vibrant 
-                 {" "}
-              <a href="/slack">PrairieLearn community Slack</a> with over 1,000 users.</p>
-              </div>
-            </div>
-            <div className="card mb-3">
-              <div className="card-body">
-                <Heading>GitHub Discussions</Heading> 
-                <p className="card-text">              
-                <a href="https://github.com/PrairieLearn/PrairieLearn/discussions">
-                GitHub Discussions
-              </a>{" "} is the best place to ask questions, find answers, and get help. </p>
-              </div>
-            </div>  
-            <div className="card mb-3">
-              <div className="card-body">
-                <Heading>Office Hours</Heading> 
-                <p className="card-text">Our teams holds weekly office hours via Zoom that are open to anyone using PrairieLearn. 
-                Email{" "} <a href="mailto:support@prairielearn.com">
-                support@prairielearn.com </a>{" "} if you need an invite. 
-                </p>
-              </div>
-            </div>          
+            <HelpCard
+              image={getStarted}
+              title="Get Started"
+              href="https://prairielearn.readthedocs.io/en/latest/getStarted/"
+            >
+              <p className="mb-0">
+                Simple tutorials to get you ready to create your own content.
+              </p>
+            </HelpCard>
+            <HelpCard
+              image={getStarted}
+              title="Example Course"
+              href="https://us.prairielearn.com/pl/course_instance/4970"
+            >
+              <p className="mb-0">
+                Browse through many examples that you can use as template.
+              </p>
+            </HelpCard>
+            <HelpCard
+              image={getStarted}
+              title="Documentation"
+              href="https://prairielearn.readthedocs.io"
+            >
+              <p className="mb-0">
+                Get more detailed information from our documentation.
+              </p>
+            </HelpCard>
+            <HelpCard
+              image={slack}
+              title="Slack Community"
+              href="/slack"
+            >
+              <p className="mb-0">
+                Get help in real-time in this community with over 1,000 users.
+              </p>
+            </HelpCard>
+            <HelpCard
+              image={github}
+              title="GitHub Discussions"
+              href="https://github.com/PrairieLearn/PrairieLearn/discussions"
+            >
+              <p className="mb-0">
+                Best place to ask questions, search for FAQs, and more!
+              </p>
+            </HelpCard>
+            <HelpCard
+              image={zoom}
+              title="Office Hours"
+              href=" "
+            >
+              <p className="mb-0">
+                Weekly office hours via Zoom meetings open to anyone using PrairieLearn. 
+              </p>
+            </HelpCard>
           </div>
         </div>
       </div>
