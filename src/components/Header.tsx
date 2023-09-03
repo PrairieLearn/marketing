@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import {
   Dropdown,
-  DropdownButton,
   NavDropdown,
   NavItem,
   NavLink,
@@ -74,10 +73,11 @@ export const Header: React.FC = () => {
   return (
     <nav
       className={classnames(
-        "navbar navbar-expand-sm py-5 navbar-dark navbar-primary",
+        "navbar navbar-expand-sm navbar-dark navbar-primary",
         styles.header
       )}
     >
+
       <div className="container">
         <Link href="/" className="navbar-brand">
           <Image
@@ -90,19 +90,6 @@ export const Header: React.FC = () => {
           />
         </Link>
         <div className="d-flex flex-row">
-          <DropdownButton
-            id="login-dropdown-mobile"
-            title="Login"
-            variant="light"
-            className="d-sm-none me-2"
-          >
-            <Dropdown.Item href="https://us.prairielearn.com/pl/login">
-              Main <span className="text-muted">(us.prairielearn.com)</span>
-            </Dropdown.Item>
-            <Dropdown.Item href="https://ca.prairielearn.com/pl/login">
-              Canada <span className="text-muted">(ca.prairielearn.com)</span>
-            </Dropdown.Item>
-          </DropdownButton>
           <button
             className="navbar-toggler"
             type="button"
@@ -150,7 +137,7 @@ export const Header: React.FC = () => {
               <Dropdown.Toggle
                 as={NavLink}
                 className={classnames(styles["nav-link"], {
-                  [`fw-bold ${styles.active}`]: useIsActive("/gallery"),
+                  [`fw-bold ${styles.active}`]: useIsActive("/info"),
                 })}
               >
                 Info Center
@@ -173,19 +160,6 @@ export const Header: React.FC = () => {
             <li className="nav-item">
               <RouterNavLink href="/pricing">Pricing</RouterNavLink>
             </li>
-            <DropdownButton
-              id="login-dropdown-desktop"
-              title="Login"
-              variant="light"
-              className="d-none d-sm-inline-block"
-            >
-              <Dropdown.Item href="https://us.prairielearn.com/pl/login">
-                Main <span className="text-muted">(us.prairielearn.com)</span>
-              </Dropdown.Item>
-              <Dropdown.Item href="https://ca.prairielearn.com/pl/login">
-                Canada <span className="text-muted">(ca.prairielearn.com)</span>
-              </Dropdown.Item>
-            </DropdownButton>
           </ul>
         </div>
       </div>
