@@ -3,12 +3,7 @@ import classnames from "classnames";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import {
-  Dropdown,
-  NavDropdown,
-  NavItem,
-  NavLink,
-} from "react-bootstrap";
+import { Dropdown, NavDropdown, NavItem, NavLink } from "react-bootstrap";
 
 import styles from "./Header.module.scss";
 
@@ -77,7 +72,6 @@ export const Header: React.FC = () => {
         styles.header
       )}
     >
-
       <div className="container">
         <Link href="/" className="navbar-brand">
           <Image
@@ -125,9 +119,7 @@ export const Header: React.FC = () => {
                 <NavDropdownItem href="/gallery/courses">
                   Courses
                 </NavDropdownItem>
-                <NavDropdownItem href="/oer">
-                  OER
-                </NavDropdownItem>
+                <NavDropdownItem href="/oer">OER</NavDropdownItem>
               </Dropdown.Menu>
             </Dropdown>
             <Dropdown as={NavItem}>
@@ -140,12 +132,8 @@ export const Header: React.FC = () => {
                 Info Center
               </Dropdown.Toggle>
               <Dropdown.Menu>
-                <NavDropdownItem href="/about">
-                  About Us
-                </NavDropdownItem>
-                <NavDropdownItem href="/research">
-                  Research
-                </NavDropdownItem>
+                <NavDropdownItem href="/about">About Us</NavDropdownItem>
+                <NavDropdownItem href="/research">Research</NavDropdownItem>
               </Dropdown.Menu>
             </Dropdown>
             <li className="nav-item">

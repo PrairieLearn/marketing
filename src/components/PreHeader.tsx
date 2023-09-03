@@ -1,9 +1,6 @@
 import React from "react";
 import classnames from "classnames";
-import {
-  Dropdown,
-  DropdownButton,
-} from "react-bootstrap";
+import { Dropdown, DropdownButton } from "react-bootstrap";
 
 import styles from "./PreHeader.module.scss";
 import { RequestCourseModal } from "../components/RequestCourseModal";
@@ -43,6 +40,5 @@ export const PreHeader: React.FC = () => {
         onHide={() => setShowRequestCourseModal(false)}
       />
     </React.Fragment>
-
   );
 };
