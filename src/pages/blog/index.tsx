@@ -3,18 +3,14 @@ import classnames from "classnames";
 import Head from "next/head";
 import Link from "next/link";
 import Image, { ImageProps } from "next/image";
-
 import { PageBanner } from "../../components/Banner";
 import { DemoCourseCTA } from "../../components/DemoCourse";
 import { Heading } from "../../components/Heading";
-import Stack from "../../components/Stack";
 
 import styles from "./index.module.scss";
 
 import asee2023 from "../../lib/images/blog/asee2023-booth.jpg";
 import nsf from "../../lib/images/logos/NSF_Official_logo_High_Res_1200ppi.png";
-
-
 
 interface NewsCardProps {
   date: string;
@@ -47,13 +43,13 @@ const NewsCard: React.FC<NewsCardProps> = ({
       </Link>
       <div className="card-body">
         <p className="mb-1">
-          <strong>{date}</strong> 
-        </p>     
+          <strong>{date}</strong>
+        </p>
         <Link
           href={href}
           style={{ color: "inherit", textDecoration: "inherit" }}
         >
-          <Heading>{title}</Heading>       
+          <Heading>{title}</Heading>
         </Link>
         {children}
       </div>
@@ -83,7 +79,8 @@ export default function About() {
               href=" "
             >
               <p className="mb-0">
-                Read about the research studies using PrairieLearn data presented at the conference. 
+                Read about the research studies using PrairieLearn data
+                presented at the conference.
               </p>
             </NewsCard>
             <NewsCard
@@ -93,7 +90,8 @@ export default function About() {
               href=" "
             >
               <p className="mb-0">
-                Read about the research studies using PrairieLearn data presented at the conference. 
+                Read about the research studies using PrairieLearn data
+                presented at the conference.
               </p>
             </NewsCard>
             <NewsCard
@@ -103,13 +101,13 @@ export default function About() {
               href=" "
             >
               <p className="mb-0">
-                PrairieLearn Inc. had its first conference booth! We had a great time talking with many educators and attending excellent talks!
+                PrairieLearn Inc. had its first conference booth! We had a great
+                time talking with many educators and attending excellent talks!
               </p>
-            </NewsCard> 
+            </NewsCard>
           </div>
         </div>
       </div>
-        
 
       <DemoCourseCTA
         title="View demo course!"
