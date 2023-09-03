@@ -13,8 +13,6 @@ import github from "../../lib/images/logos/github-mark.png";
 import slack from "../../lib/images/logos/Slack-mark-RGB.png";
 import zoom from "../../lib/images/logos/mark_product_ZM-meetings_color-RGB.png";
 
-
-
 interface HelpCardProps {
   image: ImageProps["src"];
   title: string;
@@ -29,31 +27,34 @@ const HelpCard: React.FC<HelpCardProps> = ({
   children,
 }) => {
   return (
-    <article className="card mb-3"> 
+    <article className="card mb-3">
       <div className="row">
         <div className="card-title mt-3 text-center">
-          <Heading>{title}</Heading> 
+          <Heading>{title}</Heading>
         </div>
       </div>
       <div className="row g-0">
         <div className="col-md-3 mx-auto">
           <Link href={href}>
-          <Image
-            src={image}
-            alt={title}
-            style={{
-              objectFit: "contain",
-              alignSelf: "center", 
-              width: "100%",
-              height: "100%",
-              aspectRatio: "5 / 3",
-            }}
-          />
+            <Image
+              src={image}
+              alt={title}
+              style={{
+                objectFit: "contain",
+                alignSelf: "center",
+                width: "100%",
+                height: "100%",
+                aspectRatio: "5 / 3",
+              }}
+            />
           </Link>
         </div>
         <div className="col-md-9">
           <div className="card-body">
-            <Link href={href} style={{ color: 'inherit', textDecoration: 'inherit'}}>
+            <Link
+              href={href}
+              style={{ color: "inherit", textDecoration: "inherit" }}
+            >
               {children}
             </Link>
           </div>
@@ -62,7 +63,6 @@ const HelpCard: React.FC<HelpCardProps> = ({
     </article>
   );
 };
-
 
 export default function Support() {
   const [showRequestCourseModal, setShowRequestCourseModal] =
@@ -84,19 +84,21 @@ export default function Support() {
             <div className="col-md-6 order-1 my-auto">
               <div className="card mb-5 mt-5 w-75 mx-auto">
                 <div className="card-body">
-                  <Heading>Request a course</Heading> 
-                  <p className="card-text">Ready to start creating your own course?</p>
+                  <Heading>Request a course</Heading>
+                  <p className="card-text">
+                    Ready to start creating your own course?
+                  </p>
                   <button
                     className="btn btn-warning btn-lg me-3"
                     onClick={() => setShowRequestCourseModal(true)}
                   >
-                  Sign up for free!
+                    Sign up for free!
                   </button>
                 </div>
               </div>
               <div className="card mt-5 w-75 mx-auto">
                 <div className="card-body">
-                  <Heading>Schedule a demo</Heading> 
+                  <Heading>Schedule a demo</Heading>
                   <p className="card-text">
                     Want a one-on-one or a group demo? Book a time with us!
                   </p>
@@ -104,10 +106,10 @@ export default function Support() {
                     href="https://calendly.com/marianapl"
                     className="btn btn-warning btn-lg me-3"
                   >
-                  Book a Demo
+                    Book a Demo
                   </Link>
                 </div>
-              </div> 
+              </div>
             </div>
           </div>
         </div>
@@ -143,11 +145,7 @@ export default function Support() {
                 Get more detailed information from our documentation.
               </p>
             </HelpCard>
-            <HelpCard
-              image={slack}
-              title="Slack Community"
-              href="/slack"
-            >
+            <HelpCard image={slack} title="Slack Community" href="/slack">
               <p className="mb-0">
                 Get help in real-time in this community with over 1,000 users.
               </p>
@@ -161,13 +159,10 @@ export default function Support() {
                 Best place to ask questions, search for FAQs, and more!
               </p>
             </HelpCard>
-            <HelpCard
-              image={zoom}
-              title="Office Hours"
-              href=" "
-            >
+            <HelpCard image={zoom} title="Office Hours" href=" ">
               <p className="mb-0">
-                Weekly office hours via Zoom meetings open to anyone using PrairieLearn. 
+                Weekly office hours via Zoom meetings open to anyone using
+                PrairieLearn.
               </p>
             </HelpCard>
           </div>
@@ -179,8 +174,8 @@ export default function Support() {
           <Heading>Email</Heading>
 
           <p>
-            If you&apos;re having an emergency or need additional support,
-            reach out via email at{" "}
+            If you&apos;re having an emergency or need additional support, reach
+            out via email at{" "}
             <a href="mailto:support@prairielearn.com">
               support@prairielearn.com
             </a>
@@ -188,10 +183,10 @@ export default function Support() {
           </p>
         </div>
       </div>
-    <RequestCourseModal
-      show={showRequestCourseModal}
-      onHide={() => setShowRequestCourseModal(false)}
-    />
+      <RequestCourseModal
+        show={showRequestCourseModal}
+        onHide={() => setShowRequestCourseModal(false)}
+      />
     </React.Fragment>
   );
 }
