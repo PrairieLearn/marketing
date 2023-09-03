@@ -9,7 +9,7 @@ import { Heading } from "../../components/Heading";
 
 import styles from "./index.module.scss";
 
-import asee2023 from "../../lib/images/blog/asee2023-booth.jpg";
+import asee2023 from "../../lib/images/blog/asee2023-booth-1.jpg";
 import nsf from "../../lib/images/logos/NSF_Official_logo_High_Res_1200ppi.png";
 
 interface NewsCardProps {
