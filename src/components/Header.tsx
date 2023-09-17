@@ -126,10 +126,10 @@ export const Header: React.FC = () => {
               <Dropdown.Toggle
                 as={NavLink}
                 className={classnames(styles["nav-link"], {
-                  [`fw-bold ${styles.active}`]: useIsActive("/info"),
+                  [`fw-bold ${styles.active}`]: useIsActive("/about"),
                 })}
               >
-                Info Center
+                About
               </Dropdown.Toggle>
               <Dropdown.Menu>
                 <NavDropdownItem href="/about">About Us</NavDropdownItem>
