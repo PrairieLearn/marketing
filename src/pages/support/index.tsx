@@ -9,6 +9,8 @@ import styles from "./index.module.scss";
 import { RequestCourseModal } from "../../components/RequestCourseModal";
 
 import getStarted from "../../lib/images/logos/get-started.png";
+import exampleCourse from "../../lib/images/logos/example-course.png";
+import documentation from "../../lib/images/logos/documentation.png";
 import github from "../../lib/images/logos/github-mark.png";
 import slack from "../../lib/images/logos/Slack-mark-RGB.png";
 import zoom from "../../lib/images/logos/mark_product_ZM-meetings_color-RGB.png";
@@ -44,7 +46,7 @@ const HelpCard: React.FC<HelpCardProps> = ({
                 alignSelf: "center",
                 width: "100%",
                 height: "100%",
-                aspectRatio: "5 / 3",
+                aspectRatio: "2 / 1",
               }}
             />
           </Link>
@@ -128,7 +130,7 @@ export default function Support() {
               </p>
             </HelpCard>
             <HelpCard
-              image={getStarted}
+              image={exampleCourse}
               title="Example Course"
               href="https://us.prairielearn.com/pl/course_instance/4970"
             >
@@ -137,7 +139,7 @@ export default function Support() {
               </p>
             </HelpCard>
             <HelpCard
-              image={getStarted}
+              image={documentation}
               title="Documentation"
               href="https://prairielearn.readthedocs.io"
             >
@@ -159,10 +161,9 @@ export default function Support() {
                 Best place to ask questions, search for FAQs, and more!
               </p>
             </HelpCard>
-            <HelpCard image={zoom} title="Office Hours" href=" ">
+            <HelpCard image={zoom} title="Virtual Meetings" href="/virtualMeetings">
               <p className="mb-0">
-                Weekly office hours via Zoom meetings open to anyone using
-                PrairieLearn.
+                Weekly office hours and workshops via Zoom meetings.
               </p>
             </HelpCard>
           </div>
