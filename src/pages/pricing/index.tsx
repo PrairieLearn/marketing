@@ -222,10 +222,7 @@ export default function Pricing() {
                   >
                     ✓
                   </span>
-                  <div>
-                    Student pays <br />
-                    <small>(coming Fall 2023)</small>
-                  </div>
+                  Student pays
                 </button>
               </div>
             </div>

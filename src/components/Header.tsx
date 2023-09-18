@@ -14,9 +14,10 @@ import { RequestCourseModal } from "../components/RequestCourseModal";
 
 import styles from "./Header.module.scss";
 
-function useIsActive(href: string): boolean {
+function useIsActive(href: string | string[]): boolean {
   const { asPath } = useRouter();
-  return asPath.startsWith(href);
+  const hrefs = Array.isArray(href) ? href : [href];
+  return hrefs.some((href) => asPath.startsWith(href));
 }
 
 function useIsCurrent(href: string): boolean {
@@ -85,55 +86,19 @@ export const Header: React.FC = () => {
           >
             Free sign up
           </button>
-        </div>
-        <div
-          className={classnames("navbar-collapse", { collapse: collapsed })}
-          id="navbar"
-        >
-          <ul className="navbar-nav ms-auto mb-2 mb-sm-0">
-            <Dropdown as={NavItem}>
-              <Dropdown.Toggle
-                as={NavLink}
-                className={classnames(styles["nav-link"], {
-                  [`fw-bold ${styles.active}`]: useIsActive("/gallery"),
-                })}
-              >
-                Catalog
-              </Dropdown.Toggle>
-              <Dropdown.Menu>
-                <NavDropdownItem href="/gallery/questions">
-                  Questions
-                </NavDropdownItem>
-                <NavDropdownItem href="/gallery/assessments">
-                  Assessments
-                </NavDropdownItem>
-                <NavDropdownItem href="/gallery/courses">
-                  Courses
-                </NavDropdownItem>
-                <NavDropdownItem href="/oer">OER</NavDropdownItem>
-              </Dropdown.Menu>
-            </Dropdown>
-            <Dropdown as={NavItem}>
-              <Dropdown.Toggle
-                as={NavLink}
-                className={classnames(styles["nav-link"], {
-                  [`fw-bold ${styles.active}`]: useIsActive("/info"),
-                })}
-              >
-                Info Center
-              </Dropdown.Toggle>
-              <Dropdown.Menu>
-                <NavDropdownItem href="/about">About Us</NavDropdownItem>
-                <NavDropdownItem href="/research">Research</NavDropdownItem>
-              </Dropdown.Menu>
-            </Dropdown>
-            <li className="nav-item">
-              <RouterNavLink href="/support">Support</RouterNavLink>
-            </li>
-            <li className="nav-item">
-              <RouterNavLink href="/pricing">Pricing</RouterNavLink>
-            </li>
-          </ul>
+          <DropdownButton
+            id="login-dropdown-desktop"
+            title="Login"
+            variant="light"
+            className="d-inline-block"
+          >
+            <Dropdown.Item href="https://us.prairielearn.com/pl/login">
+              Main <span className="text-muted">(us.prairielearn.com)</span>
+            </Dropdown.Item>
+            <Dropdown.Item href="https://ca.prairielearn.com/pl/login">
+              Canada <span className="text-muted">(ca.prairielearn.com)</span>
+            </Dropdown.Item>
+          </DropdownButton>
         </div>
       </div>
       <RequestCourseModal
@@ -142,13 +107,18 @@ export const Header: React.FC = () => {
       />
       <nav
         className={classnames(
-          "navbar navbar-expand-sm navbar-dark navbar-primary",
+          "navbar navbar-expand-md navbar-dark navbar-primary",
           styles.header
         )}
       >
-        <div className="container">
+        <div className="container-fluid container-md">
           <Link href="/" className="navbar-brand">
-            <Image src={logo} height={60} alt="PrairieLearn logo" />
+            <Image
+              src={logo}
+              height={60}
+              alt="PrairieLearn"
+              className={styles.logo}
+            />
           </Link>
           <div className="d-flex flex-row">
             <button
@@ -171,7 +141,10 @@ export const Header: React.FC = () => {
                 <Dropdown.Toggle
                   as={NavLink}
                   className={classnames(styles["nav-link"], {
-                    [`fw-bold ${styles.active}`]: useIsActive("/gallery"),
+                    [`fw-bold ${styles.active}`]: useIsActive([
+                      "/gallery",
+                      "/oer",
+                    ]),
                   })}
                 >
                   Catalog
@@ -193,7 +166,10 @@ export const Header: React.FC = () => {
                 <Dropdown.Toggle
                   as={NavLink}
                   className={classnames(styles["nav-link"], {
-                    [`fw-bold ${styles.active}`]: useIsActive("/about"),
+                    [`fw-bold ${styles.active}`]: useIsActive([
+                      "/about",
+                      "/research",
+                    ]),
                   })}
                 >
                   About
