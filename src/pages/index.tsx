@@ -3,7 +3,6 @@ import { GetServerSideProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import classnames from "classnames";
-import Link from "next/link";
 
 import Stack from "../components/Stack";
 import { Heading } from "../components/Heading";
@@ -15,7 +14,7 @@ import richorder from "../lib/images/rich_question_order_block.png";
 import richball from "../lib/images/rich_question_balltrajectory.png";
 
 import styles from "./index.module.scss";
-import { Accordion, Alert, Carousel, CarouselItem } from "react-bootstrap";
+import { Accordion, Carousel, CarouselItem } from "react-bootstrap";
 import { RequestCourseModal } from "../components/RequestCourseModal";
 
 const TALKING_POINTS = [
@@ -82,7 +81,7 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
         <title>PrairieLearn</title>
       </Head>
 
-      <div className={classnames("container-fluid py-4", styles.banner)}>
+      {/* <div className={classnames("container-fluid py-4", styles.banner)}>
         <div className="container-md">
           <Row>
             <Column>
@@ -124,7 +123,7 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
             </Column>
           </Row>
         </div>
-      </div>
+      </div> */}
 
       <div className={classnames("container-fluid py-4")}>
         <div className="container-md">
