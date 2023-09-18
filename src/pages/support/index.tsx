@@ -75,50 +75,11 @@ export default function Support() {
         <title>Support | PrairieLearn</title>
       </Head>
 
-      <div className={classnames("container-fluid ")}>
-        <div className="container-md">
-          <div className="row">
-            <div className="col-md-6 mb-5 mt-5 order-2">
-              <Heading>Contact Us</Heading>
-              <p>Need help with something else? Let us know!</p>
-              <ContactUsForm showHeader={false} />
-            </div>
-            <div className="col-md-6 order-1 my-auto">
-              <div className="card mb-5 mt-5 w-75 mx-auto">
-                <div className="card-body">
-                  <Heading>Request a course</Heading>
-                  <p className="card-text">
-                    Ready to start creating your own course?
-                  </p>
-                  <button
-                    className="btn btn-warning btn-lg me-3"
-                    onClick={() => setShowRequestCourseModal(true)}
-                  >
-                    Sign up for free!
-                  </button>
-                </div>
-              </div>
-              <div className="card mt-5 w-75 mx-auto">
-                <div className="card-body">
-                  <Heading>Schedule a demo</Heading>
-                  <p className="card-text">
-                    Want a one-on-one or a group demo? Book a time with us!
-                  </p>
-                  <Link
-                    href="https://calendly.com/marianapl"
-                    className="btn btn-warning btn-lg me-3"
-                  >
-                    Book a Demo
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div className={classnames("container-fluid py-5", styles.container)}>
         <div className="container-md">
+          <div>
+            <Heading>So many ways to get help!</Heading>
+          </div>
           <div className={styles.grid}>
             <HelpCard
               image={getStarted}
@@ -170,6 +131,48 @@ export default function Support() {
                 Weekly office hours and workshops via Zoom meetings.
               </p>
             </HelpCard>
+          </div>
+        </div>
+      </div>
+
+      <div className={classnames("container-fluid ")}>
+        <div className="container-md">
+          <div className="row">
+            <div className="col-md-6 mb-5 mt-5 order-1">
+              <Heading>Contact Us</Heading>
+              <p>Need help with something else? Let us know!</p>
+              <ContactUsForm showHeader={false} />
+            </div>
+            <div className="col-md-6 order-2 my-auto">
+              <div className="card mb-5 mt-5 w-75 mx-auto">
+                <div className="card-body">
+                  <Heading>Request a course</Heading>
+                  <p className="card-text">
+                    Ready to start creating your own course?
+                  </p>
+                  <button
+                    className="btn btn-warning btn-lg me-3"
+                    onClick={() => setShowRequestCourseModal(true)}
+                  >
+                    Sign up for free!
+                  </button>
+                </div>
+              </div>
+              <div className="card mt-5 w-75 mx-auto">
+                <div className="card-body">
+                  <Heading>Schedule a demo</Heading>
+                  <p className="card-text">
+                    Want a one-on-one or a group demo? Book a time with us!
+                  </p>
+                  <Link
+                    href="https://calendly.com/marianapl"
+                    className="btn btn-warning btn-lg me-3"
+                  >
+                    Book a Demo
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
