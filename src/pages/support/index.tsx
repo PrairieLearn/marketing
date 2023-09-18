@@ -161,7 +161,11 @@ export default function Support() {
                 Best place to ask questions, search for FAQs, and more!
               </p>
             </HelpCard>
-            <HelpCard image={zoom} title="Virtual Meetings" href="/virtualMeetings">
+            <HelpCard
+              image={zoom}
+              title="Virtual Meetings"
+              href="/virtualMeetings"
+            >
               <p className="mb-0">
                 Weekly office hours and workshops via Zoom meetings.
               </p>
