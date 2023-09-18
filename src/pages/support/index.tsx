@@ -143,21 +143,8 @@ export default function Support() {
               <p>Need help with something else? Let us know!</p>
               <ContactUsForm showHeader={false} />
             </div>
+            
             <div className="col-md-6 order-2 my-auto">
-              <div className="card mb-5 mt-5 w-75 mx-auto">
-                <div className="card-body">
-                  <Heading>Request a course</Heading>
-                  <p className="card-text">
-                    Ready to start creating your own course?
-                  </p>
-                  <button
-                    className="btn btn-warning btn-lg me-3"
-                    onClick={() => setShowRequestCourseModal(true)}
-                  >
-                    Sign up for free!
-                  </button>
-                </div>
-              </div>
               <div className="card mt-5 w-75 mx-auto">
                 <div className="card-body">
                   <Heading>Schedule a demo</Heading>
@@ -168,8 +155,22 @@ export default function Support() {
                     href="https://calendly.com/marianapl"
                     className="btn btn-warning btn-lg me-3"
                   >
-                    Book a Demo
+                    Schedule a Demo
                   </Link>
+                </div>
+              </div>
+              <div className="card mb-5 mt-5 w-75 mx-auto">
+                <div className="card-body">
+                  <Heading>Request a course</Heading>
+                  <p className="card-text">
+                    Ready to start creating your own course?
+                  </p>
+                  <button
+                    className="btn btn-warning btn-lg me-3"
+                    onClick={() => setShowRequestCourseModal(true)}
+                  >
+                    Start now for free!
+                  </button>
                 </div>
               </div>
             </div>
@@ -177,10 +178,9 @@ export default function Support() {
         </div>
       </div>
 
-      <div className="container py-5">
+      <div className="container py-3">
         <div>
           <Heading>Email</Heading>
-
           <p>
             If you&apos;re having an emergency or need additional support, reach
             out via email at{" "}
