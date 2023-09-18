@@ -180,7 +180,7 @@ export const Header: React.FC = () => {
                 </Dropdown.Menu>
               </Dropdown>
               <li className="nav-item">
-                <RouterNavLink href="/contact">Support</RouterNavLink>
+                <RouterNavLink href="/contact">Contact</RouterNavLink>
               </li>
               <li className="nav-item">
                 <RouterNavLink href="/pricing">Pricing</RouterNavLink>
