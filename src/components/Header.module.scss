@@ -5,6 +5,13 @@
   background-color: $blue-800;
 }
 
+.logo {
+  // 285px is the width of the logo image when rendered with a 60px height.
+  // If the aspect ratio of the logo ever changes, this value will need to be
+  // updated.
+  width: min(60vw, 285px);
+}
+
 .nav-link {
   font-size: larger;
   color: white !important;
