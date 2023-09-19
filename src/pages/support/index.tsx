@@ -18,7 +18,7 @@ interface HelpCardProps {
 
 const HelpCard: React.FC<HelpCardProps> = ({ icon, title, href, children }) => {
   return (
-    <article className="card mb-3">
+    <article className="card">
       <div className="card-body">
         <Link href={href}>
           <h2 className="card-title h5 d-flex align-items-center">
@@ -113,7 +113,7 @@ export default function Support() {
             </div>
 
             <div className="col-md-6 order-2 my-auto">
-              <div className="card mt-5 w-75 mx-auto">
+              <div className="card mt-5">
                 <div className="card-body">
                   <Heading>Schedule a demo</Heading>
                   <p className="card-text">
@@ -127,7 +127,7 @@ export default function Support() {
                   </Link>
                 </div>
               </div>
-              <div className="card mb-5 mt-5 w-75 mx-auto">
+              <div className="card mb-5 mt-5">
                 <div className="card-body">
                   <Heading>Request a course</Heading>
                   <p className="card-text">
