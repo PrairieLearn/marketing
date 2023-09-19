@@ -1,66 +1,32 @@
 import Head from "next/head";
 import React from "react";
 import Link from "next/link";
-import Image, { ImageProps } from "next/image";
 import classnames from "classnames";
 import { Heading } from "../../components/Heading";
 import { ContactUsForm } from "../../components/ContactUsForm";
 import styles from "./index.module.scss";
 import { RequestCourseModal } from "../../components/RequestCourseModal";
 
-import getStarted from "../../lib/images/logos/get-started.png";
-import exampleCourse from "../../lib/images/logos/example-course.png";
-import documentation from "../../lib/images/logos/documentation.png";
-import github from "../../lib/images/logos/github-mark.png";
-import slack from "../../lib/images/logos/Slack-mark-RGB.png";
-import zoom from "../../lib/images/logos/mark_product_ZM-meetings_color-RGB.png";
+import { PageBanner } from "../../components/Banner";
 
 interface HelpCardProps {
-  image: ImageProps["src"];
+  icon: string;
   title: string;
   href: string;
   children: React.ReactNode;
 }
 
-const HelpCard: React.FC<HelpCardProps> = ({
-  image,
-  title,
-  href,
-  children,
-}) => {
+const HelpCard: React.FC<HelpCardProps> = ({ icon, title, href, children }) => {
   return (
     <article className="card mb-3">
-      <div className="row">
-        <div className="card-title mt-3 text-center">
-          <Heading>{title}</Heading>
-        </div>
-      </div>
-      <div className="row g-0">
-        <div className="col-md-3 mx-auto">
-          <Link href={href}>
-            <Image
-              src={image}
-              alt={title}
-              style={{
-                objectFit: "contain",
-                alignSelf: "center",
-                width: "100%",
-                height: "100%",
-                aspectRatio: "2 / 1",
-              }}
-            />
-          </Link>
-        </div>
-        <div className="col-md-9">
-          <div className="card-body">
-            <Link
-              href={href}
-              style={{ color: "inherit", textDecoration: "inherit" }}
-            >
-              {children}
-            </Link>
-          </div>
-        </div>
+      <div className="card-body">
+        <Link href={href}>
+          <h2 className="card-title h5 d-flex align-items-center">
+            <i className={classnames("bi", icon, "me-2")}></i>
+            {title}
+          </h2>
+        </Link>
+        {children}
       </div>
     </article>
   );
@@ -75,15 +41,17 @@ export default function Support() {
         <title>Support | PrairieLearn</title>
       </Head>
 
+      <PageBanner
+        title="How can we help?"
+        subtitle="Discover solutions through our documentation, community, and more"
+      />
+
       <div className={classnames("container-fluid py-5", styles.container)}>
         <div className="container-md">
-          <div>
-            <Heading>So many ways to get help!</Heading>
-          </div>
           <div className={styles.grid}>
             <HelpCard
-              image={getStarted}
               title="Get Started"
+              icon="bi-rocket-takeoff"
               href="https://prairielearn.readthedocs.io/en/latest/getStarted/"
             >
               <p className="mb-0">
@@ -91,41 +59,41 @@ export default function Support() {
               </p>
             </HelpCard>
             <HelpCard
-              image={exampleCourse}
               title="Example Course"
+              icon="bi-mortarboard"
               href="https://us.prairielearn.com/pl/course_instance/4970"
             >
               <p className="mb-0">
-                Browse through many examples that you can use as template.
+                Browse through examples that you can use as a template.
               </p>
             </HelpCard>
             <HelpCard
-              image={documentation}
               title="Documentation"
+              icon="bi-book"
               href="https://prairielearn.readthedocs.io"
             >
               <p className="mb-0">
                 Get more detailed information from our documentation.
               </p>
             </HelpCard>
-            <HelpCard image={slack} title="Slack Community" href="/slack">
+            <HelpCard title="Slack Community" icon="bi-slack" href="/slack">
               <p className="mb-0">
-                Get help in real-time in this community with over 1,000 users.
+                Get help in real-time in this community of thousands of users.
               </p>
             </HelpCard>
             <HelpCard
-              image={github}
               title="GitHub Discussions"
+              icon="bi-github"
               href="https://github.com/PrairieLearn/PrairieLearn/discussions"
             >
               <p className="mb-0">
-                Best place to ask questions, search for FAQs, and more!
+                Ask questions and get answers in our discussion forum.
               </p>
             </HelpCard>
             <HelpCard
-              image={zoom}
               title="Virtual Meetings"
-              href="/virtualMeetings"
+              icon="bi-camera-video"
+              href="/support/virtual-meetings"
             >
               <p className="mb-0">
                 Weekly office hours and workshops via Zoom meetings.
