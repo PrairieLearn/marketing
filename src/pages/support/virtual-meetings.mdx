@@ -1,0 +1,21 @@
+import { MarkdownLayout } from "../../components/MarkdownLayout";
+
+export const meta = {
+  title: "Virtual Meetings",
+};
+
+## Office Hours
+
+The PrairieLearn team holds weekly office hours via Zoom meetings that are open to anyone using PrairieLearn.
+This (August - December 2023) term we are meeting on Thursdays 3pm-4pm Central Time.
+Email support@prairielearn.com if you need an invite.
+
+## Workshops
+
+Join one of our upcoming workshops to learn how you can start creating autograded assignments for your course.
+
+- Friday November 10, 2023 2:00 PM Central Time: [Register here](https://us06web.zoom.us/meeting/register/tZUpcO6oqj4vE9Qk38M-fxP0H5VW3ufU4ioj)
+
+export default ({ children }) => (
+  <MarkdownLayout meta={meta}>{children}</MarkdownLayout>
+);
