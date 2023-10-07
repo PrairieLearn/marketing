@@ -81,7 +81,8 @@ export default function About() {
               href=" "
             >
               <p className="mb-0">
-                We will be at SIGCSE 2024! Stop by our booth and check our affiliated section.
+                We will be at SIGCSE 2024! Stop by our booth and check our
+                affiliated section.
               </p>
             </NewsCard>
             <NewsCard
@@ -91,7 +92,8 @@ export default function About() {
               href=" "
             >
               <p className="mb-0">
-                We will be at FIE 2023! Stop by our booth if you are planning to attend and come back here later for updates. 
+                We will be at FIE 2023! Stop by our booth if you are planning to
+                attend and come back here later for updates.
               </p>
             </NewsCard>
             <NewsCard
