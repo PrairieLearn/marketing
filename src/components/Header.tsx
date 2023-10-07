@@ -169,6 +169,7 @@ export const Header: React.FC = () => {
                     [`fw-bold ${styles.active}`]: useIsActive([
                       "/about",
                       "/research",
+                      "/blog",
                     ]),
                   })}
                 >
