@@ -9,7 +9,9 @@ import { Heading } from "../../components/Heading";
 
 import styles from "./index.module.scss";
 
-import asee2023 from "../../lib/images/blog/asee2023-booth-1.jpg";
+import placeholder from "../../lib/images/blog/image.jpeg";
+import fie2023 from "../../lib/images/blog/fie23_logo_84b4f621ef.svg";
+import asee2023 from "../../lib/images/blog/asee2023-booth.jpg";
 import nsf from "../../lib/images/blog/NSF_Official_logo_High_Res_1200ppi.png";
 
 interface NewsCardProps {
@@ -73,8 +75,28 @@ export default function About() {
         <div className="container-md">
           <div className={styles.grid}>
             <NewsCard
+              date="March 20-23, 2024"
+              image={placeholder}
+              title="SIGCSE 2024"
+              href=" "
+            >
+              <p className="mb-0">
+                We will be at SIGCSE 2024! Stop by our booth and check our affiliated section.
+              </p>
+            </NewsCard>
+            <NewsCard
+              date="October 18-21, 2023"
+              image={fie2023}
+              title="FIE 2023"
+              href=" "
+            >
+              <p className="mb-0">
+                We will be at FIE 2023! Stop by our booth if you are planning to attend and come back here later for updates. 
+              </p>
+            </NewsCard>
+            <NewsCard
               date="August 8-10, 2023"
-              image={asee2023}
+              image={placeholder}
               title="ICER 2023"
               href=" "
             >
