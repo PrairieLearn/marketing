@@ -3,7 +3,7 @@ import { GetServerSideProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import classnames from "classnames";
-
+import Link from "next/link";
 import Stack from "../components/Stack";
 import { Heading } from "../components/Heading";
 import { ExampleQuestion } from "../components/ExampleQuestion";
@@ -81,51 +81,40 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
         <title>PrairieLearn</title>
       </Head>
 
-      {/* <div className={classnames("container-fluid py-4", styles.banner)}>
+      <div className={classnames("container-fluid py-4", styles.banner)}>
         <div className="container-md">
           <Row>
             <Column>
-              <Alert variant="primary">
-                <strong>We&apos;re hiring!</strong>{" "}
-                <Link href="/jobs">Check out our open positions.</Link>
-              </Alert>
-              <h1 className="text-white display-3">
-                <span>PrairieLearn</span>
+              <h1
+                className={classnames(
+                  "mt-3 fs-1 text-center text-white",
+                  styles["text-wrap-balance"]
+                )}
+              >
+                Empowering learners with equitable and authentic assessments
               </h1>
-              <p className="text-white mt-4 fs-3">
-                The best platform for online assessments
-              </p>
-              <div className="d-flex flex-row align-items-start flex-wrap">
+              <div className="d-flex flex-row justify-content-center flex-wrap">
                 <div className="d-inline-flex flex-column">
                   <button
-                    className="btn btn-light btn-lg me-3 mt-3"
+                    className="btn btn-warning btn-lg me-3 mt-3"
                     onClick={() => setShowRequestCourseModal(true)}
                   >
-                    Request a course
+                    Start now for free!
                   </button>
-                  <span className="text-white small mt-1">
-                    Always free for instructors
-                  </span>
                 </div>
                 <Link
-                  href="/contact"
-                  className="btn btn-outline-light btn-lg me-3 mt-3"
+                  href="https://calendly.com/marianapl"
+                  className="btn btn-warning btn-lg me-3 mt-3"
                 >
-                  Get in touch
+                  Schedule a Demo
                 </Link>
-                <a
-                  href="https://prairielearn.readthedocs.io/en/latest/"
-                  className="btn btn-outline-light btn-lg me-3 mt-3"
-                >
-                  Documentation
-                </a>
               </div>
             </Column>
           </Row>
         </div>
-      </div> */}
+      </div>
 
-      <div className={classnames("container-fluid py-4")}>
+      <div className="container-fluid py-4">
         <div className="container-md">
           <Heading>Mastering learning meets online assessment</Heading>
           <div className="row">
@@ -184,7 +173,7 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
         </div>
       </div>
 
-      <div className={classnames("container-fluid py-4")}>
+      <div className="container-fluid py-4">
         <div className="container-md">
           <Heading>Automation without compromising quality </Heading>
           <p>
