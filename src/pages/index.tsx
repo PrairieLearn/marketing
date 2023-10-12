@@ -85,7 +85,12 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
         <div className="container-md">
           <Row>
             <Column>
-              <h1 className={classnames(" mt-3 fs-1 text-center text-white")}>
+              <h1
+                className={classnames(
+                  "mt-3 fs-1 text-center text-white",
+                  styles["text-wrap-balance"]
+                )}
+              >
                 Empowering learners with equitable and authentic assessments
               </h1>
               <div className="d-flex flex-row justify-content-center flex-wrap">
@@ -109,7 +114,7 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
         </div>
       </div>
 
-      <div className={classnames("container-fluid py-4")}>
+      <div className="container-fluid py-4">
         <div className="container-md">
           <Heading>Mastering learning meets online assessment</Heading>
           <div className="row">
@@ -168,7 +173,7 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
         </div>
       </div>
 
-      <div className={classnames("container-fluid py-4")}>
+      <div className="container-fluid py-4">
         <div className="container-md">
           <Heading>Automation without compromising quality </Heading>
           <p>
