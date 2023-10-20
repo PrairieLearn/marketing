@@ -159,7 +159,7 @@ export default function About() {
               />
               <PeopleCard
                 image={nathanImage}
-                name="Nathan Walters"
+                name="Nathan Sarang-Walters"
                 title="Co-founder, CTO"
               />
               <PeopleCard
