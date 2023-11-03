@@ -34,7 +34,7 @@ const mdxComponents: Components = {
       </div>
     );
   },
-  h2: ({ children }) => <Heading>{children}</Heading>,
+  h2: ({ children, ...rest }) => <Heading {...rest}>{children}</Heading>,
   img: ({ alt, src, imageWidth, imageHeight, ...rest }) => {
     let imageSrc = src;
     if (imageSrc.startsWith("__image__")) {

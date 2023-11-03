@@ -6,3 +6,17 @@ $grid-breakpoints: map-remove($grid-breakpoints, "xl", "xxl");
 $container-max-widths: map-remove($container-max-widths, "xl", "xxl");
 
 @import "~bootstrap/scss/bootstrap";
+
+h1 > a,
+h2 > a,
+h3 > a,
+h4 > a,
+h5 > a,
+h6 > a {
+  color: unset;
+  text-decoration: none;
+
+  &:hover {
+    color: unset;
+  }
+}

@@ -1,7 +1,9 @@
 import nextMdx from "@next/mdx";
 
-import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import remarkMath from "remark-math";
 import remarkGfm from "remark-gfm";
 
 const withMDX = nextMdx({
@@ -9,7 +11,16 @@ const withMDX = nextMdx({
   options: {
     providerImportSource: "@mdx-js/react",
     remarkPlugins: [remarkMath, remarkGfm],
-    rehypePlugins: [rehypeKatex],
+    rehypePlugins: [
+      rehypeSlug,
+      [
+        rehypeAutolinkHeadings,
+        {
+          behavior: "wrap",
+        },
+      ],
+      rehypeKatex,
+    ],
   },
 });
 
