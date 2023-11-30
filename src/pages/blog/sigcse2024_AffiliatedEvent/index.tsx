@@ -45,7 +45,6 @@ export default function SIGCSE2024() {
               opportunities.
             </p>
             <p>
-              {" "}
               Currently, PrairieLearn is actively adopted in over 800 courses
               across 20 universities. In this affiliated event, instructors from
               these courses will showcase the innovative online assessments
@@ -58,21 +57,17 @@ export default function SIGCSE2024() {
             <h4>Organizers</h4>
             <ul>
               <li>
-                Prof. Mariana Silva, University of Illinois Urbana-Champaign.,
-                mfsilva@illinois.edu, https://mfsilva.web.illinois.edu/
+                Prof. Mariana Silva, University of Illinois Urbana-Champaign, <a href= "mailto:mfsilva@illinois.edu">mfsilva@illinois.edu</a>, <a href="https://mfsilva.web.illinois.edu/">https://mfsilva.web.illinois.edu/</a>
               </li>
               <li>
-                Prof. Firas Moosvi, University of British Columbia,
-                firas.moosvi@ubc.ca,
-                https://cmps.ok.ubc.ca/about/contact/firas-moosvi/
+                Prof. Firas Moosvi, University of British Columbia, <a href= "mailto:firas.moosvi@ubc.ca">firas.moosvi@ubc.ca</a> , <a href="https://cmps.ok.ubc.ca/about/contact/firas-moosvi/">https://cmps.ok.ubc.ca/about/contact/firas-moosvi/</a>
               </li>
               <li>
-                Prof. Dan Garcia, UC Berkeley, ddgarcia@berkeley.edu,
-                www.cs.berkeley.edu/~ddgarcia
+                Prof. Dan Garcia, UC Berkeley,  <a href= "mailto:ddgarcia@berkeley.edu">ddgarcia@berkeley.edu</a> , <a href="https://people.eecs.berkeley.edu/~ddgarcia/">www.cs.berkeley.edu/~ddgarcia</a>
+                
               </li>
               <li>
-                Prof. Armando Fox, UC Berkeley, fox@berkeley.edu,
-                www.cs.berkeley.edu/~fox
+                Prof. Armando Fox, UC Berkeley, <a href= "mailto:fox@berkeley.edu">fox@berkeley.edu</a>, <a href="https://www2.eecs.berkeley.edu/Faculty/Homepages/fox.html">www.cs.berkeley.edu/~fox</a>
               </li>
             </ul>
 
