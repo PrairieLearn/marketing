@@ -2,9 +2,9 @@ import React from "react";
 import classnames from "classnames";
 import Head from "next/head";
 
-import { PageBanner } from "../../../components/Banner";
-import { Heading } from "../../../components/Heading";
-import Stack from "../../../components/Stack";
+import { PageBanner } from "../../components/Banner";
+import { Heading } from "../../components/Heading";
+import Stack from "../../components/Stack";
 
 export default function SIGCSE2024() {
   return (
