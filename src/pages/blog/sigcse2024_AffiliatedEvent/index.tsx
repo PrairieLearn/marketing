@@ -57,17 +57,33 @@ export default function SIGCSE2024() {
             <h4>Organizers</h4>
             <ul>
               <li>
-                Prof. Mariana Silva, University of Illinois Urbana-Champaign, <a href= "mailto:mfsilva@illinois.edu">mfsilva@illinois.edu</a>, <a href="https://mfsilva.web.illinois.edu/">https://mfsilva.web.illinois.edu/</a>
+                Prof. Mariana Silva, University of Illinois Urbana-Champaign,{" "}
+                <a href="mailto:mfsilva@illinois.edu">mfsilva@illinois.edu</a>,{" "}
+                <a href="https://mfsilva.web.illinois.edu/">
+                  https://mfsilva.web.illinois.edu/
+                </a>
               </li>
               <li>
-                Prof. Firas Moosvi, University of British Columbia, <a href= "mailto:firas.moosvi@ubc.ca">firas.moosvi@ubc.ca</a> , <a href="https://www.cs.ubc.ca/people/firas-moosvi">https://www.cs.ubc.ca/people/firas-moosvi</a>
+                Prof. Firas Moosvi, University of British Columbia,{" "}
+                <a href="mailto:firas.moosvi@ubc.ca">firas.moosvi@ubc.ca</a> ,{" "}
+                <a href="https://www.cs.ubc.ca/people/firas-moosvi">
+                  https://www.cs.ubc.ca/people/firas-moosvi
+                </a>
               </li>
               <li>
-                Prof. Dan Garcia, UC Berkeley,  <a href= "mailto:ddgarcia@berkeley.edu">ddgarcia@berkeley.edu</a> , <a href="https://people.eecs.berkeley.edu/~ddgarcia/">www.cs.berkeley.edu/~ddgarcia</a>
-                
+                Prof. Dan Garcia, UC Berkeley,{" "}
+                <a href="mailto:ddgarcia@berkeley.edu">ddgarcia@berkeley.edu</a>{" "}
+                ,{" "}
+                <a href="https://people.eecs.berkeley.edu/~ddgarcia/">
+                  www.cs.berkeley.edu/~ddgarcia
+                </a>
               </li>
               <li>
-                Prof. Armando Fox, UC Berkeley, <a href= "mailto:fox@berkeley.edu">fox@berkeley.edu</a>, <a href="https://www2.eecs.berkeley.edu/Faculty/Homepages/fox.html">www.cs.berkeley.edu/~fox</a>
+                Prof. Armando Fox, UC Berkeley,{" "}
+                <a href="mailto:fox@berkeley.edu">fox@berkeley.edu</a>,{" "}
+                <a href="https://www2.eecs.berkeley.edu/Faculty/Homepages/fox.html">
+                  www.cs.berkeley.edu/~fox
+                </a>
               </li>
             </ul>
 
