@@ -111,7 +111,6 @@ const SharedQuestionCard: React.FC<SharedQuestionCardProps> = ({
   );
 };
 
-
 export default function Courses() {
   const [showRequestCourseModal, setShowRequestCourseModal] =
     React.useState(false);
@@ -126,14 +125,14 @@ export default function Courses() {
         subtitle="A catalog of questions to help you get started with PrairieLearn"
       />
 
-      <div className={classnames("container-fluid my-3")}> 
+      <div className={classnames("container-fluid my-3")}>
         <div className="container-md">
           <div className="alert alert-primary mb-0">
             <p>
-              You&apos;ll be asked to sign in to PrairieLearn to view our question catalog.
-              If you want to use any of these questions, 
-              you will first need to request your PrairieLearn course
-              space, which is always free for instructors.
+              You&apos;ll be asked to sign in to PrairieLearn to view our
+              question catalog. If you want to use any of these questions, you
+              will first need to request your PrairieLearn course space, which
+              is always free for instructors.
             </p>
             <div className="col-md-12 text-center">
               <button
@@ -145,16 +144,16 @@ export default function Courses() {
             </div>
           </div>
         </div>
-      </div>  
+      </div>
 
       <div className={classnames("container-fluid my-5")}>
         <div className="container-md">
           <Heading>Question Templates</Heading>
           <p>
-            Browse through our template questions in a variety of
-            subjects. If you find a question that you like, you can copy it to
-            your own course, and make changes if you want! See each question for 
-            their license details.
+            Browse through our template questions in a variety of subjects. If
+            you find a question that you like, you can copy it to your own
+            course, and make changes if you want! See each question for their
+            license details.
           </p>
         </div>
       </div>
@@ -166,57 +165,49 @@ export default function Courses() {
               image={eorphysics1}
               title="Physics: Mechanics"
               href="https://us.prairielearn.com/pl/course_instance/136441/assessment/2350772"
-            >
-            </CourseCard>
+            ></CourseCard>
 
             <CourseCard
               image={eorphysics2}
               title="Physics: E&M"
               href="https://us.prairielearn.com/pl/course_instance/136442/assessment/2350773"
-            >
-            </CourseCard>
+            ></CourseCard>
 
             <CourseCard
               image={eorstatics}
               title="Statics"
               href="https://us.prairielearn.com/pl/course_instance/136474/assessment/2350805"
-            >
-            </CourseCard>
+            ></CourseCard>
 
             <CourseCard
               image={eordynamics}
               title="Dynamics"
               href="https://us.prairielearn.com/pl/course_instance/136475/assessment/2350806"
-            >
-            </CourseCard>
+            ></CourseCard>
 
             <CourseCard
               image={eorsolids}
               title="Solid Mechanics"
               href="https://us.prairielearn.com/pl/course_instance/136415/assessment/2350745"
-            >
-            </CourseCard>
+            ></CourseCard>
 
             <CourseCard
               image={eornumerical}
               title="Numerical Methods"
               href="https://us.prairielearn.com/pl/course_instance/136413/assessment/2350744"
-            >
-            </CourseCard>
+            ></CourseCard>
 
             <CourseCard
               image={eorthermo}
               title="Thermodynamics"
               href="https://us.prairielearn.com/pl/course_instance/136573/assessment/2351036"
-            >
-            </CourseCard>
+            ></CourseCard>
 
             <CourseCard
               image={eorpython}
               title="Introduction to Python"
               href="https://us.prairielearn.com/pl/course_instance/136606/assessment/2351069"
-            >
-            </CourseCard>
+            ></CourseCard>
           </div>
         </div>
       </div>
@@ -225,10 +216,11 @@ export default function Courses() {
         <div className="container-md">
           <Heading>Publicly Shared Questions</Heading>
           <p>
-            This question catalog has been publicly shared by instructors from various 
-            universities. If you like any of these questions, you can use them directly in your course,
-            without any need to copy questions. Read these <a href="">instructions</a> to see how you can use 
-            publicly shared questions in your course.
+            This question catalog has been publicly shared by instructors from
+            various universities. If you like any of these questions, you can
+            use them directly in your course, without any need to copy
+            questions. Read these <a href="">instructions</a> to see how you can
+            use publicly shared questions in your course.
           </p>
         </div>
       </div>
@@ -243,8 +235,7 @@ export default function Courses() {
               institution="UBC, York U, NYU, UIUC, U Michigan"
               ownerName="Firas Moosvi"
               ownerEmail="firas.moosvi@ubc.ca"
-            >
-            </SharedQuestionCard>
+            ></SharedQuestionCard>
             <SharedQuestionCard
               image={yorkjonatanImage}
               title="Miscellaneous Computer Systems Topics"
@@ -252,8 +243,7 @@ export default function Courses() {
               institution="York University"
               ownerName="Jonatan Schroeder"
               ownerEmail="jonatan@yorku.ca"
-            >
-            </SharedQuestionCard>
+            ></SharedQuestionCard>
             <SharedQuestionCard
               image={ece6353fraida}
               title="Internet Architecture and Protocols"
@@ -261,8 +251,7 @@ export default function Courses() {
               institution="New York University"
               ownerName="Fraida Fund"
               ownerEmail="ffund@nyu.edu"
-            >
-            </SharedQuestionCard>
+            ></SharedQuestionCard>
             <SharedQuestionCard
               image={cs233Image}
               title="Computer Architecture"
@@ -270,9 +259,7 @@ export default function Courses() {
               institution="University of Illinois Urbana-Champaign"
               ownerName="Geoffrey Herman"
               ownerEmail="glherman@illinois.edu"
-            >
-            </SharedQuestionCard>
-            
+            ></SharedQuestionCard>
           </div>
         </div>
       </div>
@@ -291,8 +278,8 @@ export default function Courses() {
         <div className="container-md">
           <h2 className="h4">Contribute to this page</h2>
           <p>
-            If you want to share your PrairieLearn content in this
-            page, please contact us at{" "}
+            If you want to share your PrairieLearn content in this page, please
+            contact us at{" "}
             <a href="mailto:hello@prairielearn.com">hello@prairielearn.com</a>.
           </p>
         </div>
