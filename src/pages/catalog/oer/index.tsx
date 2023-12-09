@@ -26,14 +26,12 @@ interface CourseCardProps {
   image: ImageProps["src"];
   title: string;
   href: string;
-  children: React.ReactNode;
 }
 
 const CourseCard: React.FC<CourseCardProps> = ({
   image,
   title,
   href,
-  children,
 }) => {
   return (
     <article className="card border-secondary overflow-hidden">
@@ -53,7 +51,6 @@ const CourseCard: React.FC<CourseCardProps> = ({
         <Link href={href}>
           <h3 className="card-title text-center h5">{title}</h3>
         </Link>
-        {children}
       </div>
     </article>
   );
@@ -66,7 +63,6 @@ interface SharedQuestionCardProps {
   institution?: string;
   ownerName: string;
   ownerEmail: string;
-  children: React.ReactNode;
 }
 
 const SharedQuestionCard: React.FC<SharedQuestionCardProps> = ({
@@ -76,7 +72,6 @@ const SharedQuestionCard: React.FC<SharedQuestionCardProps> = ({
   institution,
   ownerName,
   ownerEmail,
-  children,
 }) => {
   return (
     <article className="card border-secondary overflow-hidden">
@@ -105,7 +100,6 @@ const SharedQuestionCard: React.FC<SharedQuestionCardProps> = ({
             <strong>Institution: </strong> {institution}
           </p>
         )}
-        {children}
       </div>
     </article>
   );
