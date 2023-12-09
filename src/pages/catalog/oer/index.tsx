@@ -4,19 +4,19 @@ import Link from "next/link";
 import Image, { ImageProps } from "next/image";
 import classnames from "classnames";
 
-import { PageBanner } from "../../components/Banner";
-import { Heading } from "../../components/Heading";
-import { RequestCourseModal } from "../../components/RequestCourseModal";
+import { PageBanner } from "../../../components/Banner";
+import { Heading } from "../../../components/Heading";
+import { RequestCourseModal } from "../../../components/RequestCourseModal";
 
 import styles from "./index.module.scss";
-import eorstatics from "../../lib/images/tam211.png";
-import eordynamics from "../../lib/images/tam212.png";
-import eorsolids from "../../lib/images/tam251.png";
-import eornumerical from "../../lib/images/cs357.png";
-import eorphysics1 from "../../lib/images/EORphysics1.png";
-import eorphysics2 from "../../lib/images/EORphysics2.png";
-import eorpython from "../../lib/images/EORpython.png";
-import eorthermo from "../../lib/images/EORthermo.png";
+import eorstatics from "../../../lib/images/tam211.png";
+import eordynamics from "../../../lib/images/tam212.png";
+import eorsolids from "../../../lib/images/tam251.png";
+import eornumerical from "../../../lib/images/cs357.png";
+import eorphysics1 from "../../../lib/images/EORphysics1.png";
+import eorphysics2 from "../../../lib/images/EORphysics2.png";
+import eorpython from "../../../lib/images/EORpython.png";
+import eorthermo from "../../../lib/images/EORthermo.png";
 
 interface CourseCardProps {
   image: ImageProps["src"];
@@ -65,18 +65,12 @@ export default function Courses() {
       </Head>
 
       <PageBanner
-        title="Open Educational Resources"
-        subtitle="Template questions to help you get started with PrairieLearn"
+        title="Open Educational Resources (OER)"
+        subtitle="A catalog of questions to help you get started with PrairieLearn"
       />
 
-      <div className={classnames("container-fluid my-5")}>
+      <div className={classnames("container-fluid my-3")}> 
         <div className="container-md">
-          <Heading>Question Templates</Heading>
-          <p>
-            Browse through these PrairieLearn template courses in a variety of
-            subjects. If you find a question that you like, you can copy it to
-            your own course, and make changes if you want!
-          </p>
           <div className="alert alert-primary mb-0">
             <p>
               You&apos;ll be asked to sign in to PrairieLearn in order to access
@@ -93,6 +87,17 @@ export default function Courses() {
               </button>
             </div>
           </div>
+        </div>
+      </div>  
+
+      <div className={classnames("container-fluid my-5")}>
+        <div className="container-md">
+          <Heading>Question Templates</Heading>
+          <p>
+            Browse through our template questions in a variety of
+            subjects. If you find a question that you like, you can copy it to
+            your own course, and make changes if you want!
+          </p>
         </div>
       </div>
 
@@ -204,6 +209,17 @@ export default function Courses() {
           <p>
             All content here is made made available under an open license. See
             each question for license details.
+          </p>
+        </div>
+      </div>
+
+      <div className={classnames("container-fluid my-5")}>
+        <div className="container-md">
+          <h2 className="h4">Contribute to this page</h2>
+          <p>
+            If you want to share your PrairieLearn content in this
+            page, please contact us at{" "}
+            <a href="mailto:hello@prairielearn.com">hello@prairielearn.com</a>.
           </p>
         </div>
       </div>
