@@ -73,9 +73,9 @@ export default function Courses() {
         <div className="container-md">
           <div className="alert alert-primary mb-0">
             <p>
-              You&apos;ll be asked to sign in to PrairieLearn in order to access
-              the template courses below. If you want to copy questions for your
-              own use, you will first need to request your PrairieLearn course
+              You&apos;ll be asked to sign in to PrairieLearn to view our question catalog.
+              If you want to use any of these questions, 
+              you will first need to request your PrairieLearn course
               space, which is always free for instructors.
             </p>
             <div className="col-md-12 text-center">
@@ -200,6 +200,22 @@ export default function Courses() {
               </p>
             </CourseCard>
           </div>
+        </div>
+      </div>
+
+      <div className={classnames("container-fluid py-4", styles.container)}>
+        <div className="container-md">
+          <Heading>Publicly Shared Questions</Heading>
+          <p>
+            Courses are home to all the{" "}
+            <Link href="/catalog/assessments">assessments</Link> and{" "}
+            <Link href="/catalog/questions">questions</Link> you have created.
+            Browse through these PrairieLearn courses in a variety of subjects.
+            You can try out different assessment types, see how questions are
+            auto-graded and receive immediate feedback. If you would like to
+            have access to the source code, you can contact the course
+            instructor directly.
+          </p>
         </div>
       </div>
 
