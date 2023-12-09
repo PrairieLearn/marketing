@@ -17,6 +17,10 @@ import eorphysics1 from "../../../lib/images/EORphysics1.png";
 import eorphysics2 from "../../../lib/images/EORphysics2.png";
 import eorpython from "../../../lib/images/EORpython.png";
 import eorthermo from "../../../lib/images/EORthermo.png";
+import sigcse2023 from "../../../lib/images/sigcse2023.png";
+import cs233Image from "../../../lib/images/cs-233.png";
+import yorkjonatanImage from "../../../lib/images/york-jonatan.png";
+import ece6353fraida from "../../../lib/images/ece6353fraida.png";
 
 interface CourseCardProps {
   image: ImageProps["src"];
@@ -47,13 +51,66 @@ const CourseCard: React.FC<CourseCardProps> = ({
       </Link>
       <div className="card-body">
         <Link href={href}>
-          <h3 className="card-title h5">{title}</h3>
+          <h3 className="card-title text-center h5">{title}</h3>
         </Link>
         {children}
       </div>
     </article>
   );
 };
+
+interface SharedQuestionCardProps {
+  image: ImageProps["src"];
+  title: string;
+  href: string;
+  institution?: string;
+  ownerName: string;
+  ownerEmail: string;
+  children: React.ReactNode;
+}
+
+const SharedQuestionCard: React.FC<SharedQuestionCardProps> = ({
+  image,
+  title,
+  href,
+  institution,
+  ownerName,
+  ownerEmail,
+  children,
+}) => {
+  return (
+    <article className="card border-secondary overflow-hidden">
+      <Link href={href} className="position-relative">
+        <Image
+          src={image}
+          alt={title}
+          style={{
+            objectFit: "contain",
+            width: "100%",
+            height: "100%",
+            aspectRatio: "5 / 3",
+          }}
+        />
+      </Link>
+      <div className="card-body">
+        <Link href={href}>
+          <h3 className="card-title h5">{title}</h3>
+        </Link>
+        <p className="mb-1">
+          <strong>Shared by:</strong> {ownerName} (
+          <a href={`mailto:${ownerEmail}`}>{ownerEmail}</a>)
+        </p>
+        {institution && (
+          <p className="mb-1">
+            <strong>Institution: </strong> {institution}
+          </p>
+        )}
+        {children}
+      </div>
+    </article>
+  );
+};
+
 
 export default function Courses() {
   const [showRequestCourseModal, setShowRequestCourseModal] =
@@ -96,7 +153,8 @@ export default function Courses() {
           <p>
             Browse through our template questions in a variety of
             subjects. If you find a question that you like, you can copy it to
-            your own course, and make changes if you want!
+            your own course, and make changes if you want! See each question for 
+            their license details.
           </p>
         </div>
       </div>
@@ -109,10 +167,6 @@ export default function Courses() {
               title="Physics: Mechanics"
               href="https://us.prairielearn.com/pl/course_instance/136441/assessment/2350772"
             >
-              <p className="mb-0">
-                Kinematics; Newton&apos;s laws of motion, work, energy, power;
-                systems of particles; linear momentum.
-              </p>
             </CourseCard>
 
             <CourseCard
@@ -120,10 +174,6 @@ export default function Courses() {
               title="Physics: E&M"
               href="https://us.prairielearn.com/pl/course_instance/136442/assessment/2350773"
             >
-              <p className="mb-0">
-                Electrostatics; conductors, capacitors and dielectrics; electric
-                circuits; inductance and magnetism.
-              </p>
             </CourseCard>
 
             <CourseCard
@@ -131,36 +181,20 @@ export default function Courses() {
               title="Statics"
               href="https://us.prairielearn.com/pl/course_instance/136474/assessment/2350805"
             >
-              <p className="mb-0">
-                Forces, moments; resultants of force systems; equilibrium and
-                free-body diagrams; trusses and frames; shear-force and
-                bending-moment diagrams; friction; moment of inertia; virtual
-                work; hydrostatic pressure.
-              </p>
             </CourseCard>
 
             <CourseCard
               image={eordynamics}
-              title="Introductory Dynamics"
+              title="Dynamics"
               href="https://us.prairielearn.com/pl/course_instance/136475/assessment/2350806"
             >
-              <p className="mb-0">
-                Kinematics and dynamics of the three-dimensional motion of
-                particles; kinematics and dynamics of the plane motion of rigid
-                bodies; methods of work/energy and impulse/momentum; moving
-                reference frames.
-              </p>
             </CourseCard>
 
             <CourseCard
               image={eorsolids}
-              title="Introductory Solid Mechanics"
+              title="Solid Mechanics"
               href="https://us.prairielearn.com/pl/course_instance/136415/assessment/2350745"
             >
-              <p className="mb-0">
-                Normal and shear stresses; axial loading; torque; bending in
-                beams; deflections; multi-dimensional stress states.
-              </p>
             </CourseCard>
 
             <CourseCard
@@ -168,11 +202,6 @@ export default function Courses() {
               title="Numerical Methods"
               href="https://us.prairielearn.com/pl/course_instance/136413/assessment/2350744"
             >
-              <p className="mb-0">
-                Floating-point; errors; Monte Carlo simulations; linear system
-                of equations; eigenvalues; optimization; nonlinear problems;
-                singular value decomposition; programming exercises in Python.
-              </p>
             </CourseCard>
 
             <CourseCard
@@ -180,12 +209,6 @@ export default function Courses() {
               title="Thermodynamics"
               href="https://us.prairielearn.com/pl/course_instance/136573/assessment/2351036"
             >
-              <p className="mb-0">
-                Classical thermodynamics through the second law; system and
-                control-volume analyses of thermodynamic processes;
-                irreversibility and availability; relations for ideal gas
-                mixtures.
-              </p>
             </CourseCard>
 
             <CourseCard
@@ -193,11 +216,6 @@ export default function Courses() {
               title="Introduction to Python"
               href="https://us.prairielearn.com/pl/course_instance/136606/assessment/2351069"
             >
-              <p className="mb-0">
-                Introduction to computer programming using the Python
-                programming language; data types, control structures, functions,
-                and arrays.
-              </p>
             </CourseCard>
           </div>
         </div>
@@ -207,15 +225,55 @@ export default function Courses() {
         <div className="container-md">
           <Heading>Publicly Shared Questions</Heading>
           <p>
-            Courses are home to all the{" "}
-            <Link href="/catalog/assessments">assessments</Link> and{" "}
-            <Link href="/catalog/questions">questions</Link> you have created.
-            Browse through these PrairieLearn courses in a variety of subjects.
-            You can try out different assessment types, see how questions are
-            auto-graded and receive immediate feedback. If you would like to
-            have access to the source code, you can contact the course
-            instructor directly.
+            This question catalog has been publicly shared by instructors from various 
+            universities. If you like any of these questions, you can use them directly in your course,
+            without any need to copy questions. Read these <a href="">instructions</a> to see how you can use 
+            publicly shared questions in your course.
           </p>
+        </div>
+      </div>
+
+      <div className={classnames("container-fluid py-4", styles.container)}>
+        <div className="container-md">
+          <div className={styles.grid}>
+            <SharedQuestionCard
+              image={sigcse2023}
+              title="SIGCSE 2023 - Workhop"
+              href="https://us.prairielearn.com/pl/public/course/1305/questions"
+              institution="UBC, York U, NYU, UIUC, U Michigan"
+              ownerName="Firas Moosvi"
+              ownerEmail="firas.moosvi@ubc.ca"
+            >
+            </SharedQuestionCard>
+            <SharedQuestionCard
+              image={yorkjonatanImage}
+              title="Miscellaneous Computer Systems Topics"
+              href="https://ca.prairielearn.com/pl/course_instance/2284"
+              institution="York University"
+              ownerName="Jonatan Schroeder"
+              ownerEmail="jonatan@yorku.ca"
+            >
+            </SharedQuestionCard>
+            <SharedQuestionCard
+              image={ece6353fraida}
+              title="Internet Architecture and Protocols"
+              href="https://us.prairielearn.com/pl/course_instance/129160"
+              institution="New York University"
+              ownerName="Fraida Fund"
+              ownerEmail="ffund@nyu.edu"
+            >
+            </SharedQuestionCard>
+            <SharedQuestionCard
+              image={cs233Image}
+              title="Computer Architecture"
+              href="https://us.prairielearn.com/pl/course_instance/128979"
+              institution="University of Illinois Urbana-Champaign"
+              ownerName="Geoffrey Herman"
+              ownerEmail="glherman@illinois.edu"
+            >
+            </SharedQuestionCard>
+            
+          </div>
         </div>
       </div>
 
