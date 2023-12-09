@@ -28,11 +28,7 @@ interface CourseCardProps {
   href: string;
 }
 
-const CourseCard: React.FC<CourseCardProps> = ({
-  image,
-  title,
-  href,
-}) => {
+const CourseCard: React.FC<CourseCardProps> = ({ image, title, href }) => {
   return (
     <article className="card border-secondary overflow-hidden">
       <Link href={href} className="position-relative">
