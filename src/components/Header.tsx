@@ -142,7 +142,7 @@ export const Header: React.FC = () => {
                   as={NavLink}
                   className={classnames(styles["nav-link"], {
                     [`fw-bold ${styles.active}`]: useIsActive([
-                      "/gallery",
+                      "/catalog",
                       "/oer",
                     ]),
                   })}
@@ -150,13 +150,13 @@ export const Header: React.FC = () => {
                   Catalog
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
-                  <NavDropdownItem href="/gallery/questions">
+                  <NavDropdownItem href="/catalog/questions">
                     Questions
                   </NavDropdownItem>
-                  <NavDropdownItem href="/gallery/assessments">
+                  <NavDropdownItem href="/catalog/assessments">
                     Assessments
                   </NavDropdownItem>
-                  <NavDropdownItem href="/gallery/courses">
+                  <NavDropdownItem href="/catalog/courses">
                     Courses
                   </NavDropdownItem>
                   <NavDropdownItem href="/oer">OER</NavDropdownItem>

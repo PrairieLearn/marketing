@@ -91,8 +91,8 @@ export default function Courses() {
           <Heading>Course Catalog</Heading>
           <p>
             Courses are home to all the{" "}
-            <Link href="/gallery/assessments">assessments</Link> and{" "}
-            <Link href="/gallery/questions">questions</Link> you have created.
+            <Link href="/catalog/assessments">assessments</Link> and{" "}
+            <Link href="/catalog/questions">questions</Link> you have created.
             Browse through these PrairieLearn courses in a variety of subjects.
             You can try out different assessment types, see how questions are
             auto-graded and receive immediate feedback. If you would like to

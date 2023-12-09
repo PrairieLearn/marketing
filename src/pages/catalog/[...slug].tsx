@@ -12,8 +12,8 @@ import remarkGfm from "remark-gfm";
 import mdxComponents from "../../lib/mdxComponents";
 import loadCodePlugin from "../../remarkPlugins/loadCode";
 import extractImages from "../../remarkPlugins/extractImages";
-import { getAssessments } from "../../lib/gallery/assessments";
-import { getQuestions } from "../../lib/gallery/questions";
+import { getAssessments } from "../../lib/catalog/assessments";
+import { getQuestions } from "../../lib/catalog/questions";
 import rewriteAssessmentLinks from "../../remarkPlugins/rewriteAssessmentLinks";
 import { PageBanner } from "../../components/Banner";
 
@@ -34,10 +34,10 @@ const GalleryPage: React.FC<GalleryPageProps> = ({
 }) => {
   const backText =
     type === "question"
-      ? "Back to question gallery"
-      : "Back to assessment gallery";
+      ? "Back to question catalog"
+      : "Back to assessment catalog";
   const backHref =
-    type === "question" ? "/gallery/questions" : "/gallery/assessments";
+    type === "question" ? "/catalog/questions" : "/catalog/assessments";
   return (
     <React.Fragment>
       <Head>
