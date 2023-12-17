@@ -22,43 +22,13 @@ import cs233Image from "../../../lib/images/cs-233.png";
 import yorkjonatanImage from "../../../lib/images/york-jonatan.png";
 import ece6353fraida from "../../../lib/images/ece6353fraida.png";
 
-interface CourseCardProps {
-  image: ImageProps["src"];
-  title: string;
-  href: string;
-}
-
-const CourseCard: React.FC<CourseCardProps> = ({ image, title, href }) => {
-  return (
-    <article className="card border-secondary overflow-hidden">
-      <Link href={href} className="position-relative">
-        <Image
-          src={image}
-          alt={title}
-          style={{
-            objectFit: "contain",
-            width: "100%",
-            height: "100%",
-            aspectRatio: "5 / 3",
-          }}
-        />
-      </Link>
-      <div className="card-body">
-        <Link href={href}>
-          <h3 className="card-title text-center h5">{title}</h3>
-        </Link>
-      </div>
-    </article>
-  );
-};
-
 interface SharedQuestionCardProps {
   image: ImageProps["src"];
   title: string;
   href: string;
   institution?: string;
-  ownerName: string;
-  ownerEmail: string;
+  ownerName?: string;
+  ownerEmail?: string;
 }
 
 const SharedQuestionCard: React.FC<SharedQuestionCardProps> = ({
@@ -87,10 +57,12 @@ const SharedQuestionCard: React.FC<SharedQuestionCardProps> = ({
         <Link href={href}>
           <h3 className="card-title h5">{title}</h3>
         </Link>
-        <p className="mb-1">
-          <strong>Shared by:</strong> {ownerName} (
-          <a href={`mailto:${ownerEmail}`}>{ownerEmail}</a>)
-        </p>
+        {ownerName && (
+          <p className="mb-1">
+            <strong>Shared by:</strong> {ownerName}{" "}
+            {ownerEmail && <a href={`mailto:${ownerEmail}`}>{ownerEmail}</a>}
+          </p>
+        )}
         {institution && (
           <p className="mb-1">
             <strong>Institution: </strong> {institution}
@@ -138,12 +110,14 @@ export default function Courses() {
 
       <div className={classnames("container-fluid my-5")}>
         <div className="container-md">
-          <Heading>Question Templates</Heading>
+          <Heading>Publicly Shared Questions</Heading>
           <p>
-            Browse through our template questions in a variety of subjects. If
-            you find a question that you like, you can copy it to your own
-            course, and make changes if you want! See each question for their
-            license details.
+            This question catalog has been publicly shared by instructors from
+            various universities. If you like any of these questions, you can
+            use them directly in your course, without any need to copy
+            questions. Read these <a href="">instructions</a> to see how you can
+            use publicly shared questions in your course. Some of the questions
+            can be copied to your course, so you can make changes if you want!
           </p>
         </div>
       </div>
@@ -151,73 +125,78 @@ export default function Courses() {
       <div className={classnames("container-fluid my-5")}>
         <div className="container-md">
           <div className={styles.grid}>
-            <CourseCard
+            <SharedQuestionCard
               image={eorphysics1}
               title="Physics: Mechanics"
               href="https://us.prairielearn.com/pl/course_instance/136441/assessment/2350772"
-            ></CourseCard>
+              institution=""
+              ownerName="PrairieLearn, Inc."
+              ownerEmail=""
+            ></SharedQuestionCard>
 
-            <CourseCard
+            <SharedQuestionCard
               image={eorphysics2}
-              title="Physics: E&M"
+              title="Physics: E&amp;M"
               href="https://us.prairielearn.com/pl/course_instance/136442/assessment/2350773"
-            ></CourseCard>
+              institution=""
+              ownerName="PrairieLearn, Inc."
+              ownerEmail=""
+            ></SharedQuestionCard>
 
-            <CourseCard
+            <SharedQuestionCard
               image={eorstatics}
               title="Statics"
               href="https://us.prairielearn.com/pl/course_instance/136474/assessment/2350805"
-            ></CourseCard>
+              institution=""
+              ownerName="PrairieLearn, Inc."
+              ownerEmail=""
+            ></SharedQuestionCard>
 
-            <CourseCard
+            <SharedQuestionCard
               image={eordynamics}
               title="Dynamics"
               href="https://us.prairielearn.com/pl/course_instance/136475/assessment/2350806"
-            ></CourseCard>
+              institution=""
+              ownerName="PrairieLearn, Inc."
+              ownerEmail=""
+            ></SharedQuestionCard>
 
-            <CourseCard
+            <SharedQuestionCard
               image={eorsolids}
               title="Solid Mechanics"
               href="https://us.prairielearn.com/pl/course_instance/136415/assessment/2350745"
-            ></CourseCard>
+              institution=""
+              ownerName="PrairieLearn, Inc."
+              ownerEmail=""
+            ></SharedQuestionCard>
 
-            <CourseCard
+            <SharedQuestionCard
               image={eornumerical}
               title="Numerical Methods"
               href="https://us.prairielearn.com/pl/course_instance/136413/assessment/2350744"
-            ></CourseCard>
+              institution=""
+              ownerName="PrairieLearn, Inc."
+              ownerEmail=""
+            ></SharedQuestionCard>
 
-            <CourseCard
+            <SharedQuestionCard
               image={eorthermo}
               title="Thermodynamics"
               href="https://us.prairielearn.com/pl/course_instance/136573/assessment/2351036"
-            ></CourseCard>
+              institution="University of Illinois, Urbana-Champaign"
+              ownerName="Shelby Hutchens"
+              ownerEmail="hutchs@illinois.edu"
+            ></SharedQuestionCard>
 
-            <CourseCard
+            <SharedQuestionCard
               image={eorpython}
               title="Introduction to Python"
               href="https://us.prairielearn.com/pl/course_instance/136606/assessment/2351069"
-            ></CourseCard>
-          </div>
-        </div>
-      </div>
+              institution=""
+              ownerName="PrairieLearn, Inc."
+              ownerEmail=""
+            ></SharedQuestionCard>
 
-      <div className={classnames("container-fluid py-4", styles.container)}>
-        <div className="container-md">
-          <Heading>Publicly Shared Questions</Heading>
-          <p>
-            This question catalog has been publicly shared by instructors from
-            various universities. If you like any of these questions, you can
-            use them directly in your course, without any need to copy
-            questions. Read these <a href="">instructions</a> to see how you can
-            use publicly shared questions in your course.
-          </p>
-        </div>
-      </div>
-
-      <div className={classnames("container-fluid py-4", styles.container)}>
-        <div className="container-md">
-          <div className={styles.grid}>
             <SharedQuestionCard
               image={sigcse2023}
               title="SIGCSE 2023 - Workhop"

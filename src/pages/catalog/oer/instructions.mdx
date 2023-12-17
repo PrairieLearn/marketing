@@ -1,0 +1,16 @@
+import { MarkdownLayout } from "../../../components/MarkdownLayout";
+import img1 from "./settingsQuestionPage.png";
+
+export const meta = {
+  title: "Sharing Questions",
+};
+
+## Publicly Shared Questions
+
+<img src={img1} alt="An image showing the question settings page" />
+
+## Sharing Questions via Tokens
+
+export default ({ children }) => (
+  <MarkdownLayout meta={meta}>{children}</MarkdownLayout>
+);
