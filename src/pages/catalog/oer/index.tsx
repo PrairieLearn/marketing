@@ -115,7 +115,7 @@ export default function Courses() {
             This question catalog has been publicly shared by instructors from
             various universities. If you like any of these questions, you can
             use them directly in your course, without any need to copy
-            questions. Read these <a href="">instructions</a> to see how you can
+            questions. Read these <Link href="https://prairielearn.readthedocs.io/en/latest/questionSharing/">instructions</Link> to see how you can
             use publicly shared questions in your course. Some of the questions
             can be copied to your course, so you can make changes if you want!
           </p>
