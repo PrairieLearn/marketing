@@ -46,22 +46,25 @@ export default function SIGCSE2024() {
             </p>
             <p>
               Currently, PrairieLearn is actively adopted in over 800 courses
-              across 20 universities. <strong>In this affiliated event, instructors from
-              these courses will showcase the innovative online assessments
-              they’ve created using PrairieLearn, and they are eager to share
-              these resources with the broader instructor community.</strong> Presenters
-              will also be happy to discuss their experience authoring these
-              assessments.
+              across 20 universities.{" "}
+              <strong>
+                In this affiliated event, instructors from these courses will
+                showcase the innovative online assessments they’ve created using
+                PrairieLearn, and they are eager to share these resources with
+                the broader instructor community.
+              </strong>{" "}
+              Presenters will also be happy to discuss their experience
+              authoring these assessments.
             </p>
 
             <div className={classnames("container-fluid py-2")}>
               <div className="d-flex flex-row justify-content-center flex-wrap">
-                  <Link
-                    href="sigcse2024/submit-questions"
-                    className="btn btn-warning btn-lg me-3 mt-3"
-                  >
-                    SUBMIT YOUR SPIFFY QUESTIONS TO THIS EVENT
-                  </Link>
+                <Link
+                  href="sigcse2024/submit-questions"
+                  className="btn btn-warning btn-lg me-3 mt-3"
+                >
+                  SUBMIT YOUR SPIFFY QUESTIONS TO THIS EVENT
+                </Link>
               </div>
             </div>
 
@@ -78,7 +81,7 @@ export default function SIGCSE2024() {
                 Prof. Craig Zilles, University of Illinois Urbana-Champaign,{" "}
                 <a href="mailto:zilles@illinois.edu">zilles@illinois.edu</a>,{" "}
                 <a href="https://mfsilva.web.illinois.edu/">
-                https://zilles.cs.illinois.edu
+                  https://zilles.cs.illinois.edu
                 </a>
               </li>
               <li>
@@ -146,8 +149,6 @@ export default function SIGCSE2024() {
           </Stack>
         </div>
       </div>
-
-
     </React.Fragment>
   );
 }
