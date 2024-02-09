@@ -1,0 +1,28 @@
+import { MarkdownLayout } from "../../components/MarkdownLayout";
+
+export const meta = {
+  title: "Submit your PrairieLearn question",
+  backText: "Back to sigcse affiliated event page",
+  backHref: "/sigcse2024",
+};
+
+## How does this work?
+
+One of the best things about PrairieLearn is how flexible and customizable it is. Over the past few years, we have seen tremendously creative and original question types! A group of PrairieLearn users are organizing an event at SIGCSE 2024 Technical Symposium in Portland OR, to showcase the kinds of cool questions one can build with PrairieLearn. It will be Friday, March 22nd from noon-1:30pm in Meeting Rooms D137-138.
+
+We’re looking for examples of engaging and interactive PrairieLearn questions (or assessments) that go beyond what you can do “out of the box” in some novel or creative way. Perhaps your questions assess an interesting topic in a novel way, or provide interactive assessments that are custom built, or use a new element type that can be used as a building block for other questions. We want to see them all!
+
+If you or your colleagues/students have developed PrairieLearn question(s) that might fit this description, we’d love to have you submit them for possible inclusion in our showcase.
+
+During the event itself, we will ask the authors/submitters of selected questions to give quick 3-5 minute “lightning talk” demos of their question, as time permits. But even if you or your delegate/student/representative cannot attend SIGCSE in person, we have other ways we’d be able to showcase your question(s).
+We will also make available to event participants a PrairieLearn “demo course” that includes all the questions accepted for the event, including the ones we don’t have time to present (the event itself is 90 minutes, and we’ll need 10-15 minutes of framing time).
+
+## What do you need to do?
+
+Complete this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLScR6kmdgCAgcfax0j0RCUrFR46WTpy5hrhd5ZFghQcROz0Yng/viewform?usp=sf_link) if you’re interested in submitting a question for this showcase. Note that if your question is accepted as part of the event, it will be made available in a demo course that, for all practical purposes, will be public, with a CC-BY-NC license (https://creativecommons.org/licenses/by-nc-sa/4.0/). So if you have “secret” questions you use on exams that you don’t want circulated, please don’t submit those (though we are planning to have time at the event where you can privately show such questions to other participants and make them selectively available to other instructors).
+
+Reach out to either Armando Fox (<a href="mailto:fox@berkeley.edu">fox@berkeley.edu</a>) or Firas Moosvi (<a href="mailto:firas.moosvi@ubc.ca">firas.moosvi@ubc.ca</a>) if you have any questions!
+
+export default ({ children }) => (
+  <MarkdownLayout meta={meta}>{children}</MarkdownLayout>
+);
