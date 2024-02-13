@@ -10,7 +10,7 @@ export default function SIGCSE2024() {
   return (
     <React.Fragment>
       <Head>
-        <title>SIGCSE 2024</title>
+        <title>SIGCSE 2024 Spiffy PrairieLearn Questions</title>
       </Head>
 
       <PageBanner
@@ -31,8 +31,7 @@ export default function SIGCSE2024() {
               to practice with rapid feedback, a feature provided by
               autograders. PrairieLearn is an open-source assessment authoring
               system that empowers the development of exceptionally rich
-              interactive STAR questions &#8212; Skill-specific, Tagged to
-              course competencies, Auto-graded, and Randomizable.
+              interactive questions.
             </p>
             <p>
               Questions are formulated as problem generators capable of
