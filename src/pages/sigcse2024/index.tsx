@@ -60,7 +60,7 @@ export default function SIGCSE2024() {
             <div className={classnames("container-fluid py-2")}>
               <div className="d-flex flex-row justify-content-center flex-wrap">
                 <Link
-                  href="sigcse2024/submit-questions"
+                  href="/sigcse2024/submit-questions"
                   className="btn btn-warning btn-lg me-3 mt-3"
                 >
                   SUBMIT YOUR SPIFFY QUESTIONS TO THIS EVENT
