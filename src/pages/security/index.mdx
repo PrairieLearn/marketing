@@ -4,7 +4,23 @@ export const meta = {
   title: "Security",
 };
 
-The PrairieLearn team takes the security of our products and services seriously. Thanks for helping to make PrairieLearn secure for everyone.
+The PrairieLearn team takes the security of our products and services seriously.
+
+## Product security
+
+- **Software development lifecycle**: PrairieLearn, Inc. follows a secure software development lifecycle, including secure coding practices, code reviews, and automated testing.
+- **Vulnerability scanning**: GitHub Dependabot scans for vulnerabilities in third-party packages and dependencies.
+- **Data protection at test**: Datastores with customer data, including S3 buckets, RDS databases, and EBS volumes, are encrypted at rest.
+- **Data protection in transit**: Data that is transmitted over potentially insecure networks is encrypted in transit using TLS 1.2 or higher.
+
+## Enterprise security
+
+- **Secure remote access**: Internal systems are only accessible via AWS Systems Manager. Access to AWS Systems Manager is logged and tightly controlled.
+- **Identity access and management**: PrairieLearn, Inc. uses JumpCloud for identity and access management. Multi-factor authentication is required and utilized wherever possible.
+
+## Third-party audits
+
+- **SOC 2 Type I _(coming soon)_**: PrairieLearn, Inc. is currently working with [Vanta](https://www.vanta.com/) and third-party auditors to achieve SOC 2 Type I compliance. We expect to complete this process in early 2024. The completed report will be made available to customers upon request.
 
 ## Reporting a vulnerability
 
