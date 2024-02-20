@@ -66,9 +66,6 @@ export const Footer: React.FC = () => {
                 <FooterLink href="/about">About</FooterLink>
               </li>
               <li className="mb-2">
-                <FooterLink href="/jobs">Jobs</FooterLink>
-              </li>
-              <li className="mb-2">
                 <FooterLink href="/security">Security</FooterLink>
               </li>
               <li className="mb-2">
