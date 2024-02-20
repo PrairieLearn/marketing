@@ -169,6 +169,7 @@ export const Header: React.FC = () => {
                     [`fw-bold ${styles.active}`]: useIsActive([
                       "/about",
                       "/research",
+                      "/blog",
                     ]),
                   })}
                 >
@@ -177,6 +178,7 @@ export const Header: React.FC = () => {
                 <Dropdown.Menu>
                   <NavDropdownItem href="/about">About Us</NavDropdownItem>
                   <NavDropdownItem href="/research">Research</NavDropdownItem>
+                  <NavDropdownItem href="/blog">Blog</NavDropdownItem>
                 </Dropdown.Menu>
               </Dropdown>
               <li className="nav-item">
