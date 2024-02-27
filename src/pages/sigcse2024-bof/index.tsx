@@ -1,7 +1,6 @@
 import React from "react";
 import classnames from "classnames";
 import Head from "next/head";
-import Link from "next/link";
 import { PageBanner } from "../../components/Banner";
 import { Heading } from "../../components/Heading";
 import Stack from "../../components/Stack";
