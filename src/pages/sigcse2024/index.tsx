@@ -105,13 +105,6 @@ export default function SIGCSE2024() {
                   www.cs.berkeley.edu/~ddgarcia
                 </a>
               </li>
-              <li>
-                Prof. Armando Fox, UC Berkeley,{" "}
-                <a href="mailto:fox@berkeley.edu">fox@berkeley.edu</a>,{" "}
-                <a href="https://www2.eecs.berkeley.edu/Faculty/Homepages/fox.html">
-                  www.cs.berkeley.edu/~fox
-                </a>
-              </li>
             </ul>
 
             <h4>Tentative Agenda</h4>
