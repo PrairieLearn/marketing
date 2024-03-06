@@ -29,6 +29,7 @@ interface SharedQuestionCardProps {
   institution?: string;
   ownerName?: string;
   ownerEmail?: string;
+  github?: string;
 }
 
 const SharedQuestionCard: React.FC<SharedQuestionCardProps> = ({
@@ -38,6 +39,7 @@ const SharedQuestionCard: React.FC<SharedQuestionCardProps> = ({
   institution,
   ownerName,
   ownerEmail,
+  github,
 }) => {
   return (
     <article className="card border-secondary overflow-hidden">
@@ -66,6 +68,11 @@ const SharedQuestionCard: React.FC<SharedQuestionCardProps> = ({
         {institution && (
           <p className="mb-1">
             <strong>Institution: </strong> {institution}
+          </p>
+        )}
+        {github && (
+          <p className="mb-1">
+            <strong>View source</strong> on <Link href={github}>Github</Link>
           </p>
         )}
       </div>
@@ -133,105 +140,97 @@ export default function Courses() {
               image={eorphysics1}
               title="Physics: Mechanics"
               href="https://us.prairielearn.com/pl/course_instance/136441/assessment/2350772"
-              institution=""
-              ownerName="PrairieLearn, Inc."
-              ownerEmail=""
+              ownerName="various authors"
+              github="https://github.com/PrairieLearn/pl-oer-physics1"
             ></SharedQuestionCard>
 
             <SharedQuestionCard
               image={eorphysics2}
               title="Physics: E&amp;M"
               href="https://us.prairielearn.com/pl/course_instance/136442/assessment/2350773"
-              institution=""
-              ownerName="PrairieLearn, Inc."
-              ownerEmail=""
+              ownerName="various authors"
+              github="https://github.com/PrairieLearn/pl-oer-physics2"
             ></SharedQuestionCard>
 
             <SharedQuestionCard
               image={eorstatics}
               title="Statics"
               href="https://us.prairielearn.com/pl/course_instance/136474/assessment/2350805"
-              institution=""
-              ownerName="PrairieLearn, Inc."
-              ownerEmail=""
+              ownerName="various authors"
+              github="https://github.com/PrairieLearn/pl-oer-statics"
             ></SharedQuestionCard>
 
             <SharedQuestionCard
               image={eordynamics}
               title="Dynamics"
               href="https://us.prairielearn.com/pl/course_instance/136475/assessment/2350806"
-              institution=""
-              ownerName="PrairieLearn, Inc."
-              ownerEmail=""
+              ownerName="various authors"
+              github="https://github.com/PrairieLearn/pl-oer-dynamics"
             ></SharedQuestionCard>
 
             <SharedQuestionCard
               image={eorsolids}
               title="Solid Mechanics"
               href="https://us.prairielearn.com/pl/course_instance/136415/assessment/2350745"
-              institution=""
-              ownerName="PrairieLearn, Inc."
-              ownerEmail=""
+              ownerName="various authors"
+              github="https://github.com/PrairieLearn/pl-oer-solidMechanics"
             ></SharedQuestionCard>
 
             <SharedQuestionCard
               image={eornumerical}
               title="Numerical Methods"
               href="https://us.prairielearn.com/pl/course_instance/136413/assessment/2350744"
-              institution=""
-              ownerName="PrairieLearn, Inc."
-              ownerEmail=""
+              ownerName="various authors"
+              github="https://github.com/PrairieLearn/pl-oer-numericalMethods"
             ></SharedQuestionCard>
 
             <SharedQuestionCard
               image={eorthermo}
               title="Thermodynamics"
               href="https://us.prairielearn.com/pl/course_instance/136573/assessment/2351036"
-              institution="University of Illinois, Urbana-Champaign"
               ownerName="Shelby Hutchens"
               ownerEmail="hutchs@illinois.edu"
+              github="https://github.com/PrairieLearn/pl-oer-thermodynamics"
             ></SharedQuestionCard>
 
             <SharedQuestionCard
               image={eorpython}
               title="Introduction to Python"
               href="https://us.prairielearn.com/pl/course_instance/136606/assessment/2351069"
-              institution=""
-              ownerName="PrairieLearn, Inc."
-              ownerEmail=""
+              ownerName="various authors"
+              github="https://github.com/PrairieLearn/pl-oer-python"
+            ></SharedQuestionCard>
+
+            <SharedQuestionCard
+              image={cs233Image}
+              title="Miscellaneous CS topics"
+              href="https://us.prairielearn.com/pl/course/6717/course_admin/questions"
+              ownerName="various authors"
+              github="https://github.com/PrairieLearn/pl-oer-csmix"
             ></SharedQuestionCard>
 
             <SharedQuestionCard
               image={sigcse2023}
               title="SIGCSE 2023 - Workhop"
               href="https://us.prairielearn.com/pl/public/course/1305/questions"
-              institution="UBC, York U, NYU, UIUC, U Michigan"
-              ownerName="Firas Moosvi"
-              ownerEmail="firas.moosvi@ubc.ca"
+              ownerName="various authors"
+              github="https://github.com/PrairieLearn/pl-prairielearn101"
             ></SharedQuestionCard>
+
             <SharedQuestionCard
               image={yorkjonatanImage}
               title="Miscellaneous Computer Systems Topics"
               href="https://ca.prairielearn.com/pl/course_instance/2284"
-              institution="York University"
               ownerName="Jonatan Schroeder"
               ownerEmail="jonatan@yorku.ca"
             ></SharedQuestionCard>
+
             <SharedQuestionCard
               image={ece6353fraida}
               title="Internet Architecture and Protocols"
-              href="https://us.prairielearn.com/pl/course_instance/129160"
-              institution="New York University"
+              href="https://us.prairielearn.com/pl/public/course/358/questions"
               ownerName="Fraida Fund"
               ownerEmail="ffund@nyu.edu"
-            ></SharedQuestionCard>
-            <SharedQuestionCard
-              image={cs233Image}
-              title="Computer Architecture"
-              href="https://us.prairielearn.com/pl/course_instance/128979"
-              institution="University of Illinois Urbana-Champaign"
-              ownerName="Geoffrey Herman"
-              ownerEmail="glherman@illinois.edu"
             ></SharedQuestionCard>
           </div>
         </div>
@@ -240,10 +239,7 @@ export default function Courses() {
       <div className={classnames("container-fluid my-5")}>
         <div className="container-md">
           <h2 className="h4">License</h2>
-          <p>
-            All content here is made made available under an open license. See
-            each question for license details.
-          </p>
+          <p>All content here is made made available under an open license.</p>
         </div>
       </div>
 
