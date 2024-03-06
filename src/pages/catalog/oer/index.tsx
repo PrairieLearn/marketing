@@ -19,7 +19,6 @@ import eorpython from "../../../lib/images/EORpython.png";
 import eorthermo from "../../../lib/images/EORthermo.png";
 import sigcse2023 from "../../../lib/images/sigcse2023.png";
 import cs233Image from "../../../lib/images/cs-233.png";
-import yorkjonatanImage from "../../../lib/images/york-jonatan.png";
 import ece6353fraida from "../../../lib/images/ece6353fraida.png";
 
 interface SharedQuestionCardProps {
@@ -215,14 +214,6 @@ export default function Courses() {
               href="https://us.prairielearn.com/pl/public/course/1305/questions"
               ownerName="various authors"
               github="https://github.com/PrairieLearn/pl-prairielearn101"
-            ></SharedQuestionCard>
-
-            <SharedQuestionCard
-              image={yorkjonatanImage}
-              title="Miscellaneous Computer Systems Topics"
-              href="https://ca.prairielearn.com/pl/course_instance/2284"
-              ownerName="Jonatan Schroeder"
-              ownerEmail="jonatan@yorku.ca"
             ></SharedQuestionCard>
 
             <SharedQuestionCard
