@@ -138,55 +138,49 @@ export default function Courses() {
             <SharedQuestionCard
               image={eorphysics1}
               title="Physics: Mechanics"
-              href="https://us.prairielearn.com/pl/course_instance/136441/assessment/2350772"
-              ownerName="various authors"
+              href="https://us.prairielearn.com/pl/public/course/2923/questions"
               github="https://github.com/PrairieLearn/pl-oer-physics1"
             ></SharedQuestionCard>
 
             <SharedQuestionCard
               image={eorphysics2}
               title="Physics: E&amp;M"
-              href="https://us.prairielearn.com/pl/course_instance/136442/assessment/2350773"
-              ownerName="various authors"
+              href="https://us.prairielearn.com/pl/public/course/2922/questions"
               github="https://github.com/PrairieLearn/pl-oer-physics2"
             ></SharedQuestionCard>
 
             <SharedQuestionCard
               image={eorstatics}
               title="Statics"
-              href="https://us.prairielearn.com/pl/course_instance/136474/assessment/2350805"
-              ownerName="various authors"
+              href="https://us.prairielearn.com/pl/public/course/2924/questions"
               github="https://github.com/PrairieLearn/pl-oer-statics"
             ></SharedQuestionCard>
 
             <SharedQuestionCard
               image={eordynamics}
               title="Dynamics"
-              href="https://us.prairielearn.com/pl/course_instance/136475/assessment/2350806"
-              ownerName="various authors"
+              href="https://us.prairielearn.com/pl/public/course/2955/questions"
               github="https://github.com/PrairieLearn/pl-oer-dynamics"
             ></SharedQuestionCard>
 
             <SharedQuestionCard
               image={eorsolids}
               title="Solid Mechanics"
-              href="https://us.prairielearn.com/pl/course_instance/136415/assessment/2350745"
-              ownerName="various authors"
+              href="https://us.prairielearn.com/pl/public/course/2925/questions"
               github="https://github.com/PrairieLearn/pl-oer-solidMechanics"
             ></SharedQuestionCard>
 
             <SharedQuestionCard
               image={eornumerical}
               title="Numerical Methods"
-              href="https://us.prairielearn.com/pl/course_instance/136413/assessment/2350744"
-              ownerName="various authors"
+              href="https://us.prairielearn.com/pl/public/course/2926/questions"
               github="https://github.com/PrairieLearn/pl-oer-numericalMethods"
             ></SharedQuestionCard>
 
             <SharedQuestionCard
               image={eorthermo}
               title="Thermodynamics"
-              href="https://us.prairielearn.com/pl/course_instance/136573/assessment/2351036"
+              href="https://us.prairielearn.com/pl/public/course/2988/questions"
               ownerName="Shelby Hutchens"
               ownerEmail="hutchs@illinois.edu"
               github="https://github.com/PrairieLearn/pl-oer-thermodynamics"
@@ -195,16 +189,14 @@ export default function Courses() {
             <SharedQuestionCard
               image={eorpython}
               title="Introduction to Python"
-              href="https://us.prairielearn.com/pl/course_instance/136606/assessment/2351069"
-              ownerName="various authors"
+              href="https://us.prairielearn.com/pl/public/course/2889/questions"
               github="https://github.com/PrairieLearn/pl-oer-python"
             ></SharedQuestionCard>
 
             <SharedQuestionCard
               image={cs233Image}
               title="Miscellaneous CS topics"
-              href="https://us.prairielearn.com/pl/course/6717/course_admin/questions"
-              ownerName="various authors"
+              href="https://us.prairielearn.com/pl/public/course/6717/questions"
               github="https://github.com/PrairieLearn/pl-oer-csmix"
             ></SharedQuestionCard>
 
@@ -212,7 +204,6 @@ export default function Courses() {
               image={sigcse2023}
               title="SIGCSE 2023 - Workhop"
               href="https://us.prairielearn.com/pl/public/course/1305/questions"
-              ownerName="various authors"
               github="https://github.com/PrairieLearn/pl-prairielearn101"
             ></SharedQuestionCard>
 
