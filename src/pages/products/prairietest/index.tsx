@@ -3,7 +3,6 @@ import Head from "next/head";
 import Image, { ImageProps } from "next/image";
 import classnames from "classnames";
 
-// import { ContactUsForm } from "../../components/ContactUsForm";
 import { PageBanner } from "../../../components/Banner";
 import { Heading } from "../../../components/Heading";
 import { BannerCTA } from "../../../components/CallToActionBanner";
@@ -22,18 +21,11 @@ import byodFormatImage from "../../../lib/images/byodinclass.png";
 
 import styles from "./index.module.scss";
 
-
 interface FeatureCardProps {
   image: ImageProps["src"];
-  title: string; 
+  title: string;
   children: React.ReactNode;
 }
-
-
-// display: flex;
-// align-items: center;
-// justify-content: center;
-// flex-direction: column;
 
 const FeatureCard: React.FC<FeatureCardProps> = ({
   image,
@@ -69,12 +61,10 @@ export default function PrairieTest() {
       <Head>
         <title>PrairieTest | PrairieLearn</title>
       </Head>
-      <PageBanner 
+      <PageBanner
         title="PrairieTest"
         subtitle="Planning and delivering testing at scale"
       />
-
-
 
       <div className={classnames("container-fluid py-4")}>
         <div className="container-md">
@@ -96,48 +86,37 @@ export default function PrairieTest() {
 
       <div className={classnames("container-fluid my-5")}>
         <div className="container-md">
-
           <div className="row">
             <h4 className={classnames("py-3 ", styles.color, styles.center)}>
-            All exam management processes done in one-place!
+              All exam management processes done in one-place!
             </h4>
           </div>
           <div className={styles.grid}>
-            <FeatureCard
-              image={scannerImage}
-              title="Fast check-in process"
-            >
-              Supports card scanners providing fast student verification that enables exams access
+            <FeatureCard image={scannerImage} title="Fast check-in process">
+              Supports card scanners providing fast student verification that
+              enables exams access
             </FeatureCard>
-            <FeatureCard
-              image={accommodationsImage}
-              title="Accessible testing"
-            >
-              Ability to setup various exams accommodations, such as extended exam time
+            <FeatureCard image={accommodationsImage} title="Accessible testing">
+              Ability to setup various exams accommodations, such as extended
+              exam time
             </FeatureCard>
-            <FeatureCard
-              image={rescheduleImage}
-              title="Easy rescheduling"
-            >
-              Students are able to change their exam selection on their own until the exam date.
+            <FeatureCard image={rescheduleImage} title="Easy rescheduling">
+              Students are able to change their exam selection on their own
+              until the exam date.
             </FeatureCard>
-            <FeatureCard
-              image={overridesImage}
-              title="Allows overrides"
-            >
+            <FeatureCard image={overridesImage} title="Allows overrides">
               Instructors can change exam settings for individual students
             </FeatureCard>
-            <FeatureCard
-              image={proctorImage}
-              title="Proctoring Assignments"
-            >
-              Instructors can assign proctors for the different sections of an exam, or different exams
+            <FeatureCard image={proctorImage} title="Proctoring Assignments">
+              Instructors can assign proctors for the different sections of an
+              exam, or different exams
             </FeatureCard>
             <FeatureCard
               image={fingerprintImage}
               title="Fingerprinting for Security"
             >
-              Ability to track student&apos;s IP address and agent (operating system and browser) to improve exam security
+              Ability to track student&apos;s IP address and agent (operating
+              system and browser) to improve exam security
             </FeatureCard>
           </div>
         </div>
@@ -147,7 +126,13 @@ export default function PrairieTest() {
         <div className="container-md">
           <div className="row">
             <Heading>Student Self-Registration</Heading>
-            <p> When instructors are running asynchronous exams, students are able to select the time and location of their choice. They also have the ability to change or cancel their reservation before the scheduled exam, without having to contact the instructor.  </p>
+            <p>
+              {" "}
+              When instructors are running asynchronous exams, students are able
+              to select the time and location of their choice. They also have
+              the ability to change or cancel their reservation before the
+              scheduled exam, without having to contact the instructor.{" "}
+            </p>
           </div>
           <div className="row">
             <Image
@@ -166,8 +151,13 @@ export default function PrairieTest() {
         <div className="container-md">
           <div className="row">
             <Heading>Exam delivered in different formats</Heading>
-            <p> PrairieTest can be used to deliver exams in the classroom, online with proctoring via virtual meetings, in computer-based testing facilities (CBTF).
-            Proctors will use PrairieLearn to control students&apos; access to exams. </p>
+            <p>
+              {" "}
+              PrairieTest can be used to deliver exams in the classroom, online
+              with proctoring via virtual meetings, in computer-based testing
+              facilities (CBTF). Proctors will use PrairieLearn to control
+              students&apos; access to exams.{" "}
+            </p>
           </div>
           <div className="row">
             <div className="col-md-6 order-2 pt-4">
@@ -185,7 +175,9 @@ export default function PrairieTest() {
                 Exams in the classroom
               </h4>
               <p>
-                Students complete exams using their own device from a classroom, or using institutional machines in a computer lab. In this setup, course staff usually serve as proctors.
+                Students complete exams using their own device from a classroom,
+                or using institutional machines in a computer lab. In this
+                setup, course staff usually serve as proctors.
               </p>
             </div>
           </div>
@@ -205,7 +197,10 @@ export default function PrairieTest() {
                 Exams online
               </h4>
               <p>
-              Students complete exams using their own device from a remote location. In this setting, instructors can create virtual meetings where students get their identification verified, and access to exam is provided via PrairieTest.
+                Students complete exams using their own device from a remote
+                location. In this setting, instructors can create virtual
+                meetings where students get their identification verified, and
+                access to exam is provided via PrairieTest.
               </p>
             </div>
           </div>
@@ -225,14 +220,15 @@ export default function PrairieTest() {
                 Exams in a CBTF
               </h4>
               <p>
-                Students take their exams at a dedicated computer lab, which runs asynchronous exams for many courses using trained proctors. The testing center firewall blocks all access to the internet, with the exception from allowed exam content.
+                Students take their exams at a dedicated computer lab, which
+                runs asynchronous exams for many courses using trained proctors.
+                The testing center firewall blocks all access to the internet,
+                with the exception from allowed exam content.
               </p>
             </div>
           </div>
-
         </div>
       </div>
-
 
       <BannerCTA
         title="Request a demo!"

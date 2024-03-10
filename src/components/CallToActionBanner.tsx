@@ -27,10 +27,7 @@ export const BannerCTA: React.FC<BannerCTAProps> = ({
       </div>
       <div className="row justify-content-center my-2">
         <div className="col-md-12 text-center">
-          <Link
-            href={href}
-            className="btn btn-warning btn-lg"
-          >
+          <Link href={href} className="btn btn-warning btn-lg">
             {buttonLabel}
           </Link>
         </div>
