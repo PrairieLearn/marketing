@@ -29,13 +29,19 @@ interface FeatureCardProps {
   children: React.ReactNode;
 }
 
+
+// display: flex;
+// align-items: center;
+// justify-content: center;
+// flex-direction: column;
+
 const FeatureCard: React.FC<FeatureCardProps> = ({
   image,
   title,
   children,
 }) => {
   return (
-    <article className="card overflow-hidden">
+    <article className={classnames("card overflow-hidden", styles.card)}>
       <Image
         src={image}
         alt={title}
@@ -43,6 +49,10 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
           objectFit: "contain",
           width: "30%",
           height: "30%",
+          // display: "flex",
+          // alignItems: "center",
+          // justifyContent: "center",
+          // flexDirection: "column",
         }}
       />
       <div className="card-body">
@@ -107,27 +117,27 @@ export default function PrairieTest() {
             </FeatureCard>
             <FeatureCard
               image={rescheduleImage}
-              title="Easy Rescheduling"
+              title="Easy rescheduling"
             >
-              bla
+              Students are able to change their exam selection on their own until the exam date.
             </FeatureCard>
             <FeatureCard
               image={overridesImage}
-              title="Allows Overrides"
+              title="Allows overrides"
             >
-              bla
+              Instructors can change exam settings for individual students
             </FeatureCard>
             <FeatureCard
               image={proctorImage}
               title="Proctoring Assignments"
             >
-              bla
+              Instructors can assign proctors for the different sections of an exam, or different exams
             </FeatureCard>
             <FeatureCard
               image={fingerprintImage}
               title="Fingerprinting for Security"
             >
-              bla
+              Ability to track student&apos;s IP address and agent (operating system and browser) to improve exam security
             </FeatureCard>
           </div>
         </div>
