@@ -137,6 +137,29 @@ export const Header: React.FC = () => {
             id="navbar"
           >
             <ul className="navbar-nav ms-auto mb-2 mb-sm-0">
+            <Dropdown as={NavItem}>
+                <Dropdown.Toggle
+                  as={NavLink}
+                  className={classnames(styles["nav-link"], {
+                    [`fw-bold ${styles.active}`]: useIsActive([
+                      "/products",
+                    ]),
+                  })}
+                >
+                  Product
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                  <NavDropdownItem href="/">
+                    PrairieLearn
+                  </NavDropdownItem>
+                  <NavDropdownItem href="/products/prairietest">
+                    PrairieTest
+                  </NavDropdownItem>
+                  <NavDropdownItem href="/products/cbtf">
+                    CBTF
+                  </NavDropdownItem>
+                </Dropdown.Menu>
+              </Dropdown>
               <Dropdown as={NavItem}>
                 <Dropdown.Toggle
                   as={NavLink}
