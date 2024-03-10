@@ -1,13 +1,12 @@
 import React from "react";
 import Head from "next/head";
-import Link from "next/link";
 import Image, { ImageProps } from "next/image";
 import classnames from "classnames";
 
 // import { ContactUsForm } from "../../components/ContactUsForm";
 import { PageBanner } from "../../../components/Banner";
 import { Heading } from "../../../components/Heading";
-// import { DemoCourseCTA } from "../../components/DemoCourse";
+import { BannerCTA } from "../../../components/CallToActionBanner";
 
 import diagramImage from "../../../lib/images/exam-management.png";
 import scannerImage from "../../../lib/images/swipe.png";
@@ -17,6 +16,9 @@ import rescheduleImage from "../../../lib/images/reschedule.png";
 import proctorImage from "../../../lib/images/assign-proctor.png";
 import schedulerImage from "../../../lib/images/pt-reservation.png";
 import overridesImage from "../../../lib/images/overrides.png";
+import onlineFormatImage from "../../../lib/images/zoom-proctored.png";
+import cbtfFormatImage from "../../../lib/images/cbtf.jpg";
+import byodFormatImage from "../../../lib/images/byodinclass.png";
 
 import styles from "./index.module.scss";
 
@@ -86,7 +88,7 @@ export default function PrairieTest() {
         <div className="container-md">
 
           <div className="row">
-            <h4 className={classnames("py-3 ", styles.subheading)}>
+            <h4 className={classnames("py-3 ", styles.color, styles.center)}>
             All exam management processes done in one-place!
             </h4>
           </div>
@@ -154,44 +156,80 @@ export default function PrairieTest() {
         <div className="container-md">
           <div className="row">
             <Heading>Exam delivered in different formats</Heading>
-            <p> bla  </p>
+            <p> PrairieTest can be used to deliver exams in the classroom, online with proctoring via virtual meetings, in computer-based testing facilities (CBTF).
+            Proctors will use PrairieLearn to control students&apos; access to exams. </p>
           </div>
           <div className="row">
-            {/* <Image
-              src={schedulerImage}
-              alt="student scheduler UI"
-              style={{
-                maxWidth: "100%",
-                height: "auto",
-              }} 
-            />*/}
+            <div className="col-md-6 order-2 pt-4">
+              <Image
+                src={byodFormatImage}
+                alt="student taking in-class exam"
+                style={{
+                  maxWidth: "100%",
+                  height: "auto",
+                }}
+              />
+            </div>
+            <div className="col-md-6 order-1">
+              <h4 className={classnames("py-3 ", styles.color)}>
+                Exams in the classroom
+              </h4>
+              <p>
+                Students complete exams using their own device from a classroom, or using institutional machines in a computer lab. In this setup, course staff usually serve as proctors.
+              </p>
+            </div>
           </div>
+          <div className="row">
+            <div className="col-md-6 order-2 pt-4">
+              <Image
+                src={onlineFormatImage}
+                alt="student taking online exam"
+                style={{
+                  maxWidth: "100%",
+                  height: "auto",
+                }}
+              />
+            </div>
+            <div className="col-md-6 order-1">
+              <h4 className={classnames("py-3 ", styles.color)}>
+                Exams online
+              </h4>
+              <p>
+              Students complete exams using their own device from a remote location. In this setting, instructors can create virtual meetings where students get their identification verified, and access to exam is provided via PrairieTest.
+              </p>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-6 order-2 pt-4">
+              <Image
+                src={cbtfFormatImage}
+                alt="student taking online exam"
+                style={{
+                  maxWidth: "100%",
+                  height: "auto",
+                }}
+              />
+            </div>
+            <div className="col-md-6 order-1">
+              <h4 className={classnames("py-3 ", styles.color)}>
+                Exams in a CBTF
+              </h4>
+              <p>
+                Students take their exams at a dedicated computer lab, which runs asynchronous exams for many courses using trained proctors. The testing center firewall blocks all access to the internet, with the exception from allowed exam content.
+              </p>
+            </div>
+          </div>
+
         </div>
       </div>
 
 
-      {/* <div className={classnames("container-fluid py-4", styles.container)}>
-        <div className="container-md">
-          <div className="row">
-            <div className="col-md-12">
-              <Heading>Feature List</Heading>
-             
-            </div>
-          </div>
-        </div>
-
-        <div className="row justify-content-center my-5">
-          <div className="col col-md-5">
-            <ContactUsForm showHeader={false} />
-          </div>
-        </div>
-      </div> */}
-{/* 
-      <DemoCourseCTA
-        title="View demo course!"
-        subtitle="Too busy to schedule a demo? You can test the demo course on your own, before requesting your course space."
-        buttonLabel="Demo course"
-      /> */}
+      <BannerCTA
+        title="Request a demo!"
+        subtitle="Want a one-on-one or a group demo? Book a time with us!"
+        buttonLabel="Schedule a demo"
+        href="https://calendly.com/marianapl"
+      />
     </React.Fragment>
   );
 }

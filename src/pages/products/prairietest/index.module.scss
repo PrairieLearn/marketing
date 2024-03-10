@@ -5,13 +5,15 @@
   background-color: $gray-200;
 }
 
-.subheading {
+.color {
   color: $blue-700;
+}
+
+.center {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
 }
 
 .grid {
