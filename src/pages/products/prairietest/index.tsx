@@ -154,9 +154,8 @@ export default function PrairieTest() {
             <p>
               {" "}
               PrairieTest can be used to deliver exams in the classroom, online
-              with proctoring via virtual meetings, in computer-based testing
-              facilities (CBTF). Proctors will use PrairieLearn to control
-              students&apos; access to exams.{" "}
+              with proctoring via virtual meetings, in testing centers. Proctors
+              will use PrairieLearn to control students&apos; access to exams.{" "}
             </p>
           </div>
           <div className="row">
@@ -208,7 +207,7 @@ export default function PrairieTest() {
             <div className="col-md-6 order-2 pt-4">
               <Image
                 src={cbtfFormatImage}
-                alt="student taking online exam"
+                alt="cbtf room"
                 style={{
                   maxWidth: "100%",
                   height: "auto",
@@ -217,7 +216,7 @@ export default function PrairieTest() {
             </div>
             <div className="col-md-6 order-1">
               <h4 className={classnames("py-3 ", styles.color)}>
-                Exams in a CBTF
+                Exams in testing centers
               </h4>
               <p>
                 Students take their exams at a dedicated computer lab, which
