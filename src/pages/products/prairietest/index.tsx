@@ -14,7 +14,8 @@ import scannerImage from "../../../lib/images/swipe.png";
 import accommodationsImage from "../../../lib/images/pt-accommodations.png";
 import fingerprintImage from "../../../lib/images/fingerprint.png";
 import rescheduleImage from "../../../lib/images/reschedule.png";
-import assignproctorImage from "../../../lib/images/assign-proctor.png";
+import proctorImage from "../../../lib/images/assign-proctor.png";
+import schedulerImage from "../../../lib/images/pt-reservation.png";
 import overridesImage from "../../../lib/images/overrides.png";
 
 import styles from "./index.module.scss";
@@ -115,7 +116,7 @@ export default function PrairieTest() {
               bla
             </FeatureCard>
             <FeatureCard
-              image={assignproctorImage}
+              image={proctorImage}
               title="Proctoring Assignments"
             >
               bla
@@ -126,6 +127,44 @@ export default function PrairieTest() {
             >
               bla
             </FeatureCard>
+          </div>
+        </div>
+      </div>
+
+      <div className={classnames("container-fluid py-4")}>
+        <div className="container-md">
+          <div className="row">
+            <Heading>Student Self-Registration</Heading>
+            <p> When instructors are running asynchronous exams, students are able to select the time and location of their choice. They also have the ability to change or cancel their reservation before the scheduled exam, without having to contact the instructor.  </p>
+          </div>
+          <div className="row">
+            <Image
+              src={schedulerImage}
+              alt="student scheduler UI"
+              style={{
+                maxWidth: "100%",
+                height: "auto",
+              }}
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className={classnames("container-fluid py-4")}>
+        <div className="container-md">
+          <div className="row">
+            <Heading>Exam delivered in different formats</Heading>
+            <p> bla  </p>
+          </div>
+          <div className="row">
+            {/* <Image
+              src={schedulerImage}
+              alt="student scheduler UI"
+              style={{
+                maxWidth: "100%",
+                height: "auto",
+              }} 
+            />*/}
           </div>
         </div>
       </div>
