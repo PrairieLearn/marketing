@@ -44,12 +44,15 @@ export default function TestingCenter() {
           <div className="row align-items-center">
             <div className="col-md-6 order-md-1 pt-4">
               <div className="row justify-content-center">
-                <Heading className="text-center">What is a Testing Center</Heading>
+                <Heading className="text-center">
+                  What is a Testing Center
+                </Heading>
               </div>
               <div className="row justify-content-center">
                 <p className={classnames("text-center", styles.larger_font)}>
-                A testing center is a designated facility equipped with computers and supervised by proctors, where students can
-                take secure computer-based assessments.
+                  A testing center is a designated facility equipped with
+                  computers and supervised by proctors, where students can take
+                  secure computer-based assessments.
                 </p>
               </div>
             </div>
@@ -99,7 +102,7 @@ export default function TestingCenter() {
               modifications and cancellations up to the selected exam time,
               providing convenience and autonomy to students.
             </ValuePropCard>
-            <ValuePropCard title="Seamless Exam Overrides">
+            <ValuePropCard title="Seamless exam overrides">
               Empower instructors with the capability to effortlessly grant
               overrides for students facing unexpected circumstances, such as
               illness or unavoidable absences during the exam period.
@@ -134,8 +137,8 @@ export default function TestingCenter() {
               <p>
                 Students with documented academic accommodations can take the
                 exams in the same setting as their classmates, by using special
-                seats inside the testing center. 
-                Below are some common requests for accommodations that can be arranged:
+                seats inside the testing center. Below are some common requests
+                for accommodations that can be arranged:
               </p>
               <ul>
                 <li>Extended exam time</li>
