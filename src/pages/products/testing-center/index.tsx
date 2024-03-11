@@ -50,9 +50,9 @@ export default function TestingCenter() {
               </div>
               <div className="row justify-content-center">
                 <p className={classnames("text-center", styles.larger_font)}>
-                  A testing center is a dedicated room equipped with
-                  computers and supervised by proctors, where students can take
-                  secure computer-based assessments.
+                  A testing center is a dedicated room equipped with computers
+                  and supervised by proctors, where students can take secure
+                  computer-based assessments.
                 </p>
               </div>
             </div>
@@ -84,6 +84,18 @@ export default function TestingCenter() {
               while cheating risks are minimized through computer screens, video
               cameras and professional oversight.
             </ValuePropCard>
+            <ValuePropCard title="Restriction to Unauthorized AI Services">
+              Ensure exam integrity by restricting access to AI services and
+              question-answering websites (such as chatGPT, Copilot, Chegg, and
+              CourseHero), fostering academic honesty and fair assessment.
+            </ValuePropCard>
+            <ValuePropCard title="Professional proctoring staff">
+              Ensure a fair and equitable experience for all students by using
+              professional proctors who are trained to uphold the testing center
+              policies and prevent violations. In addition, this relieves
+              instructors from proctoring duties, freeing course staff time for
+              other essential activities.
+            </ValuePropCard>
             <ValuePropCard title="Reliable check-in process">
               Enhance security measures by verifying students&apos; identities
               at the lab entrance through their student ID cards. In addition,
@@ -97,10 +109,11 @@ export default function TestingCenter() {
               streamlining the testing process for both students and faculty.
             </ValuePropCard>
             <ValuePropCard title="Student-centric exam scheduling">
-              Empower students with the flexibility to schedule exams at their
+              Empower students, especially those balancing family and work
+              obligations, with the flexibility to schedule exams at their
               preferred times within the exam period. Enable easy reservation
               modifications and cancellations up to the selected exam time,
-              providing convenience and autonomy to students.
+              providing convenience and autonomy.
             </ValuePropCard>
             <ValuePropCard title="Seamless exam overrides">
               Empower instructors with the capability to effortlessly grant

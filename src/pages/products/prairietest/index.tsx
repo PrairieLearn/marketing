@@ -153,7 +153,8 @@ export default function PrairieTest() {
             <Heading>Exams delivered in different formats</Heading>
             <p>
               {" "}
-              PrairieTest can be used to deliver exams in multiple formats or in a combination of any of them.{" "}
+              PrairieTest can be used to deliver exams in multiple formats or in
+              a combination of any of them.{" "}
             </p>
           </div>
           <div className="row">
