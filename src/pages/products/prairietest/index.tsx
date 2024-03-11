@@ -66,7 +66,7 @@ export default function PrairieTest() {
         subtitle="Planning and delivering testing at scale"
       />
 
-      <div className={classnames("container-fluid py-4")}>
+      <div className="container-fluid py-4">
         <div className="container-md">
           <div className="row">
             <Heading>Powerful exam management system</Heading>
