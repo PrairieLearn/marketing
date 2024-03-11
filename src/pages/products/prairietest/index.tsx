@@ -150,7 +150,7 @@ export default function PrairieTest() {
       <div className={classnames("container-fluid py-4")}>
         <div className="container-md">
           <div className="row">
-            <Heading>Exam delivered in different formats</Heading>
+            <Heading>Exams delivered in different formats</Heading>
             <p>
               {" "}
               PrairieTest can be used to deliver exams in the classroom, online
