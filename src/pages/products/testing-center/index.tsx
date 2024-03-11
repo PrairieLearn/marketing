@@ -36,7 +36,7 @@ export default function TestingCenter() {
       </Head>
       <PageBanner
         title="Testing Centers"
-        subtitle="Delivering secure exams at scale"
+        subtitle="Delivering secure computer-based exams at scale"
       />
 
       <div className={classnames("container-fluid py-4")}>
