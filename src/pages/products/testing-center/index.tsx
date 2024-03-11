@@ -45,7 +45,7 @@ export default function TestingCenter() {
             <div className="col-md-6 order-md-1 pt-4">
               <div className="row justify-content-center">
                 <Heading className="text-center">
-                  What is a Testing Center
+                  What is a testing center?
                 </Heading>
               </div>
               <div className="row justify-content-center">
