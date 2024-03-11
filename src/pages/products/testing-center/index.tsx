@@ -41,25 +41,27 @@ export default function TestingCenter() {
 
       <div className={classnames("container-fluid py-4")}>
         <div className="container-md">
-          <div className="row">
-            <div className="col-md-6 order-2 pt-4">
+          <div className="row align-items-center">
+            <div className="col-md-6 order-md-1 pt-4">
+              <div className="row justify-content-center">
+                <Heading className="text-center">What is a Testing Center</Heading>
+              </div>
+              <div className="row justify-content-center">
+                <p className={classnames("text-center", styles.larger_font)}>
+                A testing center is a designated facility equipped with computers and supervised by proctors, where students can
+                take secure computer-based assessments.
+                </p>
+              </div>
+            </div>
+            <div className="col-md-6 order-md-2 pt-4 text-center">
               <Image
                 src={cbtfFormatImage}
-                alt="cbtf"
+                alt="testing center"
                 style={{
                   maxWidth: "100%",
                   height: "auto",
                 }}
               />
-            </div>
-            <div className="col-md-6 order-1 pt-4">
-              <div className="row">
-                <Heading>What is a Testing Center</Heading>
-              </div>
-              <p>
-                A testing center is a proctored computer lab where students can
-                take secure computer-based exams.
-              </p>
             </div>
           </div>
         </div>
@@ -118,7 +120,7 @@ export default function TestingCenter() {
             <div className="col-md-6 order-1 pt-4">
               <Image
                 src={reducedDistractionImage}
-                alt="cbtf"
+                alt="seat in reduced distraction environment"
                 style={{
                   maxWidth: "100%",
                   height: "auto",
@@ -132,8 +134,8 @@ export default function TestingCenter() {
               <p>
                 Students with documented academic accommodations can take the
                 exams in the same setting as their classmates, by using special
-                seats inside the testing center. Some common requests for
-                accommodations that can be arranged at a testing center:
+                seats inside the testing center. 
+                Below are some common requests for accommodations that can be arranged:
               </p>
               <ul>
                 <li>Extended exam time</li>
