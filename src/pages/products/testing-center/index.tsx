@@ -122,7 +122,7 @@ export default function TestingCenter() {
             </ValuePropCard>
             <ValuePropCard title="Authentic testing">
               Create an authentic testing environment by providing students with
-              access to computers equipped with compilers, debuggers, and
+              access to compilers, debuggers, and
               graphical software, ensuring a comprehensive assessment of their
               skills and knowledge.
             </ValuePropCard>
