@@ -49,6 +49,29 @@ export default function TestingCenter() {
         </div>
       </div>
 
+      <div className={classnames("container-fluid py-4")}>
+        <div className="container-md">
+          <div className="row">
+            <div className="col-md-6 order-1 pt-4">
+            <div className="row">
+                <Heading>The most secure exams</Heading>
+              </div>
+              <p>
+                Firewall and managed computers, hired professional proctors, screen filters, cameras
+              </p>
+            </div>
+            <div className="col-md-6 order-2 pt-4">
+              <div className="row">
+                <Heading>Reliable student verification</Heading>
+              </div>
+              <p>
+              (_who_ is taking the exam, are they taking it _alone_)
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className={classnames("container-fluid py-4", styles.container)}>
         <div className="container-md">
           <div className="row">
@@ -89,6 +112,29 @@ export default function TestingCenter() {
         </div>
       </div>
 
+
+      <div className={classnames("container-fluid py-4")}>
+        <div className="container-md">
+          <div className="row">
+            <div className="col-md-6 order-1 pt-4">
+            <div className="row">
+                <Heading>Asynchronous exams</Heading>
+              </div>
+              <p>
+                no more conflict
+              </p>
+            </div>
+            <div className="col-md-6 order-2 pt-4">
+              <div className="row">
+                <Heading>Easy to schedule</Heading>
+              </div>
+              <p>
+              self-schedule, re-schedule
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
       <BannerCTA
         title="Need more information?"
         subtitle="Are you interested in building a testing center? We can help!"
