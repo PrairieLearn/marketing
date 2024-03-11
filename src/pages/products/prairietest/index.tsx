@@ -41,10 +41,6 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
           objectFit: "contain",
           width: "30%",
           height: "30%",
-          // display: "flex",
-          // alignItems: "center",
-          // justifyContent: "center",
-          // flexDirection: "column",
         }}
       />
       <div className="card-body">
@@ -94,29 +90,29 @@ export default function PrairieTest() {
           <div className={styles.grid}>
             <FeatureCard image={scannerImage} title="Fast check-in process">
               Supports card scanners providing fast student verification that
-              enables exams access
+              enables exams access.
             </FeatureCard>
             <FeatureCard image={accommodationsImage} title="Accessible testing">
               Ability to setup various exams accommodations, such as extended
-              exam time
+              exam time.
             </FeatureCard>
             <FeatureCard image={rescheduleImage} title="Easy rescheduling">
               Students are able to change their exam selection on their own
               until the exam date.
             </FeatureCard>
             <FeatureCard image={overridesImage} title="Allows overrides">
-              Instructors can change exam settings for individual students
+              Instructors can change exam settings for individual students.
             </FeatureCard>
             <FeatureCard image={proctorImage} title="Proctoring assignments">
               Instructors can assign proctors for the different sections of an
-              exam, or different exams
+              exam, or different exams.
             </FeatureCard>
             <FeatureCard
               image={unifiedViewImage}
               title="Unified scheduling view"
             >
               Students, proctors, and instructors can all see when and where
-              their exams are scheduled
+              their exams are scheduled.
             </FeatureCard>
           </div>
         </div>
