@@ -54,7 +54,7 @@ export default function TestingCenter() {
                 <p className={classnames("text-center", styles.larger_font)}>
                   A testing center is a dedicated room equipped with computers
                   and supervised by proctors, where students can take secure
-                  computer-based assessments.
+                  computer-based exams.
                 </p>
               </div>
               <LinkButton
