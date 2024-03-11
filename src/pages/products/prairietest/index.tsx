@@ -10,7 +10,7 @@ import { BannerCTA } from "../../../components/CallToActionBanner";
 import diagramImage from "../../../lib/images/exam-management.png";
 import scannerImage from "../../../lib/images/swipe.png";
 import accommodationsImage from "../../../lib/images/pt-accommodations.png";
-import fingerprintImage from "../../../lib/images/fingerprint.png";
+import unifiedViewImage from "../../../lib/images/unified-view.png";
 import rescheduleImage from "../../../lib/images/reschedule.png";
 import proctorImage from "../../../lib/images/assign-proctor.png";
 import schedulerImage from "../../../lib/images/pt-reservation.png";
@@ -112,11 +112,11 @@ export default function PrairieTest() {
               exam, or different exams
             </FeatureCard>
             <FeatureCard
-              image={fingerprintImage}
-              title="Fingerprinting for Security"
+              image={unifiedViewImage}
+              title="Unified scheduling view"
             >
-              Ability to track student&apos;s IP address and agent (operating
-              system and browser) to improve exam security
+              Students, proctors, and instructors can all see when and where
+              their exams are scheduled
             </FeatureCard>
           </div>
         </div>
