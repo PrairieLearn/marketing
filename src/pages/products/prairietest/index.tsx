@@ -220,7 +220,7 @@ export default function PrairieTest() {
                 Students take their exams at a dedicated computer lab, which
                 runs asynchronous exams for many courses using trained proctors.
                 The testing center firewall blocks all access to the internet,
-                with the exception from allowed exam content.
+                with the exception of allowed exam content.
               </p>
             </div>
           </div>
