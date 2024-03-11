@@ -1,11 +1,13 @@
 import React from "react";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import classnames from "classnames";
 
 import { PageBanner } from "../../../components/Banner";
 import { Heading } from "../../../components/Heading";
 import { BannerCTA } from "../../../components/CallToActionBanner";
+import { LinkButton } from "../../../components/LinkButton";
 
 import cbtfFormatImage from "../../../lib/images/cbtf.jpg";
 import reducedDistractionImage from "../../../lib/images/reduced-distraction.png";
@@ -55,6 +57,10 @@ export default function TestingCenter() {
                   computer-based assessments.
                 </p>
               </div>
+              <LinkButton
+                label="Schedule a consultation"
+                href="https://calendly.com/marianapl"
+              />
             </div>
             <div className="col-md-6 order-md-2 pt-4 text-center">
               <Image
@@ -116,15 +122,14 @@ export default function TestingCenter() {
               providing convenience and autonomy.
             </ValuePropCard>
             <ValuePropCard title="Seamless exam overrides">
-              Empower instructors with the capability to effortlessly grant
-              overrides for students facing unexpected circumstances, such as
-              illness or unavoidable absences during the exam period.
+              Empower instructors to effortlessly grant overrides for students
+              facing unexpected circumstances, such as illness or unavoidable
+              absences during the exam period.
             </ValuePropCard>
             <ValuePropCard title="Authentic testing">
               Create an authentic testing environment by providing students with
-              access to compilers, debuggers, and
-              graphical software, ensuring a comprehensive assessment of their
-              skills and knowledge.
+              access to compilers, debuggers, and graphical software, ensuring a
+              comprehensive assessment of their skills and knowledge.
             </ValuePropCard>
           </div>
         </div>
@@ -150,8 +155,8 @@ export default function TestingCenter() {
               <p>
                 Students with documented academic accommodations can take the
                 exams in the same setting as their classmates by using special
-                seats inside the testing center. A variety of common requests can
-                be accommodated:
+                seats inside the testing center. A variety of common requests
+                can be accommodated:
               </p>
               <ul>
                 <li>Extended exam time</li>

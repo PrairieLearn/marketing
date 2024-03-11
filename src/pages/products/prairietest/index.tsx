@@ -100,7 +100,7 @@ export default function PrairieTest() {
               Students are able to change their exam selection on their own
               until the exam date.
             </FeatureCard>
-            <FeatureCard image={overridesImage} title="Allows overrides">
+            <FeatureCard image={overridesImage} title="Per-student overrides">
               Instructors can change exam settings for individual students.
             </FeatureCard>
             <FeatureCard image={proctorImage} title="Proctoring assignments">
@@ -126,7 +126,7 @@ export default function PrairieTest() {
               When instructors are running asynchronous exams, students are able
               to select the time and location of their choice. They also have
               the ability to change or cancel their reservation before the
-              scheduled exam, without having to contact the instructor.{" "}
+              scheduled exam, without having to contact the instructor.
             </p>
           </div>
           <div className="row">
@@ -147,9 +147,8 @@ export default function PrairieTest() {
           <div className="row">
             <Heading>Exams delivered in different formats</Heading>
             <p>
-              {" "}
               PrairieTest can be used to deliver exams in multiple formats or in
-              a combination of any of them.{" "}
+              a combination of any of them.
             </p>
           </div>
           <div className="row">
