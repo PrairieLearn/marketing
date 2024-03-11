@@ -7,7 +7,7 @@ import Image from "next/image";
 
 import { Heading } from "../../../components/Heading";
 import { PageBanner } from "../../../components/Banner";
-import { DemoCourseCTA } from "../../../components/DemoCourse";
+import { BannerCTA } from "../../../components/CallToActionBanner";
 import { LinkButton } from "../../../components/LinkButton";
 import { getQuestions } from "../../../lib/gallery/questions";
 
@@ -122,10 +122,11 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
         </div>
       </div>
 
-      <DemoCourseCTA
+      <BannerCTA
         title="View demo course!"
         subtitle="Explore the demo course to see how this all comes together"
         buttonLabel="Demo course"
+        href="https://us.prairielearn.com/pl/course_instance/4970"
       />
     </React.Fragment>
   );

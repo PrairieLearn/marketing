@@ -7,7 +7,7 @@ import Image from "next/image";
 
 import { Heading } from "../../../components/Heading";
 import { PageBanner } from "../../../components/Banner";
-import { DemoCourseCTA } from "../../../components/DemoCourse";
+import { BannerCTA } from "../../../components/CallToActionBanner";
 import Stack from "../../../components/Stack";
 
 import { getAssessments } from "../../../lib/gallery/assessments";
@@ -87,10 +87,11 @@ const AssessmentIndex: React.FC<AssessmentIndexProps> = ({ assessments }) => {
         </div>
       </div>
 
-      <DemoCourseCTA
+      <BannerCTA
         title="View demo course!"
         subtitle="Explore the demo course to see how this all comes together"
         buttonLabel="Demo course"
+        href="https://us.prairielearn.com/pl/course_instance/4970"
       />
     </React.Fragment>
   );
