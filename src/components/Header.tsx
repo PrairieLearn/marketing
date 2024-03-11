@@ -151,7 +151,9 @@ export const Header: React.FC = () => {
                   <NavDropdownItem href="/products/prairietest">
                     PrairieTest
                   </NavDropdownItem>
-                  <NavDropdownItem href="/products/cbtf">CBTF</NavDropdownItem>
+                  <NavDropdownItem href="/products/testing-center">
+                    Testing Center
+                  </NavDropdownItem>
                 </Dropdown.Menu>
               </Dropdown>
               <Dropdown as={NavItem}>

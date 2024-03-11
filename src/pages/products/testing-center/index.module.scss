@@ -1,0 +1,17 @@
+@import "~bootstrap/scss/_functions.scss";
+@import "~bootstrap/scss/_variables.scss";
+
+.container {
+  background-color: $gray-200;
+}
+
+.color {
+  color: $blue-700;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
