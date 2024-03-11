@@ -172,7 +172,7 @@ export default function TestingCenter() {
 
       <BannerCTA
         title="Need more information?"
-        subtitle="Are you interested in building a testing center? We can help!"
+        subtitle="If you're interested in building a testing center, we can help!"
         buttonLabel="Schedule a consultation"
         href="https://calendly.com/marianapl"
       />
