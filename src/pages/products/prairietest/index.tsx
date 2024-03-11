@@ -151,8 +151,8 @@ export default function PrairieTest() {
               a combination of any of them.
             </p>
           </div>
-          <div className="row">
-            <div className="col-md-6 order-2 pt-4">
+          <div className="row pt-2">
+            <div className="col-md-6 order-2">
               <Image
                 src={byodFormatImage}
                 alt="students taking in-class exam"
@@ -173,8 +173,8 @@ export default function PrairieTest() {
               </p>
             </div>
           </div>
-          <div className="row">
-            <div className="col-md-6 order-2 pt-4">
+          <div className="row pt-4">
+            <div className="col-md-6 order-2">
               <Image
                 src={onlineFormatImage}
                 alt="student taking online exam"
@@ -196,8 +196,8 @@ export default function PrairieTest() {
               </p>
             </div>
           </div>
-          <div className="row">
-            <div className="col-md-6 order-2 pt-4">
+          <div className="row pt-4">
+            <div className="col-md-6 order-2">
               <Image
                 src={cbtfFormatImage}
                 alt="testing center room"
