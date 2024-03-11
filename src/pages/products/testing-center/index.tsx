@@ -149,9 +149,9 @@ export default function TestingCenter() {
               </div>
               <p>
                 Students with documented academic accommodations can take the
-                exams in the same setting as their classmates, by using special
-                seats inside the testing center. Below are some common requests
-                for accommodations that can be arranged:
+                exams in the same setting as their classmates by using special
+                seats inside the testing center. A variety of common requests can
+                be accommodated:
               </p>
               <ul>
                 <li>Extended exam time</li>
