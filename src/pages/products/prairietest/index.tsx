@@ -88,7 +88,7 @@ export default function PrairieTest() {
         <div className="container-md">
           <div className="row">
             <h4 className={classnames("py-3 ", styles.color, styles.center)}>
-              All exam management processes done in one-place!
+              All exam management done in one place!
             </h4>
           </div>
           <div className={styles.grid}>
