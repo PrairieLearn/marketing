@@ -2,7 +2,7 @@ import React from "react";
 import classnames from "classnames";
 import Link from "next/link";
 
-import styles from "./Banner.module.scss";
+import styles from "./CallToActionBanner.module.scss";
 
 export interface BannerCTAProps {
   title: string;
