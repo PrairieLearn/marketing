@@ -69,7 +69,7 @@ export default function PrairieTest() {
       <div className={classnames("container-fluid py-4")}>
         <div className="container-md">
           <div className="row">
-            <Heading>Powerful Exam Management System</Heading>
+            <Heading>Powerful exam management system</Heading>
           </div>
           <div className="row">
             <Image
@@ -107,7 +107,7 @@ export default function PrairieTest() {
             <FeatureCard image={overridesImage} title="Allows overrides">
               Instructors can change exam settings for individual students
             </FeatureCard>
-            <FeatureCard image={proctorImage} title="Proctoring Assignments">
+            <FeatureCard image={proctorImage} title="Proctoring assignments">
               Instructors can assign proctors for the different sections of an
               exam, or different exams
             </FeatureCard>
@@ -125,7 +125,7 @@ export default function PrairieTest() {
       <div className={classnames("container-fluid py-4")}>
         <div className="container-md">
           <div className="row">
-            <Heading>Student Self-Registration</Heading>
+            <Heading>Student self-registration</Heading>
             <p>
               {" "}
               When instructors are running asynchronous exams, students are able
@@ -161,7 +161,7 @@ export default function PrairieTest() {
             <div className="col-md-6 order-2 pt-4">
               <Image
                 src={byodFormatImage}
-                alt="student taking in-class exam"
+                alt="students taking in-class exam"
                 style={{
                   maxWidth: "100%",
                   height: "auto",
@@ -206,7 +206,7 @@ export default function PrairieTest() {
             <div className="col-md-6 order-2 pt-4">
               <Image
                 src={cbtfFormatImage}
-                alt="cbtf room"
+                alt="testing center room"
                 style={{
                   maxWidth: "100%",
                   height: "auto",

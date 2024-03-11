@@ -84,7 +84,7 @@ export default function TestingCenter() {
               while cheating risks are minimized through computer screens, video
               cameras and professional oversight.
             </ValuePropCard>
-            <ValuePropCard title="Restriction to Unauthorized AI Services">
+            <ValuePropCard title="Restriction to unauthorized AI services">
               Ensure exam integrity by restricting access to AI services and
               question-answering websites (such as chatGPT, Copilot, Chegg, and
               CourseHero), fostering academic honesty and fair assessment.
@@ -145,7 +145,7 @@ export default function TestingCenter() {
             </div>
             <div className="col-md-6 order-2 pt-4">
               <div className="row">
-                <Heading>Academic Accommodations</Heading>
+                <Heading>Academic accommodations</Heading>
               </div>
               <p>
                 Students with documented academic accommodations can take the
