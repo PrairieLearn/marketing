@@ -153,9 +153,7 @@ export default function PrairieTest() {
             <Heading>Exams delivered in different formats</Heading>
             <p>
               {" "}
-              PrairieTest can be used to deliver exams in the classroom, online
-              with proctoring via virtual meetings, in testing centers. Proctors
-              will use PrairieLearn to control students&apos; access to exams.{" "}
+              PrairieTest can be used to deliver exams in multiple formats or in a combination of any of them.{" "}
             </p>
           </div>
           <div className="row">
