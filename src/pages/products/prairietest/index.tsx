@@ -197,7 +197,7 @@ export default function PrairieTest() {
                 Students complete exams using their own device from a remote
                 location. In this setting, instructors can create virtual
                 meetings where students get their identification verified, and
-                access to exam is provided via PrairieTest.
+                access to the exam is provided via PrairieTest.
               </p>
             </div>
           </div>
