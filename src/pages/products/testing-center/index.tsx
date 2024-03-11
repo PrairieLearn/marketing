@@ -78,7 +78,7 @@ export default function TestingCenter() {
             </h4>
           </div>
           <div className={styles.grid}>
-            <ValuePropCard title="The most secure exams">
+            <ValuePropCard title="Ultimate exam security">
               Maximize test integrity with managed computers, lab firewall, and
               vigilant proctoring. Students access only approved resources,
               while cheating risks are minimized through computer screens, video
