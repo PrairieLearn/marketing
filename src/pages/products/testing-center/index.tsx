@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import Image, { ImageProps } from "next/image";
+import Image from "next/image";
 import classnames from "classnames";
 
 import { PageBanner } from "../../../components/Banner";
