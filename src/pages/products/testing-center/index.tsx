@@ -78,11 +78,11 @@ export default function TestingCenter() {
             </h4>
           </div>
           <div className={styles.grid}>
-            <ValuePropCard title="The most secure exams">
+            <ValuePropCard title="Ultimate exam security">
               Maximize test integrity with managed computers, lab firewall, and
               vigilant proctoring. Students access only approved resources,
               while cheating risks are minimized through computer screens, video
-              cameras and professional oversight.
+              cameras, and professional oversight.
             </ValuePropCard>
             <ValuePropCard title="Restriction to unauthorized AI services">
               Ensure exam integrity by restricting access to AI services and
@@ -122,7 +122,7 @@ export default function TestingCenter() {
             </ValuePropCard>
             <ValuePropCard title="Authentic testing">
               Create an authentic testing environment by providing students with
-              access to computers equipped with compilers, debuggers, and
+              access to compilers, debuggers, and
               graphical software, ensuring a comprehensive assessment of their
               skills and knowledge.
             </ValuePropCard>
@@ -149,9 +149,9 @@ export default function TestingCenter() {
               </div>
               <p>
                 Students with documented academic accommodations can take the
-                exams in the same setting as their classmates, by using special
-                seats inside the testing center. Below are some common requests
-                for accommodations that can be arranged:
+                exams in the same setting as their classmates by using special
+                seats inside the testing center. A variety of common requests can
+                be accommodated:
               </p>
               <ul>
                 <li>Extended exam time</li>
@@ -172,7 +172,7 @@ export default function TestingCenter() {
 
       <BannerCTA
         title="Need more information?"
-        subtitle="Are you interested in building a testing center? We can help!"
+        subtitle="If you're interested in building a testing center, we can help!"
         buttonLabel="Schedule a consultation"
         href="https://calendly.com/marianapl"
       />

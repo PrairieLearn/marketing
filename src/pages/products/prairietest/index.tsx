@@ -62,7 +62,7 @@ export default function PrairieTest() {
         subtitle="Planning and delivering testing at scale"
       />
 
-      <div className={classnames("container-fluid py-4")}>
+      <div className="container-fluid py-4">
         <div className="container-md">
           <div className="row">
             <Heading>Powerful exam management system</Heading>
@@ -123,7 +123,6 @@ export default function PrairieTest() {
           <div className="row">
             <Heading>Student self-registration</Heading>
             <p>
-              {" "}
               When instructors are running asynchronous exams, students are able
               to select the time and location of their choice. They also have
               the ability to change or cancel their reservation before the
