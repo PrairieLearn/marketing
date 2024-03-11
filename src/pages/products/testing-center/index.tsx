@@ -82,7 +82,7 @@ export default function TestingCenter() {
               Maximize test integrity with managed computers, lab firewall, and
               vigilant proctoring. Students access only approved resources,
               while cheating risks are minimized through computer screens, video
-              cameras and professional oversight.
+              cameras, and professional oversight.
             </ValuePropCard>
             <ValuePropCard title="Restriction to unauthorized AI services">
               Ensure exam integrity by restricting access to AI services and
