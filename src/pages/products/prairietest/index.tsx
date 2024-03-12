@@ -9,7 +9,7 @@ import { BannerCTA } from "../../../components/CallToActionBanner";
 
 import diagramImage from "../../../lib/images/exam-management.png";
 import schedulerImage from "../../../lib/images/pt-reservation.png";
-import onlineFormatImage from "../../../lib/images/zoom-proctored.png";
+import onlineFormatImage from "../../../lib/images/student-zoom.jpg";
 import cbtfFormatImage from "../../../lib/images/cbtf.jpg";
 import byodFormatImage from "../../../lib/images/byodinclass.png";
 
@@ -39,7 +39,7 @@ export default function PrairieTest() {
       </Head>
       <PageBanner
         title="PrairieTest"
-        subtitle="Planning and delivering testing at scale"
+        subtitle="Planning and delivering exams at scale"
       />
 
       <div className="container-fluid my-5">

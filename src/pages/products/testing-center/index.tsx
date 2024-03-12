@@ -84,7 +84,7 @@ export default function TestingCenter() {
           </div>
           <div className={styles.grid}>
             <ValuePropCard title="Ultimate exam security">
-              Maximize test integrity with managed computers, lab firewall, and
+              Maximize exam integrity with managed computers, lab firewall, and
               vigilant proctoring. Students access only approved resources,
               while cheating risks are minimized through privacy screens, video
               cameras, and professional oversight.
@@ -111,7 +111,7 @@ export default function TestingCenter() {
               Offer exams asynchronously over 2-3 days, optimizing space
               utilization in smaller computer labs for larger classes. Eliminate
               the need for instructors to manage make-up or conflict exams,
-              streamlining the testing process for both students and faculty.
+              streamlining the exam process for both students and faculty.
             </ValuePropCard>
             <ValuePropCard title="Student-centric exam scheduling">
               Empower students, especially those balancing family and work
