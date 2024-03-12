@@ -8,13 +8,7 @@ import { Heading } from "../../../components/Heading";
 import { BannerCTA } from "../../../components/CallToActionBanner";
 
 import diagramImage from "../../../lib/images/exam-management.png";
-import scannerImage from "../../../lib/images/swipe.png";
-import accommodationsImage from "../../../lib/images/pt-accommodations.png";
-import unifiedViewImage from "../../../lib/images/unified-view.png";
-import rescheduleImage from "../../../lib/images/reschedule.png";
-import proctorImage from "../../../lib/images/assign-proctor.png";
 import schedulerImage from "../../../lib/images/pt-reservation.png";
-import overridesImage from "../../../lib/images/overrides.png";
 import onlineFormatImage from "../../../lib/images/zoom-proctored.png";
 import cbtfFormatImage from "../../../lib/images/cbtf.jpg";
 import byodFormatImage from "../../../lib/images/byodinclass.png";
@@ -22,32 +16,22 @@ import byodFormatImage from "../../../lib/images/byodinclass.png";
 import styles from "./index.module.scss";
 
 interface FeatureCardProps {
-  image: ImageProps["src"];
+  icon?: React.ReactNode;
   title: string;
   children: React.ReactNode;
 }
 
-const FeatureCard: React.FC<FeatureCardProps> = ({
-  image,
-  title,
-  children,
-}) => {
+const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, children }) => {
   return (
-    <article className={classnames("card overflow-hidden", styles.card)}>
-      <Image
-        src={image}
-        alt={title}
-        style={{
-          objectFit: "contain",
-          width: "30%",
-          height: "30%",
-        }}
-      />
-      <div className="card-body">
-        <h5 className="card-title h5">{title}</h5>
-        {children}
-      </div>
-    </article>
+    // <article className={classnames("card overflow-hidden", styles.card)}>
+    //   <div className="card-body">
+    <div>
+      <div className="h3">{icon}</div>
+      <h5 className="card-title h5">{title}</h5>
+      {children}
+    </div>
+    //   </div>
+    // </article>
   );
 };
 
@@ -62,7 +46,7 @@ export default function PrairieTest() {
         subtitle="Planning and delivering testing at scale"
       />
 
-      <div className="container-fluid py-4">
+      <div className="container-fluid my-5">
         <div className="container-md">
           <div className="row">
             <Heading>Powerful exam management system</Heading>
@@ -83,32 +67,47 @@ export default function PrairieTest() {
       <div className={classnames("container-fluid my-5")}>
         <div className="container-md">
           <div className="row">
-            <h4 className={classnames("py-3 ", styles.color, styles.center)}>
+            <h2 className={classnames("mb-3 ", styles.color)}>
               All exam management done in one place!
-            </h4>
+            </h2>
           </div>
           <div className={styles.grid}>
-            <FeatureCard image={scannerImage} title="Fast check-in process">
+            <FeatureCard
+              icon={<i className="bi bi-person-vcard"></i>}
+              title="Fast check-in process"
+            >
               Supports card scanners providing fast student verification that
               enables exams access.
             </FeatureCard>
-            <FeatureCard image={accommodationsImage} title="Accessible testing">
-              Ability to setup various exams accommodations, such as extended
+            <FeatureCard
+              icon={<i className="bi bi-universal-access-circle"></i>}
+              title="Accessible testing"
+            >
+              Ability to set up various exams accommodations, such as extended
               exam time.
             </FeatureCard>
-            <FeatureCard image={rescheduleImage} title="Easy rescheduling">
+            <FeatureCard
+              icon={<i className="bi bi-clock-history"></i>}
+              title="Easy rescheduling"
+            >
               Students are able to change their exam selection on their own
               until the exam date.
             </FeatureCard>
-            <FeatureCard image={overridesImage} title="Per-student overrides">
+            <FeatureCard
+              icon={<i className="bi bi-pencil-square"></i>}
+              title="Per-student overrides"
+            >
               Instructors can change exam settings for individual students.
             </FeatureCard>
-            <FeatureCard image={proctorImage} title="Proctoring assignments">
+            <FeatureCard
+              icon={<i className="bi bi-people"></i>}
+              title="Proctoring assignments"
+            >
               Instructors can assign proctors for the different sections of an
               exam, or different exams.
             </FeatureCard>
             <FeatureCard
-              image={unifiedViewImage}
+              icon={<i className="bi bi-calendar2-event"></i>}
               title="Unified scheduling view"
             >
               Students, proctors, and instructors can all see when and where
@@ -118,7 +117,7 @@ export default function PrairieTest() {
         </div>
       </div>
 
-      <div className={classnames("container-fluid py-4")}>
+      <div className={classnames("container-fluid my-5")}>
         <div className="container-md">
           <div className="row">
             <Heading>Student self-registration</Heading>
@@ -142,16 +141,16 @@ export default function PrairieTest() {
         </div>
       </div>
 
-      <div className={classnames("container-fluid py-4")}>
+      <div className={classnames("container-fluid my-5")}>
         <div className="container-md">
-          <div className="row">
+          <div className="row pb-4">
             <Heading>Exams delivered in different formats</Heading>
             <p>
               PrairieTest can be used to deliver exams in multiple formats or in
               a combination of any of them.
             </p>
           </div>
-          <div className="row pt-2">
+          <div className="row pb-4">
             <div className="col-md-6 order-2">
               <Image
                 src={byodFormatImage}
@@ -163,9 +162,7 @@ export default function PrairieTest() {
               />
             </div>
             <div className="col-md-6 order-1">
-              <h4 className={classnames("py-3 ", styles.color)}>
-                Exams in the classroom
-              </h4>
+              <h4 className={styles.color}>Exams in the classroom</h4>
               <p>
                 Students complete exams using their own device from a classroom,
                 or using institutional machines in a computer lab. In this
@@ -173,7 +170,7 @@ export default function PrairieTest() {
               </p>
             </div>
           </div>
-          <div className="row pt-4">
+          <div className="row pb-4">
             <div className="col-md-6 order-2">
               <Image
                 src={onlineFormatImage}
@@ -185,9 +182,7 @@ export default function PrairieTest() {
               />
             </div>
             <div className="col-md-6 order-1">
-              <h4 className={classnames("py-3 ", styles.color)}>
-                Exams online
-              </h4>
+              <h4 className={styles.color}>Exams online</h4>
               <p>
                 Students complete exams using their own device from a remote
                 location. In this setting, instructors can create virtual
@@ -196,7 +191,7 @@ export default function PrairieTest() {
               </p>
             </div>
           </div>
-          <div className="row pt-4">
+          <div className="row pb-4">
             <div className="col-md-6 order-2">
               <Image
                 src={cbtfFormatImage}
@@ -208,9 +203,7 @@ export default function PrairieTest() {
               />
             </div>
             <div className="col-md-6 order-1">
-              <h4 className={classnames("py-3 ", styles.color)}>
-                Exams in testing centers
-              </h4>
+              <h4 className={styles.color}>Exams in testing centers</h4>
               <p>
                 Students take their exams at a dedicated computer lab, which
                 runs asynchronous exams for many courses using trained proctors.
