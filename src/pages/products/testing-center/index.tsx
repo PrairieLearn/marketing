@@ -125,10 +125,23 @@ export default function TestingCenter() {
               facing unexpected circumstances, such as illness or unavoidable
               absences during the exam period.
             </ValuePropCard>
+            <ValuePropCard title="Efficient use of faculty time">
+              Free up faculty time with a centralized testing center. From
+              scheduling to accommodations, the testing center handles exam
+              logistics efficiently, allowing faculty to focus on teaching and
+              student support.
+            </ValuePropCard>
             <ValuePropCard title="Authentic testing">
               Create an authentic testing environment by providing students with
               access to compilers, debuggers, and graphical software, ensuring a
               comprehensive assessment of their skills and knowledge.
+            </ValuePropCard>
+            <ValuePropCard title="Streamlined accommodation process">
+              Facilitate the accommodation process for students, ensuring they
+              have the support to take exams in the same environment as their
+              peers. Whether it&apos; extended time or access to additional
+              resources, the process is simplified, promoting inclusivity and
+              equal opportunities.
             </ValuePropCard>
           </div>
         </div>
