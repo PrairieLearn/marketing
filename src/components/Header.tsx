@@ -148,7 +148,10 @@ export const Header: React.FC = () => {
                 <Dropdown.Toggle
                   as={NavLink}
                   className={classnames(styles["nav-link"], {
-                    [`fw-bold ${styles.active}`]: useIsActive(["/products"]),
+                    [`fw-bold ${styles.active}`]: useIsActive(
+                      ["/products"],
+                      false
+                    ),
                   })}
                 >
                   Product
@@ -169,10 +172,10 @@ export const Header: React.FC = () => {
                 <Dropdown.Toggle
                   as={NavLink}
                   className={classnames(styles["nav-link"], {
-                    [`fw-bold ${styles.active}`]: useIsActive([
-                      "/gallery",
-                      "/oer",
-                    ]),
+                    [`fw-bold ${styles.active}`]: useIsActive(
+                      ["/gallery", "/oer"],
+                      false
+                    ),
                   })}
                 >
                   Catalog
@@ -194,10 +197,10 @@ export const Header: React.FC = () => {
                 <Dropdown.Toggle
                   as={NavLink}
                   className={classnames(styles["nav-link"], {
-                    [`fw-bold ${styles.active}`]: useIsActive([
-                      "/about",
-                      "/research",
-                    ]),
+                    [`fw-bold ${styles.active}`]: useIsActive(
+                      ["/about", "/research"],
+                      false
+                    ),
                   })}
                 >
                   About

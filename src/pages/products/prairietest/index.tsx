@@ -23,15 +23,11 @@ interface FeatureCardProps {
 
 const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, children }) => {
   return (
-    // <article className={classnames("card overflow-hidden", styles.card)}>
-    //   <div className="card-body">
     <div>
       <div className="h3">{icon}</div>
       <h5 className="card-title h5">{title}</h5>
       {children}
     </div>
-    //   </div>
-    // </article>
   );
 };
 
