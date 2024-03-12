@@ -162,7 +162,7 @@ export default function PrairieTest() {
               />
             </div>
             <div className="col-md-6 order-1">
-              <h4 className={styles.color}>Exams in the classroom</h4>
+              <h3 className={styles.color}>Exams in the classroom</h3>
               <p>
                 Students complete exams using their own device from a classroom,
                 or using institutional machines in a computer lab. In this
@@ -182,7 +182,7 @@ export default function PrairieTest() {
               />
             </div>
             <div className="col-md-6 order-1">
-              <h4 className={styles.color}>Exams online</h4>
+              <h3 className={styles.color}>Exams online</h3>
               <p>
                 Students complete exams using their own device from a remote
                 location. In this setting, instructors can create virtual
@@ -203,7 +203,7 @@ export default function PrairieTest() {
               />
             </div>
             <div className="col-md-6 order-1">
-              <h4 className={styles.color}>Exams in testing centers</h4>
+              <h3 className={styles.color}>Exams in testing centers</h3>
               <p>
                 Students take their exams at a dedicated computer lab, which
                 runs asynchronous exams for many courses using trained proctors.
