@@ -89,9 +89,9 @@ export default function TestingCenter() {
               while cheating risks are minimized through privacy screens, video
               cameras, and professional oversight.
             </ValuePropCard>
-            <ValuePropCard title="Restriction to unauthorized AI services">
-              Ensure exam integrity by restricting access to AI services and
-              question-answering websites (such as chatGPT, Copilot, Chegg, and
+            <ValuePropCard title="Block AI services">
+              Ensure exam integrity by blocking access to AI services and
+              question-answering websites (such as ChatGPT, Copilot, Chegg, and
               CourseHero), fostering academic honesty and fair assessment.
             </ValuePropCard>
             <ValuePropCard title="Professional proctoring staff">
