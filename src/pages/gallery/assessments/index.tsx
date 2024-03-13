@@ -7,7 +7,7 @@ import Image from "next/image";
 
 import { Heading } from "../../../components/Heading";
 import { PageBanner } from "../../../components/Banner";
-import { DemoCourseCTA } from "../../../components/DemoCourse";
+import { BannerCTA } from "../../../components/CallToActionBanner";
 import Stack from "../../../components/Stack";
 
 import { getAssessments } from "../../../lib/gallery/assessments";
@@ -35,7 +35,7 @@ const AssessmentIndex: React.FC<AssessmentIndexProps> = ({ assessments }) => {
         subtitle="Building different types of activities for your class"
       />
 
-      <div className={classnames("container-fluid my-5")}>
+      <div className="container-fluid my-5">
         <div className="container-md">
           <div className="row">
             <div className="col-md-6 order-2 pt-4">
@@ -87,10 +87,11 @@ const AssessmentIndex: React.FC<AssessmentIndexProps> = ({ assessments }) => {
         </div>
       </div>
 
-      <DemoCourseCTA
+      <BannerCTA
         title="View demo course!"
         subtitle="Explore the demo course to see how this all comes together"
         buttonLabel="Demo course"
+        href="https://us.prairielearn.com/pl/course_instance/4970"
       />
     </React.Fragment>
   );

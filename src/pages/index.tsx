@@ -7,7 +7,7 @@ import Link from "next/link";
 import Stack from "../components/Stack";
 import { Heading } from "../components/Heading";
 import { ExampleQuestion } from "../components/ExampleQuestion";
-import { DemoCourseCTA } from "../components/DemoCourse";
+import { BannerCTA } from "../components/CallToActionBanner";
 
 import richFBD from "../lib/images/rich_question_FBD.png";
 import richorder from "../lib/images/rich_question_order_block.png";
@@ -283,10 +283,11 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
         </div>
       </div>
 
-      <DemoCourseCTA
+      <BannerCTA
         title="View demo course!"
         subtitle="Explore the demo course to see how this all comes together."
         buttonLabel="Demo course"
+        href="https://us.prairielearn.com/pl/course_instance/4970"
       />
 
       <RequestCourseModal

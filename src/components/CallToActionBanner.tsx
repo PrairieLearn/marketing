@@ -2,18 +2,20 @@ import React from "react";
 import classnames from "classnames";
 import Link from "next/link";
 
-import styles from "./Banner.module.scss";
+import styles from "./CallToActionBanner.module.scss";
 
-export interface DemoCourseCTAProps {
+export interface BannerCTAProps {
   title: string;
   subtitle: string;
   buttonLabel: string;
+  href: string;
 }
 
-export const DemoCourseCTA: React.FC<DemoCourseCTAProps> = ({
+export const BannerCTA: React.FC<BannerCTAProps> = ({
   title,
   subtitle,
   buttonLabel,
+  href,
 }) => (
   <div className={classnames("container-fluid py-4", styles.container)}>
     <div className="container-md">
@@ -25,10 +27,7 @@ export const DemoCourseCTA: React.FC<DemoCourseCTAProps> = ({
       </div>
       <div className="row justify-content-center my-2">
         <div className="col-md-12 text-center">
-          <Link
-            href="https://us.prairielearn.com/pl/course_instance/4970"
-            className="btn btn-warning btn-lg"
-          >
+          <Link href={href} className="btn btn-warning btn-lg">
             {buttonLabel}
           </Link>
         </div>

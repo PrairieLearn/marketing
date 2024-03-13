@@ -7,7 +7,7 @@ import Image from "next/image";
 
 import { Heading } from "../../../components/Heading";
 import { PageBanner } from "../../../components/Banner";
-import { DemoCourseCTA } from "../../../components/DemoCourse";
+import { BannerCTA } from "../../../components/CallToActionBanner";
 import { LinkButton } from "../../../components/LinkButton";
 import { getQuestions } from "../../../lib/gallery/questions";
 
@@ -36,7 +36,7 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
         subtitle="Create quality questions from a wide variety of input options"
       />
 
-      <div className={classnames("container-fluid my-5")}>
+      <div className="container-fluid my-5">
         <div className="container-md">
           <div className="row">
             <div className="col-md-6 order-2 pt-4">
@@ -122,10 +122,11 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
         </div>
       </div>
 
-      <DemoCourseCTA
+      <BannerCTA
         title="View demo course!"
         subtitle="Explore the demo course to see how this all comes together"
         buttonLabel="Demo course"
+        href="https://us.prairielearn.com/pl/course_instance/4970"
       />
     </React.Fragment>
   );

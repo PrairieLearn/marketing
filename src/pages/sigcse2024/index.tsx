@@ -1,5 +1,4 @@
 import React from "react";
-import classnames from "classnames";
 import Head from "next/head";
 import Link from "next/link";
 import { PageBanner } from "../../components/Banner";
@@ -18,7 +17,7 @@ export default function SIGCSE2024() {
         subtitle="Technical Symposium on Computer Science Education"
       />
 
-      <div className={classnames("container-fluid py-4")}>
+      <div className="container-fluid py-4">
         <div className="container-md pt-2">
           <Stack spacing={4}>
             <Heading>
@@ -56,7 +55,7 @@ export default function SIGCSE2024() {
               authoring these assessments.
             </p>
 
-            <div className={classnames("container-fluid py-2")}>
+            <div className="container-fluid py-2">
               <div className="d-flex flex-row justify-content-center flex-wrap">
                 <Link
                   href="/sigcse2024/submit-questions"

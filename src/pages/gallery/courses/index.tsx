@@ -2,7 +2,6 @@ import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Image, { ImageProps } from "next/image";
-import classnames from "classnames";
 
 import { PageBanner } from "../../../components/Banner";
 import { Heading } from "../../../components/Heading";
@@ -86,7 +85,7 @@ export default function Courses() {
         subtitle="Collections of assessments and questions"
       />
 
-      <div className={classnames("container-fluid my-5")}>
+      <div className="container-fluid my-5">
         <div className="container-md">
           <Heading>Course Catalog</Heading>
           <p>
@@ -256,7 +255,7 @@ export default function Courses() {
         </div>
       </div>
 
-      <div className={classnames("container-fluid my-5")}>
+      <div className="container-fluid my-5">
         <div className="container-md">
           <h2 className="h4">Contribute to this page</h2>
           <p>
