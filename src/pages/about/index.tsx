@@ -55,7 +55,7 @@ export default function About() {
         subtitle="We are passionate about teaching and strive to deliver the best course material to our students."
       />
 
-      <div className={classnames("container-fluid py-4")}>
+      <div className="container-fluid py-4">
         <div className="container-md">
           <div className="row">
             <div className="col-md-6 order-1 pt-2">

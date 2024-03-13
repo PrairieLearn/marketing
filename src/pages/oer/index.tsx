@@ -69,7 +69,7 @@ export default function Courses() {
         subtitle="Template questions to help you get started with PrairieLearn"
       />
 
-      <div className={classnames("container-fluid my-5")}>
+      <div className="container-fluid my-5">
         <div className="container-md">
           <Heading>Question Templates</Heading>
           <p>
@@ -96,7 +96,7 @@ export default function Courses() {
         </div>
       </div>
 
-      <div className={classnames("container-fluid my-5")}>
+      <div className="container-fluid my-5">
         <div className="container-md">
           <div className={styles.grid}>
             <CourseCard
@@ -198,7 +198,7 @@ export default function Courses() {
         </div>
       </div>
 
-      <div className={classnames("container-fluid my-5")}>
+      <div className="container-fluid my-5">
         <div className="container-md">
           <h2 className="h4">License</h2>
           <p>

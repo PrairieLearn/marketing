@@ -22,7 +22,7 @@ const HelpCard: React.FC<HelpCardProps> = ({ icon, title, href, children }) => {
       <div className="card-body">
         <Link href={href}>
           <h2 className="card-title h5 d-flex align-items-center">
-            <i className={classnames("bi", icon, "me-2")}></i>
+            <i className="bi", icon, "me-2"></i>
             {title}
           </h2>
         </Link>
@@ -103,7 +103,7 @@ export default function Support() {
         </div>
       </div>
 
-      <div className={classnames("container-fluid ")}>
+      <div className="container-fluid ">
         <div className="container-md">
           <div className="row">
             <div className="col-md-6 mb-5 mt-5 order-1">

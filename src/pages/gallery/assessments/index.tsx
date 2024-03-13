@@ -35,7 +35,7 @@ const AssessmentIndex: React.FC<AssessmentIndexProps> = ({ assessments }) => {
         subtitle="Building different types of activities for your class"
       />
 
-      <div className={classnames("container-fluid my-5")}>
+      <div className="container-fluid my-5">
         <div className="container-md">
           <div className="row">
             <div className="col-md-6 order-2 pt-4">

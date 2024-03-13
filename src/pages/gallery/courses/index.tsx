@@ -86,7 +86,7 @@ export default function Courses() {
         subtitle="Collections of assessments and questions"
       />
 
-      <div className={classnames("container-fluid my-5")}>
+      <div className="container-fluid my-5">
         <div className="container-md">
           <Heading>Course Catalog</Heading>
           <p>
@@ -256,7 +256,7 @@ export default function Courses() {
         </div>
       </div>
 
-      <div className={classnames("container-fluid my-5")}>
+      <div className="container-fluid my-5">
         <div className="container-md">
           <h2 className="h4">Contribute to this page</h2>
           <p>

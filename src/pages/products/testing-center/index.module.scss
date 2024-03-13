@@ -5,27 +5,8 @@
   background-color: $gray-200;
 }
 
-.color {
-  color: $blue-700;
-}
-
-.center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   grid-gap: 1rem;
-}
-
-.card {
-  border: none;
-}
-
-.larger_font {
-  font-size: 1.2rem;
 }

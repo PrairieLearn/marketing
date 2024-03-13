@@ -60,7 +60,7 @@ export default function PrairieTest() {
         </div>
       </div>
 
-      <div className={classnames("container-fluid my-5")}>
+      <div className="container-fluid my-5">
         <div className="container-md">
           <div className="row">
             <h2 className={classnames("mb-3 ", styles.color)}>
@@ -113,7 +113,7 @@ export default function PrairieTest() {
         </div>
       </div>
 
-      <div className={classnames("container-fluid my-5")}>
+      <div className="container-fluid my-5">
         <div className="container-md">
           <div className="row">
             <Heading>Student self-registration</Heading>
@@ -137,7 +137,7 @@ export default function PrairieTest() {
         </div>
       </div>
 
-      <div className={classnames("container-fluid my-5")}>
+      <div className="container-fluid my-5">
         <div className="container-md">
           <div className="row pb-4">
             <Heading>Exams delivered in different formats</Heading>

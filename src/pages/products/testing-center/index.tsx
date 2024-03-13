@@ -20,9 +20,9 @@ interface ValuePropCardProps {
 
 const ValuePropCard: React.FC<ValuePropCardProps> = ({ title, children }) => {
   return (
-    <article className={classnames("card overflow-hidden")}>
+    <article className="card overflow-hidden">
       <div className="card-body">
-        <h5 className="card-title h5">{title}</h5>
+        <h3 className="card-title h5">{title}</h3>
         {children}
       </div>
     </article>
@@ -40,7 +40,7 @@ export default function TestingCenter() {
         subtitle="Delivering secure computer-based exams at scale"
       />
 
-      <div className={classnames("container-fluid py-4")}>
+      <div className="container-fluid py-4">
         <div className="container-md">
           <div className="row align-items-center">
             <div className="col-md-6 order-md-1 pt-4">
@@ -50,7 +50,7 @@ export default function TestingCenter() {
                 </Heading>
               </div>
               <div className="row justify-content-center">
-                <p className={classnames("text-center", styles.larger_font)}>
+                <p className="lead text-center">
                   A testing center is a dedicated room equipped with computers
                   and supervised by proctors, where students can take secure
                   computer-based exams.
@@ -75,12 +75,12 @@ export default function TestingCenter() {
         </div>
       </div>
 
-      <div className={classnames("container-fluid my-4")}>
+      <div className="container-fluid my-4">
         <div className="container-md">
           <div className="row">
-            <h4 className={classnames("py-3 ", styles.color, styles.center)}>
+            <Heading className="text-center">
               Benefits of a testing center
-            </h4>
+            </Heading>
           </div>
           <div className={styles.grid}>
             <ValuePropCard title="Ultimate exam security">
@@ -150,7 +150,7 @@ export default function TestingCenter() {
       <div className={classnames("container-fluid py-4", styles.container)}>
         <div className="container-md">
           <div className="row">
-            <div className="col-md-6 order-1 pt-4">
+            <div className="col-md-6 order-1">
               <Image
                 src={reducedDistractionImage}
                 alt="seat in reduced distraction environment"
@@ -160,7 +160,7 @@ export default function TestingCenter() {
                 }}
               />
             </div>
-            <div className="col-md-6 order-2 pt-4">
+            <div className="col-md-6 order-2">
               <div className="row">
                 <Heading>Academic accommodations</Heading>
               </div>

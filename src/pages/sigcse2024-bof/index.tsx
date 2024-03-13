@@ -17,7 +17,7 @@ export default function SIGCSE2024() {
         subtitle="Technical Symposium on Computer Science Education"
       />
 
-      <div className={classnames("container-fluid py-4")}>
+      <div className="container-fluid py-4">
         <div className="container-md pt-2">
           <Stack spacing={4}>
             <Heading>BOF: Experiences With Computer-Based Testing</Heading>
