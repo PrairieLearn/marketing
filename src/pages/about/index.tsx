@@ -1,5 +1,4 @@
 import React from "react";
-import classnames from "classnames";
 import Head from "next/head";
 import Image, { ImageProps } from "next/image";
 

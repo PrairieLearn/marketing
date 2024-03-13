@@ -22,7 +22,7 @@ const HelpCard: React.FC<HelpCardProps> = ({ icon, title, href, children }) => {
       <div className="card-body">
         <Link href={href}>
           <h2 className="card-title h5 d-flex align-items-center">
-            <i className="bi", icon, "me-2"></i>
+            <i className={classnames("bi", icon, "me-2")}></i>
             {title}
           </h2>
         </Link>
