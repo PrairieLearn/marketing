@@ -139,7 +139,7 @@ export default function TestingCenter() {
             <ValuePropCard title="Streamlined accommodation process">
               Facilitate the accommodation process for students, ensuring they
               have the support to take exams in the same environment as their
-              peers. Whether it&apos; extended time or access to additional
+              peers. Whether it&apos;s extended time or access to additional
               resources, the process is simplified, promoting inclusivity and
               equal opportunities.
             </ValuePropCard>
