@@ -1,31 +1,73 @@
 import React from "react";
 import classnames from "classnames";
-import { GetStaticProps } from "next";
 import Link from "next/link";
 import Head from "next/head";
-import Image from "next/image";
+import Image, { ImageProps } from "next/image";
 
 import { Heading } from "../../../components/Heading";
 import { PageBanner } from "../../../components/Banner";
 import { BannerCTA } from "../../../components/CallToActionBanner";
 import { LinkButton } from "../../../components/LinkButton";
-import { getQuestions } from "../../../lib/gallery/questions";
 
 import styles from "./index.module.scss";
 import questionImage from "../../../lib/images/question.png";
 
-interface Question {
+{
+  /* Template Question Images */
+}
+import selectBird from "../../../lib/images/questionTemplates/selectBird.png";
+import selectRandomNumber from "../../../lib/images/questionTemplates/selectRandomNumber.png";
+import selectRainbowColor from "../../../lib/images/questionTemplates/selectRainbowColor.png";
+import selectPlanet from "../../../lib/images/questionTemplates/selectPlanet.png";
+import selectTrueFalse from "../../../lib/images/questionTemplates/selectTrueFalse.png";
+import selectEven from "../../../lib/images/questionTemplates/selectEven.png";
+import randomEquation from "../../../lib/images/questionTemplates/randomEquation.png";
+import fixedEquation from "../../../lib/images/questionTemplates/fixedEquation.png";
+import convertAngle from "../../../lib/images/questionTemplates/convertAngle.png";
+import dynamicImage from "../../../lib/images/questionTemplates/dynamicImage.png";
+import graphMatrix from "../../../lib/images/questionTemplates/graphMatrix.png";
+import productMatrices from "../../../lib/images/questionTemplates/productMatrices.png";
+import derivativeSymbolic from "../../../lib/images/questionTemplates/derivativeSymbolic.png";
+import inputText from "../../../lib/images/questionTemplates/inputText.png";
+
+interface TemplateCardProps {
   title: string;
-  slug: string;
-  summary: string;
-  imageUrl?: string;
+  href: string;
+  image: ImageProps["src"];
+  children: React.ReactNode;
 }
 
-interface GalleryIndexProps {
-  questions: Question[];
-}
+const TemplateCard: React.FC<TemplateCardProps> = ({
+  title,
+  href,
+  image,
+  children,
+}) => {
+  return (
+    <article className="card border-secondary overflow-hidden">
+      <Link href={href} className="position-relative">
+        <Image
+          src={image}
+          alt={title}
+          style={{
+            objectFit: "contain",
+            width: "100%",
+            height: "100%",
+            aspectRatio: "5 / 3",
+          }}
+        />
+      </Link>
+      <div className="card-body">
+        <Link href={href}>
+          <h3 className="card-title h5">{title}</h3>
+        </Link>
+        {children}
+      </div>
+    </article>
+  );
+};
 
-const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
+export default function QuestionTemplate() {
   return (
     <React.Fragment>
       <Head>
@@ -77,47 +119,160 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
         </div>
       </div>
 
-      <div className={classnames("container-fluid py-4", styles.container)}>
+      <div className={classnames("container-fluid py-2", styles.container)}>
         <div className="container-md">
           <div className="my-3">
-            <Heading>Question Gallery</Heading>
+            <Heading>Question templates</Heading>
             <p>
-              Check out the question gallery with example questions that take
-              full advantage of the PrairieLearn platform.
+              Check out these template questions - they can be great resources
+              when creating your own questions.
             </p>
+          </div>
+        </div>
+      </div>
 
-            <div className={classnames(styles.grid)}>
-              {questions.map((question) => {
-                const galleryHref = `/gallery/questions/${question.slug}`;
-                return (
-                  <article className="card" key={question.slug}>
-                    {question.imageUrl && (
-                      <Link
-                        href={galleryHref}
-                        style={{ paddingBottom: "75%", position: "relative" }}
-                      >
-                        {/* Fit all images within 4:3 aspect ratio box*/}
+      <div className={classnames("container-fluid py-4", styles.container)}>
+        <div className="container-md">
+          <div className="row">
+            <Heading>Multiple-choice and checkbox answers</Heading>
+          </div>
+          <div className={styles.grid}>
+            <TemplateCard
+              title="Numerical answers"
+              href=""
+              image={selectRandomNumber}
+            >
+              Correct answer and distractors are computed based on randomized
+              input parameters.
+            </TemplateCard>
+            <TemplateCard
+              title="Text answers"
+              href=""
+              image={selectRainbowColor}
+            >
+              Correct answer and distractors are randomly selected from a list
+              of several correct answers and distractors.
+            </TemplateCard>
+            <TemplateCard title="Images answers" href="" image={selectBird}>
+              Correct answer and distractors are randomly selected from a list
+              of images.
+            </TemplateCard>
+            <TemplateCard
+              title="Randomized prompt"
+              href=""
+              image={selectPlanet}
+            >
+              Correct answer and distractors are randomly selected from a list
+              which is dynamically generated based on the choice of randomized
+              prompt.
+            </TemplateCard>
+            <TemplateCard
+              title="True/False answers"
+              href=""
+              image={selectTrueFalse}
+            >
+              Randomly selects the prompt from a list and its corresponding True
+              / False answer. Ensures the True option always appears first.
+            </TemplateCard>
+            <TemplateCard
+              title="Multiple select answers"
+              href=""
+              image={selectEven}
+            >
+              Randomly selects the question prompt from and its corresponding
+              correct/incorrect answers.
+            </TemplateCard>
+          </div>
+        </div>
+      </div>
 
-                        <Image
-                          src={question.imageUrl}
-                          alt="question preview image"
-                          fill
-                          style={{
-                            objectFit: "contain",
-                          }}
-                        />
-                      </Link>
-                    )}
-                    <div className="card-body">
-                      <Link href={galleryHref}>
-                        <h3 className="card-title h5">{question.title}</h3>
-                      </Link>
-                      <p className="text-muted mb-0">{question.summary}</p>
-                    </div>
-                  </article>
-                );
-              })}
-            </div>
+      <div className={classnames("container-fluid py-4", styles.container)}>
+        <div className="container-md">
+          <div className="row">
+            <Heading>Numerical Answers</Heading>
+          </div>
+          <div className={styles.grid}>
+            <TemplateCard
+              title="Randomized parameters"
+              href=""
+              image={fixedEquation}
+            >
+              Computes the numerical value for a fixed mathematical expression
+              given two randomized input parameters.
+            </TemplateCard>
+            <TemplateCard
+              title="Randomized prompt"
+              href=""
+              image={randomEquation}
+            >
+              Computes the numerical value for a mathematical expression
+              randomly generated from a list of options, given two randomized
+              input parameters.
+            </TemplateCard>
+            <TemplateCard title="Integer answer" href="" image={convertAngle}>
+              Computes the answer, expected to be an integer, given a randomized
+              parameter.
+            </TemplateCard>
+            <TemplateCard title="Randomized image" href="" image={dynamicImage}>
+              Computes the answer, expected to be an integer, given a
+              dynamically generated image from randomized input parameters.
+            </TemplateCard>
+          </div>
+        </div>
+      </div>
+
+      <div className={classnames("container-fluid py-4", styles.container)}>
+        <div className="container-md">
+          <div className="row">
+            <Heading>Matrix answers</Heading>
+          </div>
+          <div className={styles.grid}>
+            <TemplateCard title="Matrix components" href="" image={graphMatrix}>
+              Dynamically generates a randomized graph with nodes and edges, and
+              the answer is the corresponding adjacency matrix.
+            </TemplateCard>
+            <TemplateCard
+              title="Matrix as code"
+              href=""
+              image={productMatrices}
+            >
+              Generates two randomized matrices and provides them as input in
+              both Matlab and Python format. The computed answer can also be
+              provided in either formats.
+            </TemplateCard>
+          </div>
+        </div>
+      </div>
+
+      <div className={classnames("container-fluid py-4", styles.container)}>
+        <div className="container-md">
+          <div className="row">
+            <Heading>Text answers</Heading>
+          </div>
+          <div className={styles.grid}>
+            <TemplateCard title="Randomized string" href="" image={inputText}>
+              Prompt and correct answer are randomly selected from a list of
+              options. Correct answer is checked as a string, with all
+              whitespaces removed.
+            </TemplateCard>
+          </div>
+        </div>
+      </div>
+
+      <div className={classnames("container-fluid py-4", styles.container)}>
+        <div className="container-md">
+          <div className="row">
+            <Heading>Symbolic expressions</Heading>
+          </div>
+          <div className={styles.grid}>
+            <TemplateCard
+              title="Symbolic answer"
+              href=""
+              image={derivativeSymbolic}
+            >
+              Evaluates if a symbolic submission of a mathematical expression
+              matches the correct answer, which is generated at random.
+            </TemplateCard>
           </div>
         </div>
       </div>
@@ -130,22 +285,4 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
       />
     </React.Fragment>
   );
-};
-
-export default GalleryIndex;
-
-export const getStaticProps: GetStaticProps<GalleryIndexProps> = async () => {
-  const rawQuestions = await getQuestions();
-  const questions = rawQuestions.map(({ title, slug, summary, image }) => ({
-    title,
-    slug,
-    summary,
-    imageUrl: image?.url,
-  }));
-
-  return {
-    props: {
-      questions,
-    },
-  };
-};
+}
