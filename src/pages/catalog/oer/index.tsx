@@ -24,7 +24,6 @@ interface SharedQuestionCardProps {
   image: ImageProps["src"];
   title: string;
   href: string;
-  institution?: string;
   ownerName?: string;
   ownerEmail?: string;
   github?: string;
@@ -34,7 +33,6 @@ const SharedQuestionCard: React.FC<SharedQuestionCardProps> = ({
   image,
   title,
   href,
-  institution,
   ownerName,
   ownerEmail,
   github,
@@ -61,11 +59,6 @@ const SharedQuestionCard: React.FC<SharedQuestionCardProps> = ({
           <p className="mb-1">
             <strong>Shared by:</strong> {ownerName}{" "}
             {ownerEmail && <a href={`mailto:${ownerEmail}`}>{ownerEmail}</a>}
-          </p>
-        )}
-        {institution && (
-          <p className="mb-1">
-            <strong>Institution: </strong> {institution}
           </p>
         )}
         {github && (
@@ -117,10 +110,10 @@ export default function Courses() {
         <div className="container-md">
           <Heading>Publicly Shared Questions</Heading>
           <p>
-            This catalog contains questions that have been publicly shared by instructors from
-            various universities. If you like any of these questions, you can
-            use them directly in your course, without any need to copy
-            questions. Read these{" "}
+            This catalog contains questions that have been publicly shared by
+            instructors from various universities. If you like any of these
+            questions, you can use them directly in your course, without any
+            need to copy questions. Read these{" "}
             <Link href="https://prairielearn.readthedocs.io/en/latest/questionSharing/">
               instructions
             </Link>{" "}
@@ -146,35 +139,35 @@ export default function Courses() {
               title="Physics: E&amp;M"
               href="https://us.prairielearn.com/pl/public/course/2922/questions"
               github="https://github.com/PrairieLearn/pl-oer-physics2"
-            ></SharedQuestionCard>
+            />
 
             <SharedQuestionCard
               image={eorstatics}
               title="Statics"
               href="https://us.prairielearn.com/pl/public/course/2924/questions"
               github="https://github.com/PrairieLearn/pl-oer-statics"
-            ></SharedQuestionCard>
+            />
 
             <SharedQuestionCard
               image={eordynamics}
               title="Dynamics"
               href="https://us.prairielearn.com/pl/public/course/2955/questions"
               github="https://github.com/PrairieLearn/pl-oer-dynamics"
-            ></SharedQuestionCard>
+            />
 
             <SharedQuestionCard
               image={eorsolids}
               title="Solid Mechanics"
               href="https://us.prairielearn.com/pl/public/course/2925/questions"
               github="https://github.com/PrairieLearn/pl-oer-solidMechanics"
-            ></SharedQuestionCard>
+            />
 
             <SharedQuestionCard
               image={eornumerical}
               title="Numerical Methods"
               href="https://us.prairielearn.com/pl/public/course/2926/questions"
               github="https://github.com/PrairieLearn/pl-oer-numericalMethods"
-            ></SharedQuestionCard>
+            />
 
             <SharedQuestionCard
               image={eorthermo}
@@ -183,28 +176,28 @@ export default function Courses() {
               ownerName="Shelby Hutchens"
               ownerEmail="hutchs@illinois.edu"
               github="https://github.com/PrairieLearn/pl-oer-thermodynamics"
-            ></SharedQuestionCard>
+            />
 
             <SharedQuestionCard
               image={eorpython}
               title="Introduction to Python"
               href="https://us.prairielearn.com/pl/public/course/2889/questions"
               github="https://github.com/PrairieLearn/pl-oer-python"
-            ></SharedQuestionCard>
+            />
 
             <SharedQuestionCard
               image={cs233Image}
               title="Miscellaneous CS Topics"
               href="https://us.prairielearn.com/pl/public/course/6717/questions"
               github="https://github.com/PrairieLearn/pl-oer-csmix"
-            ></SharedQuestionCard>
+            />
 
             <SharedQuestionCard
               image={sigcse2023}
               title="SIGCSE 2023 - Workhop"
               href="https://us.prairielearn.com/pl/public/course/1305/questions"
               github="https://github.com/PrairieLearn/pl-prairielearn101"
-            ></SharedQuestionCard>
+            />
 
             <SharedQuestionCard
               image={ece6353fraida}
@@ -212,7 +205,7 @@ export default function Courses() {
               href="https://us.prairielearn.com/pl/public/course/358/questions"
               ownerName="Fraida Fund"
               ownerEmail="ffund@nyu.edu"
-            ></SharedQuestionCard>
+            />
           </div>
         </div>
       </div>
