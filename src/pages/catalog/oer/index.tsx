@@ -70,7 +70,7 @@ const SharedQuestionCard: React.FC<SharedQuestionCardProps> = ({
         )}
         {github && (
           <p className="mb-1">
-            <strong>View source</strong> on <Link href={github}>Github</Link>
+            <Link href={github}>View source on Github</Link>
           </p>
         )}
       </div>
