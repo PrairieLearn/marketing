@@ -101,7 +101,7 @@ export default function Courses() {
               will first need to request your PrairieLearn course space, which
               is always free for instructors.
             </p>
-            <div className="col-md-12 text-center">
+            <div className="text-center">
               <button
                 className="btn btn-primary btn-lg"
                 onClick={() => setShowRequestCourseModal(true)}
