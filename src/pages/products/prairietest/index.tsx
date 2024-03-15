@@ -42,8 +42,6 @@ export default function PrairieTest() {
         subtitle="Planning and delivering exams at scale"
       />
 
-
-
       <div className="container-fluid my-5">
         <div className="container-md">
           <div className="row">
@@ -96,8 +94,6 @@ export default function PrairieTest() {
           </div>
         </div>
       </div>
-
-
 
       <div className="container-fluid my-5">
         <div className="container-md">
@@ -172,7 +168,6 @@ export default function PrairieTest() {
           </div>
         </div>
       </div>
-
 
       <div className="container-fluid my-5">
         <div className="container-md">
