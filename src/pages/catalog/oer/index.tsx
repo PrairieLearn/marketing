@@ -139,7 +139,7 @@ export default function Courses() {
               title="Physics: Mechanics"
               href="https://us.prairielearn.com/pl/public/course/2923/questions"
               github="https://github.com/PrairieLearn/pl-oer-physics1"
-            ></SharedQuestionCard>
+            />
 
             <SharedQuestionCard
               image={eorphysics2}
