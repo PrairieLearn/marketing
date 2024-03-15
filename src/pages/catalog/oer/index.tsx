@@ -117,7 +117,7 @@ export default function Courses() {
         <div className="container-md">
           <Heading>Publicly Shared Questions</Heading>
           <p>
-            This question catalog has been publicly shared by instructors from
+            This catalog contains questions that have been publicly shared by instructors from
             various universities. If you like any of these questions, you can
             use them directly in your course, without any need to copy
             questions. Read these{" "}
