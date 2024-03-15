@@ -35,6 +35,26 @@ const nextConfig = {
           "https://join.slack.com/t/prairielearn/shared_invite/zt-13kx0hg6v-uuC3kyt_3iBxjSpyhCbYVw",
         permanent: true,
       },
+      {
+        source: "/oer",
+        destination: "/catalog/oer",
+        permanent: true,
+      },
+      {
+        source: "/gallery/questions",
+        destination: "/catalog/questions",
+        permanent: true,
+      },
+      {
+        source: "/gallery/courses",
+        destination: "/catalog/oer",
+        permanent: true,
+      },
+      {
+        source: "/gallery/assessments",
+        destination: "/catalog/assessments",
+        permanent: true,
+      },
     ];
   },
 };
