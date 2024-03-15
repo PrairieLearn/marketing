@@ -4,7 +4,7 @@ import classnames from "classnames";
 
 import { ContactUsForm } from "../../components/ContactUsForm";
 import { PageBanner } from "../../components/Banner";
-import { DemoCourseCTA } from "../../components/DemoCourse";
+import { BannerCTA } from "../../components/CallToActionBanner";
 
 import styles from "./index.module.scss";
 
@@ -34,10 +34,11 @@ export default function Contact() {
         </div>
       </div>
 
-      <DemoCourseCTA
+      <BannerCTA
         title="View demo course!"
         subtitle="Too busy to schedule a demo? You can test the demo course on your own, before requesting your course space."
         buttonLabel="Demo course"
+        href="https://us.prairielearn.com/pl/course_instance/4970"
       />
     </React.Fragment>
   );

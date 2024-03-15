@@ -1,7 +1,6 @@
 import React from "react";
-import classnames from "classnames";
 import Head from "next/head";
-
+import Link from "next/link";
 import { PageBanner } from "../../components/Banner";
 import { Heading } from "../../components/Heading";
 import Stack from "../../components/Stack";
@@ -10,7 +9,7 @@ export default function SIGCSE2024() {
   return (
     <React.Fragment>
       <Head>
-        <title>SIGCSE 2024</title>
+        <title>SIGCSE 2024 Spiffy PrairieLearn Questions</title>
       </Head>
 
       <PageBanner
@@ -18,11 +17,11 @@ export default function SIGCSE2024() {
         subtitle="Technical Symposium on Computer Science Education"
       />
 
-      <div className={classnames("container-fluid py-4")}>
+      <div className="container-fluid py-4">
         <div className="container-md pt-2">
           <Stack spacing={4}>
             <Heading>
-              Affiliated Event: Spiffy Assessments with PrairieLearn
+              Affiliated Event: Spiffy Questions with PrairieLearn
             </Heading>
 
             <p>
@@ -31,8 +30,7 @@ export default function SIGCSE2024() {
               to practice with rapid feedback, a feature provided by
               autograders. PrairieLearn is an open-source assessment authoring
               system that empowers the development of exceptionally rich
-              interactive STAR questions &#8212; Skill-specific, Tagged to
-              course competencies, Auto-graded, and Randomizable.
+              interactive questions.
             </p>
             <p>
               Questions are formulated as problem generators capable of
@@ -46,13 +44,27 @@ export default function SIGCSE2024() {
             </p>
             <p>
               Currently, PrairieLearn is actively adopted in over 800 courses
-              across 20 universities. In this affiliated event, instructors from
-              these courses will showcase the innovative online assessments
-              they’ve created using PrairieLearn, and they are eager to share
-              these resources with the broader instructor community. Presenters
-              will also be happy to discuss their experience authoring these
-              assessments.
+              across 20 universities.{" "}
+              <strong>
+                In this affiliated event, instructors from these courses will
+                showcase the innovative online assessments they’ve created using
+                PrairieLearn, and they are eager to share these resources with
+                the broader instructor community.
+              </strong>{" "}
+              Presenters will also be happy to discuss their experience
+              authoring these assessments.
             </p>
+
+            <div className="container-fluid py-2">
+              <div className="d-flex flex-row justify-content-center flex-wrap">
+                <Link
+                  href="/sigcse2024/submit-questions"
+                  className="btn btn-warning btn-lg me-3 mt-3"
+                >
+                  SUBMIT YOUR SPIFFY QUESTIONS TO THIS EVENT
+                </Link>
+              </div>
+            </div>
 
             <h4>Organizers</h4>
             <ul>
@@ -61,6 +73,20 @@ export default function SIGCSE2024() {
                 <a href="mailto:mfsilva@illinois.edu">mfsilva@illinois.edu</a>,{" "}
                 <a href="https://mfsilva.web.illinois.edu/">
                   https://mfsilva.web.illinois.edu/
+                </a>
+              </li>
+              <li>
+                Prof. Craig Zilles, University of Illinois Urbana-Champaign,{" "}
+                <a href="mailto:zilles@illinois.edu">zilles@illinois.edu</a>,{" "}
+                <a href="https://mfsilva.web.illinois.edu/">
+                  https://zilles.cs.illinois.edu
+                </a>
+              </li>
+              <li>
+                Prof. Armando Fox, UC Berkeley,{" "}
+                <a href="mailto:fox@berkeley.edu">fox@berkeley.edu</a>,{" "}
+                <a href="https://www2.eecs.berkeley.edu/Faculty/Homepages/fox.html">
+                  www.cs.berkeley.edu/~fox
                 </a>
               </li>
               <li>
@@ -76,13 +102,6 @@ export default function SIGCSE2024() {
                 ,{" "}
                 <a href="https://people.eecs.berkeley.edu/~ddgarcia/">
                   www.cs.berkeley.edu/~ddgarcia
-                </a>
-              </li>
-              <li>
-                Prof. Armando Fox, UC Berkeley,{" "}
-                <a href="mailto:fox@berkeley.edu">fox@berkeley.edu</a>,{" "}
-                <a href="https://www2.eecs.berkeley.edu/Faculty/Homepages/fox.html">
-                  www.cs.berkeley.edu/~fox
                 </a>
               </li>
             </ul>
@@ -117,7 +136,7 @@ export default function SIGCSE2024() {
 
             <h4>Time and Location</h4>
 
-            <p>TBA</p>
+            <p>Friday, March 22, 12:00 pm to 13:30 pm, Rooms D137-138</p>
           </Stack>
         </div>
       </div>

@@ -14,10 +14,12 @@ import { RequestCourseModal } from "../components/RequestCourseModal";
 
 import styles from "./Header.module.scss";
 
-function useIsActive(href: string | string[]): boolean {
+function useIsActive(href: string | string[], exact: boolean): boolean {
   const { asPath } = useRouter();
   const hrefs = Array.isArray(href) ? href : [href];
-  return hrefs.some((href) => asPath.startsWith(href));
+  return hrefs.some((href) =>
+    exact ? asPath === href : asPath.startsWith(href)
+  );
 }
 
 function useIsCurrent(href: string): boolean {
@@ -27,11 +29,12 @@ function useIsCurrent(href: string): boolean {
 
 interface NavLinkProps {
   href: string;
+  activeMatchExactHref?: boolean;
   children: React.ReactNode;
 }
 
 const RouterNavLink: React.FC<NavLinkProps> = ({ href, children }) => {
-  const active = useIsActive(href);
+  const active = useIsActive(href, false);
   const current = useIsCurrent(href);
   return (
     <Link
@@ -47,8 +50,12 @@ const RouterNavLink: React.FC<NavLinkProps> = ({ href, children }) => {
   );
 };
 
-const NavDropdownItem: React.FC<NavLinkProps> = ({ href, children }) => {
-  const active = useIsActive(href);
+const NavDropdownItem: React.FC<NavLinkProps> = ({
+  href,
+  children,
+  activeMatchExactHref = false,
+}) => {
+  const active = useIsActive(href, activeMatchExactHref);
   const current = useIsCurrent(href);
   return (
     <NavDropdown.Item
@@ -141,10 +148,41 @@ export const Header: React.FC = () => {
                 <Dropdown.Toggle
                   as={NavLink}
                   className={classnames(styles["nav-link"], {
+<<<<<<< HEAD
                     [`fw-bold ${styles.active}`]: useIsActive([
                       "/catalog",
                       "/oer",
                     ]),
+=======
+                    [`fw-bold ${styles.active}`]: useIsActive(
+                      ["/products"],
+                      false
+                    ),
+                  })}
+                >
+                  Product
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                  <NavDropdownItem href="/" activeMatchExactHref>
+                    PrairieLearn
+                  </NavDropdownItem>
+                  <NavDropdownItem href="/products/prairietest">
+                    PrairieTest
+                  </NavDropdownItem>
+                  <NavDropdownItem href="/products/testing-center">
+                    Testing Centers
+                  </NavDropdownItem>
+                </Dropdown.Menu>
+              </Dropdown>
+              <Dropdown as={NavItem}>
+                <Dropdown.Toggle
+                  as={NavLink}
+                  className={classnames(styles["nav-link"], {
+                    [`fw-bold ${styles.active}`]: useIsActive(
+                      ["/gallery", "/oer"],
+                      false
+                    ),
+>>>>>>> main
                   })}
                 >
                   Catalog
@@ -163,10 +201,10 @@ export const Header: React.FC = () => {
                 <Dropdown.Toggle
                   as={NavLink}
                   className={classnames(styles["nav-link"], {
-                    [`fw-bold ${styles.active}`]: useIsActive([
-                      "/about",
-                      "/research",
-                    ]),
+                    [`fw-bold ${styles.active}`]: useIsActive(
+                      ["/about", "/research"],
+                      false
+                    ),
                   })}
                 >
                   About

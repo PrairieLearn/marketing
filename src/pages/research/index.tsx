@@ -3,7 +3,7 @@ import classnames from "classnames";
 import Head from "next/head";
 
 import { PageBanner } from "../../components/Banner";
-import { DemoCourseCTA } from "../../components/DemoCourse";
+import { BannerCTA } from "../../components/CallToActionBanner";
 import { Heading } from "../../components/Heading";
 import { ResearchCard } from "../../components/ResearchCard";
 import Stack from "../../components/Stack";
@@ -565,10 +565,11 @@ export default function Research() {
         </div>
       </div>
 
-      <DemoCourseCTA
+      <BannerCTA
         title="View demo course!"
         subtitle="Explore the demo course to see how this all comes together"
         buttonLabel="Demo course"
+        href="https://us.prairielearn.com/pl/course_instance/4970"
       />
     </React.Fragment>
   );
