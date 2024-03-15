@@ -42,23 +42,7 @@ export default function PrairieTest() {
         subtitle="Planning and delivering exams at scale"
       />
 
-      <div className="container-fluid my-5">
-        <div className="container-md">
-          <div className="row">
-            <Heading>Powerful exam management system</Heading>
-          </div>
-          <div className="row">
-            <Image
-              src={diagramImage}
-              alt="diagram exam management process"
-              style={{
-                maxWidth: "100%",
-                height: "auto",
-              }}
-            />
-          </div>
-        </div>
-      </div>
+
 
       <div className="container-fluid my-5">
         <div className="container-md">
@@ -113,29 +97,7 @@ export default function PrairieTest() {
         </div>
       </div>
 
-      <div className="container-fluid my-5">
-        <div className="container-md">
-          <div className="row">
-            <Heading>Student self-registration</Heading>
-            <p>
-              When instructors are running asynchronous exams, students are able
-              to select the time and location of their choice. They also have
-              the ability to change or cancel their reservation before the
-              scheduled exam, without having to contact the instructor.
-            </p>
-          </div>
-          <div className="row">
-            <Image
-              src={schedulerImage}
-              alt="student scheduler UI"
-              style={{
-                maxWidth: "100%",
-                height: "auto",
-              }}
-            />
-          </div>
-        </div>
-      </div>
+
 
       <div className="container-fluid my-5">
         <div className="container-md">
@@ -207,6 +169,49 @@ export default function PrairieTest() {
                 with the exception of allowed exam content.
               </p>
             </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div className="container-fluid my-5">
+        <div className="container-md">
+          <div className="row">
+            <Heading>Powerful exam management system</Heading>
+          </div>
+          <div className="row">
+            <Image
+              src={diagramImage}
+              alt="diagram exam management process"
+              style={{
+                maxWidth: "100%",
+                height: "auto",
+              }}
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="container-fluid my-5">
+        <div className="container-md">
+          <div className="row">
+            <Heading>Student self-registration</Heading>
+            <p>
+              When instructors are running asynchronous exams, students are able
+              to select the time and location of their choice. They also have
+              the ability to change or cancel their reservation before the
+              scheduled exam, without having to contact the instructor.
+            </p>
+          </div>
+          <div className="row">
+            <Image
+              src={schedulerImage}
+              alt="student scheduler UI"
+              style={{
+                maxWidth: "100%",
+                height: "auto",
+              }}
+            />
           </div>
         </div>
       </div>
