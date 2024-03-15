@@ -173,7 +173,7 @@ export const Header: React.FC = () => {
                   as={NavLink}
                   className={classnames(styles["nav-link"], {
                     [`fw-bold ${styles.active}`]: useIsActive(
-                      ["/gallery", "/oer"],
+                      ["/catalog"],
                       false
                     ),
                   })}
