@@ -2,7 +2,6 @@ import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Image, { ImageProps } from "next/image";
-import classnames from "classnames";
 
 import { PageBanner } from "../../../components/Banner";
 import { Heading } from "../../../components/Heading";
@@ -93,7 +92,7 @@ export default function Courses() {
         subtitle="A catalog of questions to help you get started with PrairieLearn"
       />
 
-      <div className={classnames("container-fluid my-3")}>
+      <div className="container-fluid my-3">
         <div className="container-md">
           <div className="alert alert-primary mb-0">
             <p>
@@ -114,7 +113,7 @@ export default function Courses() {
         </div>
       </div>
 
-      <div className={classnames("container-fluid my-5")}>
+      <div className="container-fluid my-5">
         <div className="container-md">
           <Heading>Publicly Shared Questions</Heading>
           <p>
@@ -132,7 +131,7 @@ export default function Courses() {
         </div>
       </div>
 
-      <div className={classnames("container-fluid my-5")}>
+      <div className="container-fluid my-5">
         <div className="container-md">
           <div className={styles.grid}>
             <SharedQuestionCard
@@ -195,7 +194,7 @@ export default function Courses() {
 
             <SharedQuestionCard
               image={cs233Image}
-              title="Miscellaneous CS topics"
+              title="Miscellaneous CS Topics"
               href="https://us.prairielearn.com/pl/public/course/6717/questions"
               github="https://github.com/PrairieLearn/pl-oer-csmix"
             ></SharedQuestionCard>
@@ -218,14 +217,14 @@ export default function Courses() {
         </div>
       </div>
 
-      <div className={classnames("container-fluid my-5")}>
+      <div className="container-fluid my-5">
         <div className="container-md">
           <h2 className="h4">License</h2>
           <p>All content here is made made available under an open license.</p>
         </div>
       </div>
 
-      <div className={classnames("container-fluid my-5")}>
+      <div className="container-fluid my-5">
         <div className="container-md">
           <h2 className="h4">Contribute to this page</h2>
           <p>
