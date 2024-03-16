@@ -41,8 +41,8 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: "/gallery/questions",
-        destination: "/catalog/questions",
+        source: "/gallery/questions/:slug*",
+        destination: "/catalog/questions/:slug*",
         permanent: true,
       },
       {
@@ -51,8 +51,8 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: "/gallery/assessments",
-        destination: "/catalog/assessments",
+        source: "/gallery/assessments/:slug*",
+        destination: "/catalog/assessments/:slug*",
         permanent: true,
       },
     ];
