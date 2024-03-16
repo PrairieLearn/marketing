@@ -45,7 +45,7 @@ const TemplateCard: React.FC<TemplateCardProps> = ({
 }) => {
   return (
     <article className="card border-secondary overflow-hidden">
-      <Link href={href} className="position-relative">
+      <Link href={href} className="position-relative pt-2">
         <Image
           src={image}
           alt={title}
@@ -53,7 +53,7 @@ const TemplateCard: React.FC<TemplateCardProps> = ({
             objectFit: "contain",
             width: "100%",
             height: "100%",
-            aspectRatio: "5 / 3",
+            aspectRatio: "5 / 4",
           }}
         />
       </Link>
