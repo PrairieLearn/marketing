@@ -17,7 +17,7 @@ import { getQuestions } from "../../lib/catalog/questions";
 import rewriteAssessmentLinks from "../../remarkPlugins/rewriteAssessmentLinks";
 import { PageBanner } from "../../components/Banner";
 
-interface GalleryPageProps {
+interface CatalogPageProps {
   source: MDXRemoteSerializeResult;
   summary: string;
   title: string;
@@ -25,7 +25,7 @@ interface GalleryPageProps {
   prairielearnUrl?: string | null;
 }
 
-const GalleryPage: React.FC<GalleryPageProps> = ({
+const CatalogPage: React.FC<CatalogPageProps> = ({
   summary,
   source,
   title,
@@ -62,7 +62,7 @@ const GalleryPage: React.FC<GalleryPageProps> = ({
   );
 };
 
-export default GalleryPage;
+export default CatalogPage;
 
 interface PathParams {
   slug: string[];
@@ -91,7 +91,7 @@ export const getStaticPaths: GetStaticPaths<PathParams> = async () => {
 };
 
 export const getStaticProps: GetStaticProps<
-  GalleryPageProps,
+  CatalogPageProps,
   PathParams
 > = async ({ params }) => {
   if (!params) throw new Error("missing params");
