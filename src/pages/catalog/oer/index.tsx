@@ -84,7 +84,7 @@ export default function Courses() {
         title="Open Educational Resources (OER)"
         subtitle="A catalog of questions to help you get started with PrairieLearn"
       />
-      {/* 
+
       <div className="container-fluid my-3">
         <div className="container-md">
           <div className="alert alert-secondary mb-0">
@@ -104,7 +104,7 @@ export default function Courses() {
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
 
       <div className="container-fluid my-5">
         <div className="container-md">
@@ -122,22 +122,6 @@ export default function Courses() {
               Some of the questions can be copied to your course, so you can
               make changes if you want!
             </p>
-          </div>
-          <div className="row">
-            <p>
-              You&apos;ll be asked to sign in to PrairieLearn to view our
-              question catalog. If you want to use any of these questions, you
-              will first need to request your PrairieLearn course space, which
-              is always free for instructors.
-            </p>
-            <div className="text-center">
-              <button
-                className="btn btn-warning btn-lg"
-                onClick={() => setShowRequestCourseModal(true)}
-              >
-                Request a course
-              </button>
-            </div>
           </div>
         </div>
       </div>
