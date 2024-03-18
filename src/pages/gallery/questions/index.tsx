@@ -197,8 +197,8 @@ export default function QuestionTemplate() {
               href=""
               image={fixedEquation}
             >
-              Computes the numerical value for a fixed mathematical expression
-              given two randomized input parameters.
+              Computes the numerical answer using fixed mathematical expression
+              given randomized input parameters.
             </TemplateCard>
             <TemplateCard
               title="Randomized prompt"
