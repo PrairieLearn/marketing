@@ -251,9 +251,9 @@ export default function QuestionTemplate() {
           </div>
           <div className={styles.grid}>
             <TemplateCard title="Randomized string" href="" image={inputText}>
-              Prompt and correct answer are randomly selected from a list of
-              options. Correct answer is checked as a string, with all
-              whitespaces removed.
+              The prompt and correct answer are randomly selected from a list of
+              options. The correct answer is checked as a string, with all
+              whitespace removed.
             </TemplateCard>
           </div>
         </div>
