@@ -42,7 +42,7 @@ const nextConfig = {
       },
       {
         source: "/gallery/questions/:slug*",
-        destination: "/catalog/questions/:slug*",
+        destination: "/catalog/questions",
         permanent: true,
       },
       {
