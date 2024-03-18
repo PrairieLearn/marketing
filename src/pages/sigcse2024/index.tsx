@@ -55,7 +55,7 @@ export default function SIGCSE2024() {
               authoring these assessments.
             </p>
 
-            <div className="container-fluid py-2">
+            {/* <div className="container-fluid py-2">
               <div className="d-flex flex-row justify-content-center flex-wrap">
                 <Link
                   href="/sigcse2024/submit-questions"
@@ -64,7 +64,7 @@ export default function SIGCSE2024() {
                   SUBMIT YOUR SPIFFY QUESTIONS TO THIS EVENT
                 </Link>
               </div>
-            </div>
+            </div> */}
 
             <h4>Organizers</h4>
             <ul>
@@ -102,6 +102,81 @@ export default function SIGCSE2024() {
                 ,{" "}
                 <a href="https://people.eecs.berkeley.edu/~ddgarcia/">
                   www.cs.berkeley.edu/~ddgarcia
+                </a>
+              </li>
+            </ul>
+
+            <h4>Presenters</h4>
+            <ul>
+              <li>
+                Prof. Gary Dahl, University of Wisconsin-Madison,{" "}
+                <a href="mailto:dahl@cs.wisc.edu">dahl@cs.wisc.edu</a>,{" "}
+                <a href="https://pages.cs.wisc.edu/~dahl/">
+                https://pages.cs.wisc.edu/~dahl/
+                </a>
+              </li>
+              <li>
+                David Smith, University of Illinois Urbana-Champaign,{" "} 
+                <a href="mailto:dhsmith2@illinois.edu">dhsmith2@illinois.edu</a>,{" "}
+                <a href="https://www.linkedin.com/in/david-smith-1b9499102/">
+                https://www.linkedin.com/in/david-smith-1b9499102/
+                </a>
+              </li>
+              <li>
+                Prof. Karina Mochetti, University of British Columbia,{" "}
+                <a href="mailto:mochetti@cs.ubc.ca">mochetti@cs.ubc.ca</a>,{" "}
+                <a href="https://www.cs.ubc.ca/~mochetti/">
+                https://www.cs.ubc.ca/~mochetti/
+                </a>
+              </li>
+              <li>
+                Prof. David Cooper, West Chester University,{" "}
+                <a href="mailto:dcooper@wcupa.edu">dcooper@wcupa.edu</a> ,{" "}
+                <a href="https://www.cs.wcupa.edu/~dcooper/">
+                https://www.cs.wcupa.edu/~dcooper/
+                </a>
+              </li>
+              <li>
+                Prof. Zachary Kurmas, Grand Valley State University,{" "}
+                <a href="mailto:kurmasz@gvsu.edu">kurmasz@gvsu.edu</a>{" "}
+                ,{" "}
+                <a href="https://www.gvsu.edu/computing/kurmas-zachary-54.htm">
+                https://www.gvsu.edu/computing/kurmas-zachary-54.htm
+                </a>
+              </li>
+              <li>
+                Prof. ,{" "}
+                <a href="mailto:"></a> ,{" "}
+                <a href="">
+                
+                </a>
+              </li>
+              <li>
+                Prof. ,{" "}
+                <a href="mailto:"></a> ,{" "}
+                <a href="">
+                
+                </a>
+              </li>
+              <li>
+                Prof. Geoffrey Herman, University of Illinois Urbana-Champaign,{" "}
+                <a href="mailto:glherman@illinois.edu">glherman@illinois.edu</a> ,{" "}
+                <a href="https://cs.illinois.edu/about/people/faculty/glherman">
+                https://cs.illinois.edu/about/people/faculty/glherman
+                </a>
+              </li>
+              <li>
+                Prof. Jeff Erickson, University of Illinois Urbana-Champaign,{" "}
+                <a href="mailto:jeffe@illinois.edu">jeffe@illinois.edu</a> ,{" "}
+                <a href="https://cs.illinois.edu/about/people/faculty/jeffe">
+                https://cs.illinois.edu/about/people/faculty/jeffe
+                </a>
+              </li>
+              <li>
+                Prof. Armando Fox, UC Berkeley,{" "}
+                <a href="mailto:fox@berkeley.edu">fox@berkeley.edu</a>,{" "}
+                <a href="https://www2.eecs.berkeley.edu/Faculty/Homepages/fox.html">
+                  www.cs.berkeley.edu/~fox
                 </a>
               </li>
             </ul>
