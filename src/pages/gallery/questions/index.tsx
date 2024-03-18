@@ -238,7 +238,7 @@ export default function QuestionTemplate() {
             >
               Generates two randomized matrices and provides them as input in
               both Matlab and Python format. The computed answer can also be
-              provided in either formats.
+              provided in either format.
             </TemplateCard>
           </div>
         </div>
