@@ -179,8 +179,8 @@ export default function QuestionTemplate() {
               href=""
               image={selectEven}
             >
-              Randomly selects the question prompt from and its corresponding
-              correct/incorrect answers.
+              Randomly selects the question prompt and its corresponding
+              correct/incorrect answers from a list.
             </TemplateCard>
           </div>
         </div>
