@@ -12,12 +12,12 @@ import remarkGfm from "remark-gfm";
 import mdxComponents from "../../lib/mdxComponents";
 import loadCodePlugin from "../../remarkPlugins/loadCode";
 import extractImages from "../../remarkPlugins/extractImages";
-import { getAssessments } from "../../lib/gallery/assessments";
-import { getQuestions } from "../../lib/gallery/questions";
+import { getAssessments } from "../../lib/catalog/assessments";
+import { getQuestions } from "../../lib/catalog/questions";
 import rewriteAssessmentLinks from "../../remarkPlugins/rewriteAssessmentLinks";
 import { PageBanner } from "../../components/Banner";
 
-interface GalleryPageProps {
+interface CatalogPageProps {
   source: MDXRemoteSerializeResult;
   summary: string;
   title: string;
@@ -25,7 +25,7 @@ interface GalleryPageProps {
   prairielearnUrl?: string | null;
 }
 
-const GalleryPage: React.FC<GalleryPageProps> = ({
+const CatalogPage: React.FC<CatalogPageProps> = ({
   summary,
   source,
   title,
@@ -34,10 +34,10 @@ const GalleryPage: React.FC<GalleryPageProps> = ({
 }) => {
   const backText =
     type === "question"
-      ? "Back to question gallery"
-      : "Back to assessment gallery";
+      ? "Back to question catalog"
+      : "Back to assessment catalog";
   const backHref =
-    type === "question" ? "/gallery/questions" : "/gallery/assessments";
+    type === "question" ? "/catalog/questions" : "/catalog/assessments";
   return (
     <React.Fragment>
       <Head>
@@ -62,7 +62,7 @@ const GalleryPage: React.FC<GalleryPageProps> = ({
   );
 };
 
-export default GalleryPage;
+export default CatalogPage;
 
 interface PathParams {
   slug: string[];
@@ -91,7 +91,7 @@ export const getStaticPaths: GetStaticPaths<PathParams> = async () => {
 };
 
 export const getStaticProps: GetStaticProps<
-  GalleryPageProps,
+  CatalogPageProps,
   PathParams
 > = async ({ params }) => {
   if (!params) throw new Error("missing params");

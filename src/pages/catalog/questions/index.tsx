@@ -9,7 +9,7 @@ import { Heading } from "../../../components/Heading";
 import { PageBanner } from "../../../components/Banner";
 import { BannerCTA } from "../../../components/CallToActionBanner";
 import { LinkButton } from "../../../components/LinkButton";
-import { getQuestions } from "../../../lib/gallery/questions";
+import { getQuestions } from "../../../lib/catalog/questions";
 
 import styles from "./index.module.scss";
 import questionImage from "../../../lib/images/question.png";
@@ -50,7 +50,7 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
               />
               <LinkButton
                 label="Read more about PrairieLearn questions"
-                href="/gallery/questions/question-intro"
+                href="/catalog/questions/question-intro"
               />
             </div>
             <div className="col-md-6 order-1">
@@ -80,15 +80,15 @@ const GalleryIndex: React.FC<GalleryIndexProps> = ({ questions }) => {
       <div className={classnames("container-fluid py-4", styles.container)}>
         <div className="container-md">
           <div className="my-3">
-            <Heading>Question Gallery</Heading>
+            <Heading>Question Catalog</Heading>
             <p>
-              Check out the question gallery with example questions that take
+              Check out the question catalog with example questions that take
               full advantage of the PrairieLearn platform.
             </p>
 
             <div className={classnames(styles.grid)}>
               {questions.map((question) => {
-                const galleryHref = `/gallery/questions/${question.slug}`;
+                const galleryHref = `/catalog/questions/${question.slug}`;
                 return (
                   <article className="card" key={question.slug}>
                     {question.imageUrl && (
