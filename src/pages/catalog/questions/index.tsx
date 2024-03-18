@@ -206,8 +206,8 @@ export default function QuestionTemplate() {
               image={randomEquation}
             >
               Computes the numerical answer using a mathematical expression
-              randomly selected from a list of options, given randomized
-              input parameters.
+              randomly selected from a list of options, given randomized input
+              parameters.
             </TemplateCard>
             <TemplateCard title="Integer answer" href="" image={convertAngle}>
               Computes the answer, expected to be an integer, given a randomized
