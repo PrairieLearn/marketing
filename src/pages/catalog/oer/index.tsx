@@ -84,10 +84,10 @@ export default function Courses() {
         title="Open Educational Resources (OER)"
         subtitle="A catalog of questions to help you get started with PrairieLearn"
       />
-
+      {/* 
       <div className="container-fluid my-3">
         <div className="container-md">
-          <div className="alert alert-primary mb-0">
+          <div className="alert alert-secondary mb-0">
             <p>
               You&apos;ll be asked to sign in to PrairieLearn to view our
               question catalog. If you want to use any of these questions, you
@@ -96,7 +96,7 @@ export default function Courses() {
             </p>
             <div className="text-center">
               <button
-                className="btn btn-primary btn-lg"
+                className="btn btn-warning btn-lg"
                 onClick={() => setShowRequestCourseModal(true)}
               >
                 Request a course
@@ -104,23 +104,41 @@ export default function Courses() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="container-fluid my-5">
         <div className="container-md">
           <Heading>Publicly Shared Questions</Heading>
-          <p>
-            This catalog contains questions that have been publicly shared by
-            instructors from various universities. If you like any of these
-            questions, you can use them directly in your course, without any
-            need to copy questions. Read these{" "}
-            <Link href="https://prairielearn.readthedocs.io/en/latest/questionSharing/">
-              instructions
-            </Link>{" "}
-            to see how you can use publicly shared questions in your course.
-            Some of the questions can be copied to your course, so you can make
-            changes if you want!
-          </p>
+          <div className="row">
+            <p>
+              This catalog contains questions that have been publicly shared by
+              instructors from various universities. If you like any of these
+              questions, you can use them directly in your course, without any
+              need to copy questions. Read these{" "}
+              <Link href="https://prairielearn.readthedocs.io/en/latest/questionSharing/">
+                instructions
+              </Link>{" "}
+              to see how you can use publicly shared questions in your course.
+              Some of the questions can be copied to your course, so you can
+              make changes if you want!
+            </p>
+          </div>
+          <div className="row">
+            <p>
+              You&apos;ll be asked to sign in to PrairieLearn to view our
+              question catalog. If you want to use any of these questions, you
+              will first need to request your PrairieLearn course space, which
+              is always free for instructors.
+            </p>
+            <div className="text-center">
+              <button
+                className="btn btn-warning btn-lg"
+                onClick={() => setShowRequestCourseModal(true)}
+              >
+                Request a course
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
