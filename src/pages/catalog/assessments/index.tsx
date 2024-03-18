@@ -10,7 +10,7 @@ import { PageBanner } from "../../../components/Banner";
 import { BannerCTA } from "../../../components/CallToActionBanner";
 import Stack from "../../../components/Stack";
 
-import { getAssessments } from "../../../lib/gallery/assessments";
+import { getAssessments } from "../../../lib/catalog/assessments";
 import assessmentImage from "../../../lib/images/assessment.png";
 import styles from "./index.module.scss";
 
@@ -69,10 +69,10 @@ const AssessmentIndex: React.FC<AssessmentIndexProps> = ({ assessments }) => {
       <div className={classnames("container-fluid py-4", styles.container)}>
         <div className="container-md">
           <div className="my-3">
-            <Heading>Assessment Gallery</Heading>
+            <Heading>Assessment Catalog</Heading>
             <Stack spacing={3}>
               {assessments.map((assessment) => {
-                const assessmentHref = `/gallery/assessments/${assessment.slug}`;
+                const assessmentHref = `/catalog/assessments/${assessment.slug}`;
                 return (
                   <article key={assessment.slug}>
                     <h3 className="h5">

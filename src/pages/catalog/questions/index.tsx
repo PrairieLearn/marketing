@@ -92,7 +92,7 @@ export default function QuestionTemplate() {
               />
               <LinkButton
                 label="Read more about PrairieLearn questions"
-                href="/gallery/questions/question-intro"
+                href="/catalog/questions/question-intro"
               />
             </div>
             <div className="col-md-6 order-1">
