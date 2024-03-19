@@ -6,17 +6,23 @@ import styles from "./Heading.module.scss";
 interface HeadingProps {
   className?: string;
   id?: string;
+  level?: "1" | "2" | "3" | "4" | "5" | "6";
   children: React.ReactNode;
 }
 
 export const Heading: React.FC<HeadingProps> = ({
   className,
   id,
+  level = 2,
   children,
 }) => {
+  const Component = `h${level}` as keyof JSX.IntrinsicElements;
   return (
-    <h2 className={classnames(styles.heading, "mb-3 h2", className)} id={id}>
+    <Component
+      className={classnames(styles.heading, "mb-3", `h${level}`, className)}
+      id={id}
+    >
       {children}
-    </h2>
+    </Component>
   );
 };
