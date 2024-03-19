@@ -33,25 +33,27 @@ const Papers = [
     contents: (
       <React.Fragment>
         <ResearchCard
-          title="PrairieLearn: Mastery-based online problem solving with adaptive scoring and recommendations driven by machine learning"
-          reference="M. West, G. L. Herman, and C. Zilles. ASEE 2015."
-          referenceHref="https://peer.asee.org/24575"
-        />
-        <ResearchCard
-          title="Algorithmic grading strategies for computerized drawing assessments"
-          reference="M. Silva and M. West. ASEE 2017."
-          referenceHref="https://peer.asee.org/algorithmic-grading-strategies-for-computerized-drawing-assessments"
-        />
-        <ResearchCard
-          title="Predicting the difficulty of automatic item generators on exams from their difficulty on homeworks"
-          reference="B. Chen, M. West, and C. Zilles. L@S 2019."
-          referenceHref="http://dx.doi.org/10.1145/3330430.3333647"
+          title="A generalized framework for describing question randomization"
+          reference="R. Mahinpei, I. Xu, S. Wolfman, F. Moosvi. SIGCSE 2024"
+          referenceHref="https://doi.org/10.1145/3626253.3635599"
         />
 
         <ResearchCard
-          title="Reducing difficulty variance in randomized assessments"
-          reference="P. Sud, M. West, and C. Zilles. ASEE 2019."
-          referenceHref="https://peer.asee.org/reducing-difficulty-variance-in-randomized-assessments"
+          title="How much deadline flexibility on formative assessments should we be giving to our students?"
+          reference="C. Zhao, M. West, and M. Silva. ASEE 2023."
+          referenceHref="https://peer.asee.org/43372"
+        />
+
+        <ResearchCard
+          title="A' for All (as time and interest allow)"
+          reference="D. Garcia. A. Fox, C. Zilles, M. West, M. Silva, N. Terrell, S. Russell, E. Ambrosio, and F. Shakir. SIGCSE 2023"
+          referenceHref="https://doi.org/10.1145/3545945.3569847"
+        />
+
+        <ResearchCard
+          title="Integrating diverse learning tools using the PrairieLearn platform"
+          reference="M. West, N. Walters, M. Silva, T. Bretl, and C. Zilles. SIGCSE 2021"
+          referenceHref="https://cssplice.github.io/SIGCSE21/proc/SPLICE2021_SIGCSE_paper_10.pdf"
         />
 
         <ResearchCard
@@ -73,27 +75,27 @@ const Papers = [
         />
 
         <ResearchCard
-          title="Integrating diverse learning tools using the PrairieLearn platform"
-          reference="M. West, N. Walters, M. Silva, T. Bretl, and C. Zilles. SIGCSE 2021"
-          referenceHref="https://cssplice.github.io/SIGCSE21/proc/SPLICE2021_SIGCSE_paper_10.pdf"
+          title="Predicting the difficulty of automatic item generators on exams from their difficulty on homeworks"
+          reference="B. Chen, M. West, and C. Zilles. L@S 2019."
+          referenceHref="http://dx.doi.org/10.1145/3330430.3333647"
         />
 
         <ResearchCard
-          title="How much deadline flexibility on formative assessments should we be giving to our students?"
-          reference="C. Zhao, M. West, and M. Silva. ASEE 2023."
-          referenceHref="https://peer.asee.org/43372"
+          title="Reducing difficulty variance in randomized assessments"
+          reference="P. Sud, M. West, and C. Zilles. ASEE 2019."
+          referenceHref="https://peer.asee.org/reducing-difficulty-variance-in-randomized-assessments"
         />
 
         <ResearchCard
-          title="A' for All (as time and interest allow)"
-          reference="D. Garcia. A. Fox, C. Zilles, M. West, M. Silva, N. Terrell, S. Russell, E. Ambrosio, and F. Shakir. SIGCSE 2023"
-          referenceHref="https://doi.org/10.1145/3545945.3569847"
+          title="Algorithmic grading strategies for computerized drawing assessments"
+          reference="M. Silva and M. West. ASEE 2017."
+          referenceHref="https://peer.asee.org/algorithmic-grading-strategies-for-computerized-drawing-assessments"
         />
 
         <ResearchCard
-          title="A generalized framework for describing question randomization"
-          reference="R. Mahinpei, I. Xu, S. Wolfman, F. Moosvi. SIGCSE 2024"
-          referenceHref="https://doi.org/10.1145/3626253.3635599"
+          title="PrairieLearn: Mastery-based online problem solving with adaptive scoring and recommendations driven by machine learning"
+          reference="M. West, G. L. Herman, and C. Zilles. ASEE 2015."
+          referenceHref="https://peer.asee.org/24575"
         />
       </React.Fragment>
     ),
@@ -102,30 +104,6 @@ const Papers = [
     title: "Retrieval practice and second-chance testing",
     contents: (
       <React.Fragment>
-        <ResearchCard
-          title="Frequent mastery testing with second-chance exams leads to enhanced student learning in undergraduate STEM"
-          reference="J. Morphew, M. Silva, G. Herman, and M. West. Applied Cognitive Psychology 2019."
-          referenceHref="https://doi.org/10.1002/acp.3605"
-        />
-
-        <ResearchCard
-          title="Second-chance testing course policies and student behavior"
-          reference="G. Herman, K. Varghese, and C. Zilles. FIE 2019."
-          referenceHref="https://ieeexplore.ieee.org/document/9028490"
-        />
-
-        <ResearchCard
-          title="Comparison of grade replacement and weighted averages for second-chance exams"
-          reference="G. Herman, Z. Cai, T. Bretl, C. Zilles, and M. West. ICER 2020."
-          referenceHref="https://dl.acm.org/doi/10.1145/3372782.3406260"
-        />
-
-        <ResearchCard
-          title="Students perceptions and behavior related to second-chance testing"
-          reference="C. Emeka, T. Bretl, G. Herman, M. West, and C. Zilles. FIE 2021."
-          referenceHref="https://ieeexplore.ieee.org/document/9637173"
-        />
-
         <ResearchCard
           title="Determining the best policies for second-chance tests for STEM students"
           referenceHref="https://peer.asee.org/43019"
@@ -149,36 +127,54 @@ const Papers = [
           referenceHref="https://peer.asee.org/43714"
           reference="L. Butler and G. Herman. ASEE 2023."
         />
+
+        <ResearchCard
+          title="Students perceptions and behavior related to second-chance testing"
+          reference="C. Emeka, T. Bretl, G. Herman, M. West, and C. Zilles. FIE 2021."
+          referenceHref="https://ieeexplore.ieee.org/document/9637173"
+        />
+
+        <ResearchCard
+          title="Comparison of grade replacement and weighted averages for second-chance exams"
+          reference="G. Herman, Z. Cai, T. Bretl, C. Zilles, and M. West. ICER 2020."
+          referenceHref="https://dl.acm.org/doi/10.1145/3372782.3406260"
+        />
+
+        <ResearchCard
+          title="Frequent mastery testing with second-chance exams leads to enhanced student learning in undergraduate STEM"
+          reference="J. Morphew, M. Silva, G. Herman, and M. West. Applied Cognitive Psychology 2019."
+          referenceHref="https://doi.org/10.1002/acp.3605"
+        />
+
+        <ResearchCard
+          title="Second-chance testing course policies and student behavior"
+          reference="G. Herman, K. Varghese, and C. Zilles. FIE 2019."
+          referenceHref="https://ieeexplore.ieee.org/document/9028490"
+        />
       </React.Fragment>
     ),
   },
 
   {
-    title: "Computer-based testing facilities",
+    title: "Computer-based testing centers",
     contents: (
       <React.Fragment>
         <ResearchCard
-          title="Computerized testing: A vision and initial experiences"
-          reference="C. Zilles, R. T. Deloatch, J. Bailey, B. B. Khattar, W. Fagen, C. Heeren, D. Mussulman, and M. West. ASEE 2015."
-          referenceHref="https://peer.asee.org/computerized-testing-a-vision-and-initial-experiences"
+          title="One solution to addressing assessment logistical problems: An experience setting up and operating an in-person testing center"
+          reference="K. Downey, K. Miller, M. Silva, and C. Zilles. SIGCSE 2024."
+          referenceHref="https://doi.org/10.1145/3626252.3630902"
         />
 
         <ResearchCard
-          title="Student behavior in selecting an exam time in a computer-based testing facility"
-          reference="C. Zilles, M. West, and D. Mussulman. ASEE 2015."
-          referenceHref="https://peer.asee.org/student-behavior-in-selecting-an-exam-time-in-a-computer-based-testing-facility"
+          title="Computerized exam reviews: In-person and individualized feedback to students after a computerized exam"
+          reference="W. L. Chang, M. West, C. Zilles, D. Mussulman, and C. Sacris. ASEE 2020."
+          referenceHref="https://peer.asee.org/computerized-exam-reviews-in-person-and-individualized-feedback-to-students-after-a-computerized-exam"
         />
 
         <ResearchCard
-          title="Modeling student scheduling preferences in a computer-based testing facility"
-          reference="M. West and C. Zilles. L@S 2016."
-          referenceHref="http://dx.doi.org/10.1145/2876034.2893441"
-        />
-
-        <ResearchCard
-          title="Measuring revealed student scheduling preferences using constrained discrete choice models"
-          reference="J. Bailey, M. West, and C. Zilles. ASEE 2017"
-          referenceHref="https://peer.asee.org/measuring-revealed-student-scheduling-preferences-using-constrained-discrete-choice-models"
+          title="Every university should have a computer-based testing facility"
+          reference="C. Zilles, M. West, G. Herman, and T. Bretl. CSEDU 2019."
+          referenceHref="https://zilles.cs.illinois.edu/papers/zilles_csedu_cbtf_2019.pdf"
         />
 
         <ResearchCard
@@ -200,21 +196,27 @@ const Papers = [
         />
 
         <ResearchCard
-          title="Every university should have a computer-based testing facility"
-          reference="C. Zilles, M. West, G. Herman, and T. Bretl. CSEDU 2019."
-          referenceHref="https://zilles.cs.illinois.edu/papers/zilles_csedu_cbtf_2019.pdf"
+          title="Measuring revealed student scheduling preferences using constrained discrete choice models"
+          reference="J. Bailey, M. West, and C. Zilles. ASEE 2017"
+          referenceHref="https://peer.asee.org/measuring-revealed-student-scheduling-preferences-using-constrained-discrete-choice-models"
         />
 
         <ResearchCard
-          title="Computerized exam reviews: In-person and individualized feedback to students after a computerized exam"
-          reference="W. L. Chang, M. West, C. Zilles, D. Mussulman, and C. Sacris. ASEE 2020."
-          referenceHref="https://peer.asee.org/computerized-exam-reviews-in-person-and-individualized-feedback-to-students-after-a-computerized-exam"
+          title="Modeling student scheduling preferences in a computer-based testing facility"
+          reference="M. West and C. Zilles. L@S 2016."
+          referenceHref="http://dx.doi.org/10.1145/2876034.2893441"
         />
 
         <ResearchCard
-          title="One solution to addressing assessment logistical problems: An experience setting up and operating an in-person testing center"
-          reference="K. Downey, K. Miller, M. Silva, and C. Zilles. SIGCSE 2024."
-          referenceHref="https://doi.org/10.1145/3626252.3630902"
+          title="Computerized testing: A vision and initial experiences"
+          reference="C. Zilles, R. T. Deloatch, J. Bailey, B. B. Khattar, W. Fagen, C. Heeren, D. Mussulman, and M. West. ASEE 2015."
+          referenceHref="https://peer.asee.org/computerized-testing-a-vision-and-initial-experiences"
+        />
+
+        <ResearchCard
+          title="Student behavior in selecting an exam time in a computer-based testing facility"
+          reference="C. Zilles, M. West, and D. Mussulman. ASEE 2015."
+          referenceHref="https://peer.asee.org/student-behavior-in-selecting-an-exam-time-in-a-computer-based-testing-facility"
         />
       </React.Fragment>
     ),
@@ -224,21 +226,21 @@ const Papers = [
     contents: (
       <React.Fragment>
         <ResearchCard
-          title="Do performance trends suggest wide-spread collaborative cheating on asynchronous exams?"
-          reference="B. Chen, M. West, and C. Zilles. L@S 2017."
-          referenceHref="https://dl.acm.org/doi/10.1145/3051457.3051465"
+          title="Comparing the security of three proctoring regimens for Bring-Your-Own-Device exams"
+          reference="R. Gulati, M. West, C. Zilles, and  M. Silva. SIGCSE 2024."
+          referenceHref="https://doi.org/10.1145/3626252.3630809"
         />
 
         <ResearchCard
-          title="How much randomization is needed to deter collaborative cheating on asynchronous exams?"
-          reference="B. Chen, M. West, and C. Zilles. L@S 2018."
-          referenceHref="https://dl.acm.org/doi/10.1145/3231644.3231664"
+          title="Comparing student outcomes in online vs. in-person sections of an on-campus computer science course"
+          reference="R. Gulati, M. West, C. Zilles, and  M. Silva. ASEE 2023."
+          referenceHref="https://peer.asee.org/43276"
         />
 
         <ResearchCard
-          title="Analyzing the decline of student scores over time in self‐scheduled asynchronous exams"
-          reference="B. Chen, M. West, and C. Zilles. Journal of Engineering Education, 2019."
-          referenceHref="https://eric.ed.gov/?id=EJ1254087"
+          title="Are we fair? Quantifying score impacts of computer science exams with randomized question pools"
+          reference="M. Fowler, D. Smith, C. Emeka, M. West and C. Zilles. SIGCSE 2022."
+          referenceHref="https://dl.acm.org/doi/10.1145/3478431.3499388"
         />
 
         <ResearchCard
@@ -254,21 +256,21 @@ const Papers = [
         />
 
         <ResearchCard
-          title="Are we fair? Quantifying score impacts of computer science exams with randomized question pools"
-          reference="M. Fowler, D. Smith, C. Emeka, M. West and C. Zilles. SIGCSE 2022."
-          referenceHref="https://dl.acm.org/doi/10.1145/3478431.3499388"
+          title="Analyzing the decline of student scores over time in self‐scheduled asynchronous exams"
+          reference="B. Chen, M. West, and C. Zilles. Journal of Engineering Education, 2019."
+          referenceHref="https://eric.ed.gov/?id=EJ1254087"
         />
 
         <ResearchCard
-          title="Comparing student outcomes in online vs. in-person sections of an on-campus computer science course"
-          reference="R. Gulati, M. West, C. Zilles, and  M. Silva. ASEE 2023."
-          referenceHref="https://peer.asee.org/43276"
+          title="How much randomization is needed to deter collaborative cheating on asynchronous exams?"
+          reference="B. Chen, M. West, and C. Zilles. L@S 2018."
+          referenceHref="https://dl.acm.org/doi/10.1145/3231644.3231664"
         />
 
         <ResearchCard
-          title="Comparing the security of three proctoring regimens for Bring-Your-Own-Device exams"
-          reference="R. Gulati, M. West, C. Zilles, and  M. Silva. SIGCSE 2024."
-          referenceHref="https://doi.org/10.1145/3626252.3630809"
+          title="Do performance trends suggest wide-spread collaborative cheating on asynchronous exams?"
+          reference="B. Chen, M. West, and C. Zilles. L@S 2017."
+          referenceHref="https://dl.acm.org/doi/10.1145/3051457.3051465"
         />
       </React.Fragment>
     ),
@@ -278,21 +280,9 @@ const Papers = [
     contents: (
       <React.Fragment>
         <ResearchCard
-          title="A validated scoring rubric for Explain-in-Plain-English questions"
-          reference="B. Chen, S. Azad, R. Haldar, M. West, and C. Zilles. SIGCSE 2020."
-          referenceHref="https://dl.acm.org/doi/abs/10.1145/3328778.3366879"
-        />
-
-        <ResearchCard
-          title="Autograding Explain in Plain English questions using NLP"
-          reference="M. Fowler, B. Chen, S. Azad, M. West, and C. Zilles. SIGCSE 2021."
-          referenceHref="https://dl.acm.org/doi/abs/10.1145/3408877.3432539"
-        />
-
-        <ResearchCard
-          title="Peer-grading Explain in plain English questions: A Bayesian calibration method for categorical answers"
-          reference="B. Chen, M. West, and C. Zilles. SIGCSE 2022."
-          referenceHref="https://dl.acm.org/doi/abs/10.1145/3478431.3499409"
+          title="Evaluating Large Language Model code generation as an autograding mechanism for “Explain in Plain English” questions"
+          reference="D. Smith and C. Zilles. SIGCSE 2024"
+          referenceHref="https://doi.org/10.1145/3626253.3635542"
         />
 
         <ResearchCard
@@ -302,9 +292,21 @@ const Papers = [
         />
 
         <ResearchCard
-          title="Evaluating Large Language Model code generation as an autograding mechanism for “Explain in Plain English” questions"
-          reference="D. Smith and C. Zilles. SIGCSE 2024"
-          referenceHref="https://doi.org/10.1145/3626253.3635542"
+          title="Peer-grading Explain in plain English questions: A Bayesian calibration method for categorical answers"
+          reference="B. Chen, M. West, and C. Zilles. SIGCSE 2022."
+          referenceHref="https://dl.acm.org/doi/abs/10.1145/3478431.3499409"
+        />
+
+        <ResearchCard
+          title="Autograding Explain in Plain English questions using NLP"
+          reference="M. Fowler, B. Chen, S. Azad, M. West, and C. Zilles. SIGCSE 2021."
+          referenceHref="https://dl.acm.org/doi/abs/10.1145/3408877.3432539"
+        />
+
+        <ResearchCard
+          title="A validated scoring rubric for Explain-in-Plain-English questions"
+          reference="B. Chen, S. Azad, R. Haldar, M. West, and C. Zilles. SIGCSE 2020."
+          referenceHref="https://dl.acm.org/doi/abs/10.1145/3328778.3366879"
         />
       </React.Fragment>
     ),
@@ -314,9 +316,9 @@ const Papers = [
     contents: (
       <React.Fragment>
         <ResearchCard
-          title="An analytic comparison of student-scheduled and instructor-scheduled collaborative learning in online contexts"
-          reference="G. Herman, Y. Jiang, Y. Jiang, S. Poulsen, M. West, and M. Silva. ASEE 2022."
-          referenceHref="https://peer.asee.org/41212"
+          title="Exploring computing students' sense of belonging before and after a collaborative learning course"
+          reference="M. Fong, S. Huang, A. Alawini, M. Silva, and  G. Herman. SIGCSE 2024."
+          referenceHref="https://doi.org/10.1145/3626252.3630850"
         />
 
         <ResearchCard
@@ -326,9 +328,9 @@ const Papers = [
         />
 
         <ResearchCard
-          title="Exploring computing students' sense of belonging before and after a collaborative learning course"
-          reference="M. Fong, S. Huang, A. Alawini, M. Silva, and  G. Herman. SIGCSE 2024."
-          referenceHref="https://doi.org/10.1145/3626252.3630850"
+          title="An analytic comparison of student-scheduled and instructor-scheduled collaborative learning in online contexts"
+          reference="G. Herman, Y. Jiang, Y. Jiang, S. Poulsen, M. West, and M. Silva. ASEE 2022."
+          referenceHref="https://peer.asee.org/41212"
         />
       </React.Fragment>
     ),
@@ -350,12 +352,6 @@ const Papers = [
     contents: (
       <React.Fragment>
         <ResearchCard
-          title="Reevaluating the relationship between explaining, tracing, and writing skills in CS1 in a replication study"
-          reference="M. Fowler, D. Smith, M. Hassan, S. Poulsen, M. West, and C. Zilles. Computer Science Education 2022."
-          referenceHref="https://doi.org/10.1080/08993408.2022.2079866"
-        />
-
-        <ResearchCard
           title="Discovering, autogenerating, and evaluating distractors for Python Parsons problems in CS1"
           reference="D. Smith and C. Zilles. SIGCSE 2023."
           referenceHref="https://doi.org/10.1145/3545945.3569801"
@@ -366,6 +362,12 @@ const Papers = [
           reference="M. Hassan and C. Zilles. SIGCSE 2023."
           referenceHref="https://doi.org/10.1145/3478431.3499400"
         />
+
+        <ResearchCard
+          title="Reevaluating the relationship between explaining, tracing, and writing skills in CS1 in a replication study"
+          reference="M. Fowler, D. Smith, M. Hassan, S. Poulsen, M. West, and C. Zilles. Computer Science Education 2022."
+          referenceHref="https://doi.org/10.1080/08993408.2022.2079866"
+        />
       </React.Fragment>
     ),
   },
@@ -374,27 +376,15 @@ const Papers = [
     contents: (
       <React.Fragment>
         <ResearchCard
-          title="Evaluating Proof Blocks Problems as Exam Questions"
-          reference="S. Poulsen, M. Viswanathan, G. Herman, and M. West. ICER 2021."
-          referenceHref="https://doi.org/10.1145/3446871.3469741"
+          title="Disentangling the learning gains from reading a book chapter and completing Proof Blocks problems"
+          reference="S. Poulsen, Y. Gerner, H. Chen, B. Cosman, M. West, and G. Herman. SIGCSE 2024."
+          referenceHref="https://doi.org/10.1145/3626252.3630831"
         />
 
         <ResearchCard
-          title="Proof Blocks: autogradable scaffolding activities for learning to write proofs"
-          reference="S. Poulsen, M. Viswanathan, G. Herman, and M. West. ITiCSE 2022."
-          referenceHref="https://doi.org/10.1145/3502718.3524774"
-        />
-
-        <ResearchCard
-          title="Reevaluating the relationship between explaining, tracing, and writing skills in CS1 in a replication study"
-          reference="M. Fowler, D. Smith, M. Hassan, S. Poulsen, M. West, and C. Zilles. Computer Science Education 2022."
-          referenceHref="https://doi.org/10.1080/08993408.2022.2079866"
-        />
-
-        <ResearchCard
-          title="Benchmarking partial credit grading algorithms for Proof Blocks problems"
-          reference="S. Poulsen, S. Kulkarni, G. Herman, and M. West. AIED 2022."
-          referenceHref="https://link.springer.com/book/10.1007/978-3-031-11647-6"
+          title="Solving Proof Block problems using Large Language Models"
+          reference="S. Poulsen, S. Sarsa, J. Prather, J. Leinonen, B. Becker, A. Hellas, P. Denny, and B. Reeves. SIGCSE 2024."
+          referenceHref="https://doi.org/10.1145/3626252.3630928"
         />
 
         <ResearchCard
@@ -416,15 +406,27 @@ const Papers = [
         />
 
         <ResearchCard
-          title="Disentangling the learning gains from reading a book chapter and completing Proof Blocks problems"
-          reference="S. Poulsen, Y. Gerner, H. Chen, B. Cosman, M. West, and G. Herman. SIGCSE 2024."
-          referenceHref="https://doi.org/10.1145/3626252.3630831"
+          title="Proof Blocks: autogradable scaffolding activities for learning to write proofs"
+          reference="S. Poulsen, M. Viswanathan, G. Herman, and M. West. ITiCSE 2022."
+          referenceHref="https://doi.org/10.1145/3502718.3524774"
         />
 
         <ResearchCard
-          title="Solving Proof Block problems using Large Language Models"
-          reference="S. Poulsen, S. Sarsa, J. Prather, J. Leinonen, B. Becker, A. Hellas, P. Denny, and B. Reeves. SIGCSE 2024."
-          referenceHref="https://doi.org/10.1145/3626252.3630928"
+          title="Reevaluating the relationship between explaining, tracing, and writing skills in CS1 in a replication study"
+          reference="M. Fowler, D. Smith, M. Hassan, S. Poulsen, M. West, and C. Zilles. Computer Science Education 2022."
+          referenceHref="https://doi.org/10.1080/08993408.2022.2079866"
+        />
+
+        <ResearchCard
+          title="Benchmarking partial credit grading algorithms for Proof Blocks problems"
+          reference="S. Poulsen, S. Kulkarni, G. Herman, and M. West. AIED 2022."
+          referenceHref="https://link.springer.com/book/10.1007/978-3-031-11647-6"
+        />
+
+        <ResearchCard
+          title="Evaluating Proof Blocks Problems as Exam Questions"
+          reference="S. Poulsen, M. Viswanathan, G. Herman, and M. West. ICER 2021."
+          referenceHref="https://doi.org/10.1145/3446871.3469741"
         />
       </React.Fragment>
     ),
@@ -434,15 +436,27 @@ const Papers = [
     contents: (
       <React.Fragment>
         <ResearchCard
-          title="Insights from student solutions to SQL homework problems"
-          reference="S. Poulsen, L. Butler, A. Alawini, and G. Herman. ITiCSE 2020."
-          referenceHref="https://doi.org/10.1145/3341525.3387391"
-        />
-
-        <ResearchCard
           title="Analyzing student SQL solutions via hierarchical clustering and sequence alignment scores"
           reference="S. Yang,  G. Herman, and A. Alawini. DataEd 2022."
           referenceHref="https://doi.org/10.1145/3531072.3535319"
+        />
+
+        <ResearchCard
+          title="Insights from student solutions to MongoDB homework problems"
+          reference="R. Alkhabaz, S. Poulsen, M. Chen, and A. Alawini. ITiCSE 2021."
+          referenceHref="https://doi.org/10.1145/3430665.3456308"
+        />
+
+        <ResearchCard
+          title="A Quantitative analysis of student solutions to graph database queries"
+          reference="M. Chen, S. Poulsen, R. Alkhabaz, and A. Alawini. SIGCSE 2021."
+          referenceHref="https://doi.org/10.1145/3408877.3439700"
+        />
+
+        <ResearchCard
+          title="Insights from student solutions to SQL homework problems"
+          reference="S. Poulsen, L. Butler, A. Alawini, and G. Herman. ITiCSE 2020."
+          referenceHref="https://doi.org/10.1145/3341525.3387391"
         />
       </React.Fragment>
     ),
