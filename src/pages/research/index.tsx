@@ -85,9 +85,15 @@ const Papers = [
         />
 
         <ResearchCard
-          title="A's for All (as time and interest allow)"
+          title="A' for All (as time and interest allow)"
           reference="D. Garcia. A. Fox, C. Zilles, M. West, M. Silva, N. Terrell, S. Russell, E. Ambrosio, and F. Shakir. SIGCSE 2023"
           referenceHref="https://doi.org/10.1145/3545945.3569847"
+        />
+
+        <ResearchCard
+          title="A generalized framework for describing question randomization"
+          reference="R. Mahinpei, I. Xu, S. Wolfman, F. Moosvi. SIGCSE 2024"
+          referenceHref="https://doi.org/10.1145/3626253.3635599"
         />
       </React.Fragment>
     ),
@@ -294,6 +300,12 @@ const Papers = [
           reference="T. Li, S. Hsu, M. Fowler, Z. Zhang, C. Zilles, and K. Karahalios. ICER 2023."
           referenceHref="https://doi.org/10.1145/3568813.3600124"
         />
+
+        <ResearchCard
+          title="Evaluating Large Language Model code generation as an autograding mechanism for “Explain in Plain English” questions"
+          reference="D. Smith and C. Zilles. SIGCSE 2024"
+          referenceHref="https://doi.org/10.1145/3626253.3635542"
+        />
       </React.Fragment>
     ),
   },
@@ -311,6 +323,12 @@ const Papers = [
           title="Developing tools, pedagogies, and policies for computer-based collaborative learning activities"
           reference="M. Fong, L. Butler, A. Alawini, G. Herman, and M. Silva. ASEE 2023."
           referenceHref="https://peer.asee.org/42700"
+        />
+
+        <ResearchCard
+          title="Exploring computing students' sense of belonging before and after a collaborative learning course"
+          reference="M. Fong, S. Huang, A. Alawini, M. Silva, and  G. Herman. SIGCSE 2024."
+          referenceHref="https://doi.org/10.1145/3626252.3630850"
         />
       </React.Fragment>
     ),
@@ -395,6 +413,18 @@ const Papers = [
           title="Efficient feedback and partial credit grading for Proof Blocks problems"
           reference="S. Poulsen, S. Kulkarni, G. Herman, and M. West. AIED 2023."
           referenceHref="https://doi.org/10.1007/978-3-031-36272-9_41"
+        />
+
+        <ResearchCard
+          title="Disentangling the learning gains from reading a book chapter and completing Proof Blocks problems"
+          reference="S. Poulsen, Y. Gerner, H. Chen, B. Cosman, M. West, and G. Herman. SIGCSE 2024."
+          referenceHref="https://doi.org/10.1145/3626252.3630831"
+        />
+
+        <ResearchCard
+          title="Solving Proof Block problems using Large Language Models"
+          reference="S. Poulsen, S. Sarsa, J. Prather, J. Leinonen, B. Becker, A. Hellas, P. Denny, and B. Reeves. SIGCSE 2024."
+          referenceHref="https://doi.org/10.1145/3626252.3630928"
         />
       </React.Fragment>
     ),
