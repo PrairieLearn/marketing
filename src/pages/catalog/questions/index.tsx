@@ -131,28 +131,40 @@ export default function QuestionTemplate() {
         <div className={classnames("mb-5", styles.grid)}>
           <TemplateCard
             title="Numerical answers"
-            href=""
+            href="https://us.prairielearn.com/pl/public/course/108/question/6312321/preview"
             image={selectRandomNumber}
           >
             Correct answer and distractors are computed based on randomized
             input parameters.
           </TemplateCard>
-          <TemplateCard title="Text answers" href="" image={selectRainbowColor}>
+          <TemplateCard
+            title="Text answers"
+            href="https://us.prairielearn.com/pl/public/course/108/question/6312320/preview"
+            image={selectRainbowColor}
+          >
             Correct answer and distractors are randomly selected from a list of
             several correct answers and distractors.
           </TemplateCard>
-          <TemplateCard title="Images answers" href="" image={selectBird}>
+          <TemplateCard
+            title="Images answers"
+            href="https://us.prairielearn.com/pl/public/course/108/question/6440024/preview"
+            image={selectBird}
+          >
             Correct answer and distractors are randomly selected from a list of
             images.
           </TemplateCard>
-          <TemplateCard title="Randomized prompt" href="" image={selectPlanet}>
+          <TemplateCard
+            title="Randomized prompt"
+            href="https://us.prairielearn.com/pl/public/course/108/question/6312319/preview"
+            image={selectPlanet}
+          >
             Correct answer and distractors are randomly selected from a list
             which is dynamically generated based on the choice of randomized
             prompt.
           </TemplateCard>
           <TemplateCard
             title="True/False answers"
-            href=""
+            href="https://us.prairielearn.com/pl/public/course/108/question/6312323/preview"
             image={selectTrueFalse}
           >
             Randomly selects the prompt from a list and its corresponding True /
@@ -160,7 +172,7 @@ export default function QuestionTemplate() {
           </TemplateCard>
           <TemplateCard
             title="Multiple select answers"
-            href=""
+            href="https://us.prairielearn.com/pl/public/course/108/question/9074235/preview"
             image={selectEven}
           >
             Randomly selects the question prompt and its corresponding
@@ -172,7 +184,7 @@ export default function QuestionTemplate() {
         <div className={classnames("mb-5", styles.grid)}>
           <TemplateCard
             title="Randomized parameters"
-            href=""
+            href="https://us.prairielearn.com/pl/public/course/108/question/6312324/preview"
             image={fixedEquation}
           >
             Computes the numerical answer using fixed mathematical expression
@@ -180,18 +192,26 @@ export default function QuestionTemplate() {
           </TemplateCard>
           <TemplateCard
             title="Randomized prompt"
-            href=""
+            href="https://us.prairielearn.com/pl/public/course/108/question/9074247/preview"
             image={randomEquation}
           >
             Computes the numerical answer using a mathematical expression
             randomly selected from a list of options, given randomized input
             parameters.
           </TemplateCard>
-          <TemplateCard title="Integer answer" href="" image={convertAngle}>
+          <TemplateCard
+            title="Integer answer"
+            href="https://us.prairielearn.com/pl/public/course/108/question/6440018/preview"
+            image={convertAngle}
+          >
             Computes the answer, expected to be an integer, given a randomized
             parameter.
           </TemplateCard>
-          <TemplateCard title="Randomized image" href="" image={dynamicImage}>
+          <TemplateCard
+            title="Randomized image"
+            href="https://us.prairielearn.com/pl/public/course/108/question/6440019/preview"
+            image={dynamicImage}
+          >
             Computes the answer, expected to be an integer, given a dynamically
             generated image from randomized input parameters.
           </TemplateCard>
@@ -199,11 +219,19 @@ export default function QuestionTemplate() {
 
         <Heading level="3">Matrix answers</Heading>
         <div className={classnames("mb-5", styles.grid)}>
-          <TemplateCard title="Matrix components" href="" image={graphMatrix}>
+          <TemplateCard
+            title="Matrix components"
+            href="https://us.prairielearn.com/pl/public/course/108/question/9074243/preview"
+            image={graphMatrix}
+          >
             Dynamically generates a randomized graph with nodes and edges, and
             the answer is the corresponding adjacency matrix.
           </TemplateCard>
-          <TemplateCard title="Matrix as code" href="" image={productMatrices}>
+          <TemplateCard
+            title="Matrix as code"
+            href="https://us.prairielearn.com/pl/public/course/108/question/9210520/preview"
+            image={productMatrices}
+          >
             Generates two randomized matrices and provides them as input in both
             Matlab and Python format. The computed answer can also be provided
             in either format.
@@ -212,7 +240,11 @@ export default function QuestionTemplate() {
 
         <Heading level="3">Text answers</Heading>
         <div className={classnames("mb-5", styles.grid)}>
-          <TemplateCard title="Randomized string" href="" image={inputText}>
+          <TemplateCard
+            title="Randomized string"
+            href="https://us.prairielearn.com/pl/public/course/108/question/9074237/preview"
+            image={inputText}
+          >
             The prompt and correct answer are randomly selected from a list of
             options. The correct answer is checked as a string, with all
             whitespace removed.
@@ -223,7 +255,7 @@ export default function QuestionTemplate() {
         <div className={classnames("mb-5", styles.grid)}>
           <TemplateCard
             title="Symbolic answer"
-            href=""
+            href="https://us.prairielearn.com/pl/public/course/108/question/9074244/preview"
             image={derivativeSymbolic}
           >
             Evaluates if a symbolic submission of a mathematical expression
