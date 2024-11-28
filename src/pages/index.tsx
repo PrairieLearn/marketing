@@ -116,7 +116,7 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
 
       <div className="container-fluid py-4">
         <div className="container-md">
-          <Heading>Mastering learning meets online assessment</Heading>
+          <Heading>Mastery learning meets online assessment</Heading>
           <div className="row">
             <p>
               PrairieLearn is an online assessment and learning system that
