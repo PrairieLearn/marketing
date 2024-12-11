@@ -132,14 +132,14 @@ function ContactUsButton({ className }: { className?: string }) {
   );
 }
 
-type AcademicSchedule = "semester" | "quarter" | "monthly";
+type AcademicCalendar = "semester" | "quarter" | "monthly";
 type PaymentModel = "course" | "student";
 
 export default function Pricing() {
   const controls = useAnimationControls();
 
-  const [academicSchedule, setAcademicSchedule] =
-    React.useState<AcademicSchedule>("semester");
+  const [academicCalendar, setAcademicCalendar] =
+    React.useState<AcademicCalendar>("semester");
 
   const [paymentModel, setPaymentModel] =
     React.useState<PaymentModel>("course");
@@ -147,9 +147,9 @@ export default function Pricing() {
   const [showModal, setShowModal] = React.useState(false);
 
   let basicPrice = run(() => {
-    if (academicSchedule === "semester") {
+    if (academicCalendar === "semester") {
       return 8;
-    } else if (academicSchedule === "quarter") {
+    } else if (academicCalendar === "quarter") {
       return 6;
     } else {
       return 2;
@@ -168,10 +168,10 @@ export default function Pricing() {
     controls.start({ scale: 1.3 }).then(() => controls.start({ scale: 1 }));
   };
 
-  const updateAcademicSchedule = (
-    academicSchedule: "semester" | "quarter" | "monthly"
+  const updateAcademicCalendar = (
+    academicCalendar: "semester" | "quarter" | "monthly"
   ) => {
-    setAcademicSchedule(academicSchedule);
+    setAcademicCalendar(academicCalendar);
     controls.start({ scale: 1.3 }).then(() => controls.start({ scale: 1 }));
   };
 
@@ -215,11 +215,11 @@ export default function Pricing() {
           <div className="container">
             <Row>
               <Col xs={12} md={6}>
-                <Form.Group controlId="academic-schedule">
-                  <Form.Label>Academic schedule</Form.Label>
+                <Form.Group controlId="academic-calendar">
+                  <Form.Label>Academic calendar</Form.Label>
                   <Form.Select
                     onChange={(e) => {
-                      updateAcademicSchedule(e.currentTarget.value as any);
+                      updateAcademicCalendar(e.currentTarget.value as any);
                     }}
                   >
                     <option value="semester">Semester</option>
