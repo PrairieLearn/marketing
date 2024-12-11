@@ -82,12 +82,6 @@ const FAQS = [
           Students will be responsible for paying the PrairieLearn fee before
           they are able to access any of your course&apos;s content.
         </p>
-        <p>
-          Note that we don&apos;t currently support the student-paid model for
-          terms shorter than a semester. If you&apos;re interested in using
-          PrairieLearn for a shorter term, please{" "}
-          <Link href="/contact">contact us</Link>.
-        </p>
       </React.Fragment>
     ),
   },
@@ -164,20 +158,16 @@ export default function Pricing() {
 
   let premiumPrice = basicPrice * 2;
 
+  // We don't currently have the ability to set the price for students based
+  // on the length of the term, so we just hardcode a single fixed price that
+  // assumes a semester-length term.
   if (paymentModel === "student") {
-    basicPrice += 2;
-    premiumPrice += 2;
+    basicPrice = 10;
+    premiumPrice = 18;
   }
 
   const updatePaymentModel = (paymentModel: "course" | "student") => {
     setPaymentModel(paymentModel);
-
-    if (paymentModel === "student") {
-      // We don't currently support shorter terms for student-paid pricing.
-      // We'll force it to "semester" and disable the select below.
-      setAcademicCalendar("semester");
-    }
-
     controls.start({ scale: 1.3 }).then(() => controls.start({ scale: 1 }));
   };
 
@@ -232,7 +222,6 @@ export default function Pricing() {
                   <Form.Label>Academic calendar</Form.Label>
                   <Form.Select
                     value={academicCalendar}
-                    disabled={paymentModel === "student"}
                     onChange={(e) => {
                       updateAcademicCalendar(e.currentTarget.value as any);
                     }}
