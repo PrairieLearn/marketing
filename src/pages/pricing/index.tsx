@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Accordion from "react-bootstrap/Accordion";
@@ -15,6 +15,7 @@ import { PageBanner } from "../../components/Banner";
 
 import styles from "./index.module.scss";
 import { RequestCourseModal } from "../../components/RequestCourseModal";
+import { useUpdateEffect } from "../../lib/useUpdateEffect";
 
 const FEATURES = [
   {
@@ -168,15 +169,18 @@ export default function Pricing() {
 
   const updatePaymentModel = (paymentModel: "course" | "student") => {
     setPaymentModel(paymentModel);
-    controls.start({ scale: 1.3 }).then(() => controls.start({ scale: 1 }));
   };
 
   const updateAcademicCalendar = (
     academicCalendar: "semester" | "quarter" | "monthly"
   ) => {
     setAcademicCalendar(academicCalendar);
-    controls.start({ scale: 1.3 }).then(() => controls.start({ scale: 1 }));
   };
+
+  // Only animate the price change if the price actually changes.
+  useUpdateEffect(() => {
+    controls.start({ scale: 1.3 }).then(() => controls.start({ scale: 1 }));
+  }, [premiumPrice, basicPrice]);
 
   function RequestCourseButton({
     text,
