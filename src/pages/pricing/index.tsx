@@ -2,8 +2,12 @@ import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Accordion from "react-bootstrap/Accordion";
+import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
+import Row from "react-bootstrap/Row";
 import classnames from "classnames";
 import { motion, useAnimationControls } from "framer-motion";
+import { run } from "@prairielearn/run";
 
 import CheckIcon from "../../components/CheckIcon";
 import Stack from "../../components/Stack";
@@ -78,12 +82,6 @@ const FAQS = [
           Students will be responsible for paying the PrairieLearn fee before
           they are able to access any of your course&apos;s content.
         </p>
-        <p>
-          This pricing model is currently in development, and it is expected to
-          be available by Fall 2023. If your course would like to be any early
-          adopter of this payment model, please{" "}
-          <Link href="/contact">contact us</Link>.
-        </p>
       </React.Fragment>
     ),
   },
@@ -136,16 +134,38 @@ function ContactUsButton({ className }: { className?: string }) {
 
 export default function Pricing() {
   const controls = useAnimationControls();
+  const [termSystem, setTermSystem] = React.useState<
+    "semester" | "quarter" | "monthly"
+  >("semester");
   const [paymentModel, setPaymentModel] = React.useState<"course" | "student">(
     "course"
   );
   const [showModal, setShowModal] = React.useState(false);
 
-  const basicPrice = paymentModel === "course" ? "$6" : "$10";
-  const premiumPrice = paymentModel === "course" ? "$12" : "$16";
+  let basicPrice = run(() => {
+    if (termSystem === "semester") {
+      return 8;
+    } else if (termSystem === "quarter") {
+      return 6;
+    } else {
+      return 2;
+    }
+  });
 
-  const updatePaymentModel = (model: "course" | "student") => {
-    setPaymentModel(model);
+  let premiumPrice = basicPrice * 2;
+
+  if (paymentModel === "student") {
+    basicPrice += 2;
+    premiumPrice += 2;
+  }
+
+  const updatePaymentModel = (paymentModel: "course" | "student") => {
+    setPaymentModel(paymentModel);
+    controls.start({ scale: 1.3 }).then(() => controls.start({ scale: 1 }));
+  };
+
+  const updateTermSystem = (termSystem: "semester" | "quarter" | "monthly") => {
+    setTermSystem(termSystem);
     controls.start({ scale: 1.3 }).then(() => controls.start({ scale: 1 }));
   };
 
@@ -187,46 +207,38 @@ export default function Pricing() {
       <div className="container my-5">
         <Stack>
           <div className="container">
-            <div className="d-flex flex-row justify-content-center">
-              <div className="btn-group">
-                <button
-                  type="button"
-                  className={classnames("btn btn-outline-primary", {
-                    active: paymentModel === "course",
-                  })}
-                  onClick={() => updatePaymentModel("course")}
-                >
-                  <span
-                    className={classnames("me-2", {
-                      "d-none": paymentModel !== "course",
-                    })}
+            <Row>
+              <Col xs={12} md={6}>
+                <Form.Group controlId="term-system">
+                  <Form.Label>Term system</Form.Label>
+                  <Form.Select
+                    onChange={(e) => {
+                      updateTermSystem(e.currentTarget.value as any);
+                    }}
                   >
-                    ✓
-                  </span>
-                  Course pays
-                </button>
-                <button
-                  type="button"
-                  className={classnames(
-                    "btn btn-outline-primary d-flex flex-row align-items-center",
-                    {
-                      active: paymentModel === "student",
-                    }
-                  )}
-                  onClick={() => updatePaymentModel("student")}
-                >
-                  <span
-                    className={classnames("me-2", {
-                      "d-none": paymentModel !== "student",
-                    })}
+                    <option value="semester">Semester</option>
+                    <option value="quarter">Quarter</option>
+                    <option value="monthly">Monthly</option>
+                  </Form.Select>
+                </Form.Group>
+              </Col>
+
+              <Col xs={12} md={6}>
+                <Form.Group controlId="payment-model">
+                  <Form.Label>Payment model</Form.Label>
+                  <Form.Select
+                    onChange={(e) => {
+                      updatePaymentModel(e.currentTarget.value as any);
+                    }}
                   >
-                    ✓
-                  </span>
-                  Student pays
-                </button>
-              </div>
-            </div>
+                    <option value="course">Institution or course pays</option>
+                    <option value="student">Student pays</option>
+                  </Form.Select>
+                </Form.Group>
+              </Col>
+            </Row>
           </div>
+
           <div className="table-responsive">
             <table className="table table-striped">
               <thead>
@@ -252,7 +264,7 @@ export default function Pricing() {
                         animate={controls}
                         className="d-inline-block"
                       >
-                        {basicPrice}
+                        {"$" + basicPrice}
                       </motion.strong>{" "}
                       <span className="text-muted">/ student / course</span>
                       <RequestCourseButton text="Get started" />
@@ -265,7 +277,7 @@ export default function Pricing() {
                         animate={controls}
                         className="d-inline-block"
                       >
-                        {premiumPrice}
+                        {"$" + premiumPrice}
                       </motion.strong>{" "}
                       <span className="text-muted">/ student / course</span>
                       <RequestCourseButton text="Get started" />

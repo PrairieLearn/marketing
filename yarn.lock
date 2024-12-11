@@ -241,6 +241,11 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.6.tgz#cee20bd55e68a1720bdab363ecf0c821ded4cd45"
   integrity sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==
 
+"@prairielearn/run@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@prairielearn/run/-/run-1.0.2.tgz#86d867d74a09d1e9b32a39d73b5ded5d1b11bf55"
+  integrity sha512-V8H90u3FSNTNu26oxyTx1q3PvyLge/5nbCwZQomxXnpAsfp/dV+W344M1dIk54LKRC4otbLW3QjrErK3/Uqx0Q==
+
 "@react-aria/ssr@^3.2.0":
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/@react-aria/ssr/-/ssr-3.4.1.tgz#79e8bb621487e8f52890c917d3c734f448ba95e7"
