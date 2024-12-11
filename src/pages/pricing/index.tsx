@@ -82,6 +82,12 @@ const FAQS = [
           Students will be responsible for paying the PrairieLearn fee before
           they are able to access any of your course&apos;s content.
         </p>
+        <p>
+          Note that we don&apos;t currently support the student-paid model for
+          terms shorter than a semester. If you&apos;re interested in using
+          PrairieLearn for a shorter term, please{" "}
+          <Link href="/contact">contact us</Link>.
+        </p>
       </React.Fragment>
     ),
   },
@@ -165,6 +171,13 @@ export default function Pricing() {
 
   const updatePaymentModel = (paymentModel: "course" | "student") => {
     setPaymentModel(paymentModel);
+
+    if (paymentModel === "student") {
+      // We don't currently support shorter terms for student-paid pricing.
+      // We'll force it to "semester" and disable the select below.
+      setAcademicCalendar("semester");
+    }
+
     controls.start({ scale: 1.3 }).then(() => controls.start({ scale: 1 }));
   };
 
@@ -214,10 +227,12 @@ export default function Pricing() {
         <Stack>
           <div className="container">
             <Row>
-              <Col xs={12} md={6}>
+              <Col xs={12} md={6} className="mb-3">
                 <Form.Group controlId="academic-calendar">
                   <Form.Label>Academic calendar</Form.Label>
                   <Form.Select
+                    value={academicCalendar}
+                    disabled={paymentModel === "student"}
                     onChange={(e) => {
                       updateAcademicCalendar(e.currentTarget.value as any);
                     }}
@@ -229,10 +244,11 @@ export default function Pricing() {
                 </Form.Group>
               </Col>
 
-              <Col xs={12} md={6}>
+              <Col xs={12} md={6} className="mb-3">
                 <Form.Group controlId="payment-model">
                   <Form.Label>Payment model</Form.Label>
                   <Form.Select
+                    value={paymentModel}
                     onChange={(e) => {
                       updatePaymentModel(e.currentTarget.value as any);
                     }}
