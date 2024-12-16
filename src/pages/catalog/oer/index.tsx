@@ -77,11 +77,11 @@ export default function Courses() {
   return (
     <React.Fragment>
       <Head>
-        <title>OER | PrairieLearn</title>
+        <title>OER Questions | PrairieLearn</title>
       </Head>
 
       <PageBanner
-        title="Open Educational Resources (OER)"
+        title="Open Educational Resources (OER): Questions"
         subtitle="A catalog of questions to help you get started with PrairieLearn"
       />
 
