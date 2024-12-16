@@ -80,10 +80,11 @@ export default function Courses() {
         <div className="container-md">
           <div className="alert alert-secondary mb-0">
             <p>
-              The shared question elements on this page are provided as-is and not maintained 
-              by PrairieLearn. They are only recommended for instructors who are already 
-              familiar with the platform. To use an element, you will have to access its 
-              Github repository and manually copy the element into your course.
+              The shared question elements on this page are provided as-is and
+              not maintained by PrairieLearn. They are only recommended for
+              instructors who are already familiar with the platform. To use an
+              element, you will have to access its Github repository and
+              manually copy the element into your course.
             </p>
           </div>
         </div>
@@ -94,11 +95,12 @@ export default function Courses() {
           <Heading>Publicly Shared Elements</Heading>
           <div className="row">
             <p>
-              This catalog contains question elements that have been created and shared by
-              students and instructors from various universities. You can try them out by 
-              clicking the link to a demo assessment on PrairieLearn. The assessment also
-              contains instructions how you can copy an element into your course if you like
-              it. You can find the link to each element's Github repository below.
+              This catalog contains question elements that have been created and
+              shared by students and instructors from various universities. You
+              can try them out by clicking the link to a demo assessment on
+              PrairieLearn. The assessment also contains instructions how you
+              can copy an element into your course if you like it. You can find
+              the link to each element&apos;s Github repository below.
             </p>
           </div>
         </div>
@@ -131,7 +133,6 @@ export default function Courses() {
           <p>All content here is made made available under an open license.</p>
         </div>
       </div>
-
       <div className="container-fluid my-5">
         <div className="container-md">
           <h2 className="h4">Contribute to this page</h2>
