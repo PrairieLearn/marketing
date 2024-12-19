@@ -1,11 +1,10 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Image, { ImageProps } from "next/image";
 
 import { PageBanner } from "../../../components/Banner";
 import { Heading } from "../../../components/Heading";
-import { RequestCourseModal } from "../../../components/RequestCourseModal";
 
 import styles from "./index.module.scss";
 import oerTruthTable from "../../../lib/images/oer-element-truthtable.png";
@@ -15,8 +14,7 @@ interface SharedElementCardProps {
   image: ImageProps["src"];
   title: string;
   href: string;
-  ownerName?: string;
-  ownerEmail?: string;
+  owner: ReactNode;
   github?: string;
 }
 
@@ -24,8 +22,7 @@ const SharedElementCard: React.FC<SharedElementCardProps> = ({
   image,
   title,
   href,
-  ownerName,
-  ownerEmail,
+  owner,
   github,
 }) => {
   return (
@@ -46,15 +43,12 @@ const SharedElementCard: React.FC<SharedElementCardProps> = ({
         <Link href={href}>
           <h3 className="card-title h5">{title}</h3>
         </Link>
-        {ownerName && (
-          <p className="mb-1">
-            <strong>Created by:</strong> {ownerName}{" "}
-            {ownerEmail && <a href={`mailto:${ownerEmail}`}>{ownerEmail}</a>}
-          </p>
-        )}
+        <p className="mb-1">
+          <strong>Created by:</strong> {owner}
+        </p>
         {github && (
           <p className="mb-1">
-            <Link href={github}>Access on Github</Link>
+            <Link href={github}>Access on GitHub</Link>
           </p>
         )}
       </div>
@@ -63,8 +57,6 @@ const SharedElementCard: React.FC<SharedElementCardProps> = ({
 };
 
 export default function Courses() {
-  const [showRequestCourseModal, setShowRequestCourseModal] =
-    React.useState(false);
   return (
     <React.Fragment>
       <Head>
@@ -79,13 +71,11 @@ export default function Courses() {
       <div className="container-fluid my-3">
         <div className="container-md">
           <div className="alert alert-secondary mb-0">
-            <p>
-              The shared question elements on this page are provided as-is and
-              not maintained by PrairieLearn. They are only recommended for
-              instructors who are already familiar with the platform. To use an
-              element, you will have to access its Github repository and
-              manually copy the element into your course.
-            </p>
+            The shared question elements on this page are provided as-is and not
+            maintained by PrairieLearn. They are only recommended for
+            instructors who are already familiar with the platform. To use an
+            element, you will have to access its Github repository and manually
+            copy the element into your course.
           </div>
         </div>
       </div>
@@ -114,14 +104,26 @@ export default function Courses() {
               title="Truth Table"
               href="https://us.prairielearn.com/pl/course_instance/169837/assessment/2489207"
               github="https://github.com/PrairieLearn/pl-oer-element-truthtable"
-              ownerName="Pai Zheng and Yujie Miao"
+              owner={
+                <span>
+                  <a href="https://github.com/paiz3">Pai Zheng</a> and{" "}
+                  <a href="https://github.com/Mayojet">Yujie Miao</a>
+                </span>
+              }
             />
             <SharedElementCard
               image={oerChemInput}
               title="Chemistry Input"
               href="https://us.prairielearn.com/pl/course_instance/169804/assessment/2489141"
               github="https://github.com/PrairieLearn/pl-oer-element-cheminput"
-              ownerName="Ananya Barman, Jayshri Ganguli and Shengyuan Wang"
+              owner={
+                <span>
+                  <a href="https://github.com/ananyab3">Ananya Barman</a>,{" "}
+                  <a href="https://github.com/jayshri99">Jayshri Ganguli</a>,
+                  and{" "}
+                  <a href="https://github.com/ShengyuanWang">Shengyuan Wang</a>
+                </span>
+              }
             />
           </div>
         </div>
@@ -143,11 +145,6 @@ export default function Courses() {
           </p>
         </div>
       </div>
-
-      <RequestCourseModal
-        show={showRequestCourseModal}
-        onHide={() => setShowRequestCourseModal(false)}
-      />
     </React.Fragment>
   );
 }
