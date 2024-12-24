@@ -125,6 +125,18 @@ export default function Courses() {
                 </span>
               }
             />
+            <SharedElementCard
+              image={oerImageAnnotate}
+              title="Image Annotation"
+              href="https://us.prairielearn.com/pl/course_instance/170992/assessment/2490989/"
+              github="https://github.com/PrairieLearn/pl-oer-element-imageannotate"
+              owner={
+                <span>
+                  <a href="https://github.com/willychang21">Willi Chang</a> and{" "}
+                  <a href="https://github.com/Patrick8894">Patrick Wu</a>
+                </span>
+              }
+            />
           </div>
         </div>
       </div>
