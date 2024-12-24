@@ -9,6 +9,7 @@ import { Heading } from "../../../components/Heading";
 import styles from "./index.module.scss";
 import oerTruthTable from "../../../lib/images/oer-element-truthtable.png";
 import oerChemInput from "../../../lib/images/oer-element-cheminput.png";
+import oerImageAnnotate from "../../../lib/images/oer-element-imageannotate.png";
 
 interface SharedElementCardProps {
   image: ImageProps["src"];
