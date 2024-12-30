@@ -10,6 +10,7 @@ import styles from "./index.module.scss";
 import oerTruthTable from "../../../lib/images/oer-element-truthtable.png";
 import oerChemInput from "../../../lib/images/oer-element-cheminput.png";
 import oerImageAnnotate from "../../../lib/images/oer-element-imageannotate.png";
+import oerVennDiagram from "../../../lib/images/oer-element-venndiagram.png";
 
 interface SharedElementCardProps {
   image: ImageProps["src"];
@@ -100,6 +101,19 @@ export default function Courses() {
       <div className="container-fluid my-5">
         <div className="container-md">
           <div className={styles.grid}>
+            <SharedElementCard
+              image={oerVennDiagram}
+              title="Venn Diagram"
+              href="https://us.prairielearn.com/pl/course_instance/171355/assessment/2492870"
+              github="https://github.com/PrairieLearn/pl-oer-element-venndiagram"
+              owner={
+                <span>
+                  <a href="https://github.com/ngersich">Noah Gersich</a>,{" "}
+                  <a href="https://github.com/BYoon007">Brian Yoon</a>, and{" "}
+                  <a href="https://github.com/Keerthu8999">Keerthana Sunder</a>
+                </span>
+              }
+            />
             <SharedElementCard
               image={oerTruthTable}
               title="Truth Table"
