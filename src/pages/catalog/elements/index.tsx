@@ -11,6 +11,7 @@ import oerTruthTable from "../../../lib/images/oer-element-truthtable.png";
 import oerChemInput from "../../../lib/images/oer-element-cheminput.png";
 import oerImageAnnotate from "../../../lib/images/oer-element-imageannotate.png";
 import oerVennDiagram from "../../../lib/images/oer-element-venndiagram.png";
+import oerAlignmentTable from "../../../lib/images/oer-element-alignmenttable.png";
 
 interface SharedElementCardProps {
   image: ImageProps["src"];
@@ -149,6 +150,18 @@ export default function Courses() {
                 <span>
                   <a href="https://github.com/willychang21">Willi Chang</a> and{" "}
                   <a href="https://github.com/Patrick8894">Patrick Wu</a>
+                </span>
+              }
+            />
+            <SharedElementCard
+              image={oerAlignmentTable}
+              title="Sequence Alignment Table"
+              href="https://us.prairielearn.com/pl/course_instance/171784/assessment/2493629"
+              github="https://github.com/PrairieLearn/pl-oer-element-alignmenttable"
+              owner={
+                <span>
+                  <a href="https://github.com/paiz3">Pai Zheng</a> and{" "}
+                  <a href="https://github.com/Mayojet">Yujie Miao</a>
                 </span>
               }
             />
