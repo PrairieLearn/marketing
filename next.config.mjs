@@ -59,6 +59,7 @@ const nextConfig = {
         source: "/schemas/:slug*",
         destination:
           "https://raw.githubusercontent.com/PrairieLearn/PrairieLearn/master/apps/prairielearn/src/schemas/schemas/:slug*",
+        permanent: false,
       },
     ];
   },
