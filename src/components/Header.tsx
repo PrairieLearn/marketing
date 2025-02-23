@@ -191,7 +191,7 @@ export const Header: React.FC = () => {
                     OER Questions
                   </NavDropdownItem>
                   <NavDropdownItem href="/catalog/elements">
-                    OER Question Elements
+                    OER Elements
                   </NavDropdownItem>
                 </Dropdown.Menu>
               </Dropdown>
