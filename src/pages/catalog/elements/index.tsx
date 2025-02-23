@@ -172,7 +172,7 @@ export default function Courses() {
       <div className="container-fluid my-5">
         <div className="container-md">
           <h2 className="h4">License</h2>
-          <p>All content here is made made available under an open license.</p>
+          <p>All content here is made made available under open licenses. See the individual GitHub repositories for license information.</p>
         </div>
       </div>
       <div className="container-fluid my-5">
