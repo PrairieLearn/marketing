@@ -63,7 +63,7 @@ const SharedQuestionCard: React.FC<SharedQuestionCardProps> = ({
         )}
         {github && (
           <p className="mb-1">
-            <Link href={github}>View source on Github</Link>
+            <Link href={github}>View source on GitHub</Link>
           </p>
         )}
       </div>
@@ -77,11 +77,11 @@ export default function Courses() {
   return (
     <React.Fragment>
       <Head>
-        <title>OER | PrairieLearn</title>
+        <title>OER Questions | PrairieLearn</title>
       </Head>
 
       <PageBanner
-        title="Open Educational Resources (OER)"
+        title="Open Educational Resources (OER): Questions"
         subtitle="A catalog of questions to help you get started with PrairieLearn"
       />
 
@@ -196,7 +196,7 @@ export default function Courses() {
 
             <SharedQuestionCard
               image={sigcse2023}
-              title="SIGCSE 2023 - Workhop"
+              title="SIGCSE 2023 - Workshop"
               href="https://us.prairielearn.com/pl/public/course/1305/questions"
               github="https://github.com/PrairieLearn/pl-prairielearn101"
             />
