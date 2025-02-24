@@ -55,6 +55,12 @@ const nextConfig = {
         destination: "/catalog/assessments/:slug*",
         permanent: true,
       },
+      {
+        source: "/schemas/:slug*",
+        destination:
+          "https://raw.githubusercontent.com/PrairieLearn/PrairieLearn/master/apps/prairielearn/src/schemas/schemas/:slug*",
+        permanent: false,
+      },
     ];
   },
 };
