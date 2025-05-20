@@ -12,6 +12,10 @@ import oerChemInput from "../../../lib/images/oer-element-cheminput.png";
 import oerImageAnnotate from "../../../lib/images/oer-element-imageannotate.png";
 import oerVennDiagram from "../../../lib/images/oer-element-venndiagram.png";
 import oerAlignmentTable from "../../../lib/images/oer-element-alignmenttable.png";
+import oerArrayTable from "../../../lib/images/oer-element-arraytable.png";
+import oerCacheTable from "../../../lib/images/oer-element-cachetable.png";
+import oerFunctionVisualizer from "../../../lib/images/oer-element-functionvisualizer.png";
+import oerDragDropGrid from "../../../lib/images/oer-element-dragdropgrid.png";
 
 interface SharedElementCardProps {
   image: ImageProps["src"];
@@ -103,6 +107,19 @@ export default function Courses() {
         <div className="container-md">
           <div className={styles.grid}>
             <SharedElementCard
+              image={oerArrayTable}
+              title="Array Table"
+              href="https://us.prairielearn.com/pl/course_instance/182047/assessment/2545373"
+              github="https://github.com/PrairieLearn/pl-oer-element-arraytable"
+              owner={
+                <span>
+                  <a href="https://github.com/kikis05">Kirthi Shankar</a>,{" "}
+                  <a href="https://github.com/bonthu2">Maanvi Bonthu</a> and{" "}
+                  <a href="https://github.com/Shubhi0406">Shubhi Bhatia</a>
+                </span>
+              }
+            />
+            <SharedElementCard
               image={oerVennDiagram}
               title="Venn Diagram"
               href="https://us.prairielearn.com/pl/course_instance/171355/assessment/2492870"
@@ -162,6 +179,43 @@ export default function Courses() {
                 <span>
                   <a href="https://github.com/paiz3">Pai Zheng</a> and{" "}
                   <a href="https://github.com/Mayojet">Yujie Miao</a>
+                </span>
+              }
+            />
+            <SharedElementCard
+              image={oerCacheTable}
+              title="Cache Table"
+              href="https://us.prairielearn.com/pl/course_instance/182113/assessment/2545439"
+              github="https://github.com/PrairieLearn/pl-oer-element-cachetable"
+              owner={
+                <span>
+                  <a href="https://github.com/glherman">Geoffrey Herman</a>
+                </span>
+              }
+            />
+            <SharedElementCard
+              image={oerFunctionVisualizer}
+              title="3D Function Visualizer"
+              href="https://us.prairielearn.com/pl/course_instance/181750/assessment/2544516"
+              github="https://github.com/PrairieLearn/pl-oer-element-functionvisualizer"
+              owner={
+                <span>
+                  <a href="https://github.com/jegeronimo">James Geronimo</a>,{" "}
+                  Malavikha Sudarshan and{" "}
+                  Sean Lim
+                </span>
+              }
+            />
+            <SharedElementCard
+              image={oerDragDropGrid}
+              title="Drag and Drop Grid"
+              href="https://us.prairielearn.com/pl/course_instance/181849/assessment/2544614"
+              github="https://github.com/PrairieLearn/pl-oer-element-dragdropgrid"
+              owner={
+                <span>
+                  <a href="https://github.com/NakVong">Kiriratanak Vong</a>,{" "}
+                  <a href="https://github.com/RunjeetN">Runjeet Narula</a> and{" "}
+                  Anika Sikka
                 </span>
               }
             />
