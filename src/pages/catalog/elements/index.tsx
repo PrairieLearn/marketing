@@ -201,8 +201,7 @@ export default function Courses() {
               owner={
                 <span>
                   <a href="https://github.com/jegeronimo">James Geronimo</a>,{" "}
-                  Malavikha Sudarshan and{" "}
-                  Sean Lim
+                  Malavikha Sudarshan and Sean Lim
                 </span>
               }
             />
