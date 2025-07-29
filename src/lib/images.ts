@@ -1,17 +1,14 @@
 import fs from "fs-extra";
 import path from "path";
 import { createHash } from "crypto";
-import imageSizeCallback from "image-size";
-import { promisify } from "util";
+import { imageSizeFromFile } from "image-size/fromFile";
 import slugify from "slugify";
-
-const imageSize = promisify(imageSizeCallback);
 
 const PUBLIC_BUILD_IMAGES_DIR = path.resolve(
   process.cwd(),
   "public",
   "build",
-  "images"
+  "images",
 );
 
 export interface ImageInfo {
@@ -23,7 +20,7 @@ export interface ImageInfo {
 }
 
 export const copyImageToPublicDir = async (
-  imagePath: string
+  imagePath: string,
 ): Promise<ImageInfo> => {
   const { ext: extension, name } = path.parse(imagePath);
   const slugifiedName = slugify(name, { lower: true });
@@ -41,7 +38,7 @@ export const copyImageToPublicDir = async (
   const imageDestination = path.resolve(PUBLIC_BUILD_IMAGES_DIR, imageBase);
   await fs.copyFile(imagePath, imageDestination);
 
-  const size = await imageSize(imagePath);
+  const size = await imageSizeFromFile(imagePath);
   if (!size || !size.width || !size.height) {
     throw new Error(`Could not determine size of ${imagePath}`);
   }

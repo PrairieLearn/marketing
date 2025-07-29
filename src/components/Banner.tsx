@@ -29,7 +29,7 @@ export const PageBanner: React.FC<PageBannerProps> = ({
                 href={backHref}
                 className={classnames(
                   "link-light text-decoration-none",
-                  styles["back-link"]
+                  styles["back-link"],
                 )}
               >
                 ← {backText}

@@ -39,7 +39,7 @@ export default function extractImages(): Transformer {
         node.data ??= {};
         (node.data as any).hProperties ??= {};
         Object.assign((node.data as any).hProperties, dimensionProps);
-      })
+      }),
     );
   };
 }

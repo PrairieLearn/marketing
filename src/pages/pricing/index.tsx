@@ -172,7 +172,7 @@ export default function Pricing() {
   };
 
   const updateAcademicCalendar = (
-    academicCalendar: "semester" | "quarter" | "monthly"
+    academicCalendar: "semester" | "quarter" | "monthly",
   ) => {
     setAcademicCalendar(academicCalendar);
   };

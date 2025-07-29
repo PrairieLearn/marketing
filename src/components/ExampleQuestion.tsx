@@ -19,7 +19,7 @@ const randomNumber = (
   min: number,
   max: number,
   precision: number,
-  random: () => number
+  random: () => number,
 ) => {
   const factor = Math.pow(10, precision);
   return Math.floor(factor * (min + random() * (max - min))) / factor;
