@@ -1,3 +1,4 @@
+import type { NextConfig } from "next";
 import nextMdx from "@next/mdx";
 
 import rehypeKatex from "rehype-katex";
@@ -24,8 +25,7 @@ const withMDX = nextMdx({
   },
 });
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: NextConfig = {
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
   async redirects() {
     return [
