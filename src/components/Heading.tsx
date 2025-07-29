@@ -16,7 +16,7 @@ export const Heading: React.FC<HeadingProps> = ({
   level = 2,
   children,
 }) => {
-  const Component = `h${level}` as keyof JSX.IntrinsicElements;
+  const Component = `h${level}` as keyof React.JSX.IntrinsicElements;
   return (
     <Component
       className={classnames(styles.heading, "mb-3", `h${level}`, className)}
