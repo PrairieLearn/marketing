@@ -56,7 +56,7 @@ export const getQuestions = async (): Promise<Question[]> => {
           showOnIndex,
           image,
         };
-      })
+      }),
     )
   ).sort((a, b) => a.title.localeCompare(b.title));
 

@@ -18,7 +18,7 @@ function useIsActive(href: string | string[], exact: boolean): boolean {
   const { asPath } = useRouter();
   const hrefs = Array.isArray(href) ? href : [href];
   return hrefs.some((href) =>
-    exact ? asPath === href : asPath.startsWith(href)
+    exact ? asPath === href : asPath.startsWith(href),
   );
 }
 
@@ -115,7 +115,7 @@ export const Header: React.FC = () => {
       <nav
         className={classnames(
           "navbar navbar-expand-md navbar-dark navbar-primary",
-          styles.header
+          styles.header,
         )}
       >
         <div className="container-fluid container-md">
@@ -150,7 +150,7 @@ export const Header: React.FC = () => {
                   className={classnames(styles["nav-link"], {
                     [`fw-bold ${styles.active}`]: useIsActive(
                       ["/products"],
-                      false
+                      false,
                     ),
                   })}
                 >
@@ -174,7 +174,7 @@ export const Header: React.FC = () => {
                   className={classnames(styles["nav-link"], {
                     [`fw-bold ${styles.active}`]: useIsActive(
                       ["/catalog"],
-                      false
+                      false,
                     ),
                   })}
                 >
@@ -201,7 +201,7 @@ export const Header: React.FC = () => {
                   className={classnames(styles["nav-link"], {
                     [`fw-bold ${styles.active}`]: useIsActive(
                       ["/about", "/research"],
-                      false
+                      false,
                     ),
                   })}
                 >

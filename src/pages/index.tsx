@@ -88,7 +88,7 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
               <h1
                 className={classnames(
                   "mt-3 fs-1 text-center text-white",
-                  styles["text-wrap-balance"]
+                  styles["text-wrap-balance"],
                 )}
               >
                 Empowering learners with equitable and authentic assessments

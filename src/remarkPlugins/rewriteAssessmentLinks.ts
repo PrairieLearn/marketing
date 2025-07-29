@@ -27,11 +27,11 @@ export default function rewriteAssessmentLinks(assessments: Assessment[]) {
 
       const resolvedFile = path.resolve(baseDirectory, node.url);
       const resolvedAssessment = assessments.find(
-        (a) => a.markdownPath === resolvedFile
+        (a) => a.markdownPath === resolvedFile,
       );
       if (!resolvedAssessment) {
         throw new Error(
-          `Relative link '${node.url}' from '${baseDirectory}' could not be resolved`
+          `Relative link '${node.url}' from '${baseDirectory}' could not be resolved`,
         );
       }
 
