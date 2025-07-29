@@ -36,12 +36,9 @@ export default function extractImages(): Transformer {
           imageHeight: height,
         };
 
-        const data = node.data || (node.data = {});
-        const dataWithProps = data as any;
-        const props =
-          dataWithProps.hProperties || (dataWithProps.hProperties = {});
-        console.log("props?", props);
-        Object.assign(props, dimensionProps);
+        node.data ??= {};
+        (node.data as any).hProperties ??= {};
+        Object.assign((node.data as any).hProperties, dimensionProps);
       })
     );
   };
