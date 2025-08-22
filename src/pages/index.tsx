@@ -8,10 +8,23 @@ import Stack from "../components/Stack";
 import { Heading } from "../components/Heading";
 import { ExampleQuestion } from "../components/ExampleQuestion";
 import { BannerCTA } from "../components/CallToActionBanner";
+import ScrollingLogos from "../components/ScrollingLogos";
 
 import richFBD from "../lib/images/rich_question_FBD.png";
 import richorder from "../lib/images/rich_question_order_block.png";
 import richball from "../lib/images/rich_question_balltrajectory.png";
+import {
+  asu,
+  gvsu,
+  insper,
+  nyu,
+  princeton,
+  rice,
+  ubc,
+  ucdavis,
+  uvic,
+  york,
+} from "../lib/images/universities";
 
 import styles from "./index.module.scss";
 import { Accordion, Carousel, CarouselItem } from "react-bootstrap";
@@ -36,6 +49,68 @@ const TALKING_POINTS = [
   },
 ];
 
+const UNIVERSITY_LOGOS = [
+  {
+    alt: "Arizona State University",
+    src: asu,
+  },
+  {
+    alt: "Grand Valley State University",
+    src: gvsu,
+  },
+  // TODO: Add Illinois logo
+  // {
+  //   alt: "University of Illinois at Urbana-Champaign",
+  //   src: illinois,
+  // },
+  {
+    alt: "InSper",
+    src: insper,
+  },
+  // TODO: Add Michigan logo
+  // {
+  //   alt: "University of Michigan",
+  //   src: michigan,
+  // },
+  {
+    alt: "New York University",
+    src: nyu,
+  },
+  {
+    alt: "Princeton University",
+    src: princeton,
+  },
+  {
+    alt: "Rice University",
+    src: rice,
+  },
+  {
+    alt: "University of British Columbia",
+    src: ubc,
+  },
+  {
+    alt: "University of California, Davis",
+    src: ucdavis,
+  },
+  // TODO: Add UC Santa Barbara and UC San Diego logos
+  // {
+  //   alt: "University of California, Santa Barbara",
+  //   src: ucsb,
+  // },
+  // {
+  //   alt: "University of California, San Diego",
+  //   src: ucsd,
+  // },
+  {
+    alt: "University of Victoria",
+    src: uvic,
+  },
+  {
+    alt: "University of York",
+    src: york,
+  },
+];
+
 const CAROUSEL_IMAGES = [
   {
     src: richorder,
@@ -48,6 +123,13 @@ const CAROUSEL_IMAGES = [
   {
     src: richFBD,
     alt: "PrairieLearn question asking students to construct a free body diagram",
+  },
+];
+
+const UNIVERSITIES = [
+  {
+    name: "University of Waterloo",
+    logo: "https://www.uwaterloo.ca/themes/custom/uwaterloo/logo.svg",
   },
 ];
 
@@ -146,6 +228,48 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
 
       <div className={classnames("container-fluid py-4", styles.container)}>
         <div className="container-md">
+          <Stack>
+            <Row>
+              <Column>
+                <Stack spacing={3}>
+                  <Heading>Trusted by the best</Heading>
+                  <p>
+                    Instructors at top universities in the United States and
+                    Canada have been using PrairieLearn to teach the next
+                    generation of students.
+                  </p>
+                </Stack>
+              </Column>
+            </Row>
+            <Row>
+              <div className="col-6 col-md-3 mt-2">
+                <div className="small text-muted">Universities</div>
+                <div className="display-5 lh-1">20+</div>
+              </div>
+              <div className="col-6 col-md-3 mt-2">
+                <div className="small text-muted">Courses</div>
+                <div className="display-5 lh-1">750+</div>
+              </div>
+              <div className="col-6 col-md-3 mt-2">
+                <div className="small text-muted">Students</div>
+                <div className="display-5 lh-1">180k+</div>
+              </div>
+              <div className="col-6 col-md-3 mt-2">
+                <div className="small text-muted">Questions Graded</div>
+                <div className="display-5 lh-1">41M+</div>
+              </div>
+            </Row>
+            <Row>
+              <Column>
+                <ScrollingLogos />
+              </Column>
+            </Row>
+          </Stack>
+        </div>
+      </div>
+
+      <div className={classnames("container-fluid py-4", styles.container)}>
+        <div className="container-md">
           <Row>
             <Column>
               <Heading>
@@ -213,43 +337,6 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
               </CarouselItem>
             ))}
           </Carousel>
-        </div>
-      </div>
-
-      <div className={classnames("container-fluid py-4", styles.container)}>
-        <div className="container-md">
-          <Stack>
-            <Row>
-              <Column>
-                <Stack spacing={3}>
-                  <Heading>Trusted by the best</Heading>
-                  <p>
-                    Instructors at top universities in the United States and
-                    Canada have been using PrairieLearn to teach the next
-                    generation of students.
-                  </p>
-                </Stack>
-              </Column>
-            </Row>
-            <Row>
-              <div className="col-6 col-md-3 mt-2">
-                <div className="small text-muted">Universities</div>
-                <div className="display-5 lh-1">20+</div>
-              </div>
-              <div className="col-6 col-md-3 mt-2">
-                <div className="small text-muted">Courses</div>
-                <div className="display-5 lh-1">750+</div>
-              </div>
-              <div className="col-6 col-md-3 mt-2">
-                <div className="small text-muted">Students</div>
-                <div className="display-5 lh-1">180k+</div>
-              </div>
-              <div className="col-6 col-md-3 mt-2">
-                <div className="small text-muted">Questions Graded</div>
-                <div className="display-5 lh-1">41M+</div>
-              </div>
-            </Row>
-          </Stack>
         </div>
       </div>
 
