@@ -36,7 +36,6 @@ const ScrollingLogos: React.FC = () => {
   return (
     <div className={styles.scrollingContainer}>
       <div className={styles.scrollingTrack}>
-        {/* First set of logos */}
         {UNIVERSITY_LOGOS.map((logo, index) => (
           <div key={`first-${index}`} className={styles.logoItem}>
             <Image
@@ -48,7 +47,6 @@ const ScrollingLogos: React.FC = () => {
                 objectFit: "contain",
                 maxHeight: "60px",
                 width: "auto",
-                mixBlendMode: "multiply",
               }}
             />
           </div>

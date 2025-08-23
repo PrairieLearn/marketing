@@ -31,12 +31,10 @@
   }
 }
 
-/* Pause animation on hover */
 .scrollingContainer:hover .scrollingTrack {
   animation-play-state: paused;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .logoItem {
     margin: 0 1rem;

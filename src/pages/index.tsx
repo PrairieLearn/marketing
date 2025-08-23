@@ -13,18 +13,6 @@ import ScrollingLogos from "../components/ScrollingLogos";
 import richFBD from "../lib/images/rich_question_FBD.png";
 import richorder from "../lib/images/rich_question_order_block.png";
 import richball from "../lib/images/rich_question_balltrajectory.png";
-import {
-  asu,
-  gvsu,
-  insper,
-  nyu,
-  princeton,
-  rice,
-  ubc,
-  ucdavis,
-  uvic,
-  york,
-} from "../lib/images/universities";
 
 import styles from "./index.module.scss";
 import { Accordion, Carousel, CarouselItem } from "react-bootstrap";
@@ -49,68 +37,6 @@ const TALKING_POINTS = [
   },
 ];
 
-const UNIVERSITY_LOGOS = [
-  {
-    alt: "Arizona State University",
-    src: asu,
-  },
-  {
-    alt: "Grand Valley State University",
-    src: gvsu,
-  },
-  // TODO: Add Illinois logo
-  // {
-  //   alt: "University of Illinois at Urbana-Champaign",
-  //   src: illinois,
-  // },
-  {
-    alt: "InSper",
-    src: insper,
-  },
-  // TODO: Add Michigan logo
-  // {
-  //   alt: "University of Michigan",
-  //   src: michigan,
-  // },
-  {
-    alt: "New York University",
-    src: nyu,
-  },
-  {
-    alt: "Princeton University",
-    src: princeton,
-  },
-  {
-    alt: "Rice University",
-    src: rice,
-  },
-  {
-    alt: "University of British Columbia",
-    src: ubc,
-  },
-  {
-    alt: "University of California, Davis",
-    src: ucdavis,
-  },
-  // TODO: Add UC Santa Barbara and UC San Diego logos
-  // {
-  //   alt: "University of California, Santa Barbara",
-  //   src: ucsb,
-  // },
-  // {
-  //   alt: "University of California, San Diego",
-  //   src: ucsd,
-  // },
-  {
-    alt: "University of Victoria",
-    src: uvic,
-  },
-  {
-    alt: "University of York",
-    src: york,
-  },
-];
-
 const CAROUSEL_IMAGES = [
   {
     src: richorder,
@@ -123,13 +49,6 @@ const CAROUSEL_IMAGES = [
   {
     src: richFBD,
     alt: "PrairieLearn question asking students to construct a free body diagram",
-  },
-];
-
-const UNIVERSITIES = [
-  {
-    name: "University of Waterloo",
-    logo: "https://www.uwaterloo.ca/themes/custom/uwaterloo/logo.svg",
   },
 ];
 
