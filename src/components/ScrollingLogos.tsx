@@ -29,7 +29,7 @@ const UNIVERSITY_LOGOS = [
   { alt: "University of York", src: york },
   { alt: "University of Victoria", src: uvic },
   { alt: "Grand Valley State University", src: gvsu },
-  { alt: "InSper", src: insper },
+  { alt: "Insper", src: insper },
 ];
 
 const ScrollingLogos: React.FC = () => {

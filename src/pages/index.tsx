@@ -187,7 +187,7 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
         </div>
       </div>
 
-      <div className={classnames("container-fluid py-4", styles.container)}>
+      <div className="container-fluid py-4">
         <div className="container-md">
           <Row>
             <Column>
@@ -216,7 +216,7 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
         </div>
       </div>
 
-      <div className="container-fluid py-4">
+      <div className={classnames("container-fluid py-4", styles.container)}>
         <div className="container-md">
           <Heading>Automation without compromising quality </Heading>
           <p>
