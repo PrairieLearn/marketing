@@ -1,0 +1,48 @@
+.scrollingContainer {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 2rem 0;
+}
+
+.scrollingTrack {
+  display: flex;
+  align-items: center;
+  animation: scroll 30s linear infinite;
+  width: max-content;
+}
+
+.logoItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 2rem;
+  min-width: 120px;
+  height: 60px;
+  flex-shrink: 0;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.scrollingContainer:hover .scrollingTrack {
+  animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+  .logoItem {
+    margin: 0 1rem;
+    min-width: 100px;
+    height: 50px;
+  }
+
+  .scrollingTrack {
+    animation-duration: 30s;
+  }
+}

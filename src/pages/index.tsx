@@ -8,6 +8,7 @@ import Stack from "../components/Stack";
 import { Heading } from "../components/Heading";
 import { ExampleQuestion } from "../components/ExampleQuestion";
 import { BannerCTA } from "../components/CallToActionBanner";
+import ScrollingLogos from "../components/ScrollingLogos";
 
 import richFBD from "../lib/images/rich_question_FBD.png";
 import richorder from "../lib/images/rich_question_order_block.png";
@@ -146,6 +147,48 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
 
       <div className={classnames("container-fluid py-4", styles.container)}>
         <div className="container-md">
+          <Stack>
+            <Row>
+              <Column>
+                <Stack spacing={3}>
+                  <Heading>Trusted by the best</Heading>
+                  <p>
+                    Instructors at top universities in the United States and
+                    Canada have been using PrairieLearn to teach the next
+                    generation of students.
+                  </p>
+                </Stack>
+              </Column>
+            </Row>
+            <Row>
+              <div className="col-6 col-md-3 mt-2">
+                <div className="small text-muted">Universities</div>
+                <div className="display-5 lh-1">20+</div>
+              </div>
+              <div className="col-6 col-md-3 mt-2">
+                <div className="small text-muted">Courses</div>
+                <div className="display-5 lh-1">750+</div>
+              </div>
+              <div className="col-6 col-md-3 mt-2">
+                <div className="small text-muted">Students</div>
+                <div className="display-5 lh-1">180k+</div>
+              </div>
+              <div className="col-6 col-md-3 mt-2">
+                <div className="small text-muted">Questions Graded</div>
+                <div className="display-5 lh-1">41M+</div>
+              </div>
+            </Row>
+            <Row>
+              <Column>
+                <ScrollingLogos />
+              </Column>
+            </Row>
+          </Stack>
+        </div>
+      </div>
+
+      <div className="container-fluid py-4">
+        <div className="container-md">
           <Row>
             <Column>
               <Heading>
@@ -173,7 +216,7 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
         </div>
       </div>
 
-      <div className="container-fluid py-4">
+      <div className={classnames("container-fluid py-4", styles.container)}>
         <div className="container-md">
           <Heading>Automation without compromising quality </Heading>
           <p>
@@ -213,43 +256,6 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
               </CarouselItem>
             ))}
           </Carousel>
-        </div>
-      </div>
-
-      <div className={classnames("container-fluid py-4", styles.container)}>
-        <div className="container-md">
-          <Stack>
-            <Row>
-              <Column>
-                <Stack spacing={3}>
-                  <Heading>Trusted by the best</Heading>
-                  <p>
-                    Instructors at top universities in the United States and
-                    Canada have been using PrairieLearn to teach the next
-                    generation of students.
-                  </p>
-                </Stack>
-              </Column>
-            </Row>
-            <Row>
-              <div className="col-6 col-md-3 mt-2">
-                <div className="small text-muted">Universities</div>
-                <div className="display-5 lh-1">20+</div>
-              </div>
-              <div className="col-6 col-md-3 mt-2">
-                <div className="small text-muted">Courses</div>
-                <div className="display-5 lh-1">750+</div>
-              </div>
-              <div className="col-6 col-md-3 mt-2">
-                <div className="small text-muted">Students</div>
-                <div className="display-5 lh-1">180k+</div>
-              </div>
-              <div className="col-6 col-md-3 mt-2">
-                <div className="small text-muted">Questions Graded</div>
-                <div className="display-5 lh-1">41M+</div>
-              </div>
-            </Row>
-          </Stack>
         </div>
       </div>
 
