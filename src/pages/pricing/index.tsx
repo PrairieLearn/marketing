@@ -39,6 +39,11 @@ const FEATURES = [
     support: [true, true, true, true],
   },
   {
+    name: "PrairieTest",
+    contents: <Link href="/products/prairietest">PrairieTest</Link>,
+    support: [true, true, true, true],
+  },
+  {
     name: "Code autograding",
     support: [true, false, true, true],
   },
@@ -310,7 +315,7 @@ export default function Pricing() {
               <tbody>
                 {FEATURES.map((feature) => (
                   <tr key={feature.name}>
-                    <th>{feature.name}</th>
+                    <th>{feature.contents ?? feature.name}</th>
                     {feature.support.map((support, i) => (
                       <td className="align-middle" key={i}>
                         {support ? <CheckIcon /> : <span>-</span>}
