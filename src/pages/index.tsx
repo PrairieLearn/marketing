@@ -189,7 +189,7 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
             </Row>
             <Row>
               <Column>
-                <div className="d-flex flex-row justify-content-around align-items-center flex-wrap my-2">
+                <div className="d-flex flex-row justify-content-around align-items-center flex-wrap my-md-4 my-2">
                   {MAJOR_UNIVERSITY_LOGOS.map((logo, index) => (
                     <div
                       key={index}
