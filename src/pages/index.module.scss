@@ -12,3 +12,13 @@
 .text-wrap-balance {
   text-wrap: balance;
 }
+
+.university-logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  padding: 0 1rem;
+  flex: 1;
+  min-width: 0; // Allows flex items to shrink below their content size
+}
