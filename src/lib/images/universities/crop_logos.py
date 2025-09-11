@@ -28,11 +28,10 @@ uv run src/lib/images/universities/crop_logos.py
 from __future__ import annotations
 
 import argparse
-import os
 from pathlib import Path
 from typing import Iterable
 
-from PIL import Image, ImageChops, ImageOps
+from PIL import Image, ImageOps
 
 IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".bmp", ".gif", ".webp"}
 
@@ -41,34 +40,35 @@ def is_image_file(filename: str) -> bool:
     return any(filename.lower().endswith(ext) for ext in IMAGE_EXTENSIONS)
 
 
-def crop_whitespace(img: Image.Image, threshold: int = 250) -> Image.Image:
-    """Return a cropped version of img removing uniform (near‑white) margins.
+def crop_whitespace(
+    img: Image.Image,
+    threshold: int = 250,
+) -> Image.Image:
+    """Return a cropped version of img removing uniform / solid margins.
 
-    Strategy:
-      * Respect transparency first (alpha channel bounding box).
-      * Fallback: treat pixels with all RGB channels > threshold as background.
+    Strategy (short-circuit when a crop is found):
+      1. Alpha channel bounding box.
+      2. Near-white luminance threshold.
+      3. (Optional) Border color average + tolerance based mask.
     """
-    # Normalize orientation (EXIF) and mode handling
     img = ImageOps.exif_transpose(img)
 
-    # Alpha strategy
-    if "A" in img.getbands():  # RGBA, LA, etc.
-        # Work on a copy to avoid altering original inadvertently
+    # (1) Alpha channel bounding box
+    if "A" in img.getbands():
         alpha = img.split()[-1]
         bbox = alpha.getbbox()
-        if bbox:  # Found some opaque content
+        if bbox and bbox != (0, 0, img.width, img.height):
             return img.crop(bbox)
 
-    # Fallback: background assumed near-white
+    # (2) Near-white threshold
     rgb = img.convert("RGB")
-    # Create a mask of content pixels (any channel <= threshold) -> keep
-    # Convert to single-channel luminance for simpler thresholding
     lum = rgb.convert("L")
     content_mask = lum.point(lambda p: 255 if p <= threshold else 0)
     bbox = content_mask.getbbox()
-    if bbox:
+    if bbox and bbox != (0, 0, img.width, img.height):
         return img.crop(bbox)
-    return img  # Nothing to crop
+
+    return img
 
 
 def destination_path(src: Path, suffix: str | None) -> Path:
@@ -96,11 +96,24 @@ def process_images(
         total += 1
         try:
             with Image.open(path) as img:
-                cropped = crop_whitespace(img, threshold=threshold)
+                # Convert palette images with transparency to RGBA to avoid PIL warning
+                if img.mode == "P":
+                    try:
+                        transparency = img.info.get("transparency")
+                    except Exception:  # noqa: BLE001
+                        transparency = None
+                    if transparency is not None:
+                        img = img.convert("RGBA")
+                cropped = crop_whitespace(
+                    img,
+                    threshold=threshold,
+                )
             if cropped.size != img.size:
                 out_path = destination_path(path, suffix)
                 if dry_run:
-                    print(f"WOULD crop {path.name}: {img.size} -> {cropped.size} -> {out_path.name}")
+                    print(
+                        f"WOULD crop {path.name}: {img.size} -> {cropped.size} -> {out_path.name}"
+                    )
                 else:
                     out_path.parent.mkdir(parents=True, exist_ok=True)
                     cropped.save(out_path)
@@ -110,7 +123,7 @@ def process_images(
                 print(f"No crop needed: {path.name}")
         except Exception as e:  # noqa: BLE001
             print(f"Error processing {path.name}: {e}")
-    print(f"Summary: {cropped_count}/{total} images cropped (threshold={threshold}).")
+    print(f"Summary: {cropped_count}/{total} images cropped (threshold={threshold})")
 
 
 def parse_args() -> argparse.Namespace:
