@@ -19,6 +19,10 @@ The script uses a two-stage strategy:
      around remaining content.
 
 By default images are overwritten only when a crop actually reduces dimensions.
+
+To run this script:
+
+uv run src/lib/images/universities/crop_logos.py
 """
 
 from __future__ import annotations
