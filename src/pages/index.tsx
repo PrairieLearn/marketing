@@ -17,6 +17,7 @@ import richball from "../lib/images/rich_question_balltrajectory.png";
 import styles from "./index.module.scss";
 import { Accordion, Carousel, CarouselItem } from "react-bootstrap";
 import { RequestCourseModal } from "../components/RequestCourseModal";
+import { illinois, ubc } from "../lib/images/universities";
 
 const TALKING_POINTS = [
   {
@@ -71,6 +72,14 @@ const Column: React.FC<ColumnProps> = ({ children }) => (
 interface HomeProps {
   seed: number;
 }
+
+// These are shown above the scrolling logos.
+const MAJOR_UNIVERSITY_LOGOS = [
+  { alt: "University of Illinois at Urbana-Champaign", src: illinois },
+  { alt: "University of British Columbia", src: ubc },
+  //   { alt: "University of California, Santa Barbara", src: ucsb },
+  //   { alt: "University of California, San Diego", src: ucsd },
+];
 
 const Home: React.FC<HomeProps> = ({ seed }) => {
   const [showRequestCourseModal, setShowRequestCourseModal] =
@@ -151,7 +160,7 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
             <Row>
               <Column>
                 <Stack spacing={3}>
-                  <Heading>Trusted by the best</Heading>
+                  <Heading>Used by the best</Heading>
                   <p>
                     Instructors at top universities in the United States and
                     Canada have been using PrairieLearn to teach the next
@@ -180,6 +189,30 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
             </Row>
             <Row>
               <Column>
+                <div className="d-flex flex-sm-row flex-column justify-content-around align-items-center gap-2 flex-wrap my-md-4 my-2">
+                  {MAJOR_UNIVERSITY_LOGOS.map((logo, index) => (
+                    <div
+                      key={index}
+                      className={classnames(
+                        styles["university-logo-container"],
+                        "d-flex",
+                      )}
+                    >
+                      <Image
+                        src={logo.src}
+                        alt={logo.alt}
+                        height={80}
+                        style={{
+                          objectFit: "contain",
+                          maxHeight: "80px",
+                          width: "auto",
+                          maxWidth: "100%",
+                        }}
+                        className="img-fluid"
+                      />
+                    </div>
+                  ))}
+                </div>
                 <ScrollingLogos />
               </Column>
             </Row>
