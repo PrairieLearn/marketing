@@ -160,7 +160,7 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
             <Row>
               <Column>
                 <Stack spacing={3}>
-                  <Heading>Trusted by the best</Heading>
+                  <Heading>Used by the best</Heading>
                   <p>
                     Instructors at top universities in the United States and
                     Canada have been using PrairieLearn to teach the next
@@ -189,7 +189,7 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
             </Row>
             <Row>
               <Column>
-                <div className="d-flex flex-row justify-content-around align-items-center flex-wrap my-md-4 my-2">
+                <div className="d-flex flex-sm-row flex-column justify-content-around align-items-center gap-2 flex-wrap my-md-4 my-2">
                   {MAJOR_UNIVERSITY_LOGOS.map((logo, index) => (
                     <div
                       key={index}
