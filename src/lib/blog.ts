@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-const postsDirectory = path.join(process.cwd(), 'content');
+const postsDirectory = path.join(process.cwd(), 'src', 'pages', 'about', 'blog');
 
 export interface BlogPost {
   title: string;
@@ -11,27 +11,18 @@ export interface BlogPost {
   tags?: string[];
 }
 
-export function getAllPostSlugs(): string[] {
+export async function getAllPosts(): Promise<(BlogPost & { slug: string })[]> {
   const items = fs.readdirSync(postsDirectory, { withFileTypes: true });
-  return items
+  const slugs = items
     .filter(item => item.isDirectory())
     .map(item => item.name);
-}
-
-export async function getPostBySlug(slug: string) {
-    const { metadata } = await import(`../../content/${slug}/index.mdx`);
-    return { metadata };
-}
-
-export async function getAllPosts(): Promise<(BlogPost & { slug: string })[]> {
-  const slugs = getAllPostSlugs();
   const posts = await Promise.all(
     slugs.map(async (slug) => {
-      const { metadata } = await import(`../../content/${slug}/index.mdx`);
-      return { slug, ...metadata };
+      const { meta } = await import(`../pages/about/blog/${slug}/index.mdx`);
+      return { slug, ...meta };
     })
   ) as (BlogPost & { slug: string })[];
-  
+    
   posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   return posts;

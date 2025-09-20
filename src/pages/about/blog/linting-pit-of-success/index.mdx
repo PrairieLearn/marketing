@@ -1,4 +1,7 @@
-export const metadata = {
+import { BlogMarkdownLayout, BlogImage } from "../../../../components/BlogMarkdownLayout";
+import codeCycle from "./code-cycle.png";
+
+export const meta = {
   title: "Linting into The Pit of Success",
   date: "2025-09-19",
   author: "Peter Stenger",
@@ -22,4 +25,8 @@ do QA, review your code, and pair program. In this startup environment where we 
 
 From a code-review perspective, I was generating **way** more code than could be reviewed in a reasonable span of time.
 
-![](/code-cycle.png)
+<BlogImage src={codeCycle} />
+
+export default ({ children }) => (
+  <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
+);

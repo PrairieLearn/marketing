@@ -7,8 +7,6 @@ import { Language } from "prism-react-renderer";
 import { CodeBlock } from "../components/CodeBlock";
 import { Heading } from "../components/Heading";
 
-// const CustomLink
-
 const mdxComponents: Components = {
   a: ({ href, ...props }) => {
     const isInternalLink =
@@ -40,7 +38,6 @@ const mdxComponents: Components = {
     if (imageSrc.startsWith("__image__")) {
       imageSrc = imageSrc.replace("__image__", "/build/images");
     }
-    // console.log(imageSrc, imageWidth, imageHeight);
     return (
       <Image
         alt={alt}
