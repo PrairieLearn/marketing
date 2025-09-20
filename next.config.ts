@@ -6,12 +6,13 @@ import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import remarkMath from "remark-math";
 import remarkGfm from "remark-gfm";
+import remarkEmoji from "remark-emoji";
 
 const withMDX = nextMdx({
   extension: /\.mdx?$/,
   options: {
     providerImportSource: "@mdx-js/react",
-    remarkPlugins: [remarkMath, remarkGfm],
+    remarkPlugins: [remarkMath, remarkGfm, remarkEmoji],
     rehypePlugins: [
       rehypeSlug,
       [

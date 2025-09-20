@@ -4,6 +4,8 @@ import {
 } from "../../../../components/BlogMarkdownLayout";
 import codeCycle from "./code-cycle.png";
 import workflow from "./workflow.png";
+import passTheSalt from "./pass-the-salt.png";
+import reviewFunnel from "./review-funnel.png";
 
 export const meta = {
   title: "Linting into The Pit of Success",
@@ -12,21 +14,28 @@ export const meta = {
   tags: ["Technical", "Development"],
 };
 
-Welcome to our first blog post! I started up this blog so that I could talk about all the developer tooling work we have been doing recently.
-If you are not a developer, be warned -- this is highly technical stuff!
+Welcome to our first blog post! Over the next couple months, we are hoping to post feature deep-dives,
+technical challenges, and more -- stay tuned! We will be posting these on our [LinkedIn](https://www.linkedin.com/company/prairielearn/).
+
+:warning: If you are not a developer, be warned -- this is highly technical stuff!
 
 In the past couple months, PrairieLearn has started enforcing a _lot_ more stylistic and logical rules on our code.
 As a startup with effectively 3 full-time developers (Nathan, Myles, and I), this has greatly increased our ability to ship code, and unblock some bottlenecks.
 
-We have since been able to ship code with a lot less "nits" which has saved us a lot of review cycles (and time!).
+We have since been able to ship code with a lot less "nits" which has saved us a lot of review cycles (and time!) :clock1:
 
 # The "pit of success"
 
 One blog post I think about often is "[Falling Into The Pit of Success](https://blog.codinghorror.com/falling-into-the-pit-of-success)" by Jeff Atwood.
-One of the main takeaways I have from this article is that if mistakes are currently being made, it is too easy to make a mistake. I mean, it's 2025,
-we have [AI-powered Google Glass](https://www.meta.com/ai-glasses/meta-ray-ban-display/), but we aren't warning the developer if their code is going to crash?
+The main takeaway from this post is:
 
-We have spent a lot of time guiding PRs towards the "pit of success", and I wanted to share some of the improvements we made.
+> I've often said that a well-designed system makes it easy to do the right things and annoying (but not impossible) to do the wrong things.
+
+One of the main takeaways I have from this article is that if mistakes are currently being made, it is too easy to make a mistake. I mean, it's 2025,
+we have [AI-powered Google Glass](https://www.meta.com/ai-glasses/meta-ray-ban-display/), but we aren't warning the developer if their code is going to crash, or if
+their migration is going to crash production?
+
+We have spent a lot of time guiding PRs away from the "pit of despair", and I wanted to share some of the improvements we made.
 
 # Background
 
@@ -80,7 +89,7 @@ To check at development time, we were able to use [`html-eslint`](https://html-e
 This was something that was very tricky due to our usage of Mustache, so kudos to the maintainer ([`@yeonjuan`](https://github.com/yeonjuan)) who had built in support for template engines,
 and was able to implement a variety of feature requests and bug fixes [I made](https://github.com/yeonjuan/html-eslint/issues?q=is:issue%20state:closed%20author:reteps).
 
-As PrairieLearn develops, also will hit code paths on every deploy for elements that can help uncover regressions in the future.
+As PrairieLearn develops, this will hit code paths on every deploy for elements that can help uncover regressions in the future.
 
 ### SQL
 
@@ -162,22 +171,60 @@ We added a variety of specialty linters, such as:
 - Markdown linting with [markdownlint](https://github.com/DavidAnson/markdownlint)
 - Dockerfile linting with [hadolint](https://github.com/hadolint/hadolint)
 - Script linting with [shellcheck](https://www.shellcheck.net/)
-- Linting our [changesets](https://github.com/changesets/changesets) and [d2 diagrams](https://d2lang.com/)
+- Linting our [changesets](https://github.com/changesets/changesets) and [d2 diagrams](https://d2lang.com/).
 
-## Human linters
+### Human linters
 
 - We have a new PR template with a checklist
 - We auto-tag all our PRs based on area of code touched and keywords in the title
 - We categorized and retagged all our issues and added issue templates
+- We auto-review PRs with [CodeRabbit](https://www.coderabbit.ai/) which has caught subtle logic bugs and helped to build understanding of the PR.
 
-## Conclusion
+# Why?
+
+Most developers would agree that for most projects, this is an impractical amount of developer tooling to set up -- just write the code. The reason
+we invested so heavily is due to a combination of factors.
+
+1. We were so heavily review-bottlenecked. We were getting to a point where it was difficult for Nathan to write code, because he had to review so much! I also had extra
+time to upstream and experiment with various linters.
+
+<BlogImage src={reviewFunnel} />
+
+2. I am not well-versed in best practices. As a junior developer, there are still many takeaways and lessons worth enforcing that I am not thinking about, that a more senior developer would catch.
+Discussing various lint rules is actually a good way to agree on certain code styles and what we care about from a code-quality perspective.
+
+3. AI is the ultimate junior developer. We are heavily integrating [Claude Code](https://claude.com/product/claude-code) 
+and [Cursor](https://cursor.com/home) into our workflows. These are coding agents that can act on lint and build failures and self-correct code it is writing.
+Adding additional guardrails alongside a [`agents.md`](https://agents.md/) file leads to some great code-quality improvements for these agents.
+
+4. We have a rotating window of undergraduates and graduate students that contribute to PrairieLearn. We can now spend less time worrying about code quality nits
+from these contributors, and focus more on actual functionality. Codifying lint and style rules helps enforce code quality and speed up understanding of how to write code for PrairieLearn.
+We also invested into our [developer documentation](https://prairielearn.readthedocs.io/en/latest/dev-guide/) for helping get these contributors up to speed.
+
+5. We are an open-source first company. Being an open-source company, we are in the unique position to contribute time to these tools without worrying about maintaining an
+in-house fork with extra features that can't be shared with the public.
+
+I believe that with the usage explosing of AI-assisted coding, linting and typechecking is becoming more important than ever.
+
+# Conclusion
 
 We are now shipping code at [🚀🚀🚀🚀 blazing fast speeds 🚀🚀🚀🚀](https://github.com/mTvare6/hello-world.rs) so we can bring a variety of key features to all our PrairieLearn users!
 
-If you liked this, I wrote [a similar post](https://stenger.io/blog/automation-sigpwny/) for the UIUC Cybersecurity club, `SIGPwny`, last year,
-focused more on automation.
+If you liked this, I recommend checking out ["The Grug Brained Developer"](https://grugbrain.dev).
+The "Tools", "Type Systems", and "Expression Complexity" sections are all highly relevant to this post.
+I wrote [a similar post](https://stenger.io/blog/automation-sigpwny/) for the UIUC Cybersecurity club, `SIGPwny`, last year, focused more on automation.
 
-Thanks for reading!
+Some of the main takeaways I have from this experience are:
+
+- If you see a similar mistake being made over and over, it is easy to quickly fix it every time, but these mistakes add up. It may be worth the time to develop a more
+general solution to the problem.
+
+<BlogImage src={passTheSalt} />
+
+- If you in a position to upstream fixes or issues to tools you get a lot of value from, do it!
+- Tooling can uncover a lot of strange code in your codebase. It is sometimes necessary to exclude it from linting. Any refactor has the potential to break working code!
+
+Thanks for reading! :heart:
 
 Peter Stenger
 
@@ -185,4 +232,3 @@ export default ({ children }) => (
   <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
 );
 
-;

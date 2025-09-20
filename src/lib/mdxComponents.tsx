@@ -18,6 +18,11 @@ const mdxComponents: Components = {
 
     return <a href={href} {...props} />;
   },
+  blockquote: ({ children }) => (
+    <blockquote className="blockquote border-start border-primary border-4 ps-4 py-3 my-4 bg-light rounded-end">
+      <div className="fs-5 fst-italic text-dark">{children}</div>
+    </blockquote>
+  ),
   code: ({ children, className }) => {
     if (!className) {
       // Handle inline code.
