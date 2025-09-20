@@ -202,6 +202,7 @@ export const Header: React.FC = () => {
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                   <NavDropdownItem href="/about">About Us</NavDropdownItem>
+                  <NavDropdownItem href="/about/blog">Blog</NavDropdownItem>
                   <NavDropdownItem href="/research">Research</NavDropdownItem>
                 </Dropdown.Menu>
               </Dropdown>
