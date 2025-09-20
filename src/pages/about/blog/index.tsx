@@ -12,10 +12,10 @@ import { getAllPosts, BlogPost } from "../../../lib/blog";
 import styles from "./index.module.scss";
 
 interface BlogIndexProps {
-  posts: BlogPost[];
+  posts: (BlogPost & { slug: string })[];
 }
 
-const BlogPostCard: React.FC<{ post: BlogPost }> = ({ post }) => {
+const BlogPostCard: React.FC<{ post: BlogPost & { slug: string } }> = ({ post }) => {
   const formattedDate = format(new Date(post.date), "MMMM d, yyyy");
   
   return (
@@ -86,8 +86,8 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
 }
 
 export const getStaticProps: GetStaticProps<BlogIndexProps> = async () => {
-  const posts = getAllPosts();
-  
+  const posts = await getAllPosts();
+
   return {
     props: {
       posts,

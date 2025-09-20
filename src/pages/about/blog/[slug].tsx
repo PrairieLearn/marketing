@@ -2,7 +2,6 @@ import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { GetStaticProps, GetStaticPaths } from "next";
-import { MDXRemote } from "next-mdx-remote/rsc";
 import { PageBanner } from "../../../components/Banner";
 import { Heading } from "../../../components/Heading";
 import Stack from "../../../components/Stack";

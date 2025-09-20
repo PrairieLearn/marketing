@@ -40,6 +40,7 @@ const mdxComponents: Components = {
     if (imageSrc.startsWith("__image__")) {
       imageSrc = imageSrc.replace("__image__", "/build/images");
     }
+    // console.log(imageSrc, imageWidth, imageHeight);
     return (
       <Image
         alt={alt}
