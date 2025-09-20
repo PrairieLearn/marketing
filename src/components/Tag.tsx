@@ -9,7 +9,7 @@ interface TagProps {
 
 export const Tag: React.FC<TagProps> = ({ tag, className }) => {
   const isTechnical = tag.toLowerCase() === "technical";
-  
+
   return (
     <span
       className={classnames(
@@ -17,7 +17,7 @@ export const Tag: React.FC<TagProps> = ({ tag, className }) => {
         {
           [styles.technical]: isTechnical,
         },
-        className
+        className,
       )}
     >
       {tag}

@@ -15,9 +15,11 @@ interface BlogIndexProps {
   posts: (BlogPost & { slug: string })[];
 }
 
-const BlogPostCard: React.FC<{ post: BlogPost & { slug: string } }> = ({ post }) => {
+const BlogPostCard: React.FC<{ post: BlogPost & { slug: string } }> = ({
+  post,
+}) => {
   const formattedDate = format(new Date(post.date), "MMMM d, yyyy");
-  
+
   return (
     <article className={styles.blogPostCard}>
       <div className={styles.postMeta}>
@@ -25,16 +27,10 @@ const BlogPostCard: React.FC<{ post: BlogPost & { slug: string } }> = ({ post })
         <span className={styles.postAuthor}>by {post.author}</span>
       </div>
       <h2 className={styles.postTitle}>
-        <Link href={`/about/blog/${post.slug}`}>
-          {post.title}
-        </Link>
+        <Link href={`/about/blog/${post.slug}`}>{post.title}</Link>
       </h2>
-      {post.tags && post.tags.length > 0 && (
-        <TagList tags={post.tags} />
-      )}
-      {post.excerpt && (
-        <p className={styles.postExcerpt}>{post.excerpt}</p>
-      )}
+      {post.tags && post.tags.length > 0 && <TagList tags={post.tags} />}
+      {post.excerpt && <p className={styles.postExcerpt}>{post.excerpt}</p>}
     </article>
   );
 };
@@ -44,7 +40,10 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
     <React.Fragment>
       <Head>
         <title>Blog | About | PrairieLearn</title>
-        <meta name="description" content="Latest news, updates, and insights from the PrairieLearn team." />
+        <meta
+          name="description"
+          content="Latest news, updates, and insights from the PrairieLearn team."
+        />
       </Head>
 
       <PageBanner
@@ -72,8 +71,9 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
                 <div className={styles.sidebar}>
                   <h3>About Our Blog</h3>
                   <p>
-                    Stay up to date with the latest developments in online assessment, 
-                    educational technology, and the PrairieLearn platform.
+                    Stay up to date with the latest developments in online
+                    assessment, educational technology, and the PrairieLearn
+                    platform.
                   </p>
                 </div>
               </div>

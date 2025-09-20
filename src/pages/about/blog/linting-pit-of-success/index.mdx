@@ -1,4 +1,7 @@
-import { BlogMarkdownLayout, BlogImage } from "../../../../components/BlogMarkdownLayout";
+import {
+  BlogMarkdownLayout,
+  BlogImage,
+} from "../../../../components/BlogMarkdownLayout";
 import codeCycle from "./code-cycle.png";
 import workflow from "./workflow.png";
 
@@ -6,7 +9,7 @@ export const meta = {
   title: "Linting into The Pit of Success",
   date: "2025-09-19",
   author: "Peter Stenger",
-  tags: ["Technical", "Development"]
+  tags: ["Technical", "Development"],
 };
 
 Welcome to our first blog post! I started up this blog so that I could talk about all the developer tooling work we have been doing recently.
@@ -27,7 +30,7 @@ We have spent a lot of time guiding PRs towards the "pit of success", and I want
 
 # Background
 
-When I started working at PrairieLearn a couple of months ago after graduating from University of Illinois, 
+When I started working at PrairieLearn a couple of months ago after graduating from University of Illinois,
 I was in for a rude awakening about my code. I was neglecting basic accessibility checks, and my code was (is?) littered with logic and rendering bugs.
 In a large company, this is fine -- you have lots of engineers to do QA, review your code, and pair program. However, we want to ship quickly, without breaking
 questions and courses that students are expecting to work with zero downtime.
@@ -36,7 +39,7 @@ From a code-review perspective, I was generating **way** more code than could be
 
 <BlogImage src={codeCycle} />
 
-Whenever you are doing development, you are either review bottlenecked, or code bottlenecked. Being review bottlenecked is the worst -- it lets code pile up, leading to 
+Whenever you are doing development, you are either review bottlenecked, or code bottlenecked. Being review bottlenecked is the worst -- it lets code pile up, leading to
 frequent merge conflicts and a very cluttered PR page. We were able to transition away from Nathan reviewing everything to a shared review workload, but still, a lot of time
 was spent double-checking repetitive or easy-to-make mistakes.
 
@@ -54,8 +57,8 @@ I could go on a whole tangent about how insane Python is, but it would take too 
 We spent a lot of time enabling the full config of [ruff](https://docs.astral.sh/ruff/), spanning [at least
 33 PRs](https://github.com/PrairieLearn/PrairieLearn/pulls?page=1&q=is:pr+author:reteps+%22ruff%22+is:closed) by my count.
 
-We now require docstrings for all our code, and were able to fully autogenerate 
-[documentation](https://prairielearn.readthedocs.io/en/latest/python-reference/prairielearn/grading_utils/#prairielearn.grading_utils.grade_answer_parameterized) 
+We now require docstrings for all our code, and were able to fully autogenerate
+[documentation](https://prairielearn.readthedocs.io/en/latest/python-reference/prairielearn/grading_utils/#prairielearn.grading_utils.grade_answer_parameterized)
 using [`mkdocstrings`](https://mkdocstrings.github.io/).
 
 We enabled a variety of stricter [pyright](https://github.com/microsoft/pyright) settings, an effort that spans [at least 15 PRs](https://github.com/PrairieLearn/PrairieLearn/pulls?q=pyright+author:reteps+is:closed).
@@ -66,8 +69,7 @@ We have our eye on [pyrefly](https://github.com/facebook/pyrefly) and [ty](https
 PrairieLearn essentially maintains a custom templating system -- a combination of Python and Mustache, using a [custom state machine](https://prairielearn.readthedocs.io/en/latest/question/server/#question-lifecycle) for questions.
 This is a core piece of our platform, and dates back over 10 years! This system has a couple drawbacks, one of which is a lack of standardized tooling for our exact setup.
 
-
-To fix this, I created a question testing and accessibility suite that runs across all our 
+To fix this, I created a question testing and accessibility suite that runs across all our
 questions in the [example course](https://github.com/PrairieLearn/PrairieLearn/tree/master/exampleCourse). It renders all the questions with a correct and incorrect input given,
 and checks for issues in the question, and also accessibility violations. We use [`html-validate`](https://gitlab.com/html-validate/html-validate) for static accessibility testing.
 
@@ -85,14 +87,14 @@ As PrairieLearn develops, also will hit code paths on every deploy for elements 
 We are now linting (formatting?) our SQL files with [sqlfluff](https://www.sqlfluff.com/). I was able to upstream [4 PRs](https://github.com/sqlfluff/sqlfluff/pulls?q=is:pr+author:reteps+is:closed) to get this tool working for us.
 
 We are also linting our migrations to ensure zero-downtime operations with [Squawk](https://squawkhq.com/). This was something easy to mess up and we were able to find operations that we thought were zero-downtime, but could
-actually block writes for substantial periods of time. 
+actually block writes for substantial periods of time.
 
 We are a planned early adopter of [`postgres-language-server`](https://github.com/supabase-community/postgres-language-server) ([PR](github.com/prairielearn/prairielearn/pull/12682)). The maintainers there were able to provide a variety of [bug fixes and enhancements](https://github.com/supabase-community/postgres-language-server/issues?q=is:issue%20author:reteps) to get this to work for us, including `$named_parameter_support` and schema globs.
 
 ### Model functions
 
-PrairieLearn doesn't use an ORM for SQL, instead opting for [Zod](https://zod.dev/) schemas and model functions alongside our codebase. 
-We added tests ensuring that our model columns always line up with our database columns. We also finished typing all our SQL accesses. This was a multi-month effort, 
+PrairieLearn doesn't use an ORM for SQL, instead opting for [Zod](https://zod.dev/) schemas and model functions alongside our codebase.
+We added tests ensuring that our model columns always line up with our database columns. We also finished typing all our SQL accesses. This was a multi-month effort,
 and involved a variety of type fixes (and bugs caused) to guarantee that we always validate data that comes out of our database.
 
 ### JSON schemas
@@ -102,7 +104,7 @@ that instructors can commit and edit as text rather than in a GUI. We are such b
 
 We originally used [`zod-to-json-schema`](https://www.npmjs.com/package/zod-to-json-schema) and with Zod 4, will soon be able to do this [natively](https://zod.dev/json-schema).
 
-We now auto-generate [human-readable documentation](https://prairielearn.readthedocs.io/en/latest/schemas/infoCourseInstance/) for our JSON Schemas with [`jsonschema2md`](https://github.com/sbrunner/jsonschema2md). 
+We now auto-generate [human-readable documentation](https://prairielearn.readthedocs.io/en/latest/schemas/infoCourseInstance/) for our JSON Schemas with [`jsonschema2md`](https://github.com/sbrunner/jsonschema2md).
 To allow for this, I finished implementing the full property list of JSONSchema and add support for `<details>` blocks for objects.
 
 Using Zod has let us reuse these definitions across our TypeScript codebase, which has been incredibly useful.
@@ -137,17 +139,17 @@ There is a reason that it [consistently tops charts](https://2024.stateofjs.com/
 ### CI
 
 All these new lints and rules meant that we needed to rethink our CI setup to be faster. We were able to get down to a 7 minute full CI check, down from 12 minutes.
-The time to last actionable feedback (tests) is only 4 minutes (the 7 minute check is a full image build + question execution smoke test which should typically never fail) 
--- this makes it much easier to iterate quickly. The time to first feedback (lints) is < 2 minutes no matter what you are working on. 
+The time to last actionable feedback (tests) is only 4 minutes (the 7 minute check is a full image build + question execution smoke test which should typically never fail)
+-- this makes it much easier to iterate quickly. The time to first feedback (lints) is < 2 minutes no matter what you are working on.
 
 We made a variety of performance improvements to pull this off including:
 
 - Caching [Turborepo](https://turborepo.com/) builds
 - Using [uv](https://docs.astral.sh/uv/) instead of plain pip for installs
-- Caching our Prettier and ESLint builds (and getting an [RFC accepted in Prettier](https://github.com/prettier/prettier/issues/17260) related to this) 
+- Caching our Prettier and ESLint builds (and getting an [RFC accepted in Prettier](https://github.com/prettier/prettier/issues/17260) related to this)
 - Parallelizing our [CI checks](https://github.com/PrairieLearn/PrairieLearn/blob/master/.github/workflows/check.yml) into 3 chunks that can all run in < 2 minutes
-- Sharding our TypeScript tests. We run this across [4 workers](https://github.com/PrairieLearn/PrairieLearn/blob/master/.github/workflows/test.yml#L100), 
-and were able to take advantage of Vitest's [blob reporter](https://vitest.dev/guide/reporters.html#blob-reporter). Nathan fixed their [Github Actions reporter](https://github.com/vitest-dev/vitest/pull/8015) for fancy failures.
+- Sharding our TypeScript tests. We run this across [4 workers](https://github.com/PrairieLearn/PrairieLearn/blob/master/.github/workflows/test.yml#L100),
+  and were able to take advantage of Vitest's [blob reporter](https://vitest.dev/guide/reporters.html#blob-reporter). Nathan fixed their [Github Actions reporter](https://github.com/vitest-dev/vitest/pull/8015) for fancy failures.
 - Using a matrix build for our images. We are taking advantage of [registry caches](https://docs.docker.com/build/cache/backends/registry/) for builds that are consistently < 4 minutes (dominated by yarn install time).
 
 <BlogImage src={workflow} />
@@ -172,7 +174,7 @@ We added a variety of specialty linters, such as:
 
 We are now shipping code at [🚀🚀🚀🚀 blazing fast speeds 🚀🚀🚀🚀](https://github.com/mTvare6/hello-world.rs) so we can bring a variety of key features to all our PrairieLearn users!
 
-If you liked this, I wrote [a similar post](https://stenger.io/blog/automation-sigpwny/) for the UIUC Cybersecurity club, `SIGPwny`, last year, 
+If you liked this, I wrote [a similar post](https://stenger.io/blog/automation-sigpwny/) for the UIUC Cybersecurity club, `SIGPwny`, last year,
 focused more on automation.
 
 Thanks for reading!
@@ -182,3 +184,5 @@ Peter Stenger
 export default ({ children }) => (
   <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
 );
+
+;
