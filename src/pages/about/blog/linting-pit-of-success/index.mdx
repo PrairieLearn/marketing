@@ -15,12 +15,13 @@ export const meta = {
 };
 
 Welcome to our first blog post! Over the next couple months, we are hoping to post feature deep-dives,
-technical challenges, and more -- stay tuned! We will be posting these on our [LinkedIn](https://www.linkedin.com/company/prairielearn/).
+technical challenges, and more -- stay tuned! If you want to be notified when a blog post is released, we will be posting these on our [LinkedIn](https://www.linkedin.com/company/prairielearn/).
+Follow us there to stay up to date!
 
 :warning: If you are not a developer, be warned -- this is highly technical stuff!
 
-In the past couple months, PrairieLearn has started enforcing a _lot_ more stylistic and logical rules on our code.
-As a startup with effectively 3 full-time developers (Nathan, Myles, and I), this has greatly increased our ability to ship code, and unblock some bottlenecks.
+In the past couple of months, PrairieLearn has started enforcing a _lot_ more stylistic and logical rules on our code.
+As a startup with effectively 3 full-time developers (Nathan, Myles, and I), this has greatly increased our ability to ship code, and unlock some bottlenecks.
 
 We have since been able to ship code with a lot less "nits" which has saved us a lot of review cycles (and time!) :clock1:
 
@@ -60,7 +61,7 @@ To accomplish this, we have spent a couple months beefing up tooling surrounding
 
 ### Python
 
-Python is a picture perfect example of dynamically-typed language -- it can crash for tons of reasons that are entirely non-obvious.
+Python is a picture-perfect example of a dynamically-typed language -- it can crash for tons of reasons that are entirely non-obvious.
 I could go on a whole tangent about how insane Python is, but it would take too long.
 
 We spent a lot of time enabling the full config of [ruff](https://docs.astral.sh/ruff/), spanning [at least
@@ -76,11 +77,11 @@ We have our eye on [pyrefly](https://github.com/facebook/pyrefly) and [ty](https
 ### Questions and elements
 
 PrairieLearn essentially maintains a custom templating system -- a combination of Python and Mustache, using a [custom state machine](https://prairielearn.readthedocs.io/en/latest/question/server/#question-lifecycle) for questions.
-This is a core piece of our platform, and dates back over 10 years! This system has a couple drawbacks, one of which is a lack of standardized tooling for our exact setup.
+This is a core piece of our platform, and dates back over 10 years! This system has a couple of drawbacks, one of which is a lack of standardized tooling for our exact setup.
 
 To fix this, I created a question testing and accessibility suite that runs across all our
-questions in the [example course](https://github.com/PrairieLearn/PrairieLearn/tree/master/exampleCourse). It renders all the questions with a correct and incorrect input given,
-and checks for issues in the question, and also accessibility violations. We use [`html-validate`](https://gitlab.com/html-validate/html-validate) for static accessibility testing.
+questions in the [example course](https://github.com/PrairieLearn/PrairieLearn/tree/master/exampleCourse). It renders all the questions with correct and incorrect inputs given,
+and checks for issues in the question as well as accessibility violations. We use [`html-validate`](https://gitlab.com/html-validate/html-validate) for static accessibility testing.
 
 To do this, I fixed up a somewhat-hidden feature of PrairieLearn, the ability to [auto-test questions](https://prairielearn.readthedocs.io/en/latest/question/server/#testing-questions-with-test) and fixed up their implementations
 for our core element set. Then, we made a variety of accessibility improvements that could only be checked with the rendered HTML.
@@ -98,7 +99,7 @@ We are now linting (formatting?) our SQL files with [sqlfluff](https://www.sqlfl
 We are also linting our migrations to ensure zero-downtime operations with [Squawk](https://squawkhq.com/). This was something easy to mess up and we were able to find operations that we thought were zero-downtime, but could
 actually block writes for substantial periods of time.
 
-We are a planned early adopter of [`postgres-language-server`](https://github.com/supabase-community/postgres-language-server) ([PR](github.com/prairielearn/prairielearn/pull/12682)). The maintainers there were able to provide a variety of [bug fixes and enhancements](https://github.com/supabase-community/postgres-language-server/issues?q=is:issue%20author:reteps) to get this to work for us, including `$named_parameter_support` and schema globs.
+We are planning to be early adopters of [`postgres-language-server`](https://github.com/supabase-community/postgres-language-server) ([PR](https://github.com/prairielearn/prairielearn/pull/12682)). The maintainers there were able to provide a variety of [bug fixes and enhancements](https://github.com/supabase-community/postgres-language-server/issues?q=is:issue%20author:reteps) to get this to work for us, including `$named_parameter_support` and schema globs.
 
 ### Model functions
 
@@ -114,17 +115,17 @@ that instructors can commit and edit as text rather than in a GUI. We are such b
 We originally used [`zod-to-json-schema`](https://www.npmjs.com/package/zod-to-json-schema) and with Zod 4, will soon be able to do this [natively](https://zod.dev/json-schema).
 
 We now auto-generate [human-readable documentation](https://prairielearn.readthedocs.io/en/latest/schemas/infoCourseInstance/) for our JSON Schemas with [`jsonschema2md`](https://github.com/sbrunner/jsonschema2md).
-To allow for this, I finished implementing the full property list of JSONSchema and add support for `<details>` blocks for objects.
+To allow for this, I finished implementing the full property list of JSONSchema and added support for `<details>` blocks for objects.
 
 Using Zod has let us reuse these definitions across our TypeScript codebase, which has been incredibly useful.
 
 ### Typescript
 
-We were able to finish converting all our our code from JavaScript to TypeScript.
+We were able to finish converting all our code from JavaScript to TypeScript.
 Some of this code is absolutely ancient stuff -- originally using [`ejs` templates](https://ejs.co/) that survived various evolutions of PrairieLearn.
 I am so glad to not work with JavaScript again for a while -- once you go typed, the land of the untyped is scary.
 
-We are still in the progress of progressively making our TypeScript configurations stricter.
+We are still in the process of progressively making our TypeScript configurations stricter.
 
 #### ESLint
 
@@ -148,8 +149,8 @@ There is a reason that it [consistently tops charts](https://2024.stateofjs.com/
 ### CI
 
 All these new lints and rules meant that we needed to rethink our CI setup to be faster. We were able to get down to a 7 minute full CI check, down from 12 minutes.
-The time to last actionable feedback (tests) is only 4 minutes (the 7 minute check is a full image build + question execution smoke test which should typically never fail)
--- this makes it much easier to iterate quickly. The time to first feedback (lints) is < 2 minutes no matter what you are working on.
+The time to last actionable feedback (tests) is only 4 minutes (the 7-minute check is a full image build + question execution smoke test which should typically never fail)
+-- this makes it much easier to iterate quickly. The time to first feedback (lints) is under 2 minutes no matter what you are working on.
 
 We made a variety of performance improvements to pull this off including:
 
@@ -159,7 +160,7 @@ We made a variety of performance improvements to pull this off including:
 - Parallelizing our [CI checks](https://github.com/PrairieLearn/PrairieLearn/blob/master/.github/workflows/check.yml) into 3 chunks that can all run in < 2 minutes
 - Sharding our TypeScript tests. We run this across [4 workers](https://github.com/PrairieLearn/PrairieLearn/blob/master/.github/workflows/test.yml#L100),
   and were able to take advantage of Vitest's [blob reporter](https://vitest.dev/guide/reporters.html#blob-reporter). Nathan fixed their [Github Actions reporter](https://github.com/vitest-dev/vitest/pull/8015) for fancy failures.
-- Using a matrix build for our images. We are taking advantage of [registry caches](https://docs.docker.com/build/cache/backends/registry/) for builds that are consistently < 4 minutes (dominated by yarn install time).
+- Using a matrix build for our images. We are taking advantage of [registry caches](https://docs.docker.com/build/cache/backends/registry/) for builds that are consistently under 4 minutes (dominated by yarn install time).
 
 <BlogImage src={workflow} />
 
@@ -204,7 +205,7 @@ We also invested into our [developer documentation](https://prairielearn.readthe
 5. We are an open-source first company. Being an open-source company, we are in the unique position to contribute time to these tools without worrying about maintaining an
 in-house fork with extra features that can't be shared with the public.
 
-I believe that with the usage explosing of AI-assisted coding, linting and typechecking is becoming more important than ever.
+I believe that with the explosive usage of AI-assisted coding, linting and typechecking are becoming more important than ever.
 
 # Conclusion
 
@@ -221,7 +222,7 @@ general solution to the problem.
 
 <BlogImage src={passTheSalt} />
 
-- If you in a position to upstream fixes or issues to tools you get a lot of value from, do it!
+- If you are in a position to upstream fixes/issues to tools you get a lot of value from, do it!
 - Tooling can uncover a lot of strange code in your codebase. It is sometimes necessary to exclude it from linting. Any refactor has the potential to break working code!
 
 Thanks for reading! :heart:
