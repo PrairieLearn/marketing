@@ -42,20 +42,20 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
         <title>Blog | About | PrairieLearn</title>
         <meta
           name="description"
-          content="Latest news, updates, and insights from the PrairieLearn team."
+          content="Articles about news, updates, and development from the PrairieLearn team."
         />
       </Head>
 
       <PageBanner
         title="Blog"
-        subtitle="Latest news, updates, and insights from the PrairieLearn team"
+        subtitle="Articles about news, updates, and development from the PrairieLearn team"
       />
 
       <div className="container-fluid py-4">
         <div className="container-md">
           <Stack spacing={4}>
             <div className="row">
-              <div className="col-md-8">
+              <div className="col">
                 <Heading>Latest Posts</Heading>
                 {posts.length === 0 ? (
                   <p>No blog posts yet. Check back soon!</p>
@@ -66,16 +66,6 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
                     ))}
                   </div>
                 )}
-              </div>
-              <div className="col-md-4">
-                <div className={styles.sidebar}>
-                  <h3>About Our Blog</h3>
-                  <p>
-                    Stay up to date with the latest developments in online
-                    assessment, educational technology, and the PrairieLearn
-                    platform.
-                  </p>
-                </div>
               </div>
             </div>
           </Stack>
