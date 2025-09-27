@@ -84,22 +84,25 @@ questions in the [example course](https://github.com/PrairieLearn/PrairieLearn/t
 and checks for issues in the question as well as accessibility violations. We use [`html-validate`](https://gitlab.com/html-validate/html-validate) for static accessibility testing.
 
 To do this, I fixed up a somewhat-hidden feature of PrairieLearn, the ability to [auto-test questions](https://prairielearn.readthedocs.io/en/latest/question/server/#testing-questions-with-test) and fixed up their implementations
-for our core element set. Then, we made a variety of accessibility improvements that could only be checked with the rendered HTML.
+for our core element set. Then, we made a variety of accessibility improvements that could only be checked with the rendered HTML. As PrairieLearn develops a larger set of examples and elements, this will hit code paths on every deploy for elements that can help uncover regressions in the future.
 
-To check at development time, we were able to use [`html-eslint`](https://html-eslint.org/docs/integrating-template-engine) to check formatting and tag issues statically via ESLint.
+At compile/development time, we are now using [`html-eslint`](https://html-eslint.org/docs/integrating-template-engine) to check formatting and tag issues statically via ESLint.
 This was something that was very tricky due to our usage of Mustache, so kudos to the maintainer ([`@yeonjuan`](https://github.com/yeonjuan)) who had built in support for template engines,
 and was able to implement a variety of feature requests and bug fixes [I made](https://github.com/yeonjuan/html-eslint/issues?q=is:issue%20state:closed%20author:reteps).
 
-As PrairieLearn develops, this will hit code paths on every deploy for elements that can help uncover regressions in the future.
 
 ### SQL
 
-We are now linting (formatting?) our SQL files with [sqlfluff](https://www.sqlfluff.com/). I was able to upstream [4 PRs](https://github.com/sqlfluff/sqlfluff/pulls?q=is:pr+author:reteps+is:closed) to get this tool working for us.
+We are now linting our SQL files with [sqlfluff](https://www.sqlfluff.com/). I was able to upstream [4 PRs](https://github.com/sqlfluff/sqlfluff/pulls?q=is:pr+author:reteps+is:closed) to get this tool working for us.
 
 We are also linting our migrations to ensure zero-downtime operations with [Squawk](https://squawkhq.com/). This was something easy to mess up and we were able to find operations that we thought were zero-downtime, but could
-actually block writes for substantial periods of time.
+[actually block writes](https://github.com/sbdchd/squawk/issues/649) for substantial periods of time.
 
-We are planning to be early adopters of [`postgres-language-server`](https://github.com/supabase-community/postgres-language-server) ([PR](https://github.com/prairielearn/prairielearn/pull/12682)). The maintainers there were able to provide a variety of [bug fixes and enhancements](https://github.com/supabase-community/postgres-language-server/issues?q=is:issue%20author:reteps) to get this to work for us, including `$named_parameter_support` and schema globs.
+We are early adopters of [`postgres-language-server`](https://github.com/supabase-community/postgres-language-server). As far as I am aware, this is one of the first projects
+attempting to do something like this -- investing in improving tooling for SQL itself, and not a type-safe wrapper around SQL, which often have [massive issues](https://github.com/prisma/prisma/issues/5184).
+
+The maintainers there were able to provide a variety of [bug fixes and enhancements](https://github.com/supabase-community/postgres-language-server/issues?q=is:issue%20author:reteps) 
+to get this to work for us, including `$named_parameter_support` and schema globs. This also enables basic typechecking of our code.
 
 ### Model functions
 
@@ -110,9 +113,9 @@ and involved a variety of type fixes (and bugs caused) to guarantee that we alwa
 ### JSON schemas
 
 PrairieLearn uses [JSONSchema](https://json-schema.org/) for validating all of our configuration files. This is another core piece of PrairieLearn, which is configuration
-that instructors can commit and edit as text rather than in a GUI. We are such big fans of Zod, that we rewrote our original JSON Schemas with Zod!
+that instructors can commit and edit as text rather than in a GUI. We are such big fans of Zod, that we rewrote our original JSON Schemas with Zod using [`zod-to-json-schema`](https://www.npmjs.com/package/zod-to-json-schema).
 
-We originally used [`zod-to-json-schema`](https://www.npmjs.com/package/zod-to-json-schema) and with Zod 4, will soon be able to do this [natively](https://zod.dev/json-schema).
+With the Zod 4 release, it seemed like this was the right call, as we will soon be able to do this [natively](https://zod.dev/json-schema).
 
 We now auto-generate [human-readable documentation](https://prairielearn.readthedocs.io/en/latest/schemas/infoCourseInstance/) for our JSON Schemas with [`jsonschema2md`](https://github.com/sbrunner/jsonschema2md).
 To allow for this, I finished implementing the full property list of JSONSchema and added support for `<details>` blocks for objects.
@@ -140,11 +143,13 @@ We heavily beefed up our setup, pulling in projects like:
 - `eslint-plugin-unicorn`
 
 This new setup has been able to flag and auto-fix a variety of code patterns, and ensure consistency across our code base.
+We are slowly improving type safety with more lint rules, like our recent push for [`no-unnecessary-condition`](https://typescript-eslint.io/rules/no-unnecessary-condition/).
 
 #### Testing
 
-We migrated away from [Mocha](https://mochajs.org/) to [Vitest](https://vitest.dev/), which has an excellent VSCode extension, and is extremely extensible (more on this in the CI section).
-There is a reason that it [consistently tops charts](https://2024.stateofjs.com/en-US/libraries/testing/).
+We migrated away from [Mocha](https://mochajs.org/) to [Vitest](https://vitest.dev/). There is a reason that it [consistently tops charts](https://2024.stateofjs.com/en-US/libraries/testing/) --
+it has an excellent VSCode extension, and is extremely extensible (more on this in the CI section).
+
 
 ### CI
 
@@ -159,7 +164,7 @@ We made a variety of performance improvements to pull this off including:
 - Caching our Prettier and ESLint builds (and getting an [RFC accepted in Prettier](https://github.com/prettier/prettier/issues/17260) related to this)
 - Parallelizing our [CI checks](https://github.com/PrairieLearn/PrairieLearn/blob/master/.github/workflows/check.yml) into 3 chunks that can all run in < 2 minutes
 - Sharding our TypeScript tests. We run this across [4 workers](https://github.com/PrairieLearn/PrairieLearn/blob/master/.github/workflows/test.yml#L100),
-  and were able to take advantage of Vitest's [blob reporter](https://vitest.dev/guide/reporters.html#blob-reporter). Nathan fixed their [Github Actions reporter](https://github.com/vitest-dev/vitest/pull/8015) for fancy failures.
+  and were able to take advantage of Vitest's [blob reporter](https://vitest.dev/guide/reporters.html#blob-reporter). Nathan fixed their [Github Actions reporter](https://github.com/vitest-dev/vitest/pull/8015) so we can report these issues on GitHub diffs.
 - Using a matrix build for our images. We are taking advantage of [registry caches](https://docs.docker.com/build/cache/backends/registry/) for builds that are consistently under 4 minutes (dominated by yarn install time).
 
 <BlogImage src={workflow} />
