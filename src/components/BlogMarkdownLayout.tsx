@@ -37,9 +37,7 @@ export const BlogQuote = ({
 }) => {
   return (
     <blockquote className="blockquote border-start border-primary border-4 ps-4 py-3 my-4 bg-light rounded-end">
-      <div className="fs-5 fst-italic text-dark">
-        {children}
-      </div>
+      <div className="fs-5 fst-italic text-dark">{children}</div>
       {(author || source) && (
         <footer className="blockquote-footer mt-2">
           {author && <cite className="fw-bold">{author}</cite>}

@@ -42,13 +42,13 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
         <title>Blog | About | PrairieLearn</title>
         <meta
           name="description"
-          content="Articles about news, updates, and development from the PrairieLearn team."
+          content="News, updates, teaching strategies, and deep dives from the PrairieLearn team."
         />
       </Head>
 
       <PageBanner
         title="Blog"
-        subtitle="Articles about news, updates, and development from the PrairieLearn team"
+        subtitle="News, updates, teaching strategies, and deep dives from the PrairieLearn team"
       />
 
       <div className="container-fluid py-4">

@@ -90,7 +90,6 @@ At compile/development time, we are now using [`html-eslint`](https://html-eslin
 This was something that was very tricky due to our usage of Mustache, so kudos to the maintainer ([`@yeonjuan`](https://github.com/yeonjuan)) who had built in support for template engines,
 and was able to implement a variety of feature requests and bug fixes [I made](https://github.com/yeonjuan/html-eslint/issues?q=is:issue%20state:closed%20author:reteps).
 
-
 ### SQL
 
 We are now linting our SQL files with [sqlfluff](https://www.sqlfluff.com/). I was able to upstream [4 PRs](https://github.com/sqlfluff/sqlfluff/pulls?q=is:pr+author:reteps+is:closed) to get this tool working for us.
@@ -101,7 +100,7 @@ We are also linting our migrations to ensure zero-downtime operations with [Squa
 We are early adopters of [`postgres-language-server`](https://github.com/supabase-community/postgres-language-server). As far as I am aware, this is one of the first projects
 attempting to do something like this -- investing in improving tooling for SQL itself, and not a type-safe wrapper around SQL, which often have [massive issues](https://github.com/prisma/prisma/issues/5184).
 
-The maintainers there were able to provide a variety of [bug fixes and enhancements](https://github.com/supabase-community/postgres-language-server/issues?q=is:issue%20author:reteps) 
+The maintainers there were able to provide a variety of [bug fixes and enhancements](https://github.com/supabase-community/postgres-language-server/issues?q=is:issue%20author:reteps)
 to get this to work for us, including `$named_parameter_support` and schema globs. This also enables basic typechecking of our code.
 
 ### Model functions
@@ -150,7 +149,6 @@ We are slowly improving type safety with more lint rules, like our recent push f
 We migrated away from [Mocha](https://mochajs.org/) to [Vitest](https://vitest.dev/). There is a reason that it [consistently tops charts](https://2024.stateofjs.com/en-US/libraries/testing/) --
 it has an excellent VSCode extension, and is extremely extensible (more on this in the CI section).
 
-
 ### CI
 
 All these new lints and rules meant that we needed to rethink our CI setup to be faster. We were able to get down to a 7 minute full CI check, down from 12 minutes.
@@ -192,23 +190,23 @@ Most developers would agree that for most projects, this is an impractical amoun
 we invested so heavily is due to a combination of factors.
 
 1. We were so heavily review-bottlenecked. We were getting to a point where it was difficult for Nathan to write code, because he had to review so much! I also had extra
-time to upstream and experiment with various linters.
+   time to upstream and experiment with various linters.
 
 <BlogImage src={reviewFunnel} />
 
 2. I am not well-versed in best practices. As a junior developer, there are still many takeaways and lessons worth enforcing that I am not thinking about, that a more senior developer would catch.
-Discussing various lint rules is actually a good way to agree on certain code styles and what we care about from a code-quality perspective.
+   Discussing various lint rules is actually a good way to agree on certain code styles and what we care about from a code-quality perspective.
 
-3. AI is the ultimate junior developer. We are heavily integrating [Claude Code](https://claude.com/product/claude-code) 
-and [Cursor](https://cursor.com/home) into our workflows. These are coding agents that can act on lint and build failures and self-correct code it is writing.
-Adding additional guardrails alongside a [`agents.md`](https://agents.md/) file leads to some great code-quality improvements for these agents.
+3. AI is the ultimate junior developer. We are heavily integrating [Claude Code](https://claude.com/product/claude-code)
+   and [Cursor](https://cursor.com/home) into our workflows. These are coding agents that can act on lint and build failures and self-correct code it is writing.
+   Adding additional guardrails alongside a [`agents.md`](https://agents.md/) file leads to some great code-quality improvements for these agents.
 
 4. We have a rotating window of undergraduates and graduate students that contribute to PrairieLearn. We can now spend less time worrying about code quality nits
-from these contributors, and focus more on actual functionality. Codifying lint and style rules helps enforce code quality and speed up understanding of how to write code for PrairieLearn.
-We also invested into our [developer documentation](https://prairielearn.readthedocs.io/en/latest/dev-guide/) for helping get these contributors up to speed.
+   from these contributors, and focus more on actual functionality. Codifying lint and style rules helps enforce code quality and speed up understanding of how to write code for PrairieLearn.
+   We also invested into our [developer documentation](https://prairielearn.readthedocs.io/en/latest/dev-guide/) for helping get these contributors up to speed.
 
 5. We are an open-source first company. Being an open-source company, we are in the unique position to contribute time to these tools without worrying about maintaining an
-in-house fork with extra features that can't be shared with the public.
+   in-house fork with extra features that can't be shared with the public.
 
 I believe that with the explosive usage of AI-assisted coding, linting and typechecking are becoming more important than ever.
 
@@ -223,7 +221,7 @@ I wrote [a similar post](https://stenger.io/blog/automation-sigpwny/) for the UI
 Some of the main takeaways I have from this experience are:
 
 - If you see a similar mistake being made over and over, it is easy to quickly fix it every time, but these mistakes add up. It may be worth the time to develop a more
-general solution to the problem.
+  general solution to the problem.
 
 <BlogImage src={passTheSalt} />
 
@@ -237,4 +235,3 @@ Peter Stenger
 export default ({ children }) => (
   <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
 );
-

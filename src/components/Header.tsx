@@ -201,7 +201,9 @@ export const Header: React.FC = () => {
                   About
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
-                  <NavDropdownItem href="/about" activeMatchExactHref={true}>About Us</NavDropdownItem>
+                  <NavDropdownItem href="/about" activeMatchExactHref={true}>
+                    About Us
+                  </NavDropdownItem>
                   <NavDropdownItem href="/about/blog">Blog</NavDropdownItem>
                   <NavDropdownItem href="/research">Research</NavDropdownItem>
                 </Dropdown.Menu>
