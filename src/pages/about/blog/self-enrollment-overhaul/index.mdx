@@ -11,6 +11,116 @@ export const meta = {
 };
 
 
+The new self-enrollment and publishing system is finally here! This post details the new features, as well
+as lists some common FAQ for instructors familiar with the old system.
+
+## Goal
+
+The goal of this overhauled system was to move away from the old `allowAccess` system for course instances, and
+provide a variety of commonly requested features relating to managing enrollment and access to a course instance. 
+
+## New features
+
+### Self-enrollment
+
+There are additional security features for managing enrollment in your course instance.
+
+#### Explicit invitations
+
+If you want to no longer allow students to self-enroll, you can disable self-enrollment and 
+explicitly invite students to your course. These invitations will show up on the homepage for students to accept an invitation.
+
+<image of invitation modal>
+<image of invitation on homepage>
+
+If a student rejects an invitation, it will no longer show up on their homepage. Whether they have rejected it or not,
+if they access any link to the course, they will automatically join the course. If you want to rescind the invation, you can hit the "Remove Invitation" button.
+<image of remove on individual student page>
+
+#### Self-enrollment codes
+
+If you want to require students to input a code to join your course, you can enable the new "self-enrollment code" toggle. Students will then
+be able to join via the homepage or the special self-enrollment link. If they access any other link, they will be prompted to enter the code.
+<image of setting>
+<image of code on homepage>
+
+If the code gets leaked, you can regenerate the code to prevent new students from joining the course.
+
+
+#### Self-enrollment window
+
+We often see instructors want to only allow students to self-enroll in a course until a specified date (e.g. the course drop deadline). You can now
+automatically disable self-enrollment after a date.
+
+#### Enroll page
+
+The enrollment page is going away. We encourage instructors to share a link or code to their course for students to enroll.
+This also means that the `hideInEnrollPage` setting is deprecated.
+
+#### Institution self-enrollment limits
+
+You can now limit self-enrollment to users from your institution (or any institution). 
+<image>
+
+This means you don't need to setup `allowAccess` rules that target these groups.
+
+### Student management
+
+All enrollment events are now logged and visible on the individual student page.
+
+<image>
+
+From this page, you can now block students from your course, and manage their enrollment.
+
+### Publishing
+
+The old "access rules" tab is now the "Publishing" tab. It lets you manage the date in which your course is published, and unpublished.
+
+<screenshots>
+
+#### Migration
+
+There is a helper in the UI to easily migrate you to the new system.
+
+#### Extensions
+
+The most common usecase for customized access rules for a course instance was to grant extensions to certain students.
+You can now manage these extensions directly through the UI. These extensions are not written to the JSON config, as we move away from
+PII/user emails in JSON configuration files.
+
+<image>
+
+You can grant an extension to give specific students access to the course beyond the original date. If a student has multiple extensions, the latest one takes effect.
+
+#### Other changes
+
+We have added shortcuts for managing enrollment settings on the "Students" page. Additionally, students now manage their enrollments via the homepage.
+
+## FAQ
+
+### Are these new settings optional?
+
+The new settings for self-enrollment are completely optional and require no changes on your end. However, we do
+recommend enabling "require self enrollment code". The new system for publishing is opt-in, but we will remove the old system after 6 months of the new publishing system being deployed. You should
+migrate your access rules before then. 
+
+### Why is the enrollment page going away?
+
+As PrairieLearn expands its usage within institutions and across various institutions, we believe that this page is difficult for students to
+locate their target course. The new self-enrollment codes and links are easy to distribute to students.
+
+### How can I setup sections with varying start times in my course instance with the new system?
+
+You can't. While the old system allowed this, Each section with a different start date should have it's own course instance.
+
+### What's next?
+
+We are working on a revamped assessment access control system.
+
+### I found a bug!
+
+Please let us know in Slack or on GitHub! We have done extensive testing, but there are always things we miss.
+
 export default ({ children }) => (
   <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
 );
