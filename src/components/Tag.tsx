@@ -2,12 +2,13 @@ import React from "react";
 import classnames from "classnames";
 import styles from "./Tag.module.scss";
 
-interface TagProps {
+export const Tag = ({
+  tag,
+  className,
+}: {
   tag: string;
   className?: string;
-}
-
-export const Tag: React.FC<TagProps> = ({ tag, className }) => {
+}) => {
   const isTechnical = tag.toLowerCase() === "technical";
 
   return (
@@ -25,12 +26,13 @@ export const Tag: React.FC<TagProps> = ({ tag, className }) => {
   );
 };
 
-interface TagListProps {
+export const TagList = ({
+  tags,
+  className,
+}: {
   tags: string[];
   className?: string;
-}
-
-export const TagList: React.FC<TagListProps> = ({ tags, className }) => {
+}) => {
   if (!tags || tags.length === 0) {
     return null;
   }
