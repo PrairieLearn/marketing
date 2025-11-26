@@ -1,6 +1,7 @@
 import {
   BlogMarkdownLayout,
   BlogImage,
+  BlogCalloutBox
 } from "../../../../components/BlogMarkdownLayout";
 import codeCycle from "./code-cycle.png";
 import workflow from "./workflow.png";
@@ -8,35 +9,25 @@ import passTheSalt from "./pass-the-salt.png";
 import reviewFunnel from "./review-funnel.png";
 
 export const meta = {
-  title: "Linting into The Pit of Success",
-  date: "2025-09-19",
+  title: "Linting into 'The Pit of Success'",
+  date: "2025-11-26",
   author: "Peter Stenger",
   tags: ["Technical", "Development"],
 };
 
+<BlogCalloutBox variant="info">
 Welcome to our first blog post! Over the next couple months, we are hoping to post feature deep-dives,
 technical challenges and solutions (like this article), and more -- stay tuned!
 
 If you want to be notified when a blog post is released, we will be posting these on our [LinkedIn](https://www.linkedin.com/company/prairielearn/).
 Follow us there to stay up to date!
+</BlogCalloutBox>
 
 In the past couple of months, PrairieLearn has started enforcing a _lot_ more stylistic and logical rules on our code.
 As a startup with effectively 3 full-time developers (Nathan, Myles, and I), this has greatly increased our ability to ship code, and unblock some bottlenecks.
 
+We have spent a lot of time guiding PRs towards this "[Pit of Success](https://blog.codinghorror.com/falling-into-the-pit-of-success)" and I wanted to share some of the improvements we made.
 We have since been able to ship code with a lot less "nits" which has saved us a lot of review cycles (and time!) :clock1:
-
-# The "pit of success"
-
-One blog post I think about often is "[Falling Into The Pit of Success](https://blog.codinghorror.com/falling-into-the-pit-of-success)" by Jeff Atwood.
-The main takeaway from this post is:
-
-> I've often said that a well-designed system makes it easy to do the right things and annoying (but not impossible) to do the wrong things.
-
-One of the main takeaways I have from this article is that if mistakes are currently being made, it is too easy to make a mistake. I mean, it's 2025,
-we have [AI-powered Google Glass](https://www.meta.com/ai-glasses/meta-ray-ban-display/), but we aren't warning the developer if their code is going to crash, or if
-their migration is going to crash production?
-
-We have spent a lot of time guiding PRs away from the "pit of despair", and I wanted to share some of the improvements we made.
 
 # Background
 
@@ -214,18 +205,33 @@ I believe that with the explosive usage of AI-assisted coding, linting and typec
 
 We are now shipping code at [🚀🚀🚀🚀 blazing fast speeds 🚀🚀🚀🚀](https://github.com/mTvare6/hello-world.rs) so we can bring a variety of key features to all our PrairieLearn users!
 
-If you liked this, I recommend checking out ["The Grug Brained Developer"](https://grugbrain.dev).
-The "Tools", "Type Systems", and "Expression Complexity" sections are all highly relevant to this post.
-I wrote [a similar post](https://stenger.io/blog/automation-sigpwny/) for the UIUC Cybersecurity club, `SIGPwny`, last year, focused more on automation.
 
-Some of the main takeaways I have from this experience are:
+## The "pit of success"
+
+The name of this post is a riff on the excellent blog post "[Falling Into The Pit of Success](https://blog.codinghorror.com/falling-into-the-pit-of-success)" by Jeff Atwood.
+
+The main takeaway from this post is:
+
+> I've often said that a well-designed system makes it easy to do the right things and annoying (but not impossible) to do the wrong things.
+
+Or in other words, if mistakes are being made, it is too easy to make a mistake. I mean, it's 2025,
+we have [AI-powered Google Glass](https://www.meta.com/ai-glasses/meta-ray-ban-display/), but we aren't warning the developer if their code is going to crash, or if
+their migration is going to crash production?
+
+I also recommend checking out ["The Grug Brained Developer"](https://grugbrain.dev), which talks more about the developer experience.
+In particular, the "Tools", "Type Systems", and "Expression Complexity" sections are all highly relevant to this post.
+
+Some of the main learnings I have from this experience are:
 
 - If you see a similar mistake being made over and over, it is easy to quickly fix it every time, but these mistakes add up. It may be worth the time to develop a more
   general solution to the problem.
 
-<BlogImage src={passTheSalt} />
+<BlogImage 
+  src={passTheSalt} 
+  caption="Source: [https://xkcd.com/1205](https://xkcd.com/1205/)"
+/>
 
-- If you are in a position to upstream fixes/issues to tools you get a lot of value from, do it!
+- If you are in a position to upstream fixes/issues to tools you get a lot of value from (as we are at PrairieLearn), do it!
 - Tooling can uncover a lot of strange code in your codebase. It is sometimes necessary to exclude it from linting. Any refactor has the potential to break working code!
 
 Thanks for reading! :heart:

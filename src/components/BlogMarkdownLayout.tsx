@@ -5,24 +5,38 @@ export const BlogMarkdownLayout = MarkdownLayout;
 
 import Image from "next/image";
 import classNames from "classnames";
+import ReactMarkdown from "react-markdown";
 
 export const BlogImage = ({
   src,
   alt = "Blog Image",
   full = false,
+  caption,
 }: {
   src: string;
   alt?: string;
   full?: boolean;
+  caption?: string | React.ReactNode;
 }) => {
   return (
-    <div className="d-flex justify-content-center">
-      <Image
-        src={src}
-        alt={alt}
-        className={classNames("img-fluid", !full && "w-50")}
-      />
-    </div>
+    <figure className="w-100">
+      <div className="d-flex justify-content-center">
+        <Image
+          src={src}
+          alt={alt}
+          className={classNames("img-fluid", !full && "w-50")}
+        />
+      </div>
+      {caption && (
+        <figcaption className="text-muted small mt-2 text-center">
+          {typeof caption === "string" ? (
+            <ReactMarkdown>{caption}</ReactMarkdown>
+          ) : (
+            caption
+          )}
+        </figcaption>
+      )}
+    </figure>
   );
 };
 
@@ -46,5 +60,55 @@ export const BlogQuote = ({
         </footer>
       )}
     </blockquote>
+  );
+};
+
+export const BlogCalloutBox = ({
+  children,
+  title,
+  variant = "info",
+}: {
+  children: React.ReactNode;
+  title?: string;
+  variant?: "info" | "warning" | "tip" | "note";
+}) => {
+  const variantStyles = {
+    info: {
+      border: "border-primary",
+      bg: "bg-light",
+      text: "text-primary",
+    },
+    warning: {
+      border: "border-warning",
+      bg: "bg-warning bg-opacity-10",
+      text: "text-warning",
+    },
+    tip: {
+      border: "border-success",
+      bg: "bg-success bg-opacity-10",
+      text: "text-success",
+    },
+    note: {
+      border: "border-secondary",
+      bg: "bg-secondary bg-opacity-10",
+      text: "text-secondary",
+    },
+  };
+
+  const styles = variantStyles[variant];
+
+  return (
+    <div
+      className={classNames(
+        "border border-2 rounded px-4 pt-4 pb-2 my-4",
+        styles.border,
+        styles.bg
+      )}
+    >
+      {title && (
+        <div className={classNames("fw-bold", styles.text)}>{title}</div>
+      )}
+      <div className="text-dark">{children}</div>
+    </div>
   );
 };
