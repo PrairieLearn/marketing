@@ -102,7 +102,7 @@ export const BlogCalloutBox = ({
       className={classNames(
         "border border-2 rounded px-4 pt-4 pb-2 my-4",
         styles.border,
-        styles.bg
+        styles.bg,
       )}
     >
       {title && (
