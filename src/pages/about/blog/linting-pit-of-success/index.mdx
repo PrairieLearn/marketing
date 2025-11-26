@@ -1,0 +1,245 @@
+import {
+  BlogMarkdownLayout,
+  BlogImage,
+  BlogCalloutBox,
+} from "../../../../components/BlogMarkdownLayout";
+import codeCycle from "./code-cycle.png";
+import workflow from "./workflow.png";
+import passTheSalt from "./pass-the-salt.png";
+import reviewFunnel from "./review-funnel.png";
+
+export const meta = {
+  title: "Linting into 'The Pit of Success'",
+  date: "2025-11-26",
+  author: "Peter Stenger",
+  tags: ["Technical", "Development"],
+};
+
+<BlogCalloutBox variant="info">
+Welcome to our first blog post! Over the next couple months, we are hoping to post feature deep-dives,
+technical challenges and solutions (like this article), and more -- stay tuned!
+
+If you want to be notified when a blog post is released, we will be posting these on our [LinkedIn](https://www.linkedin.com/company/prairielearn/).
+Follow us there to stay up to date!
+
+</BlogCalloutBox>
+
+In the past couple of months, PrairieLearn has started enforcing a _lot_ more stylistic and logical rules on our code.
+As a startup with effectively 3 full-time developers (Nathan, Myles, and I), this has greatly increased our ability to ship code, and unblock some bottlenecks.
+
+We have spent a lot of time guiding PRs towards this "[Pit of Success](https://blog.codinghorror.com/falling-into-the-pit-of-success)" and I wanted to share some of the improvements we made.
+We have since been able to ship code with a lot less "nits" which has saved us a lot of review cycles (and time!) :clock1:
+
+# Background
+
+When I started working at PrairieLearn a couple of months ago after graduating from University of Illinois,
+I was in for a rude awakening about my code. I was neglecting basic accessibility checks, and my code was (is?) littered with logic and rendering bugs.
+In a large company, this is fine -- you have lots of engineers to do QA, review your code, and pair program. However, we want to ship quickly, without breaking
+questions and courses that students are expecting to work with zero downtime.
+
+From a code-review perspective, I was generating **way** more code than could be reviewed in a reasonable span of time.
+
+<BlogImage src={codeCycle} />
+
+Whenever you are doing development, you are either review bottlenecked, or code bottlenecked. Being review bottlenecked is the worst -- it lets code pile up, leading to
+frequent merge conflicts and a very cluttered PR page. We were able to transition away from Nathan reviewing everything to a shared review workload, but still, a lot of time
+was spent double-checking repetitive or easy-to-make mistakes.
+
+Clearly, we wanted a faster, more reliable way to get PRs merged and shift work back onto authors and off the reviewer.
+
+## Tooling
+
+To accomplish this, we have spent a couple months beefing up tooling surrounding every aspect of PrairieLearn. It is getting hard to fail without knowing about it!
+
+### Python
+
+Python is a picture-perfect example of a dynamically-typed language -- it can crash for tons of reasons that are entirely non-obvious.
+I could go on a whole tangent about how insane Python is, but it would take too long.
+
+We spent a lot of time enabling the full config of [ruff](https://docs.astral.sh/ruff/), spanning [at least
+33 PRs](https://github.com/PrairieLearn/PrairieLearn/pulls?page=1&q=is:pr+author:reteps+%22ruff%22+is:closed) by my count.
+
+We now require docstrings for all our code, and were able to fully autogenerate
+[documentation](https://prairielearn.readthedocs.io/en/latest/python-reference/prairielearn/grading_utils/#prairielearn.grading_utils.grade_answer_parameterized)
+using [`mkdocstrings`](https://mkdocstrings.github.io/).
+
+We enabled a variety of stricter [pyright](https://github.com/microsoft/pyright) settings, an effort that spans [at least 15 PRs](https://github.com/PrairieLearn/PrairieLearn/pulls?q=pyright+author:reteps+is:closed).
+We have our eye on [pyrefly](https://github.com/facebook/pyrefly) and [ty](https://github.com/astral-sh/ty).
+
+### Questions and elements
+
+PrairieLearn essentially maintains a custom templating system -- a combination of Python and Mustache, using a [custom state machine](https://prairielearn.readthedocs.io/en/latest/question/server/#question-lifecycle) for questions.
+This is a core piece of our platform, and dates back over 10 years! This system has a couple of drawbacks, one of which is a lack of standardized tooling for our exact setup.
+
+To fix this, I created a question testing and accessibility suite that runs across all our
+questions in the [example course](https://github.com/PrairieLearn/PrairieLearn/tree/master/exampleCourse). It renders all the questions with correct and incorrect inputs given,
+and checks for issues in the question as well as accessibility violations. We use [`html-validate`](https://gitlab.com/html-validate/html-validate) for static accessibility testing.
+
+To do this, I fixed up a somewhat-hidden feature of PrairieLearn, the ability to [auto-test questions](https://prairielearn.readthedocs.io/en/latest/question/server/#testing-questions-with-test) and fixed up their implementations
+for our core element set. Then, we made a variety of accessibility improvements that could only be checked with the rendered HTML. As PrairieLearn develops a larger set of examples and elements, this will hit code paths on every deploy for elements that can help uncover regressions in the future.
+
+At compile/development time, we are now using [`html-eslint`](https://html-eslint.org/docs/integrating-template-engine) to check formatting and tag issues statically via ESLint.
+This was something that was very tricky due to our usage of Mustache, so kudos to the maintainer ([`@yeonjuan`](https://github.com/yeonjuan)) who had built in support for template engines,
+and was able to implement a variety of feature requests and bug fixes [I made](https://github.com/yeonjuan/html-eslint/issues?q=is:issue%20state:closed%20author:reteps).
+
+### SQL
+
+We are now linting our SQL files with [sqlfluff](https://www.sqlfluff.com/). I was able to upstream [4 PRs](https://github.com/sqlfluff/sqlfluff/pulls?q=is:pr+author:reteps+is:closed) to get this tool working for us.
+
+We are also linting our migrations to ensure zero-downtime operations with [Squawk](https://squawkhq.com/). This was something easy to mess up and we were able to find operations that we thought were zero-downtime, but could
+[actually block writes](https://github.com/sbdchd/squawk/issues/649) for substantial periods of time.
+
+We are early adopters of [`postgres-language-server`](https://github.com/supabase-community/postgres-language-server). As far as I am aware, this is one of the first projects
+attempting to do something like this -- investing in improving tooling for SQL itself, and not a type-safe wrapper around SQL, which often have [massive issues](https://github.com/prisma/prisma/issues/5184).
+
+The maintainers there were able to provide a variety of [bug fixes and enhancements](https://github.com/supabase-community/postgres-language-server/issues?q=is:issue%20author:reteps)
+to get this to work for us, including `$named_parameter_support` and schema globs. This also enables basic typechecking of our code.
+
+### Model functions
+
+PrairieLearn doesn't use an ORM for SQL, instead opting for [Zod](https://zod.dev/) schemas and model functions alongside our codebase.
+We added tests ensuring that our model columns always line up with our database columns. We also finished typing all our SQL accesses. This was a multi-month effort,
+and involved a variety of type fixes (and bugs caused) to guarantee that we always validate data that comes out of our database.
+
+### JSON schemas
+
+PrairieLearn uses [JSONSchema](https://json-schema.org/) for validating all of our configuration files. This is another core piece of PrairieLearn, which is configuration
+that instructors can commit and edit as text rather than in a GUI. We are such big fans of Zod, that we rewrote our original JSON Schemas with Zod using [`zod-to-json-schema`](https://www.npmjs.com/package/zod-to-json-schema).
+
+With the Zod 4 release, it seemed like this was the right call, as we will soon be able to do this [natively](https://zod.dev/json-schema).
+
+We now auto-generate [human-readable documentation](https://prairielearn.readthedocs.io/en/latest/schemas/infoCourseInstance/) for our JSON Schemas with [`jsonschema2md`](https://github.com/sbrunner/jsonschema2md).
+To allow for this, I finished implementing the full property list of JSONSchema and added support for `<details>` blocks for objects.
+
+Using Zod has let us reuse these definitions across our TypeScript codebase, which has been incredibly useful.
+
+### Typescript
+
+We were able to finish converting all our code from JavaScript to TypeScript.
+Some of this code is absolutely ancient stuff -- originally using [`ejs` templates](https://ejs.co/) that survived various evolutions of PrairieLearn.
+I am so glad to not work with JavaScript again for a while -- once you go typed, the land of the untyped is scary.
+
+We are still in the process of progressively making our TypeScript configurations stricter.
+
+#### ESLint
+
+We heavily beefed up our setup, pulling in projects like:
+
+- `@html-eslint/eslint-plugin` (Linting contents of our `html` tagged templates)
+- `@eslint-react/eslint-plugin` ([Upstreamed](https://github.com/Rel1cx/eslint-react/pulls?q=is:pr+author:reteps+is:closed) a migration guide and new rule)
+- `@stylistic/eslint-plugin`
+- `eslint-plugin-jsdoc`
+- `eslint-plugin-jsx-a11y-x` (Fun drama here with [node 4+ polyfills](https://news.ycombinator.com/item?id=37604373))
+- `eslint-plugin-react-hooks` + `eslint-plugin-react-you-might-not-need-an-effect` (Reported 2 bugs)
+- `eslint-plugin-unicorn`
+
+This new setup has been able to flag and auto-fix a variety of code patterns, and ensure consistency across our code base.
+We are slowly improving type safety with more lint rules, like our recent push for [`no-unnecessary-condition`](https://typescript-eslint.io/rules/no-unnecessary-condition/).
+
+#### Testing
+
+We migrated away from [Mocha](https://mochajs.org/) to [Vitest](https://vitest.dev/). There is a reason that it [consistently tops charts](https://2024.stateofjs.com/en-US/libraries/testing/) --
+it has an excellent VSCode extension, and is extremely extensible (more on this in the CI section).
+
+### CI
+
+All these new lints and rules meant that we needed to rethink our CI setup to be faster. We were able to get down to a 7 minute full CI check, down from 12 minutes.
+The time to last actionable feedback (tests) is only 4 minutes (the 7-minute check is a full image build + question execution smoke test which should typically never fail)
+-- this makes it much easier to iterate quickly. The time to first feedback (lints) is under 2 minutes no matter what you are working on.
+
+We made a variety of performance improvements to pull this off including:
+
+- Caching [Turborepo](https://turborepo.com/) builds
+- Using [uv](https://docs.astral.sh/uv/) instead of plain pip for installs
+- Caching our Prettier and ESLint builds (and getting an [RFC accepted in Prettier](https://github.com/prettier/prettier/issues/17260) related to this)
+- Parallelizing our [CI checks](https://github.com/PrairieLearn/PrairieLearn/blob/master/.github/workflows/check.yml) into 3 chunks that can all run in < 2 minutes
+- Sharding our TypeScript tests. We run this across [4 workers](https://github.com/PrairieLearn/PrairieLearn/blob/master/.github/workflows/test.yml#L100),
+  and were able to take advantage of Vitest's [blob reporter](https://vitest.dev/guide/reporters.html#blob-reporter). Nathan fixed their [Github Actions reporter](https://github.com/vitest-dev/vitest/pull/8015) so we can report these issues on GitHub diffs.
+- Using a matrix build for our images. We are taking advantage of [registry caches](https://docs.docker.com/build/cache/backends/registry/) for builds that are consistently under 4 minutes (dominated by yarn install time).
+
+<BlogImage src={workflow} />
+
+### Misc. linters
+
+We added a variety of specialty linters, such as:
+
+- Github Actions linting with [actionlint](https://github.com/rhysd/actionlint)
+- Markdown linting with [markdownlint](https://github.com/DavidAnson/markdownlint)
+- Dockerfile linting with [hadolint](https://github.com/hadolint/hadolint)
+- Script linting with [shellcheck](https://www.shellcheck.net/)
+- Linting our [changesets](https://github.com/changesets/changesets) and [d2 diagrams](https://d2lang.com/).
+
+### Human linters
+
+- We have a new PR template with a checklist
+- We auto-tag all our PRs based on area of code touched and keywords in the title
+- We categorized and retagged all our issues and added issue templates
+- We auto-review PRs with [CodeRabbit](https://www.coderabbit.ai/) which has caught subtle logic bugs and helped to build understanding of the PR.
+
+# Why?
+
+Most developers would agree that for most projects, this is an impractical amount of developer tooling to set up -- just write the code. The reason
+we invested so heavily is due to a combination of factors.
+
+1. We were so heavily review-bottlenecked. We were getting to a point where it was difficult for Nathan to write code, because he had to review so much! I also had extra
+   time to upstream and experiment with various linters.
+
+<BlogImage src={reviewFunnel} />
+
+2. I am not well-versed in best practices. As a junior developer, there are still many takeaways and lessons worth enforcing that I am not thinking about, that a more senior developer would catch.
+   Discussing various lint rules is actually a good way to agree on certain code styles and what we care about from a code-quality perspective.
+
+3. AI is the ultimate junior developer. We are heavily integrating [Claude Code](https://claude.com/product/claude-code)
+   and [Cursor](https://cursor.com/home) into our workflows. These are coding agents that can act on lint and build failures and self-correct code it is writing.
+   Adding additional guardrails alongside a [`agents.md`](https://agents.md/) file leads to some great code-quality improvements for these agents.
+
+4. We have a rotating window of undergraduates and graduate students that contribute to PrairieLearn. We can now spend less time worrying about code quality nits
+   from these contributors, and focus more on actual functionality. Codifying lint and style rules helps enforce code quality and speed up understanding of how to write code for PrairieLearn.
+   We also invested into our [developer documentation](https://prairielearn.readthedocs.io/en/latest/dev-guide/) for helping get these contributors up to speed.
+
+5. We are an open-source first company. Being an open-source company, we are in the unique position to contribute time to these tools without worrying about maintaining an
+   in-house fork with extra features that can't be shared with the public.
+
+I believe that with the explosive usage of AI-assisted coding, linting and typechecking are becoming more important than ever.
+
+# Conclusion
+
+We are now shipping code at [🚀🚀🚀🚀 blazing fast speeds 🚀🚀🚀🚀](https://github.com/mTvare6/hello-world.rs) so we can bring a variety of key features to all our PrairieLearn users!
+
+## The "pit of success"
+
+The name of this post is a riff on the excellent blog post "[Falling Into The Pit of Success](https://blog.codinghorror.com/falling-into-the-pit-of-success)" by Jeff Atwood.
+
+The main takeaway from this post is:
+
+> I've often said that a well-designed system makes it easy to do the right things and annoying (but not impossible) to do the wrong things.
+
+Or in other words, if mistakes are being made, it is too easy to make a mistake. I mean, it's 2025,
+we have [AI-powered Google Glass](https://www.meta.com/ai-glasses/meta-ray-ban-display/), but we aren't warning the developer if their code is going to crash, or if
+their migration is going to crash production?
+
+I also recommend checking out ["The Grug Brained Developer"](https://grugbrain.dev), which talks more about the developer experience.
+In particular, the "Tools", "Type Systems", and "Expression Complexity" sections are all highly relevant to this post.
+
+## Takeaways
+
+Some of the main learnings I have from this experience are:
+
+- If you see a similar mistake being made over and over, it is easy to quickly fix it every time, but these mistakes add up. It may be worth the time to develop a more
+  general solution to the problem.
+
+<BlogImage
+  src={passTheSalt}
+  caption="Source: [https://xkcd.com/1205](https://xkcd.com/1205/)"
+/>
+
+- If you are in a position to upstream fixes/issues to tools you get a lot of value from (as we are at PrairieLearn), do it!
+- Tooling can uncover a lot of strange code in your codebase. It is sometimes necessary to exclude it from linting. Any refactor has the potential to break working code!
+
+Thanks for reading! :heart:
+
+Peter Stenger
+
+export default ({ children }) => (
+  <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
+);
