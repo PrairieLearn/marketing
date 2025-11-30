@@ -17,19 +17,27 @@ export interface BlogPost {
   tags?: string[];
 }
 
-export async function getAllPosts(): Promise<(BlogPost & { slug: string })[]> {
+export interface BlogPostWithSlug extends BlogPost {
+  slug: string;
+}
+
+export async function getAllPosts(): Promise<BlogPostWithSlug[]> {
   const items = fs.readdirSync(postsDirectory, { withFileTypes: true });
   const slugs = items
     .filter((item) => item.isDirectory())
     .map((item) => item.name);
-  const posts = (await Promise.all(
+  const posts = await Promise.all(
     slugs.map(async (slug) => {
-      const { meta } = await import(`../pages/about/blog/${slug}/index.mdx`);
+      const { meta } = (await import(
+        `../pages/about/blog/${slug}/index.mdx`
+      )) as { meta: BlogPost };
       return { slug, ...meta };
     }),
-  )) as (BlogPost & { slug: string })[];
+  );
 
-  posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  const sortedPosts = posts.toSorted(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+  );
 
-  return posts;
+  return sortedPosts;
 }

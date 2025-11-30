@@ -7,17 +7,15 @@ import { Heading } from "../../../components/Heading";
 import Stack from "../../../components/Stack";
 import { TagList } from "../../../components/Tag";
 import { format } from "date-fns";
-import { getAllPosts, BlogPost } from "../../../lib/blog";
+import { getAllPosts, BlogPost, BlogPostWithSlug } from "../../../lib/blog";
 
 import styles from "./index.module.scss";
 
 interface BlogIndexProps {
-  posts: (BlogPost & { slug: string })[];
+  posts: BlogPostWithSlug[];
 }
 
-const BlogPostCard: React.FC<{ post: BlogPost & { slug: string } }> = ({
-  post,
-}) => {
+const BlogPostCard = ({ post }: { post: BlogPostWithSlug }) => {
   const formattedDate = format(new Date(post.date), "MMMM d, yyyy");
 
   return (
