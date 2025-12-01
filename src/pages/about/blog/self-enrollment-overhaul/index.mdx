@@ -1,0 +1,150 @@
+import {
+  BlogMarkdownLayout,
+  BlogImage,
+  BlogCalloutBox,
+} from "../../../../components/BlogMarkdownLayout";
+
+import acceptInvitationHomepage from "./accept_invitation_homepage.png";
+import inviteStudent from "./invite_student.png";
+import selfEnrollmentSettingsFull from "./self_enrollment_settings_full.png";
+import enterEnrollmentCodeHomepage from "./enter_enrollment_code_homepage.png";
+import studentDetailsPage from "./student_details_page.png";
+import scheduledPublish from "./scheduled_publish.png";
+import addExtension from "./add_extension.png";
+import releaseCover from "./release_cover.png";
+
+export const meta = {
+  title: "Overhauled enrollment management",
+  date: "2026-01-01",
+  author: "Peter Stenger",
+  tags: ["Release"],
+  introImage: releaseCover,
+};
+
+The new self-enrollment and publishing systems are here! These systems should solve a variety of pain-points
+with the previous way of managing access to course instances. They simplify access management for course instances, and
+provide a variety of easy-to-use controls for managing enrollments and access in your course instance. All the new features released
+can be controlled in the UI.
+
+<BlogCalloutBox variant="info">
+  **Key Takeaways:**
+
+  1. Your existing course instances don't need any changes.
+  2. Going forward, how students can access your course is changing.
+  You can either give them a link/code to enroll (see the [self-enrollment section](#self-enrollment)), or invite them yourself (see the [invitations section](#invitations)).
+  There is no longer an enrollment page to find courses.
+</BlogCalloutBox>
+
+Let's get into all the new features!
+
+### Enrollment management
+
+You should now use the "Students" tab to manage enrollments, you no longer need to manage enrollments or access in JSON. There are now two
+main ways to grant students access to your course:
+
+1. Provide students with a self-enrollment link or code
+2. Manually invite students to your course
+
+<TODO Students page image>
+
+### Self-enrollment
+
+Self-enrollment allows students to allow in a course as long as they have a code or link to join the course. 
+You can further limit self-enrollment by limiting it to specific institutions, or setting a cutoff date for self-enrollment.
+
+<BlogImage
+  src={selfEnrollmentSettingsFull}
+  alt="Overview of self-enrollment settings"
+  caption="The full self-enrollment settings panel with all available options"
+  full
+/>
+
+#### Self-enrollment codes
+
+If you want to allow students to input a code to join your course, you should check "Use enrollment code for self-enrollment".
+If they access any link to your course, they will be prompted to enter the code.
+
+<BlogImage
+  src={enterEnrollmentCodeHomepage}
+  alt="Enter enrollment code on homepage"
+  caption="Students can enter an enrollment code from the homepage to join a course instance"
+  full
+/>
+
+### Invitations
+
+You can manage access by explicitly inviting students to your course. These invitations will show up on the homepage for students to accept an invitation.
+If you want full control over everyone in your course, consider disabling self-enrollment completely.
+
+You can invite a student to your course by clicking the button on the "Students" tab.
+
+<BlogImage
+  src={inviteStudent}
+  alt="Invitation modal"
+  caption="Inviting students to a course instance"
+/>
+<BlogImage
+  src={acceptInvitationHomepage}
+  alt="Invitation on homepage"
+  caption="Students can see and accept invitations directly from their homepage"
+/>
+
+### Managing individual students
+
+Changes to a students enrollment are logged and visible on the individual student page. You can get to this page by clicking on a student's UID
+via the "Students" or "Gradebook" tab. From this page, you can also block a student from a course.
+
+<BlogImage
+  src={studentDetailsPage}
+  alt="Student details page with enrollment events"
+  caption="The student details page"
+  full
+/>
+
+### Publishing
+
+Publishing is the new system to determine if a student can access a course.
+A course can be "unpublished", "published", or "scheduled for publish".
+
+Unpublished course instances are not visible to students, and they cannot enroll in it or access the contents.
+Students are able to enroll in published course instances and access it's contents. 
+When preparing for a new term, you can setup your course instance to be published in the future. On that date,
+the course instance will switch to published.
+
+<BlogImage
+  src={scheduledPublish}
+  alt="Scheduled publishing"
+  caption="You can schedule a course instance to be published automatically on a future date"
+/>
+
+Copying or creating a new course instance in the UI will automatically migrate you to the modern publishing system.
+If you prefer to manage your course instance via JSON files, you can follow [the steps in the documentation](https://prairielearn.readthedocs.io/en/latest/courseInstance/#migrating-from-allowaccess) to migrate your course.
+
+### Publishing extensions for individual students
+
+You can grant an extension to give specific students access to the course beyond the original date. If a student has multiple extensions, the latest one takes effect.
+These extensions are not written to the JSON.
+
+<BlogImage
+  src={addExtension}
+  alt="Add extension"
+  caption="Granting an extension to specific students directly through the UI"
+/>
+
+### Other changes
+
+- Students now manage their enrollments via the homepage.
+- The dedicated enrollment page that listed all course instances is going away.
+
+<BlogCalloutBox variant="info">
+  More detailed information about all these features can be found in the [Course
+  instance
+  documentation](https://prairielearn.readthedocs.io/en/latest/courseInstance/#enrollment-controls).
+  If you have questions, let us know on [Slack](/slack).
+</BlogCalloutBox>
+
+export default ({ children }) => (
+  <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
+);
+
+;
