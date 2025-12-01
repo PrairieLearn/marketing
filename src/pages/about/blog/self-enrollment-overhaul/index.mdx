@@ -1,0 +1,216 @@
+import {
+  BlogMarkdownLayout,
+  BlogImage,
+  BlogCalloutBox,
+} from "../../../../components/BlogMarkdownLayout";
+
+import acceptInvitationHomepage from "./accept_invitation_homepage.png";
+import inviteStudent from "./invite_student.png";
+import selfEnrollmentSettingsDefault from "./self_enrollment_settings_default.png";
+import selfEnrollmentSettingsFull from "./self_enrollment_settings_full.png";
+import enterEnrollmentCodeHomepage from "./enter_enrollment_code_homepage.png";
+import studentDetailsPage from "./student_details_page.png";
+import blockedStudent from "./blocked_student.png";
+import scheduledPublish from "./scheduled_publish.png";
+import publishedWithExtensions from "./published_with_extensions.png";
+import unpublished from "./unpublished.png";
+import addExtension from "./add_extension.png";
+import releaseCover from "./release_cover.png";
+
+export const meta = {
+  title: "Overhauled course instance management",
+  date: "2026-01-01",
+  author: "Peter Stenger",
+  tags: ["Release"],
+  introImage: releaseCover,
+};
+
+The new self-enrollment and publishing systems are here! These systems should solve a variety of pain-points
+with the previous way of managing access to course instances. They simplify access management for course instances, and
+provide a variety of easy-to-use controls for managing enrollments and access in your course instance. All the new features released
+can be controlled in the UI.
+
+Let's get into all the new features!
+
+### Enrollment Management
+
+There are now additional features for managing enrollments in your course instance.
+
+<BlogImage
+  src={selfEnrollmentSettingsFull}
+  alt="Overview of self-enrollment settings"
+  caption="The full self-enrollment settings panel with all available options"
+  full
+/>
+
+#### Explicit invitations and disabling self-enrollment
+
+If you want to no longer allow students to self-enroll, you can disable self-enrollment.
+
+You can then manage access by explicitly inviting students to your course. These invitations will show up on the homepage for students to accept an invitation.
+
+<BlogImage
+  src={inviteStudent}
+  alt="Invitation modal"
+  caption="Inviting students to a course instance"
+/>
+<BlogImage
+  src={acceptInvitationHomepage}
+  alt="Invitation on homepage"
+  caption="Students can see and accept invitations directly from their homepage"
+/>
+
+- If a student rejects an invitation, they can still join via a link to the course. However, the invitation will not show up on their homepage until they are re-invited.
+- If an invited student accesses any link to the course (regardless of the current self-enrollment settings), they will automatically join the course.
+- You can hit the "Cancel invitation" button on the individual student page if you change your mind.
+
+#### Self-enrollment codes
+
+If you want to allow students to input a code to join your course, you should check "Use enrollment code for self-enrollment".
+Students will then be able to join via the homepage or the special self-enrollment link. If they access any other link, they will be prompted to enter the code.
+
+<BlogImage
+  src={enterEnrollmentCodeHomepage}
+  alt="Enter enrollment code on homepage"
+  caption="Students can enter an enrollment code from the homepage to join a course instance"
+  full
+/>
+
+If the code gets leaked, you can regenerate the enrollment code. This will invalidate the old enrollment code.
+
+<BlogCalloutBox variant="info">
+  We recommend most instructors enable this option, and distribute the
+  self-enrollment code in their course materials.
+</BlogCalloutBox>
+
+#### Institution self-enrollment limits
+
+Self-enrollment is now limited to users from your institution by default. You can allow users from any institution to join by unchecking
+this.
+
+This setting replaces the `institution` setting in `allowAccess`.
+
+#### Self-enrollment cutoff
+
+We often see instructors want to only allow students to self-enroll in a course until a specified date. You can now
+automatically disable self-enrollment after a date.
+
+<BlogCalloutBox variant="info">
+  We recommend you set this to the University-imposed deadline for students to
+  add courses.
+</BlogCalloutBox>
+
+#### Student management
+
+Changes to a students enrollment are logged and visible on the individual student page. You can get to this page by clicking on a student's UID
+via the 'Students' or 'Gradebook' tab.
+
+<BlogImage
+  src={studentDetailsPage}
+  alt="Student details page with enrollment events"
+  caption="The student details page"
+  full
+/>
+
+From this page, you can now manage their enrollment status. At any point, you can block a student, which will immediately
+deny them access to the course instance.
+
+<BlogImage
+  src={blockedStudent}
+  alt="Blocked student"
+  caption="A blocked student is immediately denied access to the course instance. They can later be unblocked"
+/>
+
+### Publishing
+
+The old "Access rules" tab accessible after clicking "Course instance settings" is now the "Publishing" tab.
+Publishing is a rework of the course instance access control system.
+
+#### Unpublished course instances
+
+<BlogImage
+  src={unpublished}
+  alt="Unpublished course"
+  caption="Unpublished course instances are only visible to staff, not students"
+/>
+
+Unpublished course instances are not visible to students, only staff.
+For students, it is as if the course instance doesn't exist, and cannot enroll in it or access the contents.
+
+#### Publishing course instances
+
+When a course instance is published, students will be able to enroll in it and access it's contents.
+
+#### Scheduling publish
+
+When preparing for a new term, you can setup your course instance to be published in the future. On that date,
+the course instance will switch to published.
+
+<BlogImage
+  src={scheduledPublish}
+  alt="Scheduled publishing"
+  caption="You can schedule a course instance to be published automatically on a future date"
+/>
+
+#### Switching to publishing
+
+Copying or creating a new course instance in the UI will automatically migrate you to the modern publishing system.
+If you prefer to manage your course instance via JSON files, you can follow [the steps in the documentation](https://prairielearn.readthedocs.io/en/latest/courseInstance/#migrating-from-allowaccess) to migrate your course.
+
+#### Extensions
+
+The most common usecase for customized access rules for a course instance was to grant extensions to certain students.
+You can now manage these extensions directly through the UI. These extensions are not written to the JSON config, as we move away from
+PII/user emails in JSON configuration files.
+
+<BlogImage
+  src={addExtension}
+  alt="Add extension"
+  caption="You can grant extensions to specific students directly through the UI"
+/>
+<BlogImage
+  src={publishedWithExtensions}
+  alt="Published with extensions"
+  caption="A published course instance with extensions showing which students have extended access"
+/>
+
+You can grant an extension to give specific students access to the course beyond the original date. If a student has multiple extensions, the latest one takes effect.
+
+### Other changes
+
+- Students now manage their enrollments via the homepage.
+- The dedicated enrollment page that listed all course instances is going away.
+
+## FAQ
+
+### Do I need to change how I use PrairieLearn as a result of these features?
+
+No, the new features are completely backwards compatible. However, please note that the enrollment page is going away --
+so you should start distributing course instance links / codes to your students instead of relying on them finding the
+course on their own.
+
+### Why is the enrollment page going away?
+
+As PrairieLearn expands its usage within institutions and across various institutions, we believe that this page is difficult for
+students to locate their target course. The new self-enrollment codes and links are easy to distribute to students.
+
+### Can I setup sections with varying start times in my course instance with the new system?
+
+No, each section that starts on a different date should have its own course instance.
+
+### I found a bug!
+
+Please let us know in [Slack](/slack) or on [GitHub](https://github.com/PrairieLearn/PrairieLearn/issues)!
+
+<BlogCalloutBox variant="info">
+  More detailed information about all these features can be found in the [Course
+  instance
+  documentation](https://prairielearn.readthedocs.io/en/latest/courseInstance/#enrollment-controls).
+  If you have questions, let us know on [Slack](/slack).
+</BlogCalloutBox>
+
+export default ({ children }) => (
+  <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
+);
+
+;

@@ -1,11 +1,71 @@
 import React from "react";
-import { MarkdownLayout } from "./MarkdownLayout";
-
-export const BlogMarkdownLayout = MarkdownLayout;
-
-import Image from "next/image";
+import Image, { ImageProps } from "next/image";
 import classNames from "classnames";
 import ReactMarkdown from "react-markdown";
+import { MDXProvider } from "@mdx-js/react";
+import Head from "next/head";
+
+import mdxComponents from "../lib/mdxComponents";
+import { PageBanner } from "./Banner";
+
+interface BlogMarkdownLayoutProps {
+  children: React.ReactNode;
+  meta: {
+    title: string;
+    date?: string;
+    author?: string;
+    tags?: string[];
+    introImage?: ImageProps["src"];
+    introImageAlt?: string;
+    summary?: string;
+    backText?: string;
+    backHref?: string;
+  };
+}
+
+export const BlogMarkdownLayout: React.FC<BlogMarkdownLayoutProps> = ({
+  children,
+  meta,
+}) => {
+  const { title, summary, introImage, introImageAlt, backText, backHref } =
+    meta;
+  if (!title) throw new Error("Missing title");
+
+  return (
+    <React.Fragment>
+      <Head>
+        <title>{`${title} | PrairieLearn`}</title>
+      </Head>
+
+      <PageBanner
+        title={title}
+        subtitle={summary}
+        backText={backText}
+        backHref={backHref}
+      />
+
+      <div className="container my-5">
+        {introImage && (
+          <div className="mb-5">
+            <Image
+              src={introImage}
+              alt={introImageAlt || title}
+              className="img-fluid w-100"
+              style={{
+                maxHeight: "500px",
+                width: "100%",
+                height: "auto",
+                objectFit: "contain",
+                borderRadius: "8px",
+              }}
+            />
+          </div>
+        )}
+        <MDXProvider components={mdxComponents}>{children}</MDXProvider>
+      </div>
+    </React.Fragment>
+  );
+};
 
 export const BlogImage = ({
   src,
