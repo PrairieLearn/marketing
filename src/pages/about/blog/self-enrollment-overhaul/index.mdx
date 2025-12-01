@@ -6,19 +6,15 @@ import {
 
 import acceptInvitationHomepage from "./accept_invitation_homepage.png";
 import inviteStudent from "./invite_student.png";
-import selfEnrollmentSettingsDefault from "./self_enrollment_settings_default.png";
 import selfEnrollmentSettingsFull from "./self_enrollment_settings_full.png";
 import enterEnrollmentCodeHomepage from "./enter_enrollment_code_homepage.png";
 import studentDetailsPage from "./student_details_page.png";
-import blockedStudent from "./blocked_student.png";
 import scheduledPublish from "./scheduled_publish.png";
-import publishedWithExtensions from "./published_with_extensions.png";
-import unpublished from "./unpublished.png";
 import addExtension from "./add_extension.png";
 import releaseCover from "./release_cover.png";
 
 export const meta = {
-  title: "Overhauled course instance management",
+  title: "Overhauled enrollment management",
   date: "2026-01-01",
   author: "Peter Stenger",
   tags: ["Release"],
@@ -35,7 +31,7 @@ can be controlled in the UI.
 
   1. Your existing course instances don't need any changes.
   2. Going forward, how students can access your course is changing.
-  You can either give them a link/code to enroll (see the XXX section), or invite them yourself (see the YYY section).
+  You can either give them a link/code to enroll (see the [self-enrollment section](#self-enrollment)), or invite them yourself (see the [invitations section](#invitations)).
   There is no longer an enrollment page to find courses.
 </BlogCalloutBox>
 
@@ -57,23 +53,6 @@ You can further limit self-enrollment by limiting it to specific institutions, o
   alt="Overview of self-enrollment settings"
   caption="The full self-enrollment settings panel with all available options"
   full
-/>
-
-#### Explicit invitations and disabling self-enrollment
-
-If you want to no longer allow students to self-enroll, you can disable self-enrollment.
-
-You can then manage access by explicitly inviting students to your course. These invitations will show up on the homepage for students to accept an invitation.
-
-<BlogImage
-  src={inviteStudent}
-  alt="Invitation modal"
-  caption="Inviting students to a course instance"
-/>
-<BlogImage
-  src={acceptInvitationHomepage}
-  alt="Invitation on homepage"
-  caption="Students can see and accept invitations directly from their homepage"
 />
 
 ### Self-enrollment
@@ -109,6 +88,22 @@ automatically disable self-enrollment after a date.
   We recommend you set this to the University-imposed deadline for students to
   add courses.
 </BlogCalloutBox>
+
+### Invitations
+
+You can manage access by explicitly inviting students to your course. These invitations will show up on the homepage for students to accept an invitation.
+If you want full control over everyone in your course, consider disabling self-enrollment completely.
+
+<BlogImage
+  src={inviteStudent}
+  alt="Invitation modal"
+  caption="Inviting students to a course instance"
+/>
+<BlogImage
+  src={acceptInvitationHomepage}
+  alt="Invitation on homepage"
+  caption="Students can see and accept invitations directly from their homepage"
+/>
 
 ### Individual student management
 
