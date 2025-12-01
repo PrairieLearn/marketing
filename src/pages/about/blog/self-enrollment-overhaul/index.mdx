@@ -39,13 +39,10 @@ Let's get into all the new features!
 
 ### Enrollment management
 
-You no longer need to manage enrollments or users in JSON; you can use the "Students" tab to manage enrollments. There are now two
+You should now use the "Students" tab to manage enrollments, you no longer need to manage enrollments or access in JSON. There are now two
 main ways to grant students access to your course:
 
 1. Provide students with a self-enrollment link or code
-
-You can further limit self-enrollment by limiting it to specific institutions, or setting a cutoff date for self-enrollment.
-
 2. Manually invite students to your course
 
 <BlogImage
@@ -57,7 +54,9 @@ You can further limit self-enrollment by limiting it to specific institutions, o
 
 ### Self-enrollment
 
-Self-enrollment allows students to allow in a course as long as they have a code or link to join the course.
+Self-enrollment allows students to allow in a course as long as they have a code or link to join the course. 
+You can further limit self-enrollment by limiting it to specific institutions, or setting a cutoff date for self-enrollment.
+
 
 #### Self-enrollment codes
 
@@ -70,24 +69,6 @@ If they access any link to your course, they will be prompted to enter the code.
   caption="Students can enter an enrollment code from the homepage to join a course instance"
   full
 />
-
-
-#### Institution self-enrollment limits
-
-Self-enrollment is now limited to users from your institution by default. You can allow users from any institution to join by unchecking
-this.
-
-This setting replaces the `institution` setting in `allowAccess`.
-
-#### Self-enrollment cutoff
-
-We often see instructors want to only allow students to self-enroll in a course until a specified date. You can now
-automatically disable self-enrollment after a date.
-
-<BlogCalloutBox variant="info">
-  We recommend you set this to the University-imposed deadline for students to
-  add courses.
-</BlogCalloutBox>
 
 ### Invitations
 
@@ -107,7 +88,7 @@ You can invite a student to your course by clicking the button on the "Students"
   caption="Students can see and accept invitations directly from their homepage"
 />
 
-### Individual student management
+### Managing individual students
 
 Changes to a students enrollment are logged and visible on the individual student page. You can get to this page by clicking on a student's UID
 via the "Students" or "Gradebook" tab. From this page, you can also block a student from a course.
