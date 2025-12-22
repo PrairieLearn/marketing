@@ -6,7 +6,7 @@
     "build": "next build --webpack",
     "dev": "next dev --webpack",
     "format": "prettier --write src/",
-    "lint": "next lint && prettier --check src/",
+    "lint": "eslint . && prettier --check src/",
     "start": "next start"
   },
   "dependencies": {
