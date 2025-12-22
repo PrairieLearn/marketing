@@ -28,7 +28,3 @@ To update the version of the `PrairieLearn/PrairieLearn` repository to the lates
 ```bash
 git submodule update --remote
 ```
-
-## Next.js 16 and Webpack
-
-This project uses Next.js 16 with Webpack as the bundler (instead of the default Turbopack). This is necessary because the project uses MDX with remark/rehype plugins that are JavaScript functions, which Turbopack cannot currently handle. See `.next-webpack-note.md` for more details.
