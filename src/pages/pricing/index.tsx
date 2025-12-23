@@ -138,6 +138,26 @@ function ContactUsButton({ className }: { className?: string }) {
   );
 }
 
+function RequestCourseButton({
+  text,
+  className,
+  onClick,
+}: {
+  text: string;
+  className?: string;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      className={classnames("btn btn-outline-primary btn-sm", className)}
+      onClick={onClick}
+    >
+      {text}
+    </button>
+  );
+}
+
 type AcademicCalendar = "semester" | "quarter" | "monthly";
 type PaymentModel = "course" | "student";
 
@@ -187,23 +207,7 @@ export default function Pricing() {
     controls.start({ scale: 1.3 }).then(() => controls.start({ scale: 1 }));
   }, [premiumPrice, basicPrice]);
 
-  function RequestCourseButton({
-    text,
-    className,
-  }: {
-    text: string;
-    className?: string;
-  }) {
-    return (
-      <button
-        type="button"
-        className={classnames("btn btn-outline-primary btn-sm", className)}
-        onClick={() => setShowModal(true)}
-      >
-        {text}
-      </button>
-    );
-  }
+  const openModal = () => setShowModal(true);
 
   return (
     <React.Fragment>
@@ -275,7 +279,10 @@ export default function Pricing() {
                     <div className="small fw-normal text-muted">
                       Free for 20 students
                     </div>
-                    <RequestCourseButton text="Get started" />
+                    <RequestCourseButton
+                      text="Get started"
+                      onClick={openModal}
+                    />
                   </th>
                   <th className={styles.column}>
                     Basic
@@ -287,7 +294,10 @@ export default function Pricing() {
                         {"$" + basicPrice}
                       </motion.strong>{" "}
                       <span className="text-muted">/ student / course</span>
-                      <RequestCourseButton text="Get started" />
+                      <RequestCourseButton
+                        text="Get started"
+                        onClick={openModal}
+                      />
                     </div>
                   </th>
                   <th className={styles.column}>
@@ -300,7 +310,10 @@ export default function Pricing() {
                         {"$" + premiumPrice}
                       </motion.strong>{" "}
                       <span className="text-muted">/ student / course</span>
-                      <RequestCourseButton text="Get started" />
+                      <RequestCourseButton
+                        text="Get started"
+                        onClick={openModal}
+                      />
                     </div>
                   </th>
                   <th className={styles.column}>
@@ -326,13 +339,22 @@ export default function Pricing() {
                 <tr>
                   <th></th>
                   <td>
-                    <RequestCourseButton text="Get started" />
+                    <RequestCourseButton
+                      text="Get started"
+                      onClick={openModal}
+                    />
                   </td>
                   <td>
-                    <RequestCourseButton text="Get started" />
+                    <RequestCourseButton
+                      text="Get started"
+                      onClick={openModal}
+                    />
                   </td>
                   <td>
-                    <RequestCourseButton text="Get started" />
+                    <RequestCourseButton
+                      text="Get started"
+                      onClick={openModal}
+                    />
                   </td>
                   <td>
                     <ContactUsButton />

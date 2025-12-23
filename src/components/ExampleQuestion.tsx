@@ -35,7 +35,7 @@ interface ExampleQuestionProps {
 }
 
 export const ExampleQuestion: React.FC<ExampleQuestionProps> = ({ seed }) => {
-  const generator = React.useRef(mulberry32(seed * 100000)).current;
+  const generator = React.useMemo(() => mulberry32(seed * 100000), [seed]);
   const randomAngle = () => randomNumber(20, 80, 1, generator);
   const randomVelocity = () => randomNumber(1, 8, 1, generator);
   const [angle, setAngle] = React.useState(randomAngle);
