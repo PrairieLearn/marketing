@@ -1,27 +1,20 @@
 import type { NextConfig } from "next";
 import nextMdx from "@next/mdx";
 
-import rehypeKatex from "rehype-katex";
-import rehypeSlug from "rehype-slug";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import remarkMath from "remark-math";
-import remarkGfm from "remark-gfm";
-import remarkEmoji from "remark-emoji";
-
 const withMDX = nextMdx({
   extension: /\.mdx?$/,
   options: {
     providerImportSource: "@mdx-js/react",
-    remarkPlugins: [remarkMath, remarkGfm, remarkEmoji],
+    remarkPlugins: ["remark-math", "remark-gfm", "remark-emoji"],
     rehypePlugins: [
-      rehypeSlug,
+      "rehype-slug",
       [
-        rehypeAutolinkHeadings,
+        "rehype-autolink-headings",
         {
           behavior: "wrap",
         },
       ],
-      rehypeKatex,
+      "rehype-katex",
     ],
   },
 });
