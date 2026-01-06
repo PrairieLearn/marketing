@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Image, { ImageProps } from "next/image";
 import classNames from "classnames";
 import ReactMarkdown from "react-markdown";
 import { MDXProvider } from "@mdx-js/react";
 import Head from "next/head";
+import Modal from "react-bootstrap/Modal";
 
 import mdxComponents from "../lib/mdxComponents";
 import { PageBanner } from "./Banner";
@@ -78,25 +79,67 @@ export const BlogImage = ({
   full?: boolean;
   caption?: string | React.ReactNode;
 }) => {
+  const [showFullscreen, setShowFullscreen] = useState(false);
+
   return (
-    <figure className="w-100">
-      <div className="d-flex justify-content-center">
-        <Image
-          src={src}
-          alt={alt}
-          className={classNames("img-fluid", !full && "col-lg-6 col-md-8 col-12")}
-        />
-      </div>
-      {caption && (
-        <figcaption className="text-muted small mt-2 text-center">
-          {typeof caption === "string" ? (
-            <ReactMarkdown>{caption}</ReactMarkdown>
-          ) : (
-            caption
-          )}
-        </figcaption>
-      )}
-    </figure>
+    <>
+      <figure className="w-100">
+        <div className="d-flex justify-content-center">
+          <Image
+            src={src}
+            alt={alt}
+            className={classNames("img-fluid", !full && "col-lg-6 col-md-8 col-12")}
+            onClick={() => setShowFullscreen(true)}
+            style={{ cursor: "zoom-in" }}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                setShowFullscreen(true);
+              }
+            }}
+          />
+        </div>
+        {caption && (
+          <figcaption className="text-muted small mt-2 text-center">
+            {typeof caption === "string" ? (
+              <ReactMarkdown>{caption}</ReactMarkdown>
+            ) : (
+              caption
+            )}
+          </figcaption>
+        )}
+      </figure>
+
+      <Modal
+        show={showFullscreen}
+        onHide={() => setShowFullscreen(false)}
+        fullscreen
+        contentClassName="bg-transparent border-0"
+        backdrop={false}
+      >
+        <Modal.Body
+          className="p-0"
+          onClick={() => setShowFullscreen(false)}
+          style={{
+            cursor: "zoom-out",
+            backgroundColor: "rgba(0, 0, 0, 0.95)",
+            position: "relative",
+            width: "100vw",
+            height: "100vh",
+          }}
+        >
+          <Image
+            src={src}
+            alt={alt}
+            fill
+            sizes="100vw"
+            style={{ objectFit: "contain", padding: "2.5vh 2.5vw" }}
+          />
+        </Modal.Body>
+      </Modal>
+    </>
   );
 };
 
