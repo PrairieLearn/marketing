@@ -84,7 +84,7 @@ export const BlogImage = ({
         <Image
           src={src}
           alt={alt}
-          className={classNames("img-fluid", !full && "col-lg-6 col-12")}
+          className={classNames("img-fluid", !full && "col-lg-6 col-md-8 col-12")}
         />
       </div>
       {caption && (
