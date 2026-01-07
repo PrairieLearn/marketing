@@ -89,7 +89,7 @@ export const BlogImage = ({
             src={src}
             alt={alt}
             className={classNames(
-              "img-fluid",
+              "img-fluid rounded shadow-sm",
               !full && "col-lg-6 col-md-8 col-12",
             )}
             onClick={() => setShowFullscreen(true)}
