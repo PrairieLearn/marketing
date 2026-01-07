@@ -18,6 +18,7 @@ interface BlogMarkdownLayoutProps {
     tags?: string[];
     introImage?: ImageProps["src"];
     introImageAlt?: string;
+    introContent?: React.ReactNode;
     summary?: string;
     backText?: string;
     backHref?: string;
@@ -28,14 +29,36 @@ export const BlogMarkdownLayout: React.FC<BlogMarkdownLayoutProps> = ({
   children,
   meta,
 }) => {
-  const { title, summary, introImage, introImageAlt, backText, backHref } =
-    meta;
+  const {
+    title,
+    summary,
+    introImage,
+    introImageAlt,
+    introContent,
+    backText,
+    backHref,
+  } = meta;
   if (!title) throw new Error("Missing title");
+
+  console.log("introImage", introImage);
 
   return (
     <React.Fragment>
       <Head>
-        <title>{`${title} | PrairieLearn`}</title>
+        <title>{`${title} | PrairieLearnnnn`}</title>
+        <meta property="og:title" content={title} />
+        {introImage && (
+          <meta
+            property="og:image"
+            content={
+              typeof introImage === "string"
+                ? introImage
+                : "default" in introImage
+                  ? introImage.default.src
+                  : introImage.src
+            }
+          />
+        )}
       </Head>
 
       <PageBanner
@@ -46,7 +69,8 @@ export const BlogMarkdownLayout: React.FC<BlogMarkdownLayoutProps> = ({
       />
 
       <div className="container my-5">
-        {introImage && (
+        {introContent && <div className="mb-5">{introContent}</div>}
+        {introImage && !introContent && (
           <div className="mb-5">
             <Image
               src={introImage}
