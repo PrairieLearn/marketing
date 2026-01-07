@@ -16,10 +16,7 @@ interface BlogMarkdownLayoutProps {
     date?: string;
     author?: string;
     tags?: string[];
-    introImage?: ImageProps["src"];
     ogImage?: ImageProps["src"];
-    introImageAlt?: string;
-    introContent?: React.ReactNode;
     summary?: string;
     backText?: string;
     backHref?: string;
@@ -30,33 +27,23 @@ export const BlogMarkdownLayout: React.FC<BlogMarkdownLayoutProps> = ({
   children,
   meta,
 }) => {
-  const {
-    title,
-    summary,
-    ogImage,
-    introImage,
-    introImageAlt,
-    backText,
-    backHref,
-  } = meta;
+  const { title, summary, ogImage, backText, backHref } = meta;
   if (!title) throw new Error("Missing title");
-
-  const resolvedOgImage = ogImage || introImage;
 
   return (
     <React.Fragment>
       <Head>
         <title>{`${title} | PrairieLearn`}</title>
         <meta property="og:title" content={title} />
-        {resolvedOgImage && (
+        {ogImage && (
           <meta
             property="og:image"
             content={
-              typeof resolvedOgImage === "string"
-                ? resolvedOgImage
-                : "default" in resolvedOgImage
-                  ? resolvedOgImage.default.src
-                  : resolvedOgImage.src
+              typeof ogImage === "string"
+                ? ogImage
+                : "default" in ogImage
+                  ? ogImage.default.src
+                  : ogImage.src
             }
           />
         )}
@@ -70,22 +57,6 @@ export const BlogMarkdownLayout: React.FC<BlogMarkdownLayoutProps> = ({
       />
 
       <div className="container my-5">
-        {introImage && (
-          <div className="mb-5">
-            <Image
-              src={introImage}
-              alt={introImageAlt || title}
-              className="img-fluid w-100"
-              style={{
-                maxHeight: "500px",
-                width: "100%",
-                height: "auto",
-                objectFit: "contain",
-                borderRadius: "8px",
-              }}
-            />
-          </div>
-        )}
         <MDXProvider components={mdxComponents}>{children}</MDXProvider>
       </div>
     </React.Fragment>
