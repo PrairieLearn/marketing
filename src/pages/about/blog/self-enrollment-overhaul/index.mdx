@@ -12,6 +12,7 @@ import studentDetailsPage from "./student_details_page.png";
 import scheduledPublish from "./scheduled_publish.png";
 import addExtension from "./add_extension.png";
 import releaseCover from "./release_cover.png";
+import studentsPage from "./students_page.png";
 
 export const meta = {
   title: "Overhauled enrollment management",
@@ -43,7 +44,12 @@ main ways to grant students access to your course instance:
 1. Provide students with a self-enrollment link or code
 2. Manually invite students to your course instance
 
-TODO Students page image
+<BlogImage
+  src={studentsPage}
+  alt="Students page overview"
+  caption="The Students tab shows all enrolled students and pending invitations"
+  full
+/>
 
 ### Self-enrollment
 
@@ -66,7 +72,6 @@ If they access any link to your course instance, they will be prompted to enter 
   src={enterEnrollmentCodeHomepage}
   alt="Enter enrollment code on homepage"
   caption="Students can enter an enrollment code from the homepage to join a course instance"
-  full
 />
 
 ### Invitations
@@ -84,6 +89,7 @@ If you want full control over everyone in your course instance, consider disabli
   src={acceptInvitationHomepage}
   alt="Invitation on homepage"
   caption="Students can see and accept invitations directly from their homepage"
+  full
 />
 
 ### Managing individual students
@@ -112,6 +118,7 @@ the course instance will switch to published.
   src={scheduledPublish}
   alt="Scheduled publishing"
   caption="You can schedule a course instance to be published automatically on a future date"
+  full
 />
 
 Copying or creating a new course instance in the UI will automatically migrate you to the modern publishing system.
