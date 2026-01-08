@@ -16,6 +16,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <link rel="icon" href="/favicon.png" />
           <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
