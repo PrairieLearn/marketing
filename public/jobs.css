@@ -1,0 +1,175 @@
+/* This is a fixed CSS blob that can be used to customize the embedded Ashby job page */
+
+/* These variables can be used to control values throughout the job board. */
+:root {
+    /*  Darker primary color
+    WARNING - This can be set in the Ashby admin under theme settings!
+    If you modify, you should make sure your colors work with the settings there. */
+    /* --colorPrimary900: darkorange; */
+
+    /*  Lighter primary color
+    WARNING - This can be set in the Ashby admin under theme settings!
+    If you modify, you should make sure your colors work with the settings there. */
+    /* --colorPrimary600: orange; */
+    --spacingSmall: 12px;
+
+    /*  The max width of the job board container */
+    --widthMaxJobBoard: 100%;
+
+    /*  Container border radius */
+    --borderRadiusContainer: 10px;
+
+    /*  Border radius of control elements (e.g. input boxes) */
+    --borderRadiusControl: 10px;
+
+    /*  Button border radius */
+    --borderRadiusButton: 10px;
+
+    /*  Font families */
+    --fontFamily: "Whitney SSm", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Helvetica", "Arial", "Apple Color Emoji", "Segoe UI Emoji", sans-serif ;
+
+    --colorAppBackground: #f7f8fa;
+}
+
+.ashby-margin-left {
+    /* Mirror spacing on form */
+    margin-left: calc(var(--spacingSmall) + var(--spacingSmall));
+}
+
+/* Application autofill input's base layer element. This contains standard copy, a CTA button, and potential validation alerts. */
+.ashby-application-form-autofill-input-base-layer {}
+
+/* Application autofill input's description. */
+.ashby-application-form-autofill-input-description {}
+
+/* Application autofill input's drag state overlay element. Can style [data-state] which can be 'active' or 'hidden'. */
+.ashby-application-form-autofill-input-drag-layer {}
+
+/* Application autofill input form's alert element. Can style [data-highlight] which can be 'negative' or 'positive'. */
+.ashby-application-form-autofill-input-form-alert {}
+
+/* Application autofill input's magic sparkles icon. */
+.ashby-application-form-autofill-input-icon {}
+
+/* Application autofill input's pending state overlay element. Can style [data-state] which can be 'active' or 'hidden'.
+.ashby-application-form-autofill-input-pending-layer {}
+
+/* Application autofill input's root element. Can style [data-state] which can be 'pending', 'drag', or 'default'. */
+.ashby-application-form-autofill-input-root {}
+
+/* Application autofill input's title. */
+.ashby-application-form-autofill-input-title {}
+
+/* Container element for application autofill input form. */
+.ashby-application-form-autofill-pane {}
+
+/* The resume uploader to auto-fill the application form */
+.ashby-application-form-autofill-uploader {}
+
+/* A container for displaying the custom message to the user */
+.ashby-application-form-blocked-application-container {}
+
+/* A container for the application form. */
+.ashby-application-form-container {}
+
+/* A container for the failure message */
+.ashby-application-form-failure-container {}
+
+/* A container for the label and input on an application form. */
+.ashby-application-form-field-entry {}
+
+/* The description of each question on an application form. Will only show if a description is specified. */
+.ashby-application-form-question-description {}
+
+/* The title of each question on an application form. */
+.ashby-application-form-question-title {}
+
+/* A single section on the Ashby application form. All questions will be wrapped in sections, though the default section may not have a title. */
+.ashby-application-form-section-container {}
+
+/* The header for an application form section, possibly containing a title and description. */
+.ashby-application-form-section-header {}
+
+/* The description for an application form section. May not exist if no description was specified. */
+.ashby-application-form-section-header-description {}
+
+/* The title for an application form section. May not exist for the default section. */
+.ashby-application-form-section-header-title {}
+
+/* The application submission button. Will have loading and hover states that should be tested. */
+.ashby-application-form-submit-button {}
+
+/* A container for the success message */
+.ashby-application-form-success-container {}
+
+/* The text message consent description. Displayed below phone number fields. Will only show if texting is enabled. */
+.ashby-application-form-texting-consent-description {}
+
+/* The heading of a department, which can have many teams under it. */
+.ashby-department-heading {}
+
+/* The heading of a single team. */
+.ashby-department-heading-level {}
+
+/* The button which allows users to navigate from an individual posting back to the list of all job postings. */
+.ashby-job-board-back-to-all-jobs-button {}
+
+/* A select box element for filtering the job board. */
+.ashby-job-board-filter {}
+
+/* The 'Filters' label element in the job board. */
+.ashby-job-board-filters-label {}
+
+/* The heading of the entire job board. */
+.ashby-job-board-heading {}
+
+/* The count of job postings on the job board. */
+.ashby-job-board-heading-count {}
+
+/* The 'Reset filters' label element in the job board. The reset filters label element in the job board. */
+.ashby-job-board-reset-filters-label {}
+
+/* The container of the job posting details pane. */
+.ashby-job-posting-brief {
+    /* This adds some space between posting briefings. */
+    margin-bottom: 10px;
+}
+
+/* The heading of a department name. Departments group teams. */
+.ashby-job-posting-brief-department-heading {}
+
+/* The heading of a single team. */
+.ashby-job-posting-brief-department-heading-level {}
+
+/* The container for the details of the job posting, in the details pane. */
+.ashby-job-posting-brief-details {}
+
+/* The container for the list of job post briefings. */
+.ashby-job-posting-brief-list {}
+
+/* The title of the job posting in the details pane. */
+.ashby-job-posting-brief-title {}
+
+/* The main header on the job posting page */
+.ashby-job-posting-header {}
+
+/* The heading of a job post */
+.ashby-job-posting-heading {}
+
+/* The left pane of the job posting, with the job posting details */
+.ashby-job-posting-left-pane {}
+
+/* The right pane of the job posting, containing the tabs, overview, and application form */
+.ashby-job-posting-right-pane {}
+
+/* The application tab in the right pane of the job posting */
+.ashby-job-posting-right-pane-application-tab {}
+
+/* The overview tab in the right pane of the job posting */
+.ashby-job-posting-right-pane-overview-tab {}
+
+/* The tabs slider in the right pane of the job posting */
+.ashby-job-posting-right-pane-tab-slider {}
+
+/* A container for any surveys specified for this application form. */
+.ashby-survey-form-container {}
