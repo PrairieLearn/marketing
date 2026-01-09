@@ -36,9 +36,7 @@ export const PageBanner: React.FC<PageBannerProps> = ({
               </Link>
             </div>
           )}
-          <h1 className="text-white display-6">
-            {title}
-          </h1>
+          <h1 className="text-white display-6">{title}</h1>
           {subtitle && <p className="text-white mt-3 lead">{subtitle}</p>}
           {children}
         </div>

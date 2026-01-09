@@ -5,7 +5,7 @@ export const AshbyEmbed: React.FC = () => {
   return (
     <>
       <div id="ashby_embed"></div>
-      <Script id="ashby-config" strategy="beforeInteractive">
+      <Script id="ashby-config">
         {`window.__ashbyBaseJobBoardUrl = "https://jobs.ashbyhq.com/prairielearn";`}
       </Script>
       <Script
