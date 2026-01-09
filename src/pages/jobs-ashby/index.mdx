@@ -1,4 +1,5 @@
 import { MarkdownLayout } from "../../components/MarkdownLayout";
+import { AshbyEmbed } from "../../components/AshbyEmbed";
 
 export const meta = {
   title: "Jobs",
@@ -7,15 +8,7 @@ export const meta = {
 
 <h1 class="ashby-margin-left">Work at PrairieLearn</h1>
 
-<link rel="stylesheet" href="/jobs.css" />
-
-<div id="ashby_embed"></div>
-
-<script>
-  window.__ashbyBaseJobBoardUrl = "https://jobs.ashbyhq.com/prairielearn"
-</script>
-
-<script src="https://jobs.ashbyhq.com/prairielearn/embed?version=2"></script>
+<AshbyEmbed />
 
 export default ({ children }) => (
   <MarkdownLayout meta={meta}>{children}</MarkdownLayout>

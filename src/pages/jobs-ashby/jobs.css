@@ -1,4 +1,6 @@
-/* This is a fixed CSS blob that can be used to customize the embedded Ashby job page */
+/* This is a fixed CSS blob that can be used to customize the embedded Ashby job page. 
+   This gets uploaded to the Ashby job page panel.
+*/
 
 /* These variables can be used to control values throughout the job board. */
 :root {
@@ -30,12 +32,6 @@
 
     --colorAppBackground: #f7f8fa;
 }
-
-.ashby-margin-left {
-    /* Mirror spacing on form */
-    margin-left: calc(var(--spacingSmall) + var(--spacingSmall));
-}
-
 /* Application autofill input's base layer element. This contains standard copy, a CTA button, and potential validation alerts. */
 .ashby-application-form-autofill-input-base-layer {}
 
