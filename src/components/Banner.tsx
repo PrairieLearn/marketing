@@ -8,6 +8,7 @@ export interface PageBannerProps {
   backHref?: string;
   backText?: string;
   title: string;
+  titleClass?: string;
   subtitle?: string;
   children?: React.ReactNode;
 }
@@ -16,6 +17,7 @@ export const PageBanner: React.FC<PageBannerProps> = ({
   backHref,
   backText,
   title,
+  titleClass,
   subtitle,
   children,
 }) => (
@@ -36,7 +38,7 @@ export const PageBanner: React.FC<PageBannerProps> = ({
               </Link>
             </div>
           )}
-          <h1 className="text-white display-6">{title}</h1>
+          <h1 className={classnames("text-white display-6", titleClass)}>{title}</h1>
           {subtitle && <p className="text-white mt-3 lead">{subtitle}</p>}
           {children}
         </div>

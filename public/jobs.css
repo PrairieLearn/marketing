@@ -31,7 +31,7 @@
     --colorAppBackground: #f7f8fa;
 }
 
-.header {
+.ashby-margin-left {
     /* Mirror spacing on form */
     margin-left: calc(var(--spacingSmall) + var(--spacingSmall));
 }
