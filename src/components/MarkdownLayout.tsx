@@ -11,7 +11,6 @@ interface MarkdownLayoutProps {
     backText?: string;
     backHref?: string;
     title: string;
-    titleClass: string;
     summary?: string;
   };
 }
@@ -20,7 +19,7 @@ export const MarkdownLayout: React.FC<MarkdownLayoutProps> = ({
   children,
   meta,
 }) => {
-  const { title, titleClass, summary } = meta;
+  const { title, summary } = meta;
   if (!title) throw new Error("Missing title");
 
   return (
@@ -31,7 +30,6 @@ export const MarkdownLayout: React.FC<MarkdownLayoutProps> = ({
 
       <PageBanner
         title={title}
-        titleClass={titleClass}
         subtitle={summary}
         backText={meta.backText}
         backHref={meta.backHref}

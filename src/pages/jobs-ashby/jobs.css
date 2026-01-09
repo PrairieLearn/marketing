@@ -13,6 +13,7 @@
     WARNING - This can be set in the Ashby admin under theme settings!
     If you modify, you should make sure your colors work with the settings there. */
     /* --colorPrimary600: orange; */
+    
     --spacingSmall: 12px;
 
     /*  The max width of the job board container */
@@ -30,7 +31,7 @@
     /*  Font families */
     --fontFamily: "Whitney SSm", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Helvetica", "Arial", "Apple Color Emoji", "Segoe UI Emoji", sans-serif ;
 
-    --colorAppBackground: #f7f8fa;
+    --colorAppBackground: #ffffff;
 }
 /* Application autofill input's base layer element. This contains standard copy, a CTA button, and potential validation alerts. */
 .ashby-application-form-autofill-input-base-layer {}
