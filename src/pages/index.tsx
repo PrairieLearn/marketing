@@ -22,7 +22,7 @@ import { illinois, ubc } from "../lib/images/universities";
 const TALKING_POINTS = [
   {
     header: "In-class activities",
-    body: "Build activities to measure understanding during lectures, or create group assignments for lab sessions.",
+    body: "Build activities to measure understanding during lectures, or create team assignments for lab sessions.",
   },
   {
     header: "Homework",
