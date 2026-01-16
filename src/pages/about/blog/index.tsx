@@ -7,7 +7,8 @@ import { Heading } from "../../../components/Heading";
 import Stack from "../../../components/Stack";
 import { TagList } from "../../../components/Tag";
 import { format } from "date-fns";
-import { getAllPosts, BlogPost, BlogPostWithSlug } from "../../../lib/blog";
+import { getAllPosts, BlogPostWithSlug } from "../../../lib/blog";
+import { generateRssFeed } from "../../../lib/rss";
 
 import styles from "./index.module.scss";
 
@@ -75,6 +76,9 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
 
 export const getStaticProps: GetStaticProps<BlogIndexProps> = async () => {
   const posts = await getAllPosts();
+
+  // Generate RSS feed during build
+  await generateRssFeed(posts);
 
   return {
     props: {
