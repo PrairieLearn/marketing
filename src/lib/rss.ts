@@ -1,4 +1,4 @@
-import fs from "fs";
+import fs from "fs/promises";
 import path from "path";
 import RSS from "rss";
 import { BlogPostWithSlug } from "./blog";
@@ -31,5 +31,5 @@ export async function generateRssFeed(
   }
 
   const outputPath = path.join(process.cwd(), "public", "rss.xml");
-  fs.writeFileSync(outputPath, feed.xml({ indent: true }));
+  await fs.writeFile(outputPath, feed.xml({ indent: true }));
 }
