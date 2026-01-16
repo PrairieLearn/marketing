@@ -53,7 +53,7 @@ const AssessmentIndex: React.FC<AssessmentIndexProps> = ({ assessments }) => {
               <p>
                 Assessments are collections of questions that are graded
                 together. Use them to create homeworks, exams, quizzes,
-                pre-lecture activities, group work, or any other assignment you
+                pre-lecture activities, team assignments, or any other assignment you
                 have in your course.
               </p>
               <p>
