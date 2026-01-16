@@ -115,7 +115,7 @@ export default function Courses() {
               instructors from various universities. If you like any of these
               questions, you can use them directly in your course, without any
               need to copy questions. Read these{" "}
-              <Link href="https://prairielearn.readthedocs.io/en/latest/questionSharing/">
+              <Link href="https://prairielearn.readthedocs.io/en/latest/contentSharing/">
                 instructions
               </Link>{" "}
               to see how you can use publicly shared questions in your course.
