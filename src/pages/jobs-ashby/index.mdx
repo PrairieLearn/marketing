@@ -1,0 +1,14 @@
+import { MarkdownLayout } from "../../components/MarkdownLayout";
+import { AshbyEmbed } from "../../components/AshbyEmbed";
+
+export const meta = {
+  title: "Jobs",
+};
+
+<h1 class="text-center">Work at PrairieLearn</h1>
+
+<AshbyEmbed />
+
+export default ({ children }) => (
+  <MarkdownLayout meta={meta}>{children}</MarkdownLayout>
+);

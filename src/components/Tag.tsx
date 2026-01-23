@@ -10,6 +10,7 @@ export const Tag = ({
   className?: string;
 }) => {
   const isTechnical = tag.toLowerCase() === "technical";
+  const isRelease = tag.toLowerCase() === "release";
 
   return (
     <span
@@ -17,6 +18,7 @@ export const Tag = ({
         styles.tag,
         {
           [styles.technical]: isTechnical,
+          [styles.release]: isRelease,
         },
         className,
       )}
