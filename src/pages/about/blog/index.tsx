@@ -43,6 +43,12 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
           name="description"
           content="News, updates, teaching strategies, and deep dives from the PrairieLearn team."
         />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="PrairieLearn Blog RSS Feed"
+          href="/blog/rss.xml"
+        />
       </Head>
 
       <PageBanner

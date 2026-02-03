@@ -13,7 +13,7 @@ export async function generateRssFeed(
     title: "PrairieLearn Blog",
     description:
       "News, updates, teaching strategies, and deep dives from the PrairieLearn team.",
-    feed_url: `${SITE_URL}/rss.xml`,
+    feed_url: `${SITE_URL}/blog/rss.xml`,
     site_url: BLOG_URL,
     language: "en-us",
   });
@@ -30,6 +30,7 @@ export async function generateRssFeed(
     });
   }
 
-  const outputPath = path.join(process.cwd(), "public", "rss.xml");
-  await fs.writeFile(outputPath, feed.xml({ indent: true }));
+  const outputDir = path.join(process.cwd(), "public", "blog");
+  await fs.mkdir(outputDir, { recursive: true });
+  await fs.writeFile(path.join(outputDir, "rss.xml"), feed.xml({ indent: true }));
 }
