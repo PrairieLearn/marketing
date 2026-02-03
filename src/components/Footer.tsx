@@ -26,7 +26,7 @@ export const Footer: React.FC = () => {
                 <FooterLink href="/support">Support</FooterLink>
               </li>
               <li className="mb-2">
-                <FooterLink href="https://prairielearn.readthedocs.io/en/latest/">
+                <FooterLink href="https://docs.prairielearn.com/">
                   Documentation
                 </FooterLink>
               </li>
