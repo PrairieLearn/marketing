@@ -32,5 +32,8 @@ export async function generateRssFeed(
 
   const outputDir = path.join(process.cwd(), "public", "blog");
   await fs.mkdir(outputDir, { recursive: true });
-  await fs.writeFile(path.join(outputDir, "rss.xml"), feed.xml({ indent: true }));
+  await fs.writeFile(
+    path.join(outputDir, "rss.xml"),
+    feed.xml({ indent: true }),
+  );
 }
