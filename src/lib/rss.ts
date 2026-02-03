@@ -3,7 +3,9 @@ import path from "path";
 import RSS from "rss";
 import { BlogPostWithSlug } from "./blog";
 
-const SITE_URL = "https://www.prairielearn.com";
+const SITE_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL 
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : "https://www.prairielearn.com";
 const BLOG_URL = `${SITE_URL}/about/blog`;
 
 export async function generateRssFeed(

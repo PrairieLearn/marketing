@@ -12,6 +12,8 @@ yarn-error.log
 # Next build files
 .next
 public/build
+# Blog RSS feed
+public/blog/rss.xml
 out
 
 # macOS files
