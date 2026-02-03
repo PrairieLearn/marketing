@@ -12,9 +12,10 @@ yarn-error.log
 # Next build files
 .next
 public/build
-# Blog RSS feed
-public/blog/rss.xml
 out
+
+# Other generated files
+public/blog/rss.xml
 
 # macOS files
 .DS_Store

@@ -83,7 +83,6 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
 export const getStaticProps: GetStaticProps<BlogIndexProps> = async () => {
   const posts = await getAllPosts();
 
-  // Generate RSS feed during build
   await generateRssFeed(posts);
 
   return {
