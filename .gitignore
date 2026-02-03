@@ -14,6 +14,9 @@ yarn-error.log
 public/build
 out
 
+# Other generated files
+public/blog/rss.xml
+
 # macOS files
 .DS_Store
 

@@ -7,7 +7,8 @@ import { Heading } from "../../../components/Heading";
 import Stack from "../../../components/Stack";
 import { TagList } from "../../../components/Tag";
 import { format } from "date-fns";
-import { getAllPosts, BlogPost, BlogPostWithSlug } from "../../../lib/blog";
+import { getAllPosts, BlogPostWithSlug } from "../../../lib/blog";
+import { generateRssFeed } from "../../../lib/rss";
 
 import styles from "./index.module.scss";
 
@@ -42,6 +43,12 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
           name="description"
           content="News, updates, teaching strategies, and deep dives from the PrairieLearn team."
         />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="PrairieLearn Blog RSS Feed"
+          href="/blog/rss.xml"
+        />
       </Head>
 
       <PageBanner
@@ -75,6 +82,8 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
 
 export const getStaticProps: GetStaticProps<BlogIndexProps> = async () => {
   const posts = await getAllPosts();
+
+  await generateRssFeed(posts);
 
   return {
     props: {
