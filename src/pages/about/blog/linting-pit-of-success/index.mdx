@@ -60,7 +60,7 @@ We spent a lot of time enabling the full config of [ruff](https://docs.astral.sh
 33 PRs](https://github.com/PrairieLearn/PrairieLearn/pulls?page=1&q=is:pr+author:reteps+%22ruff%22+is:closed) by my count.
 
 We now require docstrings for all our code, and were able to fully autogenerate
-[documentation](https://prairielearn.readthedocs.io/en/latest/python-reference/prairielearn/grading_utils/#prairielearn.grading_utils.grade_answer_parameterized)
+[documentation](https://docs.prairielearn.com/python-reference/prairielearn/grading_utils/#prairielearn.grading_utils.grade_answer_parameterized)
 using [`mkdocstrings`](https://mkdocstrings.github.io/).
 
 We enabled a variety of stricter [pyright](https://github.com/microsoft/pyright) settings, an effort that spans [at least 15 PRs](https://github.com/PrairieLearn/PrairieLearn/pulls?q=pyright+author:reteps+is:closed).
@@ -68,14 +68,14 @@ We have our eye on [pyrefly](https://github.com/facebook/pyrefly) and [ty](https
 
 ### Questions and elements
 
-PrairieLearn essentially maintains a custom templating system -- a combination of Python and Mustache, using a [custom state machine](https://prairielearn.readthedocs.io/en/latest/question/server/#question-lifecycle) for questions.
+PrairieLearn essentially maintains a custom templating system -- a combination of Python and Mustache, using a [custom state machine](https://docs.prairielearn.com/question/server/#question-lifecycle) for questions.
 This is a core piece of our platform, and dates back over 10 years! This system has a couple of drawbacks, one of which is a lack of standardized tooling for our exact setup.
 
 To fix this, I created a question testing and accessibility suite that runs across all our
 questions in the [example course](https://github.com/PrairieLearn/PrairieLearn/tree/master/exampleCourse). It renders all the questions with correct and incorrect inputs given,
 and checks for issues in the question as well as accessibility violations. We use [`html-validate`](https://gitlab.com/html-validate/html-validate) for static accessibility testing.
 
-To do this, I fixed up a somewhat-hidden feature of PrairieLearn, the ability to [auto-test questions](https://prairielearn.readthedocs.io/en/latest/question/server/#testing-questions-with-test) and fixed up their implementations
+To do this, I fixed up a somewhat-hidden feature of PrairieLearn, the ability to [auto-test questions](https://docs.prairielearn.com/question/server/#testing-questions-with-test) and fixed up their implementations
 for our core element set. Then, we made a variety of accessibility improvements that could only be checked with the rendered HTML. As PrairieLearn develops a larger set of examples and elements, this will hit code paths on every deploy for elements that can help uncover regressions in the future.
 
 At compile/development time, we are now using [`html-eslint`](https://html-eslint.org/docs/integrating-template-engine) to check formatting and tag issues statically via ESLint.
@@ -108,7 +108,7 @@ that instructors can commit and edit as text rather than in a GUI. We are such b
 
 With the Zod 4 release, it seemed like this was the right call, as we will soon be able to do this [natively](https://zod.dev/json-schema).
 
-We now auto-generate [human-readable documentation](https://prairielearn.readthedocs.io/en/latest/schemas/infoCourseInstance/) for our JSON Schemas with [`jsonschema2md`](https://github.com/sbrunner/jsonschema2md).
+We now auto-generate [human-readable documentation](https://docs.prairielearn.com/schemas/infoCourseInstance/) for our JSON Schemas with [`jsonschema2md`](https://github.com/sbrunner/jsonschema2md).
 To allow for this, I finished implementing the full property list of JSONSchema and added support for `<details>` blocks for objects.
 
 Using Zod has let us reuse these definitions across our TypeScript codebase, which has been incredibly useful.
@@ -195,7 +195,7 @@ we invested so heavily is due to a combination of factors.
 
 4. We have a rotating window of undergraduates and graduate students that contribute to PrairieLearn. We can now spend less time worrying about code quality nits
    from these contributors, and focus more on actual functionality. Codifying lint and style rules helps enforce code quality and speed up understanding of how to write code for PrairieLearn.
-   We also invested into our [developer documentation](https://prairielearn.readthedocs.io/en/latest/dev-guide/) for helping get these contributors up to speed.
+   We also invested into our [developer documentation](https://docs.prairielearn.com/dev-guide/) for helping get these contributors up to speed.
 
 5. We are an open-source first company. Being an open-source company, we are in the unique position to contribute time to these tools without worrying about maintaining an
    in-house fork with extra features that can't be shared with the public.

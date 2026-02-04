@@ -109,7 +109,7 @@ const FAQS = [
         <p>
           Yes! PrairieLearn is open-source, so you can always run it our your
           own servers. See{" "}
-          <a href="https://prairielearn.readthedocs.io/en/latest/running-in-production/setup/">
+          <a href="https://docs.prairielearn.com/running-in-production/setup/">
             our documentation
           </a>{" "}
           for more details. Note that we do not provide support for self-hosted
