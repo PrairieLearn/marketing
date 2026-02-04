@@ -311,7 +311,7 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
                   GitHub →
                 </a>
                 <a
-                  href="https://docs.prairielearn.com/"
+                  href="https://docs.prairielearn.com"
                   className="btn btn-light"
                 >
                   Documentation →
