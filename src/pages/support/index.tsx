@@ -52,7 +52,7 @@ export default function Support() {
             <HelpCard
               title="Get Started"
               icon="bi-rocket-takeoff"
-              href="https://prairielearn.readthedocs.io/en/latest/getStarted/"
+              href="https://docs.prairielearn.com/getStarted/"
             >
               <p className="mb-0">
                 Simple tutorials to get you ready to create your own content.
@@ -70,7 +70,7 @@ export default function Support() {
             <HelpCard
               title="Documentation"
               icon="bi-book"
-              href="https://prairielearn.readthedocs.io"
+              href="https://docs.prairielearn.com"
             >
               <p className="mb-0">
                 Get more detailed information from our documentation.
