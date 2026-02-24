@@ -89,6 +89,11 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
     <React.Fragment>
       <Head>
         <title>PrairieLearn</title>
+        <meta property="og:title" content="PrairieLearn" />
+        <meta
+          property="og:description"
+          content="Empowering learners with equitable and authentic assessments"
+        />
       </Head>
 
       <div className={classnames("container-fluid py-4", styles.banner)}>
