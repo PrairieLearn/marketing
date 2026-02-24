@@ -35,11 +35,18 @@ Here is a screenshot of the syntax highlighter in action:
 
 The grammar is a custom [tree-sitter](https://tree-sitter.github.io/tree-sitter/) grammar based on [tree-sitter-html](https://github.com/tree-sitter/tree-sitter-html).
 
+I originally looked into implementation of this as a modification of the tree-sitter-htmldjango grammar, but the parsing (especially the tag matching) from that grammar was not as good as I would have liked. More on this later.
+
 Originally, I looked into [handlebars], which is a variant of mustache that was taken over by the ember team.
 They already supported essentially our syntax, but I eventually abandoned the effort after discussions with the ember team,
 as it seemed that they wanted to wait for the typescript rewrite before making any changes to their parser.
 
-Next, I looked into how editors like VSCode and Emacs do syntax highlighting. While promising, it seemed
+Next, I looked into how editors like VSCode and Emacs do syntax highlighting. VSCode still uses TextMate grammars, which is an interesting artifact of the original implementation. However, the problem with syntax highlighting based grammars
+is that you can't get a parse tree from them easily (at least, I couldn't find a way). This means that you can never use them for formatting or linting. At the suggestion of [@shorden](), I looked into doing this with a tree-sitter grammar.
+Initial results seemed promising, with tooling like topiary built for turning a grammar into a formatter easily.
+
+I also looked into volarjs, but I ultimately went with tree-sitter since it had a more mature ecosystem.
+
 https://github.com/topiary/topiary + https://github.com/topiary/topiary/issues/1036
 https://volarjs.dev/
 https://github.com/atom/language-mustache
@@ -51,60 +58,39 @@ https://github.com/handlebars-lang/handlebars-parser/pull/23
 
 https://tree-sitter.github.io/tree-sitter/creating-parsers/3-writing-the-grammar.html
 
+### Difficulties
+
+Mustache and HTML are two independent nesting systems that can cross each other's boundaries. The scanner needs to be able to handle this so that they are aware of each other -- that is,
+for tag matching, the scanner needs to know context about the other nesting system. I originally maintained a list of associated tags on each mustache tag, which was a pain, since the custom data structures must be manually serialized and deserialized out of memory.
+
+The key insight I made while developing the grammar was to maintain a count of the number of HTML tags that have been opened inside the current mustache section. This allows the scanner to know exactly which HTML tags are associated with the current mustache section, and which are not.
+
+### Implementation
+
+The scanner (src/scanner.c:44-47) maintains two parallel stacks:
+
 ```
-Here's how the cross-grammar control-flow tag matching works. It's the central design challenge of this parser: Mustache sections ({{#...}}/{{/...}}) and HTML elements (<tag>/</tag>)
-  are two independent nesting systems that can cross each other's boundaries.
-
-  The Problem
-
-  Templates commonly write HTML like this:
-
-  {{#items}}
-    <li>{{name}}
-  {{/items}}
-
-  There's no </li> — the <li> is opened inside the Mustache section, and when {{/items}} arrives, the parser needs to implicitly close that <li> before closing the section. Without this,
-  you'd get a parse error or a malformed tree.
-
-  The Two Stacks
-
-  The scanner (src/scanner.c:44-47) maintains two parallel stacks:
-
   typedef struct {
       Array(Tag) tags;              // HTML tag stack
       Array(MustacheTag) mustache_tags;  // Mustache section stack
   } Scanner;
+```
 
-  The Key Field: html_tag_stack_size
+Then, on each MustacheTag, we maintain a count of the number of HTML tags that have been opened inside the current mustache section.
 
-  Each MustacheTag (src/mustache_tag.h:6-9) stores not just its name, but a snapshot of how tall the HTML stack was when the section opened:
-
+```
   typedef struct {
     String tag_name;
     unsigned html_tag_stack_size;  // <-- this is the key
   } MustacheTag;
+```
 
-  How It Plays Out
+Then, when we close a mustache section, we check if the HTML stack is taller than the count on the current MustacheTag. If it is, we pop an HTML tag and emit an implicit end tag. tree-sitter will hit this condition repeatedly until the
+ HTML stack is the same height as the count on the current MustacheTag. 
+This lets us (1) emit multiple symbols for a single closing tag, 
+and (2) helps us maintain the correct parse tree.
 
-  1. Opening a Mustache section ({{#items}})
-
-  In scan_mustache_start_tag_name (scanner.c:424-436):
-
-  MustacheTag tag = mustache_tag_new();
-  tag.tag_name = tag_name;
-  tag.html_tag_stack_size = scanner->tags.size;  // snapshot!
-  array_push(&scanner->mustache_tags, tag);
-
-  If the HTML stack has, say, 2 tags on it (<html>, <body>), the mustache tag records html_tag_stack_size = 2.
-
-  2. HTML tags open inside the section
-
-  As <li>, <div>, etc. are parsed inside the section, they get pushed onto scanner->tags as normal. The HTML stack grows to 3, 4, etc.
-
-  3. Closing a Mustache section ({{/items}})
-
-  Before the parser can emit {{/items}}, it checks scan_mustache_end_tag_html_implicit_end_tag (scanner.c:465-493). This function peeks ahead for {{/ and then compares:
-
+```
   MustacheTag *current_mustache_tag = array_back(&scanner->mustache_tags);
   if (scanner->tags.size > current_mustache_tag->html_tag_stack_size) {
       // HTML tags were opened inside this section that haven't been closed!
@@ -112,27 +98,8 @@ Here's how the cross-grammar control-flow tag matching works. It's the central d
       lexer->result_symbol = MUSTACHE_END_TAG_HTML_IMPLICIT_END_TAG;
       return true;
   }
+  ```
 
-  If the HTML stack is taller than the snapshot taken when the section opened, there are unclosed HTML tags inside the section. The scanner pops one HTML tag and emits
-  MUSTACHE_END_TAG_HTML_IMPLICIT_END_TAG — an implicit end tag.
-
-  This runs repeatedly. Each call pops one HTML tag. Tree-sitter's grammar rules keep requesting this token until the HTML stack is back down to the snapshot height. Only then does the
-  actual {{/items}} token get consumed.
-
-  4. Void element exception
-
-  There's a special case at scanner.c:484-486:
-
-  if (tag_is_void(top_tag)) {
-      return false;
-  }
-
-  Void elements like <br>, <img>, <input> don't need implicit closing via the Mustache path — they're handled by the normal HTML implicit end tag mechanism instead.
-
-  Concrete Example
-
-  Given a template with two adjacent {{#bold}} sections, click through the steps below to see how the scanner handles both forced_end_tag (line 1 force-closes <b>) and erroneous_end_tag (line 2 encounters orphaned </b>):
-```
 
 <StackAnimation />
 
@@ -151,11 +118,55 @@ Click through the steps below to see this algorithm in action:
 
 <MatchingAnimation />
 
+## Other features
+
+I also added a formatter, that was inspired by Prettier's architecture. This kept the formatter implementation easy to iterate on. 
+
+https://github.com/prettier/prettier/blob/main/commands.md
+https://prettier.io/docs/technical-details
+
+The IR for that looks like:
+
+
+```
+  ┌─────────────┬───────────────────────────────────────┬───────────────────────────────────────────────────────────────────────────┐
+  │    Node     │                Fields                 │                                Description                                │
+  ├─────────────┼───────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────┤
+  │ string      │ (literal)                             │ Raw text output                                                           │
+  ├─────────────┼───────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────┤
+  │ Concat      │ parts: Doc[]                          │ Sequence of docs                                                          │
+  ├─────────────┼───────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────┤
+  │ Indent      │ contents: Doc                         │ Indent contents by one level                                              │
+  ├─────────────┼───────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────┤
+  │ Hardline    │ —                                     │ Always breaks to a new line                                               │
+  ├─────────────┼───────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────┤
+  │ Softline    │ —                                     │ Breaks only if the enclosing group breaks, otherwise nothing              │
+  ├─────────────┼───────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────┤
+  │ Line        │ —                                     │ Breaks if group breaks, otherwise a space                                 │
+  ├─────────────┼───────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────┤
+  │ Group       │ contents, break?, id?                 │ Try to print flat; break if it doesn't fit. id lets IfBreak reference it  │
+  ├─────────────┼───────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────┤
+  │ Fill        │ parts: Doc[]                          │ Inline content that wraps when needed (parts alternate content/separator) │
+  ├─────────────┼───────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────┤
+  │ BreakParent │ —                                     │ Forces the enclosing group to break                                       │
+  ├─────────────┼───────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────┤
+  │ IfBreak     │ breakContents, flatContents, groupId? │ Conditional output based on whether a group broke                         │
+  └─────────────┴───────────────────────────────────────┴───────────────────────────────────────────────────────────────────────────┘
+```
+
+I also added support for custom lint rules, which is useful for things like enforcing a maximum line length, or checking for unused variables. For example, we can check for hidden inputs inside `{{#items}}` sections:
+
+```
+    {
+      "id": "no-hidden-inputs-in-list",
+      "selector": "#items > input[type=hidden]",
+      "message": "Hidden inputs inside {{#items}} sections are usually a mistake",
+    },
+```
+
 <BlogCalloutBox variant="info">
-  More detailed information about all these features can be found in the [course
-  instance
-  documentation](https://docs.prairielearn.com/courseInstance/#enrollment-controls).
-  If you have questions, let us know on [Slack](/slack).
+  You can check out the full implementation in the [treesitter-htmlmustache](https://github.com/reteps/treesitter-htmlmustache) repository.
+  If you have questions or feedback, open an issue on the repository!
 </BlogCalloutBox>
 
 export default ({ children }) => (
