@@ -1,0 +1,161 @@
+import {
+  BlogMarkdownLayout,
+  BlogImage,
+  BlogCalloutBox,
+} from "../../../../components/BlogMarkdownLayout";
+import { StackAnimation } from "../../../../components/StackAnimation";
+import { MatchingAnimation } from "../../../../components/MatchingAnimation";
+
+import releaseCover from "./stylish-mustache.png";
+import syntaxHighlighter from "./vscode.png";
+
+export const meta = {
+  title: "Stylish mustaches",
+  date: "2026-02-25",
+  author: "Peter Stenger",
+  tags: ["Technical", "Development"],
+};
+
+# PrairieLearn finally has stylish mustaches!
+
+No, we didn't all grow mustaches overnight. But all of our `question.html` and `*.mustache` files
+authored in PrairieLearn's custom portmanteau of Markdown and HTML are now formatted and linted.
+
+This is possible because of a new grammar, formatter, linter, and LSP (Language Server Protocol) server that
+I have written, [`treesitter-htmlmustache`](https://github.com/reteps/treesitter-htmlmustache) ( not the most creative name :] ).
+
+In July 2025, I did the original research and development on this grammar, and then in January / February 2026, I
+was able to add a syntax highlighter, LSP, formatter, and linter based on this grammar.
+
+Here is a screenshot of the syntax highlighter in action:
+
+<BlogImage src={syntaxHighlighter} alt="Syntax highlighter in VSCode" />
+
+## The grammar
+
+The grammar is a custom [tree-sitter](https://tree-sitter.github.io/tree-sitter/) grammar based on [tree-sitter-html](https://github.com/tree-sitter/tree-sitter-html).
+
+Originally, I looked into [handlebars], which is a variant of mustache that was taken over by the ember team.
+They already supported essentially our syntax, but I eventually abandoned the effort after discussions with the ember team,
+as it seemed that they wanted to wait for the typescript rewrite before making any changes to their parser.
+
+Next, I looked into how editors like VSCode and Emacs do syntax highlighting. While promising, it seemed
+https://github.com/topiary/topiary + https://github.com/topiary/topiary/issues/1036
+https://volarjs.dev/
+https://github.com/atom/language-mustache
+https://github.com/microsoft/vscode/issues/50140
+
+https://github.com/glimmerjs/glimmer-vm/pull/1281
+https://github.com/handlebars-lang/handlebars-parser/issues/5
+https://github.com/handlebars-lang/handlebars-parser/pull/23
+
+```
+Here's how the cross-grammar control-flow tag matching works. It's the central design challenge of this parser: Mustache sections ({{#...}}/{{/...}}) and HTML elements (<tag>/</tag>)
+  are two independent nesting systems that can cross each other's boundaries.
+
+  The Problem
+
+  Templates commonly write HTML like this:
+
+  {{#items}}
+    <li>{{name}}
+  {{/items}}
+
+  There's no </li> — the <li> is opened inside the Mustache section, and when {{/items}} arrives, the parser needs to implicitly close that <li> before closing the section. Without this,
+  you'd get a parse error or a malformed tree.
+
+  The Two Stacks
+
+  The scanner (src/scanner.c:44-47) maintains two parallel stacks:
+
+  typedef struct {
+      Array(Tag) tags;              // HTML tag stack
+      Array(MustacheTag) mustache_tags;  // Mustache section stack
+  } Scanner;
+
+  The Key Field: html_tag_stack_size
+
+  Each MustacheTag (src/mustache_tag.h:6-9) stores not just its name, but a snapshot of how tall the HTML stack was when the section opened:
+
+  typedef struct {
+    String tag_name;
+    unsigned html_tag_stack_size;  // <-- this is the key
+  } MustacheTag;
+
+  How It Plays Out
+
+  1. Opening a Mustache section ({{#items}})
+
+  In scan_mustache_start_tag_name (scanner.c:424-436):
+
+  MustacheTag tag = mustache_tag_new();
+  tag.tag_name = tag_name;
+  tag.html_tag_stack_size = scanner->tags.size;  // snapshot!
+  array_push(&scanner->mustache_tags, tag);
+
+  If the HTML stack has, say, 2 tags on it (<html>, <body>), the mustache tag records html_tag_stack_size = 2.
+
+  2. HTML tags open inside the section
+
+  As <li>, <div>, etc. are parsed inside the section, they get pushed onto scanner->tags as normal. The HTML stack grows to 3, 4, etc.
+
+  3. Closing a Mustache section ({{/items}})
+
+  Before the parser can emit {{/items}}, it checks scan_mustache_end_tag_html_implicit_end_tag (scanner.c:465-493). This function peeks ahead for {{/ and then compares:
+
+  MustacheTag *current_mustache_tag = array_back(&scanner->mustache_tags);
+  if (scanner->tags.size > current_mustache_tag->html_tag_stack_size) {
+      // HTML tags were opened inside this section that haven't been closed!
+      pop_html_tag(scanner);
+      lexer->result_symbol = MUSTACHE_END_TAG_HTML_IMPLICIT_END_TAG;
+      return true;
+  }
+
+  If the HTML stack is taller than the snapshot taken when the section opened, there are unclosed HTML tags inside the section. The scanner pops one HTML tag and emits
+  MUSTACHE_END_TAG_HTML_IMPLICIT_END_TAG — an implicit end tag.
+
+  This runs repeatedly. Each call pops one HTML tag. Tree-sitter's grammar rules keep requesting this token until the HTML stack is back down to the snapshot height. Only then does the
+  actual {{/items}} token get consumed.
+
+  4. Void element exception
+
+  There's a special case at scanner.c:484-486:
+
+  if (tag_is_void(top_tag)) {
+      return false;
+  }
+
+  Void elements like <br>, <img>, <input> don't need implicit closing via the Mustache path — they're handled by the normal HTML implicit end tag mechanism instead.
+
+  Concrete Example
+
+  Given a template with two adjacent {{#bold}} sections, click through the steps below to see how the scanner handles both forced_end_tag (line 1 force-closes <b>) and erroneous_end_tag (line 2 encounters orphaned </b>):
+```
+
+<StackAnimation />
+
+The snapshot number creates a fence — the Mustache close tag knows exactly which HTML tags belong to it (those above the fence) and implicitly closes them. In line 1, `<b>` is force-closed when `{{/bold}}` arrives (the scanner sees the HTML stack is taller than the snapshot). In line 2, `</b>` appears with nothing on the HTML stack — the parser records it as an erroneous end tag.
+
+## The linter
+
+Now that the parser can handle these patterns, how does the linter verify correctness? The key challenge is that Mustache sections are conditionally rendered — a template might be valid when a section is truthy but broken when it's falsy (or vice versa). The linter uses a **balance-checking algorithm** that:
+
+1. **Extracts** fork points from the parse tree — each section that contains HTML events creates a fork with truthy (T) and falsy (F) branches
+2. **Merges** adjacent forks for the same section name — this avoids redundant analysis
+3. **Balance-checks** each fork's branches independently, skipping forks where both branches are balanced
+4. **Enumerates** the remaining paths (2^n for n unbalanced sections) and flattens events to find errors
+
+Click through the steps below to see this algorithm in action:
+
+<MatchingAnimation />
+
+<BlogCalloutBox variant="info">
+  More detailed information about all these features can be found in the [course
+  instance
+  documentation](https://docs.prairielearn.com/courseInstance/#enrollment-controls).
+  If you have questions, let us know on [Slack](/slack).
+</BlogCalloutBox>
+
+export default ({ children }) => (
+  <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
+);
