@@ -22,3 +22,4 @@ public/blog/rss.xml
 
 # TypeScript files
 tsconfig.tsbuildinfo
+next-env.d.ts
