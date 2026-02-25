@@ -1,8 +1,8 @@
 build:
-	yarn build
+	@yarn build
 dev:
-	yarn dev
+	@yarn dev
 format:
-	yarn format
+	@yarn format
 lint:
-	yarn lint
+	@yarn lint
