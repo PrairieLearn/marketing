@@ -41,7 +41,7 @@ export default function handler(req: NextRequest) {
           }}
         >
           {title ||
-            "Empowering learners with equitable and authentic assessments"}
+            "The most comprehensive assessment platform"}
         </div>
         <div
           style={{

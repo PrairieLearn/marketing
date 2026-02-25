@@ -92,7 +92,7 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
         <meta property="og:title" content="PrairieLearn" />
         <meta
           property="og:description"
-          content="Empowering learners with equitable and authentic assessments"
+          content="The most comprehensive assessment platform"
         />
       </Head>
 
@@ -106,7 +106,7 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
                   styles["text-wrap-balance"],
                 )}
               >
-                Empowering learners with equitable and authentic assessments
+                The most comprehensive assessment platform
               </h1>
               <div className="d-flex flex-row justify-content-center flex-wrap">
                 <div className="d-inline-flex flex-column">
