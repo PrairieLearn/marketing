@@ -89,6 +89,11 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
     <React.Fragment>
       <Head>
         <title>PrairieLearn</title>
+        <meta property="og:title" content="PrairieLearn" />
+        <meta
+          property="og:description"
+          content="The most comprehensive assessment platform"
+        />
       </Head>
 
       <div className={classnames("container-fluid py-4", styles.banner)}>
@@ -101,7 +106,7 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
                   styles["text-wrap-balance"],
                 )}
               >
-                Empowering learners with equitable and authentic assessments
+                The most comprehensive assessment platform
               </h1>
               <div className="d-flex flex-row justify-content-center flex-wrap">
                 <div className="d-inline-flex flex-column">
