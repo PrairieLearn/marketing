@@ -37,20 +37,10 @@ export default function handler(req: NextRequest) {
           marginTop: 40,
           maxWidth: 900,
           lineHeight: 1.3,
+          whiteSpace: "pre-wrap",
         }}
       >
-        {title || "The most comprehensive assessment platform"}
-      </div>
-      <div
-        style={{
-          color: "rgba(255, 255, 255, 0.7)",
-          fontSize: 32,
-          marginTop: 24,
-          borderBottom: "2px solid rgba(255, 255, 255, 0.7)",
-          paddingBottom: 2,
-        }}
-      >
-        prairielearn.com
+        {title || "The most comprehensive\nassessment platform"}
       </div>
     </div>,
     {
