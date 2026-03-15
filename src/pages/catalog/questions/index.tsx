@@ -139,7 +139,7 @@ export default function QuestionTemplate() {
           </TemplateCard>
           <TemplateCard
             title="Text answers"
-            href="https://us.prairielearn.com/pl/public/course/108/question/6312320/preview"
+            href="https://us.prairielearn.com/pl/public/course/108/question/9575599/preview"
             image={selectRainbowColor}
           >
             Correct answer and distractors are randomly selected from a list of
