@@ -88,7 +88,7 @@ The key insight I made while developing the grammar was that you only need to ma
 Seperately, the scanner can maintain a stack of HTML tags that have been opened. This allows the scanner to know exactly which HTML tags are associated with the current mustache section, and which are not, and
 vastly simplifies the amount of context that needs to be maintained.
 
-The scanner (src/scanner.c:44-47) maintains two parallel stacks:
+The scanner maintains two parallel stacks:
 
 ```c
 typedef struct {
