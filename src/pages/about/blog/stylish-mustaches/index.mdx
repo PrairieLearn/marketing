@@ -57,7 +57,6 @@ This was before the [November 2025](https://simonwillison.net/tags/november-2025
 Initial results were promising, with tooling like [Topiary](https://github.com/topiary/topiary) built for turning a grammar into a formatter easily (though I ended up hitting [some limitations](https://github.com/topiary/topiary/issues/1036)).
 I originally looked at basing it on the [tree-sitter-htmldjango](https://github.com/interdependence/tree-sitter-htmldjango) grammar, but the parsing (especially the tag matching) wasn't as good as I needed. Instead, I built on top of [tree-sitter-html](https://github.com/tree-sitter/tree-sitter-html).
 
-
 ## Building the grammar
 
 The grammar is a custom [tree-sitter](https://tree-sitter.github.io/tree-sitter/) grammar. The core challenge was handling how Mustache and HTML interact. Mustache and HTML are two independent nesting systems that can cross each other's boundaries.
@@ -78,13 +77,13 @@ For each mustache section, we needed to know:
 - What was the state of the HTML stack when the mustache section started?
 - What is the state of the HTML stack when the mustache section ended?
 
-The obvious solution is for each section-like mustache tag (e.g. `{{#section}}` and `{{/section}}`), we associate a list of the 
+The obvious solution is for each section-like mustache tag (e.g. `{{#section}}` and `{{/section}}`), we associate a list of the
 HTML tags. However, these custom data structures (which contained variable-length lists of strings) must be manually [serialized](https://github.com/reteps/tree-sitter-htmlmustache/blob/3ba8be7aa5b837306db5a54c062e4b9c808499bb/src/scanner.c#L55-L116) and deserialized out of memory.
 After struggling with this for a while, I realized there was a simpler approach.
 
 ### Just count it!
 
-The key insight I made while developing the grammar was that you only need to maintain a count of the number of HTML tags that have been opened inside the current mustache section. 
+The key insight I made while developing the grammar was that you only need to maintain a count of the number of HTML tags that have been opened inside the current mustache section.
 Seperately, the scanner can maintain a stack of HTML tags that have been opened. This allows the scanner to know exactly which HTML tags are associated with the current mustache section, and which are not, and
 vastly simplifies the amount of context that needs to be maintained.
 
@@ -130,8 +129,8 @@ Click through the steps below to see this algorithm in action:
 
 <StackAnimation />
 
-The snapshot number creates a fence — the Mustache close tag knows exactly which HTML tags belong to it (those above the fence) and implicitly closes them. 
-In line 1, `<b>` is force-closed when `{{/bold}}` arrives (the scanner sees the HTML stack is taller than the snapshot). 
+The snapshot number creates a fence — the Mustache close tag knows exactly which HTML tags belong to it (those above the fence) and implicitly closes them.
+In line 1, `<b>` is force-closed when `{{/bold}}` arrives (the scanner sees the HTML stack is taller than the snapshot).
 In line 2, `</b>` appears with nothing on the HTML stack -- the parser records it as an erroneous end tag.
 
 ## The linter
@@ -139,7 +138,7 @@ In line 2, `</b>` appears with nothing on the HTML stack -- the parser records i
 <BlogImage src={linterScreenshot} alt="Linter diagnostics in the editor" full />
 
 Now that the parser can handle these patterns, how does the linter verify correctness?
-The key challenge is that Mustache sections are conditionally rendered -- a rendered template might be valid (i.e. valid HTML) when a section is truthy but broken (i.e. invalid HTML) when it's falsy. 
+The key challenge is that Mustache sections are conditionally rendered -- a rendered template might be valid (i.e. valid HTML) when a section is truthy but broken (i.e. invalid HTML) when it's falsy.
 
 ### Mustache control flow is simple
 
@@ -171,14 +170,16 @@ Click through the steps below to see this algorithm in action:
 
 ## The formatter
 
-I built a formatter inspired by [Prettier's architecture](https://prettier.io/docs/technical-details). 
+I built a formatter inspired by [Prettier's architecture](https://prettier.io/docs/technical-details).
 Using a similar intermediate representation to Prettier's [command set](https://github.com/prettier/prettier/blob/main/commands.md) kept the formatter architecture
 clean for agents to iterate on.
 
 For example, given a mustache section with block content:
 
 ```html
-{{#show_hint}}<div class="hint">Check your units!</div>{{/show_hint}}
+{{#show_hint}}
+<div class="hint">Check your units!</div>
+{{/show_hint}}
 ```
 
 The formatter classifies `{{#show_hint}}` as a block-level mustache section (because it contains a block-level `<div>`), then produces this IR:
@@ -201,7 +202,7 @@ The `Group` tries to print everything flat first. Since the content contains a b
 
 ```html
 {{#show_hint}}
-  <div class="hint">Check your units!</div>
+<div class="hint">Check your units!</div>
 {{/show_hint}}
 ```
 
@@ -232,8 +233,10 @@ would not have been possible without the help of AI agents. It's so exciting to 
 mention in my [last blog post](https://www.prairielearn.com/about/blog/linting-pit-of-success), I believe that providing tooling to agents is essential for them to be successful.
 
 <BlogCalloutBox variant="info">
-  You can check out the full implementation in the [treesitter-htmlmustache](https://github.com/reteps/treesitter-htmlmustache) repository.
-  If you have questions or feedback, open an issue on the repository!
+  You can check out the full implementation in the
+  [treesitter-htmlmustache](https://github.com/reteps/treesitter-htmlmustache)
+  repository. If you have questions or feedback, open an issue on the
+  repository!
 </BlogCalloutBox>
 
 export default ({ children }) => (
