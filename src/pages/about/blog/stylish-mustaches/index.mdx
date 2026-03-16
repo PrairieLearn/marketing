@@ -177,9 +177,7 @@ clean for agents to iterate on.
 For example, given a mustache section with block content:
 
 ```html
-{{#show_hint}}
-<div class="hint">Check your units!</div>
-{{/show_hint}}
+{{#show_hint}}<div class="hint" >Check your units!</div>{{/show_hint}}
 ```
 
 The formatter classifies `{{#show_hint}}` as a block-level mustache section (because it contains a block-level `<div>`), then produces this IR:
@@ -202,7 +200,7 @@ The `Group` tries to print everything flat first. Since the content contains a b
 
 ```html
 {{#show_hint}}
-<div class="hint">Check your units!</div>
+  <div class="hint">Check your units!</div>
 {{/show_hint}}
 ```
 
