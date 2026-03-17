@@ -176,6 +176,7 @@ clean for agents to iterate on.
 
 For example, given a mustache section with block content:
 
+{/* prettier-ignore */}
 ```html
 {{#show_hint}}<div class="hint" >Check your units!</div>{{/show_hint}}
 ```
@@ -198,6 +199,7 @@ Group[
 
 The `Group` tries to print everything flat first. Since the content contains a block-level child, a `Hardline` forces the group to break, and `Indent` adds one level of indentation to the contents. The final output is:
 
+{/* prettier-ignore */}
 ```html
 {{#show_hint}}
   <div class="hint">Check your units!</div>
