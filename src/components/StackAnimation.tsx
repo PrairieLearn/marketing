@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import classNames from "classnames";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -302,6 +302,13 @@ const FenceLine = () => (
 export function StackAnimation() {
   const [stepIndex, setStepIndex] = useState(0);
   const step = STEPS[stepIndex];
+  const outputRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (outputRef.current) {
+      outputRef.current.scrollTop = outputRef.current.scrollHeight;
+    }
+  }, [stepIndex]);
 
   const isErroneous = step.action === "erroneous";
 
@@ -393,7 +400,7 @@ export function StackAnimation() {
         <div className="col-lg-5">
           <div className={styles.panel}>
             <div className={styles.panelHeader}>Parse Tree</div>
-            <div className={styles.output}>
+            <div ref={outputRef} className={styles.output}>
               {step.outputLines.map((line, i) => (
                 <div
                   key={i}
