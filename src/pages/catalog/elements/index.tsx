@@ -16,6 +16,7 @@ import oerArrayTable from "../../../lib/images/oer-element-arraytable.png";
 import oerCacheTable from "../../../lib/images/oer-element-cachetable.png";
 import oerFunctionVisualizer from "../../../lib/images/oer-element-functionvisualizer.png";
 import oerDragDropGrid from "../../../lib/images/oer-element-dragdropgrid.png";
+import oerSplice from "../../../lib/images/oer-element-splice.png";
 
 interface SharedElementCardProps {
   image: ImageProps["src"];
@@ -216,6 +217,17 @@ export default function Courses() {
                   <a href="https://github.com/NakVong">Kiriratanak Vong</a>,{" "}
                   <a href="https://github.com/RunjeetN">Runjeet Narula</a> and{" "}
                   Anika Sikka
+                </span>
+              }
+            />
+            <SharedElementCard
+              image={oerSplice}
+              title="SPLICE Adapter"
+              href="https://us.prairielearn.com/pl/course_instance/212935/assessment/2665337"
+              github="https://github.com/PrairieLearn/pl-oer-element-splice"
+              owner={
+                <span>
+                  <a href="https://github.com/nritschel">Nico Ritschel</a>
                 </span>
               }
             />
