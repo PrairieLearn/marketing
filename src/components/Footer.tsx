@@ -26,7 +26,7 @@ export const Footer: React.FC = () => {
                 <FooterLink href="/support">Support</FooterLink>
               </li>
               <li className="mb-2">
-                <FooterLink href="https://prairielearn.readthedocs.io/en/latest/">
+                <FooterLink href="https://docs.prairielearn.com">
                   Documentation
                 </FooterLink>
               </li>
@@ -64,6 +64,9 @@ export const Footer: React.FC = () => {
             <ul className="list-unstyled">
               <li className="mb-2">
                 <FooterLink href="/about">About</FooterLink>
+              </li>
+              <li className="mb-2">
+                <FooterLink href="/jobs">Jobs</FooterLink>
               </li>
               <li className="mb-2">
                 <FooterLink href="/security">Security</FooterLink>

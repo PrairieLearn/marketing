@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "setup": "git submodule update --init && yarn",
+    "run": "PORT=${CONDUCTOR_PORT:-3000} yarn dev"
+  }
+}

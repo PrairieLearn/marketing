@@ -36,7 +36,7 @@ export default function loadCode(): Transformer {
         const filePath = path.join(baseDirectory, srcPath);
         const fileContents = await fs.readFile(filePath, "utf-8");
         node.value = fileContents;
-      })
+      }),
     );
   };
 }

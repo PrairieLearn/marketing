@@ -18,7 +18,7 @@ function useIsActive(href: string | string[], exact: boolean): boolean {
   const { asPath } = useRouter();
   const hrefs = Array.isArray(href) ? href : [href];
   return hrefs.some((href) =>
-    exact ? asPath === href : asPath.startsWith(href)
+    exact ? asPath === href : asPath.startsWith(href),
   );
 }
 
@@ -93,19 +93,12 @@ export const Header: React.FC = () => {
           >
             Free sign up
           </button>
-          <DropdownButton
-            id="login-dropdown-desktop"
-            title="Login"
-            variant="light"
-            className="d-inline-block"
+          <a
+            href="https://us.prairielearn.com/pl/login"
+            className="btn btn-light btn-md me-3"
           >
-            <Dropdown.Item href="https://us.prairielearn.com/pl/login">
-              Main <span className="text-muted">(us.prairielearn.com)</span>
-            </Dropdown.Item>
-            <Dropdown.Item href="https://ca.prairielearn.com/pl/login">
-              Canada <span className="text-muted">(ca.prairielearn.com)</span>
-            </Dropdown.Item>
-          </DropdownButton>
+            Login
+          </a>
         </div>
       </div>
       <RequestCourseModal
@@ -115,7 +108,7 @@ export const Header: React.FC = () => {
       <nav
         className={classnames(
           "navbar navbar-expand-md navbar-dark navbar-primary",
-          styles.header
+          styles.header,
         )}
       >
         <div className="container-fluid container-md">
@@ -150,7 +143,7 @@ export const Header: React.FC = () => {
                   className={classnames(styles["nav-link"], {
                     [`fw-bold ${styles.active}`]: useIsActive(
                       ["/products"],
-                      false
+                      false,
                     ),
                   })}
                 >
@@ -174,7 +167,7 @@ export const Header: React.FC = () => {
                   className={classnames(styles["nav-link"], {
                     [`fw-bold ${styles.active}`]: useIsActive(
                       ["/catalog"],
-                      false
+                      false,
                     ),
                   })}
                 >
@@ -201,14 +194,17 @@ export const Header: React.FC = () => {
                   className={classnames(styles["nav-link"], {
                     [`fw-bold ${styles.active}`]: useIsActive(
                       ["/about", "/research"],
-                      false
+                      false,
                     ),
                   })}
                 >
                   About
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
-                  <NavDropdownItem href="/about">About Us</NavDropdownItem>
+                  <NavDropdownItem href="/about" activeMatchExactHref={true}>
+                    About Us
+                  </NavDropdownItem>
+                  <NavDropdownItem href="/about/blog">Blog</NavDropdownItem>
                   <NavDropdownItem href="/research">Research</NavDropdownItem>
                 </Dropdown.Menu>
               </Dropdown>

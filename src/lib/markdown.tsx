@@ -10,7 +10,7 @@ import extractImages from "../remarkPlugins/extractImages";
 
 export async function serializeMarkdownDocument(
   doc: string,
-  filepath: string
+  filepath: string,
 ): Promise<MDXRemoteSerializeResult> {
   const file = new VFile({ path: filepath, value: doc });
   return serialize(file, {

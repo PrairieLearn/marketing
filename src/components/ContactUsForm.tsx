@@ -29,7 +29,7 @@ const Input: React.FC<InputProps> = ({
       className="form-control"
       value={value}
       onChange={(
-        e: React.ChangeEvent<HTMLInputElement & HTMLTextAreaElement>
+        e: React.ChangeEvent<HTMLInputElement & HTMLTextAreaElement>,
       ) => onChange(e.target.value)}
       type={type}
       id={id}

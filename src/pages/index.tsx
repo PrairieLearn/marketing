@@ -8,6 +8,7 @@ import Stack from "../components/Stack";
 import { Heading } from "../components/Heading";
 import { ExampleQuestion } from "../components/ExampleQuestion";
 import { BannerCTA } from "../components/CallToActionBanner";
+import ScrollingLogos from "../components/ScrollingLogos";
 
 import richFBD from "../lib/images/rich_question_FBD.png";
 import richorder from "../lib/images/rich_question_order_block.png";
@@ -16,6 +17,7 @@ import richball from "../lib/images/rich_question_balltrajectory.png";
 import styles from "./index.module.scss";
 import { Accordion, Carousel, CarouselItem } from "react-bootstrap";
 import { RequestCourseModal } from "../components/RequestCourseModal";
+import { illinois, ubc } from "../lib/images/universities";
 
 const TALKING_POINTS = [
   {
@@ -71,6 +73,14 @@ interface HomeProps {
   seed: number;
 }
 
+// These are shown above the scrolling logos.
+const MAJOR_UNIVERSITY_LOGOS = [
+  { alt: "University of Illinois at Urbana-Champaign", src: illinois },
+  { alt: "University of British Columbia", src: ubc },
+  //   { alt: "University of California, Santa Barbara", src: ucsb },
+  //   { alt: "University of California, San Diego", src: ucsd },
+];
+
 const Home: React.FC<HomeProps> = ({ seed }) => {
   const [showRequestCourseModal, setShowRequestCourseModal] =
     React.useState(false);
@@ -79,6 +89,11 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
     <React.Fragment>
       <Head>
         <title>PrairieLearn</title>
+        <meta property="og:title" content="PrairieLearn" />
+        <meta
+          property="og:description"
+          content="The most comprehensive assessment platform"
+        />
       </Head>
 
       <div className={classnames("container-fluid py-4", styles.banner)}>
@@ -88,10 +103,10 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
               <h1
                 className={classnames(
                   "mt-3 fs-1 text-center text-white",
-                  styles["text-wrap-balance"]
+                  styles["text-wrap-balance"],
                 )}
               >
-                Empowering learners with equitable and authentic assessments
+                The most comprehensive assessment platform
               </h1>
               <div className="d-flex flex-row justify-content-center flex-wrap">
                 <div className="d-inline-flex flex-column">
@@ -146,6 +161,72 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
 
       <div className={classnames("container-fluid py-4", styles.container)}>
         <div className="container-md">
+          <Stack>
+            <Row>
+              <Column>
+                <Stack spacing={3}>
+                  <Heading>Used by the best</Heading>
+                  <p>
+                    Instructors at top universities in the United States and
+                    Canada have been using PrairieLearn to teach the next
+                    generation of students.
+                  </p>
+                </Stack>
+              </Column>
+            </Row>
+            <Row>
+              <div className="col-6 col-md-3 mt-2">
+                <div className="small text-muted">Universities</div>
+                <div className="display-5 lh-1">20+</div>
+              </div>
+              <div className="col-6 col-md-3 mt-2">
+                <div className="small text-muted">Courses</div>
+                <div className="display-5 lh-1">750+</div>
+              </div>
+              <div className="col-6 col-md-3 mt-2">
+                <div className="small text-muted">Students</div>
+                <div className="display-5 lh-1">180k+</div>
+              </div>
+              <div className="col-6 col-md-3 mt-2">
+                <div className="small text-muted">Questions Graded</div>
+                <div className="display-5 lh-1">41M+</div>
+              </div>
+            </Row>
+            <Row>
+              <Column>
+                <div className="d-flex flex-sm-row flex-column justify-content-around align-items-center gap-2 flex-wrap my-md-4 my-2">
+                  {MAJOR_UNIVERSITY_LOGOS.map((logo, index) => (
+                    <div
+                      key={index}
+                      className={classnames(
+                        styles["university-logo-container"],
+                        "d-flex",
+                      )}
+                    >
+                      <Image
+                        src={logo.src}
+                        alt={logo.alt}
+                        height={80}
+                        style={{
+                          objectFit: "contain",
+                          maxHeight: "80px",
+                          width: "auto",
+                          maxWidth: "100%",
+                        }}
+                        className="img-fluid"
+                      />
+                    </div>
+                  ))}
+                </div>
+                <ScrollingLogos />
+              </Column>
+            </Row>
+          </Stack>
+        </div>
+      </div>
+
+      <div className="container-fluid py-4">
+        <div className="container-md">
           <Row>
             <Column>
               <Heading>
@@ -173,7 +254,7 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
         </div>
       </div>
 
-      <div className="container-fluid py-4">
+      <div className={classnames("container-fluid py-4", styles.container)}>
         <div className="container-md">
           <Heading>Automation without compromising quality </Heading>
           <p>
@@ -216,43 +297,6 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
         </div>
       </div>
 
-      <div className={classnames("container-fluid py-4", styles.container)}>
-        <div className="container-md">
-          <Stack>
-            <Row>
-              <Column>
-                <Stack spacing={3}>
-                  <Heading>Trusted by the best</Heading>
-                  <p>
-                    Instructors at top universities in the United States and
-                    Canada have been using PrairieLearn to teach the next
-                    generation of students.
-                  </p>
-                </Stack>
-              </Column>
-            </Row>
-            <Row>
-              <div className="col-6 col-md-3 mt-2">
-                <div className="small text-muted">Universities</div>
-                <div className="display-5 lh-1">20+</div>
-              </div>
-              <div className="col-6 col-md-3 mt-2">
-                <div className="small text-muted">Courses</div>
-                <div className="display-5 lh-1">750+</div>
-              </div>
-              <div className="col-6 col-md-3 mt-2">
-                <div className="small text-muted">Students</div>
-                <div className="display-5 lh-1">180k+</div>
-              </div>
-              <div className="col-6 col-md-3 mt-2">
-                <div className="small text-muted">Questions Graded</div>
-                <div className="display-5 lh-1">41M+</div>
-              </div>
-            </Row>
-          </Stack>
-        </div>
-      </div>
-
       <div className="py-4 bg-dark">
         <div className="container-md">
           <Row>
@@ -272,7 +316,7 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
                   GitHub →
                 </a>
                 <a
-                  href="https://prairielearn.readthedocs.io/en/latest/"
+                  href="https://docs.prairielearn.com"
                   className="btn btn-light"
                 >
                   Documentation →

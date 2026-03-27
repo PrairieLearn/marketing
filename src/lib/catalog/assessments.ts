@@ -11,7 +11,7 @@ export const ASSESSMENTS_ROOT = path.join(
   COURSE_ROOT,
   "courseInstances",
   COURSE_INSTANCE_ID,
-  "assessments"
+  "assessments",
 );
 
 export interface Assessment extends MarkdownPage {
@@ -55,7 +55,7 @@ export const getAssessments = async (): Promise<Assessment[]> => {
           markdownPath: docsMarkdownPath,
           prairielearnUrl,
         };
-      })
+      }),
     )
   )
     .filter((assessment): assessment is Assessment => !!assessment)

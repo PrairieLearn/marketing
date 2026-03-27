@@ -11,7 +11,7 @@ export interface MarkdownPage {
 export const COURSE_ROOT = path.join(
   process.cwd(),
   "PrairieLearn",
-  "exampleCourse"
+  "exampleCourse",
 );
 
 /**

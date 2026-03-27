@@ -1,31 +1,25 @@
+import type { NextConfig } from "next";
 import nextMdx from "@next/mdx";
-
-import rehypeKatex from "rehype-katex";
-import rehypeSlug from "rehype-slug";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import remarkMath from "remark-math";
-import remarkGfm from "remark-gfm";
 
 const withMDX = nextMdx({
   extension: /\.mdx?$/,
   options: {
     providerImportSource: "@mdx-js/react",
-    remarkPlugins: [remarkMath, remarkGfm],
+    remarkPlugins: ["remark-math", "remark-gfm", "remark-emoji"],
     rehypePlugins: [
-      rehypeSlug,
+      "rehype-slug",
       [
-        rehypeAutolinkHeadings,
+        "rehype-autolink-headings",
         {
           behavior: "wrap",
         },
       ],
-      rehypeKatex,
+      "rehype-katex",
     ],
   },
 });
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: NextConfig = {
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
   async redirects() {
     return [

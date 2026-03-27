@@ -1,8 +1,6 @@
 import React from "react";
 import classnames from "classnames";
-import Highlight, { defaultProps, Language } from "prism-react-renderer";
-
-import dracula from "prism-react-renderer/themes/dracula";
+import { Highlight, Language, themes } from "prism-react-renderer";
 
 export interface CodeBlockProps {
   code: string;
@@ -16,12 +14,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
   preRef,
 }) => {
   return (
-    <Highlight
-      {...defaultProps}
-      theme={dracula}
-      code={code}
-      language={language}
-    >
+    <Highlight theme={themes.dracula} code={code} language={language}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre
           className={classnames(className, "mb-0 p-3")}
