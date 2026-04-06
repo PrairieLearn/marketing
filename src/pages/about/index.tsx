@@ -10,7 +10,7 @@ import Stack from "../../components/Stack";
 import styles from "./index.module.scss";
 import mattImage from "../../lib/images/team/matthew_west.jpeg";
 import mariImage from "../../lib/images/team/mariana_silva.png";
-import austinImage from '../../lib/images/team/austin.jpg';
+import austinImage from "../../lib/images/team/austin.jpg";
 import craigImage from "../../lib/images/team/zilles.jpeg";
 import nathanImage from "../../lib/images/team/nathan.jpeg";
 import daveImage from "../../lib/images/team/dave.png";
