@@ -14,6 +14,9 @@ import craigImage from "../../lib/images/team/zilles.jpeg";
 import nathanImage from "../../lib/images/team/nathan.jpeg";
 import daveImage from "../../lib/images/team/dave.png";
 import peterImage from "../../lib/images/team/peter.png";
+import austinImage from "../../lib/images/team/austin.jpg";
+import eduardoImage from "../../lib/images/team/eduardo.jpeg";
+import serenaImage from "../../lib/images/team/serena.jpg";
 
 interface PeopleCardProps {
   image: ImageProps["src"];
@@ -181,6 +184,21 @@ export default function About() {
                 image={peterImage}
                 name="Peter Stenger"
                 title="Founding Engineer"
+              />
+              <PeopleCard
+                image={austinImage}
+                name="Austin Billings"
+                title="Senior Engineer"
+              />
+              <PeopleCard
+                image={eduardoImage}
+                name="Eduardo Vaz"
+                title="Software Engineer"
+              />
+              <PeopleCard
+                image={serenaImage}
+                name="Serena Caraco"
+                title="Learning Engineer"
               />
             </div>
           </Stack>
