@@ -20,8 +20,6 @@ interface BlogMarkdownLayoutProps {
     tags?: string[];
     ogImage?: ImageProps["src"];
     summary?: string;
-    backText?: string;
-    backHref?: string;
   };
 }
 
@@ -29,8 +27,7 @@ export const BlogMarkdownLayout: React.FC<BlogMarkdownLayoutProps> = ({
   children,
   meta,
 }) => {
-  const { title, summary, date, author, tags, ogImage, backText, backHref } =
-    meta;
+  const { title, summary, date, author, tags, ogImage } = meta;
   if (!title) throw new Error("Missing title");
 
   const formattedDate = date ? format(new Date(date), "MMMM d, yyyy") : null;
@@ -58,8 +55,8 @@ export const BlogMarkdownLayout: React.FC<BlogMarkdownLayoutProps> = ({
       <PageBanner
         title={title}
         subtitle={summary}
-        backText={backText}
-        backHref={backHref}
+        backText="Back to all blog posts"
+        backHref="/about/blog"
       />
 
       <div className="container mt-4">
