@@ -5,9 +5,11 @@ import ReactMarkdown from "react-markdown";
 import { MDXProvider } from "@mdx-js/react";
 import Head from "next/head";
 import Modal from "react-bootstrap/Modal";
+import { format } from "date-fns";
 
 import mdxComponents from "../lib/mdxComponents";
 import { PageBanner } from "./Banner";
+import { TagList } from "./Tag";
 
 interface BlogMarkdownLayoutProps {
   children: React.ReactNode;
@@ -18,8 +20,6 @@ interface BlogMarkdownLayoutProps {
     tags?: string[];
     ogImage?: ImageProps["src"];
     summary?: string;
-    backText?: string;
-    backHref?: string;
   };
 }
 
@@ -27,8 +27,11 @@ export const BlogMarkdownLayout: React.FC<BlogMarkdownLayoutProps> = ({
   children,
   meta,
 }) => {
-  const { title, summary, ogImage, backText, backHref } = meta;
+  const { title, summary, date, author, tags, ogImage } = meta;
   if (!title) throw new Error("Missing title");
+
+  const formattedDate = date ? format(new Date(date), "MMMM d, yyyy") : null;
+  const hasMeta = formattedDate || author || (tags && tags.length > 0);
 
   return (
     <React.Fragment>
@@ -52,11 +55,26 @@ export const BlogMarkdownLayout: React.FC<BlogMarkdownLayoutProps> = ({
       <PageBanner
         title={title}
         subtitle={summary}
-        backText={backText}
-        backHref={backHref}
+        backText="Back to all blog posts"
+        backHref="/about/blog"
       />
 
-      <div className="container my-5">
+      <div className="container mt-4">
+        {hasMeta && (
+          <div className="d-flex flex-wrap align-items-center justify-content-between gap-3 pb-3 border-bottom">
+            <div className="text-muted small">
+              {formattedDate && <span>{formattedDate}</span>}
+              {formattedDate && author && <span className="mx-2">•</span>}
+              {author && <span>{author}</span>}
+            </div>
+            {tags && tags.length > 0 && (
+              <TagList tags={tags} className="mb-0" />
+            )}
+          </div>
+        )}
+      </div>
+
+      <div className="container mb-5 mt-4">
         <MDXProvider components={mdxComponents}>{children}</MDXProvider>
       </div>
     </React.Fragment>
