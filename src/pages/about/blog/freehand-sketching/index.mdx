@@ -5,11 +5,14 @@ import {
 } from "../../../../components/BlogMarkdownLayout";
 
 import sketchAnimation from "./sketch_animation.gif";
+import sketchSegments from "./sketch_segments.gif";
+import sketchSpline from "./sketch_spline.gif";
+import sketchTools from "./sketch_tools.png";
 import elementComparison from "./drawing_sketch_comparison.png";
 
 export const meta = {
   title: "Freehand curve sketching",
-  date: "2026-04-28",
+  date: "2026-04-29",
   author: "Nico Ritschel",
   tags: ["Release"],
   summary:
@@ -24,58 +27,57 @@ PrairieLearn's support for rich and highly customizable question types is a draw
   caption="Animation of a freehand drawing using the pl-sketch element."
 />
 
-Similar to `pl-drawing`, the new `pl-sketch` element can appear intimidating at first because of its many configuration options. We therefore explore some considerations for using this element below.
+From a student perspective, the primary difference is the mode of drawing: while `pl-drawing` is based on drag and drop of pre-defined elements that can be rotated and resized, `pl-sketch` is designed around freehand drawing of curves with the mouse or a trackpad.
 
-### When should you use `pl-sketch`, `pl-drawing`, or `pl-excalidraw`?
-
-In addition to the already mentioned `pl-sketch` and `pl-drawing` elements, PrairieLearn also provides `pl-excalidraw` as another drawing element. Picking between these three options will fundamentally change the experience of students and the range of possible assessment styles.
-
-The `pl-excalidraw` element provides the least restricted drawing experience for students, but does not support automated grading. It is therefore best suited for open-ended questions or allowing students to show their work in ways where auto-grading would not be appropriate. If you are interested in this type of question, you might also want to consider `pl-image-capture`, which can [provide a different modality for students to submit freeform answers](./document-cameras) to questions.
-
-Picking between `pl-drawing` and `pl-sketch` can be a more difficult choice, and there is some overlap in the type of questions that the elements can support. From a student perspective, the primary difference is the mode of drawing: while `pl-drawing` is based on drag and drop of pre-defined elements that can be rotated and resized, `pl-sketch` is designed around freehand drawing of curves with the mouse or a trackpad.
-
-Take for example the question below, and how the choice of element determines how students construct their answer. The `pl-drawing` element requires students to pick a type of curve (straight or quadratic), drag it onto the canvas, and then adjust it until it matches the expected output. The `pl-sketch` element on the other hand expects students to draw the curve from scratch. Students can drag and drop their curve to make small adjustments, but have full control over its shape.
+Take for example the question below, and how the choice of element determines how students construct their answer. The `pl-drawing` element requires students to pick a type of curve (straight or quadratic), drag it onto the canvas, and then adjust it until it matches the expected output. The `pl-sketch` element on the other hand expects students to draw the curve from scratch with full control over its shape.
 
 <BlogImage
   src={elementComparison}
-  width={800}
   alt="Side-by-side comparison of the pl-sketch and the pl-drawing elements for the same curve sketching question"
   caption="Side-by-side comparison of the pl-sketch and the pl-drawing elements."
 />
 
-As an instructor, it is important to consider how students experience a question through the tools they are provided to solve it. For example, some students might find the `pl-drawing` version of the question above easier as the range of available curves to them that all segments of the sketched function are either linear or quadratic. Other students might feel that this way of placing a solution feels unintuitive to them, as it is substantially different from how they would draw a curve on paper.
+For students, the tools that they have available to solve a question can significantly change their learning experience. For example, the `pl-drawing` version of the question above might unintentionally give hints to students by only offering them linear or quadratic curve fragments to choose from. Placing pre-defined curve segments via drag and drop is also rather different from the drawing and reasoning process and that one would apply when drawing on paper. The freehand drawing process of `pl-sketch` is more effective at testing the same skillset as a paper exam.
 
-### Which `pl-sketch-tool` drawing tools should you provide to students?
+### Drawing aids and options
 
-The `pl-sketch` element can provide students with a number of different drawing tools besides freehand (`free-draw`) sketching. Some of these tools are primarily used to annotate sketches, such as the `horizontal-line` and `vertical-line` tool that can be used for asymptotes, or `point` that can be used for indicating extrema or placing helper points. The `polygon` tool can also be used to highlight areas of a graph, such as the area under a curve.
+One important feature of `pl-sketch` that complements the freehand drawing capabilities is that curves can be drawn in arbitrary order or in multiple segments. In addition to some light smoothing that is immediately applied to curves, small gaps and overlaps are ignored for grading purposes, so that the entire curve is treated as a continuous function. For example, the following drawing would be graded equivalently to the one from earlier:
 
-As an alternative to `free-draw`, the element also provides `spline` and `polyline` curve drawing tools. Unlike the freehand drawing tool, these do not require students to draw the entire curve manually. Instead, they can place control points that are automatically connected via a straight line (for `polyline`), or a [spline](<https://en.wikipedia.org/wiki/Spline_(mathematics)>) (for `spline`).
+<BlogImage
+  src={sketchSegments}
+  alt="An animation of sin(x) being drawn in multiple segments in freehand drawing mode"
+  caption="Animation of a freehand drawing in multiple segments."
+/>
 
-When selecting the tools that a question provides to students, we recommend that instructors consider the skills that a question aims to assess. For example, drawing a complex function by hand requires students to decide on the shape of the curve they are drawing, and to manually apply basic sketching strategies such as picking sample points. Using a spline-based tool can simplify this task by providing students with a pre-defined strategy (of connecting points) and the expected shape of the curve.
+Even in situations where emulating the freehand drawing process is less important for a question, `pl-sketch` can provide an easy to use toolbox for curve sketching. For example, the provided `spline` and `polyline` tools allow students to define reference points that are then automatically connected via straight lines or [splines](<https://en.wikipedia.org/wiki/Spline_(mathematics)>).
 
-The `pl-sketch` element supports multiple types of drawing tools in the same canvas, and grading criteria can be assigned to apply to multiple tools. Therefore, you can allow students to choose their preferred drawing tool (e.g., `spline` or `free-draw`). Furthermore, it might be appropriate to pick a different set of tools for different questions within the same course, for example to assess different sketching skills.
+The example below illustrates how one drawing canvas can be used to draw multiple curves that can be individually graded. It is also possible to provide multiple drawing tools that are combined to create one gradeable function.
 
-### Which `pl-sketch-grading` criteria should you use for grading?
+<BlogImage
+  src={sketchSpline}
+  alt="A canvas that contains a spline-based drawing of x^2 and a polyline-based drawing of |x|"
+  caption="Spline-based and linear drawings of different functions on the same canvas."
+/>
 
-As `pl-sketch` is designed specifically for grading function sketches, it provides a range of grading criteria that cover items one might see in a rubric for a traditional paper exam.
+Besides curve drawing, `pl-sketch` also provides other tools that can be included when grading a question: students can annotate points like intersections or extrema, as well as horizontal and vertical asymptotes, and enclosed areas (e.g., area under a curve).
 
-When grading function sketches, the `match-function` criterion is typically the most straightforward choice, as it directly compares the drawn sketch to the reference function. This criterion automatically flags common issues, such as students drawing multiple lines for the same x-coordinates, or leaving gaps in the function definition.
+<BlogImage
+  src={sketchTools}
+  alt="A canvas that shows a variety of sketching tools, including points where functions intersect, an asymptote, and a polygon covering the area that connects multiple intersection points"
+  caption="A drawing that uses several different sketching tools to construct and annotate a solution."
+/>
 
-For grading points and asymptotes, `match` is typically the grading criterion of choice, and it can also be used for grading curves based on individual reference points rather than their entire shape. However, it is important to be aware that this criterion does not flag superfluous drawings as incorrect. It should therefore be accompanied by a `count` check if, for example, only one point should be marked on the canvas.
+### Grading criteria
 
-Some questions might allow a range of different answers. The `pl-sketch` element provides a collection of specific criteria for implementing these checks that can all be combined as needed. For example, if you want to allow any positive, monotonically increasing function that connects two points, you can use a `defined-in` criterion to check that the function covers the entire range between the points, two `match` criteria to check that it starts and ends at the right coordinates, and `monot-increasing` to check that it is monotonically increasing.
+The `pl-sketch` element supports a range of different grading criteria. For grading curve sketches, comparisons to reference functions are a convenient option that can be customized further by defining comparison ranges and tolerances. Points and asymptotes can be similarly graded based on their expected number and coordinates.
 
-The element also supports more advanced customizations, such as assigning different tolerance values for different `x-range`s, or defining overlapping criteria with different tolerances to give partial points. By assigning stages to individual criteria, it is also possible to define dependencies between checks and control the amount of partial points that is given in specific scenarios. We encourage you to browse [the element's full documentation](https://docs.prairielearn.com/elements/pl-sketch/) to see if your specific use case is supported, and to contact us if you have suggestions for new criteria.
+Sometimes, questions might be designed to allow a range of different answers. For example, a question might require students to draw any positive, monotonically increasing function that connects two points. To support such complex requirements, `pl-sketch` element provides a collection of modular grading criteria that implement checks like *"Is the function monotonically increasing in a given x-range?"* or *"Is the function always greater than a given value or other function?"*
 
-### Which other considerations might be important for designing good sketching assessments?
+Grading criteria can be customized and stacked, for example to give partial points based on different tolerance ranges, or to require prior criteria to be satisfied before another one is applied. This allows even complex questions to be fully auto-graded, enabling the use of the element for mastery learning or randomized, computer-based testing.
 
-Picking the right tools and grading criteria are just two ways how you can influence how your students use `pl-sketch`. Here are some other best practices that we have collected.
+### Tell us what you think!
 
-1. As for all types of questions, it is not a good idea to first introduce them in an exam or other high-stakes setting. Although we strive to make the curve sketching element easy to use for students, getting used to drawing with the mouse and using the other sketching tools can take time. It is best to allow students to practice these skills at their own pace, for example in a practice exam or in low-stakes assessments like homeworks.
-
-2. Remember to always carefully test your questions, including in ways that might break your grading criteria. For example, when grading functions, you might want to check if gaps in the drawing are handled correctly (by using `match-function` or `defined-in` criteria), and when grading point or asymptote annotations, you might have to add a `count` criterion to deduct points for extra or unnecessary drawings.
-
-3. When reviewing a question, it can be helpful to compare it to a sample solution. You can provide one using `pl-sketch-solution` tags. While your grading criteria might allow a whole range of solutions, the sample solution is a reference drawing that can be displayed both to students (in the answer panel, after the question instance is closed) and also when reviewing submissions in the manual grading mode.
+We understand that the many potential ways to use and customize `pl-sketch` can be overwhelming, and that the current set of tools and grading criteria might still not be a good fit for all possible use cases. We would love to hear from you on how you are using `pl-sketch` in your teaching, which limitations you run into, and of course if you find any bugs or issues that need to be addressed!
 
 export default ({ children }) => (
   <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
