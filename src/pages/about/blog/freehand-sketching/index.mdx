@@ -8,6 +8,7 @@ import sketchAnimation from "./sketch_animation.gif";
 import sketchSegments from "./sketch_segments.gif";
 import sketchSpline from "./sketch_spline.gif";
 import sketchTools from "./sketch_tools.png";
+import sketchOverlay from "./sketch_overlay.gif";
 import elementComparison from "./drawing_sketch_comparison.png";
 
 export const meta = {
@@ -67,13 +68,21 @@ Besides curve drawing, `pl-sketch` also provides other tools that can be include
   caption="A drawing that uses several different sketching tools to construct and annotate a solution."
 />
 
-### Grading criteria
+### Automated grading criteria
 
 The `pl-sketch` element supports a range of different grading criteria. For grading curve sketches, comparisons to reference functions are a convenient option that can be customized further by defining comparison ranges and tolerances. Points and asymptotes can be similarly graded based on their expected number and coordinates.
 
 Sometimes, questions might be designed to allow a range of different answers. For example, a question might require students to draw any positive, monotonically increasing function that connects two points. To support such complex requirements, `pl-sketch` element provides a collection of modular grading criteria that implement checks like _"Is the function monotonically increasing in a given x-range?"_ or _"Is the function always greater than a given value or other function?"_
 
 Grading criteria can be customized and stacked, for example to give partial points based on different tolerance ranges, or to require prior criteria to be satisfied before another one is applied. This allows even complex questions to be fully auto-graded, enabling the use of the element for mastery learning or randomized, computer-based testing.
+
+To make it easier for students to review their submissions and understand mistakes, each grading criterion can be set up with custom feedback to explain (or avoid revealing, if desired) why a submission received a specific percentage score. Once the correct answer has been revealed, both students and manual reviewers can also compare a submission to the provided sample solution by visually overlaying them.
+
+<BlogImage
+  src={sketchOverlay}
+  alt="An animation of toggling the overlay of a student's submission and the provided sample solution for a question"
+  caption="Animation showing the overlay of a student's submission and the sample solution"
+/>
 
 ### Tell us what you think!
 
