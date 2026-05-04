@@ -23,7 +23,7 @@ const BlogPostCard = ({ post }: { post: BlogPostWithSlug }) => {
     <article className={styles.blogPostCard}>
       <div className={styles.postMeta}>
         <time className={styles.postDate}>{formattedDate}</time>
-        <span className={styles.postAuthor}>by {post.author}</span>
+        <span className={styles.postAuthor}>{post.author}</span>
       </div>
       <h2 className={styles.postTitle}>
         <Link href={`/about/blog/${post.slug}`}>{post.title}</Link>

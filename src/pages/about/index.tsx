@@ -10,12 +10,13 @@ import Stack from "../../components/Stack";
 import styles from "./index.module.scss";
 import mattImage from "../../lib/images/team/matthew_west.jpeg";
 import mariImage from "../../lib/images/team/mariana_silva.png";
-import austinImage from "../../lib/images/team/austin.jpg";
 import craigImage from "../../lib/images/team/zilles.jpeg";
 import nathanImage from "../../lib/images/team/nathan.jpeg";
 import daveImage from "../../lib/images/team/dave.png";
 import peterImage from "../../lib/images/team/peter.png";
+import austinImage from "../../lib/images/team/austin.jpg";
 import eduardoImage from "../../lib/images/team/eduardo.jpeg";
+import serenaImage from "../../lib/images/team/serena.jpg";
 
 interface PeopleCardProps {
   image: ImageProps["src"];
@@ -193,6 +194,11 @@ export default function About() {
                 image={eduardoImage}
                 name="Eduardo Vaz"
                 title="Software Engineer"
+              />
+              <PeopleCard
+                image={serenaImage}
+                name="Serena Caraco"
+                title="Learning Engineer"
               />
             </div>
           </Stack>
