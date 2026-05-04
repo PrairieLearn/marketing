@@ -17,6 +17,8 @@ import oerCacheTable from "../../../lib/images/oer-element-cachetable.png";
 import oerFunctionVisualizer from "../../../lib/images/oer-element-functionvisualizer.png";
 import oerDragDropGrid from "../../../lib/images/oer-element-dragdropgrid.png";
 import oerSplice from "../../../lib/images/oer-element-splice.png";
+import oerFadedParsons from "../../../lib/images/oer-element-fadedparsons.png";
+
 
 interface SharedElementCardProps {
   image: ImageProps["src"];
@@ -227,6 +229,20 @@ export default function Courses() {
               owner={
                 <span>
                   <a href="https://github.com/nritschel">Nico Ritschel</a>
+                </span>
+              }
+            />
+            <SharedElementCard
+              image={oerFadedParsons}
+              title="Faded Parsons Problem"
+              href="https://us.prairielearn.com/pl/course_instance/181915/assessment/2544977"
+              github="https://github.com/PrairieLearn/pl-oer-element-fadedparsons"
+              owner={
+                <span>
+                  <a href="https://www.github.com/SybelBlue">Serena Caraco</a>,{" "}
+                  <a href="https://www.github.com/nelson-lojo">Nelson Lojo</a>,{" "}
+                  <a href="https://www.linkedin.com/in/nate-gainsboro">Nathaniel Gainsboro</a> and{" "}
+                  <a href="https://github.com/armandofox">Armando Fox</a>
                 </span>
               }
             />
