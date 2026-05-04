@@ -19,7 +19,6 @@ import oerDragDropGrid from "../../../lib/images/oer-element-dragdropgrid.png";
 import oerSplice from "../../../lib/images/oer-element-splice.png";
 import oerFadedParsons from "../../../lib/images/oer-element-fadedparsons.png";
 
-
 interface SharedElementCardProps {
   image: ImageProps["src"];
   title: string;
@@ -241,8 +240,10 @@ export default function Courses() {
                 <span>
                   <a href="https://www.github.com/SybelBlue">Serena Caraco</a>,{" "}
                   <a href="https://www.github.com/nelson-lojo">Nelson Lojo</a>,{" "}
-                  <a href="https://www.linkedin.com/in/nate-gainsboro">Nathaniel Gainsboro</a> and{" "}
-                  <a href="https://github.com/armandofox">Armando Fox</a>
+                  <a href="https://www.linkedin.com/in/nate-gainsboro">
+                    Nathaniel Gainsboro
+                  </a>{" "}
+                  and <a href="https://github.com/armandofox">Armando Fox</a>
                 </span>
               }
             />
