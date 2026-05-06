@@ -1,0 +1,208 @@
+@import "~bootstrap/scss/_functions.scss";
+@import "~bootstrap/scss/_variables.scss";
+
+$bonus-color: #10b981;
+$full-color: #3b82f6;
+$late-color: #f59e0b;
+$practice-color: #6b7280;
+
+.timeline {
+  margin: 1.5rem 0 2rem;
+}
+
+.sectionTitle {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $gray-600;
+  margin-bottom: 0.75rem;
+}
+
+.chartWrap {
+  border: 1px solid $gray-200;
+  border-radius: 12px;
+  background: white;
+  padding: 1.25rem 1rem 0.5rem;
+}
+
+.chartInner {
+  position: relative;
+  width: 100%;
+  height: 220px;
+}
+
+.svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.gridRow {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 0;
+  border-top: 1px dashed $gray-200;
+  pointer-events: none;
+}
+
+.axisLabel {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateY(-50%);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: $gray-500;
+  background: white;
+  padding-right: 0.35rem;
+}
+
+.stepLine {
+  fill: none;
+  stroke: #1a3a8f;
+  stroke-width: 2.5;
+  stroke-linejoin: miter;
+  stroke-linecap: square;
+}
+
+.milestoneLine {
+  stroke: $gray-300;
+  stroke-width: 1;
+  stroke-dasharray: 2 3;
+}
+
+.milestoneDot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: white;
+  border: 2.5px solid #1a3a8f;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  box-shadow: 0 0 0 3px white;
+}
+
+.creditBadge {
+  position: absolute;
+  transform: translateX(-50%);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  background: white;
+  border: 1.5px solid currentColor;
+  white-space: nowrap;
+  pointer-events: none;
+  line-height: 1.2;
+
+  &.segmentBonus {
+    color: $bonus-color;
+  }
+  &.segmentFull {
+    color: $full-color;
+  }
+  &.segmentLate {
+    color: $late-color;
+  }
+  &.segmentPractice {
+    color: $practice-color;
+  }
+}
+
+.milestoneLabels {
+  position: relative;
+  height: 3rem;
+  margin-top: 0.5rem;
+}
+
+.milestoneLabel {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+.milestoneName {
+  font-weight: 600;
+  color: $gray-900;
+}
+
+.milestoneDate {
+  font-size: 0.72rem;
+  color: $gray-600;
+  margin-top: 0.1rem;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid $gray-200;
+  border-radius: 10px;
+  background: $gray-100;
+}
+
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+}
+
+.legendSwatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+
+  &.segmentBonus {
+    background: $bonus-color;
+  }
+  &.segmentFull {
+    background: $full-color;
+  }
+  &.segmentLate {
+    background: $late-color;
+  }
+  &.segmentPractice {
+    background: $practice-color;
+  }
+}
+
+.legendLabel {
+  color: $gray-800;
+  font-weight: 500;
+}
+
+.legendValue {
+  color: $gray-600;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 640px) {
+  .chartInner {
+    height: 180px;
+  }
+
+  .milestoneLabel {
+    font-size: 0.7rem;
+  }
+
+  .milestoneDate {
+    font-size: 0.66rem;
+  }
+
+  .creditBadge {
+    font-size: 0.72rem;
+    padding: 0.1rem 0.4rem;
+  }
+}

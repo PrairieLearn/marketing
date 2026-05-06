@@ -1,0 +1,235 @@
+@import "~bootstrap/scss/_functions.scss";
+@import "~bootstrap/scss/_variables.scss";
+
+$section-a-color: #3b82f6;
+$section-b-color: #8b5cf6;
+$extended-color: #f59e0b;
+$default-color: $gray-700;
+
+.cascade {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.sectionTitle {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $gray-600;
+  margin-bottom: 0.6rem;
+}
+
+.table {
+  border: 1px solid $gray-200;
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+}
+
+.headerRow,
+.row {
+  display: grid;
+  grid-template-columns: minmax(160px, 1.3fr) repeat(3, 1fr);
+}
+
+.row {
+  border-top: 1px solid $gray-200;
+}
+
+.headerRow {
+  background: $gray-100;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: $gray-600;
+}
+
+.headerCell {
+  padding: 0.7rem 1rem;
+  border-left: 1px solid $gray-200;
+
+  &:first-child {
+    border-left: none;
+  }
+}
+
+.layerColumn {
+  padding: 0.9rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: 4px solid var(--layer-color);
+}
+
+.layerName {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: $gray-900;
+}
+
+.layerDesc {
+  font-size: 0.78rem;
+  color: $gray-600;
+  margin-top: 0.1rem;
+}
+
+.cell {
+  padding: 0.9rem 1rem;
+  border-left: 1px solid $gray-200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.cellSet {
+  font-weight: 600;
+  color: var(--layer-color);
+  background-color: var(--layer-bg);
+}
+
+.cellInherit {
+  color: $gray-400;
+  font-style: italic;
+  font-size: 0.85rem;
+}
+
+.layerDefault {
+  --layer-color: #{$default-color};
+  --layer-bg: #{rgba($default-color, 0.06)};
+}
+
+.layerSectionA {
+  --layer-color: #{$section-a-color};
+  --layer-bg: #{rgba($section-a-color, 0.08)};
+}
+
+.layerSectionB {
+  --layer-color: #{$section-b-color};
+  --layer-bg: #{rgba($section-b-color, 0.08)};
+}
+
+.layerExtended {
+  --layer-color: #{$extended-color};
+  --layer-bg: #{rgba($extended-color, 0.1)};
+}
+
+.resolvedHeader {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.resolvedName {
+  font-weight: 600;
+  font-size: 1rem;
+  color: $gray-900;
+}
+
+.resolvedLabels {
+  font-size: 0.85rem;
+  color: $gray-600;
+}
+
+.resolvedCard {
+  border: 1px solid $gray-200;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  background: white;
+
+  & + & {
+    margin-top: 0.85rem;
+  }
+}
+
+.resolvedFields {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.resolvedField {
+  border: 1px solid $gray-200;
+  border-radius: 8px;
+  padding: 0.65rem 0.85rem;
+  background: $gray-100;
+}
+
+.resolvedFieldLabel {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: $gray-600;
+  font-weight: 700;
+}
+
+.resolvedFieldValue {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: $gray-900;
+  margin: 0.15rem 0 0.45rem;
+}
+
+.resolvedFieldSource {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--layer-color);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--layer-color);
+  }
+}
+
+@media (max-width: 720px) {
+  .headerRow {
+    display: none;
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+  }
+
+  .layerColumn {
+    grid-column: 1 / -1;
+    border-left: none;
+    border-top: 4px solid var(--layer-color);
+    padding: 0.75rem 1rem;
+  }
+
+  .cell {
+    border-left: none;
+    border-top: 1px solid $gray-200;
+    justify-content: space-between;
+    text-align: left;
+
+    &::before {
+      content: attr(data-label);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: $gray-600;
+    }
+  }
+
+  .resolvedFields {
+    grid-template-columns: 1fr;
+  }
+}

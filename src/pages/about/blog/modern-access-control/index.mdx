@@ -3,6 +3,8 @@ import {
   BlogImage,
   BlogCalloutBox,
 } from "../../../../components/BlogMarkdownLayout";
+import { AccessControlCascade } from "../../../../components/AccessControlCascade";
+import { CreditTimeline } from "../../../../components/CreditTimeline";
 
 import overview from "./overview.png";
 import defaultsEditor from "./defaults_editor.png";
@@ -37,22 +39,19 @@ The new modern access control system is here! Release dates, deadlines, credit, 
   **Key Takeaways:**
 
 1. Your existing assessments don't need any changes. Legacy `allowAccess` rules continue to work.
-2. The new system is **more powerful**: overrides stack cleanly across student labels and individual students, so accommodations and section-specific rules compose instead of fighting each other.
+2. The new system is **more powerful**: overrides stack across student labels and individual students, so a student can be in Section A *and* have an accommodation label without you writing a per-student rule.
 3. The new system is **easier to understand**: every date has a specific role (release, due, early deadline, late deadline) instead of a pile of overlapping windows.
-4. Giving each date semantic meaning is the foundation for additional features we're planning to build on top.
 
 </BlogCalloutBox>
 
-Let's walk through the new features!
-
 ### One page for everything
 
-Each assessment now has an **Access** tab with two sections: **Defaults** that apply to everyone, and **Overrides** that apply to selected students or labels. The summary card shows the current access state, the release/due timeline, credit after deadlines, and visibility settings at a glance.
+Each assessment now has an **Access** tab with two sections: **Defaults** that apply to everyone, and **Overrides** that apply to selected students or labels. The summary card shows the current access state, the release/due timeline, credit after deadlines, and visibility settings.
 
 <BlogImage
   src={overview}
   alt="Modern access control overview page"
-  caption="The Access tab shows defaults and overrides side-by-side"
+  caption="The Access tab shows defaults and overrides"
   full
 />
 
@@ -63,15 +62,17 @@ Click **Edit** on the **Defaults** card to open the editor. From here you can co
 <BlogImage
   src={defaultsEditor}
   alt="Defaults editor for modern access control"
-  caption="The defaults editor consolidates date control, time limits, passwords, PrairieTest, and visibility settings"
+  caption="The defaults editor covers dates, time limits, passwords, PrairieTest, and visibility settings"
   full
 />
 
 #### A single credit timeline
 
-Modern access control models credit as one chronological timeline: an optional release date, optional early deadlines for bonus credit, a due date, optional late deadlines for reduced credit, and a configurable choice for what happens after the last deadline (no submissions, practice submissions, or partial credit).
+Credit is now one chronological timeline: an optional release date, optional early deadlines for bonus credit, a due date, optional late deadlines for reduced credit, and a configurable choice for what happens after the last deadline (no submissions, practice submissions, or partial credit).
 
 For example, an assessment might be worth 110% until an early deadline, 100% until the due date, 80% until a late deadline, then allow practice submissions for 0% credit afterwards.
+
+<CreditTimeline />
 
 #### Time limits, passwords, and PrairieTest
 
@@ -101,6 +102,10 @@ Common uses include:
 
 Individual-student overrides are stored in PrairieLearn's database, so one-off accommodations and makeup windows no longer need to be committed to your course content files.
 
+Each override only stores the fields it changes — everything else falls through to the defaults. Multiple overrides on the same student stack together, so a student in Section A who also has the Extended time label gets Section A's dates and the extended time limit, with no per-student override needed.
+
+<AccessControlCascade />
+
 ### Migrating from `allowAccess`
 
 Legacy `allowAccess` rules continue to work. When you're ready to migrate, there are two paths:
@@ -115,8 +120,8 @@ UID-based legacy rules don't have a direct JSON equivalent, but they map cleanly
 Giving each date a specific role (release, due, early/late deadline) means a few legacy patterns no longer fit. If your assessment uses any of these, the migration tool flags it so you can decide how to handle it:
 
 - **Non-contiguous access windows.** A legacy assessment that opens Jan 15-Feb 15, closes, then reopens Mar 1-Mar 15 can't be expressed as one credit timeline. In practice, this pattern usually means "release" and "reopen for review" — the new model handles that with after-completion visibility instead.
-- **Credit that goes back up.** Legacy rules let credit dip and then climb again (e.g., 100% → 50% → 80%). The new model requires credit to be non-increasing from release through the final deadline, which matches how almost every real grading policy actually works.
-- **Practice before release.** Legacy `allowAccess` could open a practice (0% credit) window before the assessment was actually available. The new model only allows practice after the last deadline, where it semantically belongs.
+- **Credit that goes back up.** Legacy rules let credit dip and then climb again (e.g., 100% → 50% → 80%). The new model requires credit to be non-increasing from release through the final deadline, which matches how almost every real grading policy works.
+- **Practice before release.** Legacy `allowAccess` could open a practice (0% credit) window before the assessment was available. The new model only allows practice after the last deadline, where it belongs.
 
 ### JSON is still there when you need it
 
