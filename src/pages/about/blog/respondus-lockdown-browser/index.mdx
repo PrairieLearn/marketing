@@ -5,8 +5,6 @@ import {
 } from "../../../../components/BlogMarkdownLayout";
 
 import takeExamLockdown from "./take-exam-lockdown.png";
-import sessionSettings from "./session-settings.png";
-import locationSettings from "./location-settings.png";
 import sessionSettingsInherited from "./session-settings-inherited.png";
 
 export const meta = {
@@ -33,24 +31,21 @@ export const meta = {
   <span style={{ color: "#1a3a8f" }}>, now built into PrairieTest.</span>
 </p>
 
-PrairieTest now supports Respondus LockDown Browser. For any exam linked to a PrairieLearn assessment, instructors 
-and testing centers can require students to take the exam inside a secure, locked-down environment, 
+PrairieTest now supports Respondus LockDown Browser. For any exam linked to a PrairieLearn assessment, instructors
+and testing centers can require students to take the exam inside a secure, locked-down environment,
 configured directly from PrairieTest alongside everything else.
 
 ---
 
 ## What is Respondus LockDown Browser?
 
-Respondus LockDown Browser is a secure, locked-down web browser purpose-built for online exams. 
-While a student is taking an exam, it prevents them from opening other applications, switching tabs, 
-copying or printing content, accessing screen-sharing or virtual machines, and using most keyboard shortcuts, 
-effectively turning the device into a secure testing environment for the duration of the assessment.
+[Respondus LockDown Browser](https://web.respondus.com/he/lockdownbrowser/) is a secure web browser purpose-built for online exams. While a student is taking an exam, it prevents them from opening other applications, switching tabs, copying or printing content, accessing screen-sharing or virtual machines, and using most keyboard shortcuts, effectively turning the device into a secure testing environment for the duration of the assessment.
 
 ## How the integration works in PrairieTest
 
-### For students
+### What students see
 
-Instead of the regular "Start exam" button, now students will see the following on their reservation page:
+Instead of the regular "Start exam" button, students see "Open in LockDown Browser" on their reservation page:
 
 <BlogImage
   src={takeExamLockdown}
@@ -58,45 +53,28 @@ Instead of the regular "Start exam" button, now students will see the following 
   caption="Students see an 'Open in LockDown Browser' button when their exam requires it."
 />
 
-Clicking the "Open in LockDown Browser" button takes them to the reservation page inside LockDown Browser, allowing them 
-to start their exam in the protected environment.
+Clicking it opens the reservation inside LockDown Browser, where they can start the exam in the protected environment. For installation steps and supported platforms, point students to the [LockDown Browser docs page](https://prairietest.com/pt/docs/lockdown-browser/).
 
 ### Setting it up for your course
 
-LockDown Browser can be configured in two different ways, depending on the exam circumstances. 
-The setting always lives closest to the student’s computer: the course session for instructor-run exams, 
+LockDown Browser can be configured in two different ways, depending on the exam circumstances.
+The setting always lives closest to the student’s computer: the course session for instructor-run exams,
 and the testing center location for center-scheduled exams.
 
 #### Option 1: Course-run sessions (online or in-class)
 
-If the exam's rules are course specific, and do not depend on a CBTF, you can configure Respondus LockDown Browser for
-a course session by following these steps:
-
-1. Open the session you want to protect.
-2. Go to the "Settings" tab.
-3. Find the "LockDown Browser" row and click the edit icon.
-4. Switch "Open exam with LockDown Browser for this session" on and save.
-
-Once enabled, the row displays a green check and the helper text confirms that the linked PrairieLearn assessment will 
-open in Respondus LockDown Browser. Students see the Open in LockDown Browser button on their reservation page from that point on.
-
-<BlogImage
-  src={sessionSettings}
-  alt="PrairieTest session settings panel with the LockDown Browser row set to Yes and the helper text 'The linked PrairieLearn assessment will open in Respondus LockDown Browser.'"
-  caption="The LockDown Browser row on the session Settings tab, toggled on. Click the image to expand."
-  full
-/>
+For course-specific exams that don't depend on a CBTF, the setting is per-session and lives on the course session itself, so course staff control it directly. Every reservation against that session will open the linked PrairieLearn assessment in LockDown Browser. See the [PrairieTest setup docs](https://prairietest.com/pt/docs/lockdown-browser/) for the toggle.
 
 <BlogCalloutBox title="Heads up" variant="note">
-  Tip: Because students need to install LockDown Browser on their own computers beforehand, 
-  announce the requirement to your class ahead of exam day.
+  Tip: Because students need to install LockDown Browser on their own computers
+  beforehand, announce the requirement to your class ahead of exam day.
 </BlogCalloutBox>
 
 #### Option 2: Sessions scheduled into a PrairieTest testing center
 
-For exams scheduled into a testing center, the setting is not per-session and lives on the location, 
-so every session that runs at that location inherits it automatically. 
-This keeps a center’s policy consistent and ensures the machines 
+For exams scheduled into a testing center, the setting is not per-session and lives on the location,
+so every session that runs at that location inherits it automatically.
+This keeps a center’s policy consistent and ensures the machines
 (which require a special lab-mode installer) match what the session expects.
 
 This means:
@@ -109,30 +87,12 @@ This means:
   caption="On a session at a LockDown Browser location, course staff see the setting as inherited and read-only."
 />
 
-**If you’re center staff:** enable LockDown Browser once on the location, and every center session there will use it automatically:
-
-1. Open the "Location" tab for the center you want to protect.
-2. Go to the "Settings" tab.
-3. Find the "LockDown Browser" row and click the edit icon.
-4. Switch "Open exams with LockDown Browser at this location" on and save.
-
-<BlogImage
-  src={locationSettings}
-  alt="PrairieTest location Settings tab for Grainger 57 with the LockDown Browser row set to Yes and the helper text 'Linked PrairieLearn assessments will open in Respondus LockDown Browser.'"
-  caption="LockDown Browser enabled on the testing center location. Every session at this location inherits the setting."
-  full
-/>
+**If you’re center staff:** enable LockDown Browser once on the location’s Settings tab and every center session there will use it automatically. The toggle is documented in the [PrairieTest setup docs](https://prairietest.com/pt/docs/lockdown-browser/).
 
 <BlogCalloutBox title="Heads up" variant="note">
-  Make sure the center's computers have the lockdown browser installed, and that the proctors know
-  how to help students with setup.
+  Make sure the center's computers have the lockdown browser installed, and that
+  the proctors know how to help students with setup.
 </BlogCalloutBox>
-
-### What students see either way
-
-Regardless of which path you take, the student experience is identical: their reservation page shows 
-LockDown Browser: Required, and the usual Start exam button is replaced by Open in LockDown Browser. 
-They don’t need to know whether the requirement came from the session or the location.
 
 ## Final thoughts
 
@@ -142,9 +102,9 @@ online quiz, an in-class assessment, or a CBTF exam, you can require a locked-do
 of clicks. We’re excited to see how courses put it to use.
 
 <BlogCalloutBox variant="info">
-  More detailed information about LockDown Browser support can be found in the [PrairieTest
-  documentation](https://docs.prairielearn.com/). If you have questions, let us know on
-  [Slack](/slack).
+  More detailed information about LockDown Browser support can be found in the
+  [PrairieTest documentation](https://prairietest.com/pt/docs/lockdown-browser/). If you
+  have questions, let us know on [Slack](/slack).
 </BlogCalloutBox>
 
 export default ({ children }) => (
