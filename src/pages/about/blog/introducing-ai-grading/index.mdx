@@ -1,7 +1,6 @@
 import {
   BlogMarkdownLayout,
   BlogImage,
-  BlogQuote,
   BlogCalloutBox,
 } from "../../../../components/BlogMarkdownLayout";
 
@@ -102,11 +101,11 @@ AI grading is opt-in and transparent. AI grading decisions come with detailed ex
 
 ### Proven accuracy, backed by peer-reviewed research
 
-We validated AI grading on thousands of real student submissions across multiple STEM courses at the University of Illinois Urbana-Champaign, which have been piloting the system since Fall 2025.
+We validated AI grading on thousands of real student submissions across multiple STEM courses at the University of Illinois Urbana-Champaign, where the system has been piloted since Fall 2025.
 
 Across a range of open-ended questions and frontier models, rubric-item accuracy exceeded 99% when paired with clear student work and a well-aligned rubric. Instructors and TAs reported that AI grading was as accurate as human graders for their needs and saved enormous amounts of grading effort.
 
-Read our published research on [image grading](#) and [text grading](#).
+Read our published research on <a href="#" target="_blank" rel="noopener noreferrer">image grading</a> and <a href="https://dl.acm.org/doi/10.1145/3770762.3772545" target="_blank" rel="noopener noreferrer">text grading</a>.
 
 ### Pick the right model for your assessment
 
@@ -141,20 +140,17 @@ AI grading lets you choose the model that fits your submissions, budget, and tim
 
 #### Speed and costs of each model
 
-Here were AI grading costs in two real PrairieLearn courses.
+Real numbers from two PrairieLearn courses, measured end-to-end from clicking **Grade all submissions** to completion.
 
 <div className="my-4">
-  <div className="fw-semibold lh-sm mb-1">
-    Numerical methods — text submissions
-  </div>
-  <div className="text-muted lh-sm mb-3">
-    100 typed, paragraph-length responses graded with a rubric.
+  <div className="lh-sm mb-1">
+    **Numerical methods question:** 100 typed paragraph submissions
   </div>
   <div className="table-responsive">
     <table className="table">
       <thead>
         <tr>
-          <th></th>
+          <th>Model</th>
           <th className="text-end">Total cost</th>
           <th className="text-end">Total time</th>
         </tr>
@@ -181,17 +177,14 @@ Here were AI grading costs in two real PrairieLearn courses.
 </div>
 
 <div className="my-4">
-  <div className="fw-semibold lh-sm mb-1">
-    Intro dynamics — image submissions
-  </div>
-  <div className="text-muted lh-sm mb-3">
-    100 image submissions of handwritten math graded with a rubric.
+  <div className="lh-sm mb-1">
+    **Intro dynamics question:** 100 handwritten submissions
   </div>
   <div className="table-responsive">
     <table className="table">
       <thead>
         <tr>
-          <th></th>
+          <th>Model</th>
           <th className="text-end">Total cost</th>
           <th className="text-end">Total time</th>
         </tr>
@@ -210,7 +203,7 @@ Here were AI grading costs in two real PrairieLearn courses.
         <tr>
           <td>Gemini 3.1 Pro</td>
           <td className="text-end">{"$4.88"}</td>
-          <td className="text-end">2min 30s</td>
+          <td className="text-end">2m 30s</td>
         </tr>
       </tbody>
     </table>
@@ -220,6 +213,8 @@ Here were AI grading costs in two real PrairieLearn courses.
 ### Direction and interpretability at every step
 
 Every grade comes with a detailed explanation of the model's reasoning and its transcription of image submissions — so you can audit decisions, spot edge cases, and trust the results. AI grading works best as a fast first pass, with human review reserved for the cases that need it. Instructor-assigned grades always take precedence.
+
+To adjust grading behavior, update the rubric instructions — the model follows them.
 
 <BlogImage
   src={submissionAndGrading}
@@ -237,9 +232,7 @@ Every grade comes with a detailed explanation of the model's reasoning and its t
   bordered
 />
 
-Want different behavior? Edit your rubric — the model follows your instructions.
-
-### Pricing
+### Payment options
 
 Two ways to pay, depending on your preference.
 
@@ -249,7 +242,7 @@ Two ways to pay, depending on your preference.
       <div className="fs-5 fw-semibold mb-3">PrairieLearn-managed</div>
       <div className="mb-0">
         Purchase credits with a credit card. PrairieLearn handles all
-        communication with AI providers.
+        interaction with AI providers.
       </div>
     </div>
   </div>
@@ -272,8 +265,7 @@ Three steps to grade your first assignment with AI:
 3. Open your assessment's **Manual grading** page, choose **AI grading → Grade all submissions**, and pick a model.
 
 <BlogCalloutBox variant="info">
-  More detailed information can be found in the [AI grading documentation](#).
-  If you have questions, let us know on [Slack](/slack).
+  More detailed information can be found in the <a href="https://docs.prairielearn.com/aiGrading/" target="_blank" rel="noopener noreferrer">AI grading documentation</a>. If you have questions, let us know on <a href="/slack" target="_blank" rel="noopener noreferrer">Slack</a>.
 </BlogCalloutBox>
 
 export default ({ children }) => (
