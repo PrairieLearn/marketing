@@ -1,13 +1,15 @@
+import fs from "fs";
+import path from "path";
 import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { GetStaticProps } from "next";
+import { parseISO } from "date-fns";
 import { PageBanner } from "../../../components/Banner";
 import { Heading } from "../../../components/Heading";
 import Stack from "../../../components/Stack";
 import { TagList } from "../../../components/Tag";
-import { getAllPosts, BlogPostWithSlug } from "../../../lib/blog";
-import { formatBlogDate } from "../../../lib/blogDate";
+import { BlogPost, BlogPostWithSlug, formatBlogDate } from "../../../lib/blog";
 import { generateRssFeed } from "../../../lib/rss";
 
 import styles from "./index.module.scss";
@@ -77,6 +79,33 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
         </div>
       </div>
     </React.Fragment>
+  );
+}
+
+async function getAllPosts(): Promise<BlogPostWithSlug[]> {
+  const postsDirectory = path.join(
+    process.cwd(),
+    "src",
+    "pages",
+    "about",
+    "blog",
+  );
+
+  const items = fs.readdirSync(postsDirectory, { withFileTypes: true });
+  const slugs = items
+    .filter((item) => item.isDirectory())
+    .map((item) => item.name);
+  const posts = await Promise.all(
+    slugs.map(async (slug) => {
+      const { meta } = (await import(`./${slug}/index.mdx`)) as {
+        meta: BlogPost;
+      };
+      return { slug, ...meta };
+    }),
+  );
+
+  return posts.toSorted(
+    (a, b) => parseISO(b.date).getTime() - parseISO(a.date).getTime(),
   );
 }
 

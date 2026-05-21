@@ -6,7 +6,7 @@ import { MDXProvider } from "@mdx-js/react";
 import Head from "next/head";
 import Modal from "react-bootstrap/Modal";
 import mdxComponents from "../lib/mdxComponents";
-import { formatBlogDate } from "../lib/blogDate";
+import { formatBlogDate } from "../lib/blog";
 import { PageBanner } from "./Banner";
 import { TagList } from "./Tag";
 
