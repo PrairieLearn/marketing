@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { parseISO } from "date-fns";
 
 const postsDirectory = path.join(
   process.cwd(),
@@ -36,7 +37,7 @@ export async function getAllPosts(): Promise<BlogPostWithSlug[]> {
   );
 
   const sortedPosts = posts.toSorted(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+    (a, b) => parseISO(b.date).getTime() - parseISO(a.date).getTime(),
   );
 
   return sortedPosts;

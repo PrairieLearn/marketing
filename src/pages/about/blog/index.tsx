@@ -6,7 +6,7 @@ import { PageBanner } from "../../../components/Banner";
 import { Heading } from "../../../components/Heading";
 import Stack from "../../../components/Stack";
 import { TagList } from "../../../components/Tag";
-import { format } from "date-fns";
+import { format, parseISO } from "date-fns";
 import { getAllPosts, BlogPostWithSlug } from "../../../lib/blog";
 import { generateRssFeed } from "../../../lib/rss";
 
@@ -17,7 +17,7 @@ interface BlogIndexProps {
 }
 
 const BlogPostCard = ({ post }: { post: BlogPostWithSlug }) => {
-  const formattedDate = format(new Date(post.date), "MMMM d, yyyy");
+  const formattedDate = format(parseISO(post.date), "MMMM d, yyyy");
 
   return (
     <article className={styles.blogPostCard}>
