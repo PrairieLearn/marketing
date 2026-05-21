@@ -16,8 +16,8 @@ const BLOG_DATE_FORMATTER = new Intl.DateTimeFormat("en-US", {
   year: "numeric",
   month: "long",
   day: "numeric",
-  // Pinned so server and client render the same calendar day; revisit if
-  // we ever display times rather than dates.
+  // timeZone is set so server and client render the same calendar day.
+  // Revisit if we ever display times along with dates.
   timeZone: "America/Chicago",
 });
 
