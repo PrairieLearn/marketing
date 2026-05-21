@@ -5,9 +5,8 @@ import ReactMarkdown from "react-markdown";
 import { MDXProvider } from "@mdx-js/react";
 import Head from "next/head";
 import Modal from "react-bootstrap/Modal";
-import { format } from "date-fns";
-
 import mdxComponents from "../lib/mdxComponents";
+import { formatBlogDate } from "../lib/blog";
 import { PageBanner } from "./Banner";
 import { TagList } from "./Tag";
 
@@ -30,7 +29,7 @@ export const BlogMarkdownLayout: React.FC<BlogMarkdownLayoutProps> = ({
   const { title, summary, date, author, tags, ogImage } = meta;
   if (!title) throw new Error("Missing title");
 
-  const formattedDate = date ? format(new Date(date), "MMMM d, yyyy") : null;
+  const formattedDate = date ? formatBlogDate(date) : null;
   const hasMeta = formattedDate || author || (tags && tags.length > 0);
 
   return (
