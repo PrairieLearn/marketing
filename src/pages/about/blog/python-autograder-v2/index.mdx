@@ -1,0 +1,148 @@
+import { BlogMarkdownLayout, BlogCalloutBox } from "../../../../components/BlogMarkdownLayout";
+
+export const meta = {
+  title: "Introducing the new Python autograder (beta)",
+  date: "2026-05-22T00:00:00-06:00",
+  author: "Eliot Robson",
+  tags: ["Technical", "Autograding"],
+  excerpt:
+    "A new pytest-based Python autograder is now in beta, bringing sandboxed execution, student-friendly feedback, and a lightweight image built for intro CS courses.",
+};
+
+# Introducing the new Python autograder (beta)
+
+We're excited to announce a public beta of the new Python autograder for PrairieLearn: [`pytest-prairielearn-grader`](https://github.com/eliotwrobson/pl-python-autograder-v2). It's a ground-up rewrite built on [pytest](https://pytest.org/), and it ships with a set of features that make it easier to write reliable graders and give students clearer, more actionable feedback.
+
+## Why a new autograder?
+
+The existing Python autograder has served courses well for years, but as PrairieLearn has grown, a number of longstanding pain points have surfaced:
+
+- **Security isolation.** Student code runs in the same process as the grader, making it possible for a submitted script to interfere with grading itself.
+- **Opaque feedback.** When a test fails, students often see raw Python tracebacks that are hard to interpret, especially in intro courses.
+- **Limited configurability.** Controlling timeouts, restricting imports, or injecting parameters required workarounds scattered across multiple files.
+- **No lightweight image.** Every question pulled the full scientific-computing image (~400–500 MB) even when numpy was never used.
+
+The new autograder addresses all of these directly.
+
+## Key advantages for instructors
+
+### Sandboxed execution
+
+Student code runs in a separate subprocess via Unix sockets, completely isolated from the grader harness. This means a student can't accidentally (or intentionally) corrupt test state, import dangerous modules, or escape timeout enforcement.
+
+You can also control exactly which modules students are allowed to import:
+
+```python
+# server.py
+def generate(data):
+    # Only the standard library is available — no numpy, no os, no subprocess
+    data["params"]["import_whitelist"] = ["math", "statistics"]
+```
+
+### Student-friendly feedback
+
+By default, test failures show a Python exception name and a short message. For intro courses, you can switch to `"friendly"` output mode, which suppresses tracebacks entirely and shows only a clean, structured message:
+
+```
+Checking: add(2, 3)
+Expected output: 5
+Your code output: -1
+The expected and actual output do not match.
+```
+
+This pairs naturally with the built-in assertion helpers (`assert_fn_equal`, `assert_equal`, etc.) that automatically generate these messages.
+
+### Automatic ungradable detection
+
+If a student submits code with a `SyntaxError`, the grader marks the submission as **ungradable** instead of failing all tests with 0%. PrairieLearn's external grading framework handles this by not counting the attempt, and the student sees a clear prompt to fix the syntax error and resubmit. This is a major quality-of-life improvement for courses where students are still learning the basics of Python syntax.
+
+### A lightweight image for intro courses
+
+Two Docker images are published:
+
+| Image | Size | Includes |
+|-------|------|----------|
+| `:latest` | ~400–500 MB | Full scientific stack: numpy, pandas, scipy, matplotlib, sympy, scikit-learn, and more |
+| `:lite` | ~60–80 MB | Grader core only — no scientific libraries |
+
+For introductory CS courses where students use only the Python standard library, the `:lite` image is the right choice. Smaller images mean faster cold-start times and a reduced security surface.
+
+## A simple intro-course example
+
+Here's what a complete question setup looks like for an intro CS course using the `:lite` image.
+
+### `info.json`
+
+```json
+{
+  "title": "Implement add()",
+  "topic": "Functions",
+  "tags": ["intro", "functions"],
+  "type": "v3",
+  "gradingMethod": "External",
+  "externalGradingOptions": {
+    "enabled": true,
+    "image": "eliotwrobson/grader-python-pytest:lite",
+    "timeout": 30
+  }
+}
+```
+
+### `question.html`
+
+```html
+<pl-question-panel>
+  <p>
+    Write a function <code>add(a, b)</code> that returns the sum of two numbers.
+  </p>
+</pl-question-panel>
+
+<pl-file-editor file-name="student_code.py" ace-mode="ace/mode/python">
+def add(a, b):
+    # your code here
+    pass
+</pl-file-editor>
+```
+
+### `tests/test_student.py`
+
+```python
+import pytest
+from pytest_prairielearn_grader import ConfigObject
+from pytest_prairielearn_grader.assertions import assert_fn_equal
+from pytest_prairielearn_grader.fixture import StudentFixture
+
+autograder_config = ConfigObject(
+    output_level="friendly",
+)
+
+
+@pytest.mark.grading_data(name="add(2, 3) returns 5", points=3)
+def test_add_basic(sandbox: StudentFixture) -> None:
+    assert_fn_equal(sandbox, "add", args=(2, 3), expected=5)
+
+
+@pytest.mark.grading_data(name="add(-1, 1) returns 0", points=3)
+def test_add_negative(sandbox: StudentFixture) -> None:
+    assert_fn_equal(sandbox, "add", args=(-1, 1), expected=0)
+
+
+@pytest.mark.grading_data(name="add(0, 0) returns 0", points=4)
+def test_add_zeros(sandbox: StudentFixture) -> None:
+    assert_fn_equal(sandbox, "add", args=(0, 0), expected=0)
+```
+
+When a student submits `return a - b` by mistake, they see:
+
+```
+Checking: add(2, 3)
+Expected output: 5
+Your code output: -1
+The expected and actual output do not match.
+```
+
+No traceback. No `AssertionError`. Just the information they need to fix their code.
+
+<BlogCalloutBox title="Try it out">
+The autograder is in **public beta**. Install the pytest plugin with `pip install pytest-prairielearn-grader` and follow the [quick start guide](https://github.com/eliotwrobson/pl-python-autograder-v2/blob/main/quick_start.md) to get set up locally. Feedback and bug reports are welcome on the [issue tracker](https://github.com/eliotwrobson/pl-python-autograder-v2/issues).
+</BlogCalloutBox>
