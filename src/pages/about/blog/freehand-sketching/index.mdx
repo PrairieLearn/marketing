@@ -35,42 +35,7 @@ export const meta = {
 
 Your students can now sketch arbitrary mathematical curves directly in PrairieLearn, and have their work auto-graded against your criteria. The new [`pl-sketch`](https://docs.prairielearn.com/elements/pl-sketch/) element opens up curve-sketching questions for mastery practice and fully automated exams.
 
-<div className="row g-3 my-4">
-  <div className="col-md-6">
-    <div className="h-100 p-3 border rounded bg-light">
-      <div className="fs-5 fw-semibold mb-2">
-        <a href="https://docs.prairielearn.com/elements/pl-sketch/">
-          <code>pl-sketch</code>
-        </a>
-      </div>
-      <div className="mb-0">
-        Students draw arbitrary curves freehand, or via spline and polyline
-        tools. Grading evaluates the resulting function (its values, shape, and
-        mathematical properties) rather than matching against placed objects.
-      </div>
-    </div>
-  </div>
-  <div className="col-md-6">
-    <div className="h-100 p-3 border rounded bg-light">
-      <div className="fs-5 fw-semibold mb-2">
-        <a href="https://docs.prairielearn.com/pl-drawing/">
-          <code>pl-drawing</code>
-        </a>
-      </div>
-      <div className="mb-0">
-        Students assemble diagrams from a fixed library of pre-defined objects,
-        like straight segments and parabolic fragments. Great for
-        shape-matching, but capped at the shapes the element supports.
-      </div>
-    </div>
-  </div>
-</div>
-
-<BlogImage
-  src={elementComparison}
-  alt="Side-by-side comparison of the pl-sketch and the pl-drawing elements for the same curve sketching question"
-  caption="The same curve-sketching question rendered with `pl-drawing` (left) and `pl-sketch` (right)."
-/>
+`pl-sketch` builds on [SketchResponse](https://sketchresponse.github.io/) ([source](https://github.com/sketchresponse/SketchResponse)), a sketch input and grading library originally developed at MIT by Martin Segado, Jennifer French, and Phillip Z. Ai ([paper](http://web.mit.edu/~jfrench/www/pdf/sketchinput_paper.pdf)).
 
 ### Three ways to draw
 
@@ -194,7 +159,46 @@ Every grading criterion can carry custom feedback explaining (or, if you prefer,
 
 ### Choosing a drawing element
 
-`pl-sketch` is one of several elements PrairieLearn provides for capturing student drawings. See the [drawings and images section of the elements docs](https://docs.prairielearn.com/elements/#drawings-images) for a decision flowchart that helps you pick the right one.
+`pl-sketch` is one of several elements PrairieLearn provides for capturing student drawings. Its closest relative is [`pl-drawing`](https://docs.prairielearn.com/pl-drawing/), which takes a different approach to the same kind of question:
+
+<div className="row g-3 my-4">
+  <div className="col-md-6">
+    <div className="h-100 p-3 border rounded bg-light">
+      <div className="fs-5 fw-semibold mb-2">
+        <a href="https://docs.prairielearn.com/elements/pl-sketch/">
+          <code>pl-sketch</code>
+        </a>
+      </div>
+      <div className="mb-0">
+        Students draw arbitrary curves freehand, or via spline and polyline
+        tools. Grading evaluates the resulting function (its values, shape, and
+        mathematical properties) rather than matching against placed objects.
+      </div>
+    </div>
+  </div>
+  <div className="col-md-6">
+    <div className="h-100 p-3 border rounded bg-light">
+      <div className="fs-5 fw-semibold mb-2">
+        <a href="https://docs.prairielearn.com/pl-drawing/">
+          <code>pl-drawing</code>
+        </a>
+      </div>
+      <div className="mb-0">
+        Students assemble diagrams from a fixed library of pre-defined objects,
+        like straight segments and parabolic fragments. Great for
+        shape-matching, but capped at the shapes the element supports.
+      </div>
+    </div>
+  </div>
+</div>
+
+<BlogImage
+  src={elementComparison}
+  alt="Side-by-side comparison of the pl-sketch and the pl-drawing elements for the same curve sketching question"
+  caption="The same curve-sketching question rendered with `pl-drawing` (left) and `pl-sketch` (right)."
+/>
+
+For the broader picture, see the [drawings and images section of the elements docs](https://docs.prairielearn.com/elements/#drawings-images) for a decision flowchart that helps you pick the right element.
 
 <BlogCalloutBox variant="info">
   If you're using `pl-sketch` in your teaching, we'd love to hear what's
