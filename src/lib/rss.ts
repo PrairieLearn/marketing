@@ -1,6 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
 import RSS from "rss";
+import { parseISO } from "date-fns";
 import { BlogPostWithSlug } from "./blog";
 
 const SITE_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
@@ -28,7 +29,7 @@ export async function generateRssFeed(
       guid: `${BLOG_URL}/${post.slug}`,
       categories: post.tags || [],
       author: post.author,
-      date: new Date(post.date),
+      date: parseISO(post.date),
     });
   }
 

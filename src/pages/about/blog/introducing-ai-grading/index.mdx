@@ -1,0 +1,285 @@
+import {
+  BlogMarkdownLayout,
+  BlogImage,
+  BlogCalloutBox,
+} from "../../../../components/BlogMarkdownLayout";
+
+import textSubmission from "./text-submission.png";
+import imageSubmission from "./image-submission.png";
+import modelPicker from "./model-picker.png";
+import gradedResults from "./graded-results.png";
+import submissionAndGrading from "./submission-and-grading.png";
+import submissionExplanation from "./submission-explanation.png";
+
+export const meta = {
+  title: "Introducing AI grading",
+  date: "2026-05-21T13:32:00-05:00",
+  author: "Miguel Aenlle",
+  tags: ["RELEASE"],
+};
+
+<div
+  className="mb-5"
+  style={{
+    fontSize: "clamp(1.1rem, 3.5vw, 2.5rem)",
+    fontWeight: 600,
+    textAlign: "center",
+    lineHeight: 1.1,
+    margin: "2rem 0",
+  }}
+>
+  <div style={{ color: "#1a3a8f" }}>Use AI to grade hundreds of open ended</div>
+  <div>
+    <span style={{ color: "#1a3a8f" }}>submissions in </span>
+    <span style={{ color: "#3b82f6" }}>minutes</span>
+    <span style={{ color: "#1a3a8f" }}>, not </span>
+    <span style={{ color: "#3b82f6" }}>hours</span>
+    <span style={{ color: "#1a3a8f" }}>.</span>
+  </div>
+</div>
+
+AI grading evaluates open-ended submissions, typed or handwritten, and scores them against your rubric in seconds. Grading hundreds of submissions now takes a single click, and it's available to all PrairieLearn instructors today.
+
+AI grading is opt-in and transparent. AI grading decisions come with detailed explanations and are clearly distinguished from human grades. Course staff remain the final decision-makers on student grading. Student submissions are never used to train AI models when using PrairieLearn AI grading credits.
+
+<BlogCalloutBox variant="tip">
+  <div className="fw-bold text-success mb-3">Want to try it now?</div>
+
+1. Redeem your free credit under **Instance settings → AI grading**.
+2. Head to your assessment question's manual grading page.
+3. Click **AI grading mode**.
+
+For full setup instructions, see the [AI grading documentation](https://docs.prairielearn.com/aiGrading/).
+
+</BlogCalloutBox>
+### How it works
+
+<div className="my-4">
+  <div className="mb-5">
+    <h4 className="fw-semibold mb-2">1. Collect submissions</h4>
+    <div className="text-muted mb-3">
+      Open-ended text or images from your students — handwritten work fully
+      supported.
+    </div>
+    <div className="row g-3">
+      <div className="col-md-6">
+        <BlogImage
+          src={textSubmission}
+          alt="A typed paragraph-length student response"
+          caption="Text submission from `pl-rich-text-editor` element"
+          full
+          bordered
+          fillHeight
+        />
+      </div>
+      <div className="col-md-6">
+        <BlogImage
+          src={imageSubmission}
+          alt="A handwritten student submission captured as an image"
+          caption="Image submission from `pl-image-capture` element"
+          full
+          bordered
+          fillHeight
+        />
+      </div>
+    </div>
+  </div>
+  <div className="mb-5">
+    <h4 className="fw-semibold mb-2">2. Run AI grading</h4>
+    <div className="text-muted mb-3">
+      Select the model that fits your assessment best.
+    </div>
+    <BlogImage
+      src={modelPicker}
+      alt="The PrairieLearn AI grading model picker, showing GPT 5.4-mini, GPT 5.4, and Gemini 3.1 Pro with their relative costs"
+      full
+    />
+  </div>
+  <div className="mb-5">
+    <h4 className="fw-semibold mb-2">3. Come back in a few minutes</h4>
+    <div className="text-muted mb-3">
+      Submissions are graded, with detailed reasoning attached to every
+      decision.
+    </div>
+    <BlogImage
+      src={gradedResults}
+      alt="The student instance questions table after AI grading completes, showing every submission graded with AI agreement indicators"
+      full
+    />
+  </div>
+</div>
+
+### Proven accuracy, backed by peer-reviewed research
+
+We validated AI grading on thousands of real student submissions across multiple STEM courses at the University of Illinois Urbana-Champaign, where the system has been piloted since Fall 2025.
+
+Across a range of open-ended questions and frontier models, rubric-item accuracy exceeded 99% when paired with clear student work and a well-aligned rubric. Instructors and TAs reported that AI grading was as accurate as human graders for their needs and saved enormous amounts of grading effort.
+
+Read our published research on <a href="https://arxiv.org/abs/2605.19043" target="_blank" rel="noopener noreferrer">image grading</a> and <a href="https://dl.acm.org/doi/10.1145/3770762.3772545" target="_blank" rel="noopener noreferrer">text grading</a>.
+
+### Pick the right model for your assessment
+
+AI grading lets you choose the model that fits your submissions, budget, and timeline.
+
+<div className="row g-3 my-4">
+  <div className="col-md-4">
+    <div className="h-100 p-3 border rounded bg-light">
+      <div className="fs-5 fw-semibold mb-2">GPT 5.4-mini</div>
+      <div className="mb-0">
+        Good default for most assessments. The most affordable option.
+      </div>
+    </div>
+  </div>
+  <div className="col-md-4">
+    <div className="h-100 p-3 border rounded bg-light">
+      <div className="fs-5 fw-semibold mb-2">GPT 5.4</div>
+      <div className="mb-0">
+        Best for text submissions where careful reasoning matters most.
+      </div>
+    </div>
+  </div>
+  <div className="col-md-4">
+    <div className="h-100 p-3 border rounded bg-light">
+      <div className="fs-5 fw-semibold mb-2">Gemini 3.1 Pro</div>
+      <div className="mb-0">
+        Best for handwriting and image-heavy submissions.
+      </div>
+    </div>
+  </div>
+</div>
+
+#### Speed and costs of each model
+
+Real numbers from two PrairieLearn courses, measured end-to-end from clicking **Grade all submissions** to completion.
+
+<div className="my-4">
+  <div className="lh-sm mb-1">
+    **Numerical methods question:** 140 typed paragraph submissions
+  </div>
+  <div className="table-responsive">
+    <table className="table">
+      <thead>
+        <tr>
+          <th>Model</th>
+          <th className="text-end">Total time</th>
+          <th className="text-end">Total cost</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>GPT 5.4-mini</td>
+          <td className="text-end">20 seconds</td>
+          <td className="text-end">{"$0.30"}</td>
+        </tr>
+        <tr>
+          <td>GPT 5.4</td>
+          <td className="text-end">30 seconds</td>
+          <td className="text-end">{"$0.80"}</td>
+        </tr>
+        <tr>
+          <td>Gemini 3.1 Pro</td>
+          <td className="text-end">80 seconds</td>
+          <td className="text-end">{"$1.80"}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div className="my-4">
+  <div className="lh-sm mb-1">
+    **Intro dynamics question:** 240 image submissions of handwriting
+  </div>
+  <div className="table-responsive">
+    <table className="table">
+      <thead>
+        <tr>
+          <th>Model</th>
+          <th className="text-end">Total time</th>
+          <th className="text-end">Total cost</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>GPT 5.4-mini</td>
+          <td className="text-end">1 minute</td>
+          <td className="text-end">{"$1.00"}</td>
+        </tr>
+        <tr>
+          <td>GPT 5.4</td>
+          <td className="text-end">2 minutes</td>
+          <td className="text-end">{"$3.80"}</td>
+        </tr>
+        <tr>
+          <td>Gemini 3.1 Pro</td>
+          <td className="text-end">6 minutes</td>
+          <td className="text-end">{"$11.80"}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+### Direction and interpretability at every step
+
+Every grade comes with a detailed explanation of the model's reasoning and its transcription of image submissions — so you can audit decisions, spot edge cases, and trust the results. AI grading works best as a fast first pass, with human review reserved for the cases that need it. Instructor-assigned grades always take precedence.
+
+To adjust grading behavior, update the rubric instructions — the model follows them.
+
+<BlogImage
+  src={submissionAndGrading}
+  alt="A handwritten student submission alongside the AI's rubric-item selections"
+  caption="Each rubric item is graded individually, with point values applied."
+  full
+  bordered
+/>
+
+<BlogImage
+  src={submissionExplanation}
+  alt="A per-rubric-item explanation generated by the AI for the same submission"
+  caption="A written explanation accompanies every rubric decision, so you can audit the model's reasoning."
+  full
+  bordered
+/>
+
+### Payment options
+
+Two ways to pay, depending on your preference.
+
+<div className="row g-3 my-4">
+  <div className="col-md-6">
+    <div className="h-100 p-3 border rounded bg-light">
+      <div className="fs-5 fw-semibold mb-3">PrairieLearn-managed</div>
+      <div className="mb-0">
+        Purchase credits with a credit card. PrairieLearn handles all
+        interaction with AI providers.
+      </div>
+    </div>
+  </div>
+  <div className="col-md-6">
+    <div className="h-100 p-3 border rounded bg-light">
+      <div className="fs-5 fw-semibold mb-3">Bring your own keys</div>
+      <div className="mb-0">
+        Use your own AI provider API keys, and costs are billed directly to you.
+      </div>
+    </div>
+  </div>
+</div>
+
+### Get started
+
+To grade your first assignment with AI:
+
+1. Create a manually graded question with a rubric.
+2. Fund your account under **Instance settings → AI Grading → Purchase credits**.
+3. Open your assessment's **Manual grading** page.
+4. Choose **AI grading → Grade all submissions**, and pick a model.
+
+<BlogCalloutBox variant="info">
+More detailed information can be found in the [AI grading documentation](https://docs.prairielearn.com/aiGrading/). If you have questions, let us know on [Slack](/slack).
+
+</BlogCalloutBox>
+
+export default ({ children }) => (
+  <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
+);
