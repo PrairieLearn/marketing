@@ -9,7 +9,12 @@ import { PageBanner } from "../../../components/Banner";
 import { Heading } from "../../../components/Heading";
 import Stack from "../../../components/Stack";
 import { TagList } from "../../../components/Tag";
-import { BlogPost, BlogPostWithSlug, formatBlogDate } from "../../../lib/blog";
+import {
+  BlogPost,
+  BlogPostWithSlug,
+  formatBlogDate,
+  validateBlogPostTags,
+} from "../../../lib/blog";
 import { generateRssFeed } from "../../../lib/rss";
 
 import styles from "./index.module.scss";
@@ -100,7 +105,17 @@ async function getAllPosts(): Promise<BlogPostWithSlug[]> {
       const { meta } = (await import(`./${slug}/index.mdx`)) as {
         meta: BlogPost;
       };
-      return { slug, ...meta };
+      const tags = validateBlogPostTags(meta.tags, `Blog post "${slug}"`);
+
+      return {
+        slug,
+        title: meta.title,
+        date: meta.date,
+        author: meta.author,
+        ...(meta.excerpt !== undefined ? { excerpt: meta.excerpt } : {}),
+        ...(meta.summary !== undefined ? { summary: meta.summary } : {}),
+        ...(tags !== undefined ? { tags } : {}),
+      };
     }),
   );
 
