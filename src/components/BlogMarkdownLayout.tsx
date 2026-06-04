@@ -5,9 +5,8 @@ import ReactMarkdown from "react-markdown";
 import { MDXProvider } from "@mdx-js/react";
 import Head from "next/head";
 import Modal from "react-bootstrap/Modal";
-import { format } from "date-fns";
-
 import mdxComponents from "../lib/mdxComponents";
+import { formatBlogDate } from "../lib/blog";
 import { PageBanner } from "./Banner";
 import { TagList } from "./Tag";
 
@@ -30,7 +29,7 @@ export const BlogMarkdownLayout: React.FC<BlogMarkdownLayoutProps> = ({
   const { title, summary, date, author, tags, ogImage } = meta;
   if (!title) throw new Error("Missing title");
 
-  const formattedDate = date ? format(new Date(date), "MMMM d, yyyy") : null;
+  const formattedDate = date ? formatBlogDate(date) : null;
   const hasMeta = formattedDate || author || (tags && tags.length > 0);
 
   return (
@@ -85,24 +84,41 @@ export const BlogImage = ({
   src,
   alt = "Blog Image",
   full = false,
+  bordered = false,
+  fillHeight = false,
   caption,
 }: {
   src: string;
   alt?: string;
   full?: boolean;
+  bordered?: boolean;
+  fillHeight?: boolean;
   caption?: string | React.ReactNode;
 }) => {
   const [showFullscreen, setShowFullscreen] = useState(false);
 
   return (
     <>
-      <figure className="w-100">
-        <div className="d-flex justify-content-center">
+      <figure
+        className={classNames(
+          "w-100",
+          fillHeight && "h-100 d-flex flex-column",
+        )}
+      >
+        <div
+          className={classNames(
+            "d-flex justify-content-center",
+            fillHeight && "flex-grow-1 align-items-center p-3",
+            fillHeight && bordered && "border rounded",
+          )}
+        >
           <Image
             src={src}
             alt={alt}
             className={classNames(
-              "img-fluid rounded shadow-sm",
+              "img-fluid rounded",
+              !fillHeight && bordered && "border",
+              !fillHeight && !bordered && "shadow-sm",
               !full && "col-lg-6 col-md-8 col-12",
             )}
             onClick={() => setShowFullscreen(true)}

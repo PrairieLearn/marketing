@@ -1,19 +1,19 @@
-import fs from "fs";
-import path from "path";
+import { parseISO } from "date-fns";
 
-const postsDirectory = path.join(
-  process.cwd(),
-  "src",
-  "pages",
-  "about",
-  "blog",
-);
+const BLOG_TAGS = [
+  "CBTF",
+  "Case Study",
+  "Development",
+  "Release",
+  "Technical",
+] as const;
 
 export interface BlogPost {
   title: string;
   date: string;
   author: string;
   excerpt?: string;
+  summary?: string;
   tags?: string[];
 }
 
@@ -21,23 +21,45 @@ export interface BlogPostWithSlug extends BlogPost {
   slug: string;
 }
 
-export async function getAllPosts(): Promise<BlogPostWithSlug[]> {
-  const items = fs.readdirSync(postsDirectory, { withFileTypes: true });
-  const slugs = items
-    .filter((item) => item.isDirectory())
-    .map((item) => item.name);
-  const posts = await Promise.all(
-    slugs.map(async (slug) => {
-      const { meta } = (await import(
-        `../pages/about/blog/${slug}/index.mdx`
-      )) as { meta: BlogPost };
-      return { slug, ...meta };
-    }),
-  );
+const BLOG_DATE_FORMATTER = new Intl.DateTimeFormat("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+  // timeZone is set so server and client render the same calendar day.
+  // Revisit if we ever display times along with dates.
+  timeZone: "America/Chicago",
+});
 
-  const sortedPosts = posts.toSorted(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-  );
+export function validateBlogPostTags(
+  tags: string[] | undefined,
+  source: string,
+): string[] | undefined {
+  if (!tags) {
+    return undefined;
+  }
 
-  return sortedPosts;
+  return tags.map((tag) => {
+    const normalizedTag = tag.trim().toLocaleLowerCase("en-US");
+    const canonicalTag = BLOG_TAGS.find(
+      (blogTag) => blogTag.toLocaleLowerCase("en-US") === normalizedTag,
+    );
+
+    if (!canonicalTag) {
+      throw new Error(
+        `${source}: unknown blog tag "${tag}". Add it to BLOG_TAGS in src/lib/blog.ts before using it.`,
+      );
+    }
+
+    if (tag !== canonicalTag) {
+      throw new Error(
+        `${source}: use "${canonicalTag}" instead of "${tag}" for blog tag casing.`,
+      );
+    }
+
+    return canonicalTag;
+  });
+}
+
+export function formatBlogDate(date: string): string {
+  return BLOG_DATE_FORMATTER.format(parseISO(date));
 }
