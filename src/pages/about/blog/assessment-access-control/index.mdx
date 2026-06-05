@@ -3,6 +3,7 @@ import {
   BlogImage,
 } from "../../../../components/BlogMarkdownLayout";
 
+import editor from "./editor.png";
 import prairietest from "./prairietest.png";
 
 export const meta = {
@@ -18,7 +19,7 @@ We're excited to announce the release of a new way to manage access to your asse
 
 Configuring access for an assessment no longer requires hand-crafting complex data structures in JSON. All access control settings can now be configured directly in your browser with a powerful editor.
 
-## A single credit timeline
+<BlogImage src={editor} alt="The in-browser editor for access control" full />
 
 ## PrairieTest exams
 
@@ -32,9 +33,25 @@ The UI makes it easy to link PrairieLearn assessments with PrairieTest exams.
 - An exam link can now be marked as **read-only**. This is useful for courses that want to give students an opportunity to review their work in a controlled setting. This replaces the old `active` setting.
 - It's now easier to configure what students see during their reservation after they've completed their exam. By default, students will see all their work and scores. When real-time grading is disabled, instructors can configure the exam to either show the overall scores but hide the questions, or hide both the scores and questions. This replaces the old `showClosedAssessment` and `showClosedAssessmentScore` settings, and makes common use cases easier to configure.
 
+## Overrides for student labels and individual students
+
+Assessment access will often need exceptions:
+
+- Students with accessibility accommodations will need extra time.
+- Different sections might need different deadlines.
+- A student might need a deadline extension due to illness.
+
+In the new access control system, these are represented as **Overrides**. An override applies to either individual students or student labels and "overrides" specific settings. Here's how they can be used to support the above scenarios:
+
+- If the default time limit is 60 minutes, an override for a "150% time" student label can increase the time limit to 90 minutes.
+- An override for the "Section A" label can set a due date of June 10th, and a deadline for "Section B" can set a due date of June 12th.
+- If the default due date is July 10th, an override for "Matthew West" can set the due date to July 15th.
+
+Overrides stack, and overrides for individual students take precedence over overrides for specific student labels. So, if Matthew West had the "150% time" and "Section B" labels, he would have 90 minutes to take the exam, and would have a due date of July 15th.
+
 ## Migrating to the new access control system
 
-While legacy `allowAccess` rules continue to work, we think most instructors will find the new system significantly easier to use. When you're ready to switch, you have a few options
+While legacy `allowAccess` rules continue to work, we think most instructors will find the new system significantly easier to use. When you're ready to switch, you have a few options:
 
 - When copying a course instance, PrairieLearn will prompt you to convert any legacy rules to the new format.
 - You can migrate individual assessments from their "Access" tab by clicking "Migrate to modern format". You can preview the resulting configuration and review any warnings or incompatibilities before confirming.
