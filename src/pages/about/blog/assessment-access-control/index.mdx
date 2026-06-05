@@ -42,7 +42,7 @@ The UI makes it easy to link PrairieLearn assessments with PrairieTest exams. Wh
   alt="The in-browser editor for PrairieTest links, including settings for UUID, read-only mode, and after-completion visibility"
 />
 
-- An exam link can now be marked as **read-only**. This is useful for courses that want to give students an opportunity to review their work in a controlled setting. This replaces the old `active` setting.
+- An exam link can now be marked as **read-only**. This is useful for courses that want to give students an opportunity to review their work in a controlled setting.
 - It's now easier to configure what students see during their reservation after they've completed their exam. By default, students will see all their work and scores. When real-time grading is disabled, instructors can configure the exam to either show the overall scores but hide the questions, or hide both the scores and questions. This replaces the old `showClosedAssessment` and `showClosedAssessmentScore` settings, and makes common use cases easier to configure.
 
 ## Overrides for student labels and individual students
@@ -76,7 +76,7 @@ Access rules using the `uids` array don't have a direct JSON equivalent, as stud
 
 ## JSON is still there when you need it
 
-The new UI on the "Access" tab makes it easy to configure every aspect of access for your assessment. However, the file-backed parts of the configuration are also controllable via the new `accessControl` property in `infoAssessment.json` files. Student-label overrides live there too, while student-specific overrides are managed through the UI. This can be used for advanced use cases like programmatic creation or editing of assessments. The JSON format is documented in the [access control documentation](https://docs.prairielearn.com/assessment/accessControlModern).
+The new UI on the "Access" tab makes it easy to configure every aspect of access for your assessment. However, the file-backed parts of the configuration are also configurable via the new `accessControl` property in `infoAssessment.json` files, which supports advances use cases like programmatic creation or editing of assessments. Student-label overrides live there too, while student-specific overrides are managed through the UI. The JSON format is documented in the [access control documentation](https://docs.prairielearn.com/assessment/accessControlModern).
 
 export default ({ children }) => (
   <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
