@@ -1,0 +1,52 @@
+import {
+  BlogMarkdownLayout,
+  BlogImage,
+} from "../../../../components/BlogMarkdownLayout";
+
+import prairietest from "./prairietest.png";
+
+export const meta = {
+  title: "New ways to configure assessment access",
+  date: "2026-06-08T10:00:00-07:00",
+  author: "Nathan Sarang-Walters",
+  tags: ["Release"],
+};
+
+We're excited to announce the release of a new way to manage access to your assessments! It brings with it a simpler mental model and a full-featured in-browser editor. At the same time, the old `allowAccess` system remains fully supported, so there's no rush to migrate.
+
+## Edit access settings in the UI
+
+Configuring access for an assessment no longer requires hand-crafting complex data structures in JSON. All access control settings can now be configured directly in your browser with a powerful editor.
+
+## A single credit timeline
+
+## PrairieTest exams
+
+The UI makes it easy to link PrairieLearn assessments with PrairieTest exams.
+
+<BlogImage
+  src={prairietest}
+  alt="The in-browser editor for PrairieTest links, including settings for UUID, read-only mode, and after-completion visibility"
+/>
+
+- An exam link can now be marked as **read-only**. This is useful for courses that want to give students an opportunity to review their work in a controlled setting. This replaces the old `active` setting.
+- It's now easier to configure what students see during their reservation after they've completed their exam. By default, students will see all their work and scores. When real-time grading is disabled, instructors can configure the exam to either show the overall scores but hide the questions, or hide both the scores and questions. This replaces the old `showClosedAssessment` and `showClosedAssessmentScore` settings, and makes common use cases easier to configure.
+
+## Migrating to the new access control system
+
+While legacy `allowAccess` rules continue to work, we think most instructors will find the new system significantly easier to use. When you're ready to switch, you have a few options
+
+- When copying a course instance, PrairieLearn will prompt you to convert any legacy rules to the new format.
+- You can migrate individual assessments from their "Access" tab by clicking "Migrate to modern format". You can preview the resulting configuration and review any warnings or incompatibilities before confirming.
+
+Note that because of the extreme flexibility of the old system, there are some niche access patterns that can't be expressed directly in the new one. PrairieLearn will warn you when this is the case.
+
+Access rules using the `uids` array don't have a direct JSON equivalent, as student-specific rules aren't stored in JSON. After migrating, you can manually add appropriate overrides for specific students or student labels.
+
+## JSON is still there when you need it
+
+The new UI on the "Access" tab makes it easy to configure every aspect of access for your assessment. However, all settings are also controllable via the new `accessControl` property in `infoAssessment.json` files. This can be used for advanced use cases like programmatic creation or editing of assessments. The JSON format is documented in the [access control documentation](https://docs.prairielearn.com/assessment/accessControlModern).
+
+export default ({ children }) => (
+  <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
+);
