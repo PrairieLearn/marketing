@@ -47,6 +47,12 @@ In addition to establishing the link, the new access control system supports a f
 - An exam link can now be marked as **read-only**. This is useful for courses that want students to review previous submissions in a controlled setting without starting new work or submitting new answers.
 - It's now easier to configure what students see during their reservation after they've completed their exam: questions and score, score only, or neither.
 
+## Student labels
+
+Student labels are a first-party way to organize students within a course instance. They appear as colored badges in the student roster, gradebook, and student detail pages, and they are not visible to students. You can use them for sections, accommodations, TA assignments, lab groups, or any other grouping that should be easy for staff to find and reuse.
+
+Labels can be created and assigned from the course instance Students page. You can paste a list of UIDs when creating or editing a label, or select students from the roster and apply labels in bulk. Once a label exists, assessment access can target the label instead of a one-off list of students.
+
 ## Overrides for student labels and individual students
 
 Assessment access will often need exceptions:
@@ -55,7 +61,7 @@ Assessment access will often need exceptions:
 - Different sections may need different deadlines.
 - A student may need a deadline extension due to illness.
 
-In the new editor, these are represented as **Overrides**, which change selected settings while inheriting the rest from the defaults. An override can apply to individual students or to student labels, which are reusable groups for things like sections or accommodations. Here's how they can be used to support the above scenarios:
+In the new editor, these are represented as **Overrides**, which change selected settings while inheriting the rest from the defaults. An override can apply to individual students or to student labels. Here's how they can be used to support the above scenarios:
 
 - If the default time limit is 60 minutes, an override for a "150% time" student label can increase the time limit to 90 minutes.
 - An override for the "Section A" label can set a due date of June 10th, and an override for "Section B" can set a due date of June 12th.
