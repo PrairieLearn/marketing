@@ -4,15 +4,15 @@ import {
   BlogCalloutBox,
 } from "../../../../components/BlogMarkdownLayout";
 
-import reviewFlow from './review.gif'
-import questionsPageImport from './questions-page-import.png'
-import assessmentsPageImport from './assessments-page-import.png'
+import reviewFlow from "./review.gif";
+import questionsPageImport from "./questions-page-import.png";
+import assessmentsPageImport from "./assessments-page-import.png";
 
 export const meta = {
-    title: 'Introducing QTI Content Importing',
-    date: '2026-06-08T12:00:00-05:00',
-    author: 'Austin Billings',
-    tags: ['Release']
+  title: "Introducing QTI Content Importing",
+  date: "2026-06-08T12:00:00-05:00",
+  author: "Austin Billings",
+  tags: ["Release"],
 };
 
 We've heard from a lot of our users that they'd love to leverage the powerful features of PrairieLearn with more of their course's content, but that manually recreating all the coursework they've already put together in Canvas would be a huge headache. Setting up dozens or hundreds of quizzes, exams, and complex questions from scratch in PrairieLearn can be a daunting task.
@@ -30,32 +30,36 @@ The questions, quizzes, and assessments you bring into your course from these sy
 ## Where to look
 
 <BlogImage
-    src={questionsPageImport}
-    alt="A view of the 'Import Questions' button on the PrairieLearn course questions page"
-    full
-    bordered
+  src={questionsPageImport}
+  alt="A view of the 'Import Questions' button on the PrairieLearn course questions page"
+  full
+  bordered
 />
 
 Looking to pull in questions from a Canvas quiz or a question bank? Check out your course's Questions page, and click the "Add questions" dropdown on the top right. You'll find a new "Import questions" link that takes you to the import flow.
 
 <BlogImage
-    src={assessmentsPageImport}
-    alt="A view of the 'Import Content' button on the PrairieLearn course instance assessments page"
-    full
-    bordered
+  src={assessmentsPageImport}
+  alt="A view of the 'Import Content' button on the PrairieLearn course instance assessments page"
+  full
+  bordered
 />
 
 Working on a particular course instance, and want to pull in some exams or assessments for this term? You'll see the new "Import content" button at top right on the assessments page as well.
 
 **Both locations will bring you to the same import flow**, so whether you end up bringing either kind of content into PrairieLearn, you're covered.
 
-
 ## Your content, just the way you like it
 
 We know how important it is to instructors that their course content is presented exactly the way they intended it. When using the new QTI import feature, you're able to pick and choose which pieces of content you'd like to incorporate from your files.
 
-<video autoplay="true" muted="true" loop="true" style={{ width: '100%', margin: '20px 0', borderRadius: 10 }}>
-    <source type="video/mp4" src="/blog/media/qti-review.mp4" />
+<video
+  autoplay="true"
+  muted="true"
+  loop="true"
+  style={{ width: "100%", margin: "20px 0", borderRadius: 10 }}
+>
+  <source type="video/mp4" src="/blog/media/qti-review.mp4" />
 </video>
 
 Easily rename, categorize, tag, and inspect all the materials you've created elsewhere, and get a clear view of how they'll be translated into their PrairieLearn equivalents. We'll call out any potential problems we detect with integrating your content, and you're free to address any issues however you see fit.
@@ -74,14 +78,13 @@ We conducted a beta testing period with esteemed colleagues from the University 
 
 We're excited to offer it to all PrairieLearn users starting today, and we can't wait to see how it improves everyone's experience on the PrairieLearn platform, instructors and students alike. Please reach out to our team if you have feedback of your own, or if you'd like a guided experience to show you how QTI Content Import can broaden your institution's capabilities.
 
-{/*
+{/\*
+
 <BlogImage
     src={reviewFlow}
     alt="An animated GIF depicting the upload and review process"
     bordered
 />*/}
-
-
 
 <BlogCalloutBox variant="tip">
   <div className="fw-bold text-success mb-3">Read to import your Canvas content?</div>
@@ -92,9 +95,8 @@ We're excited to offer it to all PrairieLearn users starting today, and we can't
     4. Review the importable content, and pick which assessments and questions you'd like to import. By default, all importable content will be pulled into PrairieLearn.
 
     **For tips and fully comprehensive instructions,** see the [Importing Content documentation page](https://docs.prairielearn.com/importingContent/).
+
 </BlogCalloutBox>
-
-
 
 export default ({ children }) => (
   <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
