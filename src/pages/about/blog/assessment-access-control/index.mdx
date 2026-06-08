@@ -13,11 +13,11 @@ export const meta = {
   tags: ["Release"],
 };
 
-We're excited to announce redesigned assessment access controls in PrairieLearn! They introduce a simpler mental model and a full-featured in-browser editor in the existing Access tab. Existing `allowAccess` rules continue to work, so you can migrate whenever you're ready.
+We're excited to announce redesigned assessment access controls in PrairieLearn! They introduce a simpler mental model and a full-featured in-browser editor in the existing Access tab, and can still be configured via JSON. Existing `allowAccess` rules continue to work, so you can migrate whenever you're ready.
 
 ## Edit access settings in the UI
 
-Configuring access for an assessment no longer requires hand-crafting complex data structures in JSON. Assessment availability, deadlines, credit, time limits, passwords, PrairieTest links, after-completion visibility, and overrides for student labels or individual students can now be configured directly in your browser on the redesigned Access tab for each assessment.
+Configuring access for an assessment no longer requires hand-crafting complex data structures in JSON. Assessment availability, deadlines, credit, time limits, passwords, PrairieTest links, after-completion visibility, and more can now be configured directly in your browser on the redesigned Access tab for each assessment.
 
 <BlogImage src={editor} alt="The in-browser editor for access control" full />
 
@@ -55,7 +55,7 @@ Assessment access will often need exceptions:
 - Different sections may need different deadlines.
 - A student may need a deadline extension due to illness.
 
-In the new access control system, these are represented as **Overrides**. An override applies to either individual students or student labels and changes selected settings while inheriting the rest from the defaults. Here's how they can be used to support the above scenarios:
+In the new editor, these are represented as **Overrides**, which change selected settings while inheriting the rest from the defaults. An override can apply to individual students or to student labels, which are reusable groups for things like sections or accommodations. Here's how they can be used to support the above scenarios:
 
 - If the default time limit is 60 minutes, an override for a "150% time" student label can increase the time limit to 90 minutes.
 - An override for the "Section A" label can set a due date of June 10th, and an override for "Section B" can set a due date of June 12th.
@@ -63,7 +63,7 @@ In the new access control system, these are represented as **Overrides**. An ove
 
 Overrides stack, and individual-student overrides take precedence over student-label overrides. For example, a student with both a "150% time" label and a section-specific deadline can inherit both changes, while an individual due-date extension can still take priority for that student.
 
-Overrides for student labels are stored under `accessControl` in `infoAssessment.json`, which makes them easy to review and reuse across course copies. Overrides for individual students are stored in the database instead, so one-off accommodations don't become part of the course repository.
+Overrides for student labels are stored under `accessControl` in `infoAssessment.json`, which makes them easy to review and reuse across course copies. Overrides for individual students are stored in the database instead, so one-off accommodations and student identifying information don't become part of the course repository.
 
 ## Migrating from allowAccess
 
@@ -78,8 +78,12 @@ Access rules using the `uids` array don't have a direct JSON equivalent, as stud
 
 ## JSON is still there when you need it
 
-The new UI on the "Access" tab makes it easy to configure assessment access. However, the file-backed parts of the configuration are still available through the new `accessControl` property in `infoAssessment.json` files, which supports advanced use cases like programmatic creation or editing of assessments. Student-label overrides live there too, while student-specific overrides are managed through the UI. The JSON format is described in the [access control documentation](https://docs.prairielearn.com/assessment/accessControlModern).
+The new UI on the "Access" tab makes it easy to configure assessment access. However, the file-backed parts of the configuration are still available through the new `accessControl` property in `infoAssessment.json` files, which supports advanced use cases like programmatic creation or editing of assessments. Student-label overrides live there too, while student-specific overrides are managed through the UI. The JSON format is described in the [access control documentation](https://docs.prairielearn.com/assessment/accessControlModern/#advanced-json-configuration).
 
 export default ({ children }) => (
   <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
 );
+
+## Get started today
+
+The redesigned assessment access controls are available now in PrairieLearn! To get started, open an existing assessment and click on the Access tab to explore the new editor and migrate your existing access rules at your own pace. The [access control documentation](https://docs.prairielearn.com/assessment/accessControl/) has been updated with in-depth descriptions of all the new functionality. Reach out on [Slack](https://www.prairielearn.com/slack) if you have questions or feedback!
