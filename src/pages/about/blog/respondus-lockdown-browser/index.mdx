@@ -6,7 +6,6 @@ import {
 
 import takeExamLockdown from "./take-exam-lockdown.png";
 import prairieLearnInLockdown from "./prairielearn-in-lockdown-browser.png";
-import sessionSettingsInherited from "./session-settings-inherited.png";
 
 export const meta = {
   title: "Respondus LockDown Browser comes to PrairieTest",
@@ -14,19 +13,19 @@ export const meta = {
   author: "Eduardo Vaz",
   tags: ["Release"],
   summary:
-    "PrairieTest now integrates with Respondus LockDown Browser, bringing locked-down proctoring to remote and unproctored exams.",
+    "PrairieTest now integrates with Respondus LockDown Browser, supporting locked-down exams on any computer.",
 };
 
 PrairieTest now supports Respondus LockDown Browser. For exams linked to PrairieLearn, instructors
 and testing centers can require students to take the exam inside a secure, locked-down environment,
-configured directly from PrairieTest alongside everything else.
+configured directly from PrairieTest.
 
 ---
 
 ## What is Respondus LockDown Browser?
 
 [Respondus LockDown Browser](https://web.respondus.com/he/lockdownbrowser/) is a secure web browser purpose-built for online exams.
-While a student is taking an exam, it prevents them from opening other applications, switching tabs, copying or printing content,
+While a student is taking an exam, it prevents them from accessing other websites, opening applications, switching tabs, copying or printing content,
 accessing screen-sharing or virtual machines, and using most keyboard shortcuts, effectively turning the device into a secure testing
 environment for the duration of the assessment.
 
@@ -56,14 +55,12 @@ For installation steps and supported platforms, point students to the
 
 ### Setting it up for your course
 
-LockDown Browser can be configured in two different ways, depending on the exam circumstances.
-The setting always lives closest to the student’s computer: the course session for course-run exams,
-and the testing center location for center-run exams.
+LockDown Browser can be configured for either course-run exams or for exams scheduled into a PrairieTest testing center.
 
-### Option 1: Course-run sessions (online or in-class)
+### Option 1: Course-run exams (online or in-class)
 
-For course-ran exams that don't depend on a testing center, the setting is per-session and lives on the course session itself,
-so course staff control it directly. Every reservation against that session will open the linked PrairieLearn assessment in
+For course-run exams that don't depend on a testing center, the setting is per-session and lives on the course session itself,
+so course staff control it directly. Every reservation in that session will open the linked PrairieLearn assessment in
 LockDown Browser. See the [PrairieTest setup docs](https://us.prairietest.com/pt/docs/course/respondus-lockdown-browser)
 for the toggle.
 
@@ -72,11 +69,10 @@ for the toggle.
   beforehand, announce the requirement to your class ahead of exam day.
 </BlogCalloutBox>
 
-### Option 2: Sessions scheduled into a PrairieTest testing center
+### Option 2: Exams scheduled into a PrairieTest testing center
 
-For exams scheduled into a testing center, the setting is not per-session and lives on the location,
-so every session that runs at that location inherits it automatically.
-This keeps a center’s policy consistent independent of the course.
+For testing centers, the use of LockDown Browser is managed at the location level, and
+every session that runs in that location inherits it automatically.
 See the [PrairieTest setup docs](https://us.prairietest.com/pt/docs/center/respondus-lockdown-browser)
 for the toggle.
 
@@ -89,31 +85,24 @@ for the toggle.
 
 This means:
 
-**If you’re course staff:** you don’t toggle anything yourself.
-Coordinate with the testing center to confirm whether LockDown Browser is enabled at the location your students are scheduled into.
-The session settings page shows the inherited value as read-only, with a link out to the center docs.
+**If you’re course staff:** you don’t toggle anything yourself. Students will automatically use LockDown Browser as configured by the testing cetner.
 
 **If you’re center staff:** enable LockDown Browser once on the location’s Settings tab and every center session there will use
 it automatically.
 
 ## Student-owned computers vs. institution-owned computers
 
-LockDown Browser does a lot to harden the exam environment. It blocks other applications, screen sharing,
-virtual machines, copying, printing, and most keyboard shortcuts, which raises the bar for cheating well
-beyond a normal browser.
+LockDown Browser can be used on either student-owned or institution-owned
+computers. The most secure option is to use institution-owned computers, as they
+can be secured by IT staff to avoid the installation of any software attempting
+to circumvent the LockDown Browser exam environment.
 
-On institution-owned computers, like the machines in a PrairieTest testing center, your institution controls
-the machines and can pair LockDown Browser with in-person proctoring.
-That combination gets you close to a fully secure environment.
+Student-owned computers can also be used with LockDown Browser, and with
+observation from human proctors this also provides a reasonable level of security for exams.
 
-On student-owned computers, you don't have that control. LockDown Browser secures the device for the duration
-of the exam, but it can't account for everything around it. A determined student could reach for a second
-laptop or phone, notes outside the camera's view, another person in the room, or more elaborate workarounds.
-No software running on a personal machine can make that scenario completely secure.
-
-Even if the exam is proctored in person, personal computers can't be fully inspected. So even with everything
-LockDown Browser brings, we don't recommend relying on it alone to guarantee the integrity of a high-stakes
-exam. Pair it with other security measures, and always prefer using institution-owned computers.
+Whether using student-owned or institution-owned computers, it's essential to
+always have active human proctoring, to prevent students from accessing phones,
+smart glasses, earbuds, or other unauthorized material.
 
 ## Final thoughts
 
