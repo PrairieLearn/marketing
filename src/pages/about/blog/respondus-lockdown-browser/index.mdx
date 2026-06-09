@@ -9,29 +9,14 @@ import sessionSettingsInherited from "./session-settings-inherited.png";
 
 export const meta = {
   title: "Respondus LockDown Browser comes to PrairieTest",
-  date: "2026-05-14",
+  date: "2026-06-09",
   author: "Eduardo Vaz",
   tags: ["Release"],
   summary:
     "PrairieTest now integrates with Respondus LockDown Browser, bringing locked-down proctoring to remote and unproctored exams.",
 };
 
-<p
-  className="mb-5"
-  style={{
-    fontSize: "clamp(2rem, 5vw, 3.5rem)",
-    fontWeight: 600,
-    textAlign: "center",
-    textWrap: "balance",
-    lineHeight: 1.2,
-    margin: "2rem 0",
-  }}
->
-  <span style={{ color: "#3b82f6" }}>Proctoring</span>
-  <span style={{ color: "#1a3a8f" }}>, now built into PrairieTest.</span>
-</p>
-
-PrairieTest now supports Respondus LockDown Browser. For any exam linked to a PrairieLearn assessment, instructors
+PrairieTest now supports Respondus LockDown Browser. For exams linked to PrairieLearn, instructors
 and testing centers can require students to take the exam inside a secure, locked-down environment,
 configured directly from PrairieTest alongside everything else.
 
@@ -39,7 +24,10 @@ configured directly from PrairieTest alongside everything else.
 
 ## What is Respondus LockDown Browser?
 
-[Respondus LockDown Browser](https://web.respondus.com/he/lockdownbrowser/) is a secure web browser purpose-built for online exams. While a student is taking an exam, it prevents them from opening other applications, switching tabs, copying or printing content, accessing screen-sharing or virtual machines, and using most keyboard shortcuts, effectively turning the device into a secure testing environment for the duration of the assessment.
+[Respondus LockDown Browser](https://web.respondus.com/he/lockdownbrowser/) is a secure web browser purpose-built for online exams.
+While a student is taking an exam, it prevents them from opening other applications, switching tabs, copying or printing content,
+accessing screen-sharing or virtual machines, and using most keyboard shortcuts, effectively turning the device into a secure testing
+environment for the duration of the assessment.
 
 ## How the integration works in PrairieTest
 
@@ -53,58 +41,83 @@ Instead of the regular "Start exam" button, students see "Open in LockDown Brows
   caption="Students see an 'Open in LockDown Browser' button when their exam requires it."
 />
 
-Clicking it opens the reservation inside LockDown Browser, where they can start the exam in the protected environment. For installation steps and supported platforms, point students to the [LockDown Browser docs page](https://prairietest.com/pt/docs/lockdown-browser/).
+Clicking it opens the reservation inside LockDown Browser, where they can start the exam in the protected environment.
+For installation steps and supported platforms, point students to the
+[PrairieTest LockDown Browser docs page](https://us.prairietest.com/pt/docs/students/respondus-lockdown-browser).
 
 ### Setting it up for your course
 
 LockDown Browser can be configured in two different ways, depending on the exam circumstances.
-The setting always lives closest to the student’s computer: the course session for instructor-run exams,
-and the testing center location for center-scheduled exams.
+The setting always lives closest to the student’s computer: the course session for course-run exams,
+and the testing center location for center-run exams.
 
-#### Option 1: Course-run sessions (online or in-class)
+### Option 1: Course-run sessions (online or in-class)
 
-For course-specific exams that don't depend on a CBTF, the setting is per-session and lives on the course session itself, so course staff control it directly. Every reservation against that session will open the linked PrairieLearn assessment in LockDown Browser. See the [PrairieTest setup docs](https://prairietest.com/pt/docs/lockdown-browser/) for the toggle.
+For course-ran exams that don't depend on a testing center, the setting is per-session and lives on the course session itself,
+so course staff control it directly. Every reservation against that session will open the linked PrairieLearn assessment in
+LockDown Browser. See the [PrairieTest setup docs](https://us.prairietest.com/pt/docs/course/respondus-lockdown-browser)
+for the toggle.
 
 <BlogCalloutBox title="Heads up" variant="note">
   Tip: Because students need to install LockDown Browser on their own computers
   beforehand, announce the requirement to your class ahead of exam day.
 </BlogCalloutBox>
 
-#### Option 2: Sessions scheduled into a PrairieTest testing center
+### Option 2: Sessions scheduled into a PrairieTest testing center
 
 For exams scheduled into a testing center, the setting is not per-session and lives on the location,
 so every session that runs at that location inherits it automatically.
-This keeps a center’s policy consistent and ensures the machines
-(which require a special lab-mode installer) match what the session expects.
+This keeps a center’s policy consistent independent of the course.
+See the [PrairieTest setup docs](https://us.prairietest.com/pt/docs/center/respondus-lockdown-browser)
+for the toggle.
+
+<BlogCalloutBox title="Heads up" variant="note">
+  If the exam uses the testing center's computers, make sure that they have the
+  lockdown browser installed, and that the proctors know how to help students
+  with setup. If the exam uses student computers instead, instruct them on
+  installing the LockDown Browser before the exam.
+</BlogCalloutBox>
 
 This means:
 
-**If you’re course staff:** you don’t toggle anything yourself. Coordinate with the testing center to confirm whether LockDown Browser is enabled at the location your students are scheduled into. The session settings page shows the inherited value as read-only, with a link out to the center docs.
+**If you’re course staff:** you don’t toggle anything yourself.
+Coordinate with the testing center to confirm whether LockDown Browser is enabled at the location your students are scheduled into.
+The session settings page shows the inherited value as read-only, with a link out to the center docs.
 
-<BlogImage
-  src={sessionSettingsInherited}
-  alt="PrairieTest session Settings tab showing LockDown Browser: Yes with the note ‘Inherited from this location.’ and a link to ‘LockDown Browser at testing centers’"
-  caption="On a session at a LockDown Browser location, course staff see the setting as inherited and read-only."
-/>
+**If you’re center staff:** enable LockDown Browser once on the location’s Settings tab and every center session there will use
+it automatically.
 
-**If you’re center staff:** enable LockDown Browser once on the location’s Settings tab and every center session there will use it automatically. The toggle is documented in the [PrairieTest setup docs](https://prairietest.com/pt/docs/lockdown-browser/).
+## Student-owned computers vs. institution-owned computers
 
-<BlogCalloutBox title="Heads up" variant="note">
-  Make sure the center's computers have the lockdown browser installed, and that
-  the proctors know how to help students with setup.
-</BlogCalloutBox>
+LockDown Browser does a lot to harden the exam environment. It blocks other applications, screen sharing,
+virtual machines, copying, printing, and most keyboard shortcuts, which raises the bar for cheating well
+beyond a normal browser.
+
+On institution-owned computers, like the machines in a PrairieTest testing center, your institution controls
+the machines and can pair LockDown Browser with in-person proctoring.
+That combination gets you close to a fully secure environment.
+
+On student-owned computers, you don't have that control. LockDown Browser secures the device for the duration
+of the exam, but it can't account for everything around it. A determined student could reach for a second
+laptop or phone, notes outside the camera's view, another person in the room, or more elaborate workarounds.
+No software running on a personal machine can make that scenario completely secure.
+
+Even if the exam is proctored in person, personal computers can't be fully inspected. So even with everything
+LockDown Browser brings, we don't recommend relying on it alone to guarantee the integrity of a high-stakes
+exam. Pair it with other security measures, and always prefer using institution-owned computers.
 
 ## Final thoughts
 
-Native LockDown Browser support brings one of the most-requested proctoring tools into the same workflow as
-the rest of your PrairieTest exams. No separate dashboards, no parallel configuration. Whether you run an
-online quiz, an in-class assessment, or a CBTF exam, you can require a locked-down environment in a couple
+Native LockDown Browser support brings proctoring tools into the same workflow as
+the rest of your PrairieTest exams. Whether you run an
+online quiz, an in-class assessment, or a testing center exam, you can require a locked-down environment in a couple
 of clicks. We’re excited to see how courses put it to use.
 
 <BlogCalloutBox variant="info">
   More detailed information about LockDown Browser support can be found in the
-  [PrairieTest documentation](https://prairietest.com/pt/docs/lockdown-browser/). If you
-  have questions, let us know on [Slack](/slack).
+  [PrairieTest
+  documentation](https://prairietest.com/pt/docs/lockdown-browser/). If you have
+  questions, let us know on [Slack](/slack).
 </BlogCalloutBox>
 
 export default ({ children }) => (
