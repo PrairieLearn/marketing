@@ -1,0 +1,212 @@
+import Image from "next/image";
+
+import {
+  BlogMarkdownLayout,
+  BlogImage,
+  BlogCalloutBox,
+} from "../../../../components/BlogMarkdownLayout";
+
+import coverSketch from "./cover-sketch.gif";
+import sketchSegments from "./sketch_segments.gif";
+import sketchSpline from "./sketch_spline.gif";
+import sketchTools from "./sketch_tools.png";
+import sketchOverlay from "./sketch_overlay.gif";
+import elementComparison from "./drawing_sketch_comparison.png";
+import questionSin from "./question-sin.png";
+import questionIncreasing from "./question-increasing.png";
+import questionConcave from "./question-concave.png";
+import questionIntersect from "./question-intersect.png";
+
+export const meta = {
+  title: "Freehand curve sketching with pl-sketch",
+  date: "2026-05-26T21:00:00-05:00",
+  author: "Nico Ritschel",
+  tags: ["Release"],
+  summary:
+    "A new PrairieLearn element enables auto-graded freehand curve sketching questions",
+};
+
+<BlogImage
+  src={coverSketch}
+  alt="A pl-sketch question asking students to draw three functions, showing a graded submission with auto-generated feedback"
+  caption="A `pl-sketch` question with three curves drawn using freehand, spline, and polyline tools, auto-graded with per-curve feedback."
+  full
+/>
+
+Your students can now sketch arbitrary mathematical curves directly in PrairieLearn, and have their work auto-graded against your criteria. The new [`pl-sketch`](https://docs.prairielearn.com/elements/pl-sketch/) element opens up curve-sketching questions for mastery practice and fully automated exams.
+
+`pl-sketch` builds on [SketchResponse](https://sketchresponse.github.io/) ([source](https://github.com/sketchresponse/SketchResponse)), a sketch input and grading library originally developed at MIT by Martin Segado, Jennifer French, and Phillip Z. Ai ([paper](http://web.mit.edu/~jfrench/www/pdf/sketchinput_paper.pdf)).
+
+### Three ways to draw
+
+<div className="row g-3 my-4">
+  <div className="col-md-4">
+    <div
+      className="position-relative rounded shadow-sm overflow-hidden"
+      style={{ aspectRatio: "4 / 3" }}
+    >
+      <Image
+        src={sketchSegments}
+        alt="An animation of sin(x) being drawn in multiple segments"
+        fill
+        style={{ objectFit: "contain" }}
+      />
+    </div>
+    <div className="mt-2">
+      <div className="fw-semibold">Multi-segment freehand</div>
+      <div className="small text-muted">
+        Draw in any order or in multiple strokes. Light smoothing is applied,
+        and small gaps or overlaps are merged into a continuous function for
+        grading.
+      </div>
+    </div>
+  </div>
+  <div className="col-md-4">
+    <div
+      className="position-relative rounded shadow-sm overflow-hidden"
+      style={{ aspectRatio: "4 / 3" }}
+    >
+      <Image
+        src={sketchSpline}
+        alt="A canvas that contains a spline-based drawing of x^2 and a polyline-based drawing of |x|"
+        fill
+        style={{ objectFit: "contain" }}
+      />
+    </div>
+    <div className="mt-2">
+      <div className="fw-semibold">Splines and polylines</div>
+      <div className="small text-muted">
+        Define reference points and let the tool connect them with smooth{" "}
+        <a href="https://en.wikipedia.org/wiki/Spline_(mathematics)">splines</a>{" "}
+        or straight lines. Multiple drawing tools can share a single canvas.
+      </div>
+    </div>
+  </div>
+  <div className="col-md-4">
+    <div
+      className="position-relative rounded shadow-sm overflow-hidden"
+      style={{ aspectRatio: "4 / 3" }}
+    >
+      <Image
+        src={sketchTools}
+        alt="A canvas showing points, asymptotes, and an enclosed-area polygon alongside drawn curves"
+        fill
+        style={{ objectFit: "contain" }}
+      />
+    </div>
+    <div className="mt-2">
+      <div className="fw-semibold">Annotations</div>
+      <div className="small text-muted">
+        Mark points like intersections or extrema, horizontal and vertical
+        asymptotes, and enclosed areas alongside the curves themselves.
+      </div>
+    </div>
+  </div>
+</div>
+
+### Grade the function, not the strokes
+
+`pl-sketch` ships with a collection of modular grading criteria you can mix and match. The full reference is in the [`pl-sketch` documentation](https://docs.prairielearn.com/elements/pl-sketch/), but the available checks include:
+
+- **`match-function`**: compares a drawn curve to a reference function, with configurable x-range and tolerance.
+- **`match`**: checks whether drawn objects touch or intersect a specific point or coordinate.
+- **`count`**: compares the number of drawn objects to an expected count.
+- **`defined-in`** / **`undefined-in`**: requires a curve to cover (or stay clear of) a given x-interval.
+- **`less-than`** / **`greater-than`**: bounds the drawn curve above or below a reference value or function.
+- **`monot-increasing`** / **`monot-decreasing`**: checks monotonicity across the drawn curve's domain.
+- **`concave-up`** / **`concave-down`**: checks concavity across the drawn curve's domain.
+
+Criteria can be stacked for partial credit, or to gate one check behind another (e.g., only check concavity once monotonicity passes). Some questions from the example course (`gallery/sketch`) are reproduced below (click to enlarge).
+
+<div className="row g-3 my-4">
+  <div className="col-md-6">
+    <BlogImage
+      src={questionSin}
+      alt="A pl-sketch question asking students to sketch sin(x), graded with match-function"
+      full
+    />
+  </div>
+  <div className="col-md-6">
+    <BlogImage
+      src={questionIncreasing}
+      alt="A pl-sketch question asking for any positive increasing function, graded with monot-increasing, greater-than, and match"
+      full
+    />
+  </div>
+  <div className="col-md-6">
+    <BlogImage
+      src={questionConcave}
+      alt="A pl-sketch question asking for a concave-up function through (0, 1), graded with concave-up and match"
+      full
+    />
+  </div>
+  <div className="col-md-6">
+    <BlogImage
+      src={questionIntersect}
+      alt="A pl-sketch question asking students to mark where f(x) and g(x) intersect, graded with match on points"
+      full
+    />
+  </div>
+</div>
+
+Every grading criterion can carry custom feedback explaining (or, if you prefer, not revealing) why a submission earned its score. Once the answer is released, students can overlay their submission against the sample solution to see what they missed.
+
+<BlogImage
+  src={sketchOverlay}
+  alt="An animation of toggling the overlay of a student's submission and the provided sample solution for a question"
+  caption="Animation showing the overlay of a student's submission and the sample solution"
+/>
+
+### Choosing a drawing element
+
+`pl-sketch` is one of several elements PrairieLearn provides for capturing student drawings. Its closest relative is [`pl-drawing`](https://docs.prairielearn.com/pl-drawing/), which takes a different approach to the same kind of question:
+
+<div className="row g-3 my-4">
+  <div className="col-md-6">
+    <div className="h-100 p-3 border rounded bg-light">
+      <div className="fs-5 fw-semibold mb-2">
+        <a href="https://docs.prairielearn.com/elements/pl-sketch/">
+          <code>pl-sketch</code>
+        </a>
+      </div>
+      <div className="mb-0">
+        Students draw arbitrary curves freehand, or via spline and polyline
+        tools. Grading evaluates the resulting function (its values, shape, and
+        mathematical properties) rather than matching against placed objects.
+      </div>
+    </div>
+  </div>
+  <div className="col-md-6">
+    <div className="h-100 p-3 border rounded bg-light">
+      <div className="fs-5 fw-semibold mb-2">
+        <a href="https://docs.prairielearn.com/pl-drawing/">
+          <code>pl-drawing</code>
+        </a>
+      </div>
+      <div className="mb-0">
+        Students assemble diagrams from a fixed library of pre-defined objects,
+        like straight segments and parabolic fragments. Great for
+        shape-matching, but capped at the shapes the element supports.
+      </div>
+    </div>
+  </div>
+</div>
+
+<BlogImage
+  src={elementComparison}
+  alt="Side-by-side comparison of the pl-sketch and the pl-drawing elements for the same curve sketching question"
+  caption="The same curve-sketching question rendered with `pl-drawing` (left) and `pl-sketch` (right)."
+/>
+
+For the broader picture, see the [drawings and images section of the elements docs](https://docs.prairielearn.com/elements/#drawings-images) for a decision flowchart that helps you pick the right element.
+
+<BlogCalloutBox variant="info">
+  If you're using `pl-sketch` in your teaching, we'd love to hear what's
+  working, what's missing, and any bugs you run into. Find us on [Slack](/slack)
+  or read the [`pl-sketch`
+  documentation](https://docs.prairielearn.com/elements/pl-sketch/).
+</BlogCalloutBox>
+
+export default ({ children }) => (
+  <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
+);
