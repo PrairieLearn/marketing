@@ -9,8 +9,8 @@ import questionsPageImport from "./questions-page-import.png";
 import assessmentsPageImport from "./assessments-page-import.png";
 
 export const meta = {
-  title: "Introducing Canvas (QTI) Content Importing",
-  date: "2026-06-09T12:00:00-05:00",
+  title: "Introducing Canvas (QTI) content importing",
+  date: "2026-06-10T12:00:00-05:00",
   author: "Austin Billings",
   tags: ["Release"],
 };
@@ -19,7 +19,6 @@ export const meta = {
   src={simpleComparison}
   alt="A Canvas question and it's PrairieLearn equivalent"
   full
-  bordered
 />
 We've heard from a lot of our users that they'd love to leverage the powerful
 features of PrairieLearn with more of their course's content, but that manually
@@ -84,7 +83,7 @@ Of course, once you're happy with the content to-be-imported, you're able to wor
   autoplay="true"
   muted="true"
   loop="true"
-  style={{ width: "100%", margin: "20px 0", borderRadius: 10 }}
+  style={{ width: "100%", margin: "0 0 20px", border: '1px solid #ddd', borderLeft: 'none', borderRight: 'none', borderRadius: 10 }}
 >
   <source type="video/mp4" src="/blog/media/qti-comparison.mp4" />
 </video>
