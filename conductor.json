@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "setup": "git submodule update --init && pnpm install",
+    "run": "PORT=${CONDUCTOR_PORT:-3000} pnpm dev"
+  }
+}
