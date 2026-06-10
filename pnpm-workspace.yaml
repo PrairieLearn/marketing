@@ -1,5 +1,2 @@
 minimumReleaseAge: 4320
 ignoreScripts: true
-
-overrides:
-  "@types/react": ^19.2.14
