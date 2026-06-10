@@ -1,5 +1,4 @@
 minimumReleaseAge: 4320
-minimumReleaseAgeStrict: true
 ignoreScripts: true
 
 overrides:
