@@ -13,10 +13,10 @@ This is the PrairieLearn marketing website built with Next.js 16 and TypeScript.
 ## Commands
 
 ```bash
-yarn dev          # Start development server on localhost:3000
-yarn build        # Production build
-yarn lint         # Run ESLint and Prettier checks
-yarn format       # Auto-format with Prettier
+pnpm dev          # Start development server on localhost:3000
+pnpm build        # Production build
+pnpm lint         # Run ESLint and Prettier checks
+pnpm format       # Auto-format with Prettier
 ```
 
 ## Git Submodule
