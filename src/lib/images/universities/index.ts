@@ -1,4 +1,5 @@
 import asu from "./asu.png";
+import berkeley from "./berkeley.png";
 import gvsu from "./gvsu.png";
 import illinois from "./illinois.png";
 import insper from "./insper.svg";
@@ -10,11 +11,14 @@ import ubc from "./ubc.png";
 import ucdavis from "./ucdavis.png";
 import ucsb from "./ucsb.png";
 import ucsd from "./ucsd.png";
+import upenn from "./upenn.png";
 import uvic from "./uvic.webp";
+import wisconsin from "./wisconsin.png";
 import york from "./york.png";
 
 export {
   asu,
+  berkeley,
   gvsu,
   illinois,
   insper,
@@ -26,6 +30,8 @@ export {
   ucdavis,
   ucsb,
   ucsd,
+  upenn,
   uvic,
+  wisconsin,
   york,
 };
