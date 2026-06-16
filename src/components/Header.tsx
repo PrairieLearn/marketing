@@ -78,10 +78,13 @@ export const Header: React.FC = () => {
     React.useState(false);
 
   // Collapse the nav when the user navigates to a different page
-  const { pathname } = useRouter();
+  const { events } = useRouter();
   React.useEffect(() => {
-    setCollapsed(true);
-  }, [pathname]);
+    const collapseNav = () => setCollapsed(true);
+
+    events.on("routeChangeComplete", collapseNav);
+    return () => events.off("routeChangeComplete", collapseNav);
+  }, [events]);
 
   return (
     <React.Fragment>

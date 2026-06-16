@@ -31,6 +31,7 @@
     "react": "^19.2.4",
     "react-bootstrap": "^2.10.10",
     "react-dom": "^19.2.4",
+    "react-is": "^19.2.4",
     "react-keyed-flatten-children": "^5.1.1",
     "react-markdown": "^10.1.0",
     "rehype-autolink-headings": "^7.1.0",
@@ -58,8 +59,5 @@
     "sass": "^1.97.3",
     "typescript": "^5.9.3"
   },
-  "packageManager": "yarn@4.14.1",
-  "resolutions": {
-    "@types/react": "^19.2.14"
-  }
+  "packageManager": "pnpm@11.5.3"
 }

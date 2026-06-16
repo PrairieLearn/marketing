@@ -5,7 +5,6 @@ const config = [
   {
     ignores: [
       ".next/**",
-      ".yarn/**",
       "out/**",
       "node_modules/**",
       "PrairieLearn/**",
