@@ -254,22 +254,26 @@ export default function Courses() {
               title="Analog Circuit"
               href="https://us.prairielearn.com/pl/course_instance/218512/assessments"
               github="#"
-              owner={<span>
-                  <a href="https://github.com/zojize">Jeff Zou</a>{" "}
-                  and <a href="https://github.com/weilaifuture-qwerty">Wei Lai</a>
-                </span>}
+              owner={
+                <span>
+                  <a href="https://github.com/zojize">Jeff Zou</a> and{" "}
+                  <a href="https://github.com/weilaifuture-qwerty">Wei Lai</a>
+                </span>
+              }
             />
             <SharedElementCard
               image={oerWaveform}
               title="Waveform"
               href="https://us.prairielearn.com/pl/course_instance/218743/assessment/2694116"
               github="#"
-              owner={<span>
+              owner={
+                <span>
                   <a href="https://github.com/akshatbhat">Akshat Bhat</a>,{" "}
                   <a href="https://github.com/bulkpool">Ayush Prasad</a>,{" "}
-                  <a href="https://github.com/kgarg1312">Khushi Garg</a>{" "}
-                  and <a href="https://github.com/TrushaT">Trusha Talati</a>
-                </span>}
+                  <a href="https://github.com/kgarg1312">Khushi Garg</a> and{" "}
+                  <a href="https://github.com/TrushaT">Trusha Talati</a>
+                </span>
+              }
             />
           </div>
         </div>
