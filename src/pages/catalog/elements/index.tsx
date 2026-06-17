@@ -18,6 +18,8 @@ import oerFunctionVisualizer from "../../../lib/images/oer-element-functionvisua
 import oerDragDropGrid from "../../../lib/images/oer-element-dragdropgrid.png";
 import oerSplice from "../../../lib/images/oer-element-splice.png";
 import oerFadedParsons from "../../../lib/images/oer-element-fadedparsons.png";
+import oerAnalogCircuit from "../../../lib/images/oer-element-analogcircuit.png";
+import oerWaveform from "../../../lib/images/oer-element-waveform.png";
 
 interface SharedElementCardProps {
   image: ImageProps["src"];
@@ -246,6 +248,28 @@ export default function Courses() {
                   and <a href="https://github.com/armandofox">Armando Fox</a>
                 </span>
               }
+            />
+            <SharedElementCard
+              image={oerAnalogCircuit}
+              title="Analog Circuit"
+              href="https://us.prairielearn.com/pl/course_instance/218512/assessments"
+              github="#"
+              owner={<span>
+                  <a href="https://github.com/zojize">Jeff Zou</a>{" "}
+                  and <a href="https://github.com/weilaifuture-qwerty">Wei Lai</a>
+                </span>}
+            />
+            <SharedElementCard
+              image={oerWaveform}
+              title="Waveform"
+              href="https://us.prairielearn.com/pl/course_instance/218743/assessment/2694116"
+              github="#"
+              owner={<span>
+                  <a href="https://github.com/akshatbhat">Akshat Bhat</a>,{" "}
+                  <a href="https://github.com/bulkpool">Ayush Prasad</a>,{" "}
+                  <a href="https://github.com/kgarg1312">Khushi Garg</a>{" "}
+                  and <a href="https://github.com/TrushaT">Trusha Talati</a>
+                </span>}
             />
           </div>
         </div>
