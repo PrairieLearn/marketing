@@ -5,13 +5,13 @@
 First install dependencies:
 
 ```bash
-yarn
+pnpm install
 ```
 
 Next, run the development server:
 
 ```bash
-yarn dev
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the site. Pages will auto-update as you edit files.
