@@ -19,6 +19,8 @@ import eorthermo from "../../../lib/images/EORthermo.png";
 import sigcse2023 from "../../../lib/images/sigcse2023.png";
 import cs233Image from "../../../lib/images/cs-233.png";
 import ece6353fraida from "../../../lib/images/ece6353fraida.png";
+import oercalc1 from "../../../lib/images/oer-calc1.png";
+import oerLA from "../../../lib/images/oer-LA.png";
 
 interface SharedQuestionCardProps {
   image: ImageProps["src"];
@@ -111,7 +113,7 @@ export default function Courses() {
           <Heading>Publicly Shared Questions</Heading>
           <div className="row">
             <p>
-              This catalog contains questions that have been publicly shared by
+              This section contains questions that have been publicly shared by
               instructors from various universities. If you like any of these
               questions, you can use them directly in your course, without any
               need to copy questions. Read these{" "}
@@ -207,6 +209,45 @@ export default function Courses() {
               href="https://us.prairielearn.com/pl/public/course/358/questions"
               ownerName="Fraida Fund"
               ownerEmail="ffund@nyu.edu"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="container-fluid my-5">
+        <div className="container-md">
+          <Heading>Publicly Shared Course Instances</Heading>
+          <div className="row">
+            <p>
+              This section contains course instances that have been publicly
+              shared by instructors from various universities. If you find a
+              course instance you like, you can copy it directly into your own
+              course. PrairieLearn will automatically copy all assessments and
+              any publicly shared questions, while preserving links to questions
+              that remain connected to their original repositories. Read these{" "}
+              <Link href="https://docs.prairielearn.com/contentSharing/">
+                instructions
+              </Link>{" "}
+              to learn more about how content sharing works and how to use
+              shared course materials in your course.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="container-fluid my-5">
+        <div className="container-md">
+          <div className={styles.grid}>
+            <SharedQuestionCard
+              image={oercalc1}
+              title="Calculus I"
+              href="https://us.prairielearn.com/pl/public/course_instance/201287/assessments"
+            />
+
+            <SharedQuestionCard
+              image={oerLA}
+              title="Linear Algebra"
+              href="https://us.prairielearn.com/pl/public/course_instance/198184/assessments"
             />
           </div>
         </div>
