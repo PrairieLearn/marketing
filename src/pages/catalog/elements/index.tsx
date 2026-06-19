@@ -253,7 +253,7 @@ export default function Courses() {
               image={oerAnalogCircuit}
               title="Analog Circuit"
               href="https://us.prairielearn.com/pl/course_instance/218512/assessments"
-              github="#"
+              github="https://github.com/PrairieLearn/pl-oer-element-analogcircuit"
               owner={
                 <span>
                   <a href="https://github.com/zojize">Jeff Zou</a> and{" "}
