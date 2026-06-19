@@ -265,7 +265,7 @@ export default function Courses() {
               image={oerWaveform}
               title="Waveform"
               href="https://us.prairielearn.com/pl/course_instance/218743/assessment/2694116"
-              github="#"
+              github="https://github.com/PrairieLearn/pl-oer-element-waveform"
               owner={
                 <span>
                   <a href="https://github.com/akshatbhat">Akshat Bhat</a>,{" "}
