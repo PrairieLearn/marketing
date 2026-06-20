@@ -124,11 +124,11 @@ export default function Courses() {
           <div className="row">
             <p>
               This section contains questions and course instances that have
-              been publicly shared by instructors from various universities.
-              Cards that link to a <strong>question bank</strong> let you use
-              questions directly in your course without copying, or copy
-              individual questions if you want to make changes. Cards that link
-              to a <strong>course instance</strong> let you copy the entire
+              been publicly shared by instructors from various universities. A{" "}
+              <strong>shared question bank</strong> lets you use questions
+              directly in your course without copying, or copy individual
+              questions if you want to make changes. A{" "}
+              <strong>shared course instance</strong> lets you copy the entire
               course structure — including assessments and questions — into your
               own course. Read these{" "}
               <Link href="https://docs.prairielearn.com/contentSharing/">
@@ -147,6 +147,7 @@ export default function Courses() {
               image={eorphysics1}
               title="Physics: Mechanics"
               questionHref="https://us.prairielearn.com/pl/public/course/2923/questions"
+              courseInstanceHref="https://us.prairielearn.com/pl/public/course_instance/219205/assessments"
               github="https://github.com/PrairieLearn/pl-oer-physics1"
             />
 
@@ -160,22 +161,29 @@ export default function Courses() {
             <SharedQuestionCard
               image={eorstatics}
               title="Statics"
-              questionHref="https://us.prairielearn.com/pl/public/course/2924/questions"
-              github="https://github.com/PrairieLearn/pl-oer-statics"
+              questionHref="https://us.prairielearn.com/pl/public/course/92/questions"
+              courseInstanceHref="https://us.prairielearn.com/pl/public/course_instance/183434/assessments"
+              // OER repo:
+              // "https://us.prairielearn.com/pl/public/course/2924/questions"
+              // github="https://github.com/PrairieLearn/pl-oer-statics"
             />
 
             <SharedQuestionCard
               image={eordynamics}
               title="Dynamics"
-              questionHref="https://us.prairielearn.com/pl/public/course/2955/questions"
-              github="https://github.com/PrairieLearn/pl-oer-dynamics"
+              questionHref= "https://us.prairielearn.com/pl/public/course/1/questions"
+              courseInstanceHref="https://us.prairielearn.com/pl/public/course_instance/185380/assessments"
+              // "https://us.prairielearn.com/pl/public/course/2955/questions"
+              // github="https://github.com/PrairieLearn/pl-oer-dynamics"
             />
 
             <SharedQuestionCard
               image={eorsolids}
               title="Solid Mechanics"
-              questionHref="https://us.prairielearn.com/pl/public/course/2925/questions"
-              github="https://github.com/PrairieLearn/pl-oer-solidMechanics"
+              questionHref="https://us.prairielearn.com/pl/public/course/93/questions"
+              courseInstanceHref="https://us.prairielearn.com/pl/public/course_instance/184192/assessments"
+              // "https://us.prairielearn.com/pl/public/course/2925/questions"
+              // github="https://github.com/PrairieLearn/pl-oer-solidMechanics"
             />
 
             <SharedQuestionCard
@@ -226,12 +234,14 @@ export default function Courses() {
             <SharedQuestionCard
               image={oercalc1}
               title="Calculus I"
+              questionHref="https://us.prairielearn.com/pl/public/course/7608/questions"
               courseInstanceHref="https://us.prairielearn.com/pl/public/course_instance/201287/assessments"
             />
 
             <SharedQuestionCard
               image={oerLA}
               title="Linear Algebra"
+              questionHref="https://us.prairielearn.com/pl/public/course/16782/questions"
               courseInstanceHref="https://us.prairielearn.com/pl/public/course_instance/198184/assessments"
             />
           </div>
