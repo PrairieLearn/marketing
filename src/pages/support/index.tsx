@@ -120,7 +120,7 @@ export default function Support() {
                     Want a one-on-one or a group demo? Book a time with us!
                   </p>
                   <Link
-                    href="https://calendly.com/marianapl"
+                    href="https://calendly.com/serena-prairielearn/prairielearn-demo"
                     className="btn btn-warning btn-lg me-3"
                   >
                     Schedule a Demo
