@@ -171,7 +171,7 @@ export default function Courses() {
             <SharedQuestionCard
               image={eordynamics}
               title="Dynamics"
-              questionHref= "https://us.prairielearn.com/pl/public/course/1/questions"
+              questionHref="https://us.prairielearn.com/pl/public/course/1/questions"
               courseInstanceHref="https://us.prairielearn.com/pl/public/course_instance/185380/assessments"
               // "https://us.prairielearn.com/pl/public/course/2955/questions"
               // github="https://github.com/PrairieLearn/pl-oer-dynamics"
