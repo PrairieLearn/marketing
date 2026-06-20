@@ -252,7 +252,7 @@ export default function Courses() {
             <SharedElementCard
               image={oerAnalogCircuit}
               title="Analog Circuit"
-              href="https://us.prairielearn.com/pl/course_instance/218512/assessments"
+              href="https://us.prairielearn.com/pl/course_instance/218743/assessment/2694116"
               github="https://github.com/PrairieLearn/pl-oer-element-analogcircuit"
               owner={
                 <span>
@@ -264,7 +264,7 @@ export default function Courses() {
             <SharedElementCard
               image={oerWaveform}
               title="Waveform"
-              href="https://us.prairielearn.com/pl/course_instance/218743/assessment/2694116"
+              href="https://us.prairielearn.com/pl/course_instance/218512/assessment/2693873"
               github="https://github.com/PrairieLearn/pl-oer-element-waveform"
               owner={
                 <span>
