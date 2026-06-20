@@ -21,6 +21,7 @@ import cs233Image from "../../../lib/images/cs-233.png";
 import ece6353fraida from "../../../lib/images/ece6353fraida.png";
 import oercalc1 from "../../../lib/images/oer-calc1.png";
 import oerLA from "../../../lib/images/oer-LA.png";
+import oer233 from "../../../lib/images/oer233.png";
 
 interface SharedQuestionCardProps {
   image: ImageProps["src"];
@@ -159,6 +160,20 @@ export default function Courses() {
             />
 
             <SharedQuestionCard
+              image={oercalc1}
+              title="Calculus I"
+              questionHref="https://us.prairielearn.com/pl/public/course/7608/questions"
+              courseInstanceHref="https://us.prairielearn.com/pl/public/course_instance/201287/assessments"
+            />
+
+            <SharedQuestionCard
+              image={oerLA}
+              title="Linear Algebra"
+              questionHref="https://us.prairielearn.com/pl/public/course/16782/questions"
+              courseInstanceHref="https://us.prairielearn.com/pl/public/course_instance/198184/assessments"
+            />
+
+            <SharedQuestionCard
               image={eorstatics}
               title="Statics"
               questionHref="https://us.prairielearn.com/pl/public/course/92/questions"
@@ -187,19 +202,26 @@ export default function Courses() {
             />
 
             <SharedQuestionCard
-              image={eornumerical}
-              title="Numerical Methods"
-              questionHref="https://us.prairielearn.com/pl/public/course/2926/questions"
-              github="https://github.com/PrairieLearn/pl-oer-numericalMethods"
-            />
-
-            <SharedQuestionCard
               image={eorthermo}
               title="Thermodynamics"
               questionHref="https://us.prairielearn.com/pl/public/course/2988/questions"
               ownerName="Shelby Hutchens"
               ownerEmail="hutchs@illinois.edu"
               github="https://github.com/PrairieLearn/pl-oer-thermodynamics"
+            />
+
+            <SharedQuestionCard
+              image={oer233}
+              title="Computer Architecture"
+              questionHref="https://us.prairielearn.com/pl/public/course/22722/questions"
+              courseInstanceHref="https://us.prairielearn.com/pl/public/course_instance/219370/assessments"
+            />
+
+            <SharedQuestionCard
+              image={eornumerical}
+              title="Numerical Methods"
+              questionHref="https://us.prairielearn.com/pl/public/course/2926/questions"
+              github="https://github.com/PrairieLearn/pl-oer-numericalMethods"
             />
 
             <SharedQuestionCard
@@ -229,20 +251,6 @@ export default function Courses() {
               questionHref="https://us.prairielearn.com/pl/public/course/358/questions"
               ownerName="Fraida Fund"
               ownerEmail="ffund@nyu.edu"
-            />
-
-            <SharedQuestionCard
-              image={oercalc1}
-              title="Calculus I"
-              questionHref="https://us.prairielearn.com/pl/public/course/7608/questions"
-              courseInstanceHref="https://us.prairielearn.com/pl/public/course_instance/201287/assessments"
-            />
-
-            <SharedQuestionCard
-              image={oerLA}
-              title="Linear Algebra"
-              questionHref="https://us.prairielearn.com/pl/public/course/16782/questions"
-              courseInstanceHref="https://us.prairielearn.com/pl/public/course_instance/198184/assessments"
             />
           </div>
         </div>
