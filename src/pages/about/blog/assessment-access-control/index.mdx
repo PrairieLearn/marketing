@@ -69,7 +69,7 @@ In the new editor, these are represented as **Overrides**, which change selected
 
 Overrides stack, and individual-student overrides take precedence over student-label overrides. For example, a student with both a "150% time" label and a section-specific deadline can inherit both changes, while an individual due-date extension can still take priority for that student.
 
-Overrides for student labels are stored under `accessControl` in `infoAssessment.json`, which makes them easy to review and reuse across course copies. Overrides for individual students are stored in the database instead, so one-off accommodations and student identifying information don't become part of the course repository.
+Override rule bodies are stored under `accessControl` in `infoAssessment.json`, which makes deadlines, time limits, and other settings easy to review alongside the rest of an assessment. Student-label overrides list the label names they target. Individual-student overrides keep a stable rule identifier and the rule body in JSON, while the selected-student mapping stays in PrairieLearn so student identities and one-off assignment details are not written into the course repository.
 
 ## Migrating from allowAccess
 
@@ -80,11 +80,11 @@ While legacy `allowAccess` rules continue to work, we think most instructors wil
 
 Because the legacy system could express some highly customized access patterns, some niche configurations can't be represented directly in the new timeline model. PrairieLearn will warn you during migration when this is the case. Those assessments can stay on legacy access control until you're ready to redesign the access pattern.
 
-Access rules using the `uids` array don't have a direct JSON equivalent, as student-specific rules aren't stored in JSON. After migrating, you can manually add appropriate overrides for specific students or student labels.
+Access rules using the `uids` array don't migrate automatically because the student-to-rule mapping is managed in PrairieLearn rather than in course content. After migrating, you can manually add appropriate overrides for specific students or student labels.
 
 ## JSON is still there when you need it
 
-The new UI on the "Access" tab makes it easy to configure assessment access. However, the file-backed parts of the configuration are still available through the new `accessControl` property in `infoAssessment.json` files, which supports advanced use cases like programmatic creation or editing of assessments. Student-label overrides live there too, while student-specific overrides are managed through the UI. The JSON format is described in the [access control documentation](https://docs.prairielearn.com/assessment/accessControl/#advanced-json-configuration).
+The new UI on the "Access" tab makes it easy to configure assessment access. However, the file-backed parts of the configuration are still available through the new `accessControl` property in `infoAssessment.json` files, which supports advanced use cases like programmatic creation or editing of assessments. Defaults, student-label overrides, and the rule bodies for student-specific overrides all live there; selected students for student-specific overrides are managed through the UI. The JSON format is described in the [access control documentation](https://docs.prairielearn.com/assessment/accessControl/#advanced-json-configuration).
 
 export default ({ children }) => (
   <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
