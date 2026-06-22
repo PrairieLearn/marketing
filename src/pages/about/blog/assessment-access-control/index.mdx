@@ -84,7 +84,7 @@ Access rules using the `uids` array don't migrate automatically because the stud
 
 ## JSON is still there when you need it
 
-The new UI on the "Access" tab makes it easy to configure assessment access. However, the file-backed parts of the configuration are still available through the new `accessControl` property in `infoAssessment.json` files, which supports advanced use cases like programmatic creation or editing of assessments. Defaults, student-label overrides, and the rule bodies for student-specific overrides can all live there; selected students for student-specific overrides are still managed through the UI. The JSON format is described in the [access control documentation](https://docs.prairielearn.com/assessment/accessControl/#advanced-json-configuration).
+The new UI on the "Access" tab makes it easy to configure assessment access. However, the file-backed parts of the configuration are still available through the new `accessControl` property in `infoAssessment.json` files, which supports advanced use cases like programmatic creation or editing of assessments. Defaults, student-label overrides, and the rule bodies for student-specific overrides all live there; selected students for student-specific overrides are managed through the UI. The JSON format is described in the [access control documentation](https://docs.prairielearn.com/assessment/accessControl/#advanced-json-configuration).
 
 export default ({ children }) => (
   <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
