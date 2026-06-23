@@ -19,11 +19,15 @@ import eorthermo from "../../../lib/images/EORthermo.png";
 import sigcse2023 from "../../../lib/images/sigcse2023.png";
 import cs233Image from "../../../lib/images/cs-233.png";
 import ece6353fraida from "../../../lib/images/ece6353fraida.png";
+import oercalc1 from "../../../lib/images/oer-calc1.png";
+import oerLA from "../../../lib/images/oer-LA.png";
+import oer233 from "../../../lib/images/oer233.png";
 
 interface SharedQuestionCardProps {
   image: ImageProps["src"];
   title: string;
-  href: string;
+  questionHref?: string;
+  courseInstanceHref?: string;
   ownerName?: string;
   ownerEmail?: string;
   github?: string;
@@ -32,14 +36,15 @@ interface SharedQuestionCardProps {
 const SharedQuestionCard: React.FC<SharedQuestionCardProps> = ({
   image,
   title,
-  href,
+  questionHref,
+  courseInstanceHref,
   ownerName,
   ownerEmail,
   github,
 }) => {
   return (
     <article className="card border-secondary overflow-hidden">
-      <Link href={href} className="position-relative">
+      <div className="position-relative">
         <Image
           src={image}
           alt={title}
@@ -50,11 +55,19 @@ const SharedQuestionCard: React.FC<SharedQuestionCardProps> = ({
             aspectRatio: "5 / 3",
           }}
         />
-      </Link>
+      </div>
       <div className="card-body">
-        <Link href={href}>
-          <h3 className="card-title h5">{title}</h3>
-        </Link>
+        <h3 className="card-title h5">{title}</h3>
+        {courseInstanceHref && (
+          <p className="mb-1">
+            <Link href={courseInstanceHref}>Shared course instance</Link>
+          </p>
+        )}
+        {questionHref && (
+          <p className="mb-1">
+            <Link href={questionHref}>Shared question bank</Link>
+          </p>
+        )}
         {ownerName && (
           <p className="mb-1">
             <strong>Shared by:</strong> {ownerName}{" "}
@@ -77,12 +90,12 @@ export default function Courses() {
   return (
     <React.Fragment>
       <Head>
-        <title>OER Questions | PrairieLearn</title>
+        <title>OER | PrairieLearn</title>
       </Head>
 
       <PageBanner
-        title="Open Educational Resources (OER): Questions"
-        subtitle="A catalog of questions to help you get started with PrairieLearn"
+        title="Open Educational Resources (OER)"
+        subtitle="A catalog of publicly shared questions and course content to help you get started with PrairieLearn"
       />
 
       <div className="container-fluid my-3">
@@ -108,19 +121,21 @@ export default function Courses() {
 
       <div className="container-fluid my-5">
         <div className="container-md">
-          <Heading>Publicly Shared Questions</Heading>
+          <Heading>Publicly Shared Content</Heading>
           <div className="row">
             <p>
-              This catalog contains questions that have been publicly shared by
-              instructors from various universities. If you like any of these
-              questions, you can use them directly in your course, without any
-              need to copy questions. Read these{" "}
-              <Link href="https://docs.prairielearn.com/contentSharing/#sharing-questions">
+              This section contains questions and course instances that have
+              been publicly shared by instructors from various universities. A{" "}
+              <strong>shared question bank</strong> lets you use questions
+              directly in your course without copying, or copy individual
+              questions if you want to make changes. A{" "}
+              <strong>shared course instance</strong> lets you copy the entire
+              course structure — including assessments and questions — into your
+              own course. Read these{" "}
+              <Link href="https://docs.prairielearn.com/contentSharing/">
                 instructions
               </Link>{" "}
-              to see how you can use publicly shared questions in your course.
-              Some of the questions can be copied to your course, so you can
-              make changes if you want!
+              to learn more about how content sharing works.
             </p>
           </div>
         </div>
@@ -132,79 +147,108 @@ export default function Courses() {
             <SharedQuestionCard
               image={eorphysics1}
               title="Physics: Mechanics"
-              href="https://us.prairielearn.com/pl/public/course/2923/questions"
+              questionHref="https://us.prairielearn.com/pl/public/course/2923/questions"
+              courseInstanceHref="https://us.prairielearn.com/pl/public/course_instance/219205/assessments"
               github="https://github.com/PrairieLearn/pl-oer-physics1"
             />
 
             <SharedQuestionCard
               image={eorphysics2}
               title="Physics: E&amp;M"
-              href="https://us.prairielearn.com/pl/public/course/2922/questions"
+              questionHref="https://us.prairielearn.com/pl/public/course/2922/questions"
               github="https://github.com/PrairieLearn/pl-oer-physics2"
+            />
+
+            <SharedQuestionCard
+              image={oercalc1}
+              title="Calculus I"
+              questionHref="https://us.prairielearn.com/pl/public/course/7608/questions"
+              courseInstanceHref="https://us.prairielearn.com/pl/public/course_instance/201287/assessments"
+            />
+
+            <SharedQuestionCard
+              image={oerLA}
+              title="Linear Algebra"
+              questionHref="https://us.prairielearn.com/pl/public/course/16782/questions"
+              courseInstanceHref="https://us.prairielearn.com/pl/public/course_instance/198184/assessments"
             />
 
             <SharedQuestionCard
               image={eorstatics}
               title="Statics"
-              href="https://us.prairielearn.com/pl/public/course/2924/questions"
-              github="https://github.com/PrairieLearn/pl-oer-statics"
+              questionHref="https://us.prairielearn.com/pl/public/course/92/questions"
+              courseInstanceHref="https://us.prairielearn.com/pl/public/course_instance/183434/assessments"
+              // OER repo:
+              // "https://us.prairielearn.com/pl/public/course/2924/questions"
+              // github="https://github.com/PrairieLearn/pl-oer-statics"
             />
 
             <SharedQuestionCard
               image={eordynamics}
               title="Dynamics"
-              href="https://us.prairielearn.com/pl/public/course/2955/questions"
-              github="https://github.com/PrairieLearn/pl-oer-dynamics"
+              questionHref="https://us.prairielearn.com/pl/public/course/1/questions"
+              courseInstanceHref="https://us.prairielearn.com/pl/public/course_instance/185380/assessments"
+              // "https://us.prairielearn.com/pl/public/course/2955/questions"
+              // github="https://github.com/PrairieLearn/pl-oer-dynamics"
             />
 
             <SharedQuestionCard
               image={eorsolids}
               title="Solid Mechanics"
-              href="https://us.prairielearn.com/pl/public/course/2925/questions"
-              github="https://github.com/PrairieLearn/pl-oer-solidMechanics"
-            />
-
-            <SharedQuestionCard
-              image={eornumerical}
-              title="Numerical Methods"
-              href="https://us.prairielearn.com/pl/public/course/2926/questions"
-              github="https://github.com/PrairieLearn/pl-oer-numericalMethods"
+              questionHref="https://us.prairielearn.com/pl/public/course/93/questions"
+              courseInstanceHref="https://us.prairielearn.com/pl/public/course_instance/184192/assessments"
+              // "https://us.prairielearn.com/pl/public/course/2925/questions"
+              // github="https://github.com/PrairieLearn/pl-oer-solidMechanics"
             />
 
             <SharedQuestionCard
               image={eorthermo}
               title="Thermodynamics"
-              href="https://us.prairielearn.com/pl/public/course/2988/questions"
+              questionHref="https://us.prairielearn.com/pl/public/course/2988/questions"
               ownerName="Shelby Hutchens"
               ownerEmail="hutchs@illinois.edu"
               github="https://github.com/PrairieLearn/pl-oer-thermodynamics"
             />
 
             <SharedQuestionCard
+              image={oer233}
+              title="Computer Architecture"
+              questionHref="https://us.prairielearn.com/pl/public/course/22722/questions"
+              courseInstanceHref="https://us.prairielearn.com/pl/public/course_instance/219370/assessments"
+            />
+
+            <SharedQuestionCard
+              image={eornumerical}
+              title="Numerical Methods"
+              questionHref="https://us.prairielearn.com/pl/public/course/2926/questions"
+              github="https://github.com/PrairieLearn/pl-oer-numericalMethods"
+            />
+
+            <SharedQuestionCard
               image={eorpython}
               title="Introduction to Python"
-              href="https://us.prairielearn.com/pl/public/course/2889/questions"
+              questionHref="https://us.prairielearn.com/pl/public/course/2889/questions"
               github="https://github.com/PrairieLearn/pl-oer-python"
             />
 
             <SharedQuestionCard
               image={cs233Image}
               title="Miscellaneous CS Topics"
-              href="https://us.prairielearn.com/pl/public/course/6717/questions"
+              questionHref="https://us.prairielearn.com/pl/public/course/6717/questions"
               github="https://github.com/PrairieLearn/pl-oer-csmix"
             />
 
             <SharedQuestionCard
               image={sigcse2023}
               title="SIGCSE 2023 - Workshop"
-              href="https://us.prairielearn.com/pl/public/course/1305/questions"
+              questionHref="https://us.prairielearn.com/pl/public/course/1305/questions"
               github="https://github.com/PrairieLearn/pl-prairielearn101"
             />
 
             <SharedQuestionCard
               image={ece6353fraida}
               title="Internet Architecture and Protocols"
-              href="https://us.prairielearn.com/pl/public/course/358/questions"
+              questionHref="https://us.prairielearn.com/pl/public/course/358/questions"
               ownerName="Fraida Fund"
               ownerEmail="ffund@nyu.edu"
             />
