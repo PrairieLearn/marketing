@@ -117,12 +117,9 @@ export default function Support() {
                 <div className="card-body">
                   <Heading>Schedule a demo</Heading>
                   <p className="card-text">
-                    Want a one-on-one or a group demo? Book a time with us!
+                    Want to know more about PrairieLearn or PrairieTest?
                   </p>
-                  <Link
-                    href="https://calendly.com/marianapl"
-                    className="btn btn-warning btn-lg me-3"
-                  >
+                  <Link href="/demo" className="btn btn-warning btn-lg me-3">
                     Schedule a Demo
                   </Link>
                 </div>
