@@ -117,24 +117,10 @@ export default function Support() {
                 <div className="card-body">
                   <Heading>Schedule a demo</Heading>
                   <p className="card-text">
-                    Want to know more about how to create sophisticated
-                    assessments and questions in PrairieLearn?
+                    Want to know more about PrairieLearn or PrairieTest?
                   </p>
-                  <Link
-                    href="https://calendly.com/serena-prairielearn/prairielearn-demo"
-                    className="btn btn-warning btn-lg me-3"
-                  >
-                    Schedule a PrairieLearn Demo
-                  </Link>
-                  <p className="card-text mt-4">
-                    Want to know more about how to run testing centers using our
-                    powerful exam management system PrairieTest?
-                  </p>
-                  <Link
-                    href="https://calendly.com/jsos1298/30min"
-                    className="btn btn-warning btn-lg me-3"
-                  >
-                    Schedule a PrairieTest Demo
+                  <Link href="/demo" className="btn btn-warning btn-lg me-3">
+                    Schedule a Demo
                   </Link>
                 </div>
               </div>
