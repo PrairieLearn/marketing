@@ -56,10 +56,7 @@ export default function TestingCenter() {
                   computer-based exams.
                 </p>
               </div>
-              <LinkButton
-                label="Schedule a consultation"
-                href="/demo"
-              />
+              <LinkButton label="Schedule a consultation" href="/demo" />
             </div>
             <div className="col-md-6 order-md-2 pt-4 text-center">
               <Image
