@@ -117,10 +117,7 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
                     Start now for free!
                   </button>
                 </div>
-                <Link
-                  href="https://calendly.com/marianapl"
-                  className="btn btn-warning btn-lg me-3 mt-3"
-                >
+                <Link href="/demo" className="btn btn-warning btn-lg me-3 mt-3">
                   Schedule a Demo
                 </Link>
               </div>
