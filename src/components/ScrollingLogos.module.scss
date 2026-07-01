@@ -31,10 +31,6 @@
   }
 }
 
-.scrollingContainer:hover .scrollingTrack {
-  animation-play-state: paused;
-}
-
 @media (max-width: 768px) {
   .logoItem {
     margin: 0 1rem;
