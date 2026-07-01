@@ -52,7 +52,7 @@ export default function Support() {
             <HelpCard
               title="Get Started"
               icon="bi-rocket-takeoff"
-              href="https://docs.prairielearn.com/getStarted/"
+              href="https://docs.prairielearn.com/getting-started/"
             >
               <p className="mb-0">
                 Simple tutorials to get you ready to create your own content.
@@ -117,12 +117,9 @@ export default function Support() {
                 <div className="card-body">
                   <Heading>Schedule a demo</Heading>
                   <p className="card-text">
-                    Want a one-on-one or a group demo? Book a time with us!
+                    Want to know more about PrairieLearn or PrairieTest?
                   </p>
-                  <Link
-                    href="https://calendly.com/marianapl"
-                    className="btn btn-warning btn-lg me-3"
-                  >
+                  <Link href="/demo" className="btn btn-warning btn-lg me-3">
                     Schedule a Demo
                   </Link>
                 </div>
