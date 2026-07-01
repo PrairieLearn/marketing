@@ -1,0 +1,91 @@
+import {
+  BlogMarkdownLayout,
+  BlogImage,
+  BlogQuote,
+  BlogCalloutBox,
+} from "../../../../components/BlogMarkdownLayout";
+
+import cbtfImage from "./cbtf-room.jpg";
+
+export const meta = {
+  title: "Craig Zilles on retakes at scale",
+  date: "2026-07-01T00:00:00-05:00",
+  author: "Matt West",
+  tags: ["CBTF"],
+  summary:
+    "A new podcast episode connects second-chance testing, PrairieLearn, and computer-based testing facilities.",
+};
+
+[Craig Zilles](https://siebelschool.illinois.edu/about/people/faculty/zilles), a professor of computer science at the University of Illinois, recently joined [The Grading Podcast](https://podcasts.apple.com/us/podcast/155-retakes-at-scale-a-key-pillar-of-alt-grading/id1688896329?i=1000774834939) to talk about a problem that comes up quickly whenever instructors consider alternative grading:
+
+How do you make frequent testing and retakes work in large courses?
+
+The episode, ["Retakes at Scale: A Key Pillar of Alt Grading Meets Computer Based Testing Facilities with Craig Zilles"](https://podcasts.apple.com/us/podcast/155-retakes-at-scale-a-key-pillar-of-alt-grading/id1688896329?i=1000774834939), is a useful introduction to the assessment ideas behind PrairieLearn and PrairieTest. Craig traces the path from paper-based second-chance exams to the infrastructure that now supports frequent, secure, asynchronous testing in the University of Illinois Urbana-Champaign Computer-Based Testing Facility.
+
+<BlogCalloutBox title="Listen and read" variant="tip">
+  Listen to the episode on [Apple
+  Podcasts](https://podcasts.apple.com/us/podcast/155-retakes-at-scale-a-key-pillar-of-alt-grading/id1688896329?i=1000774834939),
+  or read the [official
+  transcript](https://transcripts.captivate.fm/transcript/72a13d9c-4159-4721-a003-8bb70af1ea84/index.html).
+</BlogCalloutBox>
+
+<BlogImage
+  src={cbtfImage}
+  alt="Students taking exams in a computer-based testing facility"
+  caption="A computer-based testing facility makes secure, scheduled retakes practical for large courses."
+  full
+/>
+
+## Retakes need more than good intentions
+
+Alternative grading often depends on multiple opportunities for students to demonstrate learning. In a small class, an instructor can sometimes manage that with extra office hours, oral exams, or hand-written replacement tests. In a course with hundreds of students, those same practices can collapse under scheduling, grading, exam security, accommodations, and make-up logistics.
+
+Craig returns to a practical constraint throughout the episode: retakes become sustainable when the surrounding systems reduce the work required to run another secure exam.
+
+PrairieLearn makes assessment content reusable and generative. Instructors can build question generators, deliver different variants to different students, and provide immediate feedback for many kinds of structured answers. Question variants let students retry the same learning objective without receiving the same exam again.
+
+PrairieTest handles exam operations. Students choose reservation times, testing-center staff handle check-in and proctoring, accommodations and overrides are managed centrally, and exams can run asynchronously across a multi-day window.
+
+PrairieLearn and PrairieTest together support a course rhythm that is hard to sustain with paper exams: short exams with fast feedback and scheduled retakes.
+
+## What scale looks like
+
+In the new episode, Craig describes the Illinois CBTF as a mature campus service. The facility began as a pilot in 2014 and now operates across four rooms with 260 computers, open 12 hours a day, seven days a week. Craig reports that in the 2025 fall term, 65 courses used the facility and students took more than 130,000 exams there.
+
+<BlogQuote author="Craig Zilles" source="The Grading Podcast">
+  Students report significantly lower test anxiety when they know that there's
+  going to be a second chance exam offered.
+</BlogQuote>
+
+The scale matters because second-chance testing is easier to dismiss when retakes appear to depend on heroic instructor effort. Generated questions, autograding, student self-scheduling, and secure proctored rooms make retakes a normal part of large-course assessment.
+
+## Accommodations are part of the infrastructure
+
+The podcast focuses on retakes, but accommodations are another reason testing centers matter. Accommodations are often treated as exceptions to normal exam logistics, but a well-run CBTF treats them as routine.
+
+PrairieTest centralizes extended time, per-student overrides, reduced-distraction seats, assistive technology, accessible workstations, and special exam procedures. A centralized testing center can keep accommodated exams in the same scheduling and security workflow as the rest of the course instead of forcing each instructor to arrange separate rooms, proctors, and make-up times.
+
+## What to listen for
+
+The conversation is especially relevant if you are trying to move from traditional high-stakes exams toward more learning-centered assessment. A few themes stand out:
+
+- **Second-chance testing:** Craig explains why retakes should use new questions aligned to the same learning objectives, not repeated copies of the original exam.
+- **Immediate feedback:** PrairieLearn can let students know which auto-graded work was correct before they leave the exam, giving them time to study before a retake window.
+- **Assessment security:** A dedicated testing center gives instructors a controlled environment without requiring invasive remote-proctoring software on student-owned devices.
+- **Student flexibility:** Asynchronous testing windows let students choose exam times that fit their schedules while preserving exam security.
+- **Accommodations:** PrairieTest can manage accommodations and per-student overrides as part of the same exam workflow.
+- **Question authoring:** Generated question variants are the foundation that makes frequent assessment and retakes sustainable over multiple semesters.
+
+PrairieLearn research also covers [retrieval practice, second-chance testing, and computer-based testing centers](/research), including studies on test anxiety, student scheduling preferences, second-chance exam policies, and long-term CBTF operation.
+
+## PrairieLearn and PrairieTest are built for this model
+
+PrairieLearn started as a flexible question platform for rich, auto-graded, mastery-oriented practice and exams. PrairieTest adds the exam-management layer needed for real testing operations: reservations, check-in, proctoring, accommodations, overrides, and multiple delivery formats.
+
+PrairieLearn and PrairieTest let a CBTF support a different assessment model. Instructors can run exams more often, return feedback faster, preserve exam security, and give students more than one chance to show what they have learned.
+
+Read more about [PrairieTest](/products/prairietest), [testing centers](/products/testing-center), and the [research behind PrairieLearn](/research). Then listen to Craig's full conversation on [The Grading Podcast](https://podcasts.apple.com/us/podcast/155-retakes-at-scale-a-key-pillar-of-alt-grading/id1688896329?i=1000774834939).
+
+export default ({ children }) => (
+  <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
+);
