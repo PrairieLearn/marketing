@@ -14,7 +14,9 @@ jobs:
           # `PrairieLearn` is a submodule
           submodules: true
 
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 11
 
       - uses: actions/setup-node@v4
         with:

@@ -2,6 +2,9 @@
   "name": "marketing",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "pnpm": "^11.5.0"
+  },
   "scripts": {
     "build": "next build",
     "dev": "next dev",
@@ -58,6 +61,5 @@
     "prettier": "^3.8.1",
     "sass": "^1.97.3",
     "typescript": "^5.9.3"
-  },
-  "packageManager": "pnpm@11.5.3"
+  }
 }
