@@ -17,7 +17,13 @@ import richball from "../lib/images/rich_question_balltrajectory.png";
 import styles from "./index.module.scss";
 import { Accordion, Carousel, CarouselItem } from "react-bootstrap";
 import { RequestCourseModal } from "../components/RequestCourseModal";
-import { illinois, ubc } from "../lib/images/universities";
+import {
+  berkeley,
+  illinois,
+  michigan,
+  ubc,
+  upenn,
+} from "../lib/images/universities";
 
 const TALKING_POINTS = [
   {
@@ -73,12 +79,17 @@ interface HomeProps {
   seed: number;
 }
 
-// These are shown above the scrolling logos.
-const MAJOR_UNIVERSITY_LOGOS = [
-  { alt: "University of Illinois at Urbana-Champaign", src: illinois },
-  { alt: "University of British Columbia", src: ubc },
-  //   { alt: "University of California, Santa Barbara", src: ucsb },
-  //   { alt: "University of California, San Diego", src: ucsd },
+// These are shown above the scrolling logos, one row per inner array.
+const MAJOR_UNIVERSITY_LOGO_ROWS = [
+  [
+    { alt: "University of Illinois at Urbana-Champaign", src: illinois },
+    { alt: "University of British Columbia", src: ubc },
+  ],
+  [
+    { alt: "University of Michigan", src: michigan },
+    { alt: "University of California, Berkeley", src: berkeley },
+    { alt: "University of Pennsylvania", src: upenn },
+  ],
 ];
 
 const Home: React.FC<HomeProps> = ({ seed }) => {
@@ -191,30 +202,38 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
             </Row>
             <Row>
               <Column>
-                <div className="d-flex flex-sm-row flex-column justify-content-around align-items-center gap-2 flex-wrap my-md-4 my-2">
-                  {MAJOR_UNIVERSITY_LOGOS.map((logo, index) => (
-                    <div
-                      key={index}
-                      className={classnames(
-                        styles["university-logo-container"],
-                        "d-flex",
-                      )}
-                    >
-                      <Image
-                        src={logo.src}
-                        alt={logo.alt}
-                        height={80}
-                        style={{
-                          objectFit: "contain",
-                          maxHeight: "80px",
-                          width: "auto",
-                          maxWidth: "100%",
-                        }}
-                        className="img-fluid"
-                      />
-                    </div>
-                  ))}
-                </div>
+                {MAJOR_UNIVERSITY_LOGO_ROWS.map((row, rowIndex) => (
+                  <div
+                    key={rowIndex}
+                    className={classnames(
+                      "d-flex flex-sm-row flex-column justify-content-around align-items-center gap-2 flex-wrap my-md-4 my-2",
+                      rowIndex > 0 && "pt-md-3 pt-2",
+                    )}
+                  >
+                    {row.map((logo, index) => (
+                      <div
+                        key={index}
+                        className={classnames(
+                          styles["university-logo-container"],
+                          "d-flex",
+                        )}
+                      >
+                        <Image
+                          src={logo.src}
+                          alt={logo.alt}
+                          height={80}
+                          style={{
+                            objectFit: "contain",
+                            maxHeight: "80px",
+                            width: "auto",
+                            maxWidth: "100%",
+                          }}
+                          className="img-fluid"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                ))}
                 <ScrollingLogos />
               </Column>
             </Row>

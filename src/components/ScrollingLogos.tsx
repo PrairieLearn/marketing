@@ -10,15 +10,16 @@ import {
   rice,
   ucdavis,
   uvic,
+  wisconsin,
   york,
 } from "../lib/images/universities";
 
 const UNIVERSITY_LOGOS = [
   // Ordered by (subjectively) most to least well-known
   { alt: "Princeton University", src: princeton },
-  //   { alt: "University of Michigan", src: michigan },
-  { alt: "Rice University", src: rice },
   { alt: "New York University", src: nyu },
+  { alt: "University of Wisconsin–Madison", src: wisconsin },
+  { alt: "Rice University", src: rice },
   { alt: "University of California, Davis", src: ucdavis },
   { alt: "Arizona State University", src: asu },
   { alt: "University of York", src: york },
