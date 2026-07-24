@@ -12,7 +12,9 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
     <React.Fragment>
       <SSRProvider>
         <Header />
-        <Component {...pageProps} />
+        <main>
+          <Component {...pageProps} />
+        </main>
         <Footer />
       </SSRProvider>
     </React.Fragment>

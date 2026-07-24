@@ -215,6 +215,9 @@ export default function Courses() {
               title="Computer Architecture"
               questionHref="https://us.prairielearn.com/pl/public/course/22722/questions"
               courseInstanceHref="https://us.prairielearn.com/pl/public/course_instance/219370/assessments"
+              ownerName="Geoffrey Herman"
+              ownerEmail="glherman@illinois.edu"
+              github="https://github.com/PrairieLearn/pl-oer-oer233"
             />
 
             <SharedQuestionCard

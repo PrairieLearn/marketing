@@ -6,7 +6,6 @@ import {
   gvsu,
   insper,
   nyu,
-  princeton,
   rice,
   ucdavis,
   uvic,
@@ -15,7 +14,6 @@ import {
 
 const UNIVERSITY_LOGOS = [
   // Ordered by (subjectively) most to least well-known
-  { alt: "Princeton University", src: princeton },
   //   { alt: "University of Michigan", src: michigan },
   { alt: "Rice University", src: rice },
   { alt: "New York University", src: nyu },
