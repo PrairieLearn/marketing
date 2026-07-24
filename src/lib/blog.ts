@@ -4,6 +4,7 @@ const BLOG_TAGS = [
   "CBTF",
   "Case Study",
   "Development",
+  "Pedagogy",
   "Release",
   "Technical",
 ] as const;
