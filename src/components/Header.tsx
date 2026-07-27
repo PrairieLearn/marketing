@@ -96,12 +96,26 @@ export const Header: React.FC = () => {
           >
             Free sign up
           </button>
-          <a
-            href="https://us.prairielearn.com/pl/login"
-            className="btn btn-light btn-md me-3"
+          <DropdownButton
+            id="login-dropdown"
+            title="Login"
+            variant="light"
+            align="end"
+            className="d-inline-block me-3"
           >
-            Login
-          </a>
+            <Dropdown.Item
+              href="https://us.prairielearn.com/"
+              aria-label="Log in to PrairieLearn (opens in a new tab)"
+            >
+              PrairieLearn
+            </Dropdown.Item>
+            <Dropdown.Item
+              href="https://us.prairietest.com/"
+              aria-label="Log in to PrairieTest (opens in a new tab)"
+            >
+              PrairieTest
+            </Dropdown.Item>
+          </DropdownButton>
         </div>
       </div>
       <RequestCourseModal
