@@ -105,14 +105,12 @@ export const Header: React.FC = () => {
           >
             <Dropdown.Item
               href="https://us.prairielearn.com/"
-              target="_blank"
               aria-label="Log in to PrairieLearn (opens in a new tab)"
             >
               PrairieLearn
             </Dropdown.Item>
             <Dropdown.Item
               href="https://us.prairietest.com/"
-              target="_blank"
               aria-label="Log in to PrairieTest (opens in a new tab)"
             >
               PrairieTest
