@@ -44,6 +44,14 @@ const FEATURES = [
     support: [true, true, true, true],
   },
   {
+    name: "QTI (Canvas) question converter",
+    support: [true, true, true, true],
+  },
+  {
+    name: "Manual grading",
+    support: [true, true, true, true],
+  },
+  {
     name: "Code autograding",
     support: [true, false, true, true],
   },
@@ -57,6 +65,14 @@ const FEATURES = [
   },
   {
     name: "Single sign-on (SSO)",
+    support: [false, true, true, true],
+  },
+  {
+    name: "AI grader",
+    support: [false, true, true, true],
+  },
+  {
+    name: "AI question generation",
     support: [false, true, true, true],
   },
   {
@@ -216,18 +232,21 @@ export default function Pricing() {
       </Head>
       <PageBanner title="Pricing">
         <div className="alert alert-primary mb-0">
-          <p>
+          <p className="mb-0">
             <strong>Free for one term!</strong> PrairieLearn is always free for
             up to 20 students, and courses with more than that can take
             advantage of the full PrairieLearn platform for one term.
           </p>
-          <Link href="/contact" className="btn btn-primary btn-sm">
-            Request a trial
-          </Link>
         </div>
       </PageBanner>
       <div className="container my-5">
         <Stack>
+          <h2 className="mb-0">PrairieLearn pricing</h2>
+          <p className="text-muted mb-0">
+            All PrairieLearn plans include access to{" "}
+            <Link href="/products/prairietest">PrairieTest</Link> for running
+            computer-based exams.
+          </p>
           <div className="container">
             <Row>
               <Col xs={12} md={6} className="mb-3">
@@ -364,6 +383,54 @@ export default function Pricing() {
             </table>
           </div>
         </Stack>
+        <h2 className="mt-5 mb-3">PrairieTest pricing</h2>
+        <p>
+          This pricing applies to testing centers or courses using{" "}
+          <Link href="/products/prairietest">PrairieTest</Link> without a
+          PrairieLearn subscription&mdash;for example, facilities that
+          administer exams from multiple platforms or paper-and-pencil exams
+          alongside PrairieLearn exams. Pricing is based on annual
+          non-PrairieLearn exam reservations.
+        </p>
+        <div className="table-responsive">
+          <table className="table table-striped">
+            <thead>
+              <tr>
+                <th>Tier</th>
+                <th>Annual Fee</th>
+                <th>Included Reservations</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Starter</td>
+                <td>$3k</td>
+                <td>20k</td>
+              </tr>
+              <tr>
+                <td>Small</td>
+                <td>$5k</td>
+                <td>50k</td>
+              </tr>
+              <tr>
+                <td>Medium</td>
+                <td>$7k</td>
+                <td>100k</td>
+              </tr>
+              <tr>
+                <td>Large</td>
+                <td>$10k</td>
+                <td>200k</td>
+              </tr>
+              <tr>
+                <td>Enterprise</td>
+                <td>$15k</td>
+                <td>no limit</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
         <h2 className="mt-4 mb-3">Frequently asked questions</h2>
         <Accordion alwaysOpen>
           {FAQS.map((faq, i) => (
