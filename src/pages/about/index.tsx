@@ -204,7 +204,7 @@ export default function About() {
               <PeopleCard
                 image={jamieImage}
                 name="Jamie Su"
-                title="Learning Content Engineer"
+                title="Learning Engineer"
               />
             </div>
           </Stack>
