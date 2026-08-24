@@ -14,7 +14,7 @@ import craigImage from "../../lib/images/team/zilles.jpeg";
 import daveImage from "../../lib/images/team/dave.png";
 import eduardoImage from "../../lib/images/team/eduardo.jpeg";
 import jamieImage from "../../lib/images/team/jamie.jpg";
-import mariImage from "../../lib/images/team/mariana_silva.png";
+import marianaImage from "../../lib/images/team/mariana_silva.png";
 import mattImage from "../../lib/images/team/matthew_west.jpeg";
 import miguelImage from "../../lib/images/team/miguel.jpg";
 import nathanImage from "../../lib/images/team/nathan.jpeg";
@@ -159,7 +159,7 @@ export default function About() {
             {/* Leadership first */}
             <div className={styles.grid}>
               <PeopleCard
-                image={mariImage}
+                image={marianaImage}
                 name="Mariana Silva"
                 title="Co-founder, CEO"
               />
