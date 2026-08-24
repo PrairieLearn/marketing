@@ -8,13 +8,16 @@ import { Heading } from "../../components/Heading";
 import Stack from "../../components/Stack";
 
 import styles from "./index.module.scss";
-import mattImage from "../../lib/images/team/matthew_west.jpeg";
-import mariImage from "../../lib/images/team/mariana_silva.png";
-import craigImage from "../../lib/images/team/zilles.jpeg";
-import nathanImage from "../../lib/images/team/nathan.jpeg";
-import daveImage from "../../lib/images/team/dave.png";
+
 import austinImage from "../../lib/images/team/austin.jpg";
+import craigImage from "../../lib/images/team/zilles.jpeg";
+import daveImage from "../../lib/images/team/dave.png";
 import eduardoImage from "../../lib/images/team/eduardo.jpeg";
+import jamieImage from "../../lib/images/team/jamie.jpg";
+import marianaImage from "../../lib/images/team/mariana_silva.png";
+import mattImage from "../../lib/images/team/matthew_west.jpeg";
+import miguelImage from "../../lib/images/team/miguel.jpg";
+import nathanImage from "../../lib/images/team/nathan.jpeg";
 import serenaImage from "../../lib/images/team/serena.jpg";
 
 interface PeopleCardProps {
@@ -153,7 +156,13 @@ export default function About() {
           <Stack spacing={4}>
             <Heading>Our Team</Heading>
 
+            {/* Leadership first */}
             <div className={styles.grid}>
+              <PeopleCard
+                image={marianaImage}
+                name="Mariana Silva"
+                title="Co-founder, CEO"
+              />
               <PeopleCard
                 image={mattImage}
                 name="Matthew West"
@@ -165,11 +174,6 @@ export default function About() {
                 title="Co-founder, CTO"
               />
               <PeopleCard
-                image={mariImage}
-                name="Mariana Silva"
-                title="Co-founder, CEO"
-              />
-              <PeopleCard
                 image={craigImage}
                 name="Craig Zilles"
                 title="VP of University Relations"
@@ -179,6 +183,8 @@ export default function About() {
                 name="David Mussulman"
                 title="VP of Faculty Support"
               />
+
+              {/* Employees in alphabetical order */}
               <PeopleCard
                 image={austinImage}
                 name="Austin Billings"
@@ -187,6 +193,16 @@ export default function About() {
               <PeopleCard
                 image={eduardoImage}
                 name="Eduardo Vaz"
+                title="Software Engineer"
+              />
+              <PeopleCard
+                image={jamieImage}
+                name="Jamie Su"
+                title="Learning Engineer"
+              />
+              <PeopleCard
+                image={miguelImage}
+                name="Miguel Aenlle"
                 title="Software Engineer"
               />
               <PeopleCard
