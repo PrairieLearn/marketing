@@ -29,7 +29,7 @@ export default function Demo() {
                 <Link href="/">Learn more about PrairieLearn &rarr;</Link>
               </p>
               <Link
-                href="https://calendly.com/serena-prairielearn/prairielearn-demo"
+                href="https://calendly.com/serena-prairielearn/prairielearn-demo-1-1"
                 className="btn btn-warning btn-lg"
               >
                 Schedule a PrairieLearn Demo
