@@ -39,11 +39,6 @@ const FEATURES = [
     support: [true, true, true, true],
   },
   {
-    name: "PrairieTest",
-    contents: <Link href="/products/prairietest">PrairieTest</Link>,
-    support: [true, true, true, true],
-  },
-  {
     name: "QTI (Canvas) question converter",
     support: [true, true, true, true],
   },
@@ -58,6 +53,11 @@ const FEATURES = [
   {
     name: "Workspaces",
     support: [true, false, true, true],
+  },
+  {
+    name: "PrairieTest",
+    contents: <Link href="/products/prairietest">PrairieTest</Link>,
+    support: [false, true, true, true],
   },
   {
     name: "LMS integration",
@@ -242,11 +242,6 @@ export default function Pricing() {
       <div className="container my-5">
         <Stack>
           <h2 className="mb-0">PrairieLearn pricing</h2>
-          <p className="text-muted mb-0">
-            All PrairieLearn plans include access to{" "}
-            <Link href="/products/prairietest">PrairieTest</Link> for running
-            computer-based exams.
-          </p>
           <div className="container">
             <Row>
               <Col xs={12} md={6} className="mb-3">
@@ -385,6 +380,9 @@ export default function Pricing() {
         </Stack>
         <h2 className="mt-5 mb-3">PrairieTest pricing</h2>
         <p>
+          <strong>
+            PrairieTest is included for free with paid PrairieLearn use.
+          </strong>{" "}
           This pricing applies to testing centers or courses using{" "}
           <Link href="/products/prairietest">PrairieTest</Link> without a
           PrairieLearn subscription&mdash;for example, facilities that
