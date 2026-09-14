@@ -36,7 +36,6 @@ const PeopleCard: React.FC<PeopleCardProps> = ({ image, name, title }) => {
           src={image}
           alt={title}
           fill
-          sizes="(max-width: 767px) 50vw, 25vw"
           style={{
             objectFit: "cover",
           }}
