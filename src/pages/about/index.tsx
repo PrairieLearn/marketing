@@ -14,6 +14,8 @@ import craigImage from "../../lib/images/team/zilles.jpeg";
 import daveImage from "../../lib/images/team/dave.png";
 import eduardoImage from "../../lib/images/team/eduardo.jpeg";
 import jamieImage from "../../lib/images/team/jamie.jpg";
+import karinaImage from "../../lib/images/team/karina.jpg";
+import luiseImage from "../../lib/images/team/luise.jpg";
 import marianaImage from "../../lib/images/team/mariana_silva.png";
 import mattImage from "../../lib/images/team/matthew_west.jpeg";
 import miguelImage from "../../lib/images/team/miguel.jpg";
@@ -33,10 +35,9 @@ const PeopleCard: React.FC<PeopleCardProps> = ({ image, name, title }) => {
         <Image
           src={image}
           alt={title}
+          fill
           style={{
-            objectFit: "contain",
-            width: "100%",
-            height: "auto",
+            objectFit: "cover",
           }}
         />
       </div>
@@ -199,6 +200,16 @@ export default function About() {
                 image={jamieImage}
                 name="Jamie Su"
                 title="Learning Engineer"
+              />
+              <PeopleCard
+                image={karinaImage}
+                name="Karina Mochetti"
+                title="Head of Learning Content"
+              />
+              <PeopleCard
+                image={luiseImage}
+                name="Luise Bastos"
+                title="Software Engineer"
               />
               <PeopleCard
                 image={miguelImage}
