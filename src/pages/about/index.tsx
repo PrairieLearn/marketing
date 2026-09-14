@@ -204,12 +204,12 @@ export default function About() {
               />
               <PeopleCard
                 image={karinaImage}
-                name="Karina"
+                name="Karina Mochetti"
                 title="Head of Learning Content"
               />
               <PeopleCard
                 image={luiseImage}
-                name="Luise"
+                name="Luise Bastos"
                 title="Software Engineer"
               />
               <PeopleCard
