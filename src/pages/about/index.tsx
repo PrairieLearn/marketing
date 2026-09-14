@@ -19,6 +19,8 @@ import mattImage from "../../lib/images/team/matthew_west.jpeg";
 import miguelImage from "../../lib/images/team/miguel.jpg";
 import nathanImage from "../../lib/images/team/nathan.jpeg";
 import serenaImage from "../../lib/images/team/serena.jpg";
+import luiseImage from "../../lib/images/team/luise.jpg";
+import karinaImage from "../../lib/images/team/karina.jpg";
 
 interface PeopleCardProps {
   image: ImageProps["src"];
@@ -199,6 +201,16 @@ export default function About() {
                 image={jamieImage}
                 name="Jamie Su"
                 title="Learning Engineer"
+              />
+              <PeopleCard
+                image={karinaImage}
+                name="Karina Mochetti"
+                title="Learning Engineer"
+              />
+              <PeopleCard
+                image={luiseImage}
+                name="Luise Bastos"
+                title="Software Engineer"
               />
               <PeopleCard
                 image={miguelImage}
