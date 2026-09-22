@@ -1,0 +1,67 @@
+import {
+  BlogMarkdownLayout,
+  BlogImage,
+} from "../../../../components/BlogMarkdownLayout";
+
+export const meta = {
+  title: "You've got mail",
+  date: "2026-09-22T00:00:00-06:00",
+  author: "Eduardo Vaz",
+  tags: ["Release"],
+};
+
+Emails are coming to PrairieTest! Students will start receiving notifications about
+their reservations and upcoming exams, giving them a little less to remember
+and a little more room for what they’re studying.
+
+This has been one of our most requested quality-of-life improvements, and
+we’re excited to say that it will start being rolled out gradually to our partner institutions.
+
+## A little less to remember
+
+PrairieTest emails will track the whole exam life-cycle, helping students keep track of
+what's next.
+
+- **Ready to reserve:** when an exam becomes available for self-reservation:
+
+(image of email goes here)
+
+- **You're booked:** A confirmation when a reservations are made, with the exam’s time and place: 
+
+(image of email goes here)
+
+- **Coming up soon:** A reminder before the scheduled exam:
+
+(image of email goes here)
+
+## A change of plans
+
+Students will also receive notifications when their reservations are changed or canceled.
+
+If course or center staff moves a reservation to a different time or location, the email shows both the previous and 
+updated details, so students can see exactly what changed.
+
+(image of email goes here)
+
+## Your inbox, your choice
+
+Users can manage their notification configuration in the new **Email settings** section of their account settings:
+
+(image of settings page goes here)
+
+The notification address defaults to the account's institution email, but users can also verify a different address.
+
+Notifications can also be turned off for most emails, except reservation changes made by course or center staff.
+
+## See you in your inbox
+
+Emails in PrairieTest are going to be slowly enabled, so keep an eye-out! Once the feature is available 
+at your institution, visit your account settings to check where your notifications will arrive and choose your preferences.
+
+We’re excited to hear how this helps students, instructors, and testing centers keep track of exam plans. Let us know what you think!
+
+We’ll help you remember the reservation. Studying is still up to you!
+
+export default ({ children }) => (
+  <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
+);
