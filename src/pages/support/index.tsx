@@ -48,6 +48,10 @@ export default function Support() {
 
       <div className={classnames("container-fluid py-5", styles.container)}>
         <div className="container-md">
+          <p className="mb-4">
+            For Slack community access and weekly office hours, course staff can
+            log in to PrairieLearn and select <strong>Get help</strong>.
+          </p>
           <div className={styles.grid}>
             <HelpCard
               title="Get Started"
@@ -76,11 +80,6 @@ export default function Support() {
                 Get more detailed information from our documentation.
               </p>
             </HelpCard>
-            <HelpCard title="Slack Community" icon="bi-slack" href="/slack">
-              <p className="mb-0">
-                Get help in real-time in this community of thousands of users.
-              </p>
-            </HelpCard>
             <HelpCard
               title="GitHub Discussions"
               icon="bi-github"
@@ -88,15 +87,6 @@ export default function Support() {
             >
               <p className="mb-0">
                 Ask questions and get answers in our discussion forum.
-              </p>
-            </HelpCard>
-            <HelpCard
-              title="Virtual Meetings"
-              icon="bi-camera-video"
-              href="/support/virtual-meetings"
-            >
-              <p className="mb-0">
-                Weekly office hours and workshops via Zoom meetings.
               </p>
             </HelpCard>
           </div>
