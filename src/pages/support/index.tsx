@@ -47,10 +47,6 @@ export default function Support() {
 
       <div id="contact" className="container-fluid py-5">
         <div className="container-md">
-          <p className="mb-4">
-            For Slack community access and weekly office hours, course staff can
-            log in to PrairieLearn and select <strong>Get help</strong>.
-          </p>
           <div className={styles.grid}>
             <div className={classnames("card", styles.contact)}>
               <div className="card-body p-4 d-flex flex-column">
@@ -100,6 +96,12 @@ export default function Support() {
                 </button>
               </div>
             </div>
+          </div>
+          <p className="my-4">
+            For Slack community access and weekly office hours, course staff can
+            log in to PrairieLearn and select <strong>Get help</strong>.
+          </p>
+          <div className={styles.grid}>
             <HelpCard
               title="Get Started"
               icon="bi-rocket-takeoff"
