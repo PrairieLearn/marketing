@@ -89,7 +89,7 @@ const FAQS = [
         Yes! PrairieLearn is always free for instructors, and the full platform
         is always free for courses with up to 20 students in each term, with no
         limit on the number of terms. If you have more than that,{" "}
-        <Link href="/contact">contact us</Link> to arrange a free trial for one
+        <Link href="/support">contact us</Link> to arrange a free trial for one
         term.
       </p>
     ),
@@ -146,7 +146,7 @@ const FAQS = [
 function ContactUsButton({ className }: { className?: string }) {
   return (
     <Link
-      href="/contact"
+      href="/support"
       className={classnames("btn btn-primary btn-sm", className)}
     >
       Contact us

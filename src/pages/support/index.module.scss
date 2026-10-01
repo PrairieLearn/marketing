@@ -1,16 +1,28 @@
 @import "~bootstrap/scss/_functions.scss";
 @import "~bootstrap/scss/_variables.scss";
 
-.grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 1rem;
-
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.contact {
+  height: 100%;
+  border-color: $blue-100;
+  background: linear-gradient(135deg, $blue-100, $white 75%);
 }
 
-.container {
-  background-color: $gray-200;
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+
+    > * {
+      grid-column: span 3;
+    }
+  }
+
+  .contact {
+    grid-row: span 2;
+  }
 }

@@ -3,7 +3,6 @@ import React from "react";
 import Link from "next/link";
 import classnames from "classnames";
 import { Heading } from "../../components/Heading";
-import { ContactUsForm } from "../../components/ContactUsForm";
 import styles from "./index.module.scss";
 import { RequestCourseModal } from "../../components/RequestCourseModal";
 
@@ -43,23 +42,71 @@ export default function Support() {
 
       <PageBanner
         title="How can we help?"
-        subtitle="Discover solutions through our documentation, community, and more"
+        subtitle="Find answers, get in touch, or schedule a demo"
       />
 
-      <div className={classnames("container-fluid py-5", styles.container)}>
+      <div id="contact" className="container-fluid py-5">
         <div className="container-md">
           <p className="mb-4">
             For Slack community access and weekly office hours, course staff can
             log in to PrairieLearn and select <strong>Get help</strong>.
           </p>
           <div className={styles.grid}>
+            <div className={classnames("card", styles.contact)}>
+              <div className="card-body p-4 d-flex flex-column">
+                <Heading>Contact us</Heading>
+                <p className="card-text">
+                  Have a question about pricing, getting started, or using
+                  PrairieLearn or PrairieTest? Our team is here to help.
+                </p>
+                <a
+                  href="mailto:support@prairielearn.com"
+                  className="btn btn-primary btn-lg d-inline-flex align-items-center align-self-start gap-2 mt-auto"
+                >
+                  Email support
+                  <i className="bi bi-arrow-right" aria-hidden="true" />
+                </a>
+                <a
+                  href="mailto:support@prairielearn.com"
+                  className="d-block mt-3 align-self-start"
+                >
+                  support@prairielearn.com
+                </a>
+              </div>
+            </div>
+
+            <div className="card">
+              <div className="card-body p-4">
+                <Heading>Schedule a demo</Heading>
+                <p className="card-text">
+                  Want to know more about PrairieLearn or PrairieTest?
+                </p>
+                <Link href="/demo" className="btn btn-warning btn-lg">
+                  Schedule a demo
+                </Link>
+              </div>
+            </div>
+            <div className="card">
+              <div className="card-body p-4">
+                <Heading>Request a course</Heading>
+                <p className="card-text">
+                  Ready to start creating your own course?
+                </p>
+                <button
+                  className="btn btn-warning btn-lg"
+                  onClick={() => setShowRequestCourseModal(true)}
+                >
+                  Start now for free!
+                </button>
+              </div>
+            </div>
             <HelpCard
               title="Get Started"
               icon="bi-rocket-takeoff"
               href="https://docs.prairielearn.com/getting-started/"
             >
               <p className="mb-0">
-                Simple tutorials to get you ready to create your own content.
+                Learn the basics of creating course content.
               </p>
             </HelpCard>
             <HelpCard
@@ -67,85 +114,26 @@ export default function Support() {
               icon="bi-mortarboard"
               href="https://us.prairielearn.com/pl/course_instance/4970"
             >
-              <p className="mb-0">
-                Browse through examples that you can use as a template.
-              </p>
+              <p className="mb-0">Browse examples to adapt for your course.</p>
             </HelpCard>
             <HelpCard
               title="Documentation"
               icon="bi-book"
               href="https://docs.prairielearn.com"
             >
-              <p className="mb-0">
-                Get more detailed information from our documentation.
-              </p>
+              <p className="mb-0">Explore guides and reference material.</p>
             </HelpCard>
             <HelpCard
               title="GitHub Discussions"
               icon="bi-github"
               href="https://github.com/PrairieLearn/PrairieLearn/discussions"
             >
-              <p className="mb-0">
-                Ask questions and get answers in our discussion forum.
-              </p>
+              <p className="mb-0">Ask questions and share ideas.</p>
             </HelpCard>
           </div>
         </div>
       </div>
 
-      <div className="container-fluid ">
-        <div className="container-md">
-          <div className="row">
-            <div className="col-md-6 mb-5 mt-5 order-1">
-              <Heading>Contact Us</Heading>
-              <p>Need help with something else? Let us know!</p>
-              <ContactUsForm showHeader={false} />
-            </div>
-
-            <div className="col-md-6 order-2 my-auto">
-              <div className="card mt-5">
-                <div className="card-body">
-                  <Heading>Schedule a demo</Heading>
-                  <p className="card-text">
-                    Want to know more about PrairieLearn or PrairieTest?
-                  </p>
-                  <Link href="/demo" className="btn btn-warning btn-lg me-3">
-                    Schedule a Demo
-                  </Link>
-                </div>
-              </div>
-              <div className="card mb-5 mt-5">
-                <div className="card-body">
-                  <Heading>Request a course</Heading>
-                  <p className="card-text">
-                    Ready to start creating your own course?
-                  </p>
-                  <button
-                    className="btn btn-warning btn-lg me-3"
-                    onClick={() => setShowRequestCourseModal(true)}
-                  >
-                    Start now for free!
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="container py-3">
-        <div>
-          <Heading>Email</Heading>
-          <p>
-            If you&apos;re having an emergency or need additional support, reach
-            out via email at{" "}
-            <a href="mailto:support@prairielearn.com">
-              support@prairielearn.com
-            </a>
-            .
-          </p>
-        </div>
-      </div>
       <RequestCourseModal
         show={showRequestCourseModal}
         onHide={() => setShowRequestCourseModal(false)}
