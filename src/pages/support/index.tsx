@@ -3,7 +3,7 @@ import React from "react";
 import Link from "next/link";
 import classnames from "classnames";
 import { Heading } from "../../components/Heading";
-import { ContactUsForm } from "../../components/ContactUsForm";
+import { EmailContact } from "../../components/EmailContact";
 import styles from "./index.module.scss";
 import { RequestCourseModal } from "../../components/RequestCourseModal";
 
@@ -43,7 +43,7 @@ export default function Support() {
 
       <PageBanner
         title="How can we help?"
-        subtitle="Discover solutions through our documentation, community, and more"
+        subtitle="Find answers, get in touch, or schedule a demo"
       />
 
       <div className={classnames("container-fluid py-5", styles.container)}>
@@ -103,35 +103,33 @@ export default function Support() {
         </div>
       </div>
 
-      <div className="container-fluid ">
+      <div id="contact" className="container-fluid py-5">
         <div className="container-md">
-          <div className="row">
-            <div className="col-md-6 mb-5 mt-5 order-1">
-              <Heading>Contact Us</Heading>
-              <p>Need help with something else? Let us know!</p>
-              <ContactUsForm showHeader={false} />
+          <div className="row g-4">
+            <div className="col-md-6">
+              <EmailContact />
             </div>
 
-            <div className="col-md-6 order-2 my-auto">
-              <div className="card mt-5">
-                <div className="card-body">
+            <div className="col-md-6 d-flex flex-column gap-4">
+              <div className="card flex-fill">
+                <div className="card-body p-4">
                   <Heading>Schedule a demo</Heading>
                   <p className="card-text">
                     Want to know more about PrairieLearn or PrairieTest?
                   </p>
-                  <Link href="/demo" className="btn btn-warning btn-lg me-3">
-                    Schedule a Demo
+                  <Link href="/demo" className="btn btn-warning btn-lg">
+                    Schedule a demo
                   </Link>
                 </div>
               </div>
-              <div className="card mb-5 mt-5">
-                <div className="card-body">
+              <div className="card flex-fill">
+                <div className="card-body p-4">
                   <Heading>Request a course</Heading>
                   <p className="card-text">
                     Ready to start creating your own course?
                   </p>
                   <button
-                    className="btn btn-warning btn-lg me-3"
+                    className="btn btn-warning btn-lg"
                     onClick={() => setShowRequestCourseModal(true)}
                   >
                     Start now for free!
@@ -143,19 +141,6 @@ export default function Support() {
         </div>
       </div>
 
-      <div className="container py-3">
-        <div>
-          <Heading>Email</Heading>
-          <p>
-            If you&apos;re having an emergency or need additional support, reach
-            out via email at{" "}
-            <a href="mailto:support@prairielearn.com">
-              support@prairielearn.com
-            </a>
-            .
-          </p>
-        </div>
-      </div>
       <RequestCourseModal
         show={showRequestCourseModal}
         onHide={() => setShowRequestCourseModal(false)}
