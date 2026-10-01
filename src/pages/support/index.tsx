@@ -18,7 +18,7 @@ interface HelpCardProps {
 
 const HelpCard: React.FC<HelpCardProps> = ({ icon, title, href, children }) => {
   return (
-    <article className="card">
+    <article className={classnames("card", styles.resource)}>
       <div className="card-body">
         <Link href={href}>
           <h2 className="card-title h5 d-flex align-items-center">
@@ -46,9 +46,38 @@ export default function Support() {
         subtitle="Find answers, get in touch, or schedule a demo"
       />
 
-      <div className={classnames("container-fluid py-5", styles.container)}>
+      <div id="contact" className="container-fluid py-5">
         <div className="container-md">
           <div className={styles.grid}>
+            <div className={styles.contact}>
+              <EmailContact />
+            </div>
+
+            <div className="card">
+              <div className="card-body p-4">
+                <Heading>Schedule a demo</Heading>
+                <p className="card-text">
+                  Want to know more about PrairieLearn or PrairieTest?
+                </p>
+                <Link href="/demo" className="btn btn-warning btn-lg">
+                  Schedule a demo
+                </Link>
+              </div>
+            </div>
+            <div className="card">
+              <div className="card-body p-4">
+                <Heading>Request a course</Heading>
+                <p className="card-text">
+                  Ready to start creating your own course?
+                </p>
+                <button
+                  className="btn btn-warning btn-lg"
+                  onClick={() => setShowRequestCourseModal(true)}
+                >
+                  Start now for free!
+                </button>
+              </div>
+            </div>
             <HelpCard
               title="Get Started"
               icon="bi-rocket-takeoff"
@@ -99,44 +128,6 @@ export default function Support() {
                 Weekly office hours and workshops via Zoom meetings.
               </p>
             </HelpCard>
-          </div>
-        </div>
-      </div>
-
-      <div id="contact" className="container-fluid py-5">
-        <div className="container-md">
-          <div className="row g-4">
-            <div className="col-md-6">
-              <EmailContact />
-            </div>
-
-            <div className="col-md-6 d-flex flex-column gap-4">
-              <div className="card flex-fill">
-                <div className="card-body p-4">
-                  <Heading>Schedule a demo</Heading>
-                  <p className="card-text">
-                    Want to know more about PrairieLearn or PrairieTest?
-                  </p>
-                  <Link href="/demo" className="btn btn-warning btn-lg">
-                    Schedule a demo
-                  </Link>
-                </div>
-              </div>
-              <div className="card flex-fill">
-                <div className="card-body p-4">
-                  <Heading>Request a course</Heading>
-                  <p className="card-text">
-                    Ready to start creating your own course?
-                  </p>
-                  <button
-                    className="btn btn-warning btn-lg"
-                    onClick={() => setShowRequestCourseModal(true)}
-                  >
-                    Start now for free!
-                  </button>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
