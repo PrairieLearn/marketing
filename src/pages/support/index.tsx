@@ -17,7 +17,7 @@ interface HelpCardProps {
 
 const HelpCard: React.FC<HelpCardProps> = ({ icon, title, href, children }) => {
   return (
-    <article className={classnames("card", styles.resource)}>
+    <article className="card">
       <div className="card-body">
         <Link href={href}>
           <h2 className="card-title h5 d-flex align-items-center">
@@ -96,13 +96,19 @@ export default function Support() {
                 </button>
               </div>
             </div>
+          </div>
+          <p className="my-4">
+            For Slack community access and weekly office hours, course staff can
+            log in to PrairieLearn and select <strong>Get help</strong>.
+          </p>
+          <div className={styles.grid}>
             <HelpCard
               title="Get Started"
               icon="bi-rocket-takeoff"
               href="https://docs.prairielearn.com/getting-started/"
             >
               <p className="mb-0">
-                Simple tutorials to get you ready to create your own content.
+                Learn the basics of creating course content.
               </p>
             </HelpCard>
             <HelpCard
@@ -110,41 +116,21 @@ export default function Support() {
               icon="bi-mortarboard"
               href="https://us.prairielearn.com/pl/course_instance/4970"
             >
-              <p className="mb-0">
-                Browse through examples that you can use as a template.
-              </p>
+              <p className="mb-0">Browse examples to adapt for your course.</p>
             </HelpCard>
             <HelpCard
               title="Documentation"
               icon="bi-book"
               href="https://docs.prairielearn.com"
             >
-              <p className="mb-0">
-                Get more detailed information from our documentation.
-              </p>
-            </HelpCard>
-            <HelpCard title="Slack Community" icon="bi-slack" href="/slack">
-              <p className="mb-0">
-                Get help in real-time in this community of thousands of users.
-              </p>
+              <p className="mb-0">Explore guides and reference material.</p>
             </HelpCard>
             <HelpCard
               title="GitHub Discussions"
               icon="bi-github"
               href="https://github.com/PrairieLearn/PrairieLearn/discussions"
             >
-              <p className="mb-0">
-                Ask questions and get answers in our discussion forum.
-              </p>
-            </HelpCard>
-            <HelpCard
-              title="Virtual Meetings"
-              icon="bi-camera-video"
-              href="/support/virtual-meetings"
-            >
-              <p className="mb-0">
-                Weekly office hours and workshops via Zoom meetings.
-              </p>
+              <p className="mb-0">Ask questions and share ideas.</p>
             </HelpCard>
           </div>
         </div>

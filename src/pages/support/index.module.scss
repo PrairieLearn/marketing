@@ -26,9 +26,3 @@
     grid-row: span 2;
   }
 }
-
-@media (min-width: 992px) {
-  .grid > .resource {
-    grid-column: span 2;
-  }
-}

@@ -36,6 +36,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/support/virtual-meetings",
+        destination: "/support",
+        permanent: true,
+      },
+      {
         source: "/oer",
         destination: "/catalog/oer",
         permanent: true,
