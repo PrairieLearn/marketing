@@ -1,3 +1,12 @@
+@import "~bootstrap/scss/_functions.scss";
+@import "~bootstrap/scss/_variables.scss";
+
+.contact {
+  height: 100%;
+  border-color: $blue-100;
+  background: linear-gradient(135deg, $blue-100, $white 75%);
+}
+
 .grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);

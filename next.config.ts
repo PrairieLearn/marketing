@@ -26,7 +26,8 @@ const nextConfig: NextConfig = {
       {
         source: "/contact",
         destination: "/support",
-        permanent: true,
+        // Keep this temporary so /contact can be restored without cached redirects.
+        permanent: false,
       },
       {
         source: "/slack",
