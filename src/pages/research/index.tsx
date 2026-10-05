@@ -528,6 +528,12 @@ const Papers = [
         />
 
         <ResearchCard
+          title="Strategies for deploying unreliable AI graders in high-transparency high-stakes exams"
+          reference="S. Azad, B. Chen, M. Fowler, M. West, and C. Zilles. AIED 2020."
+          referenceHref="https://doi.org/10.1007/978-3-030-52237-7_2"
+        />
+
+        <ResearchCard
           title="A validated scoring rubric for Explain-in-Plain-English questions"
           reference="B. Chen, S. Azad, R. Haldar, M. West, and C. Zilles. SIGCSE 2020."
           referenceHref="https://dl.acm.org/doi/abs/10.1145/3328778.3366879"
