@@ -1,0 +1,178 @@
+import {
+  BlogMarkdownLayout,
+  BlogCalloutBox,
+  BlogQuote,
+} from "../../../../components/BlogMarkdownLayout";
+
+export const meta = {
+  title: "Should exams give immediate feedback?",
+  date: "2026-10-05T12:00:00-05:00",
+  author: "Matt West",
+  tags: ["CBTF", "Pedagogy"],
+  summary:
+    "What answer-until-correct research tells us about feedback, partial credit, anxiety, and secure computer-based exams.",
+};
+
+A colleague asked me recently: when students take an exam in PrairieLearn, should they find out right away whether each answer is correct?
+
+My answer is usually yes. For most auto-graded questions, I would let students see whether their answer is correct and give them another attempt for reduced credit.
+
+This is not because immediate feedback is always better. It is because feedback, when students have a chance to use it, can make an exam a better measure of what they know.
+
+Think about a student who makes a sign error halfway through a numerical problem. Or a student whose program has an off-by-one error. If we grade only the final answer, that small mistake may hide quite a bit of understanding. If we tell the student that something is wrong and let them try again, we learn more about what they can actually do.
+
+Of course, the details matter. There is a big difference between saying “incorrect” and revealing the entire solution. There is also a difference between giving students a thoughtful second attempt and letting them query an autograder until something passes.
+
+So this is not a simple yes or no question.
+
+<BlogCalloutBox title="The short version" variant="tip">
+  For most PrairieLearn exams, keep real-time grading on and allow a few
+  attempts for decreasing credit. Give students enough feedback to correct a
+  mistake, but not enough to reveal the solution. For asynchronous exams, pair
+  this with meaningful randomization and careful control over what students can
+  see afterward.
+</BlogCalloutBox>
+
+## First, what do we mean by feedback?
+
+“Feedback” can mean several different things:
+
+- Telling a student whether an answer is correct
+- Showing the correct answer
+- Giving a hint or explanation
+- Letting the student try again
+- Awarding partial credit based on the number of attempts
+- Showing the student their current score
+
+These choices are often lumped together, but they are not the same. The format I find most interesting is usually called **answer until correct**. A student submits an answer and learns whether it is correct. If it is not, the student can think about the problem and try again for reduced credit. The student is not simply being shown the answer. They are getting another opportunity to demonstrate what they know.
+
+## Does this just inflate grades?
+
+Answer-until-correct exams do tend to produce higher scores. That is not surprising. The more important question is whether those additional points tell us anything useful.
+
+In a first-year chemistry study, answer-until-correct scores were about 6 to 7 percentage points higher than scores on conventional Scantron exams. However, the increase was not well explained by random guessing. Students who performed well overall were also more likely to recover after an initial mistake ([Slepkov et al., 2016](https://doi.org/10.1021/acs.jchemed.6b00028)).
+
+An analysis of 26 answer-until-correct exams found that the additional attempts improved item discrimination and the reliability of the exam score. Those attempts added useful information about what students knew, rather than simply adding noise ([Slepkov and Godfrey, 2019](https://doi.org/10.1080/08957347.2019.1577249)).
+
+A meta-analysis of 35 studies also found a moderate overall benefit compared with conventional multiple-choice testing, although the effects varied by subject and were smaller in mathematics and science ([Chang and Li, 2019](https://files.eric.ed.gov/fulltext/EJ1215440.pdf)).
+
+Most of this research comes from multiple-choice exams, often using scratch-off cards. It is useful evidence, but we should be cautious about assuming that every result will transfer directly to a multi-step engineering problem or a programming exam.
+
+## Does immediate feedback help students learn?
+
+Feedback generally helps students correct errors and remember correct answers. But studies do not consistently find that immediate feedback produces better long-term learning than delayed feedback.
+
+Some controlled studies have found better retention with delayed feedback ([Butler et al., 2007](https://doi.org/10.1037/1076-898X.13.4.273)). A larger study across 38 college classes found essentially no overall difference between immediate and delayed feedback ([Fyfe et al., 2021](https://doi.org/10.1177/25152459211027575)).
+
+I do not see this as a reason to remove immediate feedback from exams. I think it tells us to be more precise about why we are using it. During an exam, immediate feedback lets students act on the information while they are still working. They can find a missing minus sign, reread a part of the prompt, or fix a syntax error. The second attempt then gives us additional evidence about their understanding. That is why I am much more interested in **feedback plus another attempt** than in immediate feedback by itself.
+
+## What about test anxiety?
+
+This is probably the concern I hear most often. If a student gets several answers wrong in a row, will the feedback make them anxious and hurt their performance on the rest of the exam?
+
+For some students, yes. We should not dismiss that experience. But the research does not suggest that immediate feedback is generally harmful to students with higher test anxiety.
+
+In one study, students with high test anxiety were not disadvantaged by the answer-until-correct format, and immediate feedback reduced anxiety for a majority of students. About 19% said the feedback interfered with their performance, but even those students still preferred the format for future exams ([DiBattista and Gosse, 2006](https://doi.org/10.3200/JEXE.74.4.311-328)).
+
+Other studies found a similar mix. Students liked knowing where they stood and having a chance to reconsider a problem, but some found repeated incorrect answers stressful. Even so, when students who had experienced both formats were asked to choose, 95% voted to continue using answer-until-correct exams ([Schneider et al., 2018](https://doi.org/10.1039/C7RP00183E); [Pinhas, 2021](https://doi.org/10.1021/acs.jchemed.1c00090)).
+
+So both things can be true. Most students prefer having a chance to recover points, and some students find real-time negative feedback stressful.
+
+Exam design can do a lot to reduce that stress:
+
+- Offer practice exams so students can become comfortable with the format before the stakes are high.
+- Spread the points across several questions instead of letting one brittle question dominate the score.
+- Include some accessible opportunities to earn points throughout the exam.
+- Use [partial-credit curves that make early mistakes recoverable](https://edatscale.org/2020/10/06/hard-questions-should-be-worth-less/).
+- Use frequent, lower-stakes exams and second-chance opportunities when possible.
+
+In a study across seven STEM courses, students reported about 30% lower test anxiety when second-chance exams were available ([Emeka et al., 2023](https://doi.org/10.18260/1-2--44207)).
+
+I also like giving students some control over when they receive feedback. In PrairieLearn, students can save an answer without grading it and return to grade it later. Only a small minority of students regularly use that option, but it supports different exam-taking strategies ([Verma et al., 2020](https://doi.org/10.1145/3386527.3406740)). Students need to know that the choice exists. They do not have to click “Save & Grade” the moment they finish every question.
+
+## Programming questions make the case even stronger
+
+We have much less direct research on immediate feedback during programming exams. Still, I find the practical argument for retries even more convincing for programming.
+
+A program may be conceptually correct but fail because of a missing parenthesis, an off-by-one error, or a small mismatch with the required interface. If the student gets only one graded submission, a tiny implementation error can hide most of what they know.
+
+Debugging is also part of programming. If we care whether students can write working code, it is reasonable to give them some opportunity to compile, test, and revise it.
+
+But there is an obvious limit. **The autograder should not become an oracle.** If students can make unlimited submissions and receive detailed information about every hidden test, the exam may end up measuring persistence in querying the grader rather than programming ability. Research on automated programming feedback also shows that many systems offer little more than information about which tests passed or failed ([Keuning et al., 2018](https://doi.org/10.1145/3231711)).
+
+We know that submission rules affect behavior. In one Illinois study, changing programming assignments from time-limited submissions to point-limited submissions increased the number of correct first submissions on several assignments ([Butler and Herman, 2023](https://doi.org/10.18260/1-2--43714)).
+
+For a programming exam, I would generally:
+
+- Let students compile and run their own code freely.
+- Provide examples or public tests that clarify the expected interface.
+- Use hidden tests to check broader correctness.
+- Give useful feedback about the kind of failure without revealing every hidden input and expected output.
+- Allow several graded attempts for decreasing credit.
+- Consider a short cooldown if rapid trial-and-error submissions become a problem.
+- Grade design, readability, or explanation separately when those are part of the learning objective.
+
+This treats debugging as part of programming while still giving students a reason to test and think about their code before consulting the autograder.
+
+## But is it secure?
+
+Immediate feedback does reveal information about a question.
+
+A student who keeps trying a multiple-choice question will eventually know the correct answer. If every student receives the same question, and the exam is offered asynchronously over several days, that information could be shared. I see this primarily as a question-exposure and randomization problem, not as a reason to eliminate feedback.
+
+In a study of 321 students, asynchronous exams produced an average score advantage of about 3 percentage points compared with synchronous exams. Randomizing the questions reduced that advantage ([Silva et al., 2020](https://doi.org/10.1145/3328778.3366859)). This study was not specifically about immediate feedback, but it supports something many instructors already know: meaningful randomization helps.
+
+For a PrairieLearn exam delivered through PrairieTest and a secure Computer-Based Testing Facility (CBTF), I would:
+
+- Generate genuinely different question variants, not just shuffle the answer choices.
+- Use question pools when appropriate.
+- Check that the different variants and questions have comparable difficulty.
+- Avoid releasing complete solutions while the exam window is open.
+- Decide deliberately what students can see after completing the exam.
+- Monitor performance across variants so that security does not come at the expense of fairness.
+
+Randomization is not magic. Students can still share a solution method, and poorly designed variants can have different levels of difficulty. The goal is to make a shared answer much less useful while keeping the exam comparable for everyone.
+
+## My default recommendation
+
+For most auto-graded PrairieLearn exams, I would:
+
+1. Enable real-time grading.
+2. Allow a small number of attempts with decreasing credit.
+3. Be more generous on complex numerical and programming questions than on simple recognition questions.
+4. Let students choose whether to grade an answer now or save it for later.
+5. Give feedback that is useful but does not reveal the full solution.
+6. Use generated variants and question pools to support exam security.
+7. Release fuller explanations after the exam window closes.
+
+There are exceptions. Sometimes feedback on one question would reveal an answer needed for a later question. Sometimes an exam has unusually strong security requirements and not enough variation between students. PrairieLearn supports turning real-time grading on or off for particular parts of an assessment. Still, I would treat disabling feedback as the exception, not the default.
+
+In the end, the goal is not to make exams easier or to give students unlimited chances. The goal is to design an exam that gives us good evidence of what students understand.
+
+<BlogQuote>
+  Computer-based exams should do more than recreate a paper exam on a screen.
+  Used thoughtfully, immediate feedback gives students a chance to catch small
+  mistakes and show more of what they know.
+</BlogQuote>
+
+## References
+
+- Butler, A. C., Karpicke, J. D., and Roediger, H. L. III. “The effect of type and timing of feedback on learning from multiple-choice tests.” _Journal of Experimental Psychology: Applied_, 2007. [DOI](https://doi.org/10.1037/1076-898X.13.4.273)
+- Butler, L., and Herman, G. L. “First Try, No (Autograder) Warm Up: Motivating Quality Coding Submissions.” _ASEE Annual Conference_, 2023. [DOI](https://doi.org/10.18260/1-2--43714)
+- Chang, F. T.-Y., and Li, M.-N. F. “A relative effectiveness assessment of an immediate feedback assessment technique employed on computers and scratch cards: A meta-analysis.” _International Journal of Educational Technology_, 2019. [Full text](https://files.eric.ed.gov/fulltext/EJ1215440.pdf)
+- Schneider, J. L., Ruder, S. M., and Bauer, C. F. “Student perceptions of immediate feedback testing in student centered chemistry classes.” _Chemistry Education Research and Practice_, 2018. [DOI](https://doi.org/10.1039/C7RP00183E)
+- DiBattista, D., and Gosse, L. “Test anxiety and the Immediate Feedback Assessment Technique.” _The Journal of Experimental Education_, 2006. [DOI](https://doi.org/10.3200/JEXE.74.4.311-328)
+- Emeka, C. A., Zilles, C., West, M., Herman, G. L., and Bretl, T. “Second-Chance Testing as a Means of Reducing Students’ Test Anxiety and Improving Outcomes.” _ASEE Annual Conference_, 2023. [DOI](https://doi.org/10.18260/1-2--44207)
+- Fyfe, E. R., et al. “ManyClasses 1: Assessing the Generalizable Effect of Immediate Feedback Versus Delayed Feedback Across Many College Classes.” _Advances in Methods and Practices in Psychological Science_, 2021. [DOI](https://doi.org/10.1177/25152459211027575)
+- Keuning, H., Jeuring, J., and Heeren, B. “A systematic literature review of automated feedback generation for programming exercises.” _ACM Transactions on Computing Education_, 2018. [DOI](https://doi.org/10.1145/3231711)
+- Pinhas, A. R. “Advantages and Disadvantages of Using the Answer-Until-Correct Multiple-Choice Test Format for a Class of Non-STEM Majors.” _Journal of Chemical Education_, 2021. [DOI](https://doi.org/10.1021/acs.jchemed.1c00090)
+- Silva, M., West, M., and Zilles, C. “Measuring the Score Advantage on Asynchronous Exams in an Undergraduate CS Course.” _SIGCSE_, 2020. [DOI](https://doi.org/10.1145/3328778.3366859)
+- Slepkov, A. D., and Godfrey, A. T. K. “Partial Credit in Answer-Until-Correct Multiple-Choice Tests Deployed in a Classroom Setting.” _Applied Measurement in Education_, 2019. [DOI](https://doi.org/10.1080/08957347.2019.1577249)
+- Slepkov, A. D., Vreugdenhil, A. J., and Shiell, R. C. “Score Increase and Partial-Credit Validity When Administering Multiple-Choice Tests Using an Answer-Until-Correct Format.” _Journal of Chemical Education_, 2016. [DOI](https://doi.org/10.1021/acs.jchemed.6b00028)
+- Verma, A., Bretl, T., West, M., and Zilles, C. “A Quantitative Analysis of When Students Choose to Grade Questions on Computerized Exams with Multiple Attempts.” _Learning @ Scale_, 2020. [DOI](https://doi.org/10.1145/3386527.3406740)
+
+For the PrairieLearn implementation details, see the documentation on [exam scoring and real-time grading](https://docs.prairielearn.com/assessment/configuration/) and [PrairieTest access and after-completion visibility](https://docs.prairielearn.com/assessment/accessControl/).
+
+export default ({ children }) => (
+  <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
+);
