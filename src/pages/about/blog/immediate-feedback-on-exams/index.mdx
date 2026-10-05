@@ -1,0 +1,198 @@
+import { BlogMarkdownLayout } from "../../../../components/BlogMarkdownLayout";
+
+export const meta = {
+  title: "Should students get immediate feedback on exams?",
+  date: "2026-07-23T12:00:00-05:00",
+  author: "Matt West",
+  tags: ["CBTF", "Pedagogy"],
+  summary:
+    "What research and classroom experience tell us about feedback, partial credit, anxiety, and secure computer-based exams.",
+};
+
+This question came up recently: when students take an exam in PrairieLearn,
+should they find out right away whether each answer is correct?
+
+My usual answer is yes, for most auto-graded questions. Let students submit an
+answer, see whether it is correct, and try again for reduced credit.
+
+But I would not frame this as "immediate feedback is always better." The details
+matter. What kind of feedback do students see? Can they act on it? How much
+credit can they recover? Is the question a conceptual multiple-choice question,
+a numerical problem, or a programming task? And how are we handling exam
+security?
+
+The interesting part is not simply telling a student "correct" or "incorrect."
+It is giving them a chance to notice a mistake, think again, and show more of
+what they know.
+
+## Why give feedback during an exam?
+
+Paper exams made delayed feedback feel normal because there was no practical
+alternative. Students handed in their work, staff graded it, and feedback arrived
+days later.
+
+Computer-based exams give us more choices.
+
+For an auto-graded question, a student might submit an answer, learn that it is
+incorrect, reconsider their work, and submit a better answer for partial credit.
+That is sometimes called an _answer-until-correct_ format. It is more than a
+running score. It gives students another opportunity to demonstrate
+understanding.
+
+This can matter especially for complex work. A student may understand the
+physics or the algorithm but make an arithmetic error, use the wrong sign, or
+write code with one small syntax mistake. On a traditional single-submission
+exam, that small error can hide a lot of what the student actually knows.
+
+I do not think every mistake should be fully recoverable. But I do think exams
+should be designed so that one small mistake does not erase evidence of
+substantial learning.
+
+## What does the research say?
+
+A fair amount of research on answer-until-correct exams comes from
+multiple-choice testing, including exams that use scratch-off answer cards.
+Students choose an answer, learn immediately whether it is right, and can try
+again for less credit.
+
+That research gives us a few useful takeaways.
+
+First, allowing another attempt predictably raises scores. That does not mean
+students learned more during the exam. It means the grading policy recognizes
+partial knowledge and the ability to recover from an initial mistake.
+
+Second, the additional attempts are not just random guessing. Studies have found
+that students who perform well overall are also more likely to recover after an
+incorrect first answer. The extra information can make an exam more reliable,
+not less.
+
+Third, students generally like the format. They appreciate knowing where they
+stand and having a chance to earn back some credit. At the same time, some
+students find repeated incorrect feedback stressful. Both things can be true.
+
+The research on whether _immediate_ feedback produces better long-term learning
+than delayed feedback is more mixed. In some settings, delayed feedback helps
+retention just as much or more. So I would not argue that immediate correctness
+feedback is a magic learning intervention.
+
+Its value during an exam is more practical: students can use it while the
+assessment is still happening.
+
+## A note about anxiety
+
+The concern I hear most often is that immediate feedback will make students
+anxious.
+
+It certainly can. A string of wrong answers can be discouraging, especially on a
+high-stakes exam. But the available research does not suggest that immediate
+feedback generally harms students with higher test anxiety. Many students prefer
+it because they can correct mistakes instead of spending the rest of the exam
+wondering whether they got something wrong.
+
+The design of the exam matters much more than whether a green or red indicator
+appears on the screen.
+
+A few things help:
+
+- Spread points across several questions instead of putting too much weight on
+  one brittle question.
+- Include some accessible opportunities to earn points.
+- Use partial-credit curves that allow students to recover from early mistakes.
+- Tell students they can save an answer without grading it yet. They do not have
+  to get feedback immediately after every question.
+- Offer practice exams so students can get comfortable with the format before the
+  stakes are high.
+- Use lower-stakes exams and second-chance opportunities when possible.
+
+A student who knows they have another chance to demonstrate learning is usually
+in a much better position than a student who feels that one bad sitting
+determines everything.
+
+## Programming questions are different
+
+For programming questions, I am even more in favor of allowing students to get
+feedback and retry.
+
+Programming involves debugging. A student can have the right overall approach
+and still have a missing parenthesis, an off-by-one error, or a small mismatch
+with the required interface. If we care about whether students can write and
+debug working code, then some opportunity to compile, test, and revise is part
+of the skill we are assessing.
+
+Of course, an autograder can become too helpful. Unlimited graded submissions
+with detailed feedback on every hidden test can turn the assessment into a
+guessing game.
+
+A reasonable middle ground is:
+
+- Let students run their own code freely.
+- Give them visible examples or public tests.
+- Use hidden tests to check broader correctness.
+- Allow a small number of graded attempts for decreasing credit.
+- Give useful but incomplete feedback.
+- Add a short delay between graded submissions if rapid guessing becomes a
+  problem.
+
+The goal is to support genuine debugging without turning the grader into an
+oracle.
+
+## What about exam security?
+
+Immediate feedback does reveal information. If students can keep trying a
+multiple-choice question until they get it right, they eventually know the
+answer. Detailed feedback can reveal even more.
+
+But this is mostly an item-exposure problem, not a reason to eliminate feedback
+entirely.
+
+For asynchronous exams, the important protections are good question variants,
+question pools, careful control of when solutions are released, and a testing
+environment that supports secure delivery. Randomization is not magic, and
+variants need to be comparable in difficulty. Still, if different students
+receive meaningfully different versions of a question, a shared answer is much
+less useful.
+
+For most PrairieLearn exams, I would keep the in-exam feedback focused on what a
+student can productively use right then. Save full solutions and richer
+explanations for after the exam window closes.
+
+## My default recommendation
+
+For most auto-graded PrairieLearn exams, I would:
+
+1. Enable real-time grading.
+2. Allow a small number of attempts with decreasing credit.
+3. Be more generous on complex numerical and programming questions than on
+   simple recognition questions.
+4. Let students choose whether to grade an answer now or save it for later.
+5. Give feedback that is useful but does not reveal the full solution.
+6. Use generated variants and question pools to support exam security.
+7. Release fuller explanations after the exam window closes.
+
+There are exceptions. Sometimes feedback on one question would reveal an answer
+needed for a later question. Sometimes an exam has unusually strong security
+requirements and not enough variation between students. PrairieLearn supports
+turning real-time grading on or off for particular parts of an assessment.
+
+Still, I would treat disabling feedback as the exception, not the default.
+
+Computer-based exams let us move beyond the old paper-exam model of "write
+everything down, hand it in, and wait." A well-designed assessment can give
+students feedback, let them repair small mistakes, and still measure the
+learning we care about.
+
+That is a better use of the technology, and usually a fairer exam.
+
+## Further reading
+
+- [Slepkov, Vreugdenhil, and Shiell, 2016](https://doi.org/10.1021/acs.jchemed.6b00028)
+- [Slepkov and Godfrey, 2019](https://doi.org/10.1080/08957347.2019.1577249)
+- [Chang and Li, 2019](https://files.eric.ed.gov/fulltext/EJ1215440.pdf)
+- [DiBattista and Gosse, 2006](https://doi.org/10.3200/JEXE.74.4.311-328)
+- [Emeka et al., 2023](https://doi.org/10.18260/1-2--44207)
+- [Verma et al., 2020](https://doi.org/10.1145/3386527.3406740)
+- [PrairieLearn assessment configuration](https://docs.prairielearn.com/assessment/configuration/)
+
+export default ({ children }) => (
+  <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
+);
