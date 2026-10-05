@@ -21,6 +21,7 @@ import mattImage from "../../lib/images/team/matthew_west.jpeg";
 import miguelImage from "../../lib/images/team/miguel.jpg";
 import nathanImage from "../../lib/images/team/nathan.jpeg";
 import serenaImage from "../../lib/images/team/serena.jpg";
+import rafaelaImage from "../../lib/images/team/rafaela.png";
 
 interface PeopleCardProps {
   image: ImageProps["src"];
@@ -220,6 +221,10 @@ export default function About() {
                 image={serenaImage}
                 name="Serena Caraco"
                 title="Learning Engineer"
+              /><PeopleCard
+                image={rafaelaImage}
+                name="Rafaela Afferri"
+                title="Software Engineer"
               />
             </div>
           </Stack>
