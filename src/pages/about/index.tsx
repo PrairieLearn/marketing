@@ -218,13 +218,14 @@ export default function About() {
                 title="Software Engineer"
               />
               <PeopleCard
-                image={serenaImage}
-                name="Serena Caraco"
-                title="Learning Engineer"
-              /><PeopleCard
                 image={rafaelaImage}
                 name="Rafaela Afferri"
                 title="Software Engineer"
+              />
+              <PeopleCard
+                image={serenaImage}
+                name="Serena Caraco"
+                title="Learning Engineer"
               />
             </div>
           </Stack>
