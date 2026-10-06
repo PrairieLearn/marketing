@@ -22,6 +22,7 @@ import ece6353fraida from "../../../lib/images/ece6353fraida.png";
 import oercalc1 from "../../../lib/images/oer-calc1.png";
 import oerLA from "../../../lib/images/oer-LA.png";
 import oer233 from "../../../lib/images/oer233.png";
+import oer116 from "../../../lib/images/oer116.png";
 
 interface SharedQuestionCardProps {
   image: ImageProps["src"];
@@ -255,6 +256,14 @@ export default function Courses() {
               ownerName="Fraida Fund"
               ownerEmail="ffund@nyu.edu"
             />
+
+            <SharedQuestionCard
+              image={oer116}
+              title="Digital Circuits"
+              questionHref="https://us.prairielearn.com/pl/public/course/25362/questions"
+              ownerName="Karina Mochetti"
+            />
+
           </div>
         </div>
       </div>
