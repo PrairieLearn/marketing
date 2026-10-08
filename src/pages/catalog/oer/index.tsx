@@ -263,7 +263,6 @@ export default function Courses() {
               questionHref="https://us.prairielearn.com/pl/public/course/25362/questions"
               ownerName="Karina Mochetti"
             />
-
           </div>
         </div>
       </div>
