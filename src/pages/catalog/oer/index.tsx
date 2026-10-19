@@ -268,7 +268,7 @@ export default function Courses() {
             <SharedQuestionCard
               image={oerspatial}
               title="Spatial Visualization"
-              questionHref="https://us.prairielearn.com/pl/public/course_instance/236134/assessment/2740880/questions"
+              questionHref="hhttps://us.prairielearn.com/pl/public/course/24504/questions"
               ownerName="Craig Zilles"
             />
           </div>
