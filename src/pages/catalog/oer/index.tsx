@@ -23,6 +23,7 @@ import oercalc1 from "../../../lib/images/oer-calc1.png";
 import oerLA from "../../../lib/images/oer-LA.png";
 import oer233 from "../../../lib/images/oer233.png";
 import oer116 from "../../../lib/images/oer116.png";
+import oerspatial from "../../../lib/images/oerspatial.png";
 
 interface SharedQuestionCardProps {
   image: ImageProps["src"];
@@ -262,6 +263,13 @@ export default function Courses() {
               title="Digital Circuits"
               questionHref="https://us.prairielearn.com/pl/public/course/25362/questions"
               ownerName="Karina Mochetti"
+            />
+
+            <SharedQuestionCard
+              image={oerspatial}
+              title="Spatial Visualization"
+              questionHref="https://us.prairielearn.com/pl/public/course/24504/questions"
+              ownerName="Craig Zilles"
             />
           </div>
         </div>
