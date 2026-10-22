@@ -75,9 +75,6 @@ export const Footer: React.FC = () => {
                 <FooterLink href="/accessibility">Accessibility</FooterLink>
               </li>
               <li className="mb-2">
-                <FooterLink href="/contact">Contact</FooterLink>
-              </li>
-              <li className="mb-2">
                 <FooterLink href="https://www.instagram.com/prairielearn/">
                   Instagram
                 </FooterLink>
