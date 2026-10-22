@@ -74,6 +74,16 @@ export const Footer: React.FC = () => {
               <li className="mb-2">
                 <FooterLink href="/accessibility">Accessibility</FooterLink>
               </li>
+              <li className="mb-2">
+                <FooterLink href="https://www.instagram.com/prairielearn/">
+                  Instagram
+                </FooterLink>
+              </li>
+              <li className="mb-2">
+                <FooterLink href="https://www.linkedin.com/company/prairielearn/">
+                  LinkedIn
+                </FooterLink>
+              </li>
             </ul>
           </div>
         </div>
