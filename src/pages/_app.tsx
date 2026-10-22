@@ -3,6 +3,7 @@ import { AppProps } from "next/app";
 import SSRProvider from "react-bootstrap/SSRProvider";
 
 import "bootstrap-icons/font/bootstrap-icons.css";
+import "katex/dist/katex.min.css";
 import "../styles/bootstrap.scss";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
