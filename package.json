@@ -51,7 +51,6 @@
     "vfile": "^6.0.3"
   },
   "devDependencies": {
-    "@eslint/compat": "^2.1.1",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^26.6.5",
     "@types/react": "^19.3.0",
@@ -62,8 +61,7 @@
     "eslint-config-next": "^16.4.2",
     "prettier": "^3.9.10",
     "sass": "^1.105.2",
-    "typescript": "npm:@typescript/typescript6@^6.0.2",
-    "typescript-eslint": "^8.72.0"
+    "typescript": "npm:@typescript/typescript6@^6.0.2"
   },
   "packageManager": "pnpm@12.14.0"
 }

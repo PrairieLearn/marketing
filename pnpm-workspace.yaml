@@ -1,9 +1,2 @@
 minimumReleaseAge: 4320
 ignoreScripts: true
-
-# @eslint/compat adapts these plugins to ESLint 10.
-peerDependencyRules:
-  allowedVersions:
-    eslint-plugin-import>eslint: ^10.11.0
-    eslint-plugin-jsx-a11y>eslint: ^10.11.0
-    eslint-plugin-react>eslint: ^10.11.0
