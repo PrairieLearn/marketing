@@ -15,11 +15,13 @@ export const meta = {
   tags: ["Release"],
   summary: "Search, filter, and edit reservations without losing your place.",
   excerpt:
-    "The exam Reservations page in PrairieTest now has search, sortable columns, Session and Status filters, and edits that save in place.",
+    "The exam Reservations page in PrairieTest now has search, filters, and edits that save in place.",
   ogImage: reservationsOverview,
 };
 
-PrairieTest's exam **Reservations** page has a new table to help you find students and manage their reservations.
+If you run exams in PrairieTest, you know the pre-exam routine: who's booked, who hasn't, who needs their session moved. The **Reservations** page has all of that, but in a big course it's a long table to scroll through.
+
+So we've made it easier to find things.
 
 <BlogImage
   src={reservationsOverview}
@@ -28,40 +30,40 @@ PrairieTest's exam **Reservations** page has a new table to help you find studen
   full
 />
 
-## Find the students you need
+## Search and filter
 
-Search by student name, UID, session, or testing center. Sort any column and resize it to fit.
+Type a name, UID, session, or testing center into the search box. Sort any column. Filter by **Session** (a course session, a testing center, or Unassigned) and by **Status** (Upcoming, In progress, Completed, Missed, or None).
 
-- **Session** filters by course session, testing center, or **Unassigned**.
-- **Status** filters by Upcoming, In progress, Completed, Missed, or **None**.
+The filters stack: Unassigned plus None is everyone who still needs to book, and a session plus Upcoming is a quick headcount.
 
 <BlogImage
   src={sessionFilter}
   alt="The Session filter listing Unassigned, a testing center, and course sessions with their dates"
-  caption="Focus on a course session, testing center, or students without an assigned session."
+  caption="The Session filter."
   full
 />
 
 <BlogImage
   src={statusFilter}
   alt="The Status filter with Upcoming selected and the table showing 27 of 52 students"
-  caption="Filter by reservation status to narrow the students shown in the table."
+  caption="The Status filter, with the count of matching students."
   full
 />
 
-Combine **Unassigned** and **None** to find students without reservations. Search, sorting, and filters stay in the URL, so you can bookmark or share a view.
+Your search, sort, and filters are saved in the URL, so you can reload the page, bookmark it, or send the link to a colleague.
 
-## Editing without losing your place
+## Edit in place
 
-Use the edit buttons to change a student's session, lock status, or time extension. Changes save in place, and failed saves keep your draft. Testing-center editing rules are unchanged.
+Changing a student's session, lock status, or time extension now updates the row without reloading the page. If a save fails, the dialog keeps your changes and shows you the error. Columns are resizable too.
 
 <BlogCalloutBox title="Filters and exam-wide actions" variant="info">
-  Search and filters change what you see. **Actions for all students** and
-  **Export reservations** still apply to the whole exam, including students
-  hidden by your filters.
+  Search and filters only change what you see. **Actions for all students** and
+  **Export reservations** still apply to the whole exam.
 </BlogCalloutBox>
 
-The update is rolling out now. Open an exam's **Reservations** tab to try it, and share feedback on [Slack](/slack).
+## More to come
+
+This is the first of several tables we're updating to make the data easier to read and work with. Try it on any exam's **Reservations** tab and tell us on [Slack](/slack) what you think.
 
 export default ({ children }) => (
   <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
