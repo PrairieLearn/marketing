@@ -14,15 +14,17 @@ export const meta = {
   author: "Luise Bastos",
   tags: ["Release"],
   summary:
-    "Find students, filter sessions, and update reservations without leaving the page.",
+    "Search, sort, and filter the Reservations table, and edit reservations without reloading the page.",
   excerpt:
-    "PrairieTest's updated exam Reservations page brings search, sorting, session and status filters, and edits that update in place.",
+    "The exam Reservations page in PrairieTest now has search, sortable columns, Session and Status filters, and edits that save in place.",
   ogImage: reservationsOverview,
 };
 
-Preparing an exam often means checking who has booked a session, finding students who still need a reservation, and making a few last-minute adjustments. Those tasks should be easy to do from one place.
+PrairieTest is built for secure testing. Hundreds of instructors rely on it, and our job has always been to keep it safe, fast, and dependable for them.
 
-We're updating PrairieTest's exam **Reservations** page with search, sorting, and filters to help course staff find the students they need. Reservation edits also update the table without a full page reload, so you can keep working in the same view.
+Part of that is the exam **Reservations** page, where you see each student's reservation for an exam. If you run exams in PrairieTest, you know the routine before one starts: who has booked, who hasn't, and which students need their session moved or a time extension fixed at the last minute. The page has all of that information, but in a large course it can be a long table to scan.
+
+So we've reworked it. You can now search, sort, and filter the table, which makes the data a lot easier to work with, and edits save in place without reloading the page.
 
 <BlogImage
   src={reservationsOverview}
@@ -31,14 +33,14 @@ We're updating PrairieTest's exam **Reservations** page with search, sorting, an
   full
 />
 
-## Find the students you need
+## Finding people
 
-Use **Search students or sessions** to look up a student by name or UID, or find reservations by their session or testing center name. Click a column's sort control to put the table in the order that helps with your next task.
+Type a name or UID into the search box to jump to a student. You can also type a session or testing center name to see everything booked there. Every column has a sort control, so put the table in whatever order suits what you're doing.
 
-The **Session** and **Status** columns now have filters that work together with search:
+Two columns, **Session** and **Status**, now have filters, and they combine with search:
 
-- **Session:** focus on a course session, a testing center, or students who are **Unassigned**. Course-session choices include the session date to help distinguish them. Testing-center choices group reservations under the displayed center name.
-- **Status:** narrow the table to reservations that are Upcoming, In progress, Completed, or Missed, or choose **None** for students without a reservation.
+- **Session** lets you pick a course session, a testing center, or **Unassigned** for students who haven't been placed anywhere yet. Course sessions show their date, since sessions often share a name. Testing-center reservations are grouped under the center's name.
+- **Status** narrows the table to Upcoming, In progress, Completed, or Missed reservations, or **None** for students who don't have a reservation at all.
 
 <BlogImage
   src={sessionFilter}
@@ -54,33 +56,37 @@ The **Session** and **Status** columns now have filters that work together with 
   full
 />
 
-For example, choose **Unassigned** and **None** to review students who still need to book. Or select a session and **Upcoming** to see its upcoming reservations. The student count shows how many rows match your current view.
+The combination you'll probably reach for most is **Unassigned** plus **None**: that's your list of students who still need to book. A session plus **Upcoming** gives you a quick headcount for a session that hasn't started. The student count next to the table tells you how many rows match whatever you've set.
 
-## Return to the same view
+## Your view sticks around
 
-Search, sorting, and the Session and Status filters are saved in the page URL. Reloading the page keeps that view, and you can bookmark it or share the link with another staff member who has access to the exam.
+Search, sort order, and both filters are written into the page URL. Reload and you're back where you were. You can bookmark the view, or paste the link to a colleague with access to the exam and they'll see the same thing.
 
-Use **Clear filters** to reset the Session and Status filters while keeping your search and sort order. **Clear search** resets the search separately.
+**Clear filters** resets Session and Status but leaves your search and sort alone. **Clear search** only clears the search box.
 
-## Make adjustments without losing your place
+## Editing without losing your place
 
-Use the edit buttons beside a student's session, lock status, or time extension to make changes. After a successful save, the table updates in place. If a save fails, the dialog keeps your draft and displays the error so you can correct it and try again.
+The edit buttons beside a student's session, lock status, and time extension open a dialog. Save, and the row updates in place, with your filters and scroll position intact. If the save fails, the dialog stays open with your changes and the error message, so you can fix the problem rather than start over.
 
-Column widths can also be adjusted, giving longer student names or session details more room.
+You can also drag column widths, which helps when a long name or session title doesn't fit.
 
-Students with pending invitations and students without reservations remain part of the table, alongside reservations in course sessions and testing centers. The existing rules for editing testing-center reservations still apply; for example, their time extensions cannot be changed from this course page.
+Students with pending invitations and students without a reservation are still listed alongside everyone else. Testing-center reservations follow the same rules as before; for example, their time extensions still can't be changed from the course page.
 
-## Keep exam-wide tasks in one place
+## Everything else is where it was
 
-The **Actions for all students** menu continues to provide CSV import and export, random assignment, and actions to lock, unlock, or delete reservations.
+The **Actions for all students** menu hasn't changed: CSV import and export, random assignment, and the bulk lock, unlock, and delete actions are all still there.
 
 <BlogCalloutBox title="Filters and exam-wide actions" variant="info">
-  Search and filters change the rows you see. **Actions for all students** and
-  **Export reservations** still apply to the whole exam, including students
-  hidden by your current search or filters.
+  One thing worth knowing: search and filters only change what you see.
+  **Actions for all students** and **Export reservations** still apply to every
+  student in the exam, including the ones your current filters hide.
 </BlogCalloutBox>
 
-As the update rolls out, open an exam's **Reservations** tab to try the new view. We would love to hear how it fits your course's workflow on [Slack](/slack).
+## One table down
+
+Tables like this one are where most of the day-to-day work in PrairieTest happens, which makes them a very satisfying thing to improve. We're going through them one at a time, with the same goals as here: data that's easier to read, easier to get to, and easier to act on. The Reservations page is the first to get the treatment. Keep an eye on this blog; the next table is already in the queue.
+
+In the meantime, the update is rolling out now. Open the **Reservations** tab on any exam, poke around, and tell us on [Slack](/slack) if something doesn't fit the way you run your course.
 
 export default ({ children }) => (
   <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
