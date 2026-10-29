@@ -1,0 +1,64 @@
+import {
+  BlogMarkdownLayout,
+  BlogImage,
+  BlogCalloutBox,
+} from "../../../../components/BlogMarkdownLayout";
+
+import reservationsOverview from "./reservations-overview.png";
+import statusFilter from "./status-filter.png";
+import sessionFilter from "./session-filter.png";
+
+export const meta = {
+  title: "A clearer view of exam reservations",
+  date: "2026-10-27T00:00:00-05:00",
+  author: "Luise Bastos",
+  tags: ["Release"],
+  summary: "Search, filter, and edit reservations without losing your place.",
+  excerpt:
+    "The exam Reservations page in PrairieTest now has search, filters, and edits that save in place.",
+  ogImage: reservationsOverview,
+};
+
+If you run exams in PrairieTest, you know the pre-exam routine: who's booked, who hasn't, who needs their session moved. The **Reservations** page has all of that, but in a big course it's a long table to scroll through.
+
+So we made your life easier!
+
+<BlogImage
+  src={reservationsOverview}
+  alt="The updated exam Reservations page with student search, sortable columns, Session and Status filters, and a student count"
+  caption="The updated Reservations page, shown with example data."
+  full
+/>
+
+## Search and filter
+
+Type a name, UID, session, or testing center into the search box. Sort any column. Filter by **Session** (a course session, a testing center, or Unassigned) and by **Status** (Upcoming, In progress, Completed, Missed, or None).
+
+<BlogImage
+  src={sessionFilter}
+  alt="The Session filter listing Unassigned, a testing center, and course sessions with their dates"
+  caption="The Session filter."
+  full
+/>
+
+<BlogImage
+  src={statusFilter}
+  alt="The Status filter with Upcoming selected and the table showing 27 of 52 students"
+  caption="The Status filter, with the count of matching students."
+  full
+/>
+
+Your search, sort, and filters are saved in the URL, so you can reload the page, bookmark it, or send the link to a colleague.
+
+<BlogCalloutBox title="Filters and exam-wide actions" variant="info">
+  Search and filters only change what you see. **Actions for all students** and
+  **Export reservations** still apply to the whole exam.
+</BlogCalloutBox>
+
+## More to come
+
+This is the first of several tables we're updating to make the data easier to read and work with. Try it on any exam's **Reservations** tab and tell us on [Slack](/slack) what you think.
+
+export default ({ children }) => (
+  <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
+);
