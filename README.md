@@ -2,9 +2,10 @@
 
 ## Getting Started
 
-First install dependencies:
+Install pnpm 12.17 or newer in the 12.x series, then install dependencies:
 
 ```bash
+npm install -g 'pnpm@^12.17.0'
 pnpm install
 ```
 
