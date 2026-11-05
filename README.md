@@ -2,11 +2,14 @@
 
 ## Getting Started
 
-First install dependencies:
+Install pnpm 12.17 or newer in the 12.x series, then install dependencies:
 
 ```bash
+npm install -g 'pnpm@^12.17.0'
 pnpm install
 ```
+
+`devEngines.packageManager` defines the supported pnpm range. The exact `packageManager` pin is retained for Vercel's Corepack integration, which otherwise uses the build image's pnpm version.
 
 Next, run the development server:
 
