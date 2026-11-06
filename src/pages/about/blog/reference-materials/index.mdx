@@ -1,0 +1,86 @@
+import {
+  BlogMarkdownLayout,
+  BlogImage,
+} from "../../../../components/BlogMarkdownLayout";
+
+import studentMaterials from "./student-materials.png";
+import examSettings from "./exam-settings.png";
+import staffMaterials from "./staff-materials.png";
+import imageViewer from "./image-viewer.png";
+
+export const meta = {
+  title: "Reference materials in PrairieTest",
+  date: "2026-11-06T12:00:00-06:00",
+  author: "Rafaela Afferri",
+  tags: ["Release"],
+  summary:
+    "Students can upload permitted notes, formula sheets, and diagrams before an exam and access them from their PrairieTest reservation.",
+};
+
+Reference materials are now available in PrairieTest! Students can upload their permitted notes, formula sheets, and diagrams before an exam and access them directly from their reservation page during the exam.
+
+Instructors control the upload window and whether PDFs are allowed. Course and testing center staff can review materials and help manage files on each student's behalf.
+
+## Uploading reference materials
+
+When an exam allows reference materials, students will find a **Reference materials** section on their reservation page. They can select multiple files, take a photo with their computer's camera, or click **Use phone** to upload photos from a phone.
+
+For handwritten notes, the phone option makes preparation straightforward: scan the QR code, take photos or choose images, and wait for the upload confirmation. The photos appear in the student's collection on the computer, ready to review. JPEG, PNG, HEIC, and HEIF images are supported; PDFs can also be uploaded when the instructor permits them.
+
+Students can drag their files into a convenient order and click an image thumbnail to check that every formula and diagram is readable. The homepage shows upload deadlines alongside reservations and reminds students about upcoming exams that do not yet have materials uploaded.
+
+<BlogImage
+  src={studentMaterials}
+  alt="Student reference materials with image thumbnails and Add files, Use camera, and Use phone controls."
+  caption="Students upload and review their permitted reference materials from the reservation page."
+  full
+  bordered
+/>
+
+## Configuring exam settings
+
+Course staff configure the feature from the exam's **Reference materials** tab. Enable materials, choose when uploads open, and close uploads either at a specific date and time or when each student starts their exam.
+
+<BlogImage
+  src={examSettings}
+  alt="Reference material settings with uploads open immediately, closing at each student’s exam start, and PDFs disabled."
+  caption="Course staff control the upload window and whether PDF files are allowed."
+  full
+  bordered
+/>
+
+Images are supported by default. Instructors can allow original PDFs for everyone taking an exam, or grant a student PDF permission through the course's **Accommodations** settings. That individual permission applies to all exams in the course that allow reference materials.
+
+The same tab lists each student's materials. Expand a student's collection to inspect files, add a missing page, or remove a file. Deleted files stay visible to staff and can be restored while they remain unexpired. Authorized testing center staff can manage the same collection through the student's reservation, including when the student's own uploads are locked.
+
+<BlogImage
+  src={staffMaterials}
+  alt="Course staff view of a student’s active files and a deleted file with a Restore button."
+  caption="Staff can review active and deleted files and manage materials on a student’s behalf."
+  full
+  bordered
+/>
+
+## Viewing materials during an exam
+
+Students access their references from the reservation page they use to start their exam. Images open in a separate viewer tab with thumbnails and a continuous scrolling view. Students can navigate between pages, zoom in on details, and rotate images. PDFs open separately in the browser's PDF viewer.
+
+<BlogImage
+  src={imageViewer}
+  alt="Reference material image viewer with page thumbnails, zoom controls, and a formula sheet."
+  caption="The image viewer opens in a separate tab with navigation and zoom controls."
+  full
+  bordered
+/>
+
+Starting an exam locks the student's ability to add or remove files, while leaving reordering available. Exam security restrictions still apply, including required LockDown Browser and testing center network settings. Staff can help manage files without reopening uploads for the student.
+
+## Getting started
+
+Open an exam in PrairieTest, select **Reference materials**, and enable the feature. Set the upload window and PDF permissions, then tell students what notes and references your course allows. Students can prepare their materials from their reservation page before exam day.
+
+For detailed instructions, see the PrairieTest documentation for [students](https://us.prairietest.com/pt/docs/students/reference-materials), [course staff](https://us.prairietest.com/pt/docs/course/reference-materials), and [testing center staff](https://us.prairietest.com/pt/docs/center/reference-materials).
+
+export default ({ children }) => (
+  <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
+);
