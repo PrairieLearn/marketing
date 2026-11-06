@@ -1,0 +1,98 @@
+import {
+  BlogMarkdownLayout,
+  BlogImage,
+} from "../../../../components/BlogMarkdownLayout";
+
+import studentPage from "./student-print-ui.jpg";
+import answerKeyPage from "./answer-key-ui.jpg";
+import multipleForms from "./multiple-forms.jpg";
+import bookletDialog from "./booklet-dialog.jpg";
+import printabilityReview from "./printability-review.jpg";
+import downloadOptions from "./download-options.jpg";
+
+export const meta = {
+  title: "Hot off the presses: printable assessments are here!",
+  date: "2026-10-19T12:00:00-04:00",
+  author: "Austin Billings",
+  excerpt:
+    "Generate and print paper versions of PrairieLearn assessments with customizable layouts, answer keys, and multiple forms.",
+  tags: ["Release"],
+};
+
+For nearly a decade, PrairieLearn has been the best way to administer online exams, especially for instructors who want powerful features like dynamic question content and the ability to manage their course material through Git. Today, we're bringing the best of PrairieLearn out of cyberspace and into your printer, with support for generating and printing paper versions of your PrairieLearn assessments.
+
+With our new printable assessment features, instructors can preview and adjust student copies, then download PDF exams and answer keys or editable Word copies. Booklets can include up to 500 student copies.
+
+## Prints charming
+
+Start with an exam or homework you've already set up; on the assessment's **Questions** page, you'll see a new **Print** button in the header area. From that page, you'll be able to view a preview of how your printed exam will look, and see the effects of any changes you make quickly and easily.
+
+- Pick the proper paper size for your printed page: U.S. Letter and A4 are currently supported.
+- Customize the content of your generated cover page: you can manage student identity fields to capture there, like student ID numbers or class sections. PrairieLearn automatically includes an optional student honor pledge, though any custom pledge you set at the assessment-level will be respected.
+- Easily enable or disable a grading chart on the cover page with lines corresponding to each of the exam's questions, for easy grading once submitted.
+- Alter the way questions are laid out visually on the printed pages: while longer questions are sized automatically, you can also specify that questions be laid out at a half-, third-, or full-page each. PrairieLearn automatically presents your questions in a way that makes sense for a paper exam, adding answer lines, choice markers, and ordering boxes where appropriate.
+- Custom cover pages are supported: optionally upload up to 10 PDF documents to include as cover pages, integrated into your printable assessment, which can be used for instructions, formula sheets, and more. You can disable the default PrairieLearn cover page if it's made redundant by your own additions.
+
+<BlogImage
+  src={studentPage}
+  alt="Print assessment page with Form A selected and printable student questions in the preview"
+  caption="Review the student copy alongside the controls for each assessment form."
+  full
+/>
+
+Alongside your exam's preview, you can see how the associated answer keys will be formatted. Printable answer keys show the questions with their authored solutions; they may have different page breaks from the student copies.
+
+<BlogImage
+  src={answerKeyPage}
+  alt="Print assessment page with the answer key selected and a correct answer visible in the preview"
+  caption="Switch between the student copy and its matching answer key while preparing the exam."
+  full
+/>
+
+## Keeping things dynamic
+
+PrairieLearn printable assessments support generating and exporting up to 26 forms of your assessment. Each form uses a different randomized assessment instance, so you can prepare different versions using the same question set and variants you use online. Add forms as needed, and regenerate any form with one click until you're happy with its questions.
+
+<BlogImage
+  src={multipleForms}
+  alt="Assessment instances showing Forms A through D beside an expanded form selector over the preview"
+  caption="Prepare and review each randomized form before printing."
+  full
+/>
+
+Once you're satisfied with the assessment forms, you can **export a booklet** for your class: specify the number of students, and the booklet will include a complete printed exam for each of them, cycling through your forms. It ends with one answer key for each form.
+
+<BlogImage
+  src={bookletDialog}
+  alt="Booklet download dialog set to 75 students, with Forms A and B prepared"
+  caption="Choose how many student copies to include in the booklet."
+  full
+/>
+
+## Don't ink twice
+
+PrairieLearn already knows how your questions function online, and calls out when a question to be included in a printed assessment isn't right for the format. In the preview editor, you'll see warnings alongside questions that won't translate well to paper, like media, upload, or online workspace questions. Easily uncheck these questions and they'll be removed from the print preview and any printable exports you create. If you'd like to tweak the questions instead, a link is offered alongside each that takes you directly to the relevant question's editor page.
+
+<BlogImage
+  src={printabilityReview}
+  alt="Print preparation page highlighting a question that may need adjustment for paper"
+  caption="Review flags help you check questions before downloading."
+  full
+/>
+
+## Spread the Word
+
+In addition to saving print-ready PDFs, you can export an editable Word file. Once you've set up the exam how you like it, open the DOCX file in Word or another editor to make final changes. Check its page breaks before printing, since they can differ from the PDF preview.
+
+<BlogImage
+  src={downloadOptions}
+  alt="Export menu with the Form B Word download option highlighted"
+  caption="Download a single form, all student forms, or a class booklet."
+  full
+/>
+
+We're happy to announce that exam print preparation is available now in PrairieLearn. Set up a printable assessment today, and for instructions and more information, check out [the Printable Assessments documentation](https://docs.prairielearn.com/assessment/printable-assessments/).
+
+export default ({ children }) => (
+  <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
+);
