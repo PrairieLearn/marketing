@@ -1,0 +1,36 @@
+import Image from "next/image";
+
+import { BlogMarkdownLayout } from "../../../../components/BlogMarkdownLayout";
+
+import scout from "./scout.png";
+
+export const meta = {
+  title: "Meet Scout, our PrairieDog!",
+  date: "2026-11-08T12:00:00-06:00",
+  author: "Mariana Silva",
+  excerpt:
+    "Some of you have noticed the new little faces in PrairieLearn and PrairieTest, so we thought we should introduce Scout!",
+};
+
+Some of you have noticed the new little faces in PrairieLearn and PrairieTest, so we thought we should introduce Scout!
+
+Scout was born almost two years ago, when the company turned four. We wanted a mascot, and with names like PrairieLearn and PrairieTest, a prairie dog made total sense. We wanted one that was cute and used our brand colors. And here is Scout :-)
+
+<div className="d-flex justify-content-center my-4">
+  <Image
+    src={scout}
+    alt="Scout, our blue and lavender prairie dog mascot, shown in full body"
+    width={280}
+    style={{ maxWidth: "100%", height: "auto" }}
+  />
+</div>
+
+Until now, Scout mostly lived on our merchandise: hoodies, water bottles, and stickers. Some of you may have seen him around conferences, or on someone’s laptop!
+
+As we approach our six-year anniversary, we decided it was time to bring Scout to our pages too. So you will be seeing more of this little PrairieDog around PrairieLearn and PrairieTest. He will also be making appearances on Instagram and LinkedIn!
+
+We hope you like him!
+
+export default ({ children }) => (
+  <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
+);
