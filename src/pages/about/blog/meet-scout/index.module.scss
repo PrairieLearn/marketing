@@ -1,0 +1,32 @@
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 180px;
+  column-gap: 3rem;
+}
+
+.image {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+}
+
+.story {
+  grid-column: 1;
+}
+
+@media (max-width: 767px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .image {
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: center;
+    margin: 1rem 0 1.5rem;
+
+    img {
+      width: 150px;
+    }
+  }
+}
