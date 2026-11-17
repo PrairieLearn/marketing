@@ -69,7 +69,7 @@ const NavDropdownItem: React.FC<NavLinkProps> = ({
   );
 };
 
-import logo from "../lib/images/PL-logo-white.svg";
+import logo from "../lib/images/PL-logo-blue-white.png";
 
 export const Header: React.FC = () => {
   const [collapsed, setCollapsed] = React.useState(true);
@@ -132,6 +132,7 @@ export const Header: React.FC = () => {
           <Link href="/" className="navbar-brand">
             <Image
               src={logo}
+              width={285}
               height={60}
               alt="PrairieLearn"
               className={styles.logo}
