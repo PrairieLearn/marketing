@@ -13,6 +13,7 @@ import austinImage from "../../lib/images/team/austin.jpg";
 import craigImage from "../../lib/images/team/zilles.jpeg";
 import daveImage from "../../lib/images/team/dave.png";
 import eduardoImage from "../../lib/images/team/eduardo.jpeg";
+import eliotImage from "../../lib/images/team/eliot.jpg";
 import jamieImage from "../../lib/images/team/jamie.jpg";
 import karinaImage from "../../lib/images/team/karina.jpg";
 import luiseImage from "../../lib/images/team/luise.jpg";
@@ -196,6 +197,11 @@ export default function About() {
                 image={eduardoImage}
                 name="Eduardo Vaz"
                 title="Software Engineer"
+              />
+              <PeopleCard
+                image={eliotImage}
+                name="Eliot Robson"
+                title="Senior Software Engineer"
               />
               <PeopleCard
                 image={jamieImage}
