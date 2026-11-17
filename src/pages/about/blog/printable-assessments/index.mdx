@@ -6,7 +6,7 @@ import {
 import studentPage from "./student-print-ui.png";
 import answerKeyPage from "./answer-key-ui.png";
 import multipleForms from "./multiple-forms.png";
-import bookletDialog from "./booklet-dialog.png";
+import combinedFormsDialog from "./combined-forms-dialog.png";
 import printabilityReview from "./printability-review.png";
 import downloadOptions from "./download-options.png";
 
@@ -21,7 +21,7 @@ export const meta = {
 
 For nearly a decade, PrairieLearn has been the best way to administer online exams, especially for instructors who want powerful features like dynamic question content and the ability to manage their course material through Git. Today, we're bringing the best of PrairieLearn out of cyberspace and into your printer, with support for generating and printing paper versions of your PrairieLearn assessments.
 
-With our new printable assessment features, instructors can preview and adjust student copies, then download PDF exams and answer keys or editable Word copies. Booklets can include up to 500 student copies.
+With our new printable assessment features, instructors can preview and adjust student copies, then download PDF exams and answer keys or editable Word copies.
 
 ## Prints charming
 
@@ -51,21 +51,21 @@ Alongside your exam's preview, you can see how the associated answer keys will b
 
 ## Keeping things dynamic
 
-PrairieLearn printable assessments support generating and exporting up to 26 forms of your assessment. Each form keeps its own randomized question variants and print settings, so you can prepare different versions using the same question set you use online. Add forms as needed, and regenerate any form with one click until you're happy with its questions.
+PrairieLearn printable assessments support generating and exporting up to 26 forms of your assessment. Each form keeps its own randomized question variants and print settings, so you can prepare different versions using the same question set you use online. Add forms as needed, and regenerate a form to create a new version while keeping the previous one for reference.
 
 <BlogImage
   src={multipleForms}
-  alt="Print forms list showing Forms A through D beside the Form A preview"
+  alt="Print forms list showing Forms A, B, and C2 beside the Form A preview"
   caption="Prepare and review each randomized form before printing."
   full
 />
 
-Once you're satisfied with the assessment forms, you can **export a booklet** for your class: specify the number of students, and the booklet will include a complete printed exam for each of them, cycling through your forms. It ends with one answer key for each form.
+Once you're satisfied with the assessment forms, you can download one PDF containing a student copy of each current form. PrairieLearn adds blank pages when needed so every form has the same page count. The download dialog shows that page count and, if students are enrolled, suggests how many copies to print for the class. You can download all current answer keys in a separate PDF.
 
 <BlogImage
-  src={bookletDialog}
-  alt="Booklet download dialog set to 75 students, with Forms A and B prepared"
-  caption="Choose how many student copies to include in the booklet."
+  src={combinedFormsDialog}
+  alt="Download all forms PDF dialog showing 47 pages per form"
+  caption="Download all current forms together, with an equal page count for each."
   full
 />
 
@@ -86,8 +86,8 @@ In addition to saving print-ready PDFs, you can export an editable Word file. On
 
 <BlogImage
   src={downloadOptions}
-  alt="Download menu with Form B PDF and Word files, all current forms, and booklet options"
-  caption="Download a single form, all student forms, or a class booklet."
+  alt="Download menu with Form A PDF and Word files and combined forms and answer keys"
+  caption="Download individual forms and keys, or combine all current forms or answer keys into a PDF."
   full
 />
 
