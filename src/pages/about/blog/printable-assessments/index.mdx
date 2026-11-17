@@ -3,12 +3,12 @@ import {
   BlogImage,
 } from "../../../../components/BlogMarkdownLayout";
 
-import studentPage from "./student-print-ui.jpg";
-import answerKeyPage from "./answer-key-ui.jpg";
-import multipleForms from "./multiple-forms.jpg";
-import bookletDialog from "./booklet-dialog.jpg";
-import printabilityReview from "./printability-review.jpg";
-import downloadOptions from "./download-options.jpg";
+import studentPage from "./student-print-ui.png";
+import answerKeyPage from "./answer-key-ui.png";
+import multipleForms from "./multiple-forms.png";
+import bookletDialog from "./booklet-dialog.png";
+import printabilityReview from "./printability-review.png";
+import downloadOptions from "./download-options.png";
 
 export const meta = {
   title: "Hot off the presses: printable assessments are here!",
@@ -51,11 +51,11 @@ Alongside your exam's preview, you can see how the associated answer keys will b
 
 ## Keeping things dynamic
 
-PrairieLearn printable assessments support generating and exporting up to 26 forms of your assessment. Each form uses a different randomized assessment instance, so you can prepare different versions using the same question set and variants you use online. Add forms as needed, and regenerate any form with one click until you're happy with its questions.
+PrairieLearn printable assessments support generating and exporting up to 26 forms of your assessment. Each form keeps its own randomized question variants and print settings, so you can prepare different versions using the same question set you use online. Add forms as needed, and regenerate any form with one click until you're happy with its questions.
 
 <BlogImage
   src={multipleForms}
-  alt="Assessment instances showing Forms A through D beside an expanded form selector over the preview"
+  alt="Print forms list showing Forms A through D beside the Form A preview"
   caption="Prepare and review each randomized form before printing."
   full
 />
@@ -86,7 +86,7 @@ In addition to saving print-ready PDFs, you can export an editable Word file. On
 
 <BlogImage
   src={downloadOptions}
-  alt="Export menu with the Form B Word download option highlighted"
+  alt="Download menu with Form B PDF and Word files, all current forms, and booklet options"
   caption="Download a single form, all student forms, or a class booklet."
   full
 />
