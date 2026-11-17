@@ -51,7 +51,13 @@ const PeopleCard: React.FC<PeopleCardProps> = ({
       </div>
       <div className="card-body">
         <h3 className="card-title h6">
-          {href ? <a href={href}>{name}</a> : name}
+          {href ? (
+            <a href={href} className={styles.nameLink}>
+              {name}
+            </a>
+          ) : (
+            name
+          )}
         </h3>
         <p className="mb-1">{title}</p>
       </div>
