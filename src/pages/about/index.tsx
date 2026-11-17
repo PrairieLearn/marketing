@@ -13,6 +13,7 @@ import austinImage from "../../lib/images/team/austin.jpg";
 import craigImage from "../../lib/images/team/zilles.jpeg";
 import daveImage from "../../lib/images/team/dave.png";
 import eduardoImage from "../../lib/images/team/eduardo.jpeg";
+import eliotImage from "../../lib/images/team/eliot.jpg";
 import jamieImage from "../../lib/images/team/jamie.jpg";
 import karinaImage from "../../lib/images/team/karina.jpg";
 import luiseImage from "../../lib/images/team/luise.jpg";
@@ -27,9 +28,15 @@ interface PeopleCardProps {
   image: ImageProps["src"];
   name: string;
   title: string;
+  href?: string;
 }
 
-const PeopleCard: React.FC<PeopleCardProps> = ({ image, name, title }) => {
+const PeopleCard: React.FC<PeopleCardProps> = ({
+  image,
+  name,
+  title,
+  href,
+}) => {
   return (
     <article className="card border-secondary mb-1 overflow-hidden">
       <div className="position-relative" style={{ aspectRatio: "1 / 1" }}>
@@ -43,7 +50,15 @@ const PeopleCard: React.FC<PeopleCardProps> = ({ image, name, title }) => {
         />
       </div>
       <div className="card-body">
-        <h3 className="card-title h6">{name}</h3>
+        <h3 className="card-title h6">
+          {href ? (
+            <a href={href} className={styles.nameLink}>
+              {name}
+            </a>
+          ) : (
+            name
+          )}
+        </h3>
         <p className="mb-1">{title}</p>
       </div>
     </article>
@@ -196,6 +211,12 @@ export default function About() {
                 image={eduardoImage}
                 name="Eduardo Vaz"
                 title="Software Engineer"
+              />
+              <PeopleCard
+                image={eliotImage}
+                name="Eliot Robson"
+                title="Senior Software Engineer"
+                href="https://eliotwrobson.github.io"
               />
               <PeopleCard
                 image={jamieImage}
