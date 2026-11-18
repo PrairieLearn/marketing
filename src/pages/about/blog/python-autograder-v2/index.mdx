@@ -1,25 +1,36 @@
-import { BlogMarkdownLayout, BlogCalloutBox } from "../../../../components/BlogMarkdownLayout";
+import {
+  BlogMarkdownLayout,
+  BlogImage,
+  BlogCalloutBox,
+} from "../../../../components/BlogMarkdownLayout";
+
+import cover from "./cover.jpg";
 
 export const meta = {
-  title: "Introducing the new Python autograder (beta)",
+  title: "Introducing the new Python autograder",
   date: "2026-11-18T00:00:00-06:00",
   author: "Eliot Robson",
   tags: ["Technical", "Autograding"],
+  ogImage: cover,
   excerpt:
-    "A new pytest-based Python autograder is now in beta, bringing sandboxed execution, student-friendly feedback, partial credit across inputs, plot grading, and a lightweight image built for intro CS courses.",
+    "A new pytest-based Python autograder is now available, bringing sandboxed execution, student-friendly feedback, weighted partial credit across inputs, plot grading, and a lightweight image built for intro CS courses.",
 };
 
-# Introducing the new Python autograder (beta)
+<BlogImage
+  src={cover}
+  alt="Scout inspecting a student's submission at a workbench, next to a glass sandbox holding running Python code, a row of passing checks, a framed plot, and a small :lite package"
+  full
+/>
 
-We're excited to announce a public beta of the new Python autograder for PrairieLearn: [`pytest-prairielearn-grader`](https://github.com/PrairieLearn/grader-python-v2). It's a ground-up rewrite built on [pytest](https://pytest.org/), and it ships with a set of features that support reliable graders and give students clear, actionable feedback.
+We're excited to announce the release of the new Python autograder for PrairieLearn: [`pytest-prairielearn-grader`](https://github.com/PrairieLearn/grader-python-v2). It's a ground-up rewrite built on [pytest](https://pytest.org/), and it ships with a set of features that support reliable graders and give students clear, actionable feedback.
 
 ## Why a new autograder?
 
 The new autograder offers instructors a few key capabilities:
 
-- **Security isolation.** Student code runs in a separate process as an unprivileged user, protecting the grading harness and keeping grading behavior reliable.
+- **Security isolation.** Student code runs in a separate process as an unprivileged user, with no access to the test files, protecting the grading harness and keeping grading behavior reliable.
 - **Clear feedback.** Students see short, readable messages by default, and built-in assertions explain what was checked without exposing the grader's internals.
-- **Partial credit across inputs.** A test can check many inputs and give credit for each one that passes.
+- **Partial credit across inputs.** A test can check many inputs and give credit for each one that passes, with optional weights for the inputs that matter most.
 - **Plot grading.** Compare a student's matplotlib plot with a reference plot, and show the plot alongside the results.
 - **Centralized configuration.** Timeouts, import restrictions, and other settings can be managed cleanly with `ConfigObject`.
 - **Lightweight startup image.** Intro questions can use the `:lite` image (about a 50 MB download) for quick cold starts and a compact dependency surface.
@@ -38,7 +49,9 @@ from pytest_prairielearn_grader import ConfigObject
 autograder_config = ConfigObject(import_whitelist=["math", "statistics"])
 ```
 
-Each call to a student function has a time limit. If a call times out, the rest of that test is skipped, so an infinite loop or an inefficient solution can't use up the grading job's time.
+Student code also can't read the files in the question's `tests/` folder, so expected values and reference solutions stay private. If students need a shared module, you can list it in `helper_modules`, or place it in `serverFilesCourse` to share it across questions.
+
+Each call to a student function has a time limit. If a call times out, the sandbox stops and the remaining checks fail with a message saying why, so an infinite loop or an inefficient solution can't use up the grading job's time. If student code uses too much memory and the sandbox is killed, students are told that too, rather than seeing a cryptic connection error.
 
 ### Student-friendly feedback
 
@@ -67,9 +80,19 @@ def test_random_values(sandbox: StudentFixture, subtests: pytest.Subtests) -> No
 
 The test gets the fraction of inputs that passed, and students see a summary such as `7/10 checks passed.` followed by the first few failures. If the student's function times out, the remaining inputs are skipped and the message says why.
 
+To make some inputs count for more, such as an edge case or a large input, pass a `weight` (the default is 1):
+
+```python
+for n, weight in [(2, 1), (10, 1), (29, 2)]:
+    with subtests.test(weight=weight):
+        assert_fn_equal(sandbox, "fib", args=(n,), expected=fib(n))
+```
+
+Here, passing only `fib(29)` earns half of the test's points.
+
 ### Grading plots
 
-Student code draws a plot with matplotlib as usual, and the test compares it with a reference plot. `assert_plot_equal` checks the axis scales and the data in each line, scatter plot and bar plot, and `feedback.add_image` shows the student's plot with their results:
+Student code draws a plot with matplotlib as usual, and the test compares it with a reference plot. `assert_plot_equal` checks the axis scales and the data in each line, scatter plot and bar plot, including `axhline` and `axvline` lines, and can optionally check text and annotations. `feedback.add_image` shows the student's plot with their results:
 
 ```python
 @pytest.mark.grading_data(name="plot", points=1)
@@ -88,10 +111,10 @@ If a student submits code with a `SyntaxError`, the grader marks the submission 
 
 Two Docker images are published:
 
-| Image | Download size | Includes |
-|-------|---------------|----------|
-| `prairielearn/grader-python-pytest:latest` | ~270 MB | Full scientific stack: numpy, pandas, scipy, matplotlib, sympy, scikit-learn, and more |
-| `prairielearn/grader-python-pytest:lite` | ~50 MB | Grader core only, with no scientific libraries |
+| Image                                      | Download size | Includes                                                                               |
+| ------------------------------------------ | ------------- | -------------------------------------------------------------------------------------- |
+| `prairielearn/grader-python-pytest:latest` | ~270 MB       | Full scientific stack: numpy, pandas, scipy, matplotlib, sympy, scikit-learn, and more |
+| `prairielearn/grader-python-pytest:lite`   | ~50 MB        | Grader core only, with no scientific libraries                                         |
 
 For introductory CS courses where students use only the Python standard library, the `:lite` image is the right choice. Its lightweight footprint supports quick cold-start pulls and a reduced security surface.
 
@@ -123,13 +146,25 @@ Here's what a complete question setup looks like for an intro CS course using th
   <p>
     Write a function <code>add(a, b)</code> that returns the sum of two numbers.
   </p>
+  <pl-file-editor
+    file-name="student_code.py"
+    ace-mode="ace/mode/python"
+    source-file-name="tests/initial_code.py"
+  ></pl-file-editor>
 </pl-question-panel>
 
-<pl-file-editor file-name="student_code.py" ace-mode="ace/mode/python">
+<pl-submission-panel>
+  <pl-external-grader-results></pl-external-grader-results>
+  <pl-file-preview></pl-file-preview>
+</pl-submission-panel>
+```
+
+### `tests/initial_code.py`
+
+```python
 def add(a, b):
     # your code here
     pass
-</pl-file-editor>
 ```
 
 ### `tests/test_student.py`
@@ -168,8 +203,16 @@ Students get concise, actionable feedback focused on what to fix next.
 
 ## Moving existing questions
 
-The Python questions in the PrairieLearn example course now use the new autograder, so you can copy one as a starting point. For questions written for the legacy `prairielearn/grader-python` image, the [conversion guide](https://github.com/PrairieLearn/grader-python-v2/blob/main/converting.md) maps each legacy feature to its replacement.
+The Python questions in the PrairieLearn example course now use the new autograder, so you can copy one as a starting point. For questions written for the legacy `prairielearn/grader-python` image, the [conversion guide](https://github.com/PrairieLearn/grader-python-v2/blob/main/converting.md) maps each legacy feature to its replacement. Setup code that reads question parameters can import them from `pytest_prairielearn_grader.server_data`, and course modules in `serverFilesCourse` can be imported just as they were with the legacy grader.
 
 <BlogCalloutBox title="Try it out">
-The autograder is in **public beta**. Install the pytest plugin with `pip install pytest-prairielearn-grader` and follow the [quick start guide](https://github.com/PrairieLearn/grader-python-v2/blob/main/quick_start.md) to get set up locally. Feedback and bug reports are welcome on the [issue tracker](https://github.com/PrairieLearn/grader-python-v2/issues).
+  To get started, install the pytest plugin with `pip install
+  pytest-prairielearn-grader` and follow the [quick start
+  guide](https://github.com/PrairieLearn/grader-python-v2/blob/main/quick_start.md)
+  to set up and test questions locally. Feedback and bug reports are welcome on
+  the [issue tracker](https://github.com/PrairieLearn/grader-python-v2/issues).
 </BlogCalloutBox>
+
+export default ({ children }) => (
+  <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
+);
