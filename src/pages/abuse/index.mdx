@@ -1,0 +1,29 @@
+import { MarkdownLayout } from "../../components/MarkdownLayout";
+
+export const meta = {
+  title: "Report abuse",
+};
+
+To report phishing, malware, or other abuse involving PrairieLearn-hosted content or services, email [abuse@prairielearn.com](mailto:abuse@prairielearn.com).
+
+## What to include
+
+Please include the following information to help us investigate:
+
+- **Content URL:** The full URL of the page or content you are reporting.
+- **Type of abuse:** A brief description of the suspected abuse, such as phishing, malware, spam, or harmful content.
+- **Details:** What you observed, when it happened, and why you believe it is abusive. Include relevant screenshots or other supporting context if available.
+- **Contact information:** Your name and an email address where we can follow up if we need more information.
+
+Share only information relevant to the report, and omit passwords, access tokens, and unrelated personal or student information. Please make reports in good faith and provide information that is accurate to the best of your knowledge.
+
+See our [Privacy Policy](/legal/privacy) for information about how we handle personal information.
+
+## Looking for something else?
+
+- **Security vulnerabilities:** Follow our [vulnerability reporting guidelines](/security#reporting-a-vulnerability) and email [security@prairielearn.com](mailto:security@prairielearn.com).
+- **Product support:** Visit our [support page](/support) for help using PrairieLearn or PrairieTest.
+
+export default ({ children }) => (
+  <MarkdownLayout meta={meta}>{children}</MarkdownLayout>
+);
