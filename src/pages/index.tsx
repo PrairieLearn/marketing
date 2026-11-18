@@ -117,10 +117,7 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
                     Start now for free!
                   </button>
                 </div>
-                <Link
-                  href="https://calendly.com/marianapl"
-                  className="btn btn-warning btn-lg me-3 mt-3"
-                >
+                <Link href="/demo" className="btn btn-warning btn-lg me-3 mt-3">
                   Schedule a Demo
                 </Link>
               </div>
@@ -176,20 +173,20 @@ const Home: React.FC<HomeProps> = ({ seed }) => {
             </Row>
             <Row>
               <div className="col-6 col-md-3 mt-2">
-                <div className="small text-muted">Universities</div>
-                <div className="display-5 lh-1">20+</div>
+                <div className="small text-muted">Institutions</div>
+                <div className="display-5 lh-1">50+</div>
               </div>
               <div className="col-6 col-md-3 mt-2">
                 <div className="small text-muted">Courses</div>
-                <div className="display-5 lh-1">750+</div>
+                <div className="display-5 lh-1">1000+</div>
               </div>
               <div className="col-6 col-md-3 mt-2">
                 <div className="small text-muted">Students</div>
-                <div className="display-5 lh-1">180k+</div>
+                <div className="display-5 lh-1">185k+</div>
               </div>
               <div className="col-6 col-md-3 mt-2">
                 <div className="small text-muted">Questions Graded</div>
-                <div className="display-5 lh-1">41M+</div>
+                <div className="display-5 lh-1">165M+</div>
               </div>
             </Row>
             <Row>

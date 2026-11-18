@@ -1,9 +1,11 @@
 import { parseISO } from "date-fns";
 
 const BLOG_TAGS = [
+  "Announcement",
   "CBTF",
   "Case Study",
   "Development",
+  "Pedagogy",
   "Release",
   "Technical",
 ] as const;

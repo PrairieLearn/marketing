@@ -1,0 +1,103 @@
+import {
+  BlogMarkdownLayout,
+  BlogImage,
+} from "../../../../components/BlogMarkdownLayout";
+
+import reservationAvailable from "./reservation-available-email.png";
+import reservationConfirmed from "./reservation-confirmed-email.png";
+import reservationReminder from "./reservation-reminder-email.png";
+import emailSettings from "./email-settings-section.png";
+import reservationChanged from "./reservation-changed-email.png";
+
+export const meta = {
+  title: "You've got mail",
+  date: "2026-09-23T14:00:00-05:00",
+  author: "Eduardo Vaz",
+  tags: ["Release"],
+};
+
+Email notifications are coming to PrairieTest! Students will start receiving notifications about
+their reservations and upcoming exams, giving them a little less to remember
+and a little more room for what they’re studying.
+
+This has been one of our most requested quality-of-life improvements, and
+we’re excited to say that it will be rolled out gradually to our partner institutions.
+
+## A little less to remember
+
+PrairieTest emails will track the whole exam life-cycle, helping students keep track of
+what's next.
+
+- **Ready to reserve:** when an exam becomes available for self-reservation:
+
+<div className="mx-auto" style={{ width: "80%", "--bs-border-width": "3px" }}>
+  <BlogImage
+    src={reservationAvailable}
+    alt="The reservation available email"
+    full
+    bordered
+  />
+</div>
+
+- **You're booked:** A confirmation when a reservations are made, with the exam’s time and place:
+
+<div className="mx-auto" style={{ width: "80%", "--bs-border-width": "3px" }}>
+  <BlogImage
+    src={reservationConfirmed}
+    alt="The reservation confirmation email"
+    full
+    bordered
+  />
+</div>
+
+- **Coming up soon:** A reminder before the scheduled exam:
+
+<div className="mx-auto" style={{ width: "80%", "--bs-border-width": "3px" }}>
+  <BlogImage
+    src={reservationReminder}
+    alt="The reservation reminder email"
+    full
+    bordered
+  />
+</div>
+
+## A change of plans
+
+Students will also receive notifications when their reservations are changed or canceled.
+
+If course or center staff moves a reservation to a different time or location, the email shows both the previous and
+updated details, so students can see exactly what changed.
+
+<div className="mx-auto" style={{ width: "80%", "--bs-border-width": "3px" }}>
+  <BlogImage
+    src={reservationChanged}
+    alt="The reservation change email"
+    full
+    bordered
+  />
+</div>
+
+## Your inbox, your choice
+
+Users can manage their notification configuration in the new **Email settings** section of their account settings:
+
+<div className="mx-auto" style={{ width: "80%", "--bs-border-width": "3px" }}>
+  <BlogImage src={emailSettings} alt="The email settings page" full bordered />
+</div>
+
+By default, notifications are delivered to the user's institutional email, but users can also specify a different address.
+
+Notifications can also be turned off for most emails, except reservation changes made by course or center staff.
+
+## See you in your inbox
+
+Emails in PrairieTest are going to be enabled incrementally across institutions, so keep an eye out! Once the feature is available
+at your institution, visit [your account settings](https://us.prairietest.com/pt/settings) to check where your notifications will arrive and choose your preferences.
+
+We’re excited to hear how this helps students, instructors, and testing centers keep track of exam plans. Let us know what you think!
+
+We’ll help you remember the reservation. Studying is still up to you!
+
+export default ({ children }) => (
+  <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
+);

@@ -1,0 +1,80 @@
+import {
+  BlogMarkdownLayout,
+  BlogImage,
+} from "../../../../components/BlogMarkdownLayout";
+
+import before from "./before.png";
+import after from "./after.png";
+import statistics from "./statistics.png";
+import actionsMenu from "./actions-menu.png";
+import uploadMenu from "./upload-menu.png";
+import assessmentLogs from "./assessment-logs.png";
+
+export const meta = {
+  title: "Closing out our assessment tab(s)",
+  date: "2026-06-04T12:00:00-04:00",
+  author: "Peter Stenger and Eduardo Vaz",
+  tags: ["Release"],
+};
+
+We condensed the layout of the assessment pages to improve the amount of vertical screen space!
+In the previous layout, on smaller screens, the amount of usable real estate was quite low due to tab wrapping and the size of navigational elements.
+
+<BlogImage
+  src={before}
+  alt="The previous assessment students page with a second row of tabs and minimal space for content"
+  caption="The previous assessment students page with a second row of tabs and minimal space for content"
+  full
+/>
+
+Now there is one row of tabs, merging with the assessment navigation.
+
+<BlogImage
+  src={after}
+  alt="The new assessment students page with more visible rows"
+  caption="The new assessment students page with more visible rows"
+  full
+/>
+
+### Where everything went
+
+The new assessment students page now lets you easily manage your assessment in one place.
+The **Actions** menu gathers everything you do to instances in one place: Grade, Grade & close, Regrade, Change time limit, Delete, and View logs. You can choose to apply these actions to selected subsets of students.
+
+<BlogImage
+  src={actionsMenu}
+  alt="The Actions menu expanded"
+  caption="One menu for grading, regrading, time limits, deletes, and logs."
+/>
+
+The old "Uploads" tab is now an **Upload** menu sitting right next to Download, so importing question scores, total scores, and submissions lives next to exporting them.
+
+<BlogImage
+  src={uploadMenu}
+  alt="The Upload menu expanded"
+  caption="Importing scores and submissions now sits next to Download."
+/>
+
+And **View logs** drops you straight onto the assessment logs, so you can audit grading and regrading runs without digging through settings. Logs can also be found at the bottom of the assessment settings page.
+
+<BlogImage
+  src={assessmentLogs}
+  alt="The assessment logs page"
+  caption="View logs takes you directly to the assessment activity log."
+  full
+/>
+
+The "Question stats" and "Statistics" pages were merged together.
+
+<BlogImage
+  src={statistics}
+  alt="The statistics page"
+  caption="The merged statistics page"
+  full
+/>
+
+We saved some space and closed out a couple of tabs. Best of all, there is no tab to pay: this round of screen real estate is on the house :beer:
+
+export default ({ children }) => (
+  <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
+);

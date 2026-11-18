@@ -56,10 +56,7 @@ export default function TestingCenter() {
                   computer-based exams.
                 </p>
               </div>
-              <LinkButton
-                label="Schedule a consultation"
-                href="https://calendly.com/marianapl"
-              />
+              <LinkButton label="Schedule a consultation" href="/demo" />
             </div>
             <div className="col-md-6 order-md-2 pt-4 text-center">
               <Image
@@ -191,7 +188,7 @@ export default function TestingCenter() {
         title="Need more information?"
         subtitle="If you're interested in building a testing center, we can help!"
         buttonLabel="Schedule a consultation"
-        href="https://calendly.com/marianapl"
+        href="/demo"
       />
     </React.Fragment>
   );

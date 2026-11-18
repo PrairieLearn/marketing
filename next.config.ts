@@ -24,9 +24,20 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/contact",
+        destination: "/support",
+        // Keep this temporary so /contact can be restored without cached redirects.
+        permanent: false,
+      },
+      {
         source: "/slack",
         destination:
           "https://join.slack.com/t/prairielearn/shared_invite/zt-13kx0hg6v-uuC3kyt_3iBxjSpyhCbYVw",
+        permanent: true,
+      },
+      {
+        source: "/support/virtual-meetings",
+        destination: "/support",
         permanent: true,
       },
       {

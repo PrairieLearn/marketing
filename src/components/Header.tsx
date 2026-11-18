@@ -69,7 +69,7 @@ const NavDropdownItem: React.FC<NavLinkProps> = ({
   );
 };
 
-import logo from "../lib/images/PL-logo-white.svg";
+import logo from "../lib/images/PL-logo-blue-white.png";
 
 export const Header: React.FC = () => {
   const [collapsed, setCollapsed] = React.useState(true);
@@ -78,10 +78,13 @@ export const Header: React.FC = () => {
     React.useState(false);
 
   // Collapse the nav when the user navigates to a different page
-  const { pathname } = useRouter();
+  const { events } = useRouter();
   React.useEffect(() => {
-    setCollapsed(true);
-  }, [pathname]);
+    const collapseNav = () => setCollapsed(true);
+
+    events.on("routeChangeComplete", collapseNav);
+    return () => events.off("routeChangeComplete", collapseNav);
+  }, [events]);
 
   return (
     <React.Fragment>
@@ -93,12 +96,26 @@ export const Header: React.FC = () => {
           >
             Free sign up
           </button>
-          <a
-            href="https://us.prairielearn.com/pl/login"
-            className="btn btn-light btn-md me-3"
+          <DropdownButton
+            id="login-dropdown"
+            title="Login"
+            variant="light"
+            align="end"
+            className="d-inline-block me-3"
           >
-            Login
-          </a>
+            <Dropdown.Item
+              href="https://us.prairielearn.com/"
+              aria-label="Log in to PrairieLearn (opens in a new tab)"
+            >
+              PrairieLearn
+            </Dropdown.Item>
+            <Dropdown.Item
+              href="https://us.prairietest.com/"
+              aria-label="Log in to PrairieTest (opens in a new tab)"
+            >
+              PrairieTest
+            </Dropdown.Item>
+          </DropdownButton>
         </div>
       </div>
       <RequestCourseModal
@@ -115,6 +132,7 @@ export const Header: React.FC = () => {
           <Link href="/" className="navbar-brand">
             <Image
               src={logo}
+              width={285}
               height={60}
               alt="PrairieLearn"
               className={styles.logo}

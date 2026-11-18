@@ -8,38 +8,57 @@ import { Heading } from "../../components/Heading";
 import Stack from "../../components/Stack";
 
 import styles from "./index.module.scss";
-import mattImage from "../../lib/images/team/matthew_west.jpeg";
-import mariImage from "../../lib/images/team/mariana_silva.png";
-import craigImage from "../../lib/images/team/zilles.jpeg";
-import nathanImage from "../../lib/images/team/nathan.jpeg";
-import daveImage from "../../lib/images/team/dave.png";
-import peterImage from "../../lib/images/team/peter.png";
+
 import austinImage from "../../lib/images/team/austin.jpg";
+import craigImage from "../../lib/images/team/zilles.jpeg";
+import daveImage from "../../lib/images/team/dave.png";
 import eduardoImage from "../../lib/images/team/eduardo.jpeg";
+import eliotImage from "../../lib/images/team/eliot.jpg";
+import jamieImage from "../../lib/images/team/jamie.jpg";
+import karinaImage from "../../lib/images/team/karina.jpg";
+import luiseImage from "../../lib/images/team/luise.jpg";
+import marianaImage from "../../lib/images/team/mariana_silva.png";
+import mattImage from "../../lib/images/team/matthew_west.jpeg";
+import miguelImage from "../../lib/images/team/miguel.jpg";
+import nathanImage from "../../lib/images/team/nathan.jpeg";
 import serenaImage from "../../lib/images/team/serena.jpg";
+import rafaelaImage from "../../lib/images/team/rafaela.png";
 
 interface PeopleCardProps {
   image: ImageProps["src"];
   name: string;
   title: string;
+  href?: string;
 }
 
-const PeopleCard: React.FC<PeopleCardProps> = ({ image, name, title }) => {
+const PeopleCard: React.FC<PeopleCardProps> = ({
+  image,
+  name,
+  title,
+  href,
+}) => {
   return (
     <article className="card border-secondary mb-1 overflow-hidden">
       <div className="position-relative" style={{ aspectRatio: "1 / 1" }}>
         <Image
           src={image}
           alt={title}
+          fill
           style={{
-            objectFit: "contain",
-            width: "100%",
-            height: "auto",
+            objectFit: "cover",
           }}
         />
       </div>
       <div className="card-body">
-        <h3 className="card-title h6">{name}</h3>
+        <h3 className="card-title h6">
+          {href ? (
+            <a href={href} className={styles.nameLink}>
+              {name}
+            </a>
+          ) : (
+            name
+          )}
+        </h3>
         <p className="mb-1">{title}</p>
       </div>
     </article>
@@ -154,7 +173,13 @@ export default function About() {
           <Stack spacing={4}>
             <Heading>Our Team</Heading>
 
+            {/* Leadership first */}
             <div className={styles.grid}>
+              <PeopleCard
+                image={marianaImage}
+                name="Mariana Silva"
+                title="Co-founder, CEO"
+              />
               <PeopleCard
                 image={mattImage}
                 name="Matthew West"
@@ -166,11 +191,6 @@ export default function About() {
                 title="Co-founder, CTO"
               />
               <PeopleCard
-                image={mariImage}
-                name="Mariana Silva"
-                title="Co-founder, CEO"
-              />
-              <PeopleCard
                 image={craigImage}
                 name="Craig Zilles"
                 title="VP of University Relations"
@@ -180,11 +200,8 @@ export default function About() {
                 name="David Mussulman"
                 title="VP of Faculty Support"
               />
-              <PeopleCard
-                image={peterImage}
-                name="Peter Stenger"
-                title="Founding Engineer"
-              />
+
+              {/* Employees in alphabetical order */}
               <PeopleCard
                 image={austinImage}
                 name="Austin Billings"
@@ -193,6 +210,37 @@ export default function About() {
               <PeopleCard
                 image={eduardoImage}
                 name="Eduardo Vaz"
+                title="Software Engineer"
+              />
+              <PeopleCard
+                image={eliotImage}
+                name="Eliot Robson"
+                title="Senior Software Engineer"
+                href="https://eliotwrobson.github.io"
+              />
+              <PeopleCard
+                image={jamieImage}
+                name="Jamie Su"
+                title="Learning Engineer"
+              />
+              <PeopleCard
+                image={karinaImage}
+                name="Karina Mochetti"
+                title="Head of Learning Content"
+              />
+              <PeopleCard
+                image={luiseImage}
+                name="Luise Bastos"
+                title="Software Engineer"
+              />
+              <PeopleCard
+                image={miguelImage}
+                name="Miguel Aenlle"
+                title="Software Engineer"
+              />
+              <PeopleCard
+                image={rafaelaImage}
+                name="Rafaela Afferri"
                 title="Software Engineer"
               />
               <PeopleCard

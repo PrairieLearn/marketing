@@ -1,8 +1,8 @@
 build:
-	@yarn build
+	@pnpm build
 dev:
-	@yarn dev
+	@pnpm dev
 format:
-	@yarn format
+	@pnpm format
 lint:
-	@yarn lint
+	@pnpm lint

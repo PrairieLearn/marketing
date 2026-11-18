@@ -215,7 +215,7 @@ export default function PrairieTest() {
         title="Request a demo!"
         subtitle="Want a one-on-one or a group demo? Book a time with us!"
         buttonLabel="Schedule a demo"
-        href="https://calendly.com/marianapl"
+        href="/demo"
       />
     </React.Fragment>
   );

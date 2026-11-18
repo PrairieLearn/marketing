@@ -4,7 +4,6 @@ import illinois from "./illinois.png";
 import insper from "./insper.svg";
 import michigan from "./michigan.png";
 import nyu from "./nyu.png";
-import princeton from "./princeton.png";
 import rice from "./rice.svg";
 import ubc from "./ubc.png";
 import ucdavis from "./ucdavis.png";
@@ -20,7 +19,6 @@ export {
   insper,
   michigan,
   nyu,
-  princeton,
   rice,
   ubc,
   ucdavis,
