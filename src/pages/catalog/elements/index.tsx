@@ -20,6 +20,7 @@ import oerSplice from "../../../lib/images/oer-element-splice.png";
 import oerFadedParsons from "../../../lib/images/oer-element-fadedparsons.png";
 import oerAnalogCircuit from "../../../lib/images/oer-element-analogcircuit.png";
 import oerWaveform from "../../../lib/images/oer-element-waveform.png";
+import oerMediaPlayer from "../../../lib/images/oer-element-mediaplayer.png";
 
 interface SharedElementCardProps {
   image: ImageProps["src"];
@@ -272,6 +273,17 @@ export default function Courses() {
                   <a href="https://github.com/bulkpool">Ayush Prasad</a>,{" "}
                   <a href="https://github.com/kgarg1312">Khushi Garg</a> and{" "}
                   <a href="https://github.com/TrushaT">Trusha Talati</a>
+                </span>
+              }
+            />
+            <SharedElementCard
+              image={oerMediaPlayer}
+              title="Media Player"
+              href="https://github.com/SybelBlue/pl-media-player"
+              github="https://github.com/SybelBlue/pl-media-player"
+              owner={
+                <span>
+                  <a href="https://github.com/SybelBlue">Serena Caraco</a>
                 </span>
               }
             />
