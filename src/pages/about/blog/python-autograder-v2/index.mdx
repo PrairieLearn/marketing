@@ -205,12 +205,17 @@ Students get concise, actionable feedback focused on what to fix next.
 
 The Python questions in the PrairieLearn example course now use the new autograder, so you can copy one as a starting point. For questions written for the legacy `prairielearn/grader-python` image, the [conversion guide](https://github.com/PrairieLearn/grader-python-v2/blob/main/converting.md) maps each legacy feature to its replacement. Setup code that reads question parameters can import them from `pytest_prairielearn_grader.server_data`, and course modules in `serverFilesCourse` can be imported just as they were with the legacy grader.
 
+Rather than migrating questions by hand, we recommend handing the conversion guide to an AI coding agent and letting it do the work. The guide is written to be followed step by step, and the converted example-course questions give the agent concrete examples to pattern-match against.
+
 <BlogCalloutBox title="Try it out">
   To get started, install the pytest plugin with `pip install
   pytest-prairielearn-grader` and follow the [quick start
   guide](https://github.com/PrairieLearn/grader-python-v2/blob/main/quick_start.md)
-  to set up and test questions locally. Feedback and bug reports are welcome on
-  the [issue tracker](https://github.com/PrairieLearn/grader-python-v2/issues).
+  to set up and test questions locally. See the [Python autograder
+  documentation](https://docs.prairielearn.com/python-grader/) for the full
+  feature set, and the [PrairieLearn docs](https://docs.prairielearn.com/) for
+  everything else. Feedback and bug reports are welcome on the [issue
+  tracker](https://github.com/PrairieLearn/grader-python-v2/issues).
 </BlogCalloutBox>
 
 export default ({ children }) => (
