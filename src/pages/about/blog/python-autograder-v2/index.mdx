@@ -1,0 +1,223 @@
+import {
+  BlogMarkdownLayout,
+  BlogImage,
+  BlogCalloutBox,
+} from "../../../../components/BlogMarkdownLayout";
+
+import cover from "./cover.jpg";
+
+export const meta = {
+  title: "Introducing the new Python autograder",
+  date: "2026-11-18T00:00:00-06:00",
+  author: "Eliot Robson",
+  tags: ["Release"],
+  ogImage: cover,
+  excerpt:
+    "A new pytest-based Python autograder is now available, bringing sandboxed execution, student-friendly feedback, weighted partial credit across arguments, plot grading, and a lightweight image built for intro CS courses.",
+};
+
+<BlogImage
+  src={cover}
+  alt="Scout inspecting a student's submission at a workbench, next to a glass sandbox holding running Python code, a row of passing checks, a framed plot, and a small :lite package"
+  full
+/>
+
+We're excited to announce the release of the new Python autograder for PrairieLearn: [`prairielearn/grader-python-pytest`](https://docs.prairielearn.com/python-grader/). It's a ground-up rewrite built on [pytest](https://pytest.org/), and it ships with a set of features that support reliable graders and give students clear, actionable feedback.
+
+## Why a new autograder?
+
+The new autograder offers instructors a few key capabilities:
+
+- **Security isolation.** Student code runs in a separate process as an unprivileged user, with no access to the test files, protecting the grading harness and keeping grading behavior reliable.
+- **Clear feedback.** Students see short, readable messages by default, and built-in assertions explain what was checked without exposing the grader's internals.
+- **Partial credit across arguments.** A test can check many arguments and give credit for each one that passes, with optional weights for the arguments that matter most.
+- **Plot grading.** Compare a student's matplotlib plot with a reference plot, and show the plot alongside the results.
+- **Centralized configuration.** Timeouts, import restrictions, and other settings can be managed cleanly with `ConfigObject`.
+- **Lightweight startup image.** Intro questions can use the `:lite` image (about a 50 MB download) for fast grading and a compact dependency surface.
+
+## Key advantages for instructors
+
+### Sandboxed execution
+
+Student code runs in a separate process, isolated from the grader harness. This gives instructors reliable grading behavior with clear boundaries around imports, runtime behavior, and timeout enforcement. Modules such as `os`, `sys` and `subprocess` are blocked by default, and you can control exactly which modules students are allowed to import:
+
+```python
+# tests/test_student.py
+from pytest_prairielearn_grader import ConfigObject
+
+# Only these modules can be imported by student code
+autograder_config = ConfigObject(import_whitelist=["math", "statistics"])
+```
+
+Student code also can't read the files in the question's `tests/` folder, so expected values and reference solutions stay private. If students need a shared module, you can list it in `helper_modules`, or place it in `serverFilesCourse` to share it across questions.
+
+Each call to a student function has a time limit. If a call times out, the sandbox stops and the remaining checks fail with a message saying why, so an infinite loop or an inefficient solution can't use up the grading job's time. If student code uses too much memory and the sandbox is killed, students are told that too, rather than seeing a cryptic error.
+
+### Student-friendly feedback
+
+By default, students see only a clean, structured message, with no Python traceback from the grader:
+
+```
+Checking: add(2, 3)
+Expected output: 5
+Your code output: -1
+The expected and actual output do not match.
+```
+
+This comes from the built-in assertion helpers (`assert_fn_equal`, `assert_equal`, etc.), which generate these messages automatically. If the student's own function raises an error, the message includes the traceback from their code, so they can see where it went wrong. For more advanced courses, you can show the full traceback with `@pytest.mark.output(level="traceback")` on a test.
+
+### Partial credit across many arguments
+
+To check a function on many arguments and give credit for each one that passes, use pytest's built-in `subtests`:
+
+```python
+@pytest.mark.grading_data(name="Check random values", points=3)
+def test_random_values(sandbox: StudentFixture, subtests: pytest.Subtests) -> None:
+    for n in [2, 3, 5, 8, 13, 17, 19, 23, 27, 29]:
+        with subtests.test():
+            assert_fn_equal(sandbox, "fib", args=(n,), expected=fib(n))
+```
+
+The test gets the fraction of arguments that passed, and students see a summary such as `7/10 checks passed.` followed by the first few failures. If the student's function times out, the remaining arguments are skipped and the message says why.
+
+To make some arguments count for more, such as an edge case or a large argument, pass a `weight` (the default is 1):
+
+```python
+for n, weight in [(2, 1), (10, 1), (29, 2)]:
+    with subtests.test(weight=weight):
+        assert_fn_equal(sandbox, "fib", args=(n,), expected=fib(n))
+```
+
+Here, passing only `fib(29)` earns half of the test's points.
+
+### Grading plots
+
+Student code draws a plot with matplotlib as usual, and the test compares it with a reference plot. `assert_plot_equal` checks the axis scales and the data in each line, scatter plot and bar plot, including `axhline` and `axvline` lines, and can optionally check text and annotations. `feedback.add_image` shows the student's plot with their results:
+
+```python
+@pytest.mark.grading_data(name="plot", points=1)
+def test_plot(sandbox: StudentFixture, feedback: FeedbackFixture) -> None:
+    plot = sandbox.query("plot")
+    if isinstance(plot, Figure):
+        feedback.add_image(plot, label="Your plot")
+    assert_plot_equal(plot, reference_plot())
+```
+
+### Automatic ungradable detection
+
+If a student submits code with a `SyntaxError`, the grader marks the submission as **ungradable**. PrairieLearn's external grading framework then allows students to fix and resubmit without consuming a grading attempt, while still showing a clear error message. This is especially helpful in courses where students are still learning Python syntax.
+
+### A lightweight image for intro courses
+
+Two Docker images are published:
+
+| Image                                      | Download size | Includes                                                                               |
+| ------------------------------------------ | ------------- | -------------------------------------------------------------------------------------- |
+| `prairielearn/grader-python-pytest:latest` | ~270 MB       | Full scientific stack: numpy, pandas, scipy, matplotlib, sympy, scikit-learn, and more |
+| `prairielearn/grader-python-pytest:lite`   | ~50 MB        | Grader core only, with no scientific libraries                                         |
+
+For introductory CS courses where students use only the Python standard library, the `:lite` image is the right choice. Its lightweight footprint supports quick image pulls and a reduced security surface.
+
+## A simple intro-course example
+
+Here's what a complete question setup looks like for an intro CS course using the `:lite` image.
+
+### `info.json`
+
+```json
+{
+  "title": "Implement add()",
+  "topic": "Functions",
+  "tags": ["intro", "functions"],
+  "type": "v3",
+  "gradingMethod": "External",
+  "externalGradingOptions": {
+    "enabled": true,
+    "image": "prairielearn/grader-python-pytest:lite",
+    "timeout": 30
+  }
+}
+```
+
+### `question.html`
+
+```html
+<pl-question-panel>
+  <p>
+    Write a function <code>add(a, b)</code> that returns the sum of two numbers.
+  </p>
+  <pl-file-editor
+    file-name="student_code.py"
+    ace-mode="ace/mode/python"
+    source-file-name="tests/initial_code.py"
+  ></pl-file-editor>
+</pl-question-panel>
+
+<pl-submission-panel>
+  <pl-external-grader-results></pl-external-grader-results>
+  <pl-file-preview></pl-file-preview>
+</pl-submission-panel>
+```
+
+### `tests/initial_code.py`
+
+```python
+def add(a, b):
+    # your code here
+    pass
+```
+
+### `tests/test_student.py`
+
+```python
+import pytest
+from pytest_prairielearn_grader.assertions import assert_fn_equal
+from pytest_prairielearn_grader.fixture import StudentFixture
+
+
+@pytest.mark.grading_data(name="add(2, 3) returns 5", points=3)
+def test_add_basic(sandbox: StudentFixture) -> None:
+    assert_fn_equal(sandbox, "add", args=(2, 3), expected=5)
+
+
+@pytest.mark.grading_data(name="add(-1, 1) returns 0", points=3)
+def test_add_negative(sandbox: StudentFixture) -> None:
+    assert_fn_equal(sandbox, "add", args=(-1, 1), expected=0)
+
+
+@pytest.mark.grading_data(name="add(0, 0) returns 0", points=4)
+def test_add_zeros(sandbox: StudentFixture) -> None:
+    assert_fn_equal(sandbox, "add", args=(0, 0), expected=0)
+```
+
+When a student submits `return a - b` by mistake, they see:
+
+```
+Checking: add(2, 3)
+Expected output: 5
+Your code output: -1
+The expected and actual output do not match.
+```
+
+Students get concise, actionable feedback focused on what to fix next.
+
+## Moving existing questions
+
+The Python questions in the PrairieLearn example course now use the new autograder, so you can copy one as a starting point. For questions written for the legacy `prairielearn/grader-python` image, the [conversion guide](https://github.com/PrairieLearn/grader-python-v2/blob/main/converting.md) maps each legacy feature to its replacement. Setup code that reads question parameters can import them from `pytest_prairielearn_grader.server_data`, and course modules in `serverFilesCourse` can be imported just as they were with the legacy grader.
+
+Rather than migrating questions by hand, we recommend handing the conversion guide to an AI coding agent and letting it do the work. The guide is written to be followed step by step, and the converted example-course questions give the agent concrete examples to pattern-match against.
+
+<BlogCalloutBox title="Try it out">
+  To get started, install the pytest plugin with `pip install
+  pytest-prairielearn-grader` and follow the [quick start
+  guide](https://docs.prairielearn.com/python-grader/#testing-a-question-locally)
+  to set up and test questions locally. See the [Python autograder
+  documentation](https://docs.prairielearn.com/python-grader/) for the full
+  feature set, and the [PrairieLearn docs](https://docs.prairielearn.com/) for
+  everything else. Feedback and bug reports are welcome on the [issue
+  tracker](https://github.com/PrairieLearn/grader-python-v2/issues).
+</BlogCalloutBox>
+
+export default ({ children }) => (
+  <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
+);
