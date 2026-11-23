@@ -33,7 +33,7 @@ The new autograder offers instructors a few key capabilities:
 - **Partial credit across arguments.** A test can check many arguments and give credit for each one that passes, with optional weights for the arguments that matter most.
 - **Plot grading.** Compare a student's matplotlib plot with a reference plot, and show the plot alongside the results.
 - **Centralized configuration.** Timeouts, import restrictions, and other settings can be managed cleanly with `ConfigObject`.
-- **Lightweight startup image.** Intro questions can use the `:lite` image (about a 50 MB download) for fast grading and a compact dependency surface.
+- **Lightweight startup image.** Questions with minimal dependencies (i.e., not using packages like `numpy` or `pandas`) can use the `:lite` image (about a 50 MB download) for faster grading.
 
 ## Key advantages for instructors
 
@@ -52,19 +52,6 @@ autograder_config = ConfigObject(import_whitelist=["math", "statistics"])
 Student code also can't read the files in the question's `tests/` folder, so expected values and reference solutions stay private. If students need a shared module, you can list it in `helper_modules`, or place it in `serverFilesCourse` to share it across questions.
 
 Each call to a student function has a time limit. If a call times out, the sandbox stops and the remaining checks fail with a message saying why, so an infinite loop or an inefficient solution can't use up the grading job's time. If student code uses too much memory and the sandbox is killed, students are told that too, rather than seeing a cryptic error.
-
-### Student-friendly feedback
-
-By default, students see only a clean, structured message, with no Python traceback from the grader:
-
-```
-Checking: add(2, 3)
-Expected output: 5
-Your code output: -1
-The expected and actual output do not match.
-```
-
-This comes from the built-in assertion helpers (`assert_fn_equal`, `assert_equal`, etc.), which generate these messages automatically. If the student's own function raises an error, the message includes the traceback from their code, so they can see where it went wrong. For more advanced courses, you can show the full traceback with `@pytest.mark.output(level="traceback")` on a test.
 
 ### Partial credit across many arguments
 
@@ -107,7 +94,7 @@ def test_plot(sandbox: StudentFixture, feedback: FeedbackFixture) -> None:
 
 If a student submits code with a `SyntaxError`, the grader marks the submission as **ungradable**. PrairieLearn's external grading framework then allows students to fix and resubmit without consuming a grading attempt, while still showing a clear error message. This is especially helpful in courses where students are still learning Python syntax.
 
-### A lightweight image for intro courses
+### A lightweight image 
 
 Two Docker images are published:
 
@@ -116,11 +103,11 @@ Two Docker images are published:
 | `prairielearn/grader-python-pytest:latest` | ~270 MB       | Full scientific stack: numpy, pandas, scipy, matplotlib, sympy, scikit-learn, and more |
 | `prairielearn/grader-python-pytest:lite`   | ~50 MB        | Grader core only, with no scientific libraries                                         |
 
-For introductory CS courses where students use only the Python standard library, the `:lite` image is the right choice. Its lightweight footprint supports quick image pulls and a reduced security surface.
+For questions where students use only the Python standard library, the `:lite` image is the right choice. Its lightweight footprint supports quick image pulls and a reduced security surface.
 
-## A simple intro-course example
+## A simple example
 
-Here's what a complete question setup looks like for an intro CS course using the `:lite` image.
+Here's what a complete question setup looks like for a question using the `:lite` image.
 
 ### `info.json`
 
@@ -192,7 +179,7 @@ def test_add_zeros(sandbox: StudentFixture) -> None:
 
 When a student submits `return a - b` by mistake, they see:
 
-```
+```text
 Checking: add(2, 3)
 Expected output: 5
 Your code output: -1
@@ -201,7 +188,7 @@ The expected and actual output do not match.
 
 Students get concise, actionable feedback focused on what to fix next.
 
-## Moving existing questions
+## Converting existing questions
 
 The Python questions in the PrairieLearn example course now use the new autograder, so you can copy one as a starting point. For questions written for the legacy `prairielearn/grader-python` image, the [conversion guide](https://github.com/PrairieLearn/grader-python-v2/blob/main/converting.md) maps each legacy feature to its replacement. Setup code that reads question parameters can import them from `pytest_prairielearn_grader.server_data`, and course modules in `serverFilesCourse` can be imported just as they were with the legacy grader.
 
