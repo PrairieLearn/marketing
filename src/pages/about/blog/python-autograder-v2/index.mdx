@@ -53,6 +53,14 @@ Student code also can't read the files in the question's `tests/` folder, so exp
 
 Each call to a student function has a time limit. If a call times out, the sandbox stops and the remaining checks fail with a message saying why, so an infinite loop or an inefficient solution can't use up the grading job's time. If student code uses too much memory and the sandbox is killed, students are told that too, rather than seeing a cryptic error.
 
+### Feedback levels
+
+How much a failing check reveals is up to you. At the default `friendly` level, students see the assertion's message — what was checked and how their output differed — along with the traceback from their _own_ code when it raises an error, but never the grader's internals. For more advanced courses, raise the level to `traceback` to also include the full traceback, either on a single test with `@pytest.mark.output(level="traceback")` or across all tests by setting `output_level` on the `ConfigObject`:
+
+```python
+autograder_config = ConfigObject(output_level="traceback")
+```
+
 ### Partial credit across many arguments
 
 To check a function on many arguments and give credit for each one that passes, use pytest's built-in `subtests`:
