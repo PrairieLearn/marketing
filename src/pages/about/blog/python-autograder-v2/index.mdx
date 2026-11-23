@@ -55,7 +55,7 @@ Each call to a student function has a time limit. If a call times out, the sandb
 
 ### Feedback levels
 
-How much a failing check reveals is up to you. At the default `friendly` level, students see the assertion's message — what was checked and how their output differed — along with the traceback from their _own_ code when it raises an error, but never the grader's internals. For more advanced courses, raise the level to `traceback` to also include the full traceback, either on a single test with `@pytest.mark.output(level="traceback")` or across all tests by setting `output_level` on the `ConfigObject`:
+How much a failing check reveals is up to you. At the default `friendly` level, students see the assertion's message describing what was checked and how their output differed, and, when a call to their own function raises an error, a short traceback pointing at the line in their code. They never see the grader's internals. For more advanced courses, you can raise the level to `traceback` to also include the full traceback, either on a single test with `@pytest.mark.output(level="traceback")` or across all tests by setting `output_level` on the `ConfigObject`:
 
 ```python
 autograder_config = ConfigObject(output_level="traceback")
