@@ -23,20 +23,6 @@ const mdxComponents: Components = {
       <div className="fs-5 fst-italic text-dark">{children}</div>
     </blockquote>
   ),
-  code: ({ children, className }) => {
-    if (!className) {
-      // Handle inline code.
-      return <code>{children}</code>;
-    }
-
-    // Handle code blocks.
-    const language = className.replace(/language-/, "") as Language;
-    return (
-      <div className="mb-3">
-        <CodeBlock code={children.trim()} language={language} />
-      </div>
-    );
-  },
   h2: ({ children, ...rest }) => <Heading {...rest}>{children}</Heading>,
   img: ({ alt, src, imageWidth, imageHeight, ...rest }) => {
     let imageSrc = src;
@@ -57,7 +43,25 @@ const mdxComponents: Components = {
       />
     );
   },
-  pre: ({ children }) => children,
+  pre: ({ children, ...props }) => {
+    if (
+      !React.isValidElement<React.ComponentProps<"code">>(children) ||
+      children.type !== "code" ||
+      typeof children.props.children !== "string"
+    ) {
+      return <pre {...props}>{children}</pre>;
+    }
+
+    const language = children.props.className?.match(/\blanguage-(\S+)/)?.[1];
+    return (
+      <div className="mb-3">
+        <CodeBlock
+          code={children.props.children.replace(/\n$/, "")}
+          language={(language ?? "text") as Language}
+        />
+      </div>
+    );
+  },
   table: ({ children }) => (
     <div className="table-responsive">
       <table className="table">{children}</table>
