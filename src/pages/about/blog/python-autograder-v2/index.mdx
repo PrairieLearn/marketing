@@ -1,7 +1,10 @@
 import {
   BlogMarkdownLayout,
   BlogCalloutBox,
+  BlogImage,
 } from "../../../../components/BlogMarkdownLayout";
+
+import pythonAutograderIllustration from "./python-autograder-illustration.png";
 
 export const meta = {
   title: "Introducing the new Python autograder",
@@ -13,6 +16,12 @@ export const meta = {
 };
 
 We're excited to announce the release of the new Python autograder for PrairieLearn: [`prairielearn/grader-python-pytest`](https://docs.prairielearn.com/python-grader/). It's a ground-up rewrite built on [pytest](https://pytest.org/), and it ships with a set of features that support reliable graders and give students clear, actionable feedback.
+
+<BlogImage
+  src={pythonAutograderIllustration}
+  alt="Scout holds a grading report beside a sandbox containing two green snakes, with test results and plots on the workbench."
+  full
+/>
 
 ## Why a new autograder?
 
