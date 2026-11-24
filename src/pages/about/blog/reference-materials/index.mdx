@@ -1,0 +1,88 @@
+import {
+  BlogMarkdownLayout,
+  BlogImage,
+} from "../../../../components/BlogMarkdownLayout";
+
+import studentMaterials from "./student-materials.png";
+import examSettings from "./exam-settings.png";
+import staffMaterials from "./staff-materials.png";
+import imageViewer from "./image-viewer.png";
+
+export const meta = {
+  title: "Reference materials in PrairieTest",
+  date: "2026-11-23T12:00:00-06:00",
+  author: "Rafaela Afferri",
+  tags: ["Release"],
+  summary:
+    "Students can upload permitted notes, formula sheets, and diagrams before an exam and access them from their PrairieTest reservation.",
+};
+
+Instructors often allow students to bring their own notes, formulas, or diagrams to an exam; these are commonly called “cheat sheets”. Now instructors can allow students to upload these reference materials to PrairieTest before their exam. Students can then access them while taking the exam.
+
+## Setting up an exam
+
+As an instructor, you may enable this feature in the exam’s **Reference Materials** tab. You can configure when uploads open, set an optional closing deadline, and choose whether to allow PDFs or just images. Uploads always close when each student starts their exam, even if the deadline has not yet passed. Course staff can also allow PDFs just for individual students who need them as an accommodation. This permission applies to that student across all exams in the course that use reference materials.
+
+<div className="row justify-content-center my-4">
+  <div className="col-12 col-md-8 col-lg-7">
+    <BlogImage
+      src={examSettings}
+      alt="Reference material settings with the feature disabled, uploads opening immediately and closing at each student’s exam start, and only images permitted."
+      caption="Course staff control the upload window and whether PDF files are allowed."
+      full
+      bordered
+    />
+  </div>
+</div>
+
+### Uploading and viewing materials
+
+Students will see the option to upload files as **Reference materials** on the reservation page for each specific exam. They can select images from their computer, use the computer camera, or scan a QR code and upload images directly from their phone.
+
+<div className="row justify-content-center my-4">
+  <div className="col-12 col-md-8 col-lg-7">
+    <BlogImage
+      src={studentMaterials}
+      alt="Student reference materials with image thumbnails and Add files, Use camera, and Use phone controls."
+      caption="Students upload and review their permitted reference materials from the reservation page."
+      full
+      bordered
+    />
+  </div>
+</div>
+
+Once the exam starts, students can view their materials while no longer being able to add or remove the files. And while taking an exam, they cannot access materials uploaded for other exams.
+
+<div className="row justify-content-center my-4">
+  <div className="col-12 col-md-8 col-lg-7">
+    <BlogImage
+      src={imageViewer}
+      alt="Reference material image viewer with page thumbnails, zoom controls, and a formula sheet."
+      caption="The image viewer opens in a separate tab with navigation and zoom controls."
+      full
+      bordered
+    />
+  </div>
+</div>
+
+### Reviewing uploads
+
+Course staff can review students’ materials from the exam’s **Reference materials** tab. They can upload or remove files on a student’s behalf, even during an exam. After deleting a file, it remains visible to staff and can be restored.
+
+<div className="row justify-content-center my-4">
+  <div className="col-12 col-md-8 col-lg-7">
+    <BlogImage
+      src={staffMaterials}
+      alt="Course staff view of a student’s active files and a deleted file with a Restore button."
+      caption="Staff can review active and deleted files and manage materials on a student’s behalf."
+      full
+      bordered
+    />
+  </div>
+</div>
+
+For detailed instructions, see the guides for [course staff](https://us.prairietest.com/pt/docs/course/reference-materials), [students](https://us.prairietest.com/pt/docs/students/reference-materials), and [testing center staff](https://us.prairietest.com/pt/docs/center/reference-materials).
+
+export default ({ children }) => (
+  <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
+);
