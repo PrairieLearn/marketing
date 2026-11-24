@@ -57,6 +57,9 @@ export const Footer: React.FC = () => {
                   Subprocessors
                 </FooterLink>
               </li>
+              <li className="mb-2">
+                <FooterLink href="/abuse">Report abuse</FooterLink>
+              </li>
             </ul>
           </div>
           <div className="col-6 col-sm-4 mb-3">
