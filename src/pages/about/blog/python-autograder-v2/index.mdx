@@ -1,26 +1,16 @@
 import {
   BlogMarkdownLayout,
-  BlogImage,
   BlogCalloutBox,
 } from "../../../../components/BlogMarkdownLayout";
-
-import cover from "./cover.jpg";
 
 export const meta = {
   title: "Introducing the new Python autograder",
   date: "2026-11-18T00:00:00-06:00",
   author: "Eliot Robson",
   tags: ["Release"],
-  ogImage: cover,
   excerpt:
     "A new pytest-based Python autograder is now available, bringing sandboxed execution, student-friendly feedback, weighted partial credit across arguments, plot grading, and a lightweight image built for intro CS courses.",
 };
-
-<BlogImage
-  src={cover}
-  alt="Scout inspecting a student's submission at a workbench, next to a glass sandbox holding running Python code, a row of passing checks, a framed plot, and a small :lite package"
-  full
-/>
 
 We're excited to announce the release of the new Python autograder for PrairieLearn: [`prairielearn/grader-python-pytest`](https://docs.prairielearn.com/python-grader/). It's a ground-up rewrite built on [pytest](https://pytest.org/), and it ships with a set of features that support reliable graders and give students clear, actionable feedback.
 
