@@ -38,6 +38,8 @@ The benefit I care about most as an instructor is what all of this makes possibl
 
 Computer-based testing also lets you ask better questions. A programming exam can have students write, run, and debug code. A numerical question can give feedback and a chance to catch a mistake. If you are new to this format, the [Illinois CBTF best practices](https://cbtf.illinois.edu/about/best-practices) are a good place to learn how to prepare students and exams for it.
 
+If your courses still use paper exams, you can start there. Proctors can find the exam PDF in PrairieTest, so the testing center can schedule and proctor it the same way as a computer-based exam. When you are ready, PrairieLearn can use AI to convert an exam PDF into computer-based questions.
+
 I would love to see every institution invest in this. But if you are planning next semester’s course, you need options that exist now. So what can you do if your campus does not have a testing center yet?
 
 ## Start with a computer lab you already have
@@ -52,7 +54,7 @@ Berkeley shows how this progression can go. Its pilot began in shared lab space 
 
 Sometimes there is no lab to borrow. In that case, bring-your-own-device (BYOD) exams let students take a computer-based assessment on their own laptops in a regular classroom. In our [study](https://doi.org/10.1145/3626252.3630809) of BYOD exams, students scored higher on unproctored exams, so proctoring matters.
 
-We've also seen that students learn how to work around restrictions over time, so [score advantages on unproctored assessments grow over a term](https://doi.org/10.1145/3386527.3405925). That is why, for PrairieLearn BYOD exams delivered through PrairieTest, I would pair LockDown Browser with active, in-person proctoring.
+We have also seen that students learn how to work around restrictions over time, so [score advantages on unproctored assessments grow over a term](https://doi.org/10.1145/3386527.3405925). That is why, for PrairieLearn BYOD exams delivered through PrairieTest, I would pair LockDown Browser with active, in-person proctoring.
 
 BYOD exams can never be as secure as those on institution-managed computers. Even with LockDown Browser, staff cannot verify what else is installed on a student’s laptop or rule out workarounds. The way to make up for that is people. You need enough proctors to walk the room, see screens, and respond when something goes wrong. One person at the front of a large lecture hall cannot do that.
 
@@ -67,15 +69,13 @@ At UC San Diego, course staff ran weekly, 10-minute proctored skill tests in a l
 
 ## What about online proctoring?
 
-It is the obvious next question, and for high-stakes exams I am skeptical. A webcam sees only part of a student’s surroundings. A second device, a page of notes, or another person can sit just out of frame, and a lockdown browser cannot address any of that.
-
-A second camera, usually the student’s phone, can widen the view. Our experience with remote exams during Covid showed that even with second cameras, student cheating was much more frequent than in proctored in-person settings. If your goal is to verify independent work without AI or other prohibited resources, I would prioritize in-person proctoring. A shared room and a proctoring team can make that realistic even before you have a testing center.
+It is the obvious next question, and for high-stakes exams I am skeptical. A webcam sees only part of a student’s surroundings. A second device, a page of notes, or another person can sit just out of frame, and a lockdown browser cannot address any of that. If your goal is to verify independent work without AI or other prohibited resources, I would prioritize in-person proctoring. A shared room and a proctoring team can make that realistic even before you have a testing center.
 
 ## What if students take the exam at different times?
 
 Offering an exam across a window is what makes a testing center flexible, but it raises a fair concern: will early test-takers tell later ones what was on it? We have studied this from several angles, including [performance trends across an exam window](https://dl.acm.org/doi/10.1145/3051457.3051465), [how students choose exam times](https://doi.org/10.1002/jee.20292), and [score differences between synchronous and asynchronous exams](https://doi.org/10.1145/3328778.3366859).
 
- Our data shows that [randomized questions and question pools are an effective deterrent](https://dl.acm.org/doi/10.1145/3231644.3231664) against students communicating between exams, while [remaining fair in terms of difficulty](http://dx.doi.org/10.1007/978-3-030-23204-7_7). PrairieLearn has AI assistance for generating random question variants and statistical analyses to ensure that fairness is maintained.
+Our data show that [randomized questions and question pools are an effective deterrent](https://dl.acm.org/doi/10.1145/3231644.3231664) against students communicating between exams, while [remaining fair in terms of difficulty](http://dx.doi.org/10.1007/978-3-030-23204-7_7). PrairieLearn has AI assistance for generating random question variants and statistical analyses to ensure that fairness is maintained.
 
 ## Make the case on your campus
 
@@ -89,7 +89,14 @@ You also do not have to start from scratch, because other campuses have written 
 
 Michigan’s [account of its shared-space CBTF pilot](https://caennews.engin.umich.edu/computer-based-testing-facility-cbtf-pilot-continues/) and UBC’s [faculty guidance](https://cbtf.ubc.ca/faculty) are useful for seeing how a service gets introduced and supported.
 
-Finally, there is a community of instructors and staff who run testing centers. They meet every other week and keep a Slack channel for swapping ideas and practical advice. Their experience with staffing, space, and campus coordination can help you turn an idea for next semester into something several courses can rely on. If you are exploring a testing center or starting a pilot, [contact us](mailto:hello@prairielearn.com) and we will connect you with the group.
+Finally, there is a community of instructors and staff who run testing centers. They meet every other week and keep a Slack channel for swapping ideas and practical advice. Their experience with staffing, space, and campus coordination can help you turn an idea for next semester into something several courses can rely on.
+
+<BlogCalloutBox title="Join the community!" variant="tip">
+  If you are exploring a testing center or starting a pilot, email
+  [hello@prairielearn.com](mailto:hello@prairielearn.com) and we will connect
+  you with the group. You can also [schedule a PrairieTest
+  demo](https://www.prairielearn.com/demo) to see how it works.
+</BlogCalloutBox>
 
 export default ({ children }) => (
   <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
