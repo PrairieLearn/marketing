@@ -1,0 +1,103 @@
+import {
+  BlogMarkdownLayout,
+  BlogCalloutBox,
+} from "../../../../components/BlogMarkdownLayout";
+
+export const meta = {
+  title: "My institution does not have a testing center. What can I do?",
+  date: "2026-11-22T12:00:00-06:00",
+  author: "Mariana Silva",
+  tags: ["CBTF", "Pedagogy"],
+  summary:
+    "Options for secure, proctored exams, and a practical path toward shared testing infrastructure.",
+};
+
+How do we know what students can do on their own when studies have shown that AI can complete much of the work we assign [[1](https://doi.org/10.1073/pnas.2414955121), [2](https://www.sciencedirect.com/science/article/pii/S2405896325006184), [3](https://peer.asee.org/61062)]?
+
+Many instructors are asking that question, and answering it takes time. Some have gone back to oral exams. Others assess understanding through projects. Both can work well, but they are hard to scale and do not suit every course. If you have decided supervised exams are the right call, you take on a different kind of work: finding a room, recruiting proctors, handling accommodations, and scheduling conflict and makeup exams. Even then, you are still left with the problem of prohibited devices. A phone or smartwatch is easy to hide, and one proctor cannot keep an eye on every student.
+
+A testing center takes that work off individual instructors and shares it across a campus. This works for paper exams and computer-based exams alike, and PrairieTest can help coordinate scheduling and administration for either. Testing centers have had a surge of attention this year. In [“Blue Books Are Not the Answer to AI,”](https://www.insidehighered.com/opinion/views/2026/03/19/blue-books-are-not-answer-ai-opinion) Armando Fox and Craig Zilles argue that controlled computer environments and human proctors protect exam integrity while keeping the benefits of digital assessment. Beth McMurtrie’s [October Teaching newsletter](https://www.chronicle.com/newsletter/teaching/2026-10-08) describes University of Chicago faculty recommendations for spaces where students can work without AI, including computerized, asynchronous testing facilities. The common thread is that institutions need to help create the conditions for independent work, because individual instructors cannot do it alone.
+
+<BlogCalloutBox title="We can help!" variant="tip">
+  [Contact us](mailto:hello@prairielearn.com) for help getting set up in your
+  own classroom or with creating a testing center on your campus. We have lots
+  of experience getting administration, faculty, and IT to work together!
+</BlogCalloutBox>
+
+## What a testing center does for you
+
+It helps to be specific about what you are getting, because each piece is something you would otherwise arrange yourself.
+
+- **A controlled environment.** For computer-based exams, institution-managed computers and a properly configured firewall can block AI websites and other prohibited sites. Students can only reach their exam and approved materials.
+- **Consistent proctoring.** Trained staff check IDs, handle bags and phones, and watch the room. Cameras can back them up.
+- **Accommodations.** The center works with your accessibility office on extended time, accessible workstations, and quieter spaces.
+- **Flexible scheduling.** If the exam is designed to run across a window, students pick a time that works for them, which cuts down on conflicts. Approved makeups use the same infrastructure.
+- **Less admin for your course staff.** No more booking evening classrooms or finding separate rooms for every accommodated exam.
+
+The benefit I care about most as an instructor is what all of this makes possible. Once the logistics are handled for you, frequent exams and retakes become realistic. Craig Zilles’s [talk on retakes at scale](https://www.prairielearn.com/about/blog/craig-zilles-retakes-at-scale) explains how testing infrastructure makes them sustainable. In my course, I offer a quiz at the testing center every other week. The week before, students get a practice version to work through on their own computer. PrairieLearn makes this possible because questions are written as question generators, so the same questions can be used in both the practice quizzes and the proctored ones.
+
+Computer-based testing also lets you ask better questions. A programming exam can have students write, run, and debug code. A numerical question can give feedback and a chance to catch a mistake. If you are new to this format, the [Illinois CBTF best practices](https://cbtf.illinois.edu/about/best-practices) are a good place to learn how to prepare students and exams for it.
+
+If your courses still use paper exams, you can start there. Proctors can find the exam PDF in PrairieTest, so the testing center can schedule and proctor it the same way as a computer-based exam. When you are ready, PrairieLearn can use AI to convert an exam PDF into computer-based questions.
+
+I would love to see every institution invest in this. But if you are planning next semester’s course, you need options that exist now. So what can you do if your campus does not have a testing center yet?
+
+## Start with a computer lab you already have
+
+You may have most of what you need already. As more students bring their own laptops, departmental computer labs often sit empty for stretches of the day, and the people who run them, along with campus IT, can tell you what is feasible.
+
+With IT’s help, those machines can be locked down during exams. PrairieTest supports either an institutional firewall or LockDown Browser on institution-owned computers, combined with in-person proctoring. For a shared lab, [installing LockDown Browser](https://us.prairietest.com/pt/docs/center/respondus-lockdown-browser) and using it during PrairieLearn exam sessions is probably the easier place to start. Once more courses are using the lab, you will have the evidence to argue for a dedicated facility, and a firewall configured for exams becomes easier to justify. [PrairieTest’s testing-center security guide](https://us.prairietest.com/pt/docs/center/security-center) walks through that setup.
+
+Berkeley shows how this progression can go. Its pilot began in shared lab space in 2023, and three years later its CBTF was twenty times larger and serving departments across campus. [Armando Fox’s account](https://sigcsevirtual2026.acm.org/details/sigcse-virtual-2026-papers/40/Bootstrapping-a-Computer-Based-Testing-Facility-Using-Shared-Lab-Space) offers two lessons for getting started: coordinate across campus units, and pick procedures that can grow.
+
+## No lab? Use a proctored classroom
+
+Sometimes there is no lab to borrow. In that case, bring-your-own-device (BYOD) exams let students take a computer-based assessment on their own laptops in a regular classroom. In our [study](https://doi.org/10.1145/3626252.3630809) of BYOD exams, students scored higher on unproctored exams, so proctoring matters.
+
+We have also seen that students learn how to work around restrictions over time, so [score advantages on unproctored assessments grow over a term](https://doi.org/10.1145/3386527.3405925). That is why, for PrairieLearn BYOD exams delivered through PrairieTest, I would pair LockDown Browser with active, in-person proctoring.
+
+BYOD exams can never be as secure as those on institution-managed computers. Even with LockDown Browser, staff cannot verify what else is installed on a student’s laptop or rule out workarounds. The way to make up for that is people. You need enough proctors to walk the room, see screens, and respond when something goes wrong. One person at the front of a large lecture hall cannot do that.
+
+Before the first exam, I would do four things:
+
+- Run a practice assessment with the same browser and setup.
+- Check the room layout, Wi-Fi, and power access.
+- Arrange an alternative for students who do not have an appropriate device or whose devices cannot run the exam.
+- Train proctors on the technical issues they are likely to see and on exam procedures.
+
+At UC San Diego, course staff ran weekly, 10-minute proctored skill tests in a large introductory programming course, using student laptops and existing campus rooms. Their [2026 experience report](https://sigcse2026.sigcse.org/details/sigcse-ts-2026-Papers/72/Designing-and-Implementing-Skill-Tests-at-Scale-Frequent-Computer-Based-Proctored-) shows that frequent assessment can work without a dedicated facility.
+
+## What about online proctoring?
+
+It is the obvious next question, and for high-stakes exams I am skeptical. A webcam sees only part of a student’s surroundings. A second device, a page of notes, or another person can sit just out of frame, and a lockdown browser cannot address any of that. If your goal is to verify independent work without AI or other prohibited resources, I would prioritize in-person proctoring. A shared room and a proctoring team can make that realistic even before you have a testing center.
+
+## What if students take the exam at different times?
+
+Offering an exam across a window is what makes a testing center flexible, but it raises a fair concern: will early test-takers tell later ones what was on it? We have studied this from several angles, including [performance trends across an exam window](https://dl.acm.org/doi/10.1145/3051457.3051465), [how students choose exam times](https://doi.org/10.1002/jee.20292), and [score differences between synchronous and asynchronous exams](https://doi.org/10.1145/3328778.3366859).
+
+Our data show that [randomized questions and question pools are an effective deterrent](https://dl.acm.org/doi/10.1145/3231644.3231664) against students communicating between exams, while [remaining fair in terms of difficulty](http://dx.doi.org/10.1007/978-3-030-23204-7_7). PrairieLearn has AI assistance for generating random question variants and statistical analyses to ensure that fairness is maintained.
+
+## Make the case on your campus
+
+You are probably not the only instructor who needs this. Find the others. A proposal for a shared pilot, with specific courses, a room, and a staffing plan, gives your department or teaching center something concrete to say yes to.
+
+You also do not have to start from scratch, because other campuses have written up what they learned:
+
+- **Getting a center running:** [One Solution to Addressing Assessment Logistical Problems: An Experience Setting Up and Operating an In-person Testing Center](https://doi.org/10.1145/3626252.3630902) (Downey, Miller, Silva, and Zilles, SIGCSE 2024) covers UC Riverside’s setup decisions and what they learned in their first two quarters.
+- **Running and growing a service:** [Reflections on 10 Years of Operating a Computer-Based Testing Facility](https://peer.asee.org/reflections-on-10-years-of-operating-a-computer-based-testing-facility-lessons-learned-best-practices) (Sosnowski and colleagues, ASEE 2024) describes how Illinois adapted its staffing, scheduling, and policies as demand grew.
+- **Making the institutional case:** [Every University Should Have a Computer-Based Testing Facility](https://zilles.cs.illinois.edu/papers/zilles_csedu_cbtf_2019.pdf) (Zilles, West, Herman, and Bretl, CSEDU 2019) connects investing in testing infrastructure to the assessment practices it makes possible.
+
+Michigan’s [account of its shared-space CBTF pilot](https://caennews.engin.umich.edu/computer-based-testing-facility-cbtf-pilot-continues/) and UBC’s [faculty guidance](https://cbtf.ubc.ca/faculty) are useful for seeing how a service gets introduced and supported.
+
+Finally, there is a community of instructors and staff who run testing centers. They meet every other week and keep a Slack channel for swapping ideas and practical advice. Their experience with staffing, space, and campus coordination can help you turn an idea for next semester into something several courses can rely on.
+
+<BlogCalloutBox title="Join the community!" variant="tip">
+  If you are exploring a testing center or starting a pilot, email
+  [hello@prairielearn.com](mailto:hello@prairielearn.com) and we will connect
+  you with the group. You can also [schedule a PrairieTest
+  demo](https://www.prairielearn.com/demo) to see how it works.
+</BlogCalloutBox>
+
+export default ({ children }) => (
+  <BlogMarkdownLayout meta={meta}>{children}</BlogMarkdownLayout>
+);
